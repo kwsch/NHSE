@@ -1,4 +1,7 @@
-﻿namespace NHSE.Core
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace NHSE.Core
 {
     public class HorizonSave
     {
@@ -21,6 +24,11 @@
                 player.Hash();
                 player.Save(seed);
             }
+        }
+
+        public IEnumerable<FileHashRegion> GetInvalidHashes()
+        {
+            return Main.InvalidHashes().Concat(Players.SelectMany(z => z.InvalidHashes()));
         }
     }
 }

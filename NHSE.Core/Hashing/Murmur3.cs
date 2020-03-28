@@ -66,7 +66,8 @@ namespace NHSE.Core
         public static uint UpdateMurmur32(byte[] data, int hashOffset, int readOffset, uint readSize)
         {
             var newHash = GetMurmur3Hash(data, readOffset, readSize);
-            Array.Copy(BitConverter.GetBytes(newHash), 0, data, hashOffset, 4);
+            var hashBytes = BitConverter.GetBytes(newHash);
+            hashBytes.CopyTo(data, hashOffset);
             return newHash;
         }
 

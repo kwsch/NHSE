@@ -66,6 +66,7 @@
             this.PB_Villager = new System.Windows.Forms.PictureBox();
             this.L_VillagerID = new System.Windows.Forms.Label();
             this.NUD_Villager = new System.Windows.Forms.NumericUpDown();
+            this.Menu_VerifyHashes = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Editor.SuspendLayout();
             this.TC_Editors.SuspendLayout();
             this.Tab_Players.SuspendLayout();
@@ -119,7 +120,8 @@
             // Menu_Tools
             // 
             this.Menu_Tools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Menu_DumpDecrypted});
+            this.Menu_DumpDecrypted,
+            this.Menu_VerifyHashes});
             this.Menu_Tools.Name = "Menu_Tools";
             this.Menu_Tools.Size = new System.Drawing.Size(46, 20);
             this.Menu_Tools.Text = "Tools";
@@ -127,7 +129,7 @@
             // Menu_DumpDecrypted
             // 
             this.Menu_DumpDecrypted.Name = "Menu_DumpDecrypted";
-            this.Menu_DumpDecrypted.Size = new System.Drawing.Size(164, 22);
+            this.Menu_DumpDecrypted.Size = new System.Drawing.Size(180, 22);
             this.Menu_DumpDecrypted.Text = "Dump Decrypted";
             this.Menu_DumpDecrypted.Click += new System.EventHandler(this.Menu_DumpDecrypted_Click);
             // 
@@ -160,7 +162,7 @@
             this.Tab_Players.Location = new System.Drawing.Point(4, 22);
             this.Tab_Players.Name = "Tab_Players";
             this.Tab_Players.Padding = new System.Windows.Forms.Padding(3);
-            this.Tab_Players.Size = new System.Drawing.Size(476, 211);
+            this.Tab_Players.Size = new System.Drawing.Size(396, 211);
             this.Tab_Players.TabIndex = 1;
             this.Tab_Players.Text = "Players";
             this.Tab_Players.UseVisualStyleBackColor = true;
@@ -469,6 +471,13 @@
             0});
             this.NUD_Villager.ValueChanged += new System.EventHandler(this.LoadVillager);
             // 
+            // Menu_VerifyHashes
+            // 
+            this.Menu_VerifyHashes.Name = "Menu_VerifyHashes";
+            this.Menu_VerifyHashes.Size = new System.Drawing.Size(180, 22);
+            this.Menu_VerifyHashes.Text = "Verify Hashes";
+            this.Menu_VerifyHashes.Click += new System.EventHandler(this.Menu_VerifyHashes_Click);
+            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -542,6 +551,7 @@
         private System.Windows.Forms.Label L_ExternalName;
         private System.Windows.Forms.ContextMenuStrip CM_Picture;
         private System.Windows.Forms.ToolStripMenuItem Menu_SavePNG;
+        private System.Windows.Forms.ToolStripMenuItem Menu_VerifyHashes;
     }
 }
 

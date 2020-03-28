@@ -41,6 +41,22 @@ namespace NHSE.WinForms
             System.Media.SystemSounds.Asterisk.Play();
         }
 
+        private void Menu_VerifyHashes_Click(object sender, EventArgs e)
+        {
+            var result = SAV.GetInvalidHashes().ToArray();
+            if (result.Length == 0)
+            {
+                WinFormsUtil.Alert("Hashes are valid.");
+                return;
+            }
+
+            if (WinFormsUtil.Prompt(MessageBoxButtons.YesNo, "Export results to clipboard?") != DialogResult.Yes)
+                return;
+
+            var lines = result.Select(z => z.ToString());
+            Clipboard.SetText(string.Join(Environment.NewLine, lines));
+        }
+
         private void LoadAll()
         {
             LoadPlayers();

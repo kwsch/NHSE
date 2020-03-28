@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
@@ -52,6 +53,22 @@ namespace NHSE.Core
                 throw new ArgumentNullException(nameof(NameData));
             foreach (var h in details.HashRegions)
                 Murmur3.UpdateMurmur32(Data, h.HashOffset, h.BeginOffset, (uint)h.Size);
+        }
+
+        public IEnumerable<FileHashRegion> InvalidHashes()
+        {
+            var ver = Info.GetKnownRevisionIndex();
+            var hash = RevisionChecker.HashInfo[ver];
+            var details = hash.GetFile(NameData);
+            if (details == null)
+                throw new ArgumentNullException(nameof(NameData));
+            foreach (var h in details.HashRegions)
+            {
+                var current = Murmur3.GetMurmur3Hash(Data, h.BeginOffset, (uint)h.Size);
+                var saved = BitConverter.ToUInt32(Data, h.HashOffset);
+                if (current != saved)
+                    yield return h;
+            }
         }
 
         public string GetString(int offset, int maxLength)

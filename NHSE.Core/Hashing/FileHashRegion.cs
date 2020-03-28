@@ -25,6 +25,8 @@
         /// </summary>
         public int EndOffset => BeginOffset + Size;
 
+        public override string ToString() => $"{HashOffset:X}: ({BeginOffset:X}-{EndOffset})";
+
         public FileHashRegion(int hashOfs, int begOfs, int size)
         {
             HashOffset = hashOfs;

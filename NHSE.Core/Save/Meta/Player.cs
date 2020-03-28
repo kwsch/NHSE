@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace NHSE.Core
 {
@@ -48,6 +50,14 @@ namespace NHSE.Core
             Photo.Hash();
             PostBox.Hash();
             Profile.Hash();
+        }
+
+        public IEnumerable<FileHashRegion> InvalidHashes()
+        {
+            return Personal.InvalidHashes()
+            .Concat(Photo.InvalidHashes())
+            .Concat(PostBox.InvalidHashes())
+            .Concat(Profile.InvalidHashes());
         }
     }
 }
