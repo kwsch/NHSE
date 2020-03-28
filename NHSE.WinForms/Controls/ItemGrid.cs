@@ -39,7 +39,6 @@ namespace NHSE.WinForms
             int colWidth = sizeW;
             int rowHeight = sizeH;
 
-            Location = new Point(0, Location.Y); // prevent auto-expanding parent if position changes (centered)
             for (int row = 0; row < height; row++)
             {
                 var y = padEdge + (row * (rowHeight + border));
@@ -59,8 +58,6 @@ namespace NHSE.WinForms
             Debug.WriteLine($"{Name} -- Width: {Width}, Height: {Height}");
             ResumeLayout();
         }
-
-        public void SetBackground(Image img) => BackgroundImage = img;
 
         public static PictureBox GetControl(int width, int height)
         {

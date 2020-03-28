@@ -31,20 +31,31 @@ namespace NHSE.WinForms
         public void InitializeGrid(int width, int height)
         {
             ItemsPerPage = width * height;
-            itemGrid1.InitializeGrid(width, height, Sprites);
+            ItemGrid.InitializeGrid(width, height, Sprites);
             InitializeSlots();
         }
 
         private void InitializeSlots()
         {
-            SlotPictureBoxes = itemGrid1.Entries;
+            SlotPictureBoxes = ItemGrid.Entries;
             foreach (var pb in SlotPictureBoxes)
             {
                 pb.MouseEnter += Slot_MouseEnter;
                 pb.MouseLeave += Slot_MouseLeave;
                 pb.MouseClick += Slot_MouseClick;
+                pb.MouseWheel += Slot_MouseWheel;
                 pb.ContextMenuStrip = CM_Hand;
             }
+            ChangePage();
+        }
+
+        private void Slot_MouseWheel(object sender, MouseEventArgs e)
+        {
+            var delta = e.Delta < 0 ? 1 : -1; // scrolling down increases page #
+            var newpage = Math.Min(PageCount - 1, Math.Max(0, Page + delta));
+            if (newpage == Page)
+                return;
+            Page = newpage;
             ChangePage();
         }
 
@@ -190,6 +201,17 @@ namespace NHSE.WinForms
                 var item = GetItem(i);
                 SlotPictureBoxes[i].BackgroundImage = Sprites.GetImage(item, L_ItemName.Font);
             }
+        }
+
+        private void B_Clear_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < SlotPictureBoxes.Count; i++)
+            {
+                var item = GetItem(i);
+                item.Delete();
+            }
+            LoadItems();
+            System.Media.SystemSounds.Asterisk.Play();
         }
     }
 }

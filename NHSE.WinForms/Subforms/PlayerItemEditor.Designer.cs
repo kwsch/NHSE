@@ -37,7 +37,7 @@
             // B_Cancel
             // 
             this.B_Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.B_Cancel.Location = new System.Drawing.Point(244, 234);
+            this.B_Cancel.Location = new System.Drawing.Point(258, 228);
             this.B_Cancel.Name = "B_Cancel";
             this.B_Cancel.Size = new System.Drawing.Size(72, 23);
             this.B_Cancel.TabIndex = 5;
@@ -48,7 +48,7 @@
             // B_Save
             // 
             this.B_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.B_Save.Location = new System.Drawing.Point(322, 234);
+            this.B_Save.Location = new System.Drawing.Point(336, 228);
             this.B_Save.Name = "B_Save";
             this.B_Save.Size = new System.Drawing.Size(72, 23);
             this.B_Save.TabIndex = 4;
@@ -65,7 +65,7 @@
             this.TC_Groups.Name = "TC_Groups";
             this.TC_Groups.Padding = new System.Drawing.Point(9, 9);
             this.TC_Groups.SelectedIndex = 0;
-            this.TC_Groups.Size = new System.Drawing.Size(233, 219);
+            this.TC_Groups.Size = new System.Drawing.Size(247, 213);
             this.TC_Groups.TabIndex = 3;
             // 
             // ItemEditor
@@ -73,16 +73,16 @@
             this.ItemEditor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ItemEditor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ItemEditor.Location = new System.Drawing.Point(244, 12);
+            this.ItemEditor.Location = new System.Drawing.Point(258, 12);
             this.ItemEditor.Name = "ItemEditor";
-            this.ItemEditor.Size = new System.Drawing.Size(150, 216);
+            this.ItemEditor.Size = new System.Drawing.Size(150, 210);
             this.ItemEditor.TabIndex = 6;
             // 
             // PlayerItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(406, 267);
+            this.ClientSize = new System.Drawing.Size(420, 261);
             this.Controls.Add(this.ItemEditor);
             this.Controls.Add(this.B_Cancel);
             this.Controls.Add(this.B_Save);
