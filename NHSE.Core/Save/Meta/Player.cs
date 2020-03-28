@@ -36,6 +36,10 @@ namespace NHSE.Core
             Profile = new Profile(folder);
         }
 
+        /// <summary>
+        /// Saves the data using the provided crypto <see cref="seed"/>.
+        /// </summary>
+        /// <param name="seed">Seed to initialize the RNG with when encrypting the files.</param>
         public void Save(uint seed)
         {
             Personal.Save(seed);
@@ -44,6 +48,9 @@ namespace NHSE.Core
             Profile.Save(seed);
         }
 
+        /// <summary>
+        /// Updates all hashes of the Player's files.
+        /// </summary>
         public void Hash()
         {
             Personal.Hash();
@@ -52,6 +59,13 @@ namespace NHSE.Core
             Profile.Hash();
         }
 
+        /// <summary>
+        /// Gets every <see cref="FileHashRegion"/> that is deemed invalid.
+        /// </summary>
+        /// <remarks>
+        /// Doesn't return any metadata about which file the hashes were bad for.
+        /// Just check what's returned with what's implemented; the offsets are unique enough.
+        /// </remarks>
         public IEnumerable<FileHashRegion> InvalidHashes()
         {
             return Personal.InvalidHashes()

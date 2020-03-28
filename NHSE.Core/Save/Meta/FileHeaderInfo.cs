@@ -4,6 +4,9 @@ using System.Runtime.InteropServices;
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Metadata stored in a file's Header, indicating the revision information.
+    /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public class FileHeaderInfo : IEquatable<FileHeaderInfo>
     {

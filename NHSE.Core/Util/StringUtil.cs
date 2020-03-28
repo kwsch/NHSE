@@ -2,7 +2,10 @@
 
 namespace NHSE.Core
 {
-    public static partial class StringUtil
+    /// <summary>
+    /// Logic for manipulating strings
+    /// </summary>
+    public static class StringUtil
     {
         /// <summary>
         /// Trims a string at the first instance of a 0x0000 terminator.

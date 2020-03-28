@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// personal.dat
+    /// </summary>
     public sealed class Personal : EncryptedFilePair
     {
         public readonly PersonalOffsets Offsets;

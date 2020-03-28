@@ -2,6 +2,9 @@
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Metadata for dealing with language codes
+    /// </summary>
     public static class GameLanguage
     {
         public const string DefaultLanguage = "en"; // English

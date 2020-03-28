@@ -2,6 +2,9 @@
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Global repository for game strings; initialized to a specified language.
+    /// </summary>
     public static class GameInfo
     {
         private static readonly GameStrings[] Languages = new GameStrings[GameLanguage.LanguageCount];
@@ -11,6 +14,10 @@ namespace NHSE.Core
         public static readonly IReadOnlyList<string> GenderSymbolASCII = new[] { "M", "F", "-" };
         public static GameStrings Strings { get; set; } = GetStrings(CurrentLanguage);
 
+        /// <summary>
+        /// Gets the Game Strings for a specific language.
+        /// </summary>
+        /// <param name="lang">2 character language ID</param>
         public static GameStrings GetStrings(string lang)
         {
             int index = GameLanguage.GetLanguageIndex(lang);

@@ -2,6 +2,9 @@
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Offset info and object retrieval logic for <see cref="Personal"/>
+    /// </summary>
     public abstract class PersonalOffsets
     {
         public abstract int PersonalId { get; }

@@ -3,8 +3,16 @@ using System.Linq;
 
 namespace NHSE.Parsing
 {
+    /// <summary>
+    /// Logic for converting various dumps to resources used by the Core project.
+    /// </summary>
     public static class ParseConverter
     {
+        /// <summary>
+        /// Converts {Hex, Name} to an index-able list of strings.
+        /// </summary>
+        /// <param name="input">Path to Key Value pair listing, with keys being hex numbers (without 0x prefix)</param>
+        /// <param name="output">File to write the result list to</param>
         public static void ConvertItemStrings(string input, string output)
         {
             var result = ConvertItemList(input);

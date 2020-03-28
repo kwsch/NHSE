@@ -5,6 +5,9 @@ using System.Text;
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Represents two files -- <see cref="DataPath"/> and <see cref="HeaderPath"/> and their decrypted data.
+    /// </summary>
     public abstract class EncryptedFilePair
     {
         public readonly byte[] Data;
@@ -44,6 +47,9 @@ namespace NHSE.Core
             File.WriteAllBytes(HeaderPath, encrypt.Header);
         }
 
+        /// <summary>
+        /// Updates all hashes of <see cref="Data"/>.
+        /// </summary>
         public void Hash()
         {
             var ver = Info.GetKnownRevisionIndex();

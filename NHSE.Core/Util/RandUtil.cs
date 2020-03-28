@@ -4,7 +4,10 @@ using System.Threading;
 
 namespace NHSE.Core
 {
-    public static partial class RandUtil
+    /// <summary>
+    /// Logic for providing random values
+    /// </summary>
+    public static class RandUtil
     {
         // Multithread safe rand, ha
         public static Random Rand => _local.Value;

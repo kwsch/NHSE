@@ -1,5 +1,8 @@
 ﻿namespace NHSE.Core
 {
+    /// <summary>
+    /// <inheritdoc cref="PersonalOffsets"/>
+    /// </summary>
     public sealed class PersonalOffsets10 : PersonalOffsets
     {
         public override int PersonalId => 0xB0A0;

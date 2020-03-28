@@ -1,5 +1,8 @@
 ﻿namespace NHSE.Core
 {
+    /// <summary>
+    /// Stores file sizes for various savedata files at different patch revisions.
+    /// </summary>
     public class SaveFileSizes
     {
         public readonly uint Main;

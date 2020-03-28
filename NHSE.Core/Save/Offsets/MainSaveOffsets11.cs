@@ -1,5 +1,8 @@
 ﻿namespace NHSE.Core
 {
+    /// <summary>
+    /// <inheritdoc cref="MainSaveOffsets"/>
+    /// </summary>
     public class MainSaveOffsets11 : MainSaveOffsets
     {
         public override int Villager => 0x120;

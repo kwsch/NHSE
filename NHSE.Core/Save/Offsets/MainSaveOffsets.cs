@@ -2,6 +2,9 @@
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Offset info and object retrieval logic for <see cref="MainSave"/>
+    /// </summary>
     public abstract class MainSaveOffsets
     {
         public abstract int Villager { get; }

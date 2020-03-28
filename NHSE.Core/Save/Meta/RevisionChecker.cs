@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Logic for detecting a <see cref="EncryptedFilePair"/> revision.
+    /// </summary>
     public static class RevisionChecker
     {
         // Patches where the sizes of individual files changed

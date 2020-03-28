@@ -5,6 +5,9 @@ using System.Reflection;
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Logic for retrieving resources from the dll
+    /// </summary>
     public static class ResourceUtil
     {
         private static readonly Assembly thisAssembly = typeof(ResourceUtil).GetTypeInfo().Assembly;
