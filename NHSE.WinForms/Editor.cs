@@ -93,8 +93,17 @@ namespace NHSE.WinForms
 
         private void B_EditPlayerItems_Click(object sender, EventArgs e)
         {
-            using var editor = new InventoryEditor(SAV.Players[PlayerIndex]);
-            editor.ShowDialog();
+            var player = SAV.Players[PlayerIndex];
+            if (ModifierKeys == Keys.Control)
+            {
+                using var editor = new InventoryEditor(player);
+                editor.ShowDialog();
+            }
+            else
+            {
+                using var editor = new PlayerItemEditor(player);
+                editor.ShowDialog();
+            }
         }
 
         private void LoadPlayer(int index)

@@ -38,6 +38,23 @@ namespace NHSE.Core
             UseCount = useCount;
         }
 
+        public void Delete()
+        {
+            ItemId = NONE;
+            Flags0 = Flags1 = Flags2 = Count = 0;
+            UseCount = 0;
+        }
+
+        public void CopyFrom(Item item)
+        {
+            ItemId = item.ItemId;
+            Flags0 = item.Flags0;
+            Flags1 = item.Flags1;
+            Flags2 = item.Flags2;
+            Count = item.Count;
+            UseCount = item.UseCount;
+        }
+
         public static Item[] GetArray(byte[] data)
         {
             var result = new Item[data.Length / SIZE];
