@@ -20,7 +20,10 @@ namespace NHSE.WinForms
 
         public Item LoadItem(Item item)
         {
-            CB_ItemID.SelectedIndex = item.ItemId;
+            var id = item.ItemId;
+            if (id == Item.NONE)
+                id = 0;
+            CB_ItemID.SelectedIndex = id;
             NUD_Count.Value = item.Count;
             NUD_Uses.Value = item.UseCount;
             NUD_Flag0.Value = item.Flags0;
@@ -31,7 +34,10 @@ namespace NHSE.WinForms
 
         public Item SetItem(Item item)
         {
-            item.ItemId = (ushort) CB_ItemID.SelectedIndex;
+            var id = CB_ItemID.SelectedIndex;
+            if (id <= 0)
+                id = Item.NONE;
+            item.ItemId = (ushort) id;
             item.Count = (byte) NUD_Count.Value;
             item.UseCount = (ushort) NUD_Uses.Value;
             item.Flags0 = (byte) NUD_Flag0.Value;
