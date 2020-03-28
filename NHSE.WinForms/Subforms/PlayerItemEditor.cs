@@ -43,7 +43,7 @@ namespace NHSE.WinForms
             {
                 var tab = new TabPage { Name = $"Tab_{p.Type}", Text = p.Type.ToString() };
                 var grid = new ItemGridEditor(ItemEditor, p.Items, i) { Dock = DockStyle.Fill };
-                grid.InitializeGrid(5, 4);
+                grid.InitializeGrid(10, 4);
                 tab.Controls.Add(grid);
                 TC_Groups.TabPages.Add(tab);
                 TC_Groups.ShowToolTips = true;
