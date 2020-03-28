@@ -25,7 +25,7 @@ namespace NHSE.WinForms
             ItemNames = itemnames;
             InitializeComponent();
 
-            HoverItem(Item.NO_ITEM);
+            L_ItemName.Text = string.Empty;
         }
 
         public void InitializeGrid(int width, int height)
@@ -73,6 +73,7 @@ namespace NHSE.WinForms
             if (!(sender is PictureBox pb))
                 return;
             pb.Image = null;
+            L_ItemName.Text = string.Empty;
         }
 
         public void Slot_MouseClick(object sender, MouseEventArgs e)
