@@ -41,6 +41,7 @@
             this.B_Clear = new System.Windows.Forms.Button();
             this.FLP_Controls = new System.Windows.Forms.FlowLayoutPanel();
             this.PAN_Navigation = new System.Windows.Forms.Panel();
+            this.HoverTip = new System.Windows.Forms.ToolTip(this.components);
             this.CM_Hand.SuspendLayout();
             this.FLP_Controls.SuspendLayout();
             this.PAN_Navigation.SuspendLayout();
@@ -114,26 +115,26 @@
             this.Menu_Delete});
             this.CM_Hand.Name = "CM_Hand";
             this.CM_Hand.ShowImageMargin = false;
-            this.CM_Hand.Size = new System.Drawing.Size(156, 92);
+            this.CM_Hand.Size = new System.Drawing.Size(83, 70);
             // 
             // Menu_View
             // 
             this.Menu_View.Name = "Menu_View";
-            this.Menu_View.Size = new System.Drawing.Size(107, 22);
+            this.Menu_View.Size = new System.Drawing.Size(82, 22);
             this.Menu_View.Text = "View";
             this.Menu_View.Click += new System.EventHandler(this.ClickView);
             // 
             // Menu_Set
             // 
             this.Menu_Set.Name = "Menu_Set";
-            this.Menu_Set.Size = new System.Drawing.Size(107, 22);
+            this.Menu_Set.Size = new System.Drawing.Size(82, 22);
             this.Menu_Set.Text = "Set";
             this.Menu_Set.Click += new System.EventHandler(this.ClickSet);
             // 
             // Menu_Delete
             // 
             this.Menu_Delete.Name = "Menu_Delete";
-            this.Menu_Delete.Size = new System.Drawing.Size(107, 22);
+            this.Menu_Delete.Size = new System.Drawing.Size(82, 22);
             this.Menu_Delete.Text = "Delete";
             this.Menu_Delete.Click += new System.EventHandler(this.ClickDelete);
             // 
@@ -172,6 +173,10 @@
             this.PAN_Navigation.Size = new System.Drawing.Size(70, 142);
             this.PAN_Navigation.TabIndex = 9;
             // 
+            // HoverTip
+            // 
+            this.HoverTip.AutomaticDelay = 100;
+            // 
             // ItemGridEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,5 +205,6 @@
         private System.Windows.Forms.Button B_Clear;
         private System.Windows.Forms.FlowLayoutPanel FLP_Controls;
         private System.Windows.Forms.Panel PAN_Navigation;
+        private System.Windows.Forms.ToolTip HoverTip;
     }
 }

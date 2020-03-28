@@ -64,7 +64,11 @@ namespace NHSE.WinForms
             if (!(sender is PictureBox pb))
                 return;
             var index = SlotPictureBoxes.IndexOf(pb);
-            HoverItem(index);
+            var item = GetItem(index);
+
+            var text = GetItemText(item);
+            HoverTip.SetToolTip(pb, text);
+            L_ItemName.Text = text;
             pb.Image = Sprites.HoverBackground;
         }
 
@@ -74,6 +78,15 @@ namespace NHSE.WinForms
                 return;
             pb.Image = null;
             L_ItemName.Text = string.Empty;
+            HoverTip.RemoveAll();
+        }
+
+        public string GetItemText(Item item)
+        {
+            var index = item.ItemId == Item.NONE ? 0 : item.ItemId;
+            if (index >= ItemNames.Length)
+                return "???";
+            return ItemNames[index];
         }
 
         public void Slot_MouseClick(object sender, MouseEventArgs e)
@@ -91,15 +104,8 @@ namespace NHSE.WinForms
             Slot_MouseEnter(sender, e);
         }
 
-        public Item HoverItem(int index) => HoverItem(GetItem(index));
         public Item LoadItem(int index) => Editor.LoadItem(GetItem(index));
         public Item SetItem(int index) => Editor.SetItem(GetItem(index));
-
-        private Item HoverItem(Item item)
-        {
-            L_ItemName.Text = ItemNames[item.ItemId == Item.NONE ? 0 : item.ItemId];
-            return item;
-        }
 
         private Item GetItem(int index)
         {
