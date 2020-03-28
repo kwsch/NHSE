@@ -48,16 +48,16 @@ namespace NHSE.WinForms
         {
             return new[]
             {
-                new InventorySet(InventoryType.Pocket1, player.Personal.Pocket1),
-                new InventorySet(InventoryType.Pocket2, player.Personal.Pocket2),
+                new InventorySet(InventoryType.Pocket1, player.Personal.Pocket2),
+                new InventorySet(InventoryType.Pocket2, player.Personal.Pocket1),
                 new InventorySet(InventoryType.Storage, player.Personal.Storage),
             };
         }
 
         private void SetInventory(Player player)
         {
-            player.Personal.Pocket1 = Inventory[0].Items;
-            player.Personal.Pocket2 = Inventory[1].Items;
+            player.Personal.Pocket2 = Inventory[0].Items;
+            player.Personal.Pocket1 = Inventory[1].Items;
             player.Personal.Storage = Inventory[2].Items;
         }
 
