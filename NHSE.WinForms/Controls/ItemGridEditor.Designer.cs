@@ -113,7 +113,8 @@
             this.Menu_Set,
             this.Menu_Delete});
             this.CM_Hand.Name = "CM_Hand";
-            this.CM_Hand.Size = new System.Drawing.Size(108, 70);
+            this.CM_Hand.ShowImageMargin = false;
+            this.CM_Hand.Size = new System.Drawing.Size(156, 92);
             // 
             // Menu_View
             // 

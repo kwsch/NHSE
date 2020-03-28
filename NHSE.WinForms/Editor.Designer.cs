@@ -35,6 +35,7 @@
             this.Menu_Save = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Tools = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_DumpDecrypted = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menu_VerifyHashes = new System.Windows.Forms.ToolStripMenuItem();
             this.TC_Editors = new System.Windows.Forms.TabControl();
             this.Tab_Players = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
@@ -66,7 +67,6 @@
             this.PB_Villager = new System.Windows.Forms.PictureBox();
             this.L_VillagerID = new System.Windows.Forms.Label();
             this.NUD_Villager = new System.Windows.Forms.NumericUpDown();
-            this.Menu_VerifyHashes = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Editor.SuspendLayout();
             this.TC_Editors.SuspendLayout();
             this.Tab_Players.SuspendLayout();
@@ -106,14 +106,16 @@
             // Menu_Open
             // 
             this.Menu_Open.Name = "Menu_Open";
-            this.Menu_Open.Size = new System.Drawing.Size(103, 22);
+            this.Menu_Open.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.Menu_Open.Size = new System.Drawing.Size(180, 22);
             this.Menu_Open.Text = "Open";
             this.Menu_Open.Click += new System.EventHandler(this.Menu_Open_Click);
             // 
             // Menu_Save
             // 
             this.Menu_Save.Name = "Menu_Save";
-            this.Menu_Save.Size = new System.Drawing.Size(103, 22);
+            this.Menu_Save.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.Menu_Save.Size = new System.Drawing.Size(180, 22);
             this.Menu_Save.Text = "Save";
             this.Menu_Save.Click += new System.EventHandler(this.Menu_Save_Click);
             // 
@@ -129,9 +131,18 @@
             // Menu_DumpDecrypted
             // 
             this.Menu_DumpDecrypted.Name = "Menu_DumpDecrypted";
-            this.Menu_DumpDecrypted.Size = new System.Drawing.Size(180, 22);
+            this.Menu_DumpDecrypted.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.Menu_DumpDecrypted.Size = new System.Drawing.Size(206, 22);
             this.Menu_DumpDecrypted.Text = "Dump Decrypted";
             this.Menu_DumpDecrypted.Click += new System.EventHandler(this.Menu_DumpDecrypted_Click);
+            // 
+            // Menu_VerifyHashes
+            // 
+            this.Menu_VerifyHashes.Name = "Menu_VerifyHashes";
+            this.Menu_VerifyHashes.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
+            this.Menu_VerifyHashes.Size = new System.Drawing.Size(206, 22);
+            this.Menu_VerifyHashes.Text = "Verify Hashes";
+            this.Menu_VerifyHashes.Click += new System.EventHandler(this.Menu_VerifyHashes_Click);
             // 
             // TC_Editors
             // 
@@ -298,12 +309,13 @@
             this.CM_Picture.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Menu_SavePNG});
             this.CM_Picture.Name = "CM_Picture";
-            this.CM_Picture.Size = new System.Drawing.Size(126, 26);
+            this.CM_Picture.ShowImageMargin = false;
+            this.CM_Picture.Size = new System.Drawing.Size(101, 26);
             // 
             // Menu_SavePNG
             // 
             this.Menu_SavePNG.Name = "Menu_SavePNG";
-            this.Menu_SavePNG.Size = new System.Drawing.Size(125, 22);
+            this.Menu_SavePNG.Size = new System.Drawing.Size(100, 22);
             this.Menu_SavePNG.Text = "Save .png";
             this.Menu_SavePNG.Click += new System.EventHandler(this.Menu_SavePNG_Click);
             // 
@@ -470,13 +482,6 @@
             0,
             0});
             this.NUD_Villager.ValueChanged += new System.EventHandler(this.LoadVillager);
-            // 
-            // Menu_VerifyHashes
-            // 
-            this.Menu_VerifyHashes.Name = "Menu_VerifyHashes";
-            this.Menu_VerifyHashes.Size = new System.Drawing.Size(180, 22);
-            this.Menu_VerifyHashes.Text = "Verify Hashes";
-            this.Menu_VerifyHashes.Click += new System.EventHandler(this.Menu_VerifyHashes_Click);
             // 
             // Editor
             // 
