@@ -53,19 +53,21 @@ namespace NHSE.WinForms
 
         private static InventorySet[] GetInventory(Player player)
         {
+            var _21 = player.Personal.Pocket2.Concat(player.Personal.Pocket1).ToArray();
             return new[]
             {
-                new InventorySet(InventoryType.Pocket1, player.Personal.Pocket2),
-                new InventorySet(InventoryType.Pocket2, player.Personal.Pocket1),
+                new InventorySet(InventoryType.Pocket1, _21),
                 new InventorySet(InventoryType.Storage, player.Personal.Storage),
             };
         }
 
         private void SetInventory(Player player)
         {
-            player.Personal.Pocket2 = Inventory[0].Items;
-            player.Personal.Pocket1 = Inventory[1].Items;
-            player.Personal.Storage = Inventory[2].Items;
+            var p2 = Inventory[0].Items.Take(20).ToArray();
+            var p1 = Inventory[0].Items.Skip(20).Take(20).ToArray();
+            player.Personal.Pocket2 = p2;
+            player.Personal.Pocket1 = p1;
+            player.Personal.Storage = Inventory[1].Items;
         }
 
         private void B_Cancel_Click(object sender, EventArgs e) => Close();
