@@ -84,9 +84,9 @@ namespace NHSE.WinForms
             var item = GetItemColumn(ColumnItem = 0);
             var count = GetCountColumn(ColumnCount = 1);
             var use = GetUseColumn(ColumnUse = 2);
-            var flag1 = GetFlagColumn(ColumnFlag1 = 3, "Flags0");
-            var flag2 = GetFlagColumn(ColumnFlag2 = 4, "Flags1");
-            var flag3 = GetFlagColumn(ColumnFlag3 = 5, "Flags2");
+            var flag1 = GetFlagColumn(ColumnFlag1 = 3, nameof(Item.Flags0));
+            var flag2 = GetFlagColumn(ColumnFlag2 = 4, nameof(Item.Flags1));
+            var flag3 = GetFlagColumn(ColumnFlag3 = 5, nameof(Item.Flags2));
             dgv.Columns.Add(item);
             dgv.Columns.Add(count);
             dgv.Columns.Add(use);
@@ -206,9 +206,11 @@ namespace NHSE.WinForms
 
                 var item = pouch.Items[i];
 
+                // Treat NONE as 0
                 var id = item.ItemId;
                 if (id == Item.NONE)
                     id = 0;
+
                 cells[ColumnItem].Value = items[id];
                 cells[ColumnCount].Value = item.Count;
                 cells[ColumnUse].Value = item.UseCount;
@@ -234,6 +236,7 @@ namespace NHSE.WinForms
 
                 var item = pouch.Items[i];
 
+                // Undo our handling of NONE
                 if (itemindex <= 0)
                     itemindex = Item.NONE;
 
@@ -270,6 +273,7 @@ namespace NHSE.WinForms
                 cells[ColumnUse].Value   = first[ColumnUse].Value;
                 cells[ColumnFlag1].Value = first[ColumnFlag1].Value;
                 cells[ColumnFlag2].Value = first[ColumnFlag2].Value;
+                cells[ColumnFlag3].Value = first[ColumnFlag3].Value;
             }
 
             System.Media.SystemSounds.Asterisk.Play();
