@@ -54,6 +54,7 @@
             // 
             // CB_ItemID
             // 
+            this.CB_ItemID.DropDownWidth = 322;
             this.CB_ItemID.FormattingEnabled = true;
             this.CB_ItemID.Location = new System.Drawing.Point(3, 3);
             this.CB_ItemID.Name = "CB_ItemID";
