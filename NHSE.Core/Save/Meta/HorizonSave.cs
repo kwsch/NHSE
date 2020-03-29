@@ -28,8 +28,11 @@ namespace NHSE.Core
             Main.Save(seed);
             foreach (var player in Players)
             {
-                player.Hash();
-                player.Save(seed);
+                foreach (var pair in player)
+                {
+                    pair.Hash();
+                    pair.Save(seed);
+                }
             }
         }
 
@@ -42,7 +45,17 @@ namespace NHSE.Core
         /// </remarks>
         public IEnumerable<FileHashRegion> GetInvalidHashes()
         {
-            return Main.InvalidHashes().Concat(Players.SelectMany(z => z.InvalidHashes()));
+            foreach (var hash in Main.InvalidHashes())
+                yield return hash;
+            foreach (var hash in Players.SelectMany(z => z).SelectMany(z => z.InvalidHashes()))
+                yield return hash;
+        }
+
+        public void ChangeIdentity(byte[] original, byte[] updated)
+        {
+            Main.Data.ReplaceOccurrences(original, updated);
+            foreach (var pair in Players.SelectMany(z => z))
+                pair.Data.ReplaceOccurrences(original, updated);
         }
     }
 }

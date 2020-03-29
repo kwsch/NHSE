@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace NHSE.Core
 {
@@ -23,6 +24,36 @@ namespace NHSE.Core
         {
             get => (VillagerPersonality)Data[2];
             set => Data[2] = (byte)value;
+        }
+
+        public uint TownID
+        {
+            get => BitConverter.ToUInt32(Data, 0x04);
+            set => BitConverter.GetBytes(value).CopyTo(Data, 0x04);
+        }
+
+        public string TownName
+        {
+            get => GetString(0x08, 10);
+            set => GetBytes(value, 10).CopyTo(Data, 0x08);
+        }
+
+        public uint PlayerID
+        {
+            get => BitConverter.ToUInt32(Data, 0x20);
+            set => BitConverter.GetBytes(value).CopyTo(Data, 0x20);
+        }
+
+        public string PlayerName
+        {
+            get => GetString(0x24, 10);
+            set => GetBytes(value, 10).CopyTo(Data, 0x24);
+        }
+
+        public string TownName2
+        {
+            get => GetString(0x5CC, 10);
+            set => GetBytes(value, 10).CopyTo(Data, 0x5CC);
         }
 
         public string CatchPhrase

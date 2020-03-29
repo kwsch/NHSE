@@ -150,7 +150,7 @@ namespace NHSE.WinForms
             var player = SAV.Players[index];
 
             var pers = player.Personal;
-            TB_Name.Text = pers.Name;
+            TB_Name.Text = pers.PlayerName;
             TB_TownName.Text = pers.TownName;
             NUD_BankBells.Value = pers.Bank.Value;
             NUD_NookMiles.Value = pers.NookMiles.Value;
@@ -170,8 +170,21 @@ namespace NHSE.WinForms
 
             var player = SAV.Players[index];
             var pers = player.Personal;
-            pers.Name = TB_Name.Text;
-            pers.TownName = TB_TownName.Text;
+
+            if (pers.PlayerName != TB_Name.Text)
+            {
+                var orig = pers.GetPlayerIdentity();
+                pers.PlayerName = TB_Name.Text;
+                var updated = pers.GetPlayerIdentity();
+                SAV.ChangeIdentity(orig, updated);
+            }
+            if (pers.TownName != TB_Name.Text)
+            {
+                var orig = pers.GetTownIdentity();
+                pers.TownName = TB_TownName.Text;
+                var updated = pers.GetTownIdentity();
+                SAV.ChangeIdentity(orig, updated);
+            }
 
             var bank = pers.Bank;
             bank.Value = (uint)NUD_BankBells.Value;
@@ -189,7 +202,6 @@ namespace NHSE.WinForms
 
         #region Villager Editing
 
-        private Villager? villager;
         private int VillagerIndex = -1;
 
         private void LoadVillager(int index)
@@ -208,12 +220,11 @@ namespace NHSE.WinForms
             TB_Catchphrase.Text = v.CatchPhrase;
 
             VillagerIndex = index;
-            villager = v;
         }
 
         private void SaveVillager(int index)
         {
-            var v = villager;
+            var v = SAV.Main.GetVillager(index);
             if (v is null)
                 return;
 
@@ -248,7 +259,7 @@ namespace NHSE.WinForms
 
             string name;
             if (pb == PB_Player)
-                name = SAV.Players[PlayerIndex].Personal.Name;
+                name = SAV.Players[PlayerIndex].Personal.PlayerName;
             else if (pb == PB_Villager)
                 name = L_ExternalName.Text;
             else

@@ -10,7 +10,7 @@ namespace NHSE.Core
     {
         public readonly PersonalOffsets Offsets;
         public Personal(string folder) : base(folder, "personal") => Offsets = PersonalOffsets.GetOffsets(Info);
-        public override string ToString() => Name;
+        public override string ToString() => PlayerName;
 
         public uint TownID
         {
@@ -24,17 +24,21 @@ namespace NHSE.Core
             set => GetBytes(value, 10).CopyTo(Data, Offsets.PersonalId + 0x04);
         }
 
+        public byte[] GetTownIdentity() => Data.Slice(Offsets.PersonalId + 0x00, 4 + 20);
+
         public uint PlayerID
         {
             get => BitConverter.ToUInt32(Data, Offsets.PersonalId + 0x1C);
             set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.PersonalId + 0x1C);
         }
 
-        public string Name
+        public string PlayerName
         {
             get => GetString(Offsets.PersonalId + 0x20, 10);
             set => GetBytes(value, 10).CopyTo(Data, Offsets.PersonalId + 0x20);
         }
+
+        public byte[] GetPlayerIdentity() => Data.Slice(Offsets.PersonalId + 0x1C, 4 + 20);
 
         public EncryptedInt32 Wallet
         {

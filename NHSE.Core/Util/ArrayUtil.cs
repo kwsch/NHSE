@@ -178,5 +178,52 @@ namespace NHSE.Core
 
             return result;
         }
+
+        /// <summary>
+        /// Finds a provided <see cref="pattern"/> within the supplied <see cref="array"/>.
+        /// </summary>
+        /// <param name="array">Array to look in</param>
+        /// <param name="pattern">Pattern to look for</param>
+        /// <param name="startIndex">Starting offset to look from</param>
+        /// <param name="length">Amount of entries to look through</param>
+        /// <returns>Index the pattern occurrs at; if not found, returns -1.</returns>
+        public static int IndexOfBytes(byte[] array, byte[] pattern, int startIndex = 0, int length = -1)
+        {
+            int len = pattern.Length;
+            int endIndex = length > 0
+                ? startIndex + length
+                : array.Length - len - startIndex;
+
+            endIndex = Math.Min(array.Length - pattern.Length, endIndex);
+
+            int i = startIndex;
+            int j = 0;
+            while (true)
+            {
+                if (pattern[j] != array[i + j])
+                {
+                    if (++i == endIndex)
+                        return -1;
+                    j = 0;
+                }
+                else if (++j == len)
+                {
+                    return i;
+                }
+            }
+        }
+
+        public static int ReplaceOccurrences(this byte[] array, byte[] pattern, byte[] swap)
+        {
+            int count = 0;
+            while (true)
+            {
+                int ofs = IndexOfBytes(array, pattern);
+                if (ofs == -1)
+                    return count;
+                swap.CopyTo(array, ofs);
+                ++count;
+            }
+        }
     }
 }
