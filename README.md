@@ -2,16 +2,18 @@ NHSE
 =====
 ![License](https://img.shields.io/badge/License-GPLv3-blue.svg)
 
-Animal Crossing - New Horizons Save Editor (PoC)
+Save Editor for Animal Crossing: New Horizons
 
-Edits savedata dumped from the Nintendo Switch.
+Edits savedata dumped from the Nintendo Switch. 
+* Bring your own save file data; this program does not dump it from your console.
 
-## Screenshots
+## See Also
 
-![Launcher](https://i.imgur.com/eedxMhn.png)
+[MyHorizons](https://github.com/Cuyler36/MyHorizons) by [Cuyler36](https://github.com/Cuyler36/)
+* Some portions of code are liberally adapted from Cuyler36's project above.
 
-![Player](https://i.imgur.com/2Y88wdn.png)
+## Other
 
-![Villager](https://i.imgur.com/pW4l2z3.png)
+Refer to the [Wiki](https://github.com/kwsch/NHSE/wiki) for more information.
 
-![Inventory](https://i.imgur.com/cferZRL.png)
+**We do not support or condone cheating at the expense of others.** Please be responsible!
