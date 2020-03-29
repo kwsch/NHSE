@@ -187,7 +187,7 @@ namespace NHSE.WinForms
                 var updated = pers.GetPlayerIdentity();
                 SAV.ChangeIdentity(orig, updated);
             }
-            if (pers.TownName != TB_Name.Text)
+            if (pers.TownName != TB_TownName.Text)
             {
                 var orig = pers.GetTownIdentity();
                 pers.TownName = TB_TownName.Text;
