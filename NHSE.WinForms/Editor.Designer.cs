@@ -209,7 +209,7 @@
             // 
             // L_Wallet
             // 
-            this.L_Wallet.Location = new System.Drawing.Point(142, 111);
+            this.L_Wallet.Location = new System.Drawing.Point(142, 59);
             this.L_Wallet.Name = "L_Wallet";
             this.L_Wallet.Size = new System.Drawing.Size(84, 20);
             this.L_Wallet.TabIndex = 11;
@@ -218,7 +218,7 @@
             // 
             // NUD_Wallet
             // 
-            this.NUD_Wallet.Location = new System.Drawing.Point(232, 111);
+            this.NUD_Wallet.Location = new System.Drawing.Point(232, 59);
             this.NUD_Wallet.Maximum = new decimal(new int[] {
             2147483647,
             0,
@@ -230,7 +230,7 @@
             // 
             // L_NookMiles
             // 
-            this.L_NookMiles.Location = new System.Drawing.Point(142, 85);
+            this.L_NookMiles.Location = new System.Drawing.Point(142, 111);
             this.L_NookMiles.Name = "L_NookMiles";
             this.L_NookMiles.Size = new System.Drawing.Size(84, 20);
             this.L_NookMiles.TabIndex = 9;
@@ -239,7 +239,7 @@
             // 
             // NUD_NookMiles
             // 
-            this.NUD_NookMiles.Location = new System.Drawing.Point(232, 85);
+            this.NUD_NookMiles.Location = new System.Drawing.Point(232, 111);
             this.NUD_NookMiles.Maximum = new decimal(new int[] {
             2147483647,
             0,
@@ -251,7 +251,7 @@
             // 
             // L_BankBells
             // 
-            this.L_BankBells.Location = new System.Drawing.Point(142, 59);
+            this.L_BankBells.Location = new System.Drawing.Point(142, 85);
             this.L_BankBells.Name = "L_BankBells";
             this.L_BankBells.Size = new System.Drawing.Size(84, 20);
             this.L_BankBells.TabIndex = 7;
@@ -260,7 +260,7 @@
             // 
             // NUD_BankBells
             // 
-            this.NUD_BankBells.Location = new System.Drawing.Point(232, 59);
+            this.NUD_BankBells.Location = new System.Drawing.Point(232, 85);
             this.NUD_BankBells.Maximum = new decimal(new int[] {
             2147483647,
             0,

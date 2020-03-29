@@ -110,7 +110,7 @@ namespace NHSE.WinForms
                     return;
 
                 pers.Pocket2 = items.Take(p2.Count).ToArray();
-                pers.Pocket1 = items.Skip(p2.Count).ToArray();
+                pers.Pocket1 = items.Skip(p2.Count).Take(p1.Count).ToArray();
             }
         }
 
@@ -149,13 +149,14 @@ namespace NHSE.WinForms
 
             var player = SAV.Players[index];
 
-            TB_Name.Text = player.Personal.Name;
-            TB_TownName.Text = player.Personal.TownName;
-            NUD_BankBells.Value = player.Personal.Bank.Value;
-            NUD_NookMiles.Value = player.Personal.NookMiles.Value;
-            NUD_Wallet.Value = player.Personal.Wallet.Value;
+            var pers = player.Personal;
+            TB_Name.Text = pers.Name;
+            TB_TownName.Text = pers.TownName;
+            NUD_BankBells.Value = pers.Bank.Value;
+            NUD_NookMiles.Value = pers.NookMiles.Value;
+            NUD_Wallet.Value = pers.Wallet.Value;
 
-            var photo = SAV.Players[0].Personal.GetPhotoData();
+            var photo = pers.GetPhotoData();
             var bmp = new Bitmap(new MemoryStream(photo));
             PB_Player.Image = bmp;
 
@@ -168,20 +169,21 @@ namespace NHSE.WinForms
                 return;
 
             var player = SAV.Players[index];
-            player.Personal.Name = TB_Name.Text;
-            player.Personal.TownName = TB_TownName.Text;
+            var pers = player.Personal;
+            pers.Name = TB_Name.Text;
+            pers.TownName = TB_TownName.Text;
 
-            var bank = player.Personal.Bank;
+            var bank = pers.Bank;
             bank.Value = (uint)NUD_BankBells.Value;
-            player.Personal.Bank = bank;
+            pers.Bank = bank;
 
-            var nook = player.Personal.NookMiles;
+            var nook = pers.NookMiles;
             nook.Value = (uint)NUD_NookMiles.Value;
-            player.Personal.NookMiles = nook;
+            pers.NookMiles = nook;
 
-            var wallet = player.Personal.Wallet;
+            var wallet = pers.Wallet;
             wallet.Value = (uint)NUD_Wallet.Value;
-            player.Personal.Wallet = wallet;
+            pers.Wallet = wallet;
         }
         #endregion
 
@@ -198,7 +200,7 @@ namespace NHSE.WinForms
             if (index < 0)
                 return;
 
-            var v = SAV.Main.Offsets.ReadVillager(SAV.Main.Data, index);
+            var v = SAV.Main.GetVillager(index);
 
             NUD_Species.Value = v.Species;
             NUD_Variant.Value = v.Variant;
@@ -220,7 +222,7 @@ namespace NHSE.WinForms
             v.Personality = (VillagerPersonality)CB_Personality.SelectedIndex;
             v.CatchPhrase = TB_Catchphrase.Text;
 
-            SAV.Main.Offsets.WriteVillager(v, SAV.Main.Data, index);
+            SAV.Main.SetVillager(v, index);
         }
 
         private string GetCurrentVillagerInternalName() => VillagerUtil.GetInternalVillagerName((VillagerSpecies)NUD_Species.Value, (int)NUD_Variant.Value);

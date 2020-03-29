@@ -10,6 +10,9 @@ namespace NHSE.Core
         public readonly MainSaveOffsets Offsets;
         public MainSave(string folder) : base(folder, "main") => Offsets = MainSaveOffsets.GetOffsets(Info);
 
+        public Villager GetVillager(int index) => Offsets.ReadVillager(Data, index);
+        public void SetVillager(Villager value, int index) => Offsets.WriteVillager(value, Data, index);
+
         public IReadOnlyList<Item> RecycleBin
         {
             get => Item.GetArray(Data.Slice(Offsets.RecycleBin, MainSaveOffsets.RecycleBinCount * Item.SIZE));
