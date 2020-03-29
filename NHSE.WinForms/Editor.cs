@@ -109,8 +109,8 @@ namespace NHSE.WinForms
                 if (editor.ShowDialog() != DialogResult.OK)
                     return;
 
-                player.Personal.Pocket2 = items.Take(p2.Count).ToArray();
-                player.Personal.Pocket1 = items.Skip(p2.Count).ToArray();
+                pers.Pocket2 = items.Take(p2.Count).ToArray();
+                pers.Pocket1 = items.Skip(p2.Count).ToArray();
             }
         }
 
@@ -121,7 +121,7 @@ namespace NHSE.WinForms
             var p1 = pers.Storage;
             using var editor = new PlayerItemEditor(p1, 10, 5);
             if (editor.ShowDialog() == DialogResult.OK)
-                player.Personal.Pocket2 = p1;
+                pers.Storage = p1;
         }
 
         private void B_RecycleBin_Click(object sender, EventArgs e)
