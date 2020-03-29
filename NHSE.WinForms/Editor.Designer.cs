@@ -73,6 +73,7 @@
             this.Tab_Map = new System.Windows.Forms.TabPage();
             this.B_RecycleBin = new System.Windows.Forms.Button();
             this.Menu_LoadDecrypted = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_LoadVillager = new System.Windows.Forms.Button();
             this.Menu_Editor.SuspendLayout();
             this.TC_Editors.SuspendLayout();
             this.Tab_Players.SuspendLayout();
@@ -352,6 +353,7 @@
             // 
             // Tab_Villagers
             // 
+            this.Tab_Villagers.Controls.Add(this.B_LoadVillager);
             this.Tab_Villagers.Controls.Add(this.B_DumpVillager);
             this.Tab_Villagers.Controls.Add(this.L_ExternalName);
             this.Tab_Villagers.Controls.Add(this.L_InternalName);
@@ -554,6 +556,16 @@
             this.Menu_LoadDecrypted.Text = "Load Decrypted";
             this.Menu_LoadDecrypted.Click += new System.EventHandler(this.Menu_LoadDecrypted_Click);
             // 
+            // B_LoadVillager
+            // 
+            this.B_LoadVillager.Location = new System.Drawing.Point(112, 168);
+            this.B_LoadVillager.Name = "B_LoadVillager";
+            this.B_LoadVillager.Size = new System.Drawing.Size(100, 40);
+            this.B_LoadVillager.TabIndex = 25;
+            this.B_LoadVillager.Text = "Load Villager";
+            this.B_LoadVillager.UseVisualStyleBackColor = true;
+            this.B_LoadVillager.Click += new System.EventHandler(this.B_LoadVillager_Click);
+            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -635,6 +647,7 @@
         private System.Windows.Forms.Button B_RecycleBin;
         private System.Windows.Forms.Button B_EditPlayerStorage;
         private System.Windows.Forms.ToolStripMenuItem Menu_LoadDecrypted;
+        private System.Windows.Forms.Button B_LoadVillager;
     }
 }
 

@@ -310,8 +310,35 @@ namespace NHSE.WinForms
                 return;
 
             SaveVillager(VillagerIndex);
-            var data = SAV.Main.Offsets.ReadVillager(SAV.Main.Data, VillagerIndex).Data;
-            File.WriteAllBytes(sfd.FileName, data);
+            var v = SAV.Main.GetVillager(VillagerIndex);
+            File.WriteAllBytes(sfd.FileName, v.Data);
+        }
+
+        private void B_LoadVillager_Click(object sender, EventArgs e)
+        {
+            var name = L_ExternalName.Text;
+            using var ofd = new OpenFileDialog
+            {
+                Filter = "New Horizons Villager (*.nhv)|*.nhv|All files (*.*)|*.*",
+                FileName = $"{name}.nhv",
+            };
+            if (ofd.ShowDialog() != DialogResult.OK)
+                return;
+
+            var file = ofd.FileName;
+            var v = SAV.Main.GetVillager(VillagerIndex);
+            var expectLength = v.Data.Length;
+            var fi = new FileInfo(file);
+            if (fi.Length != expectLength)
+            {
+                var msg = $"Imported villager's data length (0x{fi.Length:X}) does not match the required length (0x{expectLength:X}).";
+                WinFormsUtil.Error("Cancelling:", msg);
+                return;
+            }
+
+            var update = File.ReadAllBytes(ofd.FileName);
+            update.CopyTo(v.Data, 0);
+            SAV.Main.SetVillager(v, VillagerIndex);
         }
     }
 }

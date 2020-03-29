@@ -60,7 +60,7 @@ namespace NHSE.Core
         {
             for (int i = 0; i < 10; i++)
             {
-                var v = sav.Offsets.ReadVillager(sav.Data, i);
+                var v = sav.GetVillager(i);
                 var name = GameInfo.Strings.GetVillager(v.InternalName);
                 var dest = Path.Combine(path, $"{name}.nhv");
                 File.WriteAllBytes(dest, v.Data);
