@@ -12,18 +12,22 @@ namespace NHSE.WinForms
 
         public void Initialize(string[] itemnames)
         {
-            foreach (var item in itemnames)
-                CB_ItemID.Items.Add(item);
+            var none = itemnames[0];
+            itemnames[0] = string.Empty;
+            var dataSource = ComboItemUtil.GetArray(itemnames);
+            dataSource.Add(new ComboItem(none, Item.NONE));
+            dataSource.SortByText();
+
+            CB_ItemID.DisplayMember = nameof(ComboItem.Text);
+            CB_ItemID.ValueMember = nameof(ComboItem.Value);
+            CB_ItemID.DataSource = dataSource;
 
             LoadItem(Item.NO_ITEM);
         }
 
         public Item LoadItem(Item item)
         {
-            var id = item.ItemId;
-            if (id == Item.NONE)
-                id = 0;
-            CB_ItemID.SelectedIndex = id;
+            CB_ItemID.SelectedValue = (int)item.ItemId;
             NUD_Count.Value = item.Count;
             NUD_Uses.Value = item.UseCount;
             NUD_Flag0.Value = item.Flags0;
@@ -34,9 +38,7 @@ namespace NHSE.WinForms
 
         public Item SetItem(Item item)
         {
-            var id = CB_ItemID.SelectedIndex;
-            if (id <= 0)
-                id = Item.NONE;
+            var id = WinFormsUtil.GetIndex(CB_ItemID);
             item.ItemId = (ushort) id;
             item.Count = (byte) NUD_Count.Value;
             item.UseCount = (ushort) NUD_Uses.Value;

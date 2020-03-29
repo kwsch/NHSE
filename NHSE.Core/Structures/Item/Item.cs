@@ -6,7 +6,7 @@ namespace NHSE.Core
     [StructLayout(LayoutKind.Sequential)]
     public sealed class Item
     {
-        public static readonly Item NO_ITEM = new Item();
+        public static readonly Item NO_ITEM = new Item {ItemId = NONE};
         public const ushort NONE = 0xFFFE;
         public const int SIZE = 8;
 
