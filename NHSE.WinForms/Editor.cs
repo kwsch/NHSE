@@ -222,13 +222,41 @@ namespace NHSE.WinForms
             var bmp = pb.Image;
             using var sfd = new SaveFileDialog
             {
-                Filter = "png file (*.png) | *.png | All files (*.*) | *.* ",
+                Filter = "png file (*.png)|*.png|All files (*.*)|*.*",
                 FileName = $"{name}.png",
             };
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
             bmp.Save(sfd.FileName, ImageFormat.Png);
+        }
+
+        private void B_DumpVillager_Click(object sender, EventArgs e)
+        {
+            if (ModifierKeys == Keys.Shift)
+            {
+                using var fbd = new FolderBrowserDialog();
+                if (fbd.ShowDialog() != DialogResult.OK)
+                    return;
+
+                var dir = Path.GetDirectoryName(fbd.SelectedPath);
+                if (dir == null || !Directory.Exists(dir))
+                    return;
+                SAV.Main.DumpVillagers(dir);
+            }
+
+            var name = L_ExternalName.Text;
+            using var sfd = new SaveFileDialog
+            {
+                Filter = "New Horizons Villager (*.nhv)|*.nhv|All files (*.*)|*.*",
+                FileName = $"{name}.nhv",
+            };
+            if (sfd.ShowDialog() != DialogResult.OK)
+                return;
+
+            SaveVillager(VillagerIndex);
+            var data = SAV.Main.Offsets.ReadVillager(SAV.Main.Data, VillagerIndex).Data;
+            File.WriteAllBytes(sfd.FileName, data);
         }
     }
 }

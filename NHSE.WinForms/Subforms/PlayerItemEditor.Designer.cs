@@ -32,6 +32,8 @@
             this.B_Save = new System.Windows.Forms.Button();
             this.TC_Groups = new System.Windows.Forms.TabControl();
             this.ItemEditor = new NHSE.WinForms.ItemEditor();
+            this.B_Dump = new System.Windows.Forms.Button();
+            this.B_Load = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // B_Cancel
@@ -78,11 +80,33 @@
             this.ItemEditor.Size = new System.Drawing.Size(150, 210);
             this.ItemEditor.TabIndex = 6;
             // 
+            // B_Dump
+            // 
+            this.B_Dump.Location = new System.Drawing.Point(9, 228);
+            this.B_Dump.Name = "B_Dump";
+            this.B_Dump.Size = new System.Drawing.Size(90, 23);
+            this.B_Dump.TabIndex = 7;
+            this.B_Dump.Text = "Dump";
+            this.B_Dump.UseVisualStyleBackColor = true;
+            this.B_Dump.Click += new System.EventHandler(this.B_Dump_Click);
+            // 
+            // B_Load
+            // 
+            this.B_Load.Location = new System.Drawing.Point(105, 228);
+            this.B_Load.Name = "B_Load";
+            this.B_Load.Size = new System.Drawing.Size(90, 23);
+            this.B_Load.TabIndex = 8;
+            this.B_Load.Text = "Load";
+            this.B_Load.UseVisualStyleBackColor = true;
+            this.B_Load.Click += new System.EventHandler(this.B_Load_Click);
+            // 
             // PlayerItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 261);
+            this.Controls.Add(this.B_Load);
+            this.Controls.Add(this.B_Dump);
             this.Controls.Add(this.ItemEditor);
             this.Controls.Add(this.B_Cancel);
             this.Controls.Add(this.B_Save);
@@ -103,5 +127,7 @@
         private System.Windows.Forms.Button B_Save;
         private System.Windows.Forms.TabControl TC_Groups;
         private ItemEditor ItemEditor;
+        private System.Windows.Forms.Button B_Dump;
+        private System.Windows.Forms.Button B_Load;
     }
 }

@@ -67,6 +67,7 @@
             this.PB_Villager = new System.Windows.Forms.PictureBox();
             this.L_VillagerID = new System.Windows.Forms.Label();
             this.NUD_Villager = new System.Windows.Forms.NumericUpDown();
+            this.B_DumpVillager = new System.Windows.Forms.Button();
             this.Menu_Editor.SuspendLayout();
             this.TC_Editors.SuspendLayout();
             this.Tab_Players.SuspendLayout();
@@ -321,6 +322,7 @@
             // 
             // Tab_Villagers
             // 
+            this.Tab_Villagers.Controls.Add(this.B_DumpVillager);
             this.Tab_Villagers.Controls.Add(this.L_ExternalName);
             this.Tab_Villagers.Controls.Add(this.L_InternalName);
             this.Tab_Villagers.Controls.Add(this.TB_Catchphrase);
@@ -483,6 +485,16 @@
             0});
             this.NUD_Villager.ValueChanged += new System.EventHandler(this.LoadVillager);
             // 
+            // B_DumpVillager
+            // 
+            this.B_DumpVillager.Location = new System.Drawing.Point(6, 168);
+            this.B_DumpVillager.Name = "B_DumpVillager";
+            this.B_DumpVillager.Size = new System.Drawing.Size(100, 40);
+            this.B_DumpVillager.TabIndex = 24;
+            this.B_DumpVillager.Text = "Dump Villager";
+            this.B_DumpVillager.UseVisualStyleBackColor = true;
+            this.B_DumpVillager.Click += new System.EventHandler(this.B_DumpVillager_Click);
+            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -557,6 +569,7 @@
         private System.Windows.Forms.ContextMenuStrip CM_Picture;
         private System.Windows.Forms.ToolStripMenuItem Menu_SavePNG;
         private System.Windows.Forms.ToolStripMenuItem Menu_VerifyHashes;
+        private System.Windows.Forms.Button B_DumpVillager;
     }
 }
 

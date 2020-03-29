@@ -51,5 +51,21 @@ namespace NHSE.Core
             var file = Path.Combine(path, name);
             File.WriteAllBytes(file, data);
         }
+
+        /// <summary>
+        /// Dumps all villagers in their decrypted state to the requested <see cref="path"/>.
+        /// </summary>
+        /// <param name="sav">Save Data to dump from</param>
+        /// <param name="path">Path to dump to</param>
+        public static void DumpVillagers(this MainSave sav, string path)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                var v = sav.Offsets.ReadVillager(sav.Data, i);
+                var name = GameInfo.Strings.GetVillager(v.InternalName);
+                var dest = Path.Combine(path, $"{name}.nhv");
+                File.WriteAllBytes(dest, v.Data);
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
@@ -11,6 +12,7 @@ namespace NHSE.WinForms
         private readonly Player Player;
         private readonly InventorySet[] Inventory;
         private readonly string[] items;
+        private readonly ItemGridEditor[] Editors;
 
         public PlayerItemEditor(Player player)
         {
@@ -33,22 +35,27 @@ namespace NHSE.WinForms
             }
 
             ItemEditor.Initialize(items);
-            CreateTabs();
+            Editors = CreateTabs();
         }
 
-        private void CreateTabs()
+        private ItemGridEditor[] CreateTabs()
         {
-            var i = items;
-            foreach (var p in Inventory)
+            var itemlist = items;
+            var editors = new ItemGridEditor[Inventory.Length];
+            for (var i = 0; i < Inventory.Length; i++)
             {
-                var tab = new TabPage { Name = $"Tab_{p.Type}", Text = p.Type.ToString() };
-                var grid = new ItemGridEditor(ItemEditor, p.Items, i) { Dock = DockStyle.Fill };
+                var p = Inventory[i];
+                var tab = new TabPage {Name = $"Tab_{p.Type}", Text = p.Type.ToString()};
+                var grid = new ItemGridEditor(ItemEditor, p.Items, itemlist) {Dock = DockStyle.Fill};
                 grid.InitializeGrid(10, 4);
                 tab.Controls.Add(grid);
                 TC_Groups.TabPages.Add(tab);
                 TC_Groups.ShowToolTips = true;
                 tab.ToolTipText = p.Type.ToString();
+                editors[i] = grid;
             }
+
+            return editors;
         }
 
         private static InventorySet[] GetInventory(Player player)
@@ -76,6 +83,47 @@ namespace NHSE.WinForms
         {
             SetInventory(Player);
             Close();
+        }
+
+        private void B_Dump_Click(object sender, EventArgs e)
+        {
+            var selected = TC_Groups.SelectedTab;
+            using var sfd = new SaveFileDialog
+            {
+                Filter = "New Horizons Inventory (*.nhi)|*.nhi|All files (*.*)|*.*",
+                FileName = $"{selected.Text}.nhi",
+            };
+            if (sfd.ShowDialog() != DialogResult.OK)
+                return;
+            var index = TC_Groups.SelectedIndex;
+            var inv = Inventory[index];
+            var content = inv.Items.ToArray();
+            var bytes = Item.SetArray(content);
+            File.WriteAllBytes(sfd.FileName, bytes);
+        }
+
+        private void B_Load_Click(object sender, EventArgs e)
+        {
+            var selected = TC_Groups.SelectedTab;
+            using var sfd = new OpenFileDialog
+            {
+                Filter = "New Horizons Inventory (*.nhi)|*.nhi|All files (*.*)|*.*",
+                FileName = $"{selected.Text}.nhi",
+            };
+            if (sfd.ShowDialog() != DialogResult.OK)
+                return;
+            var index = TC_Groups.SelectedIndex;
+            var inv = Inventory[index];
+
+            var data = File.ReadAllBytes(sfd.FileName);
+            var import = Item.GetArray(data);
+            var copyTo = inv.Items;
+            for (int i = 0; i < copyTo.Count && i < import.Length ; i++)
+                copyTo[i].CopyFrom(import[i]);
+
+            var grid = Editors[TC_Groups.SelectedIndex];
+            grid.LoadItems();
+            System.Media.SystemSounds.Asterisk.Play();
         }
     }
 }
