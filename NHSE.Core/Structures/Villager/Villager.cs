@@ -3,7 +3,7 @@ using System.Text;
 
 namespace NHSE.Core
 {
-    public class Villager
+    public class Villager : IVillagerOrigin
     {
         public readonly byte[] Data;
         public Villager(byte[] data) => Data = data;
@@ -37,6 +37,7 @@ namespace NHSE.Core
             get => GetString(0x08, 10);
             set => GetBytes(value, 10).CopyTo(Data, 0x08);
         }
+        public byte[] GetTownIdentity() => Data.Slice(0x04, 4 + 20);
 
         public uint PlayerID
         {
@@ -49,6 +50,8 @@ namespace NHSE.Core
             get => GetString(0x24, 10);
             set => GetBytes(value, 10).CopyTo(Data, 0x24);
         }
+
+        public byte[] GetPlayerIdentity() => Data.Slice(0x20, 4 + 20);
 
         public string TownName2
         {

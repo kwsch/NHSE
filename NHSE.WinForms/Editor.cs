@@ -326,8 +326,8 @@ namespace NHSE.WinForms
                 return;
 
             var file = ofd.FileName;
-            var v = SAV.Main.GetVillager(VillagerIndex);
-            var expectLength = v.Data.Length;
+            var original = SAV.Main.GetVillager(VillagerIndex);
+            var expectLength = original.Data.Length;
             var fi = new FileInfo(file);
             if (fi.Length != expectLength)
             {
@@ -336,8 +336,19 @@ namespace NHSE.WinForms
                 return;
             }
 
-            var update = File.ReadAllBytes(ofd.FileName);
-            update.CopyTo(v.Data, 0);
+            var data = File.ReadAllBytes(ofd.FileName);
+            var v = new Villager(data);
+            var player0 = SAV.Players[0].Personal;
+            if (!v.IsOriginatedFrom(player0))
+            {
+                var result = WinFormsUtil.Prompt(MessageBoxButtons.YesNoCancel,
+                    $"Imported Villager did not originate from Villager0 ({player0.PlayerName})'s data.", "Update values?");
+                if (result == DialogResult.Cancel)
+                    return;
+                if (result == DialogResult.Yes)
+                    v.ChangeOrigins(player0, v.Data);
+            }
+
             SAV.Main.SetVillager(v, VillagerIndex);
         }
     }

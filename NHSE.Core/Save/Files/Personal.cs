@@ -6,7 +6,7 @@ namespace NHSE.Core
     /// <summary>
     /// personal.dat
     /// </summary>
-    public sealed class Personal : EncryptedFilePair
+    public sealed class Personal : EncryptedFilePair, IVillagerOrigin
     {
         public readonly PersonalOffsets Offsets;
         public Personal(string folder) : base(folder, "personal") => Offsets = PersonalOffsets.GetOffsets(Info);
