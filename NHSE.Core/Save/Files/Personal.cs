@@ -72,6 +72,9 @@ namespace NHSE.Core
             set => Item.SetArray(value).CopyTo(Data, Offsets.Storage);
         }
 
+        public bool[] GetRecipeList() => ArrayUtil.GitBitFlagArray(Data, Offsets.Recipes, Offsets.MaxRecipeID + 1);
+        public void SetRecipeList(bool[] value) => ArrayUtil.SetBitFlagArray(Data, Offsets.Recipes, value);
+
         public byte[] GetPhotoData()
         {
             var offset = Offsets.Photo;

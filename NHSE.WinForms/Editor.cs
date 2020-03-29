@@ -106,6 +106,13 @@ namespace NHSE.WinForms
             }
         }
 
+        private void B_EditPlayerRecipes_Click(object sender, EventArgs e)
+        {
+            var player = SAV.Players[PlayerIndex];
+            using var editor = new RecipeListEditor(player);
+            editor.ShowDialog();
+        }
+
         private void LoadPlayer(int index)
         {
             if (PlayerIndex >= 0)

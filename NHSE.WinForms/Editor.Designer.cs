@@ -38,7 +38,7 @@
             this.Menu_VerifyHashes = new System.Windows.Forms.ToolStripMenuItem();
             this.TC_Editors = new System.Windows.Forms.TabControl();
             this.Tab_Players = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.B_EditPlayerItems = new System.Windows.Forms.Button();
             this.L_Wallet = new System.Windows.Forms.Label();
             this.NUD_Wallet = new System.Windows.Forms.NumericUpDown();
             this.L_NookMiles = new System.Windows.Forms.Label();
@@ -68,6 +68,7 @@
             this.L_VillagerID = new System.Windows.Forms.Label();
             this.NUD_Villager = new System.Windows.Forms.NumericUpDown();
             this.B_DumpVillager = new System.Windows.Forms.Button();
+            this.B_EditPlayerRecipes = new System.Windows.Forms.Button();
             this.Menu_Editor.SuspendLayout();
             this.TC_Editors.SuspendLayout();
             this.Tab_Players.SuspendLayout();
@@ -158,7 +159,8 @@
             // 
             // Tab_Players
             // 
-            this.Tab_Players.Controls.Add(this.button1);
+            this.Tab_Players.Controls.Add(this.B_EditPlayerRecipes);
+            this.Tab_Players.Controls.Add(this.B_EditPlayerItems);
             this.Tab_Players.Controls.Add(this.L_Wallet);
             this.Tab_Players.Controls.Add(this.NUD_Wallet);
             this.Tab_Players.Controls.Add(this.L_NookMiles);
@@ -179,15 +181,15 @@
             this.Tab_Players.Text = "Players";
             this.Tab_Players.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // B_EditPlayerItems
             // 
-            this.button1.Location = new System.Drawing.Point(6, 168);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 40);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Edit Items";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.B_EditPlayerItems_Click);
+            this.B_EditPlayerItems.Location = new System.Drawing.Point(6, 168);
+            this.B_EditPlayerItems.Name = "B_EditPlayerItems";
+            this.B_EditPlayerItems.Size = new System.Drawing.Size(100, 40);
+            this.B_EditPlayerItems.TabIndex = 12;
+            this.B_EditPlayerItems.Text = "Edit Items";
+            this.B_EditPlayerItems.UseVisualStyleBackColor = true;
+            this.B_EditPlayerItems.Click += new System.EventHandler(this.B_EditPlayerItems_Click);
             // 
             // L_Wallet
             // 
@@ -495,6 +497,16 @@
             this.B_DumpVillager.UseVisualStyleBackColor = true;
             this.B_DumpVillager.Click += new System.EventHandler(this.B_DumpVillager_Click);
             // 
+            // B_EditPlayerRecipes
+            // 
+            this.B_EditPlayerRecipes.Location = new System.Drawing.Point(112, 169);
+            this.B_EditPlayerRecipes.Name = "B_EditPlayerRecipes";
+            this.B_EditPlayerRecipes.Size = new System.Drawing.Size(100, 40);
+            this.B_EditPlayerRecipes.TabIndex = 13;
+            this.B_EditPlayerRecipes.Text = "Edit Recipes";
+            this.B_EditPlayerRecipes.UseVisualStyleBackColor = true;
+            this.B_EditPlayerRecipes.Click += new System.EventHandler(this.B_EditPlayerRecipes_Click);
+            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -551,7 +563,7 @@
         private System.Windows.Forms.NumericUpDown NUD_NookMiles;
         private System.Windows.Forms.Label L_Wallet;
         private System.Windows.Forms.NumericUpDown NUD_Wallet;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button B_EditPlayerItems;
         private System.Windows.Forms.ToolStripMenuItem Menu_DumpDecrypted;
         private System.Windows.Forms.Label L_VillagerID;
         private System.Windows.Forms.NumericUpDown NUD_Villager;
@@ -570,6 +582,7 @@
         private System.Windows.Forms.ToolStripMenuItem Menu_SavePNG;
         private System.Windows.Forms.ToolStripMenuItem Menu_VerifyHashes;
         private System.Windows.Forms.Button B_DumpVillager;
+        private System.Windows.Forms.Button B_EditPlayerRecipes;
     }
 }
 
