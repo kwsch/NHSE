@@ -12,27 +12,40 @@ namespace NHSE.Core
     {
         public static bool IsOriginatedFrom(this IVillagerOrigin visit, IVillagerOrigin host)
         {
+            return visit.IsSameTown(host) && visit.IsSamePlayer(host);
+        }
+
+        public static bool IsSameTown(this IVillagerOrigin visit, IVillagerOrigin host)
+        {
             var hostTown = host.GetTownIdentity();
             var visitTown = visit.GetTownIdentity();
-            if (!hostTown.SequenceEqual(visitTown))
-                return false;
+            return hostTown.SequenceEqual(visitTown);
+        }
 
-            var hostPlayer = host.GetTownIdentity();
-            var visitPlayer = visit.GetTownIdentity();
-            if (!hostPlayer.SequenceEqual(visitPlayer))
-                return false;
-
-            return true;
+        public static bool IsSamePlayer(this IVillagerOrigin visit, IVillagerOrigin host)
+        {
+            var hostPlayer = host.GetPlayerIdentity();
+            var visitPlayer = visit.GetPlayerIdentity();
+            return hostPlayer.SequenceEqual(visitPlayer);
         }
 
         public static void ChangeOrigins(this IVillagerOrigin visit, IVillagerOrigin host, byte[] visitData)
         {
+            visit.ChangeToHostTown(host, visitData);
+            visit.ChangeToHostPlayer(host, visitData);
+        }
+
+        private static void ChangeToHostTown(this IVillagerOrigin visit, IVillagerOrigin host, byte[] visitData)
+        {
             var hostTown = host.GetTownIdentity();
             var visitTown = visit.GetTownIdentity();
             visitData.ReplaceOccurrences(visitTown, hostTown);
+        }
 
-            var hostPlayer = host.GetTownIdentity();
-            var visitPlayer = visit.GetTownIdentity();
+        private static void ChangeToHostPlayer(this IVillagerOrigin visit, IVillagerOrigin host, byte[] visitData)
+        {
+            var hostPlayer = host.GetPlayerIdentity();
+            var visitPlayer = visit.GetPlayerIdentity();
             visitData.ReplaceOccurrences(visitPlayer, hostPlayer);
         }
     }
