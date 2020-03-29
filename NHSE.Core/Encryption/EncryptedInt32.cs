@@ -27,7 +27,7 @@ namespace NHSE.Core
         public EncryptedInt32(uint value)
         {
             Adjust = (ushort)RandUtil.Rand.Next();
-            Shift = (byte)RandUtil.Rand.Next();
+            Shift = (byte)RandUtil.Rand.Next(27);
             var enc = Encrypt(value, Shift, Adjust);
             Checksum = CalculateChecksum(enc);
             Value = value;
