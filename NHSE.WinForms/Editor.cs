@@ -41,6 +41,15 @@ namespace NHSE.WinForms
             System.Media.SystemSounds.Asterisk.Play();
         }
 
+        private void Menu_LoadDecrypted_Click(object sender, EventArgs e)
+        {
+            using var fbd = new FolderBrowserDialog();
+            if (fbd.ShowDialog() != DialogResult.OK)
+                return;
+            SAV.Load(fbd.SelectedPath);
+            System.Media.SystemSounds.Asterisk.Play();
+        }
+
         private void Menu_VerifyHashes_Click(object sender, EventArgs e)
         {
             var result = SAV.GetInvalidHashes().ToArray();

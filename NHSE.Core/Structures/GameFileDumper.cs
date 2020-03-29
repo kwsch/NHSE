@@ -3,8 +3,9 @@
 namespace NHSE.Core
 {
     /// <summary>
-    /// Logic for dumping raw game files.
+    /// Logic for dumping decrypted game files.
     /// </summary>
+    /// <seealso cref="GameFileLoader"/>
     public static class GameFileDumper
     {
         /// <summary>
@@ -29,10 +30,8 @@ namespace NHSE.Core
         /// <param name="path">Path to dump to</param>
         public static void Dump(this Player player, string path)
         {
-            player.Profile.Dump(path);
-            player.Personal.Dump(path);
-            player.Photo.Dump(path);
-            player.PostBox.Dump(path);
+            foreach (var pair in player)
+                pair.Dump(path);
         }
 
         /// <summary>
