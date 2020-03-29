@@ -101,9 +101,35 @@ namespace NHSE.WinForms
             }
             else
             {
-                using var editor = new PlayerItemEditor(player);
-                editor.ShowDialog();
+                var pers = player.Personal;
+                var p1 = pers.Pocket1;
+                var p2 = pers.Pocket2;
+                var items = p2.Concat(p1).ToArray();
+                using var editor = new PlayerItemEditor(items, 10, 4);
+                if (editor.ShowDialog() != DialogResult.OK)
+                    return;
+
+                player.Personal.Pocket2 = items.Take(p2.Count).ToArray();
+                player.Personal.Pocket1 = items.Skip(p2.Count).ToArray();
             }
+        }
+
+        private void B_Storage_Click(object sender, EventArgs e)
+        {
+            var player = SAV.Players[PlayerIndex];
+            var pers = player.Personal;
+            var p1 = pers.Storage;
+            using var editor = new PlayerItemEditor(p1, 10, 5);
+            if (editor.ShowDialog() == DialogResult.OK)
+                player.Personal.Pocket2 = p1;
+        }
+
+        private void B_RecycleBin_Click(object sender, EventArgs e)
+        {
+            var items = SAV.Main.RecycleBin;
+            using var editor = new PlayerItemEditor(items, 10, 4);
+            if (editor.ShowDialog() == DialogResult.OK)
+                SAV.Main.RecycleBin = items;
         }
 
         private void B_EditPlayerRecipes_Click(object sender, EventArgs e)

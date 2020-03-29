@@ -10,6 +10,9 @@ namespace NHSE.Core
         public abstract int Villager { get; }
         public const int VillagerSize = 0x12AB0;
 
+        public abstract int RecycleBin { get; }
+        public const int RecycleBinCount = 40;
+
         public static MainSaveOffsets GetOffsets(FileHeaderInfo Info)
         {
             var rev = Info.GetKnownRevisionIndex();

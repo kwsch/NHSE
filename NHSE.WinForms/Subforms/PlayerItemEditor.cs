@@ -9,18 +9,15 @@ namespace NHSE.WinForms
 {
     public partial class PlayerItemEditor : Form
     {
-        private readonly Player Player;
-        private readonly InventorySet[] Inventory;
-        private readonly string[] items;
-        private readonly ItemGridEditor[] Editors;
+        private readonly IReadOnlyList<Item> Items;
+        private readonly Action LoadItems;
 
-        public PlayerItemEditor(Player player)
+        public PlayerItemEditor(IReadOnlyList<Item> array, int width, int height)
         {
             InitializeComponent();
+            Items = array;
 
-            Player = player;
-            Inventory = GetInventory(player);
-            items = GameInfo.Strings.itemlist.ToArray(); // simple copy, we're gonna mutate
+            var items = GameInfo.Strings.itemlist.ToArray();
 
             var set = new HashSet<string>();
             for (int i = 0; i < items.Length; i++)
@@ -34,95 +31,53 @@ namespace NHSE.WinForms
                     set.Add(item);
             }
 
+            var Editor = new ItemGridEditor(ItemEditor, Items, items) {Dock = DockStyle.Fill};
+            Editor.InitializeGrid(width, height);
+            PAN_Items.Controls.Add(Editor);
+
             ItemEditor.Initialize(items);
-            Editors = CreateTabs();
-        }
-
-        private ItemGridEditor[] CreateTabs()
-        {
-            var itemlist = items;
-            var editors = new ItemGridEditor[Inventory.Length];
-            for (var i = 0; i < Inventory.Length; i++)
-            {
-                var p = Inventory[i];
-                var tab = new TabPage {Name = $"Tab_{p.Type}", Text = p.Type.ToString()};
-                var grid = new ItemGridEditor(ItemEditor, p.Items, itemlist) {Dock = DockStyle.Fill};
-                grid.InitializeGrid(10, 4);
-                tab.Controls.Add(grid);
-                TC_Groups.TabPages.Add(tab);
-                TC_Groups.ShowToolTips = true;
-                tab.ToolTipText = p.Type.ToString();
-                editors[i] = grid;
-            }
-
-            return editors;
-        }
-
-        private static InventorySet[] GetInventory(Player player)
-        {
-            var _21 = player.Personal.Pocket2.Concat(player.Personal.Pocket1).ToArray();
-            return new[]
-            {
-                new InventorySet(InventoryType.Pocket1, _21),
-                new InventorySet(InventoryType.Storage, player.Personal.Storage),
-            };
-        }
-
-        private void SetInventory(Player player)
-        {
-            var p2 = Inventory[0].Items.Take(20).ToArray();
-            var p1 = Inventory[0].Items.Skip(20).Take(20).ToArray();
-            player.Personal.Pocket2 = p2;
-            player.Personal.Pocket1 = p1;
-            player.Personal.Storage = Inventory[1].Items;
+            Editor.LoadItems();
+            DialogResult = DialogResult.Cancel;
+            LoadItems = () => Editor.LoadItems();
         }
 
         private void B_Cancel_Click(object sender, EventArgs e) => Close();
 
         private void B_Save_Click(object sender, EventArgs e)
         {
-            SetInventory(Player);
+            DialogResult = DialogResult.OK;
             Close();
         }
 
         private void B_Dump_Click(object sender, EventArgs e)
         {
-            var selected = TC_Groups.SelectedTab;
             using var sfd = new SaveFileDialog
             {
                 Filter = "New Horizons Inventory (*.nhi)|*.nhi|All files (*.*)|*.*",
-                FileName = $"{selected.Text}.nhi",
+                FileName = "items.nhi",
             };
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
-            var index = TC_Groups.SelectedIndex;
-            var inv = Inventory[index];
-            var content = inv.Items.ToArray();
-            var bytes = Item.SetArray(content);
+            var bytes = Item.SetArray(Items);
             File.WriteAllBytes(sfd.FileName, bytes);
         }
 
         private void B_Load_Click(object sender, EventArgs e)
         {
-            var selected = TC_Groups.SelectedTab;
             using var sfd = new OpenFileDialog
             {
                 Filter = "New Horizons Inventory (*.nhi)|*.nhi|All files (*.*)|*.*",
-                FileName = $"{selected.Text}.nhi",
+                FileName = "items.nhi",
             };
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
-            var index = TC_Groups.SelectedIndex;
-            var inv = Inventory[index];
 
             var data = File.ReadAllBytes(sfd.FileName);
             var import = Item.GetArray(data);
-            var copyTo = inv.Items;
-            for (int i = 0; i < copyTo.Count && i < import.Length ; i++)
-                copyTo[i].CopyFrom(import[i]);
+            for (int i = 0; i < Items.Count && i < import.Length ; i++)
+                Items[i].CopyFrom(import[i]);
 
-            var grid = Editors[TC_Groups.SelectedIndex];
-            grid.LoadItems();
+            LoadItems();
             System.Media.SystemSounds.Asterisk.Play();
         }
     }
