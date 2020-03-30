@@ -222,13 +222,16 @@ namespace NHSE.WinForms
                 return;
 
             var v = SAV.Main.GetVillager(index);
+            LoadVillager(v);
+            VillagerIndex = index;
+        }
 
+        private void LoadVillager(Villager v)
+        {
             NUD_Species.Value = v.Species;
             NUD_Variant.Value = v.Variant;
             CB_Personality.SelectedIndex = (int) v.Personality;
             TB_Catchphrase.Text = v.CatchPhrase;
-
-            VillagerIndex = index;
         }
 
         private void SaveVillager(int index)
@@ -350,6 +353,7 @@ namespace NHSE.WinForms
             }
 
             SAV.Main.SetVillager(v, VillagerIndex);
+            LoadVillager(v);
         }
 
         private void B_EditFurniture_Click(object sender, EventArgs e)
