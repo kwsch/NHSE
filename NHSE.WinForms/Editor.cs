@@ -336,7 +336,8 @@ namespace NHSE.WinForms
                 var dir = Path.GetDirectoryName(fbd.SelectedPath);
                 if (dir == null || !Directory.Exists(dir))
                     return;
-                SAV.Main.DumpVillagers(dir);
+                SAV.Main.DumpVillagers(fbd.SelectedPath);
+                return;
             }
 
             var name = L_ExternalName.Text;
@@ -415,7 +416,8 @@ namespace NHSE.WinForms
                 var dir = Path.GetDirectoryName(fbd.SelectedPath);
                 if (dir == null || !Directory.Exists(dir))
                     return;
-                SAV.Main.DumpDesigns(dir);
+                SAV.Main.DumpDesigns(fbd.SelectedPath);
+                return;
             }
 
             var original = SAV.Main.GetDesign(PatternIndex);
