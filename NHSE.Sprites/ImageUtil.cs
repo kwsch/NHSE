@@ -12,6 +12,7 @@ namespace NHSE.Sprites
         {
             return GetBitmap(bg.GetBitmap(), DesignPattern.Width, DesignPattern.Height);
         }
+
         public static Bitmap GetPalette(this DesignPattern bg)
         {
             return GetBitmap(bg.GetPaletteBitmap(), DesignPattern.PaletteColorCount, 1, PixelFormat.Format24bppRgb);

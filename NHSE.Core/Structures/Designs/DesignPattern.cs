@@ -127,11 +127,11 @@ namespace NHSE.Core
             for (int i = 0; i < PaletteColorCount; i++)
             {
                 var ofs = PaletteDataStart + (i * 3);
-                result[i + 2] = Data[ofs + 0];
-                result[i + 1] = Data[ofs + 1];
-                result[i + 0] = Data[ofs + 2];
+                result[(i * 3) + 2] = Data[ofs + 0];
+                result[(i * 3) + 1] = Data[ofs + 1];
+                result[(i * 3) + 0] = Data[ofs + 2];
             }
-            return Data.Slice(PaletteDataStart, PaletteColorCount * PaletteColorSize);
+            return result;
         }
     }
 }
