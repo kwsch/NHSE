@@ -76,6 +76,14 @@
             this.Tab_Map = new System.Windows.Forms.TabPage();
             this.B_RecycleBin = new System.Windows.Forms.Button();
             this.B_EditPlayerReceivedItems = new System.Windows.Forms.Button();
+            this.Tab_Designs = new System.Windows.Forms.TabPage();
+            this.PB_Pattern = new System.Windows.Forms.PictureBox();
+            this.L_PatternIndex = new System.Windows.Forms.Label();
+            this.NUD_PatternIndex = new System.Windows.Forms.NumericUpDown();
+            this.B_LoadDesign = new System.Windows.Forms.Button();
+            this.B_DumpDesign = new System.Windows.Forms.Button();
+            this.L_PatternName = new System.Windows.Forms.Label();
+            this.PB_Palette = new System.Windows.Forms.PictureBox();
             this.Menu_Editor.SuspendLayout();
             this.TC_Editors.SuspendLayout();
             this.Tab_Players.SuspendLayout();
@@ -90,6 +98,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.PB_Villager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Villager)).BeginInit();
             this.Tab_Map.SuspendLayout();
+            this.Tab_Designs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_Pattern)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PatternIndex)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_Palette)).BeginInit();
             this.SuspendLayout();
             // 
             // Menu_Editor
@@ -167,6 +179,7 @@
             // 
             this.TC_Editors.Controls.Add(this.Tab_Players);
             this.TC_Editors.Controls.Add(this.Tab_Villagers);
+            this.TC_Editors.Controls.Add(this.Tab_Designs);
             this.TC_Editors.Controls.Add(this.Tab_Map);
             this.TC_Editors.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TC_Editors.Location = new System.Drawing.Point(0, 24);
@@ -590,6 +603,108 @@
             this.B_EditPlayerReceivedItems.UseVisualStyleBackColor = true;
             this.B_EditPlayerReceivedItems.Click += new System.EventHandler(this.B_EditPlayerReceivedItems_Click);
             // 
+            // Tab_Designs
+            // 
+            this.Tab_Designs.Controls.Add(this.PB_Palette);
+            this.Tab_Designs.Controls.Add(this.L_PatternName);
+            this.Tab_Designs.Controls.Add(this.B_LoadDesign);
+            this.Tab_Designs.Controls.Add(this.B_DumpDesign);
+            this.Tab_Designs.Controls.Add(this.L_PatternIndex);
+            this.Tab_Designs.Controls.Add(this.NUD_PatternIndex);
+            this.Tab_Designs.Controls.Add(this.PB_Pattern);
+            this.Tab_Designs.Location = new System.Drawing.Point(4, 22);
+            this.Tab_Designs.Name = "Tab_Designs";
+            this.Tab_Designs.Padding = new System.Windows.Forms.Padding(3);
+            this.Tab_Designs.Size = new System.Drawing.Size(396, 211);
+            this.Tab_Designs.TabIndex = 3;
+            this.Tab_Designs.Text = "Designs";
+            this.Tab_Designs.UseVisualStyleBackColor = true;
+            // 
+            // PB_Pattern
+            // 
+            this.PB_Pattern.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PB_Pattern.ContextMenuStrip = this.CM_Picture;
+            this.PB_Pattern.Location = new System.Drawing.Point(6, 33);
+            this.PB_Pattern.Name = "PB_Pattern";
+            this.PB_Pattern.Size = new System.Drawing.Size(130, 130);
+            this.PB_Pattern.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PB_Pattern.TabIndex = 15;
+            this.PB_Pattern.TabStop = false;
+            this.PB_Pattern.MouseEnter += new System.EventHandler(this.PB_Pattern_MouseEnter);
+            this.PB_Pattern.MouseLeave += new System.EventHandler(this.PB_Pattern_MouseLeave);
+            // 
+            // L_PatternIndex
+            // 
+            this.L_PatternIndex.Location = new System.Drawing.Point(6, 6);
+            this.L_PatternIndex.Name = "L_PatternIndex";
+            this.L_PatternIndex.Size = new System.Drawing.Size(87, 20);
+            this.L_PatternIndex.TabIndex = 17;
+            this.L_PatternIndex.Text = "Design Index:";
+            this.L_PatternIndex.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // NUD_PatternIndex
+            // 
+            this.NUD_PatternIndex.Location = new System.Drawing.Point(99, 6);
+            this.NUD_PatternIndex.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.NUD_PatternIndex.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NUD_PatternIndex.Name = "NUD_PatternIndex";
+            this.NUD_PatternIndex.Size = new System.Drawing.Size(37, 20);
+            this.NUD_PatternIndex.TabIndex = 16;
+            this.NUD_PatternIndex.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NUD_PatternIndex.ValueChanged += new System.EventHandler(this.LoadPattern);
+            // 
+            // B_LoadDesign
+            // 
+            this.B_LoadDesign.Location = new System.Drawing.Point(104, 168);
+            this.B_LoadDesign.Name = "B_LoadDesign";
+            this.B_LoadDesign.Size = new System.Drawing.Size(92, 40);
+            this.B_LoadDesign.TabIndex = 27;
+            this.B_LoadDesign.Text = "Load Design";
+            this.B_LoadDesign.UseVisualStyleBackColor = true;
+            this.B_LoadDesign.Click += new System.EventHandler(this.B_LoadDesign_Click);
+            // 
+            // B_DumpDesign
+            // 
+            this.B_DumpDesign.Location = new System.Drawing.Point(6, 168);
+            this.B_DumpDesign.Name = "B_DumpDesign";
+            this.B_DumpDesign.Size = new System.Drawing.Size(92, 40);
+            this.B_DumpDesign.TabIndex = 26;
+            this.B_DumpDesign.Text = "Dump Design";
+            this.B_DumpDesign.UseVisualStyleBackColor = true;
+            this.B_DumpDesign.Click += new System.EventHandler(this.B_DumpDesign_Click);
+            // 
+            // L_PatternName
+            // 
+            this.L_PatternName.AutoSize = true;
+            this.L_PatternName.Location = new System.Drawing.Point(142, 49);
+            this.L_PatternName.Name = "L_PatternName";
+            this.L_PatternName.Size = new System.Drawing.Size(73, 13);
+            this.L_PatternName.TabIndex = 28;
+            this.L_PatternName.Text = "*PatternName";
+            // 
+            // PB_Palette
+            // 
+            this.PB_Palette.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PB_Palette.ContextMenuStrip = this.CM_Picture;
+            this.PB_Palette.Location = new System.Drawing.Point(145, 33);
+            this.PB_Palette.Name = "PB_Palette";
+            this.PB_Palette.Size = new System.Drawing.Size(152, 12);
+            this.PB_Palette.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PB_Palette.TabIndex = 29;
+            this.PB_Palette.TabStop = false;
+            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -620,6 +735,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.PB_Villager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Villager)).EndInit();
             this.Tab_Map.ResumeLayout(false);
+            this.Tab_Designs.ResumeLayout(false);
+            this.Tab_Designs.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_Pattern)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PatternIndex)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_Palette)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -674,6 +794,14 @@
         private System.Windows.Forms.Button B_LoadVillager;
         private System.Windows.Forms.Button B_EditFurniture;
         private System.Windows.Forms.Button B_EditPlayerReceivedItems;
+        private System.Windows.Forms.TabPage Tab_Designs;
+        private System.Windows.Forms.Button B_LoadDesign;
+        private System.Windows.Forms.Button B_DumpDesign;
+        private System.Windows.Forms.Label L_PatternIndex;
+        private System.Windows.Forms.NumericUpDown NUD_PatternIndex;
+        private System.Windows.Forms.PictureBox PB_Pattern;
+        private System.Windows.Forms.Label L_PatternName;
+        private System.Windows.Forms.PictureBox PB_Palette;
     }
 }
 

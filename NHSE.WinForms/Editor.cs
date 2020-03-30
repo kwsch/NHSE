@@ -70,6 +70,7 @@ namespace NHSE.WinForms
         {
             LoadPlayers();
             LoadVillagers();
+            LoadMain();
         }
 
         private void SaveAll()
@@ -96,9 +97,15 @@ namespace NHSE.WinForms
             LoadVillager(0);
         }
 
+        private void LoadMain()
+        {
+            LoadPattern(0);
+        }
+
         private int PlayerIndex = -1;
         private void LoadPlayer(object sender, EventArgs e) => LoadPlayer(CB_Players.SelectedIndex);
         private void LoadVillager(object sender, EventArgs e) => LoadVillager((int)NUD_Villager.Value - 1);
+        private void LoadPattern(object sender, EventArgs e) => LoadPattern((int)NUD_PatternIndex.Value - 1);
 
         private void B_EditPlayerItems_Click(object sender, EventArgs e)
         {
@@ -267,6 +274,28 @@ namespace NHSE.WinForms
 
         #endregion
 
+        #region Patterns
+
+        private int PatternIndex = -1;
+
+        private void LoadPattern(int index)
+        {
+            var pattern = SAV.Main.GetDesign(index);
+            LoadPattern(pattern);
+            PatternIndex = index;
+        }
+
+        private void LoadPattern(DesignPattern designPattern)
+        {
+            PB_Pattern.Image = ImageUtil.ResizeImage(designPattern.GetImage(), 128, 128);
+            PB_Palette.Image = ImageUtil.ResizeImage(designPattern.GetPalette(), 150, 10);
+            L_PatternName.Text = designPattern.DesignName + Environment.NewLine +
+                                 designPattern.TownName + Environment.NewLine +
+                                 designPattern.PlayerName;
+        }
+
+        #endregion
+
         private void Menu_SavePNG_Click(object sender, EventArgs e)
         {
             var pb = WinFormsUtil.GetUnderlyingControl<PictureBox>(sender);
@@ -374,5 +403,75 @@ namespace NHSE.WinForms
             v.Furniture = items;
             SAV.Main.SetVillager(v, VillagerIndex);
         }
+
+        private void B_DumpDesign_Click(object sender, EventArgs e)
+        {
+            if (ModifierKeys == Keys.Shift)
+            {
+                using var fbd = new FolderBrowserDialog();
+                if (fbd.ShowDialog() != DialogResult.OK)
+                    return;
+
+                var dir = Path.GetDirectoryName(fbd.SelectedPath);
+                if (dir == null || !Directory.Exists(dir))
+                    return;
+                SAV.Main.DumpDesigns(dir);
+            }
+
+            var original = SAV.Main.GetDesign(PatternIndex);
+            var name = original.DesignName;
+            using var sfd = new SaveFileDialog
+            {
+                Filter = "New Horizons Design Pattern (*.nhd)|*.nhd|All files (*.*)|*.*",
+                FileName = $"{name}.nhd",
+            };
+            if (sfd.ShowDialog() != DialogResult.OK)
+                return;
+
+            var d = SAV.Main.GetDesign(PatternIndex);
+            File.WriteAllBytes(sfd.FileName, d.Data);
+        }
+
+        private void B_LoadDesign_Click(object sender, EventArgs e)
+        {
+            var original = SAV.Main.GetDesign(PatternIndex);
+            var name = original.DesignName;
+            using var ofd = new OpenFileDialog
+            {
+                Filter = "New Horizons Design Pattern (*.nhd)|*.nhd|All files (*.*)|*.*",
+                FileName = $"{name}.nhd",
+            };
+            if (ofd.ShowDialog() != DialogResult.OK)
+                return;
+
+            var file = ofd.FileName;
+            var expectLength = original.Data.Length;
+            var fi = new FileInfo(file);
+            if (fi.Length != expectLength)
+            {
+                var msg = $"Imported Design Pattern's data length (0x{fi.Length:X}) does not match the required length (0x{expectLength:X}).";
+                WinFormsUtil.Error("Cancelling:", msg);
+                return;
+            }
+
+            var data = File.ReadAllBytes(ofd.FileName);
+            var d = new DesignPattern(data);
+            var player0 = SAV.Players[0].Personal;
+            if (!d.IsOriginatedFrom(player0))
+            {
+                var result = WinFormsUtil.Prompt(MessageBoxButtons.YesNoCancel,
+                    $"Imported Design Pattern did not originate from Villager0 ({player0.PlayerName})'s data.", "Update values?");
+                if (result == DialogResult.Cancel)
+                    return;
+                if (result == DialogResult.Yes)
+                    d.ChangeOrigins(player0, d.Data);
+            }
+
+            SAV.Main.SetDesign(d, PatternIndex);
+            LoadPattern(d);
+        }
+
+        private void PB_Pattern_MouseEnter(object sender, EventArgs e) => PB_Pattern.BackColor = Color.GreenYellow;
+        private void PB_Pattern_MouseLeave(object sender, EventArgs e) => PB_Pattern.BackColor = Color.Transparent;
     }
 }

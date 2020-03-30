@@ -74,7 +74,7 @@ namespace NHSE.Core
         /// <param name="path">Path to dump to</param>
         public static void DumpDesigns(this MainSave sav, string path)
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 50; i++)
             {
                 var dp = sav.GetDesign(i);
                 var name = dp.DesignName;
