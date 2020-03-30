@@ -66,5 +66,22 @@ namespace NHSE.Core
                 File.WriteAllBytes(dest, v.Data);
             }
         }
+
+        /// <summary>
+        /// Dumps all villagers in their decrypted state to the requested <see cref="path"/>.
+        /// </summary>
+        /// <param name="sav">Save Data to dump from</param>
+        /// <param name="path">Path to dump to</param>
+        public static void DumpDesigns(this MainSave sav, string path)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                var dp = sav.GetDesign(i);
+                var name = dp.DesignName;
+                var fn = StringUtil.CleanFileName($"{name}.nhd");
+                var dest = Path.Combine(path, fn);
+                File.WriteAllBytes(dest, dp.Data);
+            }
+        }
     }
 }

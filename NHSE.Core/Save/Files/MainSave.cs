@@ -12,6 +12,8 @@ namespace NHSE.Core
 
         public Villager GetVillager(int index) => Offsets.ReadVillager(Data, index);
         public void SetVillager(Villager value, int index) => Offsets.WriteVillager(value, Data, index);
+        public DesignPattern GetDesign(int index) => Offsets.ReadPattern(Data, index);
+        public void SetDesign(DesignPattern value, int index) => Offsets.WritePattern(value, Data, index);
 
         public IReadOnlyList<Item> RecycleBin
         {
