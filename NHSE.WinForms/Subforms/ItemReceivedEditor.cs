@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Core.Structures;
@@ -16,20 +15,27 @@ namespace NHSE.WinForms
             Player = player;
             InitializeComponent();
             FillCheckBoxes();
+            Initialize(GameInfo.Strings.ItemDataSource);
+            CLB_Items.SelectedIndex = 0x50;
+        }
+
+        public void Initialize(List<ComboItem> items)
+        {
+            CB_Item.DisplayMember = nameof(ComboItem.Text);
+            CB_Item.ValueMember = nameof(ComboItem.Value);
+            CB_Item.DataSource = items;
         }
 
         private void FillCheckBoxes()
         {
-            var items = GameInfo.Strings.itemlist.ToArray();
-            items[0] = string.Empty;
+            var items = GameInfo.Strings.itemlistdisplay;
+
             var ofs = Player.Personal.Offsets.ReceivedItems;
             var data = Player.Personal.Data;
             for (int i = 0; i < items.Length; i++)
             {
                 var flag = FlagUtil.GetFlag(data, ofs, i);
                 string value = items[i];
-                if (string.IsNullOrEmpty(value))
-                    value = i.ToString();
                 string name = $"0x{i:X3} - {value}";
                 CLB_Items.Items.Add(name, flag);
             }
@@ -53,6 +59,20 @@ namespace NHSE.WinForms
             for (int i = 0; i < CLB_Items.Items.Count; i++)
                 FlagUtil.SetFlag(data, ofs, i, CLB_Items.GetItemChecked(i));
             Close();
+        }
+
+        private void CB_Item_SelectedValueChanged(object sender, EventArgs e)
+        {
+            var index = WinFormsUtil.GetIndex(CB_Item);
+            if (index >= CLB_Items.Items.Count)
+                index = 0;
+            CLB_Items.SelectedIndex = index;
+        }
+
+        private void CLB_Items_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var index = CLB_Items.SelectedIndex;
+            CB_Item.SelectedValue = index;
         }
     }
 }

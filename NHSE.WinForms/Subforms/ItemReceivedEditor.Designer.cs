@@ -33,6 +33,7 @@
             this.CLB_Items = new System.Windows.Forms.CheckedListBox();
             this.B_AllBugs = new System.Windows.Forms.Button();
             this.B_AllFish = new System.Windows.Forms.Button();
+            this.CB_Item = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // B_Cancel
@@ -68,6 +69,7 @@
             this.CLB_Items.Name = "CLB_Items";
             this.CLB_Items.Size = new System.Drawing.Size(268, 229);
             this.CLB_Items.TabIndex = 8;
+            this.CLB_Items.SelectedIndexChanged += new System.EventHandler(this.CLB_Items_SelectedIndexChanged);
             // 
             // B_AllBugs
             // 
@@ -91,11 +93,26 @@
             this.B_AllFish.UseVisualStyleBackColor = true;
             this.B_AllFish.Click += new System.EventHandler(this.B_AllFish_Click);
             // 
+            // CB_Item
+            // 
+            this.CB_Item.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CB_Item.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CB_Item.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CB_Item.DropDownWidth = 322;
+            this.CB_Item.FormattingEnabled = true;
+            this.CB_Item.Location = new System.Drawing.Point(130, 254);
+            this.CB_Item.Name = "CB_Item";
+            this.CB_Item.Size = new System.Drawing.Size(150, 21);
+            this.CB_Item.TabIndex = 13;
+            this.CB_Item.SelectedValueChanged += new System.EventHandler(this.CB_Item_SelectedValueChanged);
+            // 
             // ItemReceivedEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 315);
+            this.Controls.Add(this.CB_Item);
             this.Controls.Add(this.B_AllFish);
             this.Controls.Add(this.B_AllBugs);
             this.Controls.Add(this.CLB_Items);
@@ -118,5 +135,6 @@
         private System.Windows.Forms.CheckedListBox CLB_Items;
         private System.Windows.Forms.Button B_AllBugs;
         private System.Windows.Forms.Button B_AllFish;
+        private System.Windows.Forms.ComboBox CB_Item;
     }
 }
