@@ -11,18 +11,16 @@ namespace NHSE.WinForms
         private static readonly ItemSpriteDrawer Sprites = SpriteUtil.Items;
         private readonly ItemEditor Editor;
         private readonly IReadOnlyList<Item> Items;
-        private readonly string[] ItemNames;
 
         private IList<PictureBox> SlotPictureBoxes = Array.Empty<PictureBox>();
         private int Count => Items.Count;
         private int Page;
         private int ItemsPerPage;
 
-        public ItemGridEditor(ItemEditor editor, IReadOnlyList<Item> items, string[] itemnames)
+        public ItemGridEditor(ItemEditor editor, IReadOnlyList<Item> items)
         {
             Editor = editor;
             Items = items;
-            ItemNames = itemnames;
             InitializeComponent();
 
             L_ItemName.Text = string.Empty;
@@ -81,13 +79,7 @@ namespace NHSE.WinForms
             HoverTip.RemoveAll();
         }
 
-        public string GetItemText(Item item)
-        {
-            var index = item.ItemId == Item.NONE ? 0 : item.ItemId;
-            if (index >= ItemNames.Length)
-                return "???";
-            return ItemNames[index];
-        }
+        public static string GetItemText(Item item) => GameInfo.Strings.GetItemName(item.ItemId);
 
         public void Slot_MouseClick(object sender, MouseEventArgs e)
         {

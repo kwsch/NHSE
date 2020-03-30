@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
 
@@ -17,25 +16,11 @@ namespace NHSE.WinForms
             InitializeComponent();
             Items = array;
 
-            var items = GameInfo.Strings.itemlist.ToArray();
-
-            var set = new HashSet<string>();
-            for (int i = 0; i < items.Length; i++)
-            {
-                var item = items[i];
-                if (string.IsNullOrEmpty(item))
-                    items[i] = $"(Item #{i:000})";
-                else if (set.Contains(item))
-                    items[i] += $" (#{i:000})";
-                else
-                    set.Add(item);
-            }
-
-            var Editor = new ItemGridEditor(ItemEditor, Items, items) {Dock = DockStyle.Fill};
+            var Editor = new ItemGridEditor(ItemEditor, Items) {Dock = DockStyle.Fill};
             Editor.InitializeGrid(width, height);
             PAN_Items.Controls.Add(Editor);
 
-            ItemEditor.Initialize(items);
+            ItemEditor.Initialize(GameInfo.Strings.ItemDataSource);
             Editor.LoadItems();
             DialogResult = DialogResult.Cancel;
             LoadItems = () => Editor.LoadItems();

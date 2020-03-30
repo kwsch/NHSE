@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
 
@@ -10,7 +9,7 @@ namespace NHSE.WinForms
     {
         private readonly Player Player;
         private readonly InventorySet[] Inventory;
-        private readonly string[] items;
+        private readonly string[] DisplayItems;
 
         // assume that all pouches have the same amount of columns
         private int ColumnItem;
@@ -26,19 +25,7 @@ namespace NHSE.WinForms
 
             Player = player;
             Inventory = GetInventory(player);
-            items = GameInfo.Strings.itemlist.ToArray(); // simple copy, we're gonna mutate
-
-            var set = new HashSet<string>();
-            for (int i = 0; i < items.Length; i++)
-            {
-                var item = items[i];
-                if (string.IsNullOrEmpty(item))
-                    items[i] = $"(Item #{i:000})";
-                else if (set.Contains(item))
-                    items[i] += $" (#{i:000})";
-                else
-                    set.Add(item);
-            }
+            DisplayItems = GameInfo.Strings.itemlistdisplay;
 
             CreateViews();
             LoadItems();
@@ -95,8 +82,7 @@ namespace NHSE.WinForms
             dgv.Columns.Add(flag3);
 
             // Populate with rows
-            var itemarr = items;
-            item.Items.AddRange(itemarr);
+            item.Items.AddRange(DisplayItems);
 
             dgv.Rows.Add(pouch.Items.Count);
             dgv.CancelEdit();
@@ -211,7 +197,7 @@ namespace NHSE.WinForms
                 if (id == Item.NONE)
                     id = 0;
 
-                cells[ColumnItem].Value = items[id];
+                cells[ColumnItem].Value = DisplayItems[id];
                 cells[ColumnCount].Value = item.Count;
                 cells[ColumnUse].Value = item.UseCount;
                 cells[ColumnFlag1].Value = item.Flags0;
@@ -226,7 +212,7 @@ namespace NHSE.WinForms
             {
                 var cells = dgv.Rows[i].Cells;
                 var str = cells[ColumnItem].Value.ToString();
-                var itemindex = Array.IndexOf(items, str);
+                var itemindex = Array.IndexOf(DisplayItems, str);
 
                 int.TryParse(cells[ColumnCount].Value?.ToString(), out int itemcnt);
                 int.TryParse(cells[ColumnUse].Value?.ToString(), out int uses);

@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
 using NHSE.Core;
 
 namespace NHSE.WinForms
@@ -10,17 +11,11 @@ namespace NHSE.WinForms
             InitializeComponent();
         }
 
-        public void Initialize(string[] itemnames)
+        public void Initialize(List<ComboItem> items)
         {
-            var none = itemnames[0];
-            itemnames[0] = string.Empty;
-            var dataSource = ComboItemUtil.GetArray(itemnames);
-            dataSource.Add(new ComboItem(none, Item.NONE));
-            dataSource.SortByText();
-
             CB_ItemID.DisplayMember = nameof(ComboItem.Text);
             CB_ItemID.ValueMember = nameof(ComboItem.Value);
-            CB_ItemID.DataSource = dataSource;
+            CB_ItemID.DataSource = items;
 
             LoadItem(Item.NO_ITEM);
         }
