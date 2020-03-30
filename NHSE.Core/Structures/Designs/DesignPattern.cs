@@ -97,6 +97,9 @@ namespace NHSE.Core
             return PaletteDataStart + (index * PaletteColorSize);
         }
 
+        /// <summary>
+        /// Builds a new array with unpacked 32bit pixel data.
+        /// </summary>
         public byte[] GetBitmap()
         {
             byte[] data = new byte[4 * Width * Height];
@@ -107,12 +110,28 @@ namespace NHSE.Core
                     continue; // transparent?
                 var palette = GetColorOffset(choice);
                 var ofs = i * 4;
-                Array.Copy(Data, palette, data, ofs, 4);
+                data[ofs + 2] = Data[palette + 0];
+                data[ofs + 1] = Data[palette + 1];
+                data[ofs + 0] = Data[palette + 2];
                 data[ofs + 3] = 0xFF; // opaque
             }
             return data;
         }
 
-        public byte[] GetPaletteBitmap() => Data.Slice(PaletteDataStart, PaletteColorCount * PaletteColorSize);
+        /// <summary>
+        /// Returns a raw slice of data containing the 24bit color pixels.
+        /// </summary>
+        public byte[] GetPaletteBitmap()
+        {
+            var result = new byte[3 * PaletteColorCount];
+            for (int i = 0; i < PaletteColorCount; i++)
+            {
+                var ofs = PaletteDataStart + (i * 3);
+                result[i + 2] = Data[ofs + 0];
+                result[i + 1] = Data[ofs + 1];
+                result[i + 0] = Data[ofs + 2];
+            }
+            return Data.Slice(PaletteDataStart, PaletteColorCount * PaletteColorSize);
+        }
     }
 }
