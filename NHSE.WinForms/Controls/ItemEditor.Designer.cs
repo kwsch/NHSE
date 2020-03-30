@@ -54,6 +54,8 @@
             // 
             // CB_ItemID
             // 
+            this.CB_ItemID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CB_ItemID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CB_ItemID.DropDownWidth = 322;
             this.CB_ItemID.FormattingEnabled = true;
             this.CB_ItemID.Location = new System.Drawing.Point(3, 3);
