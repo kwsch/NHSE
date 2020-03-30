@@ -77,19 +77,7 @@ namespace NHSE.Core
             }
         }
 
-        public string GetString(int offset, int maxLength)
-        {
-            var str = Encoding.Unicode.GetString(Data, offset, maxLength * 2);
-            return StringUtil.TrimFromZero(str);
-        }
-
-        public static byte[] GetBytes(string value, int maxLength)
-        {
-            if (value.Length > maxLength)
-                value = value.Substring(0, maxLength);
-            else if (value.Length < maxLength)
-                value = value.PadRight(maxLength, '\0');
-            return Encoding.Unicode.GetBytes(value);
-        }
+        public string GetString(int offset, int maxLength) => StringUtil.GetString(Data, offset, maxLength);
+        public static byte[] GetBytes(string value, int maxLength) => StringUtil.GetBytes(value, maxLength);
     }
 }

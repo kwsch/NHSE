@@ -1,4 +1,6 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.IO;
+using System.Runtime.CompilerServices;
+using System.Text;
 
 namespace NHSE.Core
 {
@@ -19,6 +21,26 @@ namespace NHSE.Core
         {
             int index = input.IndexOf(c);
             return index < 0 ? input : input.Substring(0, index);
+        }
+
+        public static string GetString(byte[] data, int offset, int maxLength)
+        {
+            var str = Encoding.Unicode.GetString(data, offset, maxLength * 2);
+            return TrimFromZero(str);
+        }
+
+        public static byte[] GetBytes(string value, int maxLength)
+        {
+            if (value.Length > maxLength)
+                value = value.Substring(0, maxLength);
+            else if (value.Length < maxLength)
+                value = value.PadRight(maxLength, '\0');
+            return Encoding.Unicode.GetBytes(value);
+        }
+
+        public static string CleanFileName(string fileName)
+        {
+            return string.Concat(fileName.Split(Path.GetInvalidFileNameChars()));
         }
     }
 }

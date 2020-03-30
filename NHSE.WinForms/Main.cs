@@ -63,21 +63,30 @@ namespace NHSE.WinForms
 
         private static void Open(string path)
         {
+            #if !DEBUG
             try
+            #endif
             {
-                var file = new HorizonSave(path);
-                Open(file);
-
-                var settings = Settings.Default;
-                settings.LastFilePath = path;
-                settings.Save();
+                OpenSaveFile(path);
             }
+            #if !DEBUG
 #pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
 #pragma warning restore CA1031 // Do not catch general exception types
             {
                 WinFormsUtil.Error(ex.Message);
             }
+            #endif
+        }
+
+        private static void OpenSaveFile(string path)
+        {
+            var file = new HorizonSave(path);
+            Open(file);
+
+            var settings = Settings.Default;
+            settings.LastFilePath = path;
+            settings.Save();
         }
     }
 }
