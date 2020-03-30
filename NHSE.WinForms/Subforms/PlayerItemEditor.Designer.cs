@@ -1,6 +1,6 @@
 ﻿namespace NHSE.WinForms
 {
-    partial class PlayerItemEditor
+    partial class PlayerItemEditor<T>
     {
         /// <summary>
         /// Required designer variable.

@@ -7,12 +7,12 @@ using NHSE.Core;
 
 namespace NHSE.WinForms
 {
-    public partial class PlayerItemEditor : Form
+    public partial class PlayerItemEditor<T> : Form where T : Item
     {
-        private readonly IReadOnlyList<Item> Items;
+        private readonly IReadOnlyList<T> Items;
         private readonly Action LoadItems;
 
-        public PlayerItemEditor(IReadOnlyList<Item> array, int width, int height)
+        public PlayerItemEditor(IReadOnlyList<T> array, int width, int height)
         {
             InitializeComponent();
             Items = array;
@@ -58,7 +58,7 @@ namespace NHSE.WinForms
             };
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
-            var bytes = Item.SetArray(Items);
+            var bytes = Items.SetArray(Items[0].ToBytesClass().Length);
             File.WriteAllBytes(sfd.FileName, bytes);
         }
 
@@ -73,7 +73,7 @@ namespace NHSE.WinForms
                 return;
 
             var data = File.ReadAllBytes(sfd.FileName);
-            var import = Item.GetArray(data);
+            var import = data.GetArray<T>(Items[0].ToBytesClass().Length);
             for (int i = 0; i < Items.Count && i < import.Length ; i++)
                 Items[i].CopyFrom(import[i]);
 

@@ -114,7 +114,7 @@ namespace NHSE.WinForms
                 var p1 = pers.Pocket1;
                 var p2 = pers.Pocket2;
                 var items = p2.Concat(p1).ToArray();
-                using var editor = new PlayerItemEditor(items, 10, 4);
+                using var editor = new PlayerItemEditor<Item>(items, 10, 4);
                 if (editor.ShowDialog() != DialogResult.OK)
                     return;
 
@@ -128,7 +128,7 @@ namespace NHSE.WinForms
             var player = SAV.Players[PlayerIndex];
             var pers = player.Personal;
             var p1 = pers.Storage;
-            using var editor = new PlayerItemEditor(p1, 10, 5);
+            using var editor = new PlayerItemEditor<Item>(p1, 10, 5);
             if (editor.ShowDialog() == DialogResult.OK)
                 pers.Storage = p1;
         }
@@ -136,7 +136,7 @@ namespace NHSE.WinForms
         private void B_RecycleBin_Click(object sender, EventArgs e)
         {
             var items = SAV.Main.RecycleBin;
-            using var editor = new PlayerItemEditor(items, 10, 4);
+            using var editor = new PlayerItemEditor<Item>(items, 10, 4);
             if (editor.ShowDialog() == DialogResult.OK)
                 SAV.Main.RecycleBin = items;
         }
@@ -360,7 +360,7 @@ namespace NHSE.WinForms
         {
             var v = SAV.Main.GetVillager(VillagerIndex);
             var items = v.Furniture;
-            using var editor = new PlayerItemEditor(items, 8, 2);
+            using var editor = new PlayerItemEditor<VillagerItem>(items, 8, 2);
             if (editor.ShowDialog() != DialogResult.OK)
                 return;
 
