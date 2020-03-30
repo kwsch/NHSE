@@ -74,6 +74,7 @@
             this.B_RecycleBin = new System.Windows.Forms.Button();
             this.Menu_LoadDecrypted = new System.Windows.Forms.ToolStripMenuItem();
             this.B_LoadVillager = new System.Windows.Forms.Button();
+            this.B_EditFurniture = new System.Windows.Forms.Button();
             this.Menu_Editor.SuspendLayout();
             this.TC_Editors.SuspendLayout();
             this.Tab_Players.SuspendLayout();
@@ -353,6 +354,7 @@
             // 
             // Tab_Villagers
             // 
+            this.Tab_Villagers.Controls.Add(this.B_EditFurniture);
             this.Tab_Villagers.Controls.Add(this.B_LoadVillager);
             this.Tab_Villagers.Controls.Add(this.B_DumpVillager);
             this.Tab_Villagers.Controls.Add(this.L_ExternalName);
@@ -566,6 +568,16 @@
             this.B_LoadVillager.UseVisualStyleBackColor = true;
             this.B_LoadVillager.Click += new System.EventHandler(this.B_LoadVillager_Click);
             // 
+            // B_EditFurniture
+            // 
+            this.B_EditFurniture.Location = new System.Drawing.Point(218, 168);
+            this.B_EditFurniture.Name = "B_EditFurniture";
+            this.B_EditFurniture.Size = new System.Drawing.Size(100, 40);
+            this.B_EditFurniture.TabIndex = 26;
+            this.B_EditFurniture.Text = "Edit Furniture";
+            this.B_EditFurniture.UseVisualStyleBackColor = true;
+            this.B_EditFurniture.Click += new System.EventHandler(this.B_EditFurniture_Click);
+            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -648,6 +660,7 @@
         private System.Windows.Forms.Button B_EditPlayerStorage;
         private System.Windows.Forms.ToolStripMenuItem Menu_LoadDecrypted;
         private System.Windows.Forms.Button B_LoadVillager;
+        private System.Windows.Forms.Button B_EditFurniture;
     }
 }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
 namespace NHSE.Core
@@ -44,6 +45,22 @@ namespace NHSE.Core
             Marshal.Copy(ptr, arr, 0, size);
             Marshal.FreeHGlobal(ptr);
             return arr;
+        }
+
+        public static T[] GetArray<T>(this byte[] data, int size) where T : class
+        {
+            var result = new T[data.Length / size];
+            for (int i = 0; i < result.Length; i++)
+                result[i] = data.Slice(i * size, size).ToClass<T>();
+            return result;
+        }
+
+        public static byte[] SetArray<T>(this IReadOnlyList<T> data, int size) where T : class
+        {
+            var result = new byte[data.Count * size];
+            for (int i = 0; i < data.Count; i++)
+                data[i].ToBytesClass().CopyTo(result, i * size);
+            return result;
         }
     }
 }

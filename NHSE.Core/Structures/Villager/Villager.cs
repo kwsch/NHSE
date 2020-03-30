@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace NHSE.Core
@@ -63,6 +64,12 @@ namespace NHSE.Core
         {
             get => GetString(0x10014, 2 * 12);
             set => GetBytes(value, 2 * 12).CopyTo(Data, 0x10014);
+        }
+
+        public IReadOnlyList<VillagerItem> Furniture
+        {
+            get => VillagerItem.GetArray(Data.Slice(0x105EC, 16 * VillagerItem.SIZE));
+            set => VillagerItem.SetArray(value).CopyTo(Data, 0x105EC);
         }
 
         public override string ToString() => InternalName;

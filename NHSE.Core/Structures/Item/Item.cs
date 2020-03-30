@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 namespace NHSE.Core
 {
     [StructLayout(LayoutKind.Sequential)]
-    public sealed class Item
+    public class Item
     {
         public static readonly Item NO_ITEM = new Item {ItemId = NONE};
         public const ushort NONE = 0xFFFE;
@@ -55,21 +55,8 @@ namespace NHSE.Core
             UseCount = item.UseCount;
         }
 
-        public static Item[] GetArray(byte[] data)
-        {
-            var result = new Item[data.Length / SIZE];
-            for (int i = 0; i < result.Length; i++)
-                result[i] = data.Slice(i * SIZE, SIZE).ToClass<Item>();
-            return result;
-        }
-
-        public static byte[] SetArray(IReadOnlyList<Item> data)
-        {
-            var result = new byte[data.Count * SIZE];
-            for (int i = 0; i < data.Count; i++)
-                data[i].ToBytesClass().CopyTo(result, i * SIZE);
-            return result;
-        }
+        public static Item[] GetArray(byte[] data) => data.GetArray<Item>(SIZE);
+        public static byte[] SetArray(IReadOnlyList<Item> data) => data.SetArray(SIZE);
 
         public ushort GetInventoryNameFromFlags()
         {
@@ -84,5 +71,14 @@ namespace NHSE.Core
                 _ => ItemId,
             };
         }
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public sealed class VillagerItem : Item
+    {
+        public new const int SIZE = 0x2C;
+        public uint U08, U0C, U10, U14, U18, U1C, U20, U24, U28;
+        public new static VillagerItem[] GetArray(byte[] data) => data.GetArray<VillagerItem>(SIZE);
+        public static byte[] SetArray(IReadOnlyList<VillagerItem> data) => data.SetArray(SIZE);
     }
 }

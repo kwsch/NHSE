@@ -351,5 +351,17 @@ namespace NHSE.WinForms
 
             SAV.Main.SetVillager(v, VillagerIndex);
         }
+
+        private void B_EditFurniture_Click(object sender, EventArgs e)
+        {
+            var v = SAV.Main.GetVillager(VillagerIndex);
+            var items = v.Furniture;
+            using var editor = new PlayerItemEditor(items, 8, 2);
+            if (editor.ShowDialog() != DialogResult.OK)
+                return;
+
+            v.Furniture = items;
+            SAV.Main.SetVillager(v, VillagerIndex);
+        }
     }
 }
