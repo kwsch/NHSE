@@ -36,6 +36,7 @@
             this.Menu_Tools = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_DumpDecrypted = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_VerifyHashes = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menu_LoadDecrypted = new System.Windows.Forms.ToolStripMenuItem();
             this.TC_Editors = new System.Windows.Forms.TabControl();
             this.Tab_Players = new System.Windows.Forms.TabPage();
             this.B_EditPlayerStorage = new System.Windows.Forms.Button();
@@ -56,6 +57,8 @@
             this.CM_Picture = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Menu_SavePNG = new System.Windows.Forms.ToolStripMenuItem();
             this.Tab_Villagers = new System.Windows.Forms.TabPage();
+            this.B_EditFurniture = new System.Windows.Forms.Button();
+            this.B_LoadVillager = new System.Windows.Forms.Button();
             this.B_DumpVillager = new System.Windows.Forms.Button();
             this.L_ExternalName = new System.Windows.Forms.Label();
             this.L_InternalName = new System.Windows.Forms.Label();
@@ -72,9 +75,7 @@
             this.NUD_Villager = new System.Windows.Forms.NumericUpDown();
             this.Tab_Map = new System.Windows.Forms.TabPage();
             this.B_RecycleBin = new System.Windows.Forms.Button();
-            this.Menu_LoadDecrypted = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_LoadVillager = new System.Windows.Forms.Button();
-            this.B_EditFurniture = new System.Windows.Forms.Button();
+            this.B_EditPlayerReceivedItems = new System.Windows.Forms.Button();
             this.Menu_Editor.SuspendLayout();
             this.TC_Editors.SuspendLayout();
             this.Tab_Players.SuspendLayout();
@@ -154,6 +155,14 @@
             this.Menu_VerifyHashes.Text = "Verify Hashes";
             this.Menu_VerifyHashes.Click += new System.EventHandler(this.Menu_VerifyHashes_Click);
             // 
+            // Menu_LoadDecrypted
+            // 
+            this.Menu_LoadDecrypted.Name = "Menu_LoadDecrypted";
+            this.Menu_LoadDecrypted.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
+            this.Menu_LoadDecrypted.Size = new System.Drawing.Size(206, 22);
+            this.Menu_LoadDecrypted.Text = "Load Decrypted";
+            this.Menu_LoadDecrypted.Click += new System.EventHandler(this.Menu_LoadDecrypted_Click);
+            // 
             // TC_Editors
             // 
             this.TC_Editors.Controls.Add(this.Tab_Players);
@@ -168,6 +177,7 @@
             // 
             // Tab_Players
             // 
+            this.Tab_Players.Controls.Add(this.B_EditPlayerReceivedItems);
             this.Tab_Players.Controls.Add(this.B_EditPlayerStorage);
             this.Tab_Players.Controls.Add(this.B_EditPlayerRecipes);
             this.Tab_Players.Controls.Add(this.B_EditPlayerItems);
@@ -193,9 +203,9 @@
             // 
             // B_EditPlayerStorage
             // 
-            this.B_EditPlayerStorage.Location = new System.Drawing.Point(112, 168);
+            this.B_EditPlayerStorage.Location = new System.Drawing.Point(104, 168);
             this.B_EditPlayerStorage.Name = "B_EditPlayerStorage";
-            this.B_EditPlayerStorage.Size = new System.Drawing.Size(100, 40);
+            this.B_EditPlayerStorage.Size = new System.Drawing.Size(92, 40);
             this.B_EditPlayerStorage.TabIndex = 14;
             this.B_EditPlayerStorage.Text = "Edit Storage";
             this.B_EditPlayerStorage.UseVisualStyleBackColor = true;
@@ -203,9 +213,9 @@
             // 
             // B_EditPlayerRecipes
             // 
-            this.B_EditPlayerRecipes.Location = new System.Drawing.Point(218, 168);
+            this.B_EditPlayerRecipes.Location = new System.Drawing.Point(202, 168);
             this.B_EditPlayerRecipes.Name = "B_EditPlayerRecipes";
-            this.B_EditPlayerRecipes.Size = new System.Drawing.Size(100, 40);
+            this.B_EditPlayerRecipes.Size = new System.Drawing.Size(92, 40);
             this.B_EditPlayerRecipes.TabIndex = 13;
             this.B_EditPlayerRecipes.Text = "Edit Recipes";
             this.B_EditPlayerRecipes.UseVisualStyleBackColor = true;
@@ -215,7 +225,7 @@
             // 
             this.B_EditPlayerItems.Location = new System.Drawing.Point(6, 168);
             this.B_EditPlayerItems.Name = "B_EditPlayerItems";
-            this.B_EditPlayerItems.Size = new System.Drawing.Size(100, 40);
+            this.B_EditPlayerItems.Size = new System.Drawing.Size(92, 40);
             this.B_EditPlayerItems.TabIndex = 12;
             this.B_EditPlayerItems.Text = "Edit Items";
             this.B_EditPlayerItems.UseVisualStyleBackColor = true;
@@ -378,11 +388,31 @@
             this.Tab_Villagers.Text = "Villagers";
             this.Tab_Villagers.UseVisualStyleBackColor = true;
             // 
+            // B_EditFurniture
+            // 
+            this.B_EditFurniture.Location = new System.Drawing.Point(202, 168);
+            this.B_EditFurniture.Name = "B_EditFurniture";
+            this.B_EditFurniture.Size = new System.Drawing.Size(92, 40);
+            this.B_EditFurniture.TabIndex = 26;
+            this.B_EditFurniture.Text = "Edit Furniture";
+            this.B_EditFurniture.UseVisualStyleBackColor = true;
+            this.B_EditFurniture.Click += new System.EventHandler(this.B_EditFurniture_Click);
+            // 
+            // B_LoadVillager
+            // 
+            this.B_LoadVillager.Location = new System.Drawing.Point(104, 168);
+            this.B_LoadVillager.Name = "B_LoadVillager";
+            this.B_LoadVillager.Size = new System.Drawing.Size(92, 40);
+            this.B_LoadVillager.TabIndex = 25;
+            this.B_LoadVillager.Text = "Load Villager";
+            this.B_LoadVillager.UseVisualStyleBackColor = true;
+            this.B_LoadVillager.Click += new System.EventHandler(this.B_LoadVillager_Click);
+            // 
             // B_DumpVillager
             // 
             this.B_DumpVillager.Location = new System.Drawing.Point(6, 168);
             this.B_DumpVillager.Name = "B_DumpVillager";
-            this.B_DumpVillager.Size = new System.Drawing.Size(100, 40);
+            this.B_DumpVillager.Size = new System.Drawing.Size(92, 40);
             this.B_DumpVillager.TabIndex = 24;
             this.B_DumpVillager.Text = "Dump Villager";
             this.B_DumpVillager.UseVisualStyleBackColor = true;
@@ -544,39 +574,21 @@
             // 
             this.B_RecycleBin.Location = new System.Drawing.Point(6, 168);
             this.B_RecycleBin.Name = "B_RecycleBin";
-            this.B_RecycleBin.Size = new System.Drawing.Size(100, 40);
+            this.B_RecycleBin.Size = new System.Drawing.Size(92, 40);
             this.B_RecycleBin.TabIndex = 13;
             this.B_RecycleBin.Text = "Edit Recycle Bin";
             this.B_RecycleBin.UseVisualStyleBackColor = true;
             this.B_RecycleBin.Click += new System.EventHandler(this.B_RecycleBin_Click);
             // 
-            // Menu_LoadDecrypted
+            // B_EditPlayerReceivedItems
             // 
-            this.Menu_LoadDecrypted.Name = "Menu_LoadDecrypted";
-            this.Menu_LoadDecrypted.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.Menu_LoadDecrypted.Size = new System.Drawing.Size(206, 22);
-            this.Menu_LoadDecrypted.Text = "Load Decrypted";
-            this.Menu_LoadDecrypted.Click += new System.EventHandler(this.Menu_LoadDecrypted_Click);
-            // 
-            // B_LoadVillager
-            // 
-            this.B_LoadVillager.Location = new System.Drawing.Point(112, 168);
-            this.B_LoadVillager.Name = "B_LoadVillager";
-            this.B_LoadVillager.Size = new System.Drawing.Size(100, 40);
-            this.B_LoadVillager.TabIndex = 25;
-            this.B_LoadVillager.Text = "Load Villager";
-            this.B_LoadVillager.UseVisualStyleBackColor = true;
-            this.B_LoadVillager.Click += new System.EventHandler(this.B_LoadVillager_Click);
-            // 
-            // B_EditFurniture
-            // 
-            this.B_EditFurniture.Location = new System.Drawing.Point(218, 168);
-            this.B_EditFurniture.Name = "B_EditFurniture";
-            this.B_EditFurniture.Size = new System.Drawing.Size(100, 40);
-            this.B_EditFurniture.TabIndex = 26;
-            this.B_EditFurniture.Text = "Edit Furniture";
-            this.B_EditFurniture.UseVisualStyleBackColor = true;
-            this.B_EditFurniture.Click += new System.EventHandler(this.B_EditFurniture_Click);
+            this.B_EditPlayerReceivedItems.Location = new System.Drawing.Point(300, 168);
+            this.B_EditPlayerReceivedItems.Name = "B_EditPlayerReceivedItems";
+            this.B_EditPlayerReceivedItems.Size = new System.Drawing.Size(92, 40);
+            this.B_EditPlayerReceivedItems.TabIndex = 15;
+            this.B_EditPlayerReceivedItems.Text = "Edit Received Items";
+            this.B_EditPlayerReceivedItems.UseVisualStyleBackColor = true;
+            this.B_EditPlayerReceivedItems.Click += new System.EventHandler(this.B_EditPlayerReceivedItems_Click);
             // 
             // Editor
             // 
@@ -661,6 +673,7 @@
         private System.Windows.Forms.ToolStripMenuItem Menu_LoadDecrypted;
         private System.Windows.Forms.Button B_LoadVillager;
         private System.Windows.Forms.Button B_EditFurniture;
+        private System.Windows.Forms.Button B_EditPlayerReceivedItems;
     }
 }
 

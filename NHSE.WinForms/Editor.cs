@@ -148,6 +148,13 @@ namespace NHSE.WinForms
             editor.ShowDialog();
         }
 
+        private void B_EditPlayerReceivedItems_Click(object sender, EventArgs e)
+        {
+            var player = SAV.Players[PlayerIndex];
+            using var editor = new ItemReceivedEditor(player);
+            editor.ShowDialog();
+        }
+
         private void LoadPlayer(int index)
         {
             if (PlayerIndex >= 0)

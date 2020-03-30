@@ -14,6 +14,7 @@
         public override int Pockets1 => 0x35BD4;
         public override int Pockets2 => Pockets1 + (8 * Pockets1Count) + 0x18;
         public override int Storage => Pockets2 + (8 * Pockets2Count) + 0x24;
+        public override int ReceivedItems => 0x3FC1C;
 
         public override int Recipes => 0x68BF4;
     }

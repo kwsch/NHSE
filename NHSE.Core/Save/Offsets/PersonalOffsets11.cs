@@ -11,9 +11,10 @@
         public override int NookMiles => 0x11588;
         public override int Photo => 0x115C4;
 
-        public override int Pockets1 => 0x35C20;
+        public override int Pockets1 => 0x35C20; // +0x4C from v1.0
         public override int Pockets2 => Pockets1 + (8 * Pockets1Count) + 0x18;
         public override int Storage => Pockets2 + (8 * Pockets2Count) + 0x24;
+        public override int ReceivedItems => 0x3FC68; // +0x4C from v1.0
 
         public override int Recipes => 0x68C44; // + 0x50 from v1.0
     }

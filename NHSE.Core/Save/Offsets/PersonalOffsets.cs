@@ -18,6 +18,7 @@ namespace NHSE.Core
         public abstract int Storage { get; }
 
         public abstract int Recipes { get; }
+        public abstract int ReceivedItems { get; }
 
         public virtual int Pockets1Count { get; } = 20;
         public virtual int Pockets2Count { get; } = 20;
