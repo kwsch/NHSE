@@ -7,7 +7,7 @@ namespace NHSE.Core
     /// <summary>
     /// Logic for converting raw data to class/stack struct, and back to data.
     /// </summary>
-    internal static class StructConverter
+    public static class StructConverter
     {
         public static T ToStructure<T>(this byte[] bytes) where T : struct
         {
