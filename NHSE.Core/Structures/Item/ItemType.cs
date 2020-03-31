@@ -6,5 +6,5 @@
         Reserved = 1,
         Present = 2,
         Delivery = 3
-    };
+    }
 }

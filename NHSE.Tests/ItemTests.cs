@@ -1,5 +1,6 @@
 using FluentAssertions;
 using NHSE.Core;
+using NHSE.Parsing;
 using Xunit;
 
 namespace NHSE.Tests

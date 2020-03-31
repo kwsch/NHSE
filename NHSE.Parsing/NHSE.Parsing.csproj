@@ -5,4 +5,8 @@
     <LangVersion>8</LangVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NHSE.Core\NHSE.Core.csproj" />
+  </ItemGroup>
+
 </Project>
