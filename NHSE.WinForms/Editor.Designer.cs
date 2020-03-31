@@ -39,6 +39,7 @@
             this.Menu_LoadDecrypted = new System.Windows.Forms.ToolStripMenuItem();
             this.TC_Editors = new System.Windows.Forms.TabControl();
             this.Tab_Players = new System.Windows.Forms.TabPage();
+            this.B_EditPlayerReceivedItems = new System.Windows.Forms.Button();
             this.B_EditPlayerStorage = new System.Windows.Forms.Button();
             this.B_EditPlayerRecipes = new System.Windows.Forms.Button();
             this.B_EditPlayerItems = new System.Windows.Forms.Button();
@@ -73,17 +74,17 @@
             this.PB_Villager = new System.Windows.Forms.PictureBox();
             this.L_VillagerID = new System.Windows.Forms.Label();
             this.NUD_Villager = new System.Windows.Forms.NumericUpDown();
-            this.Tab_Map = new System.Windows.Forms.TabPage();
-            this.B_RecycleBin = new System.Windows.Forms.Button();
-            this.B_EditPlayerReceivedItems = new System.Windows.Forms.Button();
             this.Tab_Designs = new System.Windows.Forms.TabPage();
-            this.PB_Pattern = new System.Windows.Forms.PictureBox();
-            this.L_PatternIndex = new System.Windows.Forms.Label();
-            this.NUD_PatternIndex = new System.Windows.Forms.NumericUpDown();
+            this.PB_Palette = new System.Windows.Forms.PictureBox();
+            this.L_PatternName = new System.Windows.Forms.Label();
             this.B_LoadDesign = new System.Windows.Forms.Button();
             this.B_DumpDesign = new System.Windows.Forms.Button();
-            this.L_PatternName = new System.Windows.Forms.Label();
-            this.PB_Palette = new System.Windows.Forms.PictureBox();
+            this.L_PatternIndex = new System.Windows.Forms.Label();
+            this.NUD_PatternIndex = new System.Windows.Forms.NumericUpDown();
+            this.PB_Pattern = new System.Windows.Forms.PictureBox();
+            this.Tab_Map = new System.Windows.Forms.TabPage();
+            this.B_RecycleBin = new System.Windows.Forms.Button();
+            this.B_EditBuildings = new System.Windows.Forms.Button();
             this.Menu_Editor.SuspendLayout();
             this.TC_Editors.SuspendLayout();
             this.Tab_Players.SuspendLayout();
@@ -97,11 +98,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Species)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Villager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Villager)).BeginInit();
-            this.Tab_Map.SuspendLayout();
             this.Tab_Designs.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_Pattern)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_PatternIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Palette)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PatternIndex)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_Pattern)).BeginInit();
+            this.Tab_Map.SuspendLayout();
             this.SuspendLayout();
             // 
             // Menu_Editor
@@ -213,6 +214,16 @@
             this.Tab_Players.TabIndex = 1;
             this.Tab_Players.Text = "Players";
             this.Tab_Players.UseVisualStyleBackColor = true;
+            // 
+            // B_EditPlayerReceivedItems
+            // 
+            this.B_EditPlayerReceivedItems.Location = new System.Drawing.Point(300, 168);
+            this.B_EditPlayerReceivedItems.Name = "B_EditPlayerReceivedItems";
+            this.B_EditPlayerReceivedItems.Size = new System.Drawing.Size(92, 40);
+            this.B_EditPlayerReceivedItems.TabIndex = 15;
+            this.B_EditPlayerReceivedItems.Text = "Edit Received Items";
+            this.B_EditPlayerReceivedItems.UseVisualStyleBackColor = true;
+            this.B_EditPlayerReceivedItems.Click += new System.EventHandler(this.B_EditPlayerReceivedItems_Click);
             // 
             // B_EditPlayerStorage
             // 
@@ -572,37 +583,6 @@
             0});
             this.NUD_Villager.ValueChanged += new System.EventHandler(this.LoadVillager);
             // 
-            // Tab_Map
-            // 
-            this.Tab_Map.Controls.Add(this.B_RecycleBin);
-            this.Tab_Map.Location = new System.Drawing.Point(4, 22);
-            this.Tab_Map.Name = "Tab_Map";
-            this.Tab_Map.Padding = new System.Windows.Forms.Padding(3);
-            this.Tab_Map.Size = new System.Drawing.Size(396, 211);
-            this.Tab_Map.TabIndex = 2;
-            this.Tab_Map.Text = "Map";
-            this.Tab_Map.UseVisualStyleBackColor = true;
-            // 
-            // B_RecycleBin
-            // 
-            this.B_RecycleBin.Location = new System.Drawing.Point(6, 168);
-            this.B_RecycleBin.Name = "B_RecycleBin";
-            this.B_RecycleBin.Size = new System.Drawing.Size(92, 40);
-            this.B_RecycleBin.TabIndex = 13;
-            this.B_RecycleBin.Text = "Edit Recycle Bin";
-            this.B_RecycleBin.UseVisualStyleBackColor = true;
-            this.B_RecycleBin.Click += new System.EventHandler(this.B_RecycleBin_Click);
-            // 
-            // B_EditPlayerReceivedItems
-            // 
-            this.B_EditPlayerReceivedItems.Location = new System.Drawing.Point(300, 168);
-            this.B_EditPlayerReceivedItems.Name = "B_EditPlayerReceivedItems";
-            this.B_EditPlayerReceivedItems.Size = new System.Drawing.Size(92, 40);
-            this.B_EditPlayerReceivedItems.TabIndex = 15;
-            this.B_EditPlayerReceivedItems.Text = "Edit Received Items";
-            this.B_EditPlayerReceivedItems.UseVisualStyleBackColor = true;
-            this.B_EditPlayerReceivedItems.Click += new System.EventHandler(this.B_EditPlayerReceivedItems_Click);
-            // 
             // Tab_Designs
             // 
             this.Tab_Designs.Controls.Add(this.PB_Palette);
@@ -620,18 +600,45 @@
             this.Tab_Designs.Text = "Designs";
             this.Tab_Designs.UseVisualStyleBackColor = true;
             // 
-            // PB_Pattern
+            // PB_Palette
             // 
-            this.PB_Pattern.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PB_Pattern.ContextMenuStrip = this.CM_Picture;
-            this.PB_Pattern.Location = new System.Drawing.Point(6, 33);
-            this.PB_Pattern.Name = "PB_Pattern";
-            this.PB_Pattern.Size = new System.Drawing.Size(130, 130);
-            this.PB_Pattern.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PB_Pattern.TabIndex = 15;
-            this.PB_Pattern.TabStop = false;
-            this.PB_Pattern.MouseEnter += new System.EventHandler(this.PB_Pattern_MouseEnter);
-            this.PB_Pattern.MouseLeave += new System.EventHandler(this.PB_Pattern_MouseLeave);
+            this.PB_Palette.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PB_Palette.ContextMenuStrip = this.CM_Picture;
+            this.PB_Palette.Location = new System.Drawing.Point(145, 33);
+            this.PB_Palette.Name = "PB_Palette";
+            this.PB_Palette.Size = new System.Drawing.Size(152, 12);
+            this.PB_Palette.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PB_Palette.TabIndex = 29;
+            this.PB_Palette.TabStop = false;
+            // 
+            // L_PatternName
+            // 
+            this.L_PatternName.AutoSize = true;
+            this.L_PatternName.Location = new System.Drawing.Point(142, 49);
+            this.L_PatternName.Name = "L_PatternName";
+            this.L_PatternName.Size = new System.Drawing.Size(73, 13);
+            this.L_PatternName.TabIndex = 28;
+            this.L_PatternName.Text = "*PatternName";
+            // 
+            // B_LoadDesign
+            // 
+            this.B_LoadDesign.Location = new System.Drawing.Point(104, 168);
+            this.B_LoadDesign.Name = "B_LoadDesign";
+            this.B_LoadDesign.Size = new System.Drawing.Size(92, 40);
+            this.B_LoadDesign.TabIndex = 27;
+            this.B_LoadDesign.Text = "Load Design";
+            this.B_LoadDesign.UseVisualStyleBackColor = true;
+            this.B_LoadDesign.Click += new System.EventHandler(this.B_LoadDesign_Click);
+            // 
+            // B_DumpDesign
+            // 
+            this.B_DumpDesign.Location = new System.Drawing.Point(6, 168);
+            this.B_DumpDesign.Name = "B_DumpDesign";
+            this.B_DumpDesign.Size = new System.Drawing.Size(92, 40);
+            this.B_DumpDesign.TabIndex = 26;
+            this.B_DumpDesign.Text = "Dump Design";
+            this.B_DumpDesign.UseVisualStyleBackColor = true;
+            this.B_DumpDesign.Click += new System.EventHandler(this.B_DumpDesign_Click);
             // 
             // L_PatternIndex
             // 
@@ -665,45 +672,50 @@
             0});
             this.NUD_PatternIndex.ValueChanged += new System.EventHandler(this.LoadPattern);
             // 
-            // B_LoadDesign
+            // PB_Pattern
             // 
-            this.B_LoadDesign.Location = new System.Drawing.Point(104, 168);
-            this.B_LoadDesign.Name = "B_LoadDesign";
-            this.B_LoadDesign.Size = new System.Drawing.Size(92, 40);
-            this.B_LoadDesign.TabIndex = 27;
-            this.B_LoadDesign.Text = "Load Design";
-            this.B_LoadDesign.UseVisualStyleBackColor = true;
-            this.B_LoadDesign.Click += new System.EventHandler(this.B_LoadDesign_Click);
+            this.PB_Pattern.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PB_Pattern.ContextMenuStrip = this.CM_Picture;
+            this.PB_Pattern.Location = new System.Drawing.Point(6, 33);
+            this.PB_Pattern.Name = "PB_Pattern";
+            this.PB_Pattern.Size = new System.Drawing.Size(130, 130);
+            this.PB_Pattern.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PB_Pattern.TabIndex = 15;
+            this.PB_Pattern.TabStop = false;
+            this.PB_Pattern.MouseEnter += new System.EventHandler(this.PB_Pattern_MouseEnter);
+            this.PB_Pattern.MouseLeave += new System.EventHandler(this.PB_Pattern_MouseLeave);
             // 
-            // B_DumpDesign
+            // Tab_Map
             // 
-            this.B_DumpDesign.Location = new System.Drawing.Point(6, 168);
-            this.B_DumpDesign.Name = "B_DumpDesign";
-            this.B_DumpDesign.Size = new System.Drawing.Size(92, 40);
-            this.B_DumpDesign.TabIndex = 26;
-            this.B_DumpDesign.Text = "Dump Design";
-            this.B_DumpDesign.UseVisualStyleBackColor = true;
-            this.B_DumpDesign.Click += new System.EventHandler(this.B_DumpDesign_Click);
+            this.Tab_Map.Controls.Add(this.B_EditBuildings);
+            this.Tab_Map.Controls.Add(this.B_RecycleBin);
+            this.Tab_Map.Location = new System.Drawing.Point(4, 22);
+            this.Tab_Map.Name = "Tab_Map";
+            this.Tab_Map.Padding = new System.Windows.Forms.Padding(3);
+            this.Tab_Map.Size = new System.Drawing.Size(396, 211);
+            this.Tab_Map.TabIndex = 2;
+            this.Tab_Map.Text = "Map";
+            this.Tab_Map.UseVisualStyleBackColor = true;
             // 
-            // L_PatternName
+            // B_RecycleBin
             // 
-            this.L_PatternName.AutoSize = true;
-            this.L_PatternName.Location = new System.Drawing.Point(142, 49);
-            this.L_PatternName.Name = "L_PatternName";
-            this.L_PatternName.Size = new System.Drawing.Size(73, 13);
-            this.L_PatternName.TabIndex = 28;
-            this.L_PatternName.Text = "*PatternName";
+            this.B_RecycleBin.Location = new System.Drawing.Point(6, 168);
+            this.B_RecycleBin.Name = "B_RecycleBin";
+            this.B_RecycleBin.Size = new System.Drawing.Size(92, 40);
+            this.B_RecycleBin.TabIndex = 13;
+            this.B_RecycleBin.Text = "Edit Recycle Bin";
+            this.B_RecycleBin.UseVisualStyleBackColor = true;
+            this.B_RecycleBin.Click += new System.EventHandler(this.B_RecycleBin_Click);
             // 
-            // PB_Palette
+            // B_EditBuildings
             // 
-            this.PB_Palette.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PB_Palette.ContextMenuStrip = this.CM_Picture;
-            this.PB_Palette.Location = new System.Drawing.Point(145, 33);
-            this.PB_Palette.Name = "PB_Palette";
-            this.PB_Palette.Size = new System.Drawing.Size(152, 12);
-            this.PB_Palette.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PB_Palette.TabIndex = 29;
-            this.PB_Palette.TabStop = false;
+            this.B_EditBuildings.Location = new System.Drawing.Point(104, 168);
+            this.B_EditBuildings.Name = "B_EditBuildings";
+            this.B_EditBuildings.Size = new System.Drawing.Size(92, 40);
+            this.B_EditBuildings.TabIndex = 14;
+            this.B_EditBuildings.Text = "Edit Buildings";
+            this.B_EditBuildings.UseVisualStyleBackColor = true;
+            this.B_EditBuildings.Click += new System.EventHandler(this.B_EditBuildings_Click);
             // 
             // Editor
             // 
@@ -734,12 +746,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Species)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Villager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Villager)).EndInit();
-            this.Tab_Map.ResumeLayout(false);
             this.Tab_Designs.ResumeLayout(false);
             this.Tab_Designs.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_Pattern)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_PatternIndex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Palette)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PatternIndex)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_Pattern)).EndInit();
+            this.Tab_Map.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -802,6 +814,7 @@
         private System.Windows.Forms.PictureBox PB_Pattern;
         private System.Windows.Forms.Label L_PatternName;
         private System.Windows.Forms.PictureBox PB_Palette;
+        private System.Windows.Forms.Button B_EditBuildings;
     }
 }
 

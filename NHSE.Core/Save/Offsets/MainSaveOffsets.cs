@@ -14,6 +14,9 @@ namespace NHSE.Core
         public abstract int Patterns { get; }
         public const int PatternCount = 50;
 
+        public abstract int Buildings { get; }
+        public const int BuildingCount = 40; // actual count unknown, max may be 46
+
         public abstract int RecycleBin { get; }
         public const int RecycleBinCount = 40;
 

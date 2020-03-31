@@ -20,5 +20,11 @@ namespace NHSE.Core
             get => Item.GetArray(Data.Slice(Offsets.RecycleBin, MainSaveOffsets.RecycleBinCount * Item.SIZE));
             set => Item.SetArray(value).CopyTo(Data, Offsets.RecycleBin);
         }
+
+        public IReadOnlyList<Building> Buildings
+        {
+            get => Building.GetArray(Data.Slice(Offsets.Buildings, MainSaveOffsets.BuildingCount * Building.SIZE));
+            set => Building.SetArray(value).CopyTo(Data, Offsets.Buildings);
+        }
     }
 }

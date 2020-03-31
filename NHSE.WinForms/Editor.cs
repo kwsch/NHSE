@@ -475,5 +475,13 @@ namespace NHSE.WinForms
 
         private void PB_Pattern_MouseEnter(object sender, EventArgs e) => PB_Pattern.BackColor = Color.GreenYellow;
         private void PB_Pattern_MouseLeave(object sender, EventArgs e) => PB_Pattern.BackColor = Color.Transparent;
+
+        private void B_EditBuildings_Click(object sender, EventArgs e)
+        {
+            var buildings = SAV.Main.Buildings;
+            using var editor = new PropertyEditor<Building>(buildings, Array.Empty<string>());
+            if (editor.ShowDialog() == DialogResult.OK)
+                SAV.Main.Buildings = buildings;
+        }
     }
 }
