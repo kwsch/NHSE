@@ -48,6 +48,19 @@ namespace NHSE.WinForms
             System.Media.SystemSounds.Asterisk.Play();
         }
 
+        private void B_GiveAll_Click(object sender, EventArgs e)
+        {
+            var items = GameInfo.Strings.itemlist;
+            bool value = ModifierKeys != Keys.Alt;
+            for (int i = 0x50; i < CLB_Items.Items.Count; i++)
+            {
+                if (string.IsNullOrEmpty(items[i]))
+                    continue;
+                CLB_Items.SetItemChecked(i, value);
+            }
+            System.Media.SystemSounds.Asterisk.Play();
+        }
+
         private void B_AllBugs_Click(object sender, EventArgs e) => GiveAll(GameLists.Bugs, ModifierKeys != Keys.Alt);
         private void B_AllFish_Click(object sender, EventArgs e) => GiveAll(GameLists.Fish, ModifierKeys != Keys.Alt);
         private void B_Cancel_Click(object sender, EventArgs e) => Close();

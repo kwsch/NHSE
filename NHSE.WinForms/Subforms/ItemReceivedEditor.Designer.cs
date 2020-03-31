@@ -34,12 +34,13 @@
             this.B_AllBugs = new System.Windows.Forms.Button();
             this.B_AllFish = new System.Windows.Forms.Button();
             this.CB_Item = new System.Windows.Forms.ComboBox();
+            this.B_GiveAll = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // B_Cancel
             // 
             this.B_Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.B_Cancel.Location = new System.Drawing.Point(130, 280);
+            this.B_Cancel.Location = new System.Drawing.Point(130, 325);
             this.B_Cancel.Name = "B_Cancel";
             this.B_Cancel.Size = new System.Drawing.Size(72, 23);
             this.B_Cancel.TabIndex = 7;
@@ -50,7 +51,7 @@
             // B_Save
             // 
             this.B_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.B_Save.Location = new System.Drawing.Point(208, 280);
+            this.B_Save.Location = new System.Drawing.Point(208, 325);
             this.B_Save.Name = "B_Save";
             this.B_Save.Size = new System.Drawing.Size(72, 23);
             this.B_Save.TabIndex = 6;
@@ -67,14 +68,14 @@
             this.CLB_Items.FormattingEnabled = true;
             this.CLB_Items.Location = new System.Drawing.Point(12, 12);
             this.CLB_Items.Name = "CLB_Items";
-            this.CLB_Items.Size = new System.Drawing.Size(268, 229);
+            this.CLB_Items.Size = new System.Drawing.Size(268, 259);
             this.CLB_Items.TabIndex = 8;
             this.CLB_Items.SelectedIndexChanged += new System.EventHandler(this.CLB_Items_SelectedIndexChanged);
             // 
             // B_AllBugs
             // 
             this.B_AllBugs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.B_AllBugs.Location = new System.Drawing.Point(12, 252);
+            this.B_AllBugs.Location = new System.Drawing.Point(12, 277);
             this.B_AllBugs.Name = "B_AllBugs";
             this.B_AllBugs.Size = new System.Drawing.Size(82, 23);
             this.B_AllBugs.TabIndex = 11;
@@ -85,7 +86,7 @@
             // B_AllFish
             // 
             this.B_AllFish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.B_AllFish.Location = new System.Drawing.Point(12, 280);
+            this.B_AllFish.Location = new System.Drawing.Point(12, 301);
             this.B_AllFish.Name = "B_AllFish";
             this.B_AllFish.Size = new System.Drawing.Size(82, 23);
             this.B_AllFish.TabIndex = 12;
@@ -101,17 +102,29 @@
             this.CB_Item.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CB_Item.DropDownWidth = 322;
             this.CB_Item.FormattingEnabled = true;
-            this.CB_Item.Location = new System.Drawing.Point(130, 254);
+            this.CB_Item.Location = new System.Drawing.Point(130, 279);
             this.CB_Item.Name = "CB_Item";
             this.CB_Item.Size = new System.Drawing.Size(150, 21);
             this.CB_Item.TabIndex = 13;
             this.CB_Item.SelectedValueChanged += new System.EventHandler(this.CB_Item_SelectedValueChanged);
             // 
+            // B_GiveAll
+            // 
+            this.B_GiveAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.B_GiveAll.Location = new System.Drawing.Point(12, 325);
+            this.B_GiveAll.Name = "B_GiveAll";
+            this.B_GiveAll.Size = new System.Drawing.Size(82, 23);
+            this.B_GiveAll.TabIndex = 14;
+            this.B_GiveAll.Text = "Give All";
+            this.B_GiveAll.UseVisualStyleBackColor = true;
+            this.B_GiveAll.Click += new System.EventHandler(this.B_GiveAll_Click);
+            // 
             // ItemReceivedEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 315);
+            this.ClientSize = new System.Drawing.Size(292, 360);
+            this.Controls.Add(this.B_GiveAll);
             this.Controls.Add(this.CB_Item);
             this.Controls.Add(this.B_AllFish);
             this.Controls.Add(this.B_AllBugs);
@@ -136,5 +149,6 @@
         private System.Windows.Forms.Button B_AllBugs;
         private System.Windows.Forms.Button B_AllFish;
         private System.Windows.Forms.ComboBox CB_Item;
+        private System.Windows.Forms.Button B_GiveAll;
     }
 }
