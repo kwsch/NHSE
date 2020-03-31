@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using System.Linq;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NHSE.Parsing;
 using NHSE.Tests.Properties;
 using Xunit;
@@ -19,7 +17,6 @@ namespace NHSE.Tests
 
             var str = obj.TXT2.Strings[8].ToString(obj.FileEncoding).TrimEnd('\0');
             str.Should().Be("Awesome Beach");
-
             obj.DebugDumpLines();
         }
 

@@ -6,7 +6,7 @@ namespace NHSE.Parsing
     {
         public uint NumberOfGroups;
 
-        public List<MSBTGroup> Groups = new List<MSBTGroup>();
-        public List<MSBTLabel> Labels = new List<MSBTLabel>();
+        public readonly List<MSBTGroup> Groups = new List<MSBTGroup>();
+        public readonly List<MSBTLabel> Labels = new List<MSBTLabel>();
     }
 }

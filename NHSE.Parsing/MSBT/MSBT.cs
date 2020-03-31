@@ -7,7 +7,7 @@ namespace NHSE.Parsing
 {
     public class MSBT
 	{
-		public readonly MSBTHeader Header = new MSBTHeader();
+		public readonly MSBTHeader Header;
 		public readonly LBL1 LBL1 = new LBL1();
 		public readonly TXT2 TXT2 = new TXT2();
 		public readonly Encoding FileEncoding;
@@ -19,30 +19,8 @@ namespace NHSE.Parsing
             using var stream = new MemoryStream(rawBytes);
             using var br = new BinaryReaderX(stream);
 
-            // Header
-            Header.Identifier = br.ReadString(8);
-            if (Header.Identifier != "MsgStdBn")
-                throw new ArgumentException("The file provided is not a valid MSBT file.", nameof(rawBytes));
-
-            // Byte Order
-            Header.ByteOrderMark = br.ReadBytes(2);
-            br.ByteOrder = Header.ByteOrderMark[0] > Header.ByteOrderMark[1] ? ByteOrder.LittleEndian : ByteOrder.BigEndian;
-
-            Header.Unknown1 = br.ReadUInt16();
-
-            // Encoding
-            Header.EncodingByte = (MSBTEncodingByte)br.ReadByte();
+			Header = new MSBTHeader(br);
             FileEncoding = (Header.EncodingByte == MSBTEncodingByte.UTF8 ? Encoding.UTF8 : Encoding.Unicode);
-
-            Header.Unknown2 = br.ReadByte();
-            Header.NumberOfSections = br.ReadUInt16();
-            Header.Unknown3 = br.ReadUInt16();
-            Header.FileSizeOffset = (uint)br.BaseStream.Position; // Record offset for future use
-            Header.FileSize = br.ReadUInt32();
-            Header.Unknown4 = br.ReadBytes(10);
-
-            if (Header.FileSize != br.BaseStream.Length)
-                throw new ArgumentException("The file provided is not a valid MSBT file.", nameof(rawBytes));
 
 			SectionOrder = new List<string>();
 			for (int i = 0; i < Header.NumberOfSections; i++)
@@ -129,7 +107,6 @@ namespace NHSE.Parsing
 				br.BaseStream.Seek(startOfStrings + offsets[i], SeekOrigin.Begin);
 
 				var result = new List<byte>();
-                var str = new MSBTTextString();
 				while (br.BaseStream.Position < nextOffset && br.BaseStream.Position < Header.FileSize)
 				{
 					if (Header.EncodingByte == MSBTEncodingByte.UTF8)
@@ -146,8 +123,7 @@ namespace NHSE.Parsing
 						result.AddRange(unichar);
 					}
 				}
-				str.Value = result.ToArray();
-				str.Index = (uint)i;
+                var str = new MSBTTextString(result.ToArray(), (uint)i);
                 TXT2.Strings.Add(str);
 			}
 

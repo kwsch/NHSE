@@ -6,6 +6,6 @@ namespace NHSE.Parsing
     {
         public uint NumberOfStrings;
 
-        public List<MSBTTextString> Strings = new List<MSBTTextString>();
+        public readonly List<MSBTTextString> Strings = new List<MSBTTextString>();
     }
 }

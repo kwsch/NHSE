@@ -2,19 +2,19 @@
 
 namespace NHSE.Parsing
 {
-    public class MSBTTextString : IMSBTEntry
+    public class MSBTTextString
     {
-        public byte[] Value { get; set; }
-        public uint Index { get; set; }
+        public readonly byte[] Value;
+        public readonly uint Index;
 
-        public override string ToString()
+        public MSBTTextString(byte[] v, uint i)
         {
-            return (Index + 1).ToString();
+            Value = v;
+            Index = i;
         }
 
-        public string ToString(Encoding encoding)
-        {
-            return encoding.GetString(Value);
-        }
+        public override string ToString() => (Index + 1).ToString();
+
+        public string ToString(Encoding encoding) => encoding.GetString(Value);
     }
 }

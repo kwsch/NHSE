@@ -68,7 +68,10 @@ namespace NHSE.Parsing
         private string ReadFieldUnknownType(in int offset, in int fieldIndex)
         {
             var length = GetFieldLength(fieldIndex);
+            // ReSharper disable once ConvertSwitchStatementToSwitchExpression
+#pragma warning disable IDE0066 // Convert switch statement to expression
             switch (length)
+#pragma warning restore IDE0066 // Convert switch statement to expression
             {
                 case 1: return Data[offset].ToString();
                 case 2: return BitConverter.ToInt16(Data, offset).ToString();
