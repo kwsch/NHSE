@@ -78,7 +78,7 @@ namespace NHSE.WinForms
                 return;
             }
 
-            byte[] Write() => Items.SelectMany(z => z.ToBytesClass()).ToArray();
+            byte[] Write() => Items.Take(20).SelectMany(z => z.ToBytesClass()).ToArray();
             void Read(byte[] data)
             {
                 var items = Item.GetArray(data);

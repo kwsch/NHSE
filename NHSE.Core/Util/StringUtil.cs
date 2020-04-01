@@ -43,7 +43,6 @@ namespace NHSE.Core
             return string.Concat(fileName.Split(Path.GetInvalidFileNameChars()));
         }
 
-
         /// <summary>
         /// Parses the hex string into a <see cref="uint"/>, skipping all characters except for valid digits.
         /// </summary>
