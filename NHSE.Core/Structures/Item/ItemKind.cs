@@ -34,6 +34,7 @@
         Kind_DummyPresentbox,
         Kind_DummyRecipe,
         Kind_DummyWrapping,
+        Kind_EasterEgg,
         Kind_EventObjFtr,
         Kind_Fence,
         Kind_Fish,

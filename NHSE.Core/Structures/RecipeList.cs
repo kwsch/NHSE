@@ -184,31 +184,31 @@ namespace NHSE.Core.Structures
             {0x0EA, 01054}, // moon
             {0x0EB, 01439}, // asteroid
             {0x0EC, 01445}, // astronaut suit
-            {0x0ED, 05096}, // 0
-            {0x0EE, 05097}, // 0
-            {0x0EF, 05098}, // 0
-            {0x0F0, 05099}, // 0
-            {0x0F1, 05100}, // 0
-            {0x0F2, 05101}, // 0
-            {0x0F3, 05102}, // 0
-            {0x0F4, 05103}, // 0
-            {0x0F5, 05104}, // 0
-            {0x0F6, 05105}, // 0
-            {0x0F7, 05106}, // 0
-            {0x0F8, 05107}, // 0
-            {0x0F9, 05108}, // 0
-            {0x0FA, 05109}, // 0
-            {0x0FB, 05110}, // 0
-            {0x0FC, 05111}, // 0
-            {0x0FD, 05112}, // 0
-            {0x0FE, 05113}, // 0
-            {0x0FF, 05114}, // 0
-            {0x100, 05115}, // 0
-            {0x101, 05116}, // 0
-            {0x102, 05117}, // 0
-            {0x103, 05118}, // 0
-            {0x104, 05119}, // 0
-            {0x105, 04682}, // 0
+            {0x0ED, 05096}, // hyacinth crown (Red)
+            {0x0EE, 05097}, // cool hyacinth crown (Blue)
+            {0x0EF, 05098}, // purple hyacinth crown (Purple)
+            {0x0F0, 05099}, // windflower crown (Colorful)
+            {0x0F1, 05100}, // cool windflower crown (Colorful)
+            {0x0F2, 05101}, // purple windflower crown (Purple)
+            {0x0F3, 05102}, // tulip crown (Colorful)
+            {0x0F4, 05103}, // chic tulip crown (Colorful)
+            {0x0F5, 05104}, // dark tulip crown (Dark red)
+            {0x0F6, 05105}, // pansy crown (Colorful)
+            {0x0F7, 05106}, // cool pansy crown (Colorful)
+            {0x0F8, 05107}, // purple pansy crown (Purple)
+            {0x0F9, 05108}, // cosmos crown (Colorful)
+            {0x0FA, 05109}, // lovely cosmos crown (Colorful)
+            {0x0FB, 05110}, // dark cosmos crown (Dark red)
+            {0x0FC, 05111}, // rose crown (Colorful)
+            {0x0FD, 05112}, // cute rose crown (Colorful)
+            {0x0FE, 05113}, // chic rose crown (Purple)
+            {0x0FF, 05114}, // lily crown (Colorful)
+            {0x100, 05115}, // cute lily crown (Colorful)
+            {0x101, 05116}, // dark lily crown (Dark red)
+            {0x102, 05117}, // mum crown (Colorful)
+            {0x103, 05118}, // chic mum crown (Colorful)
+            {0x104, 05119}, // simple mum crown (Green)
+            {0x105, 04682}, // leaf (Green)
             {0x106, 03472}, // golden toilet
             {0x107, 01241}, // DIY workbench
             {0x108, 02578}, // pitfall seed
@@ -361,8 +361,8 @@ namespace NHSE.Core.Structures
             {0x1C8, 06840}, // leaf umbrella
             {0x1C9, 03229}, // clothesline
             {0x1CA, 07211}, // bridge construction kit
-            {0x1CB, 07377}, // 0
-            {0x1CC, 07378}, // 0
+            {0x1CB, 07377}, // blue rose crown (Blue)
+            {0x1CC, 07378}, // gold rose crown (Gold)
             {0x1CD, 05166}, // campsite construction kit
             {0x1CE, 01750}, // document stack
             {0x1CF, 04034}, // scattered papers
@@ -454,7 +454,7 @@ namespace NHSE.Core.Structures
             {0x231, 05213}, // barbed-wire fence
             {0x234, 05268}, // underwater flooring
             {0x235, 05030}, // water flooring
-            {0x236, 04590}, // 0
+            {0x236, 04590}, // gold armor (Gold)
             {0x237, 02777}, // medicine
             {0x238, 07317}, // zen-style stone
             {0x239, 08825}, // golden casket
@@ -489,48 +489,48 @@ namespace NHSE.Core.Structures
             {0x258, 07535}, // kettlebell
             {0x259, 05941}, // golden dung beetle
             {0x25A, 11260}, // golden arowana model
-            {0x25B, 04333}, // 0
-            {0x25C, 05291}, // 0
-            {0x25D, 08907}, // 0
-            {0x25E, 07254}, // 0
-            {0x25F, 05143}, // 0
+            {0x25B, 04333}, // grass skirt (Brown)
+            {0x25C, 05291}, // traditional straw coat (Brown)
+            {0x25D, 08907}, // green grass skirt (Green)
+            {0x25E, 07254}, // straw umbrella hat (Brown)
+            {0x25F, 05143}, // bamboo hat (Beige)
             {0x260, 07527}, // flower stand
             {0x261, 03410}, // small cardboard boxes
             {0x262, 03411}, // medium cardboard boxes
             {0x263, 03412}, // large cardboard boxes
-            {0x264, 09838}, // 0
-            {0x265, 09873}, // 0
+            {0x264, 09838}, // cherry dress (Red)
+            {0x265, 09873}, // cherry hat (Red)
             {0x266, 09949}, // cherry umbrella
-            {0x267, 09837}, // 0
-            {0x268, 09872}, // 0
+            {0x267, 09837}, // pear dress (Beige)
+            {0x268, 09872}, // pear hat (Green)
             {0x269, 09950}, // pear umbrella
-            {0x26A, 09839}, // 0
-            {0x26B, 09874}, // 0
+            {0x26A, 09839}, // peach dress (Peach)
+            {0x26B, 09874}, // peach hat (Peach)
             {0x26C, 09947}, // peach umbrella
-            {0x26D, 09836}, // 0
-            {0x26E, 09871}, // 0
+            {0x26D, 09836}, // apple dress (Red)
+            {0x26E, 09871}, // apple hat (Red)
             {0x26F, 09948}, // apple umbrella
-            {0x270, 05275}, // 0
+            {0x270, 05275}, // orange hat (Orange)
             {0x271, 06912}, // orange umbrella
-            {0x272, 03288}, // 0
-            {0x273, 07489}, // 0
-            {0x274, 09862}, // 0
+            {0x272, 03288}, // orange dress (Orange)
+            {0x273, 07489}, // star pochette (Yellow)
+            {0x274, 09862}, // star head (Yellow)
             {0x275, 09945}, // cherry-blossom umbrella
-            {0x276, 07490}, // 0
-            {0x277, 07491}, // 0
-            {0x278, 07492}, // 0
-            {0x279, 07493}, // 0
-            {0x27A, 07494}, // 0
-            {0x27B, 07291}, // 0
-            {0x27C, 07511}, // 0
-            {0x27D, 08609}, // 0
-            {0x27E, 07498}, // 0
-            {0x280, 04588}, // 0
-            {0x281, 05334}, // 0
-            {0x282, 05472}, // 0
-            {0x283, 05524}, // 0
-            {0x284, 05346}, // 0
-            {0x285, 07506}, // 0
+            {0x276, 07490}, // cherry-blossom pochette (Pink)
+            {0x277, 07491}, // maple-leaf pochette (Red)
+            {0x278, 07492}, // acorn pochette (Brown)
+            {0x279, 07493}, // snowflake pochette (White)
+            {0x27A, 07494}, // shellfish pochette (White)
+            {0x27B, 07291}, // leaf mask (Green)
+            {0x27C, 07511}, // knitted-grass backpack (Green)
+            {0x27D, 08609}, // snowperson head (White)
+            {0x27E, 07498}, // log pack (Brown)
+            {0x280, 04588}, // iron armor (Gray)
+            {0x281, 05334}, // knight's helmet (Gray)
+            {0x282, 05472}, // armor shoes (Gray)
+            {0x283, 05524}, // gold-armor shoes (Gold)
+            {0x284, 05346}, // gold helmet (Gold)
+            {0x285, 07506}, // basket pack (Green)
             {0x286, 12206}, // flat garden rock
             {0x287, 12208}, // mossy garden rock
             {0x288, 07174}, // mush umbrella
@@ -549,7 +549,7 @@ namespace NHSE.Core.Structures
             {0x295, 08578}, // golden slingshot
             {0x296, 08660}, // golden rod
             {0x297, 09617}, // golden axe
-            {0x298, 12326}, // 0
+            {0x298, 12326}, // recycled boots (Brown)
             {0x299, 05508}, // underwater wall
             {0x29A, 05661}, // tropical vista
             {0x29B, 07239}, // starry-sands flooring
@@ -558,6 +558,46 @@ namespace NHSE.Core.Structures
             {0x29E, 12332}, // natural square table
             {0x29F, 11113}, // light bamboo rug
             {0x2A0, 11114}, // dark bamboo rug
+            {0x2A1, 12439}, // earth-egg shell (Red)
+            {0x2A2, 12449}, // earth-egg outfit (Red)
+            {0x2A3, 12455}, // earth-egg shoes (Red)
+            {0x2A4, 12440}, // stone-egg shell (Yellow)
+            {0x2A5, 12450}, // stone-egg outfit (Yellow)
+            {0x2A6, 12456}, // stone-egg shoes (Yellow)
+            {0x2A7, 12441}, // leaf-egg shell (Green)
+            {0x2A8, 12451}, // leaf-egg outfit (Green)
+            {0x2A9, 12457}, // leaf-egg shoes (Green)
+            {0x2AA, 12442}, // wood-egg shell (Orange)
+            {0x2AB, 12452}, // wood-egg outfit (Orange)
+            {0x2AC, 12458}, // wood-egg shoes (Orange)
+            {0x2AD, 12443}, // sky-egg shell (Blue)
+            {0x2AE, 12453}, // sky-egg outfit (Blue)
+            {0x2AF, 12459}, // sky-egg shoes (Blue)
+            {0x2B0, 12444}, // water-egg shell (Purple)
+            {0x2B1, 12454}, // water-egg outfit (Purple)
+            {0x2B2, 12460}, // water-egg shoes (Purple)
+            {0x2B3, 12446}, // egg party hat (Colorful)
+            {0x2B4, 12448}, // egg party dress (Colorful)
+            {0x2B5, 12445}, // Bunny Day crown (Colorful)
+            {0x2B6, 12447}, // Bunny Day bag (Colorful)
+            {0x2B7, 12398}, // Bunny Day arch
+            {0x2B8, 12412}, // wobbling Zipper toy
+            {0x2B9, 12413}, // Bunny Day lamp
+            {0x2BA, 12414}, // Bunny Day bed
+            {0x2BB, 12415}, // Bunny Day stool
+            {0x2BC, 12417}, // Bunny Day glowy garland
+            {0x2BD, 12418}, // Bunny Day wall clock
+            {0x2BE, 12419}, // Bunny Day merry balloons
+            {0x2BF, 12420}, // Bunny Day vanity
+            {0x2C0, 12421}, // Bunny Day festive balloons
+            {0x2C1, 12436}, // Bunny Day table
+            {0x2C2, 12437}, // Bunny Day wardrobe
+            {0x2C3, 12517}, // Bunny Day wreath
+            {0x2C4, 05231}, // Bunny Day wall
+            {0x2C5, 07546}, // Bunny Day rug
+            {0x2C6, 12423}, // Bunny Day flooring
+            {0x2C7, 12578}, // Bunny Day wand
+            {0x2C8, 12630}, // Bunny Day fence
         };
     }
 }
