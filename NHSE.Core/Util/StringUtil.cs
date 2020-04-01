@@ -42,5 +42,42 @@ namespace NHSE.Core
         {
             return string.Concat(fileName.Split(Path.GetInvalidFileNameChars()));
         }
+
+
+        /// <summary>
+        /// Parses the hex string into a <see cref="uint"/>, skipping all characters except for valid digits.
+        /// </summary>
+        /// <param name="value">Hex String to parse</param>
+        /// <returns>Parsed value</returns>
+        public static uint GetHexValue(string value)
+        {
+            uint result = 0;
+            if (string.IsNullOrEmpty(value))
+                return result;
+
+            foreach (var c in value)
+            {
+                if (IsNum(c))
+                {
+                    result <<= 4;
+                    result += (uint)(c - '0');
+                }
+                else if (IsHexUpper(c))
+                {
+                    result <<= 4;
+                    result += (uint)(c - 'A' + 10);
+                }
+                else if (IsHexLower(c))
+                {
+                    result <<= 4;
+                    result += (uint)(c - 'a' + 10);
+                }
+            }
+            return result;
+        }
+
+        private static bool IsNum(char c) => (uint)(c - '0') <= 9;
+        private static bool IsHexUpper(char c) => (uint)(c - 'A') <= 5;
+        private static bool IsHexLower(char c) => (uint)(c - 'a') <= 5;
     }
 }

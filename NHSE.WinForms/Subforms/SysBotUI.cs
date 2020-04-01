@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using NHSE.Core;
 using NHSE.Injection;
 using NHSE.WinForms.Properties;
 
@@ -88,7 +89,8 @@ namespace NHSE.WinForms
 
         private void B_WriteCurrent_Click(object sender, EventArgs e)
         {
-            if (!uint.TryParse(RamOffset.Text, out var offset))
+            var offset = StringUtil.GetHexValue(RamOffset.Text);
+            if (offset == 0)
             {
                 WinFormsUtil.Error("Incorrect hex offset.");
                 return;
@@ -110,7 +112,8 @@ namespace NHSE.WinForms
 
         private void B_ReadCurrent_Click(object sender, EventArgs e)
         {
-            if (!uint.TryParse(RamOffset.Text, out var offset))
+            var offset = StringUtil.GetHexValue(RamOffset.Text);
+            if (offset == 0)
             {
                 WinFormsUtil.Error("Incorrect hex offset.");
                 return;
