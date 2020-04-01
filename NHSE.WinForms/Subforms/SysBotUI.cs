@@ -23,6 +23,21 @@ namespace NHSE.WinForms
 
             TB_IP.Text = Settings.SysBotIP;
             TB_Port.Text = Settings.SysBotPort.ToString();
+
+            PopPrompt();
+        }
+
+        private void PopPrompt()
+        {
+            if (Settings.SysBotPrompted)
+                return;
+
+            const string info = "This SysBot reads and writes RAM directly to your game when called to Read/Write.";
+            const string reqd = "Using this functionality requires the sys-botbase sysmodule running on the console." +
+                                "Your console must be on the same network as the PC running this program.";
+            WinFormsUtil.Alert(info, reqd);
+            Settings.SysBotPrompted = true;
+            Settings.Save();
         }
 
         private uint GetOffset(InjectionType type)

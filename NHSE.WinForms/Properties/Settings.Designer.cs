@@ -61,6 +61,18 @@ namespace NHSE.WinForms.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SysBotPrompted {
+            get {
+                return ((bool)(this["SysBotPrompted"]));
+            }
+            set {
+                this["SysBotPrompted"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("2889584832")]
         public uint SysBotPouchOffset {
             get {

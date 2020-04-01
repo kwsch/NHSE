@@ -11,6 +11,9 @@
     <Setting Name="SysBotPort" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">6000</Value>
     </Setting>
+    <Setting Name="SysBotPrompted" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
     <Setting Name="SysBotPouchOffset" Type="System.UInt32" Scope="User">
       <Value Profile="(Default)">2889584832</Value>
     </Setting>
