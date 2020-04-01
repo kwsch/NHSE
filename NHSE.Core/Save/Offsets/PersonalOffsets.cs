@@ -20,10 +20,10 @@ namespace NHSE.Core
         public abstract int Recipes { get; }
         public abstract int ReceivedItems { get; }
 
-        public virtual int Pockets1Count { get; } = 20;
-        public virtual int Pockets2Count { get; } = 20;
-        public virtual int StorageCount { get; } = 5000;
-        public virtual int MaxRecipeID { get; } = 0x2A0;
+        public int Pockets1Count { get; } = 20;
+        public int Pockets2Count { get; } = 20;
+        public int StorageCount { get; } = 5000;
+        public int MaxRecipeID { get; } = 0x2A0;
 
         public static PersonalOffsets GetOffsets(FileHeaderInfo Info)
         {

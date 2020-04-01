@@ -8,19 +8,6 @@ namespace NHSE.Core
     /// </summary>
     public static class ArrayUtil
     {
-        public static bool IsRangeAll<T>(this T[] data, T value, int offset, int length) where T : IEquatable<T>
-        {
-            int start = offset + length - 1;
-            int end = offset;
-            for (int i = start; i >= end; i--)
-            {
-                if (!data[i].Equals(value))
-                    return false;
-            }
-
-            return true;
-        }
-
         public static byte[] Slice(this byte[] src, int offset, int length)
         {
             byte[] data = new byte[length];
@@ -186,7 +173,7 @@ namespace NHSE.Core
         /// <param name="pattern">Pattern to look for</param>
         /// <param name="startIndex">Starting offset to look from</param>
         /// <param name="length">Amount of entries to look through</param>
-        /// <returns>Index the pattern occurrs at; if not found, returns -1.</returns>
+        /// <returns>Index the pattern occurs at; if not found, returns -1.</returns>
         public static int IndexOfBytes(byte[] array, byte[] pattern, int startIndex = 0, int length = -1)
         {
             int len = pattern.Length;

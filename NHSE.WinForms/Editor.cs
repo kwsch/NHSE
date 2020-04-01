@@ -110,12 +110,6 @@ namespace NHSE.WinForms
         private void B_EditPlayerItems_Click(object sender, EventArgs e)
         {
             var player = SAV.Players[PlayerIndex];
-            if (ModifierKeys == Keys.Control)
-            {
-                using var editor = new InventoryEditor(player);
-                editor.ShowDialog();
-            }
-            else
             {
                 var pers = player.Personal;
                 var p1 = pers.Pocket1;

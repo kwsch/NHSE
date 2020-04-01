@@ -11,16 +11,16 @@ namespace NHSE.Parsing
 
         public readonly byte[] Data;
 
-        public uint EntryCount { get; set; }
-        public uint EntryLength { get; set; }
-        public ushort FieldCount { get; set; }
-        public bool HasBCSVHeader { get; set; }
-        public bool Flag2 { get; set; }
+        public readonly uint EntryCount;
+        public readonly uint EntryLength;
+        public readonly ushort FieldCount;
+        public readonly bool HasBCSVHeader;
+        public readonly bool Flag2;
 
-        public uint Magic { get; set; }
-        public int Unknown { get; set; }
-        public int Unknown1 { get; set; }
-        public int Unknown2 { get; set; }
+        public readonly uint Magic;
+        public readonly int Unknown;
+        public readonly int Unknown1;
+        public readonly int Unknown2;
 
         private readonly int FieldTableStart;
         public readonly IReadOnlyList<BCSVFieldParam> FieldOffsets;

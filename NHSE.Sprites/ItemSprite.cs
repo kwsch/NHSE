@@ -7,10 +7,10 @@ namespace NHSE.Sprites
 {
     public class ItemSpriteDrawer : IGridItem
     {
-        public int Width { get; set; } = 32;
-        public int Height { get; set; } = 32;
+        public int Width { get; } = 32;
+        public int Height { get; } = 32;
 
-        public Image HoverBackground = Resources.itemHover;
+        public readonly Image HoverBackground = Resources.itemHover;
 
         public Image? GetImage(Item item, Font font)
         {

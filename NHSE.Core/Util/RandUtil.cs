@@ -9,7 +9,7 @@ namespace NHSE.Core
     /// </summary>
     public static class RandUtil
     {
-        // Multithread safe rand, ha
+        // Multi-thread safe rand, ha
         public static Random Rand => _local.Value;
 
         private static readonly ThreadLocal<Random> _local = new ThreadLocal<Random>(() => new Random());

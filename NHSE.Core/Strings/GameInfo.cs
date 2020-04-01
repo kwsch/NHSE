@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace NHSE.Core
+﻿namespace NHSE.Core
 {
     /// <summary>
     /// Global repository for game strings; initialized to a specified language.
@@ -10,8 +8,6 @@ namespace NHSE.Core
         private static readonly GameStrings[] Languages = new GameStrings[GameLanguage.LanguageCount];
 
         public static string CurrentLanguage { get; set; } = GameLanguage.DefaultLanguage;
-        public static readonly IReadOnlyList<string> GenderSymbolUnicode = new[] { "♂", "♀", "-" };
-        public static readonly IReadOnlyList<string> GenderSymbolASCII = new[] { "M", "F", "-" };
         public static GameStrings Strings { get; set; } = GetStrings(CurrentLanguage);
 
         /// <summary>
