@@ -14,7 +14,7 @@ namespace NHSE.Parsing
 
         public static void DumpAll(string path, string dest, string delim = "\t")
         {
-            var files = Directory.EnumerateFiles(path);
+            var files = Directory.EnumerateFiles(path, "*.bcsv");
             Directory.CreateDirectory(dest);
             foreach (var f in files)
             {
@@ -31,6 +31,13 @@ namespace NHSE.Parsing
             var result = bcsv.ReadCSV(delim);
             File.WriteAllLines(dest, result);
             Console.WriteLine($"Dumped to CSV: {path}");
+        }
+
+        public static BCSV GetBCSV(string pathBCSV, string fn)
+        {
+            var path = Path.Combine(pathBCSV, fn);
+            var data = File.ReadAllBytes(path);
+            return new BCSV(data);
         }
     }
 }

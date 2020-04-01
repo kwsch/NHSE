@@ -68,18 +68,14 @@ namespace NHSE.Parsing
         private string ReadFieldUnknownType(in int offset, in int fieldIndex)
         {
             var length = GetFieldLength(fieldIndex);
-            // ReSharper disable once ConvertSwitchStatementToSwitchExpression
-#pragma warning disable IDE0066 // Convert switch statement to expression
-            switch (length)
-#pragma warning restore IDE0066 // Convert switch statement to expression
+            return length switch
             {
-                case 1: return Data[offset].ToString();
-                case 2: return BitConverter.ToInt16(Data, offset).ToString();
-                case 4: return $"0x{BitConverter.ToUInt32(Data, offset):X8}";
-                case 8: return $"0x{BitConverter.ToUInt64(Data, offset):X16}";
-
-                default: return Encoding.UTF8.GetString(Data, offset, length);
-            }
+                1 => Data[offset].ToString(),
+                2 => BitConverter.ToInt16(Data, offset).ToString(),
+                4 => $"0x{BitConverter.ToUInt32(Data, offset):X8}",
+                8 => $"0x{BitConverter.ToUInt64(Data, offset):X16}",
+                _ => Encoding.UTF8.GetString(Data, offset, length),
+            };
         }
 
         private int GetFieldLength(in int i)
