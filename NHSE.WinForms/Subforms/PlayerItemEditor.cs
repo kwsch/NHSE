@@ -12,8 +12,9 @@ namespace NHSE.WinForms
     {
         private readonly IReadOnlyList<T> Items;
         private readonly Action LoadItems;
+        private readonly int SysBotLength;
 
-        public PlayerItemEditor(IReadOnlyList<T> array, int width, int height, bool sysbot = false)
+        public PlayerItemEditor(IReadOnlyList<T> array, int width, int height, int sysbot = 0)
         {
             InitializeComponent();
             Items = array;
@@ -26,7 +27,7 @@ namespace NHSE.WinForms
             Editor.LoadItems();
             DialogResult = DialogResult.Cancel;
             LoadItems = () => Editor.LoadItems();
-            B_Inject.Visible = sysbot;
+            B_Inject.Visible = (SysBotLength = sysbot) > 0;
         }
 
         private void B_Cancel_Click(object sender, EventArgs e) => Close();
@@ -78,7 +79,7 @@ namespace NHSE.WinForms
                 return;
             }
 
-            byte[] Write() => Items.Take(20).SelectMany(z => z.ToBytesClass()).ToArray();
+            byte[] Write() => Items.Take(SysBotLength).SelectMany(z => z.ToBytesClass()).ToArray();
             void Read(byte[] data)
             {
                 var items = Item.GetArray(data);
