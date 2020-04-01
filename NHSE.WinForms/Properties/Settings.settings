@@ -5,5 +5,14 @@
     <Setting Name="LastFilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="SysBotIP" Type="System.String" Scope="User">
+      <Value Profile="(Default)">192.168.0.1</Value>
+    </Setting>
+    <Setting Name="SysBotPort" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">6000</Value>
+    </Setting>
+    <Setting Name="SysBotPouchOffset" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">2889584832</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

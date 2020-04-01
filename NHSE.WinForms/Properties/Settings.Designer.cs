@@ -34,5 +34,41 @@ namespace NHSE.WinForms.Properties {
                 this["LastFilePath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.0.1")]
+        public string SysBotIP {
+            get {
+                return ((string)(this["SysBotIP"]));
+            }
+            set {
+                this["SysBotIP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("6000")]
+        public int SysBotPort {
+            get {
+                return ((int)(this["SysBotPort"]));
+            }
+            set {
+                this["SysBotPort"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2889584832")]
+        public uint SysBotPouchOffset {
+            get {
+                return ((uint)(this["SysBotPouchOffset"]));
+            }
+            set {
+                this["SysBotPouchOffset"] = value;
+            }
+        }
     }
 }
