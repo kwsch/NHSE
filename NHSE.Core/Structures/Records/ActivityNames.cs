@@ -8,66 +8,87 @@ namespace NHSE.Core
 
         private static readonly IReadOnlyDictionary<int, string> Dictionary = new Dictionary<int, string>
         {
-            // {00,"PlayTime"},
-            // {01,"GetFishCount"},
-            // {02,"GetInsectCount"},
-            // {03,"GetShellfishCount"},
-            // {04,"GetShellDriftCount"},
-            // {05,"BreakBalloonCount"},
-            // {06,"WishStarCount"},
-            // {07,"ShakeTreeCount"},
-            // {08,"DropWoodCount"},
-            // {09,"CutTreeCount"},
-            // {10,"PlantTreeCount"},
-            // {11,"WaterFlowerCount"},
-            // {12,"UseReactionCount"},
-            // {13,"VisitOtherIslandCount"},
-            // {14,"InviteVisitorNum"},
-            // {15,"DiyCount"},
-            // {16,"BreakToolCount"},
-            // {17,"InMyHouseTime"},
-            // {18,"InFieldTime"},
-            // {19,"FillPitCount"},
-            // {20,"CaughtPitCount"},
-            // {21,"InteriorModeTime"},
-            // {22,"DesignEditTime"},
-            // {34,"TalkNpc0Count"},
-            // {35,"TalkNpc1Count"},
-            // {36,"TalkNpc2Count"},
-            // {37,"TalkNpc3Count"},
-            // {38,"TalkNpc4Count"},
-            // {39,"TalkNpc5Count"},
-            // {40,"TalkNpc6Count"},
-            // {41,"TalkNpc7Count"},
-            // {42,"TalkNpc8Count"},
-            // {43,"TalkNpc9Count"},
-            // {44,"TalkAllNpcCount"},
-            // {45,"BittenBeeCount"},
-            // {46,"DigFossilCount"},
-            // {47,"HitStoneCount"},
-            // {48,"PlantMoneyFlag"},
-            // {49,"PickUpFruitsCount"},
-            // {50,"UseSmartphoneFieldCount"},
-            // {51,"UseSmartphoneFieldTime"},
-            // {52,"WayEditCount"},
-            // {53,"RiverEditCount"},
-            // {54,"CliffEditCount"},
-            // {55,"FenceEditCount"},
-            // {56,"MoveFurnitureFieldCount"},
-            // {57,"GetMiles"},
-            // {58,"ReturnLoanFlag"},
-            // {59,"EnterShopCount"},
-            // {60,"ChangeMelodyFlag"},
-            // {61,"ChangeFlagFlag"},
-            // {62,"TransformFieldCount"},
-            // {63,"JumpWithPoleCount"},
-            // {64,"TurnipBuyTotal"},
-            // {65,"TurnipSellPrice"},
-            // {66,"ChatBalloonCount"},
-            // {67,"PullWeedCount"},
-            // {68,"ChangeHairFlag"},
-            // {69,"ChangeFaceFlag"},
-            // {70,"TakePictureCount"},
+            {1,"CatchFish"}, // サカナを釣った
+            {2,"CatchInsect"}, // ムシを捕まえた
+            {3,"CatchFishContinuously"}, // 連続で釣りを成功させた回数の最高記録
+            {4,"FillFishList"}, // サカナ図鑑を埋めた
+            {5,"FillInsectList"}, // ムシ図鑑を埋めた
+            {6,"ShootDownBalloon"}, // ふうせんを撃ち落とした
+            {7,"PlantFlowerSeed"}, // 花の種を植えた
+            {8,"PlantFruit"}, // 6種類のフルーツを植えた
+            {9,"PlantTreeSeedling"}, // 木の苗を植えた
+            {10,"BuyKabu"}, // カブを買った
+            {11,"HowmuchSellKabu"}, // カブで得た累計利益
+            {12,"HowmuchBuyItem"}, // これまでの買い物総額
+            {13,"BuyItemRcm"}, // まめきちの店で買い物した
+            {14,"SellItemRcm"}, // まめきちの店で売った
+            {15,"RemakeFurniture"}, // リメイクをした
+            {16,"FillCatalog"}, // カタログの項目数
+            {17,"BuyItemCatalog"}, // 通販を利用した
+            {18,"GotoTotakekeShow"}, // とたけけのライブを観た
+            {19,"VisitAnotherIsland"}, // よその島へのおでかけした
+            {20,"InviteFriend"}, // 島にフレンドを招いた
+            {22,"DayPlayed"}, // 活動日数
+            {24,"WaterPlant"}, // 水やりをした
+            {25,"BeStungbyWasp"}, // ハチに刺された
+            {26,"CatchSeminonukegara"}, // セミのぬけがらを取った
+            {27,"CatchNomi"}, // ノミを取ってあげた
+            {28,"BeStungbyPoisonousInsect"}, // こわいムシで気絶した
+            {32,"FillReactionList"}, // リアクションを覚えた
+            {33,"CatchTrash"}, // ゴミを釣った
+            {34,"PayImmigrationCost"}, // 移住費用を支払った
+            {35,"RepayLoan"}, // ローンを完済した
+            {36,"UseMydesign"}, // マイデザインを使った
+            {37,"UseMydesignPRO"}, // マイデザインPROを使った
+            {38,"SellWeed"}, // 雑草を引き取ってもらった
+            {40,"CollectGoldTool"}, // 6種類の金の道具を集めた
+            {41,"GetSRankonHHA"}, // HHAでSを取った
+            {42,"AttendFishingConvention"}, // 釣り大会に春夏秋冬参加した
+            {43,"AttendInsectConvention"}, // ムシとり大会に6～9月参加した
+            {44,"HelpGul"}, // ジョニーを助けた
+            {45,"HelpGst"}, // ゆうたろうを助けた
+            {46,"MakePerfectSnowball"}, // 最高のゆきだるまを作った
+            {47,"ReachMyBirthday"}, // 誕生日を迎えた
+            {48,"CelebrateVillagersBithday"}, // 村民の誕生日を祝ってあげた
+            {49,"AttendCountdownParty"}, // カウントダウンに参加した
+            {50,"BreakTool"}, // 道具を壊した
+            {51,"SendLetter"}, // 手紙を送った
+            {52,"MakePitfall"}, // 落とし穴を作った
+            {53,"FallintoPitfall"}, // 落とし穴に落ちた
+            {54,"ImmigratetoIsland"}, // 島に移住した
+            {55,"BeFriendwithVillager"}, // どうぶつとなかよしになった
+            {56,"FillRecipeList"}, // 集めたレシピの数
+            {57,"BootPhone"}, // スマホを起動した(上級)
+            {58,"StrikeRock8Times"}, // コイン岩を8連打した
+            {59,"AchieveAppQuest"}, // 村活クエストを達成した
+            {60,"AchieveVillagersQuest"}, // どうぶつのお願いを聞いた
+            {61,"DigBell"}, // ベルを掘り出した
+            {62,"DigFossil"}, // 化石を掘り出した
+            {63,"JudgeFossil"}, // 化石を鑑定した
+            {64,"DigShell"}, // 潮干狩りをした
+            {65,"PutFurnitureOutside"}, // 外に家具を置いた
+            {68,"StrikeWood"}, // 木からもくざいを出した
+            {69,"GreetAllVillager"}, // 村民全員とあいさつをした
+            {70,"SellShell"}, // 貝殻を売った
+            {71,"SellFruit"}, // フルーツを売った
+            {72,"CatchBeeContinuously"}, // ハチを5連続捕まえた
+            {73,"DIYTool"}, // 道具をDIYした
+            {74,"DIYFurniture"}, // 家具をDIYした
+            {76,"TakePicture"}, // カメラで写真を撮った
+            {77,"BootPhoneBeginner"}, // スマホを起動した(初級)
+            {78,"HouseStorageItem"}, // 家の倉庫に収納したアイテムの数
+            {79,"PlaceFurnitureMyHouse"}, // 家に飾っている家具の数
+            {80,"FallFurnitureLeaf"}, // 木を揺すって家具（葉っぱ）を落とした回数
+            {81,"DropPresentinWater"}, // 風船のプレゼントを撃ち水の中に落とした
+            {82,"ReformMyHome"}, // マイホームをリフォームした
+            {83,"ExtendMyHome"}, // マイホームを増築した
+            {84,"PostMessageBoard"}, // 自分の島の掲示板に書き込む
+            {85,"UseCloset"}, // クローゼットで着替える
+            {86,"PrayShootingStar"}, // 流れ星に祈る
+            {87,"ChangeSymbol"}, // 島の旗、島メロを変える
+            {88,"UpdatePassport"}, // パスポートを更新した
+            {89,"ModifyIsland"}, // 各地形造成をやってみた
+            {90,"BuildFence"}, // 柵を置くハチを5連続捕まえた
         };
 
         public static string GetActivityName(int index, uint count)
