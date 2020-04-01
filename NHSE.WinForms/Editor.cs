@@ -216,6 +216,16 @@ namespace NHSE.WinForms
             wallet.Value = (uint)NUD_Wallet.Value;
             pers.Wallet = wallet;
         }
+
+        private void B_EditActivities_Click(object sender, EventArgs e)
+        {
+            var pers = SAV.Players[PlayerIndex].Personal;
+            var records = pers.GetActivities();
+            using var editor = new ActivityEditor(records);
+            if (editor.ShowDialog() == DialogResult.OK)
+                pers.SetActivities(records);
+        }
+
         #endregion
 
         #region Villager Editing

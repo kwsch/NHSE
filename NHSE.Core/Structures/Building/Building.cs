@@ -20,7 +20,7 @@ namespace NHSE.Core
         [Category(Details), Description("Y Coordinate of Building")]
         public ushort Y { get; set; }
 
-        public ushort Z { get; set; } // Guess
+        public ushort Rotation { get; set; }
 
         public uint Unk08 { get; set; }
         public uint Unk0C { get; set; }
@@ -29,7 +29,7 @@ namespace NHSE.Core
         public void Clear()
         {
             BuildingId = 0;
-            X = Y = Z = 0;
+            X = Y = Rotation = 0;
             Unk08 = Unk0C = Unk10 = 0;
         }
 

@@ -8,18 +8,20 @@ namespace NHSE.Core
     public abstract class PersonalOffsets
     {
         public abstract int PersonalId { get; }
+        public abstract int Activity { get; }
         public abstract int Wallet { get; }
-        public abstract int Bank { get; }
         public abstract int NookMiles { get; }
         public abstract int Photo { get; }
 
         public abstract int Pockets1 { get; }
         public abstract int Pockets2 { get; }
         public abstract int Storage { get; }
-
-        public abstract int Recipes { get; }
         public abstract int ReceivedItems { get; }
 
+        public abstract int Bank { get; }
+        public abstract int Recipes { get; }
+
+        public int MaxActivityID { get; } = 100; // guess
         public int Pockets1Count { get; } = 20;
         public int Pockets2Count { get; } = 20;
         public int StorageCount { get; } = 5000;

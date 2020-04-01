@@ -76,6 +76,18 @@ namespace NHSE.Core
             set => Item.SetArray(value).CopyTo(Data, Offsets.Storage);
         }
 
+        public uint[] GetActivities()
+        {
+            var result = new uint[Offsets.MaxActivityID];
+            Buffer.BlockCopy(Data, Offsets.Activity, result, 0, sizeof(uint) * result.Length);
+            return result;
+        }
+
+        public void SetActivities(uint[] activities)
+        {
+            Buffer.BlockCopy(activities, 0, Data, Offsets.Activity, sizeof(uint) * Offsets.MaxActivityID);
+        }
+
         public bool[] GetRecipeList() => ArrayUtil.GitBitFlagArray(Data, Offsets.Recipes, Offsets.MaxRecipeID + 1);
         public void SetRecipeList(bool[] value) => ArrayUtil.SetBitFlagArray(Data, Offsets.Recipes, value);
 

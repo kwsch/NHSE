@@ -39,6 +39,7 @@
             this.Menu_LoadDecrypted = new System.Windows.Forms.ToolStripMenuItem();
             this.TC_Editors = new System.Windows.Forms.TabControl();
             this.Tab_Players = new System.Windows.Forms.TabPage();
+            this.B_EditActivities = new System.Windows.Forms.Button();
             this.B_EditPlayerReceivedItems = new System.Windows.Forms.Button();
             this.B_EditPlayerStorage = new System.Windows.Forms.Button();
             this.B_EditPlayerRecipes = new System.Windows.Forms.Button();
@@ -83,8 +84,8 @@
             this.NUD_PatternIndex = new System.Windows.Forms.NumericUpDown();
             this.PB_Pattern = new System.Windows.Forms.PictureBox();
             this.Tab_Map = new System.Windows.Forms.TabPage();
-            this.B_RecycleBin = new System.Windows.Forms.Button();
             this.B_EditBuildings = new System.Windows.Forms.Button();
+            this.B_RecycleBin = new System.Windows.Forms.Button();
             this.Menu_Editor.SuspendLayout();
             this.TC_Editors.SuspendLayout();
             this.Tab_Players.SuspendLayout();
@@ -191,6 +192,7 @@
             // 
             // Tab_Players
             // 
+            this.Tab_Players.Controls.Add(this.B_EditActivities);
             this.Tab_Players.Controls.Add(this.B_EditPlayerReceivedItems);
             this.Tab_Players.Controls.Add(this.B_EditPlayerStorage);
             this.Tab_Players.Controls.Add(this.B_EditPlayerRecipes);
@@ -214,6 +216,16 @@
             this.Tab_Players.TabIndex = 1;
             this.Tab_Players.Text = "Players";
             this.Tab_Players.UseVisualStyleBackColor = true;
+            // 
+            // B_EditActivities
+            // 
+            this.B_EditActivities.Location = new System.Drawing.Point(301, 122);
+            this.B_EditActivities.Name = "B_EditActivities";
+            this.B_EditActivities.Size = new System.Drawing.Size(92, 40);
+            this.B_EditActivities.TabIndex = 16;
+            this.B_EditActivities.Text = "Edit Activities";
+            this.B_EditActivities.UseVisualStyleBackColor = true;
+            this.B_EditActivities.Click += new System.EventHandler(this.B_EditActivities_Click);
             // 
             // B_EditPlayerReceivedItems
             // 
@@ -257,7 +269,7 @@
             // 
             // L_Wallet
             // 
-            this.L_Wallet.Location = new System.Drawing.Point(142, 59);
+            this.L_Wallet.Location = new System.Drawing.Point(142, 51);
             this.L_Wallet.Name = "L_Wallet";
             this.L_Wallet.Size = new System.Drawing.Size(84, 20);
             this.L_Wallet.TabIndex = 11;
@@ -266,7 +278,7 @@
             // 
             // NUD_Wallet
             // 
-            this.NUD_Wallet.Location = new System.Drawing.Point(232, 59);
+            this.NUD_Wallet.Location = new System.Drawing.Point(232, 51);
             this.NUD_Wallet.Maximum = new decimal(new int[] {
             2147483647,
             0,
@@ -278,7 +290,7 @@
             // 
             // L_NookMiles
             // 
-            this.L_NookMiles.Location = new System.Drawing.Point(142, 111);
+            this.L_NookMiles.Location = new System.Drawing.Point(142, 95);
             this.L_NookMiles.Name = "L_NookMiles";
             this.L_NookMiles.Size = new System.Drawing.Size(84, 20);
             this.L_NookMiles.TabIndex = 9;
@@ -287,7 +299,7 @@
             // 
             // NUD_NookMiles
             // 
-            this.NUD_NookMiles.Location = new System.Drawing.Point(232, 111);
+            this.NUD_NookMiles.Location = new System.Drawing.Point(232, 95);
             this.NUD_NookMiles.Maximum = new decimal(new int[] {
             2147483647,
             0,
@@ -299,7 +311,7 @@
             // 
             // L_BankBells
             // 
-            this.L_BankBells.Location = new System.Drawing.Point(142, 85);
+            this.L_BankBells.Location = new System.Drawing.Point(142, 73);
             this.L_BankBells.Name = "L_BankBells";
             this.L_BankBells.Size = new System.Drawing.Size(84, 20);
             this.L_BankBells.TabIndex = 7;
@@ -308,7 +320,7 @@
             // 
             // NUD_BankBells
             // 
-            this.NUD_BankBells.Location = new System.Drawing.Point(232, 85);
+            this.NUD_BankBells.Location = new System.Drawing.Point(232, 73);
             this.NUD_BankBells.Maximum = new decimal(new int[] {
             2147483647,
             0,
@@ -320,14 +332,14 @@
             // 
             // TB_TownName
             // 
-            this.TB_TownName.Location = new System.Drawing.Point(232, 33);
+            this.TB_TownName.Location = new System.Drawing.Point(232, 29);
             this.TB_TownName.Name = "TB_TownName";
             this.TB_TownName.Size = new System.Drawing.Size(100, 20);
             this.TB_TownName.TabIndex = 5;
             // 
             // L_TownName
             // 
-            this.L_TownName.Location = new System.Drawing.Point(142, 33);
+            this.L_TownName.Location = new System.Drawing.Point(142, 29);
             this.L_TownName.Name = "L_TownName";
             this.L_TownName.Size = new System.Drawing.Size(84, 20);
             this.L_TownName.TabIndex = 4;
@@ -456,7 +468,7 @@
             // 
             this.L_InternalName.AutoSize = true;
             this.L_InternalName.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_InternalName.Location = new System.Drawing.Point(275, 35);
+            this.L_InternalName.Location = new System.Drawing.Point(275, 31);
             this.L_InternalName.Name = "L_InternalName";
             this.L_InternalName.Size = new System.Drawing.Size(91, 14);
             this.L_InternalName.TabIndex = 22;
@@ -464,14 +476,14 @@
             // 
             // TB_Catchphrase
             // 
-            this.TB_Catchphrase.Location = new System.Drawing.Point(232, 85);
+            this.TB_Catchphrase.Location = new System.Drawing.Point(232, 73);
             this.TB_Catchphrase.Name = "TB_Catchphrase";
             this.TB_Catchphrase.Size = new System.Drawing.Size(100, 20);
             this.TB_Catchphrase.TabIndex = 21;
             // 
             // L_Catchphrase
             // 
-            this.L_Catchphrase.Location = new System.Drawing.Point(142, 85);
+            this.L_Catchphrase.Location = new System.Drawing.Point(142, 73);
             this.L_Catchphrase.Name = "L_Catchphrase";
             this.L_Catchphrase.Size = new System.Drawing.Size(84, 20);
             this.L_Catchphrase.TabIndex = 20;
@@ -480,7 +492,7 @@
             // 
             // L_Personality
             // 
-            this.L_Personality.Location = new System.Drawing.Point(142, 59);
+            this.L_Personality.Location = new System.Drawing.Point(142, 51);
             this.L_Personality.Name = "L_Personality";
             this.L_Personality.Size = new System.Drawing.Size(84, 20);
             this.L_Personality.TabIndex = 19;
@@ -489,7 +501,7 @@
             // 
             // NUD_Variant
             // 
-            this.NUD_Variant.Location = new System.Drawing.Point(232, 33);
+            this.NUD_Variant.Location = new System.Drawing.Point(232, 29);
             this.NUD_Variant.Maximum = new decimal(new int[] {
             255,
             0,
@@ -502,7 +514,7 @@
             // 
             // L_Variant
             // 
-            this.L_Variant.Location = new System.Drawing.Point(142, 33);
+            this.L_Variant.Location = new System.Drawing.Point(142, 29);
             this.L_Variant.Name = "L_Variant";
             this.L_Variant.Size = new System.Drawing.Size(84, 20);
             this.L_Variant.TabIndex = 17;
@@ -535,7 +547,7 @@
             // 
             this.CB_Personality.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_Personality.FormattingEnabled = true;
-            this.CB_Personality.Location = new System.Drawing.Point(232, 59);
+            this.CB_Personality.Location = new System.Drawing.Point(232, 51);
             this.CB_Personality.Name = "CB_Personality";
             this.CB_Personality.Size = new System.Drawing.Size(100, 21);
             this.CB_Personality.TabIndex = 14;
@@ -697,16 +709,6 @@
             this.Tab_Map.Text = "Map";
             this.Tab_Map.UseVisualStyleBackColor = true;
             // 
-            // B_RecycleBin
-            // 
-            this.B_RecycleBin.Location = new System.Drawing.Point(6, 168);
-            this.B_RecycleBin.Name = "B_RecycleBin";
-            this.B_RecycleBin.Size = new System.Drawing.Size(92, 40);
-            this.B_RecycleBin.TabIndex = 13;
-            this.B_RecycleBin.Text = "Edit Recycle Bin";
-            this.B_RecycleBin.UseVisualStyleBackColor = true;
-            this.B_RecycleBin.Click += new System.EventHandler(this.B_RecycleBin_Click);
-            // 
             // B_EditBuildings
             // 
             this.B_EditBuildings.Location = new System.Drawing.Point(104, 168);
@@ -716,6 +718,16 @@
             this.B_EditBuildings.Text = "Edit Buildings";
             this.B_EditBuildings.UseVisualStyleBackColor = true;
             this.B_EditBuildings.Click += new System.EventHandler(this.B_EditBuildings_Click);
+            // 
+            // B_RecycleBin
+            // 
+            this.B_RecycleBin.Location = new System.Drawing.Point(6, 168);
+            this.B_RecycleBin.Name = "B_RecycleBin";
+            this.B_RecycleBin.Size = new System.Drawing.Size(92, 40);
+            this.B_RecycleBin.TabIndex = 13;
+            this.B_RecycleBin.Text = "Edit Recycle Bin";
+            this.B_RecycleBin.UseVisualStyleBackColor = true;
+            this.B_RecycleBin.Click += new System.EventHandler(this.B_RecycleBin_Click);
             // 
             // Editor
             // 
@@ -815,6 +827,7 @@
         private System.Windows.Forms.Label L_PatternName;
         private System.Windows.Forms.PictureBox PB_Palette;
         private System.Windows.Forms.Button B_EditBuildings;
+        private System.Windows.Forms.Button B_EditActivities;
     }
 }
 
