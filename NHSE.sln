@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHSE.Parsing", "NHSE.Parsin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHSE.Tests", "NHSE.Tests\NHSE.Tests.csproj", "{AD3412A3-74EA-443D-BB07-B36E39D5166F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHSE.Injection", "NHSE.Injection\NHSE.Injection.csproj", "{319E810B-A516-480E-88BD-F648222344D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{AD3412A3-74EA-443D-BB07-B36E39D5166F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD3412A3-74EA-443D-BB07-B36E39D5166F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD3412A3-74EA-443D-BB07-B36E39D5166F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{319E810B-A516-480E-88BD-F648222344D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{319E810B-A516-480E-88BD-F648222344D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{319E810B-A516-480E-88BD-F648222344D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{319E810B-A516-480E-88BD-F648222344D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
