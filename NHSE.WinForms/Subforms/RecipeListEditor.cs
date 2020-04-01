@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Core.Structures;
@@ -23,9 +22,7 @@ namespace NHSE.WinForms
         private void FillCheckBoxes()
         {
             var recipes = RecipeList.Recipes;
-            var max = recipes.Max(z => z.Key);
-            if (Known.Length < max)
-                max = (ushort)Known.Length;
+            var max = (ushort)Known.Length - 1;
 
             var strings = GameInfo.Strings.itemlist;
             for (ushort i = 0; i <= max; i++)

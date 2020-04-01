@@ -25,7 +25,7 @@ namespace NHSE.Core
         public int Pockets1Count { get; } = 20;
         public int Pockets2Count { get; } = 20;
         public int StorageCount { get; } = 5000;
-        public int MaxRecipeID { get; } = 0x2A0;
+        public virtual int MaxRecipeID { get; } = 0x2A0;
 
         public static PersonalOffsets GetOffsets(FileHeaderInfo Info)
         {
