@@ -34,6 +34,7 @@
             this.B_Load = new System.Windows.Forms.Button();
             this.ItemEditor = new NHSE.WinForms.ItemEditor();
             this.PAN_Items = new System.Windows.Forms.Panel();
+            this.B_Inject = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // B_Cancel
@@ -96,11 +97,22 @@
             this.PAN_Items.Size = new System.Drawing.Size(407, 210);
             this.PAN_Items.TabIndex = 9;
             // 
+            // B_Inject
+            // 
+            this.B_Inject.Location = new System.Drawing.Point(273, 228);
+            this.B_Inject.Name = "B_Inject";
+            this.B_Inject.Size = new System.Drawing.Size(90, 23);
+            this.B_Inject.TabIndex = 10;
+            this.B_Inject.Text = "Inject";
+            this.B_Inject.UseVisualStyleBackColor = true;
+            this.B_Inject.Click += new System.EventHandler(this.B_Inject_Click);
+            // 
             // PlayerItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 261);
+            this.Controls.Add(this.B_Inject);
             this.Controls.Add(this.PAN_Items);
             this.Controls.Add(this.B_Load);
             this.Controls.Add(this.B_Dump);
@@ -125,5 +137,6 @@
         private System.Windows.Forms.Button B_Dump;
         private System.Windows.Forms.Button B_Load;
         private System.Windows.Forms.Panel PAN_Items;
+        private System.Windows.Forms.Button B_Inject;
     }
 }

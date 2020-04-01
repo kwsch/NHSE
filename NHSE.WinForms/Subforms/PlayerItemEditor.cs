@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
+using NHSE.Injection;
 
 namespace NHSE.WinForms
 {
@@ -11,7 +13,7 @@ namespace NHSE.WinForms
         private readonly IReadOnlyList<T> Items;
         private readonly Action LoadItems;
 
-        public PlayerItemEditor(IReadOnlyList<T> array, int width, int height)
+        public PlayerItemEditor(IReadOnlyList<T> array, int width, int height, bool sysbot = false)
         {
             InitializeComponent();
             Items = array;
@@ -24,6 +26,7 @@ namespace NHSE.WinForms
             Editor.LoadItems();
             DialogResult = DialogResult.Cancel;
             LoadItems = () => Editor.LoadItems();
+            B_Inject.Visible = sysbot;
         }
 
         private void B_Cancel_Click(object sender, EventArgs e) => Close();
@@ -64,6 +67,29 @@ namespace NHSE.WinForms
 
             LoadItems();
             System.Media.SystemSounds.Asterisk.Play();
+        }
+
+        private void B_Inject_Click(object sender, EventArgs e)
+        {
+            var exist = WinFormsUtil.FirstFormOfType<SysBotUI>();
+            if (exist != null)
+            {
+                exist.Show();
+                return;
+            }
+
+            byte[] Write() => Items.SelectMany(z => z.ToBytesClass()).ToArray();
+            void Read(byte[] data)
+            {
+                var items = Item.GetArray(data);
+                for (int i = 0; i < items.Length && i < Items.Count; i++)
+                    Items[i].CopyFrom(items[i]);
+                LoadItems();
+                System.Media.SystemSounds.Asterisk.Play();
+            }
+
+            var sysbot = new SysBotUI(Read, Write, InjectionType.Pouch);
+            sysbot.Show();
         }
     }
 }
