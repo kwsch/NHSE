@@ -78,6 +78,7 @@ namespace NHSE.Injection
 
     public enum InjectionType
     {
+        Generic,
         Pouch,
     }
 }

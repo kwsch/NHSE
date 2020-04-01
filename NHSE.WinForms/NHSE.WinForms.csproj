@@ -52,6 +52,9 @@
     <Compile Update="Subforms\ActivityEditor.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Subforms\SysBot\SysBotRAMEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup Condition="$(TargetFramework.StartsWith('net4')) AND '$(Configuration)' == 'Release'">

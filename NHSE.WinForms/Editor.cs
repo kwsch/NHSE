@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
+using NHSE.Injection;
 using NHSE.Sprites;
 
 namespace NHSE.WinForms
@@ -64,6 +65,19 @@ namespace NHSE.WinForms
 
             var lines = result.Select(z => z.ToString());
             Clipboard.SetText(string.Join(Environment.NewLine, lines));
+        }
+
+        private void Menu_RAMEdit_Click(object sender, EventArgs e)
+        {
+            var exist = WinFormsUtil.FirstFormOfType<SysBotRAMEdit>();
+            if (exist != null)
+            {
+                exist.Show();
+                return;
+            }
+
+            var sysbot = new SysBotRAMEdit(InjectionType.Generic);
+            sysbot.Show();
         }
 
         private void LoadAll()

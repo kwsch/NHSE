@@ -86,6 +86,7 @@
             this.Tab_Map = new System.Windows.Forms.TabPage();
             this.B_EditBuildings = new System.Windows.Forms.Button();
             this.B_RecycleBin = new System.Windows.Forms.Button();
+            this.Menu_RAMEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Editor.SuspendLayout();
             this.TC_Editors.SuspendLayout();
             this.Tab_Players.SuspendLayout();
@@ -148,7 +149,8 @@
             this.Menu_Tools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Menu_DumpDecrypted,
             this.Menu_VerifyHashes,
-            this.Menu_LoadDecrypted});
+            this.Menu_LoadDecrypted,
+            this.Menu_RAMEdit});
             this.Menu_Tools.Name = "Menu_Tools";
             this.Menu_Tools.Size = new System.Drawing.Size(46, 20);
             this.Menu_Tools.Text = "Tools";
@@ -729,6 +731,14 @@
             this.B_RecycleBin.UseVisualStyleBackColor = true;
             this.B_RecycleBin.Click += new System.EventHandler(this.B_RecycleBin_Click);
             // 
+            // Menu_RAMEdit
+            // 
+            this.Menu_RAMEdit.Name = "Menu_RAMEdit";
+            this.Menu_RAMEdit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
+            this.Menu_RAMEdit.Size = new System.Drawing.Size(206, 22);
+            this.Menu_RAMEdit.Text = "RAM Edit";
+            this.Menu_RAMEdit.Click += new System.EventHandler(this.Menu_RAMEdit_Click);
+            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -828,6 +838,7 @@
         private System.Windows.Forms.PictureBox PB_Palette;
         private System.Windows.Forms.Button B_EditBuildings;
         private System.Windows.Forms.Button B_EditActivities;
+        private System.Windows.Forms.ToolStripMenuItem Menu_RAMEdit;
     }
 }
 
