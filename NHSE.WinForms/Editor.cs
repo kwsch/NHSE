@@ -500,5 +500,13 @@ namespace NHSE.WinForms
             if (editor.ShowDialog() == DialogResult.OK)
                 SAV.Main.Buildings = buildings;
         }
+
+        private void B_EditTurnipExchange_Click(object sender, EventArgs e)
+        {
+            var turnips = SAV.Main.Turnips;
+            using var editor = new SingleObjectEditor<TurnipStonk>(turnips, PropertySort.NoSort);
+            if (editor.ShowDialog() == DialogResult.OK)
+                SAV.Main.Turnips = turnips;
+        }
     }
 }

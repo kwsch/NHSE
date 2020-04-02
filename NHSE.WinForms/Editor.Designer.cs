@@ -37,6 +37,7 @@
             this.Menu_DumpDecrypted = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_VerifyHashes = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_LoadDecrypted = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menu_RAMEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.TC_Editors = new System.Windows.Forms.TabControl();
             this.Tab_Players = new System.Windows.Forms.TabPage();
             this.B_EditActivities = new System.Windows.Forms.Button();
@@ -86,7 +87,7 @@
             this.Tab_Map = new System.Windows.Forms.TabPage();
             this.B_EditBuildings = new System.Windows.Forms.Button();
             this.B_RecycleBin = new System.Windows.Forms.Button();
-            this.Menu_RAMEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditTurnipExchange = new System.Windows.Forms.Button();
             this.Menu_Editor.SuspendLayout();
             this.TC_Editors.SuspendLayout();
             this.Tab_Players.SuspendLayout();
@@ -178,6 +179,14 @@
             this.Menu_LoadDecrypted.Size = new System.Drawing.Size(206, 22);
             this.Menu_LoadDecrypted.Text = "Load Decrypted";
             this.Menu_LoadDecrypted.Click += new System.EventHandler(this.Menu_LoadDecrypted_Click);
+            // 
+            // Menu_RAMEdit
+            // 
+            this.Menu_RAMEdit.Name = "Menu_RAMEdit";
+            this.Menu_RAMEdit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
+            this.Menu_RAMEdit.Size = new System.Drawing.Size(206, 22);
+            this.Menu_RAMEdit.Text = "RAM Edit";
+            this.Menu_RAMEdit.Click += new System.EventHandler(this.Menu_RAMEdit_Click);
             // 
             // TC_Editors
             // 
@@ -701,6 +710,7 @@
             // 
             // Tab_Map
             // 
+            this.Tab_Map.Controls.Add(this.B_EditTurnipExchange);
             this.Tab_Map.Controls.Add(this.B_EditBuildings);
             this.Tab_Map.Controls.Add(this.B_RecycleBin);
             this.Tab_Map.Location = new System.Drawing.Point(4, 22);
@@ -731,13 +741,15 @@
             this.B_RecycleBin.UseVisualStyleBackColor = true;
             this.B_RecycleBin.Click += new System.EventHandler(this.B_RecycleBin_Click);
             // 
-            // Menu_RAMEdit
+            // B_EditTurnipExchange
             // 
-            this.Menu_RAMEdit.Name = "Menu_RAMEdit";
-            this.Menu_RAMEdit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-            this.Menu_RAMEdit.Size = new System.Drawing.Size(206, 22);
-            this.Menu_RAMEdit.Text = "RAM Edit";
-            this.Menu_RAMEdit.Click += new System.EventHandler(this.Menu_RAMEdit_Click);
+            this.B_EditTurnipExchange.Location = new System.Drawing.Point(202, 168);
+            this.B_EditTurnipExchange.Name = "B_EditTurnipExchange";
+            this.B_EditTurnipExchange.Size = new System.Drawing.Size(92, 40);
+            this.B_EditTurnipExchange.TabIndex = 15;
+            this.B_EditTurnipExchange.Text = "Edit Turnip Exchange";
+            this.B_EditTurnipExchange.UseVisualStyleBackColor = true;
+            this.B_EditTurnipExchange.Click += new System.EventHandler(this.B_EditTurnipExchange_Click);
             // 
             // Editor
             // 
@@ -839,6 +851,7 @@
         private System.Windows.Forms.Button B_EditBuildings;
         private System.Windows.Forms.Button B_EditActivities;
         private System.Windows.Forms.ToolStripMenuItem Menu_RAMEdit;
+        private System.Windows.Forms.Button B_EditTurnipExchange;
     }
 }
 

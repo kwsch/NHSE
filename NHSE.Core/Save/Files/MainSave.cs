@@ -26,5 +26,11 @@ namespace NHSE.Core
             get => Building.GetArray(Data.Slice(Offsets.Buildings, MainSaveOffsets.BuildingCount * Building.SIZE));
             set => Building.SetArray(value).CopyTo(Data, Offsets.Buildings);
         }
+
+        public TurnipStonk Turnips
+        {
+            get => Data.Slice(Offsets.TurnipExchange, TurnipStonk.SIZE).ToClass<TurnipStonk>();
+            set => value.ToBytesClass().CopyTo(Data, Offsets.TurnipExchange);
+        }
     }
 }

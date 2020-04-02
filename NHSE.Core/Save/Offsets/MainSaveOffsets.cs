@@ -20,6 +20,8 @@ namespace NHSE.Core
         public abstract int RecycleBin { get; }
         public const int RecycleBinCount = 40;
 
+        public abstract int TurnipExchange { get; }
+
         public static MainSaveOffsets GetOffsets(FileHeaderInfo Info)
         {
             var rev = Info.GetKnownRevisionIndex();
