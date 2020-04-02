@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using Microsoft.WindowsAPICodePack.Dialogs;
 using NHSE.Core;
 using NHSE.WinForms.Properties;
 
@@ -56,9 +57,16 @@ namespace NHSE.WinForms
                     return;
                 }
             }
-            using var fbd = new FolderBrowserDialog();
-            if (fbd.ShowDialog() == DialogResult.OK)
-                Open(fbd.SelectedPath);
+
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+
+            dialog.InitialDirectory = Settings.Default.LastFilePath;
+            dialog.IsFolderPicker = true;
+
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                Open(dialog.FileName);
+            }
         }
 
         private static void Open(string path)
