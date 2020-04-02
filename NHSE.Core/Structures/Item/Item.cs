@@ -19,8 +19,7 @@ namespace NHSE.Core
         public ushort ItemId;
         public byte Flags0;
         public byte Flags1;
-        public byte Count;
-        public byte Flags2;
+        public ushort Count;
         public ushort UseCount;
 
         public ItemType Type => (ItemType) (Flags1 & 3);
@@ -28,12 +27,11 @@ namespace NHSE.Core
 
         public Item() { } // marshalling
 
-        public Item(ushort itemId = NONE, byte flags0 = 0, byte flags1 = 0, byte count = 0, byte flags2 = 0, ushort useCount = 0)
+        public Item(ushort itemId = NONE, byte flags0 = 0, byte flags1 = 0, byte count = 0, ushort useCount = 0)
         {
             ItemId = itemId;
             Flags0 = flags0;
             Flags1 = flags1;
-            Flags2 = flags2;
             Count = count;
             UseCount = useCount;
         }
@@ -41,8 +39,8 @@ namespace NHSE.Core
         public void Delete()
         {
             ItemId = NONE;
-            Flags0 = Flags1 = Flags2 = Count = 0;
-            UseCount = 0;
+            Flags0 = Flags1 = 0;
+            Count = UseCount = 0;
         }
 
         public void CopyFrom(Item item)
@@ -50,7 +48,6 @@ namespace NHSE.Core
             ItemId = item.ItemId;
             Flags0 = item.Flags0;
             Flags1 = item.Flags1;
-            Flags2 = item.Flags2;
             Count = item.Count;
             UseCount = item.UseCount;
         }

@@ -27,7 +27,6 @@ namespace NHSE.WinForms
             NUD_Uses.Value = item.UseCount;
             NUD_Flag0.Value = item.Flags0;
             NUD_Flag1.Value = item.Flags1;
-            NUD_Flag2.Value = item.Flags2;
             return item;
         }
 
@@ -39,7 +38,6 @@ namespace NHSE.WinForms
             item.UseCount = (ushort) NUD_Uses.Value;
             item.Flags0 = (byte) NUD_Flag0.Value;
             item.Flags1 = (byte) NUD_Flag1.Value;
-            item.Flags2 = (byte) NUD_Flag2.Value;
             return item;
         }
     }

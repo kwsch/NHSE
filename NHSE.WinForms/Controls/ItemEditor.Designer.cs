@@ -38,8 +38,6 @@
             this.NUD_Flag0 = new System.Windows.Forms.NumericUpDown();
             this.L_Flag1 = new System.Windows.Forms.Label();
             this.NUD_Flag1 = new System.Windows.Forms.NumericUpDown();
-            this.L_Flag2 = new System.Windows.Forms.Label();
-            this.NUD_Flag2 = new System.Windows.Forms.NumericUpDown();
             this.CM_Hand = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Menu_View = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Set = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +46,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Uses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag2)).BeginInit();
             this.CM_Hand.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +64,7 @@
             // 
             this.NUD_Count.Location = new System.Drawing.Point(88, 28);
             this.NUD_Count.Maximum = new decimal(new int[] {
-            255,
+            65535,
             0,
             0,
             0});
@@ -97,7 +94,7 @@
             // 
             this.NUD_Uses.Location = new System.Drawing.Point(88, 51);
             this.NUD_Uses.Maximum = new decimal(new int[] {
-            255,
+            65535,
             0,
             0,
             0});
@@ -149,28 +146,6 @@
             this.NUD_Flag1.Size = new System.Drawing.Size(56, 20);
             this.NUD_Flag1.TabIndex = 12;
             // 
-            // L_Flag2
-            // 
-            this.L_Flag2.Location = new System.Drawing.Point(3, 119);
-            this.L_Flag2.Name = "L_Flag2";
-            this.L_Flag2.Size = new System.Drawing.Size(79, 20);
-            this.L_Flag2.TabIndex = 15;
-            this.L_Flag2.Text = "Flag2:";
-            this.L_Flag2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // NUD_Flag2
-            // 
-            this.NUD_Flag2.Hexadecimal = true;
-            this.NUD_Flag2.Location = new System.Drawing.Point(88, 120);
-            this.NUD_Flag2.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.NUD_Flag2.Name = "NUD_Flag2";
-            this.NUD_Flag2.Size = new System.Drawing.Size(56, 20);
-            this.NUD_Flag2.TabIndex = 14;
-            // 
             // CM_Hand
             // 
             this.CM_Hand.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -202,8 +177,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.L_Flag2);
-            this.Controls.Add(this.NUD_Flag2);
             this.Controls.Add(this.L_Flag1);
             this.Controls.Add(this.NUD_Flag1);
             this.Controls.Add(this.L_Flag0);
@@ -219,7 +192,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Uses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag2)).EndInit();
             this.CM_Hand.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -235,8 +207,6 @@
         private System.Windows.Forms.NumericUpDown NUD_Flag0;
         private System.Windows.Forms.Label L_Flag1;
         private System.Windows.Forms.NumericUpDown NUD_Flag1;
-        private System.Windows.Forms.Label L_Flag2;
-        private System.Windows.Forms.NumericUpDown NUD_Flag2;
         private System.Windows.Forms.ContextMenuStrip CM_Hand;
         private System.Windows.Forms.ToolStripMenuItem Menu_View;
         private System.Windows.Forms.ToolStripMenuItem Menu_Set;

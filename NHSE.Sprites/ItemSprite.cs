@@ -65,8 +65,6 @@ namespace NHSE.Sprites
                 gfx.DrawString(item.Flags0.ToString(), font, brush, x1 + 20, y1 + 0);
             if (item.Flags1 != 0)
                 gfx.DrawString(item.Flags1.ToString(), font, brush, x1 + 0, y1 + 20);
-            if (item.Flags2 != 0)
-                gfx.DrawString(item.Flags2.ToString(), font, brush, x1 + 20, y1 + 20);
         }
 
         private static Color GetItemColor(Item item)
