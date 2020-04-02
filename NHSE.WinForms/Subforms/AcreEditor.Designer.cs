@@ -1387,10 +1387,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CB_AcreNames.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.CB_AcreNames.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CB_AcreNames.DropDownWidth = 322;
+            this.CB_AcreNames.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CB_AcreNames.FormattingEnabled = true;
             this.CB_AcreNames.Location = new System.Drawing.Point(216, 276);
             this.CB_AcreNames.Name = "CB_AcreNames";
-            this.CB_AcreNames.Size = new System.Drawing.Size(198, 21);
+            this.CB_AcreNames.Size = new System.Drawing.Size(198, 22);
             this.CB_AcreNames.TabIndex = 91;
             // 
             // L_AcreList
@@ -1428,9 +1430,10 @@
             // L_Hovered
             // 
             this.L_Hovered.AutoSize = true;
-            this.L_Hovered.Location = new System.Drawing.Point(216, 252);
+            this.L_Hovered.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_Hovered.Location = new System.Drawing.Point(151, 252);
             this.L_Hovered.Name = "L_Hovered";
-            this.L_Hovered.Size = new System.Drawing.Size(48, 13);
+            this.L_Hovered.Size = new System.Drawing.Size(56, 14);
             this.L_Hovered.TabIndex = 95;
             this.L_Hovered.Text = "Hovered";
             this.L_Hovered.Visible = false;

@@ -44,7 +44,7 @@ namespace NHSE.WinForms
         private void UpdateAcre(ushort val, int x, int y)
         {
             var name = OutsideAcreList.GetName(val);
-            L_Hovered.Text = $"{x},{y} - 0x{val:X3} = {name}";
+            L_Hovered.Text = $"{x},{y} - 0x{val:X2} = {name}";
             L_Hovered.Visible = true;
         }
 
@@ -54,6 +54,7 @@ namespace NHSE.WinForms
             acres.Sort();
             foreach (var name in acres)
                 CB_AcreNames.Items.Add(name);
+            CB_AcreNames.SelectedIndex = 0;
         }
 
         private void LoadAcres()
