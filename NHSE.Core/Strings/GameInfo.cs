@@ -5,7 +5,7 @@
     /// </summary>
     public static class GameInfo
     {
-        private static readonly GameStrings[] Languages = new GameStrings[GameLanguage.LanguageCount];
+        private static readonly GameStrings?[] Languages = new GameStrings[GameLanguage.LanguageCount];
 
         public static string CurrentLanguage { get; set; } = GameLanguage.DefaultLanguage;
         public static GameStrings Strings { get; set; } = GetStrings(CurrentLanguage);

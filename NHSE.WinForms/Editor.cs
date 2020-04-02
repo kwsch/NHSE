@@ -270,8 +270,6 @@ namespace NHSE.WinForms
         private void SaveVillager(int index)
         {
             var v = SAV.Main.GetVillager(index);
-            if (v is null)
-                return;
 
             v.Species = (byte)NUD_Species.Value;
             v.Variant = (byte)NUD_Variant.Value;

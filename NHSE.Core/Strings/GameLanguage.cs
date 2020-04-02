@@ -27,7 +27,7 @@ namespace NHSE.Core
         public static string[] GetStrings(string ident, string lang, string type = "text")
         {
             string[] data = ResourceUtil.GetStringList(ident, lang, type);
-            if (data == null || data.Length == 0)
+            if (data.Length == 0)
                 data = ResourceUtil.GetStringList(ident, DefaultLanguage, type);
 
             return data;
