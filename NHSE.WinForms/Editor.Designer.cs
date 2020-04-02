@@ -88,6 +88,7 @@
             this.B_EditBuildings = new System.Windows.Forms.Button();
             this.B_RecycleBin = new System.Windows.Forms.Button();
             this.B_EditTurnipExchange = new System.Windows.Forms.Button();
+            this.B_EditAcres = new System.Windows.Forms.Button();
             this.Menu_Editor.SuspendLayout();
             this.TC_Editors.SuspendLayout();
             this.Tab_Players.SuspendLayout();
@@ -710,6 +711,7 @@
             // 
             // Tab_Map
             // 
+            this.Tab_Map.Controls.Add(this.B_EditAcres);
             this.Tab_Map.Controls.Add(this.B_EditTurnipExchange);
             this.Tab_Map.Controls.Add(this.B_EditBuildings);
             this.Tab_Map.Controls.Add(this.B_RecycleBin);
@@ -750,6 +752,16 @@
             this.B_EditTurnipExchange.Text = "Edit Turnip Exchange";
             this.B_EditTurnipExchange.UseVisualStyleBackColor = true;
             this.B_EditTurnipExchange.Click += new System.EventHandler(this.B_EditTurnipExchange_Click);
+            // 
+            // B_EditAcres
+            // 
+            this.B_EditAcres.Location = new System.Drawing.Point(300, 168);
+            this.B_EditAcres.Name = "B_EditAcres";
+            this.B_EditAcres.Size = new System.Drawing.Size(92, 40);
+            this.B_EditAcres.TabIndex = 16;
+            this.B_EditAcres.Text = "Edit Acres";
+            this.B_EditAcres.UseVisualStyleBackColor = true;
+            this.B_EditAcres.Click += new System.EventHandler(this.B_EditAcres_Click);
             // 
             // Editor
             // 
@@ -852,6 +864,7 @@
         private System.Windows.Forms.Button B_EditActivities;
         private System.Windows.Forms.ToolStripMenuItem Menu_RAMEdit;
         private System.Windows.Forms.Button B_EditTurnipExchange;
+        private System.Windows.Forms.Button B_EditAcres;
     }
 }
 

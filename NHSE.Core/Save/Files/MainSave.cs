@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace NHSE.Core
 {
@@ -31,6 +32,34 @@ namespace NHSE.Core
         {
             get => Data.Slice(Offsets.TurnipExchange, TurnipStonk.SIZE).ToClass<TurnipStonk>();
             set => value.ToBytesClass().CopyTo(Data, Offsets.TurnipExchange);
+        }
+
+        public const int AcreWidth = 7 + (2 * 1); // 1 on each side cannot be traversed
+        private const int AcreHeight = 6 + (2 * 1); // 1 on each side cannot be traversed
+        private const int AcreMax = AcreWidth * AcreHeight;
+        private const int AcreSizeAll = AcreMax * 2;
+
+        public ushort GetAcre(int index)
+        {
+            if ((uint)index > AcreMax)
+                throw new ArgumentOutOfRangeException(nameof(index));
+            return BitConverter.ToUInt16(Data, Offsets.Acres + (index * 2));
+        }
+
+        public void SetAcre(int index, ushort value)
+        {
+            if ((uint)index > AcreMax)
+                throw new ArgumentOutOfRangeException(nameof(index));
+            BitConverter.GetBytes(value).CopyTo(Data, Offsets.Acres + (index * 2));
+        }
+
+        public byte[] GetAcreBytes() => Data.Slice(Offsets.Acres, AcreSizeAll);
+
+        public void SetAcreBytes(byte[] data)
+        {
+            if (data.Length != AcreSizeAll)
+                throw new ArgumentOutOfRangeException(nameof(data.Length));
+            data.CopyTo(Data, Offsets.Acres);
         }
     }
 }

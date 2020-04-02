@@ -22,6 +22,8 @@ namespace NHSE.Core
 
         public abstract int TurnipExchange { get; }
 
+        public abstract int Acres { get; }
+
         public static MainSaveOffsets GetOffsets(FileHeaderInfo Info)
         {
             var rev = Info.GetKnownRevisionIndex();

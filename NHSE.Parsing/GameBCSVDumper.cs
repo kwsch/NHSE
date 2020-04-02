@@ -36,6 +36,7 @@ namespace NHSE.Parsing
 
             DumpS("milestones.txt", GetMilestoneList(pathBCSV));
             DumpS("recipeDictionary.txt", GetRecipeList(pathBCSV));
+            DumpS("outsideAcres.txt", GetAcreNames(pathBCSV));
 
             DumpS("fish.txt", GetFishList(pathBCSV, itemNames));
             DumpS("bugs.txt", GetInsectList(pathBCSV, itemNames));
@@ -191,6 +192,29 @@ namespace NHSE.Parsing
                 var iid = bcsv.ReadValue(i, findex);
                 var ival = ushort.Parse(iid);
                 result.Add(ival);
+            }
+
+            result.Sort();
+            return result;
+        }
+
+        private static IEnumerable<string> GetAcreNames(string pathBCSV, string fn = "FieldOutsideParts.bcsv")
+        {
+            var bcsv = BCSVConverter.GetBCSV(pathBCSV, fn);
+            var dict = bcsv.GetFieldDictionary();
+            var findex = dict[0x54706054];
+            var fname = dict[0x39B5A93D];
+
+            var result = new List<string>();
+            for (int i = 0; i < bcsv.EntryCount; i++)
+            {
+                var iid = bcsv.ReadValue(i, findex);
+                var ival = ushort.Parse(iid);
+
+                var name = bcsv.ReadValue(i, fname).TrimEnd('\0');
+
+                var kvp = $"{{0x{ival:X2}, \"{name}\"}}, // {ival}";
+                result.Add(kvp);
             }
 
             result.Sort();

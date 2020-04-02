@@ -508,5 +508,11 @@ namespace NHSE.WinForms
             if (editor.ShowDialog() == DialogResult.OK)
                 SAV.Main.Turnips = turnips;
         }
+
+        private void B_EditAcres_Click(object sender, EventArgs e)
+        {
+            using var editor = new AcreEditor(SAV.Main);
+            editor.ShowDialog();
+        }
     }
 }
