@@ -20,6 +20,7 @@ namespace NHSE.Core
             new FileHeaderInfo { Major = 0x67, Minor = 0x6F, HeaderRevision = 0, Unk1 = 2, SaveRevision = 0, Unk2 = 2 }, // 1.0.0
             new FileHeaderInfo { Major = 0x6D, Minor = 0x78, HeaderRevision = 0, Unk1 = 2, SaveRevision = 1, Unk2 = 2 }, // 1.1.0
             new FileHeaderInfo { Major = 0x6D, Minor = 0x78, HeaderRevision = 0, Unk1 = 2, SaveRevision = 2, Unk2 = 2 }, // 1.1.1
+            new FileHeaderInfo { Major = 0x6D, Minor = 0x78, HeaderRevision = 0, Unk1 = 2, SaveRevision = 3, Unk2 = 2 }, // 1.1.2
         };
 
         public static readonly IReadOnlyList<SaveFileSizes> SizeInfo = new[]
@@ -27,6 +28,7 @@ namespace NHSE.Core
             SizesByRevision[0], // 1.0.0
             SizesByRevision[1], // 1.1.0
             SizesByRevision[1], // 1.1.1
+            SizesByRevision[1], // 1.1.2
         };
 
         public static readonly IReadOnlyList<FileHashInfo> HashInfo = new[]
@@ -34,6 +36,7 @@ namespace NHSE.Core
             FileHashRevision.REV_100, // 1.0.0
             FileHashRevision.REV_110, // 1.1.0
             FileHashRevision.REV_110, // 1.1.1
+            FileHashRevision.REV_110,
         };
 
         public static bool IsRevisionKnown(this FileHeaderInfo info) => info.GetKnownRevisionIndex() >= 0;
