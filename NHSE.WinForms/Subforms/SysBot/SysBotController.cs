@@ -66,12 +66,23 @@ namespace NHSE.WinForms
 
         public void HexEdit(uint offset, int length)
         {
-            var data = ReadBytes(offset, length);
-            using var ram = new SimpleHexEditor(data);
+            var read = ReadBytes(offset, length);
+            using var ram = new SimpleHexEditor(read);
             if (ram.ShowDialog() != DialogResult.OK)
                 return;
 
-            WriteBytes(data, offset);
+            var write = ram.Bytes;
+            if (read.Length != write.Length)
+            {
+                var prompt = WinFormsUtil.Prompt(MessageBoxButtons.OKCancel,
+                    $"Read size (0x{read.Length:X}) != Write Size (0x{write.Length})",
+                    "Write anyway?");
+
+                if (prompt != DialogResult.OK)
+                    return;
+            }
+
+            WriteBytes(ram.Bytes, offset);
             SetOffset(offset);
             System.Media.SystemSounds.Asterisk.Play();
         }
