@@ -21,5 +21,13 @@ namespace NHSE.Tests
             var bytes = item.ToBytesClass();
             bytes.Length.Should().Be(VillagerItem.SIZE);
         }
+
+        [Fact]
+        public void MapItemMarshal()
+        {
+            var item = new MapItem();
+            var bytes = item.ToBytesClass();
+            bytes.Length.Should().Be(MapItem.SIZE);
+        }
     }
 }

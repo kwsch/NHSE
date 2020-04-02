@@ -34,7 +34,7 @@ namespace NHSE.Sprites
             return bmp;
         }
 
-        private static void DrawItemAt(Graphics gfx, Item item, Font font, int x1, int y1, int x2, int y2, bool slash = false)
+        public static void DrawItemAt(Graphics gfx, Item item, Font font, int x1, int y1, int x2, int y2, bool slash = false)
         {
             var color = GetItemColor(item);
             using var brush = new SolidBrush(color);
@@ -89,5 +89,22 @@ namespace NHSE.Sprites
         }
 
         private static readonly KnownColor[] Colors = (KnownColor[])Enum.GetValues(typeof(KnownColor));
+
+        public Bitmap GetItemArray(Item[] items, int height, Font f)
+        {
+            //var items = MapItem.GetArray(SAV.Main.Data.Slice(0x20191C, 0xA8000));
+            var width = items.Length / height;
+
+            var png = new Bitmap(width * Width, height * Height);
+            var gfx = Graphics.FromImage(png);
+            for (int i = 0; i < items.Length; i++)
+            {
+                var x = Height * (i / height);
+                var y = Width * (i % height);
+                DrawItemAt(gfx, items[i], f, x, y, x + Width - 1, y + Height - 1);
+            }
+
+            return png;
+        }
     }
 }
