@@ -41,18 +41,21 @@ namespace NHSE.Parsing
             DumpS("fish.txt", GetFishList(pathBCSV, itemNames));
             DumpS("bugs.txt", GetInsectList(pathBCSV, itemNames));
 
-            DumpS("ItemKind.txt", GetItemKindsEnum(pathBCSV));
+            DumpS("ItemKind.txt", GetPossibleEnum(pathBCSV, "ItemParam.bcsv", 0xFC275E86));
+            DumpS("PlantKind.txt", GetPossibleEnum(pathBCSV, "FgMainParam.bcsv", 0x48EF0398));
+
             DumpB("item_kind.bin", GetItemKindArray(pathBCSV));
+            DumpS("plants.txt", GetPlantedNames(pathBCSV));
         }
 
-        public static IEnumerable<string> GetItemKinds(string pathBCSV, string fn = "ItemParam.bcsv")
+        private static IEnumerable<string> GetPossibleEnumValues(string pathBCSV, string fn, uint key)
         {
             var path = Path.Combine(pathBCSV, fn);
             var data = File.ReadAllBytes(path);
             var bcsv = new BCSV(data);
 
             var dict = bcsv.GetFieldDictionary();
-            var fType = dict[0xFC275E86];
+            var fType = dict[key];
 
             var types = new HashSet<string>();
             for (int i = 0; i < bcsv.EntryCount; i++)
@@ -65,9 +68,9 @@ namespace NHSE.Parsing
             return types;
         }
 
-        private static IEnumerable<string> GetItemKindsEnum(string pathBCSV)
+        private static IEnumerable<string> GetPossibleEnum(string pathBCSV, string fn, uint key)
         {
-            var kinds = GetItemKinds(pathBCSV);
+            var kinds = GetPossibleEnumValues(pathBCSV, fn, key);
             var ordered = kinds.OrderBy(z => z);
             return ordered.Select(z => $"{z},");
         }
@@ -214,6 +217,37 @@ namespace NHSE.Parsing
                 var name = bcsv.ReadValue(i, fname).TrimEnd('\0');
 
                 var kvp = $"{{0x{ival:X2}, \"{name}\"}}, // {ival}";
+                result.Add(kvp);
+            }
+
+            result.Sort();
+            return result;
+        }
+
+        private static IEnumerable<string> GetPlantedNames(string pathBCSV, string fn = "FgMainParam.bcsv")
+        {
+            var bcsv = BCSVConverter.GetBCSV(pathBCSV, fn);
+            var dict = bcsv.GetFieldDictionary();
+            var fType = dict[0x48EF0398];
+            var fname = dict[0x87BF00E8];
+            var findex = dict[0x54706054];
+            var fcomment = dict[0x3F45F2BF];
+
+            var result = new List<string>();
+            for (int i = 0; i < bcsv.EntryCount; i++)
+            {
+                var iid = bcsv.ReadValue(i, findex);
+                var ival = (ushort)short.Parse(iid);
+
+                var name = bcsv.ReadValue(i, fname).TrimEnd('\0');
+                var comment = bcsv.ReadValue(i, fcomment).TrimEnd('\0');
+                var type = bcsv.ReadValue(i, fType).TrimEnd('\0');
+
+                if (!Enum.TryParse<FieldItemKind>(type, out var k))
+                    throw new InvalidEnumArgumentException($"{type} is not a known enum value @ index {i}. Update the enum index first.");
+
+                var v = $"new {nameof(FieldItemDefinition)}(0x{ival:X}, \"{name}\", {nameof(FieldItemKind)}.{k})";
+                var kvp = $"{{0x{ival:X}, {v}}}, // {comment}";
                 result.Add(kvp);
             }
 
