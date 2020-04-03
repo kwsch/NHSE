@@ -124,6 +124,9 @@
             this.B_Export = new System.Windows.Forms.Button();
             this.B_Import = new System.Windows.Forms.Button();
             this.L_Hovered = new System.Windows.Forms.Label();
+            this.PAN_Sea = new System.Windows.Forms.Panel();
+            this.PAN_Beach = new System.Windows.Forms.Panel();
+            this.PAN_Land = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_00)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_01)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_02)).BeginInit();
@@ -196,6 +199,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_45)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_46)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_47)).BeginInit();
+            this.PAN_Sea.SuspendLayout();
+            this.PAN_Beach.SuspendLayout();
             this.SuspendLayout();
             // 
             // NUD_00
@@ -425,7 +430,7 @@
             // NUD_10
             // 
             this.NUD_10.Hexadecimal = true;
-            this.NUD_10.Location = new System.Drawing.Point(420, 60);
+            this.NUD_10.Location = new System.Drawing.Point(420, 58);
             this.NUD_10.Maximum = new decimal(new int[] {
             1024,
             0,
@@ -1429,6 +1434,7 @@
             // 
             // L_Hovered
             // 
+            this.L_Hovered.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.L_Hovered.AutoSize = true;
             this.L_Hovered.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.L_Hovered.Location = new System.Drawing.Point(151, 252);
@@ -1437,6 +1443,32 @@
             this.L_Hovered.TabIndex = 95;
             this.L_Hovered.Text = "Hovered";
             this.L_Hovered.Visible = false;
+            // 
+            // PAN_Sea
+            // 
+            this.PAN_Sea.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.PAN_Sea.Controls.Add(this.PAN_Beach);
+            this.PAN_Sea.Location = new System.Drawing.Point(61, 30);
+            this.PAN_Sea.Name = "PAN_Sea";
+            this.PAN_Sea.Size = new System.Drawing.Size(457, 206);
+            this.PAN_Sea.TabIndex = 96;
+            // 
+            // PAN_Beach
+            // 
+            this.PAN_Beach.BackColor = System.Drawing.Color.LemonChiffon;
+            this.PAN_Beach.Controls.Add(this.PAN_Land);
+            this.PAN_Beach.Location = new System.Drawing.Point(51, 26);
+            this.PAN_Beach.Name = "PAN_Beach";
+            this.PAN_Beach.Size = new System.Drawing.Size(355, 154);
+            this.PAN_Beach.TabIndex = 97;
+            // 
+            // PAN_Land
+            // 
+            this.PAN_Land.BackColor = System.Drawing.Color.PaleGreen;
+            this.PAN_Land.Location = new System.Drawing.Point(51, 26);
+            this.PAN_Land.Name = "PAN_Land";
+            this.PAN_Land.Size = new System.Drawing.Size(253, 102);
+            this.PAN_Land.TabIndex = 98;
             // 
             // AcreEditor
             // 
@@ -1539,6 +1571,7 @@
             this.Controls.Add(this.NUD_02);
             this.Controls.Add(this.NUD_01);
             this.Controls.Add(this.NUD_00);
+            this.Controls.Add(this.PAN_Sea);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = global::NHSE.WinForms.Properties.Resources.icon;
             this.MaximizeBox = false;
@@ -1618,6 +1651,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_45)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_46)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_47)).EndInit();
+            this.PAN_Sea.ResumeLayout(false);
+            this.PAN_Beach.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1721,5 +1756,8 @@
         private System.Windows.Forms.Button B_Export;
         private System.Windows.Forms.Button B_Import;
         private System.Windows.Forms.Label L_Hovered;
+        private System.Windows.Forms.Panel PAN_Sea;
+        private System.Windows.Forms.Panel PAN_Beach;
+        private System.Windows.Forms.Panel PAN_Land;
     }
 }
