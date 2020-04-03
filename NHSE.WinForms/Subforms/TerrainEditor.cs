@@ -174,6 +174,8 @@ namespace NHSE.WinForms
 
         private void B_ZeroElevation_Click(object sender, EventArgs e)
         {
+            if (DialogResult.Yes != WinFormsUtil.Prompt(MessageBoxButtons.YesNo, "Set the elevation of all tiles to 0?"))
+                return;
             foreach (var t in Terrain.Tiles)
                 t.Elevation = 0;
             LoadGrid(AcreIndex);
@@ -182,6 +184,8 @@ namespace NHSE.WinForms
 
         private void B_ClearAll_Click(object sender, EventArgs e)
         {
+            if (DialogResult.Yes != WinFormsUtil.Prompt(MessageBoxButtons.YesNo, "Reset all tiles to Base (Elevation 0)?"))
+                return;
             foreach (var t in Terrain.Tiles)
                 t.Clear();
             LoadGrid(AcreIndex);
