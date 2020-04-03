@@ -50,7 +50,7 @@ namespace NHSE.WinForms
 
         private void UpdateArrowVisibility(int index)
         {
-            B_Up.Enabled = index > TerrainManager.AcreWidth;
+            B_Up.Enabled = index >= TerrainManager.AcreWidth;
             B_Down.Enabled = index < TerrainManager.AcreWidth * (TerrainManager.AcreHeight - 1);
             B_Left.Enabled = index % TerrainManager.AcreWidth != 0;
             B_Right.Enabled = index % TerrainManager.AcreWidth != TerrainManager.AcreWidth - 1;
