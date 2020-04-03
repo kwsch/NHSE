@@ -44,12 +44,21 @@ namespace NHSE.WinForms
                 RefreshTile(b, tile);
             }
             UpdateArrowVisibility(index);
+            ReloadMap();
         }
 
         private void ReloadMap()
         {
             var img = TerrainSprite.CreateMap(Terrain);
-            PB_Map.Image = ImageUtil.ResizeImage(img, img.Width * 2, img.Height * 2);
+            var map = ImageUtil.ResizeImage(img, img.Width * 2, img.Height * 2);
+
+            using var gfx = Graphics.FromImage(map);
+            using var pen = new Pen(Color.Red);
+
+            var acre = Terrain.Acres[AcreIndex];
+            gfx.DrawRectangle(pen, acre.X * TerrainManager.GridWidth * 2, acre.Y * TerrainManager.GridHeight * 2, TerrainManager.GridWidth * 2, TerrainManager.GridHeight * 2);
+
+            PB_Map.Image = map;
         }
 
         private void UpdateArrowVisibility(int index)
@@ -246,7 +255,6 @@ namespace NHSE.WinForms
             var data = File.ReadAllBytes(path);
             Terrain.ImportAcre(AcreIndex, data);
             LoadGrid(AcreIndex);
-            ReloadMap();
             System.Media.SystemSounds.Asterisk.Play();
         }
 
@@ -273,7 +281,6 @@ namespace NHSE.WinForms
             var data = File.ReadAllBytes(path);
             Terrain.ImportAllAcres(data);
             LoadGrid(AcreIndex);
-            ReloadMap();
             System.Media.SystemSounds.Asterisk.Play();
         }
 
