@@ -43,6 +43,7 @@ namespace NHSE.Parsing
 
             DumpS("ItemKind.txt", GetPossibleEnum(pathBCSV, "ItemParam.bcsv", 0xFC275E86));
             DumpS("PlantKind.txt", GetPossibleEnum(pathBCSV, "FgMainParam.bcsv", 0x48EF0398));
+            DumpS("TerrainKind.txt", GetNumberedEnumValues(pathBCSV, "FieldLandMakingUnitModelParam.bcsv", 0x39B5A93D, 0x54706054));
 
             DumpB("item_kind.bin", GetItemKindArray(pathBCSV));
             DumpS("plants.txt", GetPlantedNames(pathBCSV));
@@ -63,6 +64,40 @@ namespace NHSE.Parsing
                 var type = bcsv.ReadValue(i, fType).TrimEnd('\0');
                 if (!types.Contains(type))
                     types.Add(type);
+            }
+
+            return types;
+        }
+
+        private static IEnumerable<string> GetNumberedEnumValues(string pathBCSV, string fn, uint keyName, uint keyValue)
+        {
+            var path = Path.Combine(pathBCSV, fn);
+            var data = File.ReadAllBytes(path);
+            var bcsv = new BCSV(data);
+
+            var dict = bcsv.GetFieldDictionary();
+            var fType = dict[keyName];
+            var fitemID = dict[keyValue];
+
+            var types = new List<string>();
+            var set = new Dictionary<string, int>();
+            for (int i = 0; i < bcsv.EntryCount; i++)
+            {
+                var iid = bcsv.ReadValue(i, fitemID);
+                var ival = ushort.Parse(iid);
+                var type = bcsv.ReadValue(i, fType).TrimEnd('\0');
+                if (set.TryGetValue(type, out var count))
+                {
+                    count++;
+                    set[type] = count;
+                    type += $"_{count}";
+                }
+                else
+                {
+                    set.Add(type, 1);
+                }
+
+                types.Add($"{type} = 0x{ival:X2},");
             }
 
             return types;

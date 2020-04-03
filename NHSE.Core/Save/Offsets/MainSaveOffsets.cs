@@ -23,6 +23,7 @@ namespace NHSE.Core
         public abstract int TurnipExchange { get; }
 
         public abstract int Acres { get; }
+        public abstract int Terrain { get; }
 
         public static MainSaveOffsets GetOffsets(FileHeaderInfo Info)
         {

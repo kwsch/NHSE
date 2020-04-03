@@ -4,7 +4,7 @@ using Xunit;
 
 namespace NHSE.Tests
 {
-    public class ItemTests
+    public class MarshalTests
     {
         [Fact]
         public void ItemMarshal()
@@ -28,6 +28,14 @@ namespace NHSE.Tests
             var item = new MapItem();
             var bytes = item.ToBytesClass();
             bytes.Length.Should().Be(MapItem.SIZE);
+        }
+
+        [Fact]
+        public void TerrainTileMarshal()
+        {
+            var obj = new TerrainTile();
+            var bytes = obj.ToBytesClass();
+            bytes.Length.Should().Be(TerrainTile.SIZE);
         }
     }
 }

@@ -75,15 +75,7 @@ namespace NHSE.Sprites
             var known = Colors[(int)kind];
             var color = Color.FromKnownColor(known);
             // soften the colors a little
-            return Blend(Color.White, color, 0.5d);
-        }
-
-        public static Color Blend(Color color, Color backColor, double amount)
-        {
-            byte r = (byte)((color.R * amount) + (backColor.R * (1 - amount)));
-            byte g = (byte)((color.G * amount) + (backColor.G * (1 - amount)));
-            byte b = (byte)((color.B * amount) + (backColor.B * (1 - amount)));
-            return Color.FromArgb(r, g, b);
+            return ColorUtil.Blend(Color.White, color, 0.5d);
         }
 
         private static readonly KnownColor[] Colors = (KnownColor[])Enum.GetValues(typeof(KnownColor));

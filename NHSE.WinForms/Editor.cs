@@ -514,5 +514,11 @@ namespace NHSE.WinForms
             using var editor = new AcreEditor(SAV.Main);
             editor.ShowDialog();
         }
+
+        private void B_EditTerrain_Click(object sender, EventArgs e)
+        {
+            using var editor = new TerrainEditor(SAV.Main);
+            editor.ShowDialog();
+        }
     }
 }

@@ -85,10 +85,11 @@
             this.NUD_PatternIndex = new System.Windows.Forms.NumericUpDown();
             this.PB_Pattern = new System.Windows.Forms.PictureBox();
             this.Tab_Map = new System.Windows.Forms.TabPage();
+            this.B_EditAcres = new System.Windows.Forms.Button();
+            this.B_EditTurnipExchange = new System.Windows.Forms.Button();
             this.B_EditBuildings = new System.Windows.Forms.Button();
             this.B_RecycleBin = new System.Windows.Forms.Button();
-            this.B_EditTurnipExchange = new System.Windows.Forms.Button();
-            this.B_EditAcres = new System.Windows.Forms.Button();
+            this.B_EditTerrain = new System.Windows.Forms.Button();
             this.Menu_Editor.SuspendLayout();
             this.TC_Editors.SuspendLayout();
             this.Tab_Players.SuspendLayout();
@@ -711,6 +712,7 @@
             // 
             // Tab_Map
             // 
+            this.Tab_Map.Controls.Add(this.B_EditTerrain);
             this.Tab_Map.Controls.Add(this.B_EditAcres);
             this.Tab_Map.Controls.Add(this.B_EditTurnipExchange);
             this.Tab_Map.Controls.Add(this.B_EditBuildings);
@@ -722,6 +724,26 @@
             this.Tab_Map.TabIndex = 2;
             this.Tab_Map.Text = "Map";
             this.Tab_Map.UseVisualStyleBackColor = true;
+            // 
+            // B_EditAcres
+            // 
+            this.B_EditAcres.Location = new System.Drawing.Point(300, 168);
+            this.B_EditAcres.Name = "B_EditAcres";
+            this.B_EditAcres.Size = new System.Drawing.Size(92, 40);
+            this.B_EditAcres.TabIndex = 16;
+            this.B_EditAcres.Text = "Edit Acres";
+            this.B_EditAcres.UseVisualStyleBackColor = true;
+            this.B_EditAcres.Click += new System.EventHandler(this.B_EditAcres_Click);
+            // 
+            // B_EditTurnipExchange
+            // 
+            this.B_EditTurnipExchange.Location = new System.Drawing.Point(202, 168);
+            this.B_EditTurnipExchange.Name = "B_EditTurnipExchange";
+            this.B_EditTurnipExchange.Size = new System.Drawing.Size(92, 40);
+            this.B_EditTurnipExchange.TabIndex = 15;
+            this.B_EditTurnipExchange.Text = "Edit Turnip Exchange";
+            this.B_EditTurnipExchange.UseVisualStyleBackColor = true;
+            this.B_EditTurnipExchange.Click += new System.EventHandler(this.B_EditTurnipExchange_Click);
             // 
             // B_EditBuildings
             // 
@@ -743,25 +765,15 @@
             this.B_RecycleBin.UseVisualStyleBackColor = true;
             this.B_RecycleBin.Click += new System.EventHandler(this.B_RecycleBin_Click);
             // 
-            // B_EditTurnipExchange
+            // B_EditTerrain
             // 
-            this.B_EditTurnipExchange.Location = new System.Drawing.Point(202, 168);
-            this.B_EditTurnipExchange.Name = "B_EditTurnipExchange";
-            this.B_EditTurnipExchange.Size = new System.Drawing.Size(92, 40);
-            this.B_EditTurnipExchange.TabIndex = 15;
-            this.B_EditTurnipExchange.Text = "Edit Turnip Exchange";
-            this.B_EditTurnipExchange.UseVisualStyleBackColor = true;
-            this.B_EditTurnipExchange.Click += new System.EventHandler(this.B_EditTurnipExchange_Click);
-            // 
-            // B_EditAcres
-            // 
-            this.B_EditAcres.Location = new System.Drawing.Point(300, 168);
-            this.B_EditAcres.Name = "B_EditAcres";
-            this.B_EditAcres.Size = new System.Drawing.Size(92, 40);
-            this.B_EditAcres.TabIndex = 16;
-            this.B_EditAcres.Text = "Edit Acres";
-            this.B_EditAcres.UseVisualStyleBackColor = true;
-            this.B_EditAcres.Click += new System.EventHandler(this.B_EditAcres_Click);
+            this.B_EditTerrain.Location = new System.Drawing.Point(300, 122);
+            this.B_EditTerrain.Name = "B_EditTerrain";
+            this.B_EditTerrain.Size = new System.Drawing.Size(92, 40);
+            this.B_EditTerrain.TabIndex = 17;
+            this.B_EditTerrain.Text = "Edit Terrain";
+            this.B_EditTerrain.UseVisualStyleBackColor = true;
+            this.B_EditTerrain.Click += new System.EventHandler(this.B_EditTerrain_Click);
             // 
             // Editor
             // 
@@ -865,6 +877,7 @@
         private System.Windows.Forms.ToolStripMenuItem Menu_RAMEdit;
         private System.Windows.Forms.Button B_EditTurnipExchange;
         private System.Windows.Forms.Button B_EditAcres;
+        private System.Windows.Forms.Button B_EditTerrain;
     }
 }
 

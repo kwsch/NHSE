@@ -61,5 +61,11 @@ namespace NHSE.Core
                 throw new ArgumentOutOfRangeException(nameof(data.Length));
             data.CopyTo(Data, Offsets.Acres);
         }
+
+        public TerrainTile[] Terrain
+        {
+            get => TerrainTile.GetArray(Data.Slice(Offsets.Terrain, TerrainManager.TileCount * TerrainTile.SIZE));
+            set => TerrainTile.SetArray(value).CopyTo(Data, Offsets.Terrain);
+        }
     }
 }
