@@ -254,6 +254,7 @@
             this.PB_Map.Size = new System.Drawing.Size(226, 194);
             this.PB_Map.TabIndex = 23;
             this.PB_Map.TabStop = false;
+            this.PB_Map.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PB_Map_MouseDown);
             // 
             // CM_Picture
             // 

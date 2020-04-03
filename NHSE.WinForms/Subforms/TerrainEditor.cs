@@ -34,6 +34,7 @@ namespace NHSE.WinForms
 
         private int AcreIndex => CB_Acre.SelectedIndex;
         private void ChangeAcre(object sender, EventArgs e) => LoadGrid(AcreIndex);
+        private void ReloadMap() => PB_Map.Image = TerrainSprite.CreateMap(Terrain, 2, AcreIndex);
 
         private void LoadGrid(int index)
         {
@@ -45,20 +46,6 @@ namespace NHSE.WinForms
             }
             UpdateArrowVisibility(index);
             ReloadMap();
-        }
-
-        private void ReloadMap()
-        {
-            var img = TerrainSprite.CreateMap(Terrain);
-            var map = ImageUtil.ResizeImage(img, img.Width * 2, img.Height * 2);
-
-            using var gfx = Graphics.FromImage(map);
-            using var pen = new Pen(Color.Red);
-
-            var acre = Terrain.Acres[AcreIndex];
-            gfx.DrawRectangle(pen, acre.X * TerrainManager.GridWidth * 2, acre.Y * TerrainManager.GridHeight * 2, TerrainManager.GridWidth * 2, TerrainManager.GridHeight * 2);
-
-            PB_Map.Image = map;
         }
 
         private void UpdateArrowVisibility(int index)
@@ -294,7 +281,7 @@ namespace NHSE.WinForms
             }
 
             const string name = "map";
-            var bmp = pb.Image;
+            var bmp = TerrainSprite.CreateMap(Terrain);
             using var sfd = new SaveFileDialog
             {
                 Filter = "png file (*.png)|*.png|All files (*.*)|*.*",
@@ -304,6 +291,18 @@ namespace NHSE.WinForms
                 return;
 
             bmp.Save(sfd.FileName, ImageFormat.Png);
+        }
+
+        private void PB_Map_MouseDown(object sender, MouseEventArgs e)
+        {
+            var x = e.X / (2 * TerrainManager.GridWidth);
+            var y = e.Y / (2 * TerrainManager.GridHeight);
+
+            var index = (y * TerrainManager.AcreWidth) + x;
+            var clamp = Math.Max(0, Math.Min((TerrainManager.AcreHeight * TerrainManager.AcreWidth) - 1, index));
+
+            if (AcreIndex != clamp)
+                CB_Acre.SelectedIndex = clamp;
         }
     }
 }
