@@ -63,7 +63,7 @@ namespace NHSE.Core
             var result = new byte[TerrainTile.SIZE * count];
             for (int i = 0; i < count; i++)
             {
-                var tile = GetTile(acre, i);
+                var tile = GetAcreTile(acre, i);
                 var bytes = tile.ToBytesClass();
                 bytes.CopyTo(result, i * TerrainTile.SIZE);
             }
@@ -83,7 +83,7 @@ namespace NHSE.Core
             var tiles = TerrainTile.GetArray(data);
             for (int i = 0; i < count; i++)
             {
-                var tile = GetTile(acre, i);
+                var tile = GetAcreTile(acre, i);
                 tile.CopyFrom(tiles[i]);
             }
         }
