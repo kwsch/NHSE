@@ -10,10 +10,11 @@ namespace NHSE.Core
         private const byte SHIFT_BASE = 3;
 
         public readonly uint OriginalEncrypted;
+        public readonly ushort Adjust;
+        public readonly byte Shift;
+        public readonly byte Checksum;
+
         public uint Value;
-        public ushort Adjust;
-        public byte Shift;
-        public byte Checksum;
 
         public override string ToString() => Value.ToString();
 
@@ -24,15 +25,6 @@ namespace NHSE.Core
             Shift = shift;
             Checksum = checksum;
             Value = Decrypt(encryptedValue, shift, adjust);
-        }
-
-        public EncryptedInt32(uint value)
-        {
-            Adjust = (ushort)RandUtil.Rand.Next();
-            Shift = (byte)RandUtil.Rand.Next(27);
-            var enc = Encrypt(value, Shift, Adjust);
-            Checksum = CalculateChecksum(enc);
-            Value = value;
         }
 
         public void Write(byte[] data, int offset) => Write(this, data, offset);
@@ -49,18 +41,11 @@ namespace NHSE.Core
         {
             // Decrypt the encrypted int using the given params.
             ulong val = ((ulong) encrypted) << ((32 - SHIFT_BASE - shift) & 0x3F);
-            int valConcat = (int) val + (int) (val >> 32);
-            return (uint) ((ENCRYPTION_CONSTANT - adjust) + valConcat);
+            val += val >> 32;
+            return ENCRYPTION_CONSTANT - adjust + (uint)val;
         }
 
-        public static uint Encrypt(uint value)
-        {
-            var adjust = (ushort)RandUtil.Rand.Next();
-            var shift = (byte)RandUtil.Rand.Next();
-            return Encrypt(value, shift, adjust);
-        }
-
-        private static uint Encrypt(uint value, byte shift, ushort adjust)
+        public static uint Encrypt(uint value, byte shift, ushort adjust)
         {
             ulong val = (ulong) (value + (adjust - ENCRYPTION_CONSTANT)) << (shift + SHIFT_BASE);
             return (uint) ((val >> 32) + val);
@@ -91,12 +76,6 @@ namespace NHSE.Core
             BitConverter.GetBytes(value.Adjust).CopyTo(data, offset + 4);
             data[offset + 6] = value.Shift;
             data[offset + 7] = chk;
-        }
-
-        public static void Write(uint value, byte[] data, int offset)
-        {
-            var fake = new EncryptedInt32(value);
-            Write(fake, data, offset);
         }
     }
 }
