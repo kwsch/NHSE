@@ -38,7 +38,7 @@
             this.B_Open.Name = "B_Open";
             this.B_Open.Size = new System.Drawing.Size(306, 121);
             this.B_Open.TabIndex = 0;
-            this.B_Open.Text = "Open Folder";
+            this.B_Open.Text = "Open main.dat\r\n\r\nOr...\r\n\r\nDrag&&Drop folder here!";
             this.B_Open.UseVisualStyleBackColor = true;
             this.B_Open.Click += new System.EventHandler(this.Menu_Open);
             // 

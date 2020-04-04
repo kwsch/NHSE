@@ -20,6 +20,10 @@ namespace NHSE.WinForms
             WindowState = FormWindowState.Minimized;
             Show();
             WindowState = FormWindowState.Normal;
+
+            var args = Environment.GetCommandLineArgs();
+            for (int i = 1; i < args.Length; i++)
+                Open(args[i]);
         }
 
         private static void Open(HorizonSave file) => new Editor(file).Show();
@@ -56,9 +60,15 @@ namespace NHSE.WinForms
                     return;
                 }
             }
-            using var fbd = new FolderBrowserDialog();
-            if (fbd.ShowDialog() == DialogResult.OK)
-                Open(fbd.SelectedPath);
+
+            using var ofd = new OpenFileDialog
+            {
+                Title = "Open main.dat ...",
+                Filter = "New Horizons Save File (main.dat)|main.dat",
+                FileName = "main.dat",
+            };
+            if (ofd.ShowDialog() == DialogResult.OK)
+                Open(ofd.FileName);
         }
 
         private static void Open(string path)
@@ -67,7 +77,7 @@ namespace NHSE.WinForms
             try
             #endif
             {
-                OpenSaveFile(path);
+                OpenFileOrPath(path);
             }
             #if !DEBUG
 #pragma warning disable CA1031 // Do not catch general exception types
@@ -77,6 +87,25 @@ namespace NHSE.WinForms
                 WinFormsUtil.Error(ex.Message);
             }
             #endif
+        }
+
+        private static void OpenFileOrPath(string path)
+        {
+            if (Directory.Exists(path))
+            {
+                OpenSaveFile(path);
+                return;
+            }
+
+            var dir = Path.GetDirectoryName(path);
+            if (dir is null || !Directory.Exists(dir)) // ya never know
+            {
+                WinFormsUtil.Error("Unable to open the folder that contains the save file.",
+                    "Try moving it to another location and opening from there.");
+                return;
+            }
+
+            OpenSaveFile(dir);
         }
 
         private static void OpenSaveFile(string path)
