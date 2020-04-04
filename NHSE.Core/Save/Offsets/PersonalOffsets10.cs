@@ -6,6 +6,7 @@
     public sealed class PersonalOffsets10 : PersonalOffsets
     {
         public override int PersonalId => 0xB0A0;
+        public override int EventFlagsPlayer => PersonalId + 0x38; // +0x18 from v1.0, +0x18 after player name start
         public override int Activity => 0xCF6C;
         public override int Wallet => 0x11578;
         public override int NookMiles => 0x11570;

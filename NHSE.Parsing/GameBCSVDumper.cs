@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using NHSE.Core;
@@ -17,9 +18,10 @@ namespace NHSE.Parsing
         /// </summary>
         /// <param name="pathBCSV">Source of <see cref="BCSV"/> files.</param>
         /// <param name="dest">Destination folder where the dumps will be saved.</param>
-        public static void UpdateDumps(string pathBCSV, string dest)
+        /// <param name="csv">Convert all <see cref="BCSV"/> files to CSV for easy viewing.</param>
+        /// <param name="delim">Delimiter when exporting the <see cref="csv"/> files</param>
+        public static void UpdateDumps(string pathBCSV, string dest, bool csv = false, string delim = "\t")
         {
-            BCSVConverter.DumpAll(pathBCSV, dest);
             var itemNames = GameInfo.Strings.itemlist;
 
             void DumpS(string fn, IEnumerable<string> lines)
@@ -40,6 +42,7 @@ namespace NHSE.Parsing
 
             DumpS("fish.txt", GetFishList(pathBCSV, itemNames));
             DumpS("bugs.txt", GetInsectList(pathBCSV, itemNames));
+            DumpS("eventFlagPlayer.txt", GetEventFlagNames(pathBCSV));
 
             DumpS("ItemKind.txt", GetPossibleEnum(pathBCSV, "ItemParam.bcsv", 0xFC275E86));
             DumpS("PlantKind.txt", GetPossibleEnum(pathBCSV, "FgMainParam.bcsv", 0x48EF0398));
@@ -47,6 +50,9 @@ namespace NHSE.Parsing
 
             DumpB("item_kind.bin", GetItemKindArray(pathBCSV));
             DumpS("plants.txt", GetPlantedNames(pathBCSV));
+
+            if (csv)
+                BCSVConverter.DumpAll(pathBCSV, dest, delim);
         }
 
         private static IEnumerable<string> GetPossibleEnumValues(string pathBCSV, string fn, uint key)
@@ -283,6 +289,41 @@ namespace NHSE.Parsing
 
                 var v = $"new {nameof(FieldItemDefinition)}(0x{ival:X}, \"{name}\", {nameof(FieldItemKind)}.{k})";
                 var kvp = $"{{0x{ival:X}, {v}}}, // {comment}";
+                result.Add(kvp);
+            }
+
+            result.Sort();
+            return result;
+        }
+
+        private static IEnumerable<string> GetEventFlagNames(string pathBCSV, string fn = "EventFlagsPlayerParam.bcsv")
+        {
+            var bcsv = BCSVConverter.GetBCSV(pathBCSV, fn);
+            var dict = bcsv.GetFieldDictionary();
+            var fv1 = dict[0x4C24F1CF];
+            var fv2 = dict[0x344B17D7];
+            var fname = dict[0x45F320F2];
+            var findex = dict[0x54706054];
+            var fcomment = dict[0x85CF1615];
+
+            var result = new List<string>();
+            for (int i = 0; i < bcsv.EntryCount; i++)
+            {
+                var iv1 = bcsv.ReadValue(i, fv1).Substring(2);
+                var iv1a = short.Parse(iv1, NumberStyles.HexNumber);
+
+                var iv2 = bcsv.ReadValue(i, fv2).Substring(2);
+                var iv2a = short.Parse(iv2, NumberStyles.HexNumber);
+
+                var iid = bcsv.ReadValue(i, findex);
+                var ival = (ushort)short.Parse(iid);
+
+                var name = bcsv.ReadValue(i, fname).TrimEnd('\0');
+                var comment = bcsv.ReadValue(i, fcomment).TrimEnd('\0');
+
+                var paddedName = $"\"{name}\"".PadRight(45, ' ');
+                var v = $"new {nameof(EventFlagPlayer)}({iv1a,-2}, {iv2a,-4}, {ival:0000}, {paddedName})";
+                var kvp = $"{{0x{ival:X3}, {v}}}, // {comment}";
                 result.Add(kvp);
             }
 

@@ -91,6 +91,15 @@ namespace NHSE.Core
         public bool[] GetRecipeList() => ArrayUtil.GitBitFlagArray(Data, Offsets.Recipes, Offsets.MaxRecipeID + 1);
         public void SetRecipeList(bool[] value) => ArrayUtil.SetBitFlagArray(Data, Offsets.Recipes, value);
 
+        public short[] GetEventFlagsPlayer()
+        {
+            var result = new short[0xE00/2];
+            Buffer.BlockCopy(Data, Offsets.EventFlagsPlayer, result, 0, result.Length * sizeof(short));
+            return result;
+        }
+
+        public void SetEventFlagsPlayer(short[] value) => Buffer.BlockCopy(value, 0, Data, Offsets.EventFlagsPlayer, value.Length * sizeof(short));
+
         public byte[] GetPhotoData()
         {
             var offset = Offsets.Photo;

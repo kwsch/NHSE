@@ -240,6 +240,15 @@ namespace NHSE.WinForms
                 pers.SetActivities(records);
         }
 
+        private void B_EditPlayerFlags_Click(object sender, EventArgs e)
+        {
+            var pers = SAV.Players[PlayerIndex].Personal;
+            var flags = pers.GetEventFlagsPlayer();
+            using var editor = new FlagEditor(flags);
+            if (editor.ShowDialog() == DialogResult.OK)
+                pers.SetEventFlagsPlayer(flags);
+        }
+
         #endregion
 
         #region Villager Editing

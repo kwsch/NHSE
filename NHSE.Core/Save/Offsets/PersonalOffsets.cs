@@ -8,6 +8,7 @@ namespace NHSE.Core
     public abstract class PersonalOffsets
     {
         public abstract int PersonalId { get; }
+        public abstract int EventFlagsPlayer { get; }
         public abstract int Activity { get; }
         public abstract int Wallet { get; }
         public abstract int NookMiles { get; }

@@ -62,10 +62,7 @@ namespace NHSE.Core
             data.CopyTo(Data, Offsets.Acres);
         }
 
-        public TerrainTile[] Terrain
-        {
-            get => TerrainTile.GetArray(Data.Slice(Offsets.Terrain, TerrainManager.TileCount * TerrainTile.SIZE));
-            set => TerrainTile.SetArray(value).CopyTo(Data, Offsets.Terrain);
-        }
+        public TerrainTile[] GetTerrain() => TerrainTile.GetArray(Data.Slice(Offsets.Terrain, TerrainManager.TileCount * TerrainTile.SIZE));
+        public void SetTerrain(IReadOnlyList<TerrainTile> array) => TerrainTile.SetArray(array).CopyTo(Data, Offsets.Terrain);
     }
 }

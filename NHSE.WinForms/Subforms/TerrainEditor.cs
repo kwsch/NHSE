@@ -21,7 +21,7 @@ namespace NHSE.WinForms
             SAV = sav;
             InitializeComponent();
 
-            Terrain = new TerrainManager(SAV.Terrain);
+            Terrain = new TerrainManager(SAV.GetTerrain());
             Grid = GenerateGrid(TerrainManager.GridWidth, TerrainManager.GridHeight);
 
             foreach (var acre in Terrain.Acres)
@@ -128,7 +128,7 @@ namespace NHSE.WinForms
 
         private void B_Save_Click(object sender, EventArgs e)
         {
-            SAV.Terrain = Terrain.Tiles;
+            SAV.SetTerrain(Terrain.Tiles);
             Close();
         }
 
