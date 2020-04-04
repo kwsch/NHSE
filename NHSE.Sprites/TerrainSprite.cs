@@ -54,7 +54,14 @@ namespace NHSE.Sprites
             return bmp;
         }
 
-        public static Image CreateMap(TerrainManager mgr, int scale, int acreIndex = -1)
+        public static Bitmap CreateMap(TerrainManager mgr, int scale, int x, int y)
+        {
+            var img = CreateMap(mgr);
+            var map = ImageUtil.ResizeImage(img, img.Width * scale, img.Height * scale);
+            return DrawReticle(map, x, y, scale);
+        }
+
+        public static Bitmap CreateMap(TerrainManager mgr, int scale, int acreIndex = -1)
         {
             var img = CreateMap(mgr);
             var map = ImageUtil.ResizeImage(img, img.Width * scale, img.Height * scale);
@@ -62,15 +69,21 @@ namespace NHSE.Sprites
             if (acreIndex < 0)
                 return img;
 
+            var acre = mgr.Acres[acreIndex];
+            var x = acre.X * TerrainManager.GridWidth;
+            var y = acre.Y * TerrainManager.GridHeight;
+
+            return DrawReticle(map, x, y, scale);
+        }
+
+        private static Bitmap DrawReticle(Bitmap map, int x, int y, int scale)
+        {
             using var gfx = Graphics.FromImage(map);
             using var pen = new Pen(Color.Red);
 
-            var acre = mgr.Acres[acreIndex];
-            var x = acre.X * TerrainManager.GridWidth * scale;
-            var y = acre.Y * TerrainManager.GridHeight * scale;
             int w = TerrainManager.GridWidth * scale;
             int h = TerrainManager.GridHeight * scale;
-            gfx.DrawRectangle(pen, x, y, w, h);
+            gfx.DrawRectangle(pen, x * scale, y * scale, w, h);
             return map;
         }
     }

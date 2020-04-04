@@ -52,6 +52,7 @@
             this.PB_Map = new System.Windows.Forms.PictureBox();
             this.CM_Picture = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Menu_SavePNG = new System.Windows.Forms.ToolStripMenuItem();
+            this.CHK_SnapToAcre = new System.Windows.Forms.CheckBox();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
@@ -100,7 +101,7 @@
             // 
             this.CB_Acre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_Acre.FormattingEnabled = true;
-            this.CB_Acre.Location = new System.Drawing.Point(978, 588);
+            this.CB_Acre.Location = new System.Drawing.Point(978, 598);
             this.CB_Acre.Name = "CB_Acre";
             this.CB_Acre.Size = new System.Drawing.Size(49, 21);
             this.CB_Acre.TabIndex = 10;
@@ -109,7 +110,7 @@
             // L_Acre
             // 
             this.L_Acre.AutoSize = true;
-            this.L_Acre.Location = new System.Drawing.Point(940, 591);
+            this.L_Acre.Location = new System.Drawing.Point(940, 601);
             this.L_Acre.Name = "L_Acre";
             this.L_Acre.Size = new System.Drawing.Size(32, 13);
             this.L_Acre.TabIndex = 11;
@@ -117,7 +118,7 @@
             // 
             // B_ZeroElevation
             // 
-            this.B_ZeroElevation.Location = new System.Drawing.Point(820, 276);
+            this.B_ZeroElevation.Location = new System.Drawing.Point(820, 262);
             this.B_ZeroElevation.Name = "B_ZeroElevation";
             this.B_ZeroElevation.Size = new System.Drawing.Size(112, 40);
             this.B_ZeroElevation.TabIndex = 12;
@@ -127,7 +128,7 @@
             // 
             // B_ClearAll
             // 
-            this.B_ClearAll.Location = new System.Drawing.Point(937, 276);
+            this.B_ClearAll.Location = new System.Drawing.Point(937, 262);
             this.B_ClearAll.Name = "B_ClearAll";
             this.B_ClearAll.Size = new System.Drawing.Size(112, 40);
             this.B_ClearAll.TabIndex = 13;
@@ -137,7 +138,7 @@
             // 
             // B_DumpAcre
             // 
-            this.B_DumpAcre.Location = new System.Drawing.Point(820, 662);
+            this.B_DumpAcre.Location = new System.Drawing.Point(820, 672);
             this.B_DumpAcre.Name = "B_DumpAcre";
             this.B_DumpAcre.Size = new System.Drawing.Size(112, 40);
             this.B_DumpAcre.TabIndex = 14;
@@ -147,7 +148,7 @@
             // 
             // B_DumpAllAcres
             // 
-            this.B_DumpAllAcres.Location = new System.Drawing.Point(820, 708);
+            this.B_DumpAllAcres.Location = new System.Drawing.Point(820, 718);
             this.B_DumpAllAcres.Name = "B_DumpAllAcres";
             this.B_DumpAllAcres.Size = new System.Drawing.Size(112, 40);
             this.B_DumpAllAcres.TabIndex = 15;
@@ -157,7 +158,7 @@
             // 
             // B_ImportAllAcres
             // 
-            this.B_ImportAllAcres.Location = new System.Drawing.Point(937, 708);
+            this.B_ImportAllAcres.Location = new System.Drawing.Point(937, 718);
             this.B_ImportAllAcres.Name = "B_ImportAllAcres";
             this.B_ImportAllAcres.Size = new System.Drawing.Size(112, 40);
             this.B_ImportAllAcres.TabIndex = 17;
@@ -167,7 +168,7 @@
             // 
             // B_ImportAcre
             // 
-            this.B_ImportAcre.Location = new System.Drawing.Point(937, 662);
+            this.B_ImportAcre.Location = new System.Drawing.Point(937, 672);
             this.B_ImportAcre.Name = "B_ImportAcre";
             this.B_ImportAcre.Size = new System.Drawing.Size(112, 40);
             this.B_ImportAcre.TabIndex = 16;
@@ -207,7 +208,7 @@
             // 
             // B_Up
             // 
-            this.B_Up.Location = new System.Drawing.Point(868, 551);
+            this.B_Up.Location = new System.Drawing.Point(868, 561);
             this.B_Up.Name = "B_Up";
             this.B_Up.Size = new System.Drawing.Size(32, 32);
             this.B_Up.TabIndex = 18;
@@ -217,7 +218,7 @@
             // 
             // B_Left
             // 
-            this.B_Left.Location = new System.Drawing.Point(838, 581);
+            this.B_Left.Location = new System.Drawing.Point(838, 591);
             this.B_Left.Name = "B_Left";
             this.B_Left.Size = new System.Drawing.Size(32, 32);
             this.B_Left.TabIndex = 19;
@@ -227,7 +228,7 @@
             // 
             // B_Right
             // 
-            this.B_Right.Location = new System.Drawing.Point(898, 581);
+            this.B_Right.Location = new System.Drawing.Point(898, 591);
             this.B_Right.Name = "B_Right";
             this.B_Right.Size = new System.Drawing.Size(32, 32);
             this.B_Right.TabIndex = 20;
@@ -237,7 +238,7 @@
             // 
             // B_Down
             // 
-            this.B_Down.Location = new System.Drawing.Point(868, 611);
+            this.B_Down.Location = new System.Drawing.Point(868, 621);
             this.B_Down.Name = "B_Down";
             this.B_Down.Size = new System.Drawing.Size(32, 32);
             this.B_Down.TabIndex = 22;
@@ -249,12 +250,13 @@
             // 
             this.PB_Map.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PB_Map.ContextMenuStrip = this.CM_Picture;
-            this.PB_Map.Location = new System.Drawing.Point(821, 338);
+            this.PB_Map.Location = new System.Drawing.Point(821, 348);
             this.PB_Map.Name = "PB_Map";
             this.PB_Map.Size = new System.Drawing.Size(226, 194);
             this.PB_Map.TabIndex = 23;
             this.PB_Map.TabStop = false;
             this.PB_Map.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PB_Map_MouseDown);
+            this.PB_Map.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PB_Map_MouseMove);
             // 
             // CM_Picture
             // 
@@ -267,15 +269,28 @@
             // Menu_SavePNG
             // 
             this.Menu_SavePNG.Name = "Menu_SavePNG";
-            this.Menu_SavePNG.Size = new System.Drawing.Size(155, 22);
+            this.Menu_SavePNG.Size = new System.Drawing.Size(100, 22);
             this.Menu_SavePNG.Text = "Save .png";
             this.Menu_SavePNG.Click += new System.EventHandler(this.Menu_SavePNG_Click);
+            // 
+            // CHK_SnapToAcre
+            // 
+            this.CHK_SnapToAcre.AutoSize = true;
+            this.CHK_SnapToAcre.Checked = true;
+            this.CHK_SnapToAcre.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CHK_SnapToAcre.Location = new System.Drawing.Point(820, 325);
+            this.CHK_SnapToAcre.Name = "CHK_SnapToAcre";
+            this.CHK_SnapToAcre.Size = new System.Drawing.Size(167, 17);
+            this.CHK_SnapToAcre.TabIndex = 24;
+            this.CHK_SnapToAcre.Text = "Snap to nearest Acre on Click";
+            this.CHK_SnapToAcre.UseVisualStyleBackColor = true;
             // 
             // TerrainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1061, 822);
+            this.Controls.Add(this.CHK_SnapToAcre);
             this.Controls.Add(this.PB_Map);
             this.Controls.Add(this.B_Down);
             this.Controls.Add(this.B_Right);
@@ -333,5 +348,6 @@
         private System.Windows.Forms.PictureBox PB_Map;
         private System.Windows.Forms.ContextMenuStrip CM_Picture;
         private System.Windows.Forms.ToolStripMenuItem Menu_SavePNG;
+        private System.Windows.Forms.CheckBox CHK_SnapToAcre;
     }
 }

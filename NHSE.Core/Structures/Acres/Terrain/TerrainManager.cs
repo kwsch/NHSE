@@ -24,7 +24,7 @@ namespace NHSE.Core
             Tiles = tiles;
         }
 
-        private static int GetIndex(int x, int y) => (MapHeight * x) + y;
+        public static int GetIndex(int x, int y) => (MapHeight * x) + y;
 
         public TerrainTile GetTile(int x, int y) => this[GetIndex(x, y)];
 
@@ -42,6 +42,8 @@ namespace NHSE.Core
             var y = (tileIndex / GridHeight);
             return GetTile(acre.X, acre.Y, x, y);
         }
+
+        public static int GetAcre(int x, int y) => (x / GridWidth) + ((y / GridHeight) * AcreWidth);
 
         public TerrainTile this[int index]
         {

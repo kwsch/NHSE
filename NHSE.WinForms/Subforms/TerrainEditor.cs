@@ -14,7 +14,11 @@ namespace NHSE.WinForms
         private readonly Button[] Grid;
         private readonly TerrainManager Terrain;
 
+        private const int GridWidth = TerrainManager.GridWidth;
+        private const int GridHeight = TerrainManager.GridHeight;
+
         private const int SquareSize = 50;
+        private const int MapScale = 2;
 
         public TerrainEditor(MainSave sav)
         {
@@ -32,19 +36,47 @@ namespace NHSE.WinForms
             ReloadMap();
         }
 
-        private int AcreIndex => CB_Acre.SelectedIndex;
-        private void ChangeAcre(object sender, EventArgs e) => LoadGrid(AcreIndex);
-        private void ReloadMap() => PB_Map.Image = TerrainSprite.CreateMap(Terrain, 2, AcreIndex);
+        private int X;
+        private int Y;
 
-        private void LoadGrid(int index)
+        private int AcreIndex => CB_Acre.SelectedIndex;
+
+        private void ChangeAcre(object sender, EventArgs e) => ChangeViewToAcre(AcreIndex);
+
+        private void ChangeViewToAcre(int acre)
         {
-            for (int i = 0; i < TerrainManager.AcreSize; i++)
+            X = (acre % TerrainManager.AcreWidth) * GridWidth;
+            Y = (acre / TerrainManager.AcreWidth) * GridHeight;
+
+            LoadGrid(X, Y);
+            UpdateArrowVisibility(acre);
+        }
+
+        private void ReloadMap() => PB_Map.Image = TerrainSprite.CreateMap(Terrain, MapScale, X, Y);
+
+        private void LoadGrid(int topX, int topY)
+        {
+            for (int x = 0; x < GridWidth; x++)
             {
-                var b = Grid[i];
-                var tile = Terrain.GetAcreTile(index, i);
-                RefreshTile(b, tile);
+                for (int y = 0; y < GridHeight; y++)
+                {
+                    var i = (y * GridWidth) + x;
+                    var rx = topX + x;
+                    var ry = topY + y;
+                    var ri = TerrainManager.GetIndex(rx, ry);
+                    var b = Grid[i];
+                    if (ri >= Terrain.Tiles.Length)
+                    {
+                        b.Visible = false;
+                    }
+                    else
+                    {
+                        b.Visible = true;
+                        var tile = Terrain.GetTile(rx, ry);
+                        RefreshTile(b, tile);
+                    }
+                }
             }
-            UpdateArrowVisibility(index);
             ReloadMap();
         }
 
@@ -178,7 +210,7 @@ namespace NHSE.WinForms
                 return;
             foreach (var t in Terrain.Tiles)
                 t.Elevation = 0;
-            LoadGrid(AcreIndex);
+            LoadGrid(X=0, Y=0);
             System.Media.SystemSounds.Asterisk.Play();
         }
 
@@ -188,7 +220,7 @@ namespace NHSE.WinForms
                 return;
             foreach (var t in Terrain.Tiles)
                 t.Clear();
-            LoadGrid(AcreIndex);
+            LoadGrid(X=0, Y=0);
             System.Media.SystemSounds.Asterisk.Play();
         }
 
@@ -245,7 +277,7 @@ namespace NHSE.WinForms
 
             var data = File.ReadAllBytes(path);
             Terrain.ImportAcre(AcreIndex, data);
-            LoadGrid(AcreIndex);
+            ChangeViewToAcre(AcreIndex);
             System.Media.SystemSounds.Asterisk.Play();
         }
 
@@ -271,7 +303,7 @@ namespace NHSE.WinForms
 
             var data = File.ReadAllBytes(path);
             Terrain.ImportAllAcres(data);
-            LoadGrid(AcreIndex);
+            ChangeViewToAcre(AcreIndex);
             System.Media.SystemSounds.Asterisk.Play();
         }
 
@@ -297,16 +329,51 @@ namespace NHSE.WinForms
             bmp.Save(sfd.FileName, ImageFormat.Png);
         }
 
-        private void PB_Map_MouseDown(object sender, MouseEventArgs e)
+        private void PB_Map_MouseDown(object sender, MouseEventArgs e) => ClickMapAt(e, true);
+
+        private void ClickMapAt(MouseEventArgs e, bool skipLagCheck)
         {
-            var x = e.X / (2 * TerrainManager.GridWidth);
-            var y = e.Y / (2 * TerrainManager.GridHeight);
+            const int maxX = ((TerrainManager.AcreWidth - 1) * GridWidth);
+            const int maxY = ((TerrainManager.AcreHeight - 1) * GridHeight);
 
-            var index = (y * TerrainManager.AcreWidth) + x;
-            var clamp = Math.Max(0, Math.Min((TerrainManager.AcreHeight * TerrainManager.AcreWidth) - 1, index));
+            int center = CHK_SnapToAcre.Checked ? 0 : GridWidth / 2;
+            var x = Math.Max(0, Math.Min((e.X / MapScale) - center, maxX));
+            var y = Math.Max(0, Math.Min((e.Y / MapScale) - center, maxY));
 
-            if (AcreIndex != clamp)
-                CB_Acre.SelectedIndex = clamp;
+            var acre = TerrainManager.GetAcre(x, y);
+            bool sameAcre = AcreIndex == acre;
+            if (!skipLagCheck)
+            {
+                if (CHK_SnapToAcre.Checked)
+                {
+                    if (sameAcre)
+                        return;
+                }
+                else
+                {
+                    const int delta = 0; // disabled = 0
+                    var dx = Math.Abs(X - x);
+                    var dy = Math.Abs(Y - y);
+                    if (dx <= delta && dy <= delta && !sameAcre)
+                        return;
+                }
+            }
+
+            if (!CHK_SnapToAcre.Checked)
+            {
+                LoadGrid(X = x, Y = y);
+                return;
+            }
+
+            if (!sameAcre)
+                CB_Acre.SelectedIndex = acre;
+        }
+
+        private void PB_Map_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+                return;
+            ClickMapAt(e, false);
         }
     }
 }
