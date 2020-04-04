@@ -9,6 +9,7 @@ namespace NHSE.Core
         // Base shift count used in the encryption.
         private const byte SHIFT_BASE = 3;
 
+        public readonly uint OriginalEncrypted;
         public uint Value;
         public ushort Adjust;
         public byte Shift;
@@ -18,6 +19,7 @@ namespace NHSE.Core
 
         public EncryptedInt32(uint encryptedValue, ushort adjust = 0, byte shift = 0, byte checksum = 0)
         {
+            OriginalEncrypted = encryptedValue;
             Adjust = adjust;
             Shift = shift;
             Checksum = checksum;
@@ -62,6 +64,14 @@ namespace NHSE.Core
         {
             ulong val = (ulong) (value + (adjust - ENCRYPTION_CONSTANT)) << (shift + SHIFT_BASE);
             return (uint) ((val >> 32) + val);
+        }
+
+        public static EncryptedInt32 ReadVerify(byte[] data, int offset)
+        {
+            var val = Read(data, offset);
+            if (val.Checksum != CalculateChecksum(val.OriginalEncrypted))
+                throw new ArgumentException(nameof(offset));
+            return val;
         }
 
         public static EncryptedInt32 Read(byte[] data, int offset)

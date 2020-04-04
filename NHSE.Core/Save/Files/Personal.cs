@@ -42,19 +42,19 @@ namespace NHSE.Core
 
         public EncryptedInt32 Wallet
         {
-            get => EncryptedInt32.Read(Data, Offsets.Wallet);
+            get => EncryptedInt32.ReadVerify(Data, Offsets.Wallet);
             set => value.Write(Data, Offsets.Wallet);
         }
 
         public EncryptedInt32 Bank
         {
-            get => EncryptedInt32.Read(Data, Offsets.Bank);
+            get => EncryptedInt32.ReadVerify(Data, Offsets.Bank);
             set => value.Write(Data, Offsets.Bank);
         }
 
         public EncryptedInt32 NookMiles
         {
-            get => EncryptedInt32.Read(Data, Offsets.NookMiles);
+            get => EncryptedInt32.ReadVerify(Data, Offsets.NookMiles);
             set => value.Write(Data, Offsets.NookMiles);
         }
 
