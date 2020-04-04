@@ -190,7 +190,9 @@ namespace NHSE.WinForms
             if (index < 0)
                 throw new ArgumentException(nameof(Button));
 
-            tile = Terrain.GetAcreTile(AcreIndex, index);
+            var x = X + (index % GridWidth);
+            var y = Y + (index / GridWidth);
+            tile = Terrain.GetTile(x, y);
         }
 
         private static void RefreshTile(Control button, TerrainTile tile)
