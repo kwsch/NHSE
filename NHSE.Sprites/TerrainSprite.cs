@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using NHSE.Core;
 
@@ -67,7 +68,7 @@ namespace NHSE.Sprites
             var map = ImageUtil.ResizeImage(img, img.Width * scale, img.Height * scale);
 
             if (acreIndex < 0)
-                return img;
+                return map;
 
             var acre = mgr.Acres[acreIndex];
             var x = acre.X * TerrainManager.GridWidth;
@@ -84,6 +85,37 @@ namespace NHSE.Sprites
             int w = TerrainManager.GridWidth * scale;
             int h = TerrainManager.GridHeight * scale;
             gfx.DrawRectangle(pen, x * scale, y * scale, w, h);
+            return map;
+        }
+
+        public static Bitmap GetMapWithBuildings(TerrainManager mgr, IReadOnlyList<Building> buildings, Font f, int scale = 4, int index = -1)
+        {
+            // Although there is terrain in the Top Row and Left Column, no buildings can be placed there.
+            // Adjust the building coordinates down-right by an acre.
+            const int buildingShift = TerrainManager.GridWidth;
+            var map = CreateMap(mgr, scale);
+            using var gfx = Graphics.FromImage(map);
+
+            var selected = Brushes.Red;
+            var others = Brushes.Yellow;
+            var text = Brushes.White;
+            var stringFormat = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+
+            for (int i = 0; i < buildings.Count; i++)
+            {
+                var b = buildings[i];
+                if (b.BuildingType == 0)
+                    continue;
+                var x = (int)(((b.X / 2f) - buildingShift) * scale);
+                var y = (int)(((b.Y / 2f) - buildingShift) * scale);
+
+                var pen = index == i ? selected : others;
+                gfx.FillRectangle(pen, x - scale, y - scale, scale * 2, scale * 2);
+
+                var name = b.BuildingType.ToString();
+                gfx.DrawString(name, f, text, new PointF(x, y - (scale * 2)), stringFormat);
+            }
+
             return map;
         }
     }

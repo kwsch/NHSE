@@ -505,7 +505,7 @@ namespace NHSE.WinForms
         private void B_EditBuildings_Click(object sender, EventArgs e)
         {
             var buildings = SAV.Main.Buildings;
-            using var editor = new PropertyEditor<Building>(buildings, Array.Empty<string>());
+            using var editor = new BuildingEditor(buildings, SAV.Main);
             if (editor.ShowDialog() == DialogResult.OK)
                 SAV.Main.Buildings = buildings;
         }
