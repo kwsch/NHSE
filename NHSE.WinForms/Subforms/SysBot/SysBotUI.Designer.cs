@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.B_Connect = new System.Windows.Forms.Button();
             this.L_Port = new System.Windows.Forms.Label();
             this.TB_Port = new System.Windows.Forms.TextBox();
@@ -38,7 +39,13 @@
             this.L_Offset = new System.Windows.Forms.Label();
             this.B_ReadCurrent = new System.Windows.Forms.Button();
             this.B_WriteCurrent = new System.Windows.Forms.Button();
+            this.AutoSyncBox = new System.Windows.Forms.GroupBox();
+            this.AutoSyncCheck = new System.Windows.Forms.CheckBox();
+            this.AutoSyncRead = new System.Windows.Forms.CheckBox();
+            this.AutoSyncWrite = new System.Windows.Forms.CheckBox();
+            this.AutoReadTimer = new System.Windows.Forms.Timer(this.components);
             this.GB_Inject.SuspendLayout();
+            this.AutoSyncBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // B_Connect
@@ -140,11 +147,62 @@
             this.B_WriteCurrent.UseVisualStyleBackColor = true;
             this.B_WriteCurrent.Click += new System.EventHandler(this.B_WriteCurrent_Click);
             // 
+            // AutoSyncBox
+            // 
+            this.AutoSyncBox.Controls.Add(this.AutoSyncWrite);
+            this.AutoSyncBox.Controls.Add(this.AutoSyncRead);
+            this.AutoSyncBox.Location = new System.Drawing.Point(16, 166);
+            this.AutoSyncBox.Name = "AutoSyncBox";
+            this.AutoSyncBox.Size = new System.Drawing.Size(156, 66);
+            this.AutoSyncBox.TabIndex = 14;
+            this.AutoSyncBox.TabStop = false;
+            this.AutoSyncBox.Text = "AutoSync";
+            // 
+            // AutoSyncCheck
+            // 
+            this.AutoSyncCheck.AutoSize = true;
+            this.AutoSyncCheck.Location = new System.Drawing.Point(22, 146);
+            this.AutoSyncCheck.Name = "AutoSyncCheck";
+            this.AutoSyncCheck.Size = new System.Drawing.Size(111, 17);
+            this.AutoSyncCheck.TabIndex = 16;
+            this.AutoSyncCheck.Text = "Enable Auto Sync";
+            this.AutoSyncCheck.UseVisualStyleBackColor = true;
+            this.AutoSyncCheck.CheckedChanged += new System.EventHandler(this.AutoSyncCheck_Changed);
+            // 
+            // AutoSyncRead
+            // 
+            this.AutoSyncRead.AutoSize = true;
+            this.AutoSyncRead.Location = new System.Drawing.Point(6, 19);
+            this.AutoSyncRead.Name = "AutoSyncRead";
+            this.AutoSyncRead.Size = new System.Drawing.Size(98, 17);
+            this.AutoSyncRead.TabIndex = 0;
+            this.AutoSyncRead.Text = "AutoSyncRead";
+            this.AutoSyncRead.UseVisualStyleBackColor = true;
+            this.AutoSyncRead.CheckedChanged += new System.EventHandler(this.AutoSyncRead_CheckedChanged);
+            // 
+            // AutoSyncWrite
+            // 
+            this.AutoSyncWrite.AutoSize = true;
+            this.AutoSyncWrite.Location = new System.Drawing.Point(6, 42);
+            this.AutoSyncWrite.Name = "AutoSyncWrite";
+            this.AutoSyncWrite.Size = new System.Drawing.Size(97, 17);
+            this.AutoSyncWrite.TabIndex = 1;
+            this.AutoSyncWrite.Text = "AutoSyncWrite";
+            this.AutoSyncWrite.UseVisualStyleBackColor = true;
+            this.AutoSyncWrite.CheckedChanged += new System.EventHandler(this.AutoSyncWrite_CheckedChanged);
+            // 
+            // AutoReadTimer
+            // 
+            this.AutoReadTimer.Interval = 5000;
+            this.AutoReadTimer.Tick += new System.EventHandler(this.AutoReadTimer_Tick);
+            // 
             // SysBotUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(184, 151);
+            this.ClientSize = new System.Drawing.Size(184, 244);
+            this.Controls.Add(this.AutoSyncCheck);
+            this.Controls.Add(this.AutoSyncBox);
             this.Controls.Add(this.GB_Inject);
             this.Controls.Add(this.B_Connect);
             this.Controls.Add(this.L_Port);
@@ -160,6 +218,8 @@
             this.Text = "SysBotUI";
             this.GB_Inject.ResumeLayout(false);
             this.GB_Inject.PerformLayout();
+            this.AutoSyncBox.ResumeLayout(false);
+            this.AutoSyncBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,5 +237,10 @@
         private System.Windows.Forms.Button B_WriteCurrent;
         private System.Windows.Forms.TextBox RamOffset;
         private System.Windows.Forms.Label L_Offset;
+        private System.Windows.Forms.GroupBox AutoSyncBox;
+        private System.Windows.Forms.CheckBox AutoSyncCheck;
+        private System.Windows.Forms.CheckBox AutoSyncRead;
+        private System.Windows.Forms.CheckBox AutoSyncWrite;
+        private System.Windows.Forms.Timer AutoReadTimer;
     }
 }

@@ -86,11 +86,20 @@ namespace NHSE.WinForms
                 for (int i = 0; i < items.Length && i < Items.Count; i++)
                     Items[i].CopyFrom(items[i]);
                 LoadItems();
-                System.Media.SystemSounds.Asterisk.Play();
+                //System.Media.SystemSounds.Asterisk.Play();
             }
 
-            var sysbot = new SysBotUI(Read, Write, InjectionType.Pouch);
-            sysbot.Show();
+            if (GetType() == typeof(PlayerItemEditor<Item>))
+            {
+                var sysbot = new SysBotUI(Read, Write, InjectionType.Pouch, this as PlayerItemEditor<Item>);
+                sysbot.Show();
+            }
+            else
+            {
+                var sysbot = new SysBotUI(Read, Write, InjectionType.Pouch);
+                sysbot.Show();
+            }
+            
         }
     }
 }
