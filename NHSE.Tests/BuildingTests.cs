@@ -18,7 +18,7 @@ namespace NHSE.Tests
         [Fact]
         public void BuildingClear()
         {
-            var item = new Building {BuildingId = 1, X=5, Y=7};
+            var item = new Building {BuildingType = BuildingType.PlayerHouse1, X=5, Y=7};
             var bytes = item.ToBytesClass();
             bytes.Any(z => z != 0).Should().BeTrue();
 

@@ -47,6 +47,12 @@ namespace NHSE.Parsing
             DumpS("ItemKind.txt", GetPossibleEnum(pathBCSV, "ItemParam.bcsv", 0xFC275E86));
             DumpS("PlantKind.txt", GetPossibleEnum(pathBCSV, "FgMainParam.bcsv", 0x48EF0398));
             DumpS("TerrainKind.txt", GetNumberedEnumValues(pathBCSV, "FieldLandMakingUnitModelParam.bcsv", 0x39B5A93D, 0x54706054));
+            DumpS("BridgeKind.txt", GetNumberedEnumValues(pathBCSV, "StructureBridgeParam.bcsv", 0x39B5A93D, 0x54706054));
+            DumpS("BridgeMaterial.txt", GetNumberedEnumValues(pathBCSV, "StructureBridgeTypeParam.bcsv", 0x68CF5938, 0x54706054));
+            DumpS("SlopeKind.txt", GetNumberedEnumValues(pathBCSV, "StructureSlopeParam.bcsv", 0x39B5A93D, 0x54706054));
+            DumpS("RoofKind.txt", GetNumberedEnumValues(pathBCSV, "StructureHouseRoofParam.bcsv", 0x39B5A93D, 0x54706054));
+            DumpS("DoorKind.txt", GetNumberedEnumValues(pathBCSV, "StructureHouseDoorParam.bcsv", 0x39B5A93D, 0x54706054));
+            DumpS("WallKind.txt", GetNumberedEnumValues(pathBCSV, "StructureHouseWallParam.bcsv", 0x39B5A93D, 0x54706054));
 
             DumpB("item_kind.bin", GetItemKindArray(pathBCSV));
             DumpS("plants.txt", GetPlantedNames(pathBCSV));

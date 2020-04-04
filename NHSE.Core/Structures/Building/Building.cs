@@ -12,7 +12,7 @@ namespace NHSE.Core
         private const string Details = nameof(Details);
 
         [Category(Details), Description("Type of Building")]
-        public ushort BuildingId { get; set; }
+        public BuildingType BuildingType { get; set; }
 
         [Category(Details), Description("X Coordinate of Building")]
         public ushort X { get; set; }
@@ -28,7 +28,7 @@ namespace NHSE.Core
 
         public void Clear()
         {
-            BuildingId = 0;
+            BuildingType = 0;
             X = Y = Rotation = 0;
             Unk08 = Unk0C = Unk10 = 0;
         }
@@ -36,8 +36,6 @@ namespace NHSE.Core
         public static Building[] GetArray(byte[] data) => data.GetArray<Building>(SIZE);
         public static byte[] SetArray(IReadOnlyList<Building> data) => data.SetArray(SIZE);
         public override string ToString() => ToString(Array.Empty<string>());
-
-        public string ToString(IReadOnlyList<string> names) =>
-            $"{X:000},{Y:000} - {(BuildingId >= names.Count ? $"0x{BuildingId:X2}" : names[BuildingId])}";
+        public string ToString(IReadOnlyList<string> names) => $"{X:000},{Y:000} - {BuildingType}";
     }
 }
