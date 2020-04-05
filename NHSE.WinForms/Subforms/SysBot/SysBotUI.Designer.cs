@@ -35,12 +35,12 @@
             this.L_IP = new System.Windows.Forms.Label();
             this.TB_IP = new System.Windows.Forms.TextBox();
             this.GB_Inject = new System.Windows.Forms.GroupBox();
+            this.CHK_AutoRead = new System.Windows.Forms.CheckBox();
+            this.CHK_AutoWrite = new System.Windows.Forms.CheckBox();
             this.RamOffset = new System.Windows.Forms.TextBox();
             this.L_Offset = new System.Windows.Forms.Label();
             this.B_ReadCurrent = new System.Windows.Forms.Button();
             this.B_WriteCurrent = new System.Windows.Forms.Button();
-            this.CHK_AutoWrite = new System.Windows.Forms.CheckBox();
-            this.CHK_AutoRead = new System.Windows.Forms.CheckBox();
             this.TIM_Interval = new System.Windows.Forms.Timer(this.components);
             this.GB_Inject.SuspendLayout();
             this.SuspendLayout();
@@ -107,6 +107,28 @@
             this.GB_Inject.TabStop = false;
             this.GB_Inject.Text = "Injector";
             // 
+            // CHK_AutoRead
+            // 
+            this.CHK_AutoRead.AutoSize = true;
+            this.CHK_AutoRead.Location = new System.Drawing.Point(18, 93);
+            this.CHK_AutoRead.Name = "CHK_AutoRead";
+            this.CHK_AutoRead.Size = new System.Drawing.Size(74, 17);
+            this.CHK_AutoRead.TabIndex = 22;
+            this.CHK_AutoRead.Text = "AutoRead";
+            this.CHK_AutoRead.UseVisualStyleBackColor = true;
+            this.CHK_AutoRead.CheckedChanged += new System.EventHandler(this.CHK_AutoRead_CheckedChanged);
+            // 
+            // CHK_AutoWrite
+            // 
+            this.CHK_AutoWrite.AutoSize = true;
+            this.CHK_AutoWrite.Location = new System.Drawing.Point(18, 70);
+            this.CHK_AutoWrite.Name = "CHK_AutoWrite";
+            this.CHK_AutoWrite.Size = new System.Drawing.Size(73, 17);
+            this.CHK_AutoWrite.TabIndex = 21;
+            this.CHK_AutoWrite.Text = "AutoWrite";
+            this.CHK_AutoWrite.UseVisualStyleBackColor = true;
+            this.CHK_AutoWrite.CheckedChanged += new System.EventHandler(this.CHK_AutoWrite_CheckedChanged);
+            // 
             // RamOffset
             // 
             this.RamOffset.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -116,6 +138,7 @@
             this.RamOffset.Size = new System.Drawing.Size(63, 20);
             this.RamOffset.TabIndex = 20;
             this.RamOffset.Text = "AC3B90C0";
+            this.RamOffset.TextChanged += new System.EventHandler(this.RamOffset_TextChanged);
             // 
             // L_Offset
             // 
@@ -145,28 +168,6 @@
             this.B_WriteCurrent.Text = "Write";
             this.B_WriteCurrent.UseVisualStyleBackColor = true;
             this.B_WriteCurrent.Click += new System.EventHandler(this.B_WriteCurrent_Click);
-            // 
-            // CHK_AutoUpdate
-            // 
-            this.CHK_AutoWrite.AutoSize = true;
-            this.CHK_AutoWrite.Location = new System.Drawing.Point(18, 70);
-            this.CHK_AutoWrite.Name = "CHK_AutoWrite";
-            this.CHK_AutoWrite.Size = new System.Drawing.Size(73, 17);
-            this.CHK_AutoWrite.TabIndex = 21;
-            this.CHK_AutoWrite.Text = "AutoWrite";
-            this.CHK_AutoWrite.UseVisualStyleBackColor = true;
-            this.CHK_AutoWrite.CheckedChanged += new System.EventHandler(this.CHK_AutoWrite_CheckedChanged);
-            // 
-            // CHK_AutoRead
-            // 
-            this.CHK_AutoRead.AutoSize = true;
-            this.CHK_AutoRead.Location = new System.Drawing.Point(18, 93);
-            this.CHK_AutoRead.Name = "CHK_AutoRead";
-            this.CHK_AutoRead.Size = new System.Drawing.Size(74, 17);
-            this.CHK_AutoRead.TabIndex = 22;
-            this.CHK_AutoRead.Text = "AutoRead";
-            this.CHK_AutoRead.UseVisualStyleBackColor = true;
-            this.CHK_AutoRead.CheckedChanged += new System.EventHandler(this.CHK_AutoRead_CheckedChanged);
             // 
             // TIM_Interval
             // 

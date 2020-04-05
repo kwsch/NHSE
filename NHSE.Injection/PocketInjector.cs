@@ -86,12 +86,12 @@ namespace NHSE.Injection
 
         public bool Validate(byte[] data)
         {
-            if (BitConverter.ToUInt32(data, pocket) != 0)
+            if (BitConverter.ToUInt32(data, pocket) > 20) // pouch21-39 count
                 return false;
 
             for (int i = 4; i < 0x18; i += 4)
             {
-                var val = BitConverter.ToInt32(data, pocket + 4 + i);
+                var val = BitConverter.ToInt32(data, pocket + i);
                 if (val != -1)
                     return false;
             }
