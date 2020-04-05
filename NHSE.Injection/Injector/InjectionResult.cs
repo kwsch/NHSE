@@ -4,7 +4,7 @@
     {
         Skipped,
         Success,
-        Fail,
+        FailValidate,
         Same,
     }
 }

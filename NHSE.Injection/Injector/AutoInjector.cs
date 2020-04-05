@@ -10,6 +10,12 @@ namespace NHSE.Injection
 
         public bool AutoInjectEnabled { private get; set; }
 
+        public bool ValidateEnabled
+        {
+            get => Injector.ValidateEnabled;
+            set => Injector.ValidateEnabled = value;
+        }
+
         public AutoInjector(IDataInjector inj, Action<InjectionResult> read, Action<InjectionResult> write)
         {
             Injector = inj;

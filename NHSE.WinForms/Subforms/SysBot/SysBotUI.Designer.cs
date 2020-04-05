@@ -42,6 +42,7 @@
             this.B_ReadCurrent = new System.Windows.Forms.Button();
             this.B_WriteCurrent = new System.Windows.Forms.Button();
             this.TIM_Interval = new System.Windows.Forms.Timer(this.components);
+            this.CHK_Validate = new System.Windows.Forms.CheckBox();
             this.GB_Inject.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,6 +94,7 @@
             // 
             // GB_Inject
             // 
+            this.GB_Inject.Controls.Add(this.CHK_Validate);
             this.GB_Inject.Controls.Add(this.CHK_AutoRead);
             this.GB_Inject.Controls.Add(this.CHK_AutoWrite);
             this.GB_Inject.Controls.Add(this.RamOffset);
@@ -110,7 +112,7 @@
             // CHK_AutoRead
             // 
             this.CHK_AutoRead.AutoSize = true;
-            this.CHK_AutoRead.Location = new System.Drawing.Point(18, 93);
+            this.CHK_AutoRead.Location = new System.Drawing.Point(18, 85);
             this.CHK_AutoRead.Name = "CHK_AutoRead";
             this.CHK_AutoRead.Size = new System.Drawing.Size(74, 17);
             this.CHK_AutoRead.TabIndex = 22;
@@ -173,6 +175,19 @@
             // 
             this.TIM_Interval.Interval = 5000;
             // 
+            // CHK_Validate
+            // 
+            this.CHK_Validate.AutoSize = true;
+            this.CHK_Validate.Checked = true;
+            this.CHK_Validate.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CHK_Validate.Location = new System.Drawing.Point(18, 100);
+            this.CHK_Validate.Name = "CHK_Validate";
+            this.CHK_Validate.Size = new System.Drawing.Size(90, 17);
+            this.CHK_Validate.TabIndex = 23;
+            this.CHK_Validate.Text = "Validate Data";
+            this.CHK_Validate.UseVisualStyleBackColor = true;
+            this.CHK_Validate.CheckedChanged += new System.EventHandler(this.CHK_Validate_CheckedChanged);
+            // 
             // SysBotUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,5 +228,6 @@
         private System.Windows.Forms.CheckBox CHK_AutoWrite;
         private System.Windows.Forms.CheckBox CHK_AutoRead;
         private System.Windows.Forms.Timer TIM_Interval;
+        private System.Windows.Forms.CheckBox CHK_Validate;
     }
 }

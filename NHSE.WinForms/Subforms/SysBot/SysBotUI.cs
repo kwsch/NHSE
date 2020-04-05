@@ -78,6 +78,7 @@ namespace NHSE.WinForms
 
         private void CHK_AutoWrite_CheckedChanged(object sender, EventArgs e) => Injector.AutoInjectEnabled = CHK_AutoWrite.Checked;
         private void CHK_AutoRead_CheckedChanged(object sender, EventArgs e) => TIM_Interval.Enabled = CHK_AutoRead.Checked;
+        private void CHK_Validate_CheckedChanged(object sender, EventArgs e) => Injector.ValidateEnabled = CHK_Validate.Checked;
 
         private void RamOffset_TextChanged(object sender, EventArgs e)
         {

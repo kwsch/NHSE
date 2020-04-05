@@ -10,5 +10,6 @@
         bool Validate(byte[] data);
         uint WriteOffset { set; }
         bool Connected { get; }
+        bool ValidateEnabled { get; set; }
     }
 }

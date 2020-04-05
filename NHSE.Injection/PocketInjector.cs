@@ -12,6 +12,7 @@ namespace NHSE.Injection
         public bool Connected => Bot.Connected;
 
         public uint WriteOffset { private get; set; }
+        public bool ValidateEnabled { get; set; } = true;
 
         public PocketInjector(IReadOnlyList<Item> items, IRAMReadWriter bot)
         {
@@ -36,7 +37,7 @@ namespace NHSE.Injection
         public InjectionResult Read()
         {
             if (!ReadValidate(out var data))
-                return InjectionResult.Fail;
+                return InjectionResult.FailValidate;
 
             if (LastData?.SequenceEqual(data) == true)
                 return InjectionResult.Same;
@@ -60,7 +61,7 @@ namespace NHSE.Injection
         public InjectionResult Write()
         {
             if (!ReadValidate(out var data))
-                return InjectionResult.Fail;
+                return InjectionResult.FailValidate;
 
             var orig = (byte[])data.Clone();
 
@@ -88,6 +89,9 @@ namespace NHSE.Injection
         {
             if (BitConverter.ToUInt32(data, pocket) > 20) // pouch21-39 count
                 return false;
+
+            if (!ValidateEnabled)
+                return true;
 
             for (int i = 4; i < 0x18; i += 4)
             {
