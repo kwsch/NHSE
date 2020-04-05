@@ -15,7 +15,10 @@ namespace NHSE.WinForms
             InitializeComponent();
             Bot = c;
             Injector = injector;
-            RamOffset.Text = Bot.GetDefaultOffset().ToString("X8");
+
+            var offset = Bot.GetDefaultOffset();
+            Injector.SetWriteOffset(offset);
+            RamOffset.Text = offset.ToString("X8");
 
             TB_IP.Text = Bot.IP;
             TB_Port.Text = Bot.Port;
