@@ -3,12 +3,12 @@ using System.Threading;
 
 namespace NHSE.Injection
 {
-    public class SysBot
+    public class SysBot : IRAMReadWriter
     {
         public string IP = "192.168.1.65";
         public int Port = 6000;
         public Socket Connection = new Socket(SocketType.Stream, ProtocolType.Tcp);
-        public bool Connected;
+        public bool Connected { get; private set; }
 
         private readonly object _sync = new object();
 

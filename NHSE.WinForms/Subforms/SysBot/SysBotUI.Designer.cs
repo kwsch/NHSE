@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.B_Connect = new System.Windows.Forms.Button();
             this.L_Port = new System.Windows.Forms.Label();
             this.TB_Port = new System.Windows.Forms.TextBox();
@@ -38,6 +39,9 @@
             this.L_Offset = new System.Windows.Forms.Label();
             this.B_ReadCurrent = new System.Windows.Forms.Button();
             this.B_WriteCurrent = new System.Windows.Forms.Button();
+            this.CHK_AutoWrite = new System.Windows.Forms.CheckBox();
+            this.CHK_AutoRead = new System.Windows.Forms.CheckBox();
+            this.TIM_Interval = new System.Windows.Forms.Timer(this.components);
             this.GB_Inject.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,6 +93,8 @@
             // 
             // GB_Inject
             // 
+            this.GB_Inject.Controls.Add(this.CHK_AutoRead);
+            this.GB_Inject.Controls.Add(this.CHK_AutoWrite);
             this.GB_Inject.Controls.Add(this.RamOffset);
             this.GB_Inject.Controls.Add(this.L_Offset);
             this.GB_Inject.Controls.Add(this.B_ReadCurrent);
@@ -96,7 +102,7 @@
             this.GB_Inject.Enabled = false;
             this.GB_Inject.Location = new System.Drawing.Point(16, 66);
             this.GB_Inject.Name = "GB_Inject";
-            this.GB_Inject.Size = new System.Drawing.Size(149, 74);
+            this.GB_Inject.Size = new System.Drawing.Size(149, 119);
             this.GB_Inject.TabIndex = 13;
             this.GB_Inject.TabStop = false;
             this.GB_Inject.Text = "Injector";
@@ -140,11 +146,37 @@
             this.B_WriteCurrent.UseVisualStyleBackColor = true;
             this.B_WriteCurrent.Click += new System.EventHandler(this.B_WriteCurrent_Click);
             // 
+            // CHK_AutoUpdate
+            // 
+            this.CHK_AutoWrite.AutoSize = true;
+            this.CHK_AutoWrite.Location = new System.Drawing.Point(18, 70);
+            this.CHK_AutoWrite.Name = "CHK_AutoWrite";
+            this.CHK_AutoWrite.Size = new System.Drawing.Size(73, 17);
+            this.CHK_AutoWrite.TabIndex = 21;
+            this.CHK_AutoWrite.Text = "AutoWrite";
+            this.CHK_AutoWrite.UseVisualStyleBackColor = true;
+            this.CHK_AutoWrite.CheckedChanged += new System.EventHandler(this.CHK_AutoWrite_CheckedChanged);
+            // 
+            // CHK_AutoRead
+            // 
+            this.CHK_AutoRead.AutoSize = true;
+            this.CHK_AutoRead.Location = new System.Drawing.Point(18, 93);
+            this.CHK_AutoRead.Name = "CHK_AutoRead";
+            this.CHK_AutoRead.Size = new System.Drawing.Size(74, 17);
+            this.CHK_AutoRead.TabIndex = 22;
+            this.CHK_AutoRead.Text = "AutoRead";
+            this.CHK_AutoRead.UseVisualStyleBackColor = true;
+            this.CHK_AutoRead.CheckedChanged += new System.EventHandler(this.CHK_AutoRead_CheckedChanged);
+            // 
+            // TIM_Interval
+            // 
+            this.TIM_Interval.Interval = 5000;
+            // 
             // SysBotUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(184, 151);
+            this.ClientSize = new System.Drawing.Size(184, 197);
             this.Controls.Add(this.GB_Inject);
             this.Controls.Add(this.B_Connect);
             this.Controls.Add(this.L_Port);
@@ -177,5 +209,8 @@
         private System.Windows.Forms.Button B_WriteCurrent;
         private System.Windows.Forms.TextBox RamOffset;
         private System.Windows.Forms.Label L_Offset;
+        private System.Windows.Forms.CheckBox CHK_AutoWrite;
+        private System.Windows.Forms.CheckBox CHK_AutoRead;
+        private System.Windows.Forms.Timer TIM_Interval;
     }
 }

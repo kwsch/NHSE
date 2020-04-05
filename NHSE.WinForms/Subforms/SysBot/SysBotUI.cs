@@ -7,22 +7,22 @@ namespace NHSE.WinForms
 {
     public partial class SysBotUI : Form
     {
-        private readonly Func<byte[]> ByteFetch;
-        private readonly Action<byte[]> ByteSet;
+        private readonly AutoInjector Injector;
         private readonly SysBotController Bot;
 
-        public SysBotUI(Action<byte[]> read, Func<byte[]> write, InjectionType type)
+        public SysBotUI(AutoInjector injector, SysBotController c)
         {
             InitializeComponent();
-            Bot = new SysBotController(type);
-            ByteFetch = write;
-            ByteSet = read;
+            Bot = c;
+            Injector = injector;
             RamOffset.Text = Bot.GetDefaultOffset().ToString("X8");
 
             TB_IP.Text = Bot.IP;
             TB_Port.Text = Bot.Port;
 
             Bot.PopPrompt();
+
+            TIM_Interval.Tick += (s, e) => injector.Read();
         }
 
         private void B_Connect_Click(object sender, EventArgs e)
@@ -43,8 +43,9 @@ namespace NHSE.WinForms
 
             try
             {
-                var data = ByteFetch();
-                Bot.WriteBytes(data, offset);
+                var result = Injector.Write(true);
+                if (result != InjectionResult.Success)
+                    WinFormsUtil.Alert(result.ToString());
             }
 #pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
@@ -63,11 +64,13 @@ namespace NHSE.WinForms
                 return;
             }
 
+            Injector.SetWriteOffset(offset);
+
             try
             {
-                var data = ByteFetch();
-                var result = Bot.ReadBytes(offset, data.Length);
-                ByteSet(result);
+                var result = Injector.Read(true);
+                if (result != InjectionResult.Success)
+                    WinFormsUtil.Alert(result.ToString());
             }
 #pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
@@ -76,5 +79,8 @@ namespace NHSE.WinForms
                 WinFormsUtil.Error(ex.Message);
             }
         }
+
+        private void CHK_AutoWrite_CheckedChanged(object sender, EventArgs e) => Injector.AutoInjectEnabled = CHK_AutoWrite.Checked;
+        private void CHK_AutoRead_CheckedChanged(object sender, EventArgs e) => TIM_Interval.Enabled = CHK_AutoRead.Checked;
     }
 }
