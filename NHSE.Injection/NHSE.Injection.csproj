@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NHSE.Core\NHSE.Core.csproj" />
+  </ItemGroup>
+
 </Project>

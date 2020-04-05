@@ -129,8 +129,7 @@ namespace NHSE.WinForms
                 var p1 = pers.Pocket1;
                 var p2 = pers.Pocket2;
                 var items = p2.Concat(p1).ToArray();
-                int sys = p1.Count; // disjointed 20-20
-                using var editor = new PlayerItemEditor<Item>(items, 10, 4, sysbot: sys);
+                using var editor = new PlayerItemEditor<Item>(items, 10, 4, sysbot: true);
                 if (editor.ShowDialog() != DialogResult.OK)
                     return;
 

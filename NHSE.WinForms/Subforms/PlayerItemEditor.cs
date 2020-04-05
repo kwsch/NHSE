@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Injection;
@@ -12,14 +12,14 @@ namespace NHSE.WinForms
     {
         private readonly IReadOnlyList<T> Items;
         private readonly Action LoadItems;
-        private readonly int SysBotLength;
+        private readonly ItemGridEditor ItemGrid;
 
-        public PlayerItemEditor(IReadOnlyList<T> array, int width, int height, int sysbot = 0)
+        public PlayerItemEditor(IReadOnlyList<T> array, int width, int height, bool sysbot = false)
         {
             InitializeComponent();
             Items = array;
 
-            var Editor = new ItemGridEditor(ItemEditor, Items) {Dock = DockStyle.Fill};
+            var Editor = ItemGrid = new ItemGridEditor(ItemEditor, Items) {Dock = DockStyle.Fill};
             Editor.InitializeGrid(width, height);
             PAN_Items.Controls.Add(Editor);
 
@@ -27,7 +27,7 @@ namespace NHSE.WinForms
             Editor.LoadItems();
             DialogResult = DialogResult.Cancel;
             LoadItems = () => Editor.LoadItems();
-            B_Inject.Visible = (SysBotLength = sysbot) > 0;
+            B_Inject.Visible = sysbot;
         }
 
         private void B_Cancel_Click(object sender, EventArgs e) => Close();
@@ -79,17 +79,24 @@ namespace NHSE.WinForms
                 return;
             }
 
-            byte[] Write() => Items.Take(SysBotLength).SelectMany(z => z.ToBytesClass()).ToArray();
-            void Read(byte[] data)
+            void AfterRead(InjectionResult r)
             {
-                var items = Item.GetArray(data);
-                for (int i = 0; i < items.Length && i < Items.Count; i++)
-                    Items[i].CopyFrom(items[i]);
-                LoadItems();
+                if (r == InjectionResult.Success)
+                    LoadItems();
+            }
+
+            static void AfterWrite(InjectionResult r)
+            {
+                Debug.WriteLine($"Write result: {r}");
                 System.Media.SystemSounds.Asterisk.Play();
             }
 
-            var sysbot = new SysBotUI(Read, Write, InjectionType.Pouch);
+            var sb = new SysBotController(InjectionType.Pouch);
+            var pockInject = new PocketInjector(Items, sb.Bot);
+            var ai = new AutoInjector(pockInject, AfterRead, AfterWrite);
+
+            ItemGrid.ItemChanged = () => ai.Write(true);
+            var sysbot = new SysBotUI(ai, sb);
             sysbot.Show();
         }
     }

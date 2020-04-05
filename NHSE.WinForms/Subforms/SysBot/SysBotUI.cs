@@ -7,22 +7,25 @@ namespace NHSE.WinForms
 {
     public partial class SysBotUI : Form
     {
-        private readonly Func<byte[]> ByteFetch;
-        private readonly Action<byte[]> ByteSet;
+        private readonly AutoInjector Injector;
         private readonly SysBotController Bot;
 
-        public SysBotUI(Action<byte[]> read, Func<byte[]> write, InjectionType type)
+        public SysBotUI(AutoInjector injector, SysBotController c)
         {
             InitializeComponent();
-            Bot = new SysBotController(type);
-            ByteFetch = write;
-            ByteSet = read;
-            RamOffset.Text = Bot.GetDefaultOffset().ToString("X8");
+            Bot = c;
+            Injector = injector;
+
+            var offset = Bot.GetDefaultOffset();
+            Injector.SetWriteOffset(offset);
+            RamOffset.Text = offset.ToString("X8");
 
             TB_IP.Text = Bot.IP;
             TB_Port.Text = Bot.Port;
 
             Bot.PopPrompt();
+
+            TIM_Interval.Tick += (s, e) => injector.Read();
         }
 
         private void B_Connect_Click(object sender, EventArgs e)
@@ -41,10 +44,13 @@ namespace NHSE.WinForms
                 return;
             }
 
+            Injector.SetWriteOffset(offset);
+
             try
             {
-                var data = ByteFetch();
-                Bot.WriteBytes(data, offset);
+                var result = Injector.Write(true);
+                if (result != InjectionResult.Success)
+                    WinFormsUtil.Alert(result.ToString());
             }
 #pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
@@ -56,18 +62,11 @@ namespace NHSE.WinForms
 
         private void B_ReadCurrent_Click(object sender, EventArgs e)
         {
-            var offset = StringUtil.GetHexValue(RamOffset.Text);
-            if (offset == 0)
-            {
-                WinFormsUtil.Error("Incorrect hex offset.");
-                return;
-            }
-
             try
             {
-                var data = ByteFetch();
-                var result = Bot.ReadBytes(offset, data.Length);
-                ByteSet(result);
+                var result = Injector.Read(true);
+                if (result != InjectionResult.Success)
+                    WinFormsUtil.Alert(result.ToString());
             }
 #pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
@@ -75,6 +74,21 @@ namespace NHSE.WinForms
             {
                 WinFormsUtil.Error(ex.Message);
             }
+        }
+
+        private void CHK_AutoWrite_CheckedChanged(object sender, EventArgs e) => Injector.AutoInjectEnabled = CHK_AutoWrite.Checked;
+        private void CHK_AutoRead_CheckedChanged(object sender, EventArgs e) => TIM_Interval.Enabled = CHK_AutoRead.Checked;
+
+        private void RamOffset_TextChanged(object sender, EventArgs e)
+        {
+            var offset = StringUtil.GetHexValue(RamOffset.Text);
+            if (offset == 0)
+            {
+                WinFormsUtil.Error("Incorrect hex offset.");
+                return;
+            }
+
+            Injector.SetWriteOffset(offset);
         }
     }
 }

@@ -16,6 +16,8 @@ namespace NHSE.WinForms
         private int Count => Items.Count;
         private int Page;
         private int ItemsPerPage;
+        public Action? ItemChanged { private get; set; }
+        private void ItemUpdated() => ItemChanged?.Invoke();
 
         public ItemGridEditor(ItemEditor editor, IReadOnlyList<Item> items)
         {
@@ -122,6 +124,7 @@ namespace NHSE.WinForms
             var index = SlotPictureBoxes.IndexOf(pb);
             var item = SetItem(index);
             pb.BackgroundImage = Sprites.GetImage(item, L_ItemName.Font);
+            ItemUpdated();
         }
 
         private void ClickDelete(object sender, EventArgs e)
@@ -133,6 +136,7 @@ namespace NHSE.WinForms
             var item = GetItem(index);
             item.Delete();
             pb.BackgroundImage = Sprites.GetImage(item, L_ItemName.Font);
+            ItemUpdated();
         }
 
         private void ClickClone(object sender, EventArgs e)
@@ -149,6 +153,7 @@ namespace NHSE.WinForms
                 var dest = GetItem(i);
                 dest.CopyFrom(item);
                 SlotPictureBoxes[i].BackgroundImage = Sprites.GetImage(item, L_ItemName.Font);
+                ItemUpdated();
             }
             System.Media.SystemSounds.Asterisk.Play();
         }
@@ -200,6 +205,7 @@ namespace NHSE.WinForms
                 var item = GetItem(i);
                 SlotPictureBoxes[i].BackgroundImage = Sprites.GetImage(item, L_ItemName.Font);
             }
+            ItemUpdated();
         }
 
         private void B_Clear_Click(object sender, EventArgs e)
