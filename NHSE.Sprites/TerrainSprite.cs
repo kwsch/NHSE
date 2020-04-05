@@ -88,26 +88,40 @@ namespace NHSE.Sprites
             return map;
         }
 
-        public static Bitmap GetMapWithBuildings(TerrainManager mgr, IReadOnlyList<Building> buildings, Font f, int scale = 4, int index = -1)
+        public static Bitmap GetMapWithBuildings(TerrainManager mgr, IReadOnlyList<Building> buildings, ushort plazaX, ushort plazaY, Font f, int scale = 4, int index = -1)
         {
-            // Although there is terrain in the Top Row and Left Column, no buildings can be placed there.
-            // Adjust the building coordinates down-right by an acre.
-            const int buildingShift = TerrainManager.GridWidth;
             var map = CreateMap(mgr, scale);
             using var gfx = Graphics.FromImage(map);
 
+            gfx.DrawPlaza(plazaX, plazaY, scale);
+            gfx.DrawBuildings(buildings, f, scale, index);
+            return map;
+        }
+
+        private static void DrawPlaza(this Graphics gfx, ushort px, ushort py, int scale)
+        {
+            var plaza = Brushes.RosyBrown;
+            GetBuildingCoordinate(px, py, scale, out var x, out var y);
+
+            var width = scale * 2 * 6;
+            var height = scale * 2 * 5;
+
+            gfx.FillRectangle(plaza, x, y, width, height);
+        }
+
+        private static void DrawBuildings(this Graphics gfx, IReadOnlyList<Building> buildings, Font f, int scale, int index = -1)
+        {
             var selected = Brushes.Red;
             var others = Brushes.Yellow;
             var text = Brushes.White;
-            var stringFormat = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+            var stringFormat = new StringFormat {Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center};
 
             for (int i = 0; i < buildings.Count; i++)
             {
                 var b = buildings[i];
                 if (b.BuildingType == 0)
                     continue;
-                var x = (int)(((b.X / 2f) - buildingShift) * scale);
-                var y = (int)(((b.Y / 2f) - buildingShift) * scale);
+                GetBuildingCoordinate(b.X, b.Y, scale, out var x, out var y);
 
                 var pen = index == i ? selected : others;
                 gfx.FillRectangle(pen, x - scale, y - scale, scale * 2, scale * 2);
@@ -115,8 +129,15 @@ namespace NHSE.Sprites
                 var name = b.BuildingType.ToString();
                 gfx.DrawString(name, f, text, new PointF(x, y - (scale * 2)), stringFormat);
             }
+        }
 
-            return map;
+        private static void GetBuildingCoordinate(ushort bx, ushort by, int scale, out int x, out int y)
+        {
+            // Although there is terrain in the Top Row and Left Column, no buildings can be placed there.
+            // Adjust the building coordinates down-right by an acre.
+            const int buildingShift = TerrainManager.GridWidth;
+            x = (int) (((bx / 2f) - buildingShift) * scale);
+            y = (int) (((by / 2f) - buildingShift) * scale);
         }
     }
 }

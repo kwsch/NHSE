@@ -365,6 +365,7 @@
             this.NUD_PlazaX.Name = "NUD_PlazaX";
             this.NUD_PlazaX.Size = new System.Drawing.Size(45, 20);
             this.NUD_PlazaX.TabIndex = 103;
+            this.NUD_PlazaX.ValueChanged += new System.EventHandler(this.NUD_PlazaCoordinate_ValueChanged);
             // 
             // L_PlazaY
             // 
@@ -386,6 +387,7 @@
             this.NUD_PlazaY.Name = "NUD_PlazaY";
             this.NUD_PlazaY.Size = new System.Drawing.Size(45, 20);
             this.NUD_PlazaY.TabIndex = 101;
+            this.NUD_PlazaY.ValueChanged += new System.EventHandler(this.NUD_PlazaCoordinate_ValueChanged);
             // 
             // BuildingEditor
             // 
