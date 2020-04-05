@@ -12,12 +12,23 @@ namespace NHSE.Sprites
 
         public readonly Image HoverBackground = Resources.itemHover;
 
-        public Image? GetImage(Item item, Font font)
+        public Bitmap GetImage(Item item, Font font)
         {
             if (item.ItemId == Item.NONE)
-                return null;
+                return GetNone(font);
 
             return CreateFake(item, font);
+        }
+
+        private static readonly StringFormat Center = new StringFormat
+        { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+
+        private Bitmap GetNone(Font font)
+        {
+            var bmp = new Bitmap(Width, Height);
+            using var gfx = Graphics.FromImage(bmp);
+            gfx.DrawString("None", font, Brushes.Black, Width / 2f, Height / 2f, Center);
+            return bmp;
         }
 
         public Bitmap CreateFake(Item item, Font font, bool slash = false)
@@ -60,7 +71,7 @@ namespace NHSE.Sprites
             if (item.Count != 0)
                 gfx.DrawString(item.Count.ToString(), font, brush, x1, y1);
             if (item.UseCount != 0)
-                gfx.DrawString(item.UseCount.ToString(), font, brush, x1 + 10, y1 + 10);
+                gfx.DrawString(item.UseCount.ToString(), font, brush, x1 + 16, y1 + 16, Center);
             if (item.Flags0 != 0)
                 gfx.DrawString(item.Flags0.ToString(), font, brush, x1 + 20, y1 + 0);
             if (item.Flags1 != 0)
