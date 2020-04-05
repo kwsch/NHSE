@@ -335,12 +335,10 @@ namespace NHSE.WinForms
 
         private void ClickMapAt(MouseEventArgs e, bool skipLagCheck)
         {
-            const int maxX = ((TerrainManager.AcreWidth - 1) * GridWidth);
-            const int maxY = ((TerrainManager.AcreHeight - 1) * GridHeight);
-
-            int center = CHK_SnapToAcre.Checked ? 0 : GridWidth / 2;
-            var x = Math.Max(0, Math.Min((e.X / MapScale) - center, maxX));
-            var y = Math.Max(0, Math.Min((e.Y / MapScale) - center, maxY));
+            int mX = e.X;
+            int mY = e.Y;
+            bool centerReticle = CHK_SnapToAcre.Checked;
+            GetCoordinates(centerReticle, mX, mY, out var x, out var y);
 
             var acre = TerrainManager.GetAcre(x, y);
             bool sameAcre = AcreIndex == acre;
@@ -371,11 +369,29 @@ namespace NHSE.WinForms
                 CB_Acre.SelectedIndex = acre;
         }
 
+        private static void GetCoordinates(bool centerReticle, int mX, int mY, out int x, out int y)
+        {
+            int center = centerReticle ? 0 : GridWidth / 2;
+            const int maxX = ((TerrainManager.AcreWidth - 1) * GridWidth);
+            const int maxY = ((TerrainManager.AcreHeight - 1) * GridHeight);
+
+            x = Math.Max(0, Math.Min((mX / MapScale) - center, maxX));
+            y = Math.Max(0, Math.Min((mY / MapScale) - center, maxY));
+        }
+
         private void PB_Map_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button != MouseButtons.Left)
-                return;
-            ClickMapAt(e, false);
+            if (e.Button == MouseButtons.Left)
+            {
+                ClickMapAt(e, false);
+            }
+            else
+            {
+                int mX = e.X;
+                int mY = e.Y;
+                GetCoordinates(false, mX, mY, out var x, out var y);
+                L_Coordinates.Text = $"({x:000},{y:000}) = (0x{x:X2},0x{y:X2})";
+            }
         }
     }
 }

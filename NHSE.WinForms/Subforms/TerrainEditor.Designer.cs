@@ -53,6 +53,7 @@
             this.CM_Picture = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Menu_SavePNG = new System.Windows.Forms.ToolStripMenuItem();
             this.CHK_SnapToAcre = new System.Windows.Forms.CheckBox();
+            this.L_Coordinates = new System.Windows.Forms.Label();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
@@ -250,7 +251,7 @@
             // 
             this.PB_Map.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PB_Map.ContextMenuStrip = this.CM_Picture;
-            this.PB_Map.Location = new System.Drawing.Point(821, 348);
+            this.PB_Map.Location = new System.Drawing.Point(821, 343);
             this.PB_Map.Name = "PB_Map";
             this.PB_Map.Size = new System.Drawing.Size(226, 194);
             this.PB_Map.TabIndex = 23;
@@ -278,18 +279,29 @@
             this.CHK_SnapToAcre.AutoSize = true;
             this.CHK_SnapToAcre.Checked = true;
             this.CHK_SnapToAcre.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_SnapToAcre.Location = new System.Drawing.Point(820, 325);
+            this.CHK_SnapToAcre.Location = new System.Drawing.Point(820, 320);
             this.CHK_SnapToAcre.Name = "CHK_SnapToAcre";
             this.CHK_SnapToAcre.Size = new System.Drawing.Size(167, 17);
             this.CHK_SnapToAcre.TabIndex = 24;
             this.CHK_SnapToAcre.Text = "Snap to nearest Acre on Click";
             this.CHK_SnapToAcre.UseVisualStyleBackColor = true;
             // 
+            // L_Coordinates
+            // 
+            this.L_Coordinates.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_Coordinates.Location = new System.Drawing.Point(876, 540);
+            this.L_Coordinates.Name = "L_Coordinates";
+            this.L_Coordinates.Size = new System.Drawing.Size(173, 15);
+            this.L_Coordinates.TabIndex = 25;
+            this.L_Coordinates.Text = "(000,000) = (0x00,0x00)";
+            this.L_Coordinates.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // TerrainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1061, 822);
+            this.Controls.Add(this.L_Coordinates);
             this.Controls.Add(this.CHK_SnapToAcre);
             this.Controls.Add(this.PB_Map);
             this.Controls.Add(this.B_Down);
@@ -349,5 +361,6 @@
         private System.Windows.Forms.ContextMenuStrip CM_Picture;
         private System.Windows.Forms.ToolStripMenuItem Menu_SavePNG;
         private System.Windows.Forms.CheckBox CHK_SnapToAcre;
+        private System.Windows.Forms.Label L_Coordinates;
     }
 }
