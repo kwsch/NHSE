@@ -9,6 +9,7 @@ namespace NHSE.WinForms
     public partial class BuildingEditor : Form
     {
         private readonly IReadOnlyList<Building> Buildings;
+        private readonly MainSave SAV;
         private readonly TerrainManager Terrain;
         private static readonly IReadOnlyDictionary<string, string[]> HelpDictionary = StructureUtil.GetStructureHelpList();
 
@@ -16,6 +17,7 @@ namespace NHSE.WinForms
         {
             InitializeComponent();
             Buildings = buildings;
+            SAV = sav;
             DialogResult = DialogResult.Cancel;
 
             foreach (var obj in buildings)
@@ -27,12 +29,18 @@ namespace NHSE.WinForms
             foreach (var entry in HelpDictionary)
                 CB_StructureType.Items.Add(entry.Key);
             CB_StructureType.SelectedIndex = 0;
+
+            NUD_PlazaX.Value = sav.PlazaX;
+            NUD_PlazaY.Value = sav.PlazaY;
         }
 
         private void B_Cancel_Click(object sender, EventArgs e) => Close();
 
         private void B_Save_Click(object sender, EventArgs e)
         {
+            SAV.PlazaX = (uint)NUD_PlazaX.Value;
+            SAV.PlazaY = (uint)NUD_PlazaY.Value;
+
             DialogResult = DialogResult.OK;
             Close();
         }

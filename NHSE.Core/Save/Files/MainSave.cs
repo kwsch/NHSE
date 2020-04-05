@@ -64,5 +64,17 @@ namespace NHSE.Core
 
         public TerrainTile[] GetTerrain() => TerrainTile.GetArray(Data.Slice(Offsets.Terrain, TerrainManager.TileCount * TerrainTile.SIZE));
         public void SetTerrain(IReadOnlyList<TerrainTile> array) => TerrainTile.SetArray(array).CopyTo(Data, Offsets.Terrain);
+
+        public uint PlazaX
+        {
+            get => BitConverter.ToUInt32(Data, Offsets.Acres + AcreSizeAll + 4);
+            set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.Acres + AcreSizeAll + 4);
+        }
+
+        public uint PlazaY
+        {
+            get => BitConverter.ToUInt32(Data, Offsets.Acres + AcreSizeAll + 8);
+            set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.Acres + AcreSizeAll + 8);
+        }
     }
 }
