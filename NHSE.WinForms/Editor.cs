@@ -44,10 +44,28 @@ namespace NHSE.WinForms
 
         private void Menu_LoadDecrypted_Click(object sender, EventArgs e)
         {
-            using var fbd = new FolderBrowserDialog();
-            if (fbd.ShowDialog() != DialogResult.OK)
+            using var ofd = new OpenFileDialog
+            {
+                Title = "Open main.dat ...",
+                Filter = "New Horizons Save File (main.dat)|main.dat",
+                FileName = "main.dat",
+            };
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+                LoadDecryptedFromPath(ofd.FileName);
+        }
+
+        private void LoadDecryptedFromPath(string main)
+        {
+            var dir = Path.GetDirectoryName(main);
+            if (dir is null || !Directory.Exists(dir))
+            {
+                WinFormsUtil.Alert("Directory does not exist!");
                 return;
-            SAV.Load(fbd.SelectedPath);
+            }
+
+            SAV.Load(dir);
+            LoadAll(); // reload all fields
             System.Media.SystemSounds.Asterisk.Play();
         }
 
@@ -96,18 +114,23 @@ namespace NHSE.WinForms
         #region Player Editing
         private void LoadPlayers()
         {
+            CB_Players.Items.Clear();
             var playerList = SAV.Players.Select(z => z.DirectoryName);
             foreach (var p in playerList)
                 CB_Players.Items.Add(p);
 
+            PlayerIndex = -1;
             CB_Players.SelectedIndex = 0;
         }
 
         private void LoadVillagers()
         {
+            CB_Personality.Items.Clear();
             var personalities = Enum.GetNames(typeof(VillagerPersonality));
             foreach (var p in personalities)
                 CB_Personality.Items.Add(p);
+
+            VillagerIndex = -1;
             LoadVillager(0);
         }
 
