@@ -9,10 +9,10 @@ namespace NHSE.Core
         public TerrainManager(TerrainTile[] tiles)
         {
             Tiles = tiles;
-            Debug.Assert(TileCount == tiles.Length);
+            Debug.Assert(MapTileCount == tiles.Length);
         }
 
-        public TerrainTile GetTile(int x, int y) => this[GetIndex(x, y)];
+        public TerrainTile GetTile(int x, int y) => this[GetTileIndex(x, y)];
         public TerrainTile GetTile(int acreX, int acreY, int gridX, int gridY) => this[GetTileIndex(acreX, acreY, gridX, gridY)];
         public TerrainTile GetAcreTile(int acreIndex, int tileIndex) => this[GetAcreTileIndex(acreIndex, tileIndex)];
 
@@ -32,7 +32,7 @@ namespace NHSE.Core
 
         public byte[] DumpAcre(int acre)
         {
-            int count = (GridWidth * GridHeight);
+            const int count = AcreTileCount;
             var result = new byte[TerrainTile.SIZE * count];
             for (int i = 0; i < count; i++)
             {
@@ -52,7 +52,7 @@ namespace NHSE.Core
 
         public void ImportAcre(int acre, byte[] data)
         {
-            int count = (GridWidth * GridHeight);
+            const int count = AcreTileCount;
             var tiles = TerrainTile.GetArray(data);
             for (int i = 0; i < count; i++)
             {

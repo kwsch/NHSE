@@ -26,7 +26,7 @@ namespace NHSE.WinForms
             InitializeComponent();
 
             Terrain = new TerrainManager(SAV.GetTerrain());
-            Grid = GenerateGrid(MapGrid.GridWidth, MapGrid.GridHeight);
+            Grid = GenerateGrid(GridWidth, GridHeight);
 
             foreach (var acre in MapGrid.Acres)
                 CB_Acre.Items.Add(acre.Name);
@@ -45,9 +45,7 @@ namespace NHSE.WinForms
 
         private void ChangeViewToAcre(int acre)
         {
-            X = (acre % MapGrid.AcreWidth) * GridWidth;
-            Y = (acre / MapGrid.AcreWidth) * GridHeight;
-
+            MapGrid.GetViewAnchorCoordinates(acre, out X, out Y);
             LoadGrid(X, Y);
             UpdateArrowVisibility(acre);
         }
@@ -60,21 +58,13 @@ namespace NHSE.WinForms
             {
                 for (int y = 0; y < GridHeight; y++)
                 {
-                    var i = (y * GridWidth) + x;
+                    var controlIndex = (y * GridWidth) + x;
+                    var b = Grid[controlIndex];
+
                     var rx = topX + x;
                     var ry = topY + y;
-                    var ri = MapGrid.GetIndex(rx, ry);
-                    var b = Grid[i];
-                    if (ri >= Terrain.Tiles.Length)
-                    {
-                        b.Visible = false;
-                    }
-                    else
-                    {
-                        b.Visible = true;
-                        var tile = Terrain.GetTile(rx, ry);
-                        RefreshTile(b, tile);
-                    }
+                    var tile = Terrain.GetTile(rx, ry);
+                    RefreshTile(b, tile);
                 }
             }
             ReloadMap();
@@ -96,7 +86,7 @@ namespace NHSE.WinForms
             {
                 for (int x = 0; x < w; x++)
                 {
-                    var item = GetGridItem(index: i, x, y);
+                    var item = CreateGridItem(index: i, x, y);
                     FLP_Tile.Controls.Add(item);
                     grid[i++] = item;
                 }
@@ -108,7 +98,7 @@ namespace NHSE.WinForms
             return grid;
         }
 
-        private Button GetGridItem(int index, int x, int y)
+        private Button CreateGridItem(int index, int x, int y)
         {
             var button = new Button
             {
@@ -271,7 +261,7 @@ namespace NHSE.WinForms
             var path = ofd.FileName;
             var fi = new FileInfo(path);
 
-            const int expect = MapGrid.AcreSize * TerrainTile.SIZE;
+            const int expect = MapGrid.AcreTileCount * TerrainTile.SIZE;
             if (fi.Length != expect)
             {
                 WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X}", path);
@@ -297,7 +287,7 @@ namespace NHSE.WinForms
             var path = ofd.FileName;
             var fi = new FileInfo(path);
 
-            const int expect = MapGrid.TileCount * TerrainTile.SIZE;
+            const int expect = MapGrid.MapTileCount * TerrainTile.SIZE;
             if (fi.Length != expect)
             {
                 WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X}", path);
@@ -379,24 +369,7 @@ namespace NHSE.WinForms
         private static void GetViewAnchorCoordinates(int mX, int mY, out int x, out int y, bool centerReticle)
         {
             GetCursorCoordinates(mX, mY, out x, out y);
-
-            // Clamp to viewport dimensions, and center to nearest acre if desired.
-            const int maxX = ((MapGrid.AcreWidth - 1) * GridWidth);
-            const int maxY = ((MapGrid.AcreHeight - 1) * GridHeight);
-
-            // If we aren't snapping the reticle to the nearest acre
-            // we want to put the middle of the reticle rectangle where the cursor is.
-            // Adjust the view coordinate
-            if (!centerReticle)
-            {
-                // Reticle size is GridWidth, center = /2
-                x -= GridWidth / 2;
-                y -= GridWidth / 2;
-            }
-
-            // Clamp to boundaries so that we always have 16x16 to view.
-            x = Math.Max(0, Math.Min(x, maxX));
-            y = Math.Max(0, Math.Min(y, maxY));
+            MapGrid.GetViewAnchorCoordinates(ref x, ref y, centerReticle);
         }
 
         private void PB_Map_MouseMove(object sender, MouseEventArgs e)
