@@ -48,10 +48,14 @@
             this.L_Building10 = new System.Windows.Forms.Label();
             this.GB_Building = new System.Windows.Forms.GroupBox();
             this.GB_Info = new System.Windows.Forms.GroupBox();
-            this.CB_StructureType = new System.Windows.Forms.ComboBox();
-            this.L_StructureType = new System.Windows.Forms.Label();
             this.L_StructureValues = new System.Windows.Forms.Label();
             this.CB_StructureValues = new System.Windows.Forms.ComboBox();
+            this.L_StructureType = new System.Windows.Forms.Label();
+            this.CB_StructureType = new System.Windows.Forms.ComboBox();
+            this.L_PlazaX = new System.Windows.Forms.Label();
+            this.NUD_PlazaX = new System.Windows.Forms.NumericUpDown();
+            this.L_PlazaY = new System.Windows.Forms.Label();
+            this.NUD_PlazaY = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BuildingType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_X)).BeginInit();
@@ -62,14 +66,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_10)).BeginInit();
             this.GB_Building.SuspendLayout();
             this.GB_Info.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PlazaX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PlazaY)).BeginInit();
             this.SuspendLayout();
             // 
             // B_Save
             // 
             this.B_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.B_Save.Location = new System.Drawing.Point(597, 526);
+            this.B_Save.Location = new System.Drawing.Point(609, 501);
             this.B_Save.Name = "B_Save";
-            this.B_Save.Size = new System.Drawing.Size(75, 23);
+            this.B_Save.Size = new System.Drawing.Size(65, 23);
             this.B_Save.TabIndex = 1;
             this.B_Save.Text = "Save";
             this.B_Save.UseVisualStyleBackColor = true;
@@ -78,9 +84,9 @@
             // B_Cancel
             // 
             this.B_Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.B_Cancel.Location = new System.Drawing.Point(516, 526);
+            this.B_Cancel.Location = new System.Drawing.Point(609, 527);
             this.B_Cancel.Name = "B_Cancel";
-            this.B_Cancel.Size = new System.Drawing.Size(75, 23);
+            this.B_Cancel.Size = new System.Drawing.Size(65, 23);
             this.B_Cancel.TabIndex = 2;
             this.B_Cancel.Text = "Cancel";
             this.B_Cancel.UseVisualStyleBackColor = true;
@@ -290,37 +296,15 @@
             this.GB_Info.Controls.Add(this.CB_StructureType);
             this.GB_Info.Location = new System.Drawing.Point(424, 404);
             this.GB_Info.Name = "GB_Info";
-            this.GB_Info.Size = new System.Drawing.Size(250, 103);
+            this.GB_Info.Size = new System.Drawing.Size(250, 94);
             this.GB_Info.TabIndex = 22;
             this.GB_Info.TabStop = false;
             this.GB_Info.Text = "Info";
             // 
-            // CB_StructureType
-            // 
-            this.CB_StructureType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.CB_StructureType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_StructureType.FormattingEnabled = true;
-            this.CB_StructureType.Location = new System.Drawing.Point(20, 33);
-            this.CB_StructureType.Name = "CB_StructureType";
-            this.CB_StructureType.Size = new System.Drawing.Size(221, 21);
-            this.CB_StructureType.TabIndex = 0;
-            this.CB_StructureType.SelectedIndexChanged += new System.EventHandler(this.CB_StructureType_SelectedIndexChanged);
-            // 
-            // L_StructureType
-            // 
-            this.L_StructureType.AutoSize = true;
-            this.L_StructureType.Location = new System.Drawing.Point(17, 17);
-            this.L_StructureType.Name = "L_StructureType";
-            this.L_StructureType.Size = new System.Drawing.Size(80, 13);
-            this.L_StructureType.TabIndex = 20;
-            this.L_StructureType.Text = "Structure Type:";
-            this.L_StructureType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // L_StructureValues
             // 
             this.L_StructureValues.AutoSize = true;
-            this.L_StructureValues.Location = new System.Drawing.Point(17, 58);
+            this.L_StructureValues.Location = new System.Drawing.Point(17, 51);
             this.L_StructureValues.Name = "L_StructureValues";
             this.L_StructureValues.Size = new System.Drawing.Size(42, 13);
             this.L_StructureValues.TabIndex = 22;
@@ -334,16 +318,86 @@
             this.CB_StructureValues.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_StructureValues.DropDownWidth = 322;
             this.CB_StructureValues.FormattingEnabled = true;
-            this.CB_StructureValues.Location = new System.Drawing.Point(20, 74);
+            this.CB_StructureValues.Location = new System.Drawing.Point(20, 64);
             this.CB_StructureValues.Name = "CB_StructureValues";
             this.CB_StructureValues.Size = new System.Drawing.Size(221, 21);
             this.CB_StructureValues.TabIndex = 21;
+            // 
+            // L_StructureType
+            // 
+            this.L_StructureType.AutoSize = true;
+            this.L_StructureType.Location = new System.Drawing.Point(17, 12);
+            this.L_StructureType.Name = "L_StructureType";
+            this.L_StructureType.Size = new System.Drawing.Size(80, 13);
+            this.L_StructureType.TabIndex = 20;
+            this.L_StructureType.Text = "Structure Type:";
+            this.L_StructureType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // CB_StructureType
+            // 
+            this.CB_StructureType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CB_StructureType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_StructureType.FormattingEnabled = true;
+            this.CB_StructureType.Location = new System.Drawing.Point(20, 26);
+            this.CB_StructureType.Name = "CB_StructureType";
+            this.CB_StructureType.Size = new System.Drawing.Size(221, 21);
+            this.CB_StructureType.TabIndex = 0;
+            this.CB_StructureType.SelectedIndexChanged += new System.EventHandler(this.CB_StructureType_SelectedIndexChanged);
+            // 
+            // L_PlazaX
+            // 
+            this.L_PlazaX.Location = new System.Drawing.Point(434, 503);
+            this.L_PlazaX.Name = "L_PlazaX";
+            this.L_PlazaX.Size = new System.Drawing.Size(70, 20);
+            this.L_PlazaX.TabIndex = 104;
+            this.L_PlazaX.Text = "Plaza X:";
+            this.L_PlazaX.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // NUD_PlazaX
+            // 
+            this.NUD_PlazaX.Location = new System.Drawing.Point(506, 504);
+            this.NUD_PlazaX.Maximum = new decimal(new int[] {
+            1024,
+            0,
+            0,
+            0});
+            this.NUD_PlazaX.Name = "NUD_PlazaX";
+            this.NUD_PlazaX.Size = new System.Drawing.Size(45, 20);
+            this.NUD_PlazaX.TabIndex = 103;
+            this.NUD_PlazaX.ValueChanged += new System.EventHandler(this.NUD_PlazaCoordinate_ValueChanged);
+            // 
+            // L_PlazaY
+            // 
+            this.L_PlazaY.Location = new System.Drawing.Point(434, 526);
+            this.L_PlazaY.Name = "L_PlazaY";
+            this.L_PlazaY.Size = new System.Drawing.Size(70, 20);
+            this.L_PlazaY.TabIndex = 102;
+            this.L_PlazaY.Text = "Plaza Y:";
+            this.L_PlazaY.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // NUD_PlazaY
+            // 
+            this.NUD_PlazaY.Location = new System.Drawing.Point(506, 527);
+            this.NUD_PlazaY.Maximum = new decimal(new int[] {
+            1024,
+            0,
+            0,
+            0});
+            this.NUD_PlazaY.Name = "NUD_PlazaY";
+            this.NUD_PlazaY.Size = new System.Drawing.Size(45, 20);
+            this.NUD_PlazaY.TabIndex = 101;
+            this.NUD_PlazaY.ValueChanged += new System.EventHandler(this.NUD_PlazaCoordinate_ValueChanged);
             // 
             // BuildingEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 561);
+            this.Controls.Add(this.L_PlazaX);
+            this.Controls.Add(this.NUD_PlazaX);
+            this.Controls.Add(this.L_PlazaY);
+            this.Controls.Add(this.NUD_PlazaY);
             this.Controls.Add(this.GB_Info);
             this.Controls.Add(this.GB_Building);
             this.Controls.Add(this.PB_Map);
@@ -367,6 +421,8 @@
             this.GB_Building.ResumeLayout(false);
             this.GB_Info.ResumeLayout(false);
             this.GB_Info.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PlazaX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PlazaY)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -396,5 +452,9 @@
         private System.Windows.Forms.ComboBox CB_StructureValues;
         private System.Windows.Forms.Label L_StructureType;
         private System.Windows.Forms.ComboBox CB_StructureType;
+        private System.Windows.Forms.Label L_PlazaX;
+        private System.Windows.Forms.NumericUpDown NUD_PlazaX;
+        private System.Windows.Forms.Label L_PlazaY;
+        private System.Windows.Forms.NumericUpDown NUD_PlazaY;
     }
 }

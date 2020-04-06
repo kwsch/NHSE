@@ -183,9 +183,9 @@ namespace NHSE.WinForms
             var pers = player.Personal;
             TB_Name.Text = pers.PlayerName;
             TB_TownName.Text = pers.TownName;
-            NUD_BankBells.Value = pers.Bank.Value;
-            NUD_NookMiles.Value = pers.NookMiles.Value;
-            NUD_Wallet.Value = pers.Wallet.Value;
+            NUD_BankBells.Value = Math.Min(int.MaxValue, pers.Bank.Value);
+            NUD_NookMiles.Value = Math.Min(int.MaxValue, pers.NookMiles.Value);
+            NUD_Wallet.Value = Math.Min(int.MaxValue, pers.Wallet.Value);
 
             var photo = pers.GetPhotoData();
             var bmp = new Bitmap(new MemoryStream(photo));

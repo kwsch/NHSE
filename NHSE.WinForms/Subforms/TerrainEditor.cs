@@ -335,12 +335,10 @@ namespace NHSE.WinForms
 
         private void ClickMapAt(MouseEventArgs e, bool skipLagCheck)
         {
-            const int maxX = ((TerrainManager.AcreWidth - 1) * GridWidth);
-            const int maxY = ((TerrainManager.AcreHeight - 1) * GridHeight);
-
-            int center = CHK_SnapToAcre.Checked ? 0 : GridWidth / 2;
-            var x = Math.Max(0, Math.Min((e.X / MapScale) - center, maxX));
-            var y = Math.Max(0, Math.Min((e.Y / MapScale) - center, maxY));
+            int mX = e.X;
+            int mY = e.Y;
+            bool centerReticle = CHK_SnapToAcre.Checked;
+            GetViewAnchorCoordinates(mX, mY, out var x, out var y, centerReticle);
 
             var acre = TerrainManager.GetAcre(x, y);
             bool sameAcre = AcreIndex == acre;
@@ -371,11 +369,48 @@ namespace NHSE.WinForms
                 CB_Acre.SelectedIndex = acre;
         }
 
+        private static void GetCursorCoordinates(int mX, int mY, out int x, out int y)
+        {
+            x = mX / MapScale;
+            y = mY / MapScale;
+        }
+
+        private static void GetViewAnchorCoordinates(int mX, int mY, out int x, out int y, bool centerReticle)
+        {
+            GetCursorCoordinates(mX, mY, out x, out y);
+
+            // Clamp to viewport dimensions, and center to nearest acre if desired.
+            const int maxX = ((TerrainManager.AcreWidth - 1) * GridWidth);
+            const int maxY = ((TerrainManager.AcreHeight - 1) * GridHeight);
+
+            // If we aren't snapping the reticle to the nearest acre
+            // we want to put the middle of the reticle rectangle where the cursor is.
+            // Adjust the view coordinate
+            if (!centerReticle)
+            {
+                // Reticle size is GridWidth, center = /2
+                x -= GridWidth / 2;
+                y -= GridWidth / 2;
+            }
+
+            // Clamp to boundaries so that we always have 16x16 to view.
+            x = Math.Max(0, Math.Min(x, maxX));
+            y = Math.Max(0, Math.Min(y, maxY));
+        }
+
         private void PB_Map_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button != MouseButtons.Left)
-                return;
-            ClickMapAt(e, false);
+            if (e.Button == MouseButtons.Left)
+            {
+                ClickMapAt(e, false);
+            }
+            else
+            {
+                int mX = e.X;
+                int mY = e.Y;
+                GetCursorCoordinates(mX, mY, out var x, out var y);
+                L_Coordinates.Text = $"({x:000},{y:000}) = (0x{x:X2},0x{y:X2})";
+            }
         }
     }
 }

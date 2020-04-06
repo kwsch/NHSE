@@ -40,6 +40,7 @@
             this.Menu_RAMEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.TC_Editors = new System.Windows.Forms.TabControl();
             this.Tab_Players = new System.Windows.Forms.TabPage();
+            this.B_EditPlayerFlags = new System.Windows.Forms.Button();
             this.B_EditActivities = new System.Windows.Forms.Button();
             this.B_EditPlayerReceivedItems = new System.Windows.Forms.Button();
             this.B_EditPlayerStorage = new System.Windows.Forms.Button();
@@ -90,7 +91,6 @@
             this.B_EditTurnipExchange = new System.Windows.Forms.Button();
             this.B_EditBuildings = new System.Windows.Forms.Button();
             this.B_RecycleBin = new System.Windows.Forms.Button();
-            this.B_EditPlayerFlags = new System.Windows.Forms.Button();
             this.Menu_Editor.SuspendLayout();
             this.TC_Editors.SuspendLayout();
             this.Tab_Players.SuspendLayout();
@@ -231,6 +231,16 @@
             this.Tab_Players.TabIndex = 1;
             this.Tab_Players.Text = "Players";
             this.Tab_Players.UseVisualStyleBackColor = true;
+            // 
+            // B_EditPlayerFlags
+            // 
+            this.B_EditPlayerFlags.Location = new System.Drawing.Point(202, 122);
+            this.B_EditPlayerFlags.Name = "B_EditPlayerFlags";
+            this.B_EditPlayerFlags.Size = new System.Drawing.Size(92, 40);
+            this.B_EditPlayerFlags.TabIndex = 17;
+            this.B_EditPlayerFlags.Text = "Edit Flags";
+            this.B_EditPlayerFlags.UseVisualStyleBackColor = true;
+            this.B_EditPlayerFlags.Click += new System.EventHandler(this.B_EditPlayerFlags_Click);
             // 
             // B_EditActivities
             // 
@@ -749,7 +759,7 @@
             // 
             // B_EditTurnipExchange
             // 
-            this.B_EditTurnipExchange.Location = new System.Drawing.Point(202, 168);
+            this.B_EditTurnipExchange.Location = new System.Drawing.Point(6, 122);
             this.B_EditTurnipExchange.Name = "B_EditTurnipExchange";
             this.B_EditTurnipExchange.Size = new System.Drawing.Size(92, 40);
             this.B_EditTurnipExchange.TabIndex = 15;
@@ -759,7 +769,7 @@
             // 
             // B_EditBuildings
             // 
-            this.B_EditBuildings.Location = new System.Drawing.Point(104, 168);
+            this.B_EditBuildings.Location = new System.Drawing.Point(300, 76);
             this.B_EditBuildings.Name = "B_EditBuildings";
             this.B_EditBuildings.Size = new System.Drawing.Size(92, 40);
             this.B_EditBuildings.TabIndex = 14;
@@ -776,16 +786,6 @@
             this.B_RecycleBin.Text = "Edit Recycle Bin";
             this.B_RecycleBin.UseVisualStyleBackColor = true;
             this.B_RecycleBin.Click += new System.EventHandler(this.B_RecycleBin_Click);
-            // 
-            // B_EditPlayerFlags
-            // 
-            this.B_EditPlayerFlags.Location = new System.Drawing.Point(202, 122);
-            this.B_EditPlayerFlags.Name = "B_EditPlayerFlags";
-            this.B_EditPlayerFlags.Size = new System.Drawing.Size(92, 40);
-            this.B_EditPlayerFlags.TabIndex = 17;
-            this.B_EditPlayerFlags.Text = "Edit Flags";
-            this.B_EditPlayerFlags.UseVisualStyleBackColor = true;
-            this.B_EditPlayerFlags.Click += new System.EventHandler(this.B_EditPlayerFlags_Click);
             // 
             // Editor
             // 

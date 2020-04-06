@@ -9,37 +9,53 @@ namespace NHSE.WinForms
     public partial class BuildingEditor : Form
     {
         private readonly IReadOnlyList<Building> Buildings;
+        private readonly MainSave SAV;
         private readonly TerrainManager Terrain;
         private static readonly IReadOnlyDictionary<string, string[]> HelpDictionary = StructureUtil.GetStructureHelpList();
 
         public BuildingEditor(IReadOnlyList<Building> buildings, MainSave sav)
         {
             InitializeComponent();
+            SAV = sav;
             Buildings = buildings;
-            DialogResult = DialogResult.Cancel;
+            Terrain = new TerrainManager(sav.GetTerrain());
+
+            NUD_PlazaX.Value = sav.PlazaX;
+            NUD_PlazaY.Value = sav.PlazaY;
 
             foreach (var obj in buildings)
                 LB_Items.Items.Add(obj.ToString());
-
-            Terrain = new TerrainManager(sav.GetTerrain());
 
             LB_Items.SelectedIndex = 0;
             foreach (var entry in HelpDictionary)
                 CB_StructureType.Items.Add(entry.Key);
             CB_StructureType.SelectedIndex = 0;
+
+            DialogResult = DialogResult.Cancel;
         }
 
         private void B_Cancel_Click(object sender, EventArgs e) => Close();
 
         private void B_Save_Click(object sender, EventArgs e)
         {
+            SAV.PlazaX = (uint)NUD_PlazaX.Value;
+            SAV.PlazaY = (uint)NUD_PlazaY.Value;
+
             DialogResult = DialogResult.OK;
             Close();
         }
 
         private int Index;
         private bool Loading;
-        private void DrawMap(in int index) => PB_Map.Image = TerrainSprite.GetMapWithBuildings(Terrain, Buildings, B_Save.Font, 4, index);
+
+        private void DrawMap(in int index)
+        {
+            var font = B_Save.Font;
+            const int scale = 4;
+            var px = (ushort) NUD_PlazaX.Value;
+            var py = (ushort) NUD_PlazaY.Value;
+            PB_Map.Image = TerrainSprite.GetMapWithBuildings(Terrain, Buildings, px, py, font, scale, index);
+        }
 
         private void LB_Items_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -98,5 +114,7 @@ namespace NHSE.WinForms
                 CB_StructureValues.Items.Add(item);
             CB_StructureValues.SelectedIndex = 0;
         }
+
+        private void NUD_PlazaCoordinate_ValueChanged(object sender, EventArgs e) => DrawMap(Index);
     }
 }
