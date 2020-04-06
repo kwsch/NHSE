@@ -36,7 +36,7 @@
             this.CB_Acre = new System.Windows.Forms.ComboBox();
             this.L_Acre = new System.Windows.Forms.Label();
             this.B_ZeroElevation = new System.Windows.Forms.Button();
-            this.B_ClearAll = new System.Windows.Forms.Button();
+            this.B_SetAll = new System.Windows.Forms.Button();
             this.B_DumpAcre = new System.Windows.Forms.Button();
             this.B_DumpAllAcres = new System.Windows.Forms.Button();
             this.B_ImportAllAcres = new System.Windows.Forms.Button();
@@ -127,15 +127,15 @@
             this.B_ZeroElevation.UseVisualStyleBackColor = true;
             this.B_ZeroElevation.Click += new System.EventHandler(this.B_ZeroElevation_Click);
             // 
-            // B_ClearAll
+            // B_SetAll
             // 
-            this.B_ClearAll.Location = new System.Drawing.Point(937, 262);
-            this.B_ClearAll.Name = "B_ClearAll";
-            this.B_ClearAll.Size = new System.Drawing.Size(112, 40);
-            this.B_ClearAll.TabIndex = 13;
-            this.B_ClearAll.Text = "Reset All To Base\r\n(no Terrain)";
-            this.B_ClearAll.UseVisualStyleBackColor = true;
-            this.B_ClearAll.Click += new System.EventHandler(this.B_ClearAll_Click);
+            this.B_SetAll.Location = new System.Drawing.Point(937, 262);
+            this.B_SetAll.Name = "B_SetAll";
+            this.B_SetAll.Size = new System.Drawing.Size(112, 40);
+            this.B_SetAll.TabIndex = 13;
+            this.B_SetAll.Text = "Set All Tiles using Tile from Editor";
+            this.B_SetAll.UseVisualStyleBackColor = true;
+            this.B_SetAll.Click += new System.EventHandler(this.B_SetAll_Click);
             // 
             // B_DumpAcre
             // 
@@ -312,7 +312,7 @@
             this.Controls.Add(this.B_ImportAcre);
             this.Controls.Add(this.B_DumpAllAcres);
             this.Controls.Add(this.B_DumpAcre);
-            this.Controls.Add(this.B_ClearAll);
+            this.Controls.Add(this.B_SetAll);
             this.Controls.Add(this.B_ZeroElevation);
             this.Controls.Add(this.L_Acre);
             this.Controls.Add(this.CB_Acre);
@@ -344,7 +344,7 @@
         private System.Windows.Forms.ComboBox CB_Acre;
         private System.Windows.Forms.Label L_Acre;
         private System.Windows.Forms.Button B_ZeroElevation;
-        private System.Windows.Forms.Button B_ClearAll;
+        private System.Windows.Forms.Button B_SetAll;
         private System.Windows.Forms.Button B_DumpAcre;
         private System.Windows.Forms.Button B_DumpAllAcres;
         private System.Windows.Forms.Button B_ImportAllAcres;

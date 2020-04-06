@@ -208,7 +208,7 @@ namespace NHSE.WinForms
 
         private void B_ZeroElevation_Click(object sender, EventArgs e)
         {
-            if (DialogResult.Yes != WinFormsUtil.Prompt(MessageBoxButtons.YesNo, "Set the elevation of all tiles to 0?"))
+            if (DialogResult.Yes != WinFormsUtil.Prompt(MessageBoxButtons.YesNo, "Set the elevation of all tiles on the map to 0?"))
                 return;
             foreach (var t in Terrain.Tiles)
                 t.Elevation = 0;
@@ -216,13 +216,14 @@ namespace NHSE.WinForms
             System.Media.SystemSounds.Asterisk.Play();
         }
 
-        private void B_ClearAll_Click(object sender, EventArgs e)
+        private void B_SetAll_Click(object sender, EventArgs e)
         {
-            if (DialogResult.Yes != WinFormsUtil.Prompt(MessageBoxButtons.YesNo, "Reset all tiles to Base (Elevation 0)?"))
+            if (DialogResult.Yes != WinFormsUtil.Prompt(MessageBoxButtons.YesNo, "Set the tile from the Tile Editor to all tiles on the map?"))
                 return;
+            var pgt = (TerrainTile)PG_Tile.SelectedObject;
             foreach (var t in Terrain.Tiles)
-                t.Clear();
-            LoadGrid(X=0, Y=0);
+                t.CopyFrom(pgt);
+            LoadGrid(X, Y);
             System.Media.SystemSounds.Asterisk.Play();
         }
 
