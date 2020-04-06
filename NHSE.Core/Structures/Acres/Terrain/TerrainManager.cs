@@ -2,48 +2,19 @@
 
 namespace NHSE.Core
 {
-    public class TerrainManager
+    public class TerrainManager : MapGrid
     {
         public readonly TerrainTile[] Tiles;
-        public readonly AcreCoordinate[] Acres = AcreCoordinate.GetGrid(AcreWidth, AcreHeight);
-
-        public const int GridWidth = 16;
-        public const int GridHeight = 16;
-
-        public const int AcreWidth = 7;
-        public const int AcreHeight = 6;
-        public const int AcreSize = GridWidth * GridHeight;
-
-        public const int MapHeight = AcreHeight * GridHeight; // 92
-        public const int MapWidth = AcreWidth * GridWidth; // 112
-        public const int TileCount = MapWidth * MapHeight; // 0x2A00
 
         public TerrainManager(TerrainTile[] tiles)
         {
-            Debug.Assert(TileCount == tiles.Length);
             Tiles = tiles;
+            Debug.Assert(TileCount == tiles.Length);
         }
-
-        public static int GetIndex(int x, int y) => (MapHeight * x) + y;
 
         public TerrainTile GetTile(int x, int y) => this[GetIndex(x, y)];
-
-        public TerrainTile GetTile(int acreX, int acreY, int gridX, int gridY)
-        {
-            var x = (acreX * GridWidth) + gridX;
-            var y = (acreY * GridHeight) + gridY;
-            return this[GetIndex(x, y)];
-        }
-
-        public TerrainTile GetAcreTile(int acreIndex, int tileIndex)
-        {
-            var acre = Acres[acreIndex];
-            var x = (tileIndex % GridWidth);
-            var y = (tileIndex / GridHeight);
-            return GetTile(acre.X, acre.Y, x, y);
-        }
-
-        public static int GetAcre(int x, int y) => (x / GridWidth) + ((y / GridHeight) * AcreWidth);
+        public TerrainTile GetTile(int acreX, int acreY, int gridX, int gridY) => this[GetTileIndex(acreX, acreY, gridX, gridY)];
+        public TerrainTile GetAcreTile(int acreIndex, int tileIndex) => this[GetAcreTileIndex(acreIndex, tileIndex)];
 
         public TerrainTile this[int index]
         {
@@ -61,7 +32,7 @@ namespace NHSE.Core
 
         public byte[] DumpAcre(int acre)
         {
-            const int count = (GridWidth * GridHeight);
+            int count = (GridWidth * GridHeight);
             var result = new byte[TerrainTile.SIZE * count];
             for (int i = 0; i < count; i++)
             {
@@ -81,7 +52,7 @@ namespace NHSE.Core
 
         public void ImportAcre(int acre, byte[] data)
         {
-            const int count = (GridWidth * GridHeight);
+            int count = (GridWidth * GridHeight);
             var tiles = TerrainTile.GetArray(data);
             for (int i = 0; i < count; i++)
             {

@@ -62,7 +62,7 @@ namespace NHSE.Core
             data.CopyTo(Data, Offsets.Acres);
         }
 
-        public TerrainTile[] GetTerrain() => TerrainTile.GetArray(Data.Slice(Offsets.Terrain, TerrainManager.TileCount * TerrainTile.SIZE));
+        public TerrainTile[] GetTerrain() => TerrainTile.GetArray(Data.Slice(Offsets.Terrain, MapGrid.TileCount * TerrainTile.SIZE));
         public void SetTerrain(IReadOnlyList<TerrainTile> array) => TerrainTile.SetArray(array).CopyTo(Data, Offsets.Terrain);
 
         public uint PlazaX

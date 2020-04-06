@@ -14,8 +14,8 @@ namespace NHSE.WinForms
         private readonly Button[] Grid;
         private readonly TerrainManager Terrain;
 
-        private const int GridWidth = TerrainManager.GridWidth;
-        private const int GridHeight = TerrainManager.GridHeight;
+        private const int GridWidth = MapGrid.GridWidth;
+        private const int GridHeight = MapGrid.GridHeight;
 
         private const int SquareSize = 50;
         private const int MapScale = 2;
@@ -26,9 +26,9 @@ namespace NHSE.WinForms
             InitializeComponent();
 
             Terrain = new TerrainManager(SAV.GetTerrain());
-            Grid = GenerateGrid(TerrainManager.GridWidth, TerrainManager.GridHeight);
+            Grid = GenerateGrid(MapGrid.GridWidth, MapGrid.GridHeight);
 
-            foreach (var acre in Terrain.Acres)
+            foreach (var acre in MapGrid.Acres)
                 CB_Acre.Items.Add(acre.Name);
 
             PG_Tile.SelectedObject = new TerrainTile();
@@ -45,8 +45,8 @@ namespace NHSE.WinForms
 
         private void ChangeViewToAcre(int acre)
         {
-            X = (acre % TerrainManager.AcreWidth) * GridWidth;
-            Y = (acre / TerrainManager.AcreWidth) * GridHeight;
+            X = (acre % MapGrid.AcreWidth) * GridWidth;
+            Y = (acre / MapGrid.AcreWidth) * GridHeight;
 
             LoadGrid(X, Y);
             UpdateArrowVisibility(acre);
@@ -63,7 +63,7 @@ namespace NHSE.WinForms
                     var i = (y * GridWidth) + x;
                     var rx = topX + x;
                     var ry = topY + y;
-                    var ri = TerrainManager.GetIndex(rx, ry);
+                    var ri = MapGrid.GetIndex(rx, ry);
                     var b = Grid[i];
                     if (ri >= Terrain.Tiles.Length)
                     {
@@ -82,10 +82,10 @@ namespace NHSE.WinForms
 
         private void UpdateArrowVisibility(int index)
         {
-            B_Up.Enabled = index >= TerrainManager.AcreWidth;
-            B_Down.Enabled = index < TerrainManager.AcreWidth * (TerrainManager.AcreHeight - 1);
-            B_Left.Enabled = index % TerrainManager.AcreWidth != 0;
-            B_Right.Enabled = index % TerrainManager.AcreWidth != TerrainManager.AcreWidth - 1;
+            B_Up.Enabled = index >= MapGrid.AcreWidth;
+            B_Down.Enabled = index < MapGrid.AcreWidth * (MapGrid.AcreHeight - 1);
+            B_Left.Enabled = index % MapGrid.AcreWidth != 0;
+            B_Right.Enabled = index % MapGrid.AcreWidth != MapGrid.AcreWidth - 1;
         }
 
         private Button[] GenerateGrid(int w, int h)
@@ -201,10 +201,10 @@ namespace NHSE.WinForms
             button.BackColor = TerrainSprite.GetTileColor(tile);
         }
 
-        private void B_Up_Click(object sender, EventArgs e) => CB_Acre.SelectedIndex -= TerrainManager.AcreWidth;
+        private void B_Up_Click(object sender, EventArgs e) => CB_Acre.SelectedIndex -= MapGrid.AcreWidth;
         private void B_Left_Click(object sender, EventArgs e) => --CB_Acre.SelectedIndex;
         private void B_Right_Click(object sender, EventArgs e) => ++CB_Acre.SelectedIndex;
-        private void B_Down_Click(object sender, EventArgs e) => CB_Acre.SelectedIndex += TerrainManager.AcreWidth;
+        private void B_Down_Click(object sender, EventArgs e) => CB_Acre.SelectedIndex += MapGrid.AcreWidth;
 
         private void B_ZeroElevation_Click(object sender, EventArgs e)
         {
@@ -271,7 +271,7 @@ namespace NHSE.WinForms
             var path = ofd.FileName;
             var fi = new FileInfo(path);
 
-            const int expect = TerrainManager.AcreSize * TerrainTile.SIZE;
+            const int expect = MapGrid.AcreSize * TerrainTile.SIZE;
             if (fi.Length != expect)
             {
                 WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X}", path);
@@ -297,7 +297,7 @@ namespace NHSE.WinForms
             var path = ofd.FileName;
             var fi = new FileInfo(path);
 
-            const int expect = TerrainManager.TileCount * TerrainTile.SIZE;
+            const int expect = MapGrid.TileCount * TerrainTile.SIZE;
             if (fi.Length != expect)
             {
                 WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X}", path);
@@ -341,7 +341,7 @@ namespace NHSE.WinForms
             bool centerReticle = CHK_SnapToAcre.Checked;
             GetViewAnchorCoordinates(mX, mY, out var x, out var y, centerReticle);
 
-            var acre = TerrainManager.GetAcre(x, y);
+            var acre = MapGrid.GetAcre(x, y);
             bool sameAcre = AcreIndex == acre;
             if (!skipLagCheck)
             {
@@ -381,8 +381,8 @@ namespace NHSE.WinForms
             GetCursorCoordinates(mX, mY, out x, out y);
 
             // Clamp to viewport dimensions, and center to nearest acre if desired.
-            const int maxX = ((TerrainManager.AcreWidth - 1) * GridWidth);
-            const int maxY = ((TerrainManager.AcreHeight - 1) * GridHeight);
+            const int maxX = ((MapGrid.AcreWidth - 1) * GridWidth);
+            const int maxY = ((MapGrid.AcreHeight - 1) * GridHeight);
 
             // If we aren't snapping the reticle to the nearest acre
             // we want to put the middle of the reticle rectangle where the cursor is.

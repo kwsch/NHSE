@@ -41,10 +41,10 @@ namespace NHSE.Sprites
 
         public static Bitmap CreateMap(TerrainManager mgr)
         {
-            var bmp = new Bitmap(TerrainManager.MapWidth, TerrainManager.MapHeight);
-            for (int x = 0; x < TerrainManager.MapWidth; x++)
+            var bmp = new Bitmap(MapGrid.MapWidth, MapGrid.MapHeight);
+            for (int x = 0; x < MapGrid.MapWidth; x++)
             {
-                for (int y = 0; y < TerrainManager.MapHeight; y++)
+                for (int y = 0; y < MapGrid.MapHeight; y++)
                 {
                     var tile = mgr.GetTile(x, y);
                     var color = GetTileColor(tile);
@@ -70,9 +70,9 @@ namespace NHSE.Sprites
             if (acreIndex < 0)
                 return map;
 
-            var acre = mgr.Acres[acreIndex];
-            var x = acre.X * TerrainManager.GridWidth;
-            var y = acre.Y * TerrainManager.GridHeight;
+            var acre = MapGrid.Acres[acreIndex];
+            var x = acre.X * MapGrid.GridWidth;
+            var y = acre.Y * MapGrid.GridHeight;
 
             return DrawReticle(map, x, y, scale);
         }
@@ -82,8 +82,8 @@ namespace NHSE.Sprites
             using var gfx = Graphics.FromImage(map);
             using var pen = new Pen(Color.Red);
 
-            int w = TerrainManager.GridWidth * scale;
-            int h = TerrainManager.GridHeight * scale;
+            int w = MapGrid.GridWidth * scale;
+            int h = MapGrid.GridHeight * scale;
             gfx.DrawRectangle(pen, x * scale, y * scale, w, h);
             return map;
         }
@@ -135,7 +135,7 @@ namespace NHSE.Sprites
         {
             // Although there is terrain in the Top Row and Left Column, no buildings can be placed there.
             // Adjust the building coordinates down-right by an acre.
-            const int buildingShift = TerrainManager.GridWidth;
+            const int buildingShift = MapGrid.GridWidth;
             x = (int) (((bx / 2f) - buildingShift) * scale);
             y = (int) (((by / 2f) - buildingShift) * scale);
         }
