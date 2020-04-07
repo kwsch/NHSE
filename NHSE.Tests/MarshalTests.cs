@@ -23,11 +23,14 @@ namespace NHSE.Tests
         }
 
         [Fact]
-        public void MapItemMarshal()
+        public void FieldItemMarshal()
         {
-            var item = new MapItem();
+            var item = new FieldItem();
             var bytes = item.ToBytesClass();
-            bytes.Length.Should().Be(MapItem.SIZE);
+            bytes.Length.Should().Be(Item.SIZE);
+
+            var other = new FieldItem();
+            item.CopyFrom(other);
         }
 
         [Fact]
