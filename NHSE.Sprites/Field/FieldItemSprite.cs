@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using NHSE.Core;
 
 namespace NHSE.Sprites
@@ -56,13 +57,11 @@ namespace NHSE.Sprites
         {
             var kind = ItemInfo.GetItemKind(item);
             if (kind == ItemKind.Unknown)
-                return Color.LimeGreen;
-            var known = Colors[(int)kind];
-            var color = Color.FromKnownColor(known);
-            // soften the colors a little
-            return ColorUtil.Blend(Color.White, color, 0.5d);
+                return item.DisplayItemId == FieldItem.NONE ? Color.LimeGreen : Color.DarkGreen;
+            return Colors[(int)kind];
         }
 
-        private static readonly KnownColor[] Colors = (KnownColor[])Enum.GetValues(typeof(KnownColor));
+        private static readonly Color[] Colors = ((KnownColor[])Enum.GetValues(typeof(KnownColor)))
+            .Select(Color.FromKnownColor).Select(z => ColorUtil.Blend(Color.White, z, 0.5d)).ToArray();
     }
 }
