@@ -127,6 +127,15 @@ namespace NHSE.WinForms
                     case Keys.Alt: DeleteTile(tile, obj); return;
                 }
             };
+            button.MouseEnter += (sender, args) =>
+            {
+                GetTile(button, out var tile, out var obj);
+                var str = GameInfo.Strings;
+                var name = str.GetItemName(tile.DisplayItemId);
+                TT_Hover.SetToolTip(button, name);
+            };
+            button.MouseLeave += (sender, args) => TT_Hover.RemoveAll();
+
             return button;
         }
 

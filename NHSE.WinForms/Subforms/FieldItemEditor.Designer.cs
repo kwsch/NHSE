@@ -54,6 +54,7 @@
             this.L_Coordinates = new System.Windows.Forms.Label();
             this.NUD_Layer = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
+            this.TT_Hover = new System.Windows.Forms.ToolTip(this.components);
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
@@ -310,6 +311,10 @@
             this.label1.Text = "Layer:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // TT_Hover
+            // 
+            this.TT_Hover.AutomaticDelay = 100;
+            // 
             // FieldItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,5 +382,6 @@
         private System.Windows.Forms.Label L_Coordinates;
         private System.Windows.Forms.NumericUpDown NUD_Layer;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolTip TT_Hover;
     }
 }

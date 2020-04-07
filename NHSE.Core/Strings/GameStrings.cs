@@ -102,7 +102,7 @@ namespace NHSE.Core
             return GetItemName(index);
         }
 
-        private string GetItemName(ushort index)
+        public string GetItemName(ushort index)
         {
             if (index >= itemlistdisplay.Length)
                 return "???";
