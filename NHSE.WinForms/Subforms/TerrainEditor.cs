@@ -238,7 +238,7 @@ namespace NHSE.WinForms
             using var sfd = new SaveFileDialog
             {
                 Filter = "New Horizons Terrain (*.nht)|*.nht|All files (*.*)|*.*",
-                FileName = $"{CB_Acre.Text}.nht",
+                FileName = "terrainAcres.nht",
             };
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
@@ -253,7 +253,7 @@ namespace NHSE.WinForms
             using var ofd = new OpenFileDialog
             {
                 Filter = "New Horizons Terrain (*.nht)|*.nht|All files (*.*)|*.*",
-                FileName = "terrainAcres.nht",
+                FileName = $"{CB_Acre.Text}.nht",
             };
             if (ofd.ShowDialog() != DialogResult.OK)
                 return;
