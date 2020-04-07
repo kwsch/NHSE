@@ -50,14 +50,16 @@ namespace NHSE.WinForms
             UpdateArrowVisibility(acre);
         }
 
+        private FieldItemLayer Layer => NUD_Layer.Value == 1 ? Items.Layer1 : Items.Layer2;
+
         private void ReloadMap()
         {
-            PB_Map.Image = SpriteUtil.FieldItems.GetBitmapLayer(Items.Layer1, X, Y);
+            PB_Map.Image = SpriteUtil.FieldItems.GetBitmapLayer(Layer, X, Y);
         }
 
         private void LoadGrid(int topX, int topY)
         {
-            var layer = Items.Layer1;
+            var layer = Layer;
             for (int x = 0; x < GridWidth; x++)
             {
                 for (int y = 0; y < GridHeight; y++)
@@ -185,7 +187,7 @@ namespace NHSE.WinForms
             if (index < 0)
                 throw new ArgumentException(nameof(Button));
 
-            var layer = Items.Layer1;
+            var layer = Layer;
             var x = X + (index % GridWidth);
             var y = Y + (index / GridWidth);
             tile = layer.GetTile(x, y);
@@ -204,11 +206,11 @@ namespace NHSE.WinForms
 
         private void B_DumpAcre_Click(object sender, EventArgs e)
         {
-            var layer = Items.Layer1;
+            var layer = Layer;
             using var sfd = new SaveFileDialog
             {
                 Filter = "New Horizons Field Item Layer (*.nhl)|*.nhl|All files (*.*)|*.*",
-                FileName = $"{CB_Acre.Text}.nhl",
+                FileName = $"{CB_Acre.Text}-{NUD_Layer.Value}.nhl",
             };
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
@@ -221,7 +223,7 @@ namespace NHSE.WinForms
 
         private void B_DumpAllAcres_Click(object sender, EventArgs e)
         {
-            var layer = Items.Layer1;
+            var layer = Layer;
             using var sfd = new SaveFileDialog
             {
                 Filter = "New Horizons Field Item Layer (*.nhl)|*.nhl|All files (*.*)|*.*",
@@ -237,11 +239,11 @@ namespace NHSE.WinForms
 
         private void B_ImportAcre_Click(object sender, EventArgs e)
         {
-            var layer = Items.Layer1;
+            var layer = Layer;
             using var ofd = new OpenFileDialog
             {
                 Filter = "New Horizons Field Item Layer (*.nhl)|*.nhl|All files (*.*)|*.*",
-                FileName = $"{CB_Acre.Text}.nhl",
+                FileName = $"{CB_Acre.Text}-{NUD_Layer.Value}.nhl",
             };
             if (ofd.ShowDialog() != DialogResult.OK)
                 return;
@@ -264,7 +266,7 @@ namespace NHSE.WinForms
 
         private void B_ImportAllAcres_Click(object sender, EventArgs e)
         {
-            var layer = Items.Layer1;
+            var layer = Layer;
             using var ofd = new OpenFileDialog
             {
                 Filter = "New Horizons Field Item Layer (*.nhl)|*.nhl|All files (*.*)|*.*",
@@ -377,5 +379,7 @@ namespace NHSE.WinForms
                 L_Coordinates.Text = $"({x:000},{y:000}) = (0x{x:X2},0x{y:X2})";
             }
         }
+
+        private void NUD_Layer_ValueChanged(object sender, EventArgs e) => LoadGrid(X, Y);
     }
 }

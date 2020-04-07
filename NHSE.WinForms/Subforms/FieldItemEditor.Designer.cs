@@ -52,9 +52,12 @@
             this.Menu_SavePNG = new System.Windows.Forms.ToolStripMenuItem();
             this.CHK_SnapToAcre = new System.Windows.Forms.CheckBox();
             this.L_Coordinates = new System.Windows.Forms.Label();
+            this.NUD_Layer = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_Layer)).BeginInit();
             this.SuspendLayout();
             // 
             // B_Cancel
@@ -275,11 +278,45 @@
             this.L_Coordinates.Text = "(000,000) = (0x00,0x00)";
             this.L_Coordinates.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // NUD_Layer
+            // 
+            this.NUD_Layer.Location = new System.Drawing.Point(978, 625);
+            this.NUD_Layer.Maximum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.NUD_Layer.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NUD_Layer.Name = "NUD_Layer";
+            this.NUD_Layer.Size = new System.Drawing.Size(49, 20);
+            this.NUD_Layer.TabIndex = 26;
+            this.NUD_Layer.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NUD_Layer.ValueChanged += new System.EventHandler(this.NUD_Layer_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(919, 626);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 19);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Layer:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // FieldItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1061, 822);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.NUD_Layer);
             this.Controls.Add(this.L_Coordinates);
             this.Controls.Add(this.CHK_SnapToAcre);
             this.Controls.Add(this.PB_Map);
@@ -307,6 +344,7 @@
             this.CM_Click.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).EndInit();
             this.CM_Picture.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_Layer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -337,5 +375,7 @@
         private System.Windows.Forms.ToolStripMenuItem Menu_SavePNG;
         private System.Windows.Forms.CheckBox CHK_SnapToAcre;
         private System.Windows.Forms.Label L_Coordinates;
+        private System.Windows.Forms.NumericUpDown NUD_Layer;
+        private System.Windows.Forms.Label label1;
     }
 }
