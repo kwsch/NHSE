@@ -35,6 +35,20 @@ namespace NHSE.Core
             return dataSource;
         }
 
+        public List<ComboItem> CreateItemDataSource(IReadOnlyCollection<KeyValuePair<ushort, ushort>> dict, bool none = true)
+        {
+            var display = itemlistdisplay;
+            var result = new List<ComboItem>(dict.Count);
+            foreach (var x in dict)
+                result.Add(new ComboItem(display[x.Value], x.Key));
+
+            if (none)
+                result.Add(new ComboItem(itemlist[0], Item.NONE));
+
+            result.SortByText();
+            return result;
+        }
+
         private static Dictionary<string, string> GetMap(IReadOnlyCollection<string> arr)
         {
             var map = new Dictionary<string, string>(arr.Count);
@@ -69,10 +83,27 @@ namespace NHSE.Core
             return items;
         }
 
-        public string GetItemName(ushort index)
+        public string GetItemName(Item item)
         {
+            var index = item.ItemId;
             if (index == Item.NONE)
                 return itemlist[0];
+            var kind = ItemInfo.GetItemKind(index);
+
+            if (kind == ItemKind.Kind_DIYRecipe)
+            {
+                var display = itemlistdisplay[index];
+                var recipeID = item.Count;
+                var isKnown = RecipeList.Recipes.TryGetValue(recipeID, out var result);
+                var makes = isKnown ? GetItemName(result) : recipeID.ToString("000");
+                return $"{display} - {makes}";
+            }
+
+            return GetItemName(index);
+        }
+
+        private string GetItemName(ushort index)
+        {
             if (index >= itemlistdisplay.Length)
                 return "???";
             return itemlistdisplay[index];

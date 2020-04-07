@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using NHSE.Core;
-using NHSE.Core.Structures;
 
 namespace NHSE.WinForms
 {

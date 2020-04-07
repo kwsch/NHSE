@@ -81,7 +81,7 @@ namespace NHSE.WinForms
             HoverTip.RemoveAll();
         }
 
-        public static string GetItemText(Item item) => GameInfo.Strings.GetItemName(item.ItemId);
+        public static string GetItemText(Item item) => GameInfo.Strings.GetItemName(item);
 
         public void Slot_MouseClick(object sender, MouseEventArgs e)
         {

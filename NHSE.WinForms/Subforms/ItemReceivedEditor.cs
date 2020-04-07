@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using NHSE.Core;
-using NHSE.Core.Structures;
 
 namespace NHSE.WinForms
 {

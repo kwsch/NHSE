@@ -4,12 +4,13 @@
     {
         private static readonly byte[] ItemKinds = ResourceUtil.GetBinaryResource("item_kind.bin");
 
-        public static ItemKind GetItemKind(Item item)
+        public static ItemKind GetItemKind(Item item) => GetItemKind(item.ItemId);
+
+        public static ItemKind GetItemKind(ushort id)
         {
-            var id = item.ItemId;
             if (id > ItemKinds.Length)
                 return ItemKind.Unknown;
-            return (ItemKind)ItemKinds[id];
+            return (ItemKind) ItemKinds[id];
         }
     }
 }

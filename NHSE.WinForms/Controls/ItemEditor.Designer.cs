@@ -42,11 +42,22 @@
             this.Menu_View = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Set = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Delete = new System.Windows.Forms.ToolStripMenuItem();
+            this.CB_NamedItemArgument = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.FLP_Count = new System.Windows.Forms.FlowLayoutPanel();
+            this.FLP_Uses = new System.Windows.Forms.FlowLayoutPanel();
+            this.FLP_Flag0 = new System.Windows.Forms.FlowLayoutPanel();
+            this.FLP_Flag1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Count)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Uses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag1)).BeginInit();
             this.CM_Hand.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.FLP_Count.SuspendLayout();
+            this.FLP_Uses.SuspendLayout();
+            this.FLP_Flag0.SuspendLayout();
+            this.FLP_Flag1.SuspendLayout();
             this.SuspendLayout();
             // 
             // CB_ItemID
@@ -55,14 +66,16 @@
             this.CB_ItemID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CB_ItemID.DropDownWidth = 322;
             this.CB_ItemID.FormattingEnabled = true;
-            this.CB_ItemID.Location = new System.Drawing.Point(3, 3);
+            this.CB_ItemID.Location = new System.Drawing.Point(3, 1);
+            this.CB_ItemID.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.CB_ItemID.Name = "CB_ItemID";
             this.CB_ItemID.Size = new System.Drawing.Size(141, 21);
             this.CB_ItemID.TabIndex = 1;
+            this.CB_ItemID.SelectedValueChanged += new System.EventHandler(this.CB_ItemID_SelectedValueChanged);
             // 
             // NUD_Count
             // 
-            this.NUD_Count.Location = new System.Drawing.Point(88, 28);
+            this.NUD_Count.Location = new System.Drawing.Point(88, 3);
             this.NUD_Count.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -71,10 +84,12 @@
             this.NUD_Count.Name = "NUD_Count";
             this.NUD_Count.Size = new System.Drawing.Size(56, 20);
             this.NUD_Count.TabIndex = 2;
+            this.NUD_Count.ValueChanged += new System.EventHandler(this.NUD_Count_ValueChanged);
             // 
             // L_Count
             // 
-            this.L_Count.Location = new System.Drawing.Point(3, 27);
+            this.L_Count.Location = new System.Drawing.Point(3, 3);
+            this.L_Count.Margin = new System.Windows.Forms.Padding(3);
             this.L_Count.Name = "L_Count";
             this.L_Count.Size = new System.Drawing.Size(79, 20);
             this.L_Count.TabIndex = 7;
@@ -83,7 +98,8 @@
             // 
             // L_Uses
             // 
-            this.L_Uses.Location = new System.Drawing.Point(3, 50);
+            this.L_Uses.Location = new System.Drawing.Point(3, 3);
+            this.L_Uses.Margin = new System.Windows.Forms.Padding(3);
             this.L_Uses.Name = "L_Uses";
             this.L_Uses.Size = new System.Drawing.Size(79, 20);
             this.L_Uses.TabIndex = 9;
@@ -92,7 +108,7 @@
             // 
             // NUD_Uses
             // 
-            this.NUD_Uses.Location = new System.Drawing.Point(88, 51);
+            this.NUD_Uses.Location = new System.Drawing.Point(88, 3);
             this.NUD_Uses.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -104,7 +120,8 @@
             // 
             // L_Flag0
             // 
-            this.L_Flag0.Location = new System.Drawing.Point(3, 73);
+            this.L_Flag0.Location = new System.Drawing.Point(3, 3);
+            this.L_Flag0.Margin = new System.Windows.Forms.Padding(3);
             this.L_Flag0.Name = "L_Flag0";
             this.L_Flag0.Size = new System.Drawing.Size(79, 20);
             this.L_Flag0.TabIndex = 11;
@@ -114,7 +131,7 @@
             // NUD_Flag0
             // 
             this.NUD_Flag0.Hexadecimal = true;
-            this.NUD_Flag0.Location = new System.Drawing.Point(88, 74);
+            this.NUD_Flag0.Location = new System.Drawing.Point(88, 3);
             this.NUD_Flag0.Maximum = new decimal(new int[] {
             255,
             0,
@@ -126,7 +143,8 @@
             // 
             // L_Flag1
             // 
-            this.L_Flag1.Location = new System.Drawing.Point(3, 96);
+            this.L_Flag1.Location = new System.Drawing.Point(3, 3);
+            this.L_Flag1.Margin = new System.Windows.Forms.Padding(3);
             this.L_Flag1.Name = "L_Flag1";
             this.L_Flag1.Size = new System.Drawing.Size(79, 20);
             this.L_Flag1.TabIndex = 13;
@@ -136,7 +154,7 @@
             // NUD_Flag1
             // 
             this.NUD_Flag1.Hexadecimal = true;
-            this.NUD_Flag1.Location = new System.Drawing.Point(88, 97);
+            this.NUD_Flag1.Location = new System.Drawing.Point(88, 3);
             this.NUD_Flag1.Maximum = new decimal(new int[] {
             255,
             0,
@@ -173,26 +191,91 @@
             this.Menu_Delete.Size = new System.Drawing.Size(107, 22);
             this.Menu_Delete.Text = "Delete";
             // 
+            // CB_NamedItemArgument
+            // 
+            this.CB_NamedItemArgument.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CB_NamedItemArgument.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CB_NamedItemArgument.DropDownWidth = 322;
+            this.CB_NamedItemArgument.FormattingEnabled = true;
+            this.CB_NamedItemArgument.Location = new System.Drawing.Point(3, 24);
+            this.CB_NamedItemArgument.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.CB_NamedItemArgument.Name = "CB_NamedItemArgument";
+            this.CB_NamedItemArgument.Size = new System.Drawing.Size(141, 21);
+            this.CB_NamedItemArgument.TabIndex = 14;
+            this.CB_NamedItemArgument.Visible = false;
+            this.CB_NamedItemArgument.SelectedValueChanged += new System.EventHandler(this.CB_NamedItemArgument_SelectedValueChanged);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.CB_ItemID);
+            this.flowLayoutPanel1.Controls.Add(this.CB_NamedItemArgument);
+            this.flowLayoutPanel1.Controls.Add(this.FLP_Count);
+            this.flowLayoutPanel1.Controls.Add(this.FLP_Uses);
+            this.flowLayoutPanel1.Controls.Add(this.FLP_Flag0);
+            this.flowLayoutPanel1.Controls.Add(this.FLP_Flag1);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(228, 208);
+            this.flowLayoutPanel1.TabIndex = 15;
+            // 
+            // FLP_Count
+            // 
+            this.FLP_Count.Controls.Add(this.L_Count);
+            this.FLP_Count.Controls.Add(this.NUD_Count);
+            this.FLP_Count.Location = new System.Drawing.Point(0, 46);
+            this.FLP_Count.Margin = new System.Windows.Forms.Padding(0);
+            this.FLP_Count.Name = "FLP_Count";
+            this.FLP_Count.Size = new System.Drawing.Size(147, 26);
+            this.FLP_Count.TabIndex = 16;
+            // 
+            // FLP_Uses
+            // 
+            this.FLP_Uses.Controls.Add(this.L_Uses);
+            this.FLP_Uses.Controls.Add(this.NUD_Uses);
+            this.FLP_Uses.Location = new System.Drawing.Point(0, 72);
+            this.FLP_Uses.Margin = new System.Windows.Forms.Padding(0);
+            this.FLP_Uses.Name = "FLP_Uses";
+            this.FLP_Uses.Size = new System.Drawing.Size(147, 26);
+            this.FLP_Uses.TabIndex = 17;
+            // 
+            // FLP_Flag0
+            // 
+            this.FLP_Flag0.Controls.Add(this.L_Flag0);
+            this.FLP_Flag0.Controls.Add(this.NUD_Flag0);
+            this.FLP_Flag0.Location = new System.Drawing.Point(0, 98);
+            this.FLP_Flag0.Margin = new System.Windows.Forms.Padding(0);
+            this.FLP_Flag0.Name = "FLP_Flag0";
+            this.FLP_Flag0.Size = new System.Drawing.Size(147, 26);
+            this.FLP_Flag0.TabIndex = 17;
+            // 
+            // FLP_Flag1
+            // 
+            this.FLP_Flag1.Controls.Add(this.L_Flag1);
+            this.FLP_Flag1.Controls.Add(this.NUD_Flag1);
+            this.FLP_Flag1.Location = new System.Drawing.Point(0, 124);
+            this.FLP_Flag1.Margin = new System.Windows.Forms.Padding(0);
+            this.FLP_Flag1.Name = "FLP_Flag1";
+            this.FLP_Flag1.Size = new System.Drawing.Size(147, 26);
+            this.FLP_Flag1.TabIndex = 17;
+            // 
             // ItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.L_Flag1);
-            this.Controls.Add(this.NUD_Flag1);
-            this.Controls.Add(this.L_Flag0);
-            this.Controls.Add(this.NUD_Flag0);
-            this.Controls.Add(this.L_Uses);
-            this.Controls.Add(this.NUD_Uses);
-            this.Controls.Add(this.L_Count);
-            this.Controls.Add(this.NUD_Count);
-            this.Controls.Add(this.CB_ItemID);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "ItemEditor";
-            this.Size = new System.Drawing.Size(148, 144);
+            this.Size = new System.Drawing.Size(228, 208);
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Count)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Uses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag1)).EndInit();
             this.CM_Hand.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.FLP_Count.ResumeLayout(false);
+            this.FLP_Uses.ResumeLayout(false);
+            this.FLP_Flag0.ResumeLayout(false);
+            this.FLP_Flag1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -211,5 +294,11 @@
         private System.Windows.Forms.ToolStripMenuItem Menu_View;
         private System.Windows.Forms.ToolStripMenuItem Menu_Set;
         private System.Windows.Forms.ToolStripMenuItem Menu_Delete;
+        private System.Windows.Forms.ComboBox CB_NamedItemArgument;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel FLP_Count;
+        private System.Windows.Forms.FlowLayoutPanel FLP_Uses;
+        private System.Windows.Forms.FlowLayoutPanel FLP_Flag0;
+        private System.Windows.Forms.FlowLayoutPanel FLP_Flag1;
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace NHSE.Core.Structures
+namespace NHSE.Core
 {
     public static class RecipeList
     {
