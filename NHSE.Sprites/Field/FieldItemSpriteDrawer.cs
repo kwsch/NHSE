@@ -9,9 +9,12 @@ namespace NHSE.Sprites
         public int Width { get; set; } = 8;
         public int Height { get; set; } = 8;
 
+        public Bitmap GetImage(FieldItem item) => FieldItemSprite.GetImage(item, Width, Height);
+
+        public Bitmap GetBitmapLayer(FieldItemLayer layer) => GetItemArray(layer.Tiles, layer.MapHeight);
+
         public Bitmap GetItemArray(IReadOnlyList<FieldItem> items, int height)
         {
-            //var items = FieldItem.GetArray(SAV.Main.Data.Slice(0x20191C, 0xA8000));
             var width = items.Count / height;
 
             var png = new Bitmap(width * Width, height * Height);

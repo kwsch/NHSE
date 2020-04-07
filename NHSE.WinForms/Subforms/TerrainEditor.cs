@@ -14,8 +14,8 @@ namespace NHSE.WinForms
         private readonly Button[] Grid;
         private readonly TerrainManager Terrain;
 
-        private const int GridWidth = MapGrid.GridWidth;
-        private const int GridHeight = MapGrid.GridHeight;
+        private int GridWidth => Terrain.GridWidth;
+        private int GridHeight => Terrain.GridHeight;
 
         private const int SquareSize = 50;
         private const int MapScale = 2;
@@ -45,7 +45,7 @@ namespace NHSE.WinForms
 
         private void ChangeViewToAcre(int acre)
         {
-            MapGrid.GetViewAnchorCoordinates(acre, out X, out Y);
+            Terrain.GetViewAnchorCoordinates(acre, out X, out Y);
             LoadGrid(X, Y);
             UpdateArrowVisibility(acre);
         }
@@ -261,7 +261,7 @@ namespace NHSE.WinForms
             var path = ofd.FileName;
             var fi = new FileInfo(path);
 
-            const int expect = MapGrid.AcreTileCount * TerrainTile.SIZE;
+            int expect = Terrain.AcreTileCount * TerrainTile.SIZE;
             if (fi.Length != expect)
             {
                 WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X}", path);
@@ -287,7 +287,7 @@ namespace NHSE.WinForms
             var path = ofd.FileName;
             var fi = new FileInfo(path);
 
-            const int expect = MapGrid.MapTileCount * TerrainTile.SIZE;
+            int expect = Terrain.AcreTileCount * TerrainTile.SIZE;
             if (fi.Length != expect)
             {
                 WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X}", path);
@@ -331,7 +331,7 @@ namespace NHSE.WinForms
             bool centerReticle = CHK_SnapToAcre.Checked;
             GetViewAnchorCoordinates(mX, mY, out var x, out var y, centerReticle);
 
-            var acre = MapGrid.GetAcre(x, y);
+            var acre = Terrain.GetAcre(x, y);
             bool sameAcre = AcreIndex == acre;
             if (!skipLagCheck)
             {
@@ -366,10 +366,10 @@ namespace NHSE.WinForms
             y = mY / MapScale;
         }
 
-        private static void GetViewAnchorCoordinates(int mX, int mY, out int x, out int y, bool centerReticle)
+        private void GetViewAnchorCoordinates(int mX, int mY, out int x, out int y, bool centerReticle)
         {
             GetCursorCoordinates(mX, mY, out x, out y);
-            MapGrid.GetViewAnchorCoordinates(ref x, ref y, centerReticle);
+            Terrain.GetViewAnchorCoordinates(ref x, ref y, centerReticle);
         }
 
         private void PB_Map_MouseMove(object sender, MouseEventArgs e)

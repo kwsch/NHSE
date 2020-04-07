@@ -22,6 +22,7 @@ namespace NHSE.Core
 
         public abstract int TurnipExchange { get; }
 
+        public abstract int FieldItem { get; }
         public abstract int Acres { get; }
         public abstract int Terrain { get; }
 

@@ -41,10 +41,10 @@ namespace NHSE.Sprites
 
         public static Bitmap CreateMap(TerrainManager mgr)
         {
-            var bmp = new Bitmap(MapGrid.MapWidth, MapGrid.MapHeight);
-            for (int x = 0; x < MapGrid.MapWidth; x++)
+            var bmp = new Bitmap(mgr.MapWidth, mgr.MapHeight);
+            for (int x = 0; x < mgr.MapWidth; x++)
             {
-                for (int y = 0; y < MapGrid.MapHeight; y++)
+                for (int y = 0; y < mgr.MapHeight; y++)
                 {
                     var tile = mgr.GetTile(x, y);
                     var color = GetTileColor(tile);
@@ -59,7 +59,7 @@ namespace NHSE.Sprites
         {
             var img = CreateMap(mgr);
             var map = ImageUtil.ResizeImage(img, img.Width * scale, img.Height * scale);
-            return DrawReticle(map, x, y, scale);
+            return DrawReticle(map, mgr, x, y, scale);
         }
 
         public static Bitmap CreateMap(TerrainManager mgr, int scale, int acreIndex = -1)
@@ -71,19 +71,19 @@ namespace NHSE.Sprites
                 return map;
 
             var acre = MapGrid.Acres[acreIndex];
-            var x = acre.X * MapGrid.GridWidth;
-            var y = acre.Y * MapGrid.GridHeight;
+            var x = acre.X * mgr.GridWidth;
+            var y = acre.Y * mgr.GridHeight;
 
-            return DrawReticle(map, x, y, scale);
+            return DrawReticle(map, mgr, x, y, scale);
         }
 
-        private static Bitmap DrawReticle(Bitmap map, int x, int y, int scale)
+        private static Bitmap DrawReticle(Bitmap map, TerrainManager mgr, int x, int y, int scale)
         {
             using var gfx = Graphics.FromImage(map);
             using var pen = new Pen(Color.Red);
 
-            int w = MapGrid.GridWidth * scale;
-            int h = MapGrid.GridHeight * scale;
+            int w = mgr.GridWidth * scale;
+            int h = mgr.GridHeight * scale;
             gfx.DrawRectangle(pen, x * scale, y * scale, w, h);
             return map;
         }
@@ -93,15 +93,15 @@ namespace NHSE.Sprites
             var map = CreateMap(mgr, scale);
             using var gfx = Graphics.FromImage(map);
 
-            gfx.DrawPlaza(plazaX, plazaY, scale);
-            gfx.DrawBuildings(buildings, f, scale, index);
+            gfx.DrawPlaza(mgr, plazaX, plazaY, scale);
+            gfx.DrawBuildings(mgr, buildings, f, scale, index);
             return map;
         }
 
-        private static void DrawPlaza(this Graphics gfx, ushort px, ushort py, int scale)
+        private static void DrawPlaza(this Graphics gfx, MapGrid g, ushort px, ushort py, int scale)
         {
             var plaza = Brushes.RosyBrown;
-            GetBuildingCoordinate(px, py, scale, out var x, out var y);
+            GetBuildingCoordinate(g, px, py, scale, out var x, out var y);
 
             var width = scale * 2 * 6;
             var height = scale * 2 * 5;
@@ -109,7 +109,7 @@ namespace NHSE.Sprites
             gfx.FillRectangle(plaza, x, y, width, height);
         }
 
-        private static void DrawBuildings(this Graphics gfx, IReadOnlyList<Building> buildings, Font f, int scale, int index = -1)
+        private static void DrawBuildings(this Graphics gfx, MapGrid g, IReadOnlyList<Building> buildings, Font f, int scale, int index = -1)
         {
             var selected = Brushes.Red;
             var others = Brushes.Yellow;
@@ -121,7 +121,7 @@ namespace NHSE.Sprites
                 var b = buildings[i];
                 if (b.BuildingType == 0)
                     continue;
-                GetBuildingCoordinate(b.X, b.Y, scale, out var x, out var y);
+                GetBuildingCoordinate(g,b.X, b.Y, scale, out var x, out var y);
 
                 var pen = index == i ? selected : others;
                 gfx.FillRectangle(pen, x - scale, y - scale, scale * 2, scale * 2);
@@ -131,11 +131,11 @@ namespace NHSE.Sprites
             }
         }
 
-        private static void GetBuildingCoordinate(ushort bx, ushort by, int scale, out int x, out int y)
+        private static void GetBuildingCoordinate(MapGrid g, ushort bx, ushort by, int scale, out int x, out int y)
         {
             // Although there is terrain in the Top Row and Left Column, no buildings can be placed there.
             // Adjust the building coordinates down-right by an acre.
-            const int buildingShift = MapGrid.GridWidth;
+            int buildingShift = g.GridWidth;
             x = (int) (((bx / 2f) - buildingShift) * scale);
             y = (int) (((by / 2f) - buildingShift) * scale);
         }

@@ -6,7 +6,7 @@ namespace NHSE.Core
     {
         public readonly TerrainTile[] Tiles;
 
-        public TerrainManager(TerrainTile[] tiles)
+        public TerrainManager(TerrainTile[] tiles) : base(16, 16)
         {
             Tiles = tiles;
             Debug.Assert(MapTileCount == tiles.Length);
@@ -32,7 +32,7 @@ namespace NHSE.Core
 
         public byte[] DumpAcre(int acre)
         {
-            const int count = AcreTileCount;
+            int count = AcreTileCount;
             var result = new byte[TerrainTile.SIZE * count];
             for (int i = 0; i < count; i++)
             {
@@ -52,7 +52,7 @@ namespace NHSE.Core
 
         public void ImportAcre(int acre, byte[] data)
         {
-            const int count = AcreTileCount;
+            int count = AcreTileCount;
             var tiles = TerrainTile.GetArray(data);
             for (int i = 0; i < count; i++)
             {

@@ -9,27 +9,37 @@ namespace NHSE.Core
     {
         public static readonly AcreCoordinate[] Acres = AcreCoordinate.GetGrid(AcreWidth, AcreHeight);
 
-        public const int GridWidth = 16;
-        public const int GridHeight = 16;
+        protected MapGrid(int gw, int gh)
+        {
+            GridWidth = gw;
+            GridHeight = gh;
+        }
+
+        public readonly int GridWidth;
+        public readonly int GridHeight;
 
         public const int AcreWidth = 7;
         public const int AcreHeight = 6;
-        public const int AcreTileCount = GridWidth * GridHeight;
+        public const int AcreCount = AcreWidth * AcreHeight;
 
-        public const int MapHeight = AcreHeight * GridHeight; // 96
-        public const int MapWidth = AcreWidth * GridWidth; // 112
-        public const int MapTileCount = MapWidth * MapHeight; // 0x2A00 bytes for 
+        public int AcreTileCount => GridWidth * GridHeight;
+        public int MapHeight => AcreHeight * GridHeight; // 96 (when 16x16)
+        public int MapWidth => AcreWidth * GridWidth; // 112 (when 16x16)
+        public int MapTileCount => MapWidth * MapHeight; // 0x2A00 bytes (when 16x16)
 
-        protected static int GetTileIndex(int x, int y) => (MapHeight * x) + y;
+        public const int MapTileCount16x16 = 16 * 16 * AcreCount;
+        public const int MapTileCount32x32 = 32 * 32 * AcreCount;
 
-        protected static int GetTileIndex(int acreX, int acreY, int gridX, int gridY)
+        protected int GetTileIndex(int x, int y) => (MapHeight * x) + y;
+
+        protected int GetTileIndex(int acreX, int acreY, int gridX, int gridY)
         {
             var x = (acreX * GridWidth) + gridX;
             var y = (acreY * GridHeight) + gridY;
             return GetTileIndex(x, y);
         }
 
-        protected static int GetAcreTileIndex(int acreIndex, int tileIndex)
+        protected int GetAcreTileIndex(int acreIndex, int tileIndex)
         {
             var acre = Acres[acreIndex];
             var x = (tileIndex % GridWidth);
@@ -37,9 +47,9 @@ namespace NHSE.Core
             return GetTileIndex(acre.X, acre.Y, x, y);
         }
 
-        public static int GetAcre(int x, int y) => (x / GridWidth) + ((y / GridHeight) * AcreWidth);
+        public int GetAcre(int x, int y) => (x / GridWidth) + ((y / GridHeight) * AcreWidth);
 
-        public static void GetViewAnchorCoordinates(ref int x, ref int y, bool centerReticle)
+        public void GetViewAnchorCoordinates(ref int x, ref int y, bool centerReticle)
         {
             // If we aren't snapping the reticle to the nearest acre
             // we want to put the middle of the reticle rectangle where the cursor is.
@@ -53,13 +63,13 @@ namespace NHSE.Core
 
             // Clamp to viewport dimensions, and center to nearest acre if desired.
             // Clamp to boundaries so that we always have 16x16 to view.
-            const int maxX = ((AcreWidth - 1) * GridWidth);
-            const int maxY = ((AcreHeight - 1) * GridHeight);
+            int maxX = ((AcreWidth - 1) * GridWidth);
+            int maxY = ((AcreHeight - 1) * GridHeight);
             x = Math.Max(0, Math.Min(x, maxX));
             y = Math.Max(0, Math.Min(y, maxY));
         }
 
-        public static void GetViewAnchorCoordinates(int acre, out int x, out int y)
+        public void GetViewAnchorCoordinates(int acre, out int x, out int y)
         {
             x = (acre % AcreWidth) * GridWidth;
             y = (acre / AcreWidth) * GridHeight;
