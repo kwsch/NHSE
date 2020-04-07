@@ -12,7 +12,7 @@ namespace NHSE.Core
 
         public bool IsNone => ItemType == NONE;
         public bool IsExtension => ItemType == EXTENSION;
-        public bool IsItem => !IsExtension;
+        public bool IsRoot => ItemType < EXTENSION;
 
         // Item Definition
         [FieldOffset(0)] public ushort ItemId;
@@ -30,6 +30,8 @@ namespace NHSE.Core
         [FieldOffset(7)] public byte ExtensionY;
 
         public ushort DisplayItemId => IsExtension ? ExtensionItemId : ItemId;
+
+        public FieldItem() { } // marshalling
 
         public void CopyFrom(FieldItem item)
         {

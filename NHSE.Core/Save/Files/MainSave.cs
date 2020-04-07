@@ -65,7 +65,7 @@ namespace NHSE.Core
         public TerrainTile[] GetTerrain() => TerrainTile.GetArray(Data.Slice(Offsets.Terrain, MapGrid.MapTileCount16x16 * TerrainTile.SIZE));
         public void SetTerrain(IReadOnlyList<TerrainTile> array) => TerrainTile.SetArray(array).CopyTo(Data, Offsets.Terrain);
 
-        public FieldItem[] GetFieldItems() => FieldItem.GetArray(Data.Slice(Offsets.FieldItem, MapGrid.MapTileCount32x32 * FieldItem.SIZE));
+        public FieldItem[] GetFieldItems() => FieldItem.GetArray(Data.Slice(Offsets.FieldItem, MapGrid.MapTileCount32x32 * FieldItem.SIZE * 2));
         public void SetFieldItems(IReadOnlyList<FieldItem> array) => FieldItem.SetArray(array).CopyTo(Data, Offsets.FieldItem);
 
         public uint PlazaX
