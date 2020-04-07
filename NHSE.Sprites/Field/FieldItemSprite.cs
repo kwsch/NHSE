@@ -53,7 +53,7 @@ namespace NHSE.Sprites
         private static void DrawForwardSlash(Graphics gfx, int x1, int y1, int x2, int y2, Pen ipen) => gfx.DrawLine(ipen, x2, y1, x1, y2);
         private static void DrawBackwardSlash(Graphics gfx, int x1, int y1, int x2, int y2, Pen ipen) => gfx.DrawLine(ipen, x1, y1, x2, y2);
 
-        private static Color GetItemColor(FieldItem item)
+        public static Color GetItemColor(FieldItem item)
         {
             var kind = ItemInfo.GetItemKind(item);
             if (kind == ItemKind.Unknown)

@@ -148,7 +148,7 @@ namespace NHSE.Core
             return ctr - start;
         }
 
-        internal static T[] ConcatAll<T>(params T[][] arr)
+        public static T[] ConcatAll<T>(params T[][] arr)
         {
             int len = 0;
             foreach (var a in arr)

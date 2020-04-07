@@ -21,5 +21,44 @@ namespace NHSE.Core
             get => Tiles[index];
             set => Tiles[index] = value;
         }
+
+        public byte[] DumpAcre(int acre)
+        {
+            int count = AcreTileCount;
+            var result = new byte[FieldItem.SIZE * count];
+            for (int i = 0; i < count; i++)
+            {
+                var tile = GetAcreTile(acre, i);
+                var bytes = tile.ToBytesClass();
+                bytes.CopyTo(result, i * FieldItem.SIZE);
+            }
+            return result;
+        }
+
+        public byte[] DumpAllAcres()
+        {
+            var result = new byte[Tiles.Length * FieldItem.SIZE];
+            for (int i = 0; i < Tiles.Length; i++)
+                Tiles[i].ToBytesClass().CopyTo(result, i * FieldItem.SIZE);
+            return result;
+        }
+
+        public void ImportAllAcres(byte[] data)
+        {
+            var tiles = FieldItem.GetArray(data);
+            for (int i = 0; i < tiles.Length; i++)
+                Tiles[i].CopyFrom(tiles[i]);
+        }
+
+        public void ImportAcre(int acre, byte[] data)
+        {
+            int count = AcreTileCount;
+            var tiles = FieldItem.GetArray(data);
+            for (int i = 0; i < count; i++)
+            {
+                var tile = GetAcreTile(acre, i);
+                tile.CopyFrom(tiles[i]);
+            }
+        }
     }
 }

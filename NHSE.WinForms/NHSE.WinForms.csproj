@@ -46,6 +46,9 @@
     <Compile Update="Subforms\PropertyEditor - Copy.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Subforms\FieldItemEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Subforms\TerrainEditor.cs">
       <SubType>Form</SubType>
     </Compile>

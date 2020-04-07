@@ -551,5 +551,11 @@ namespace NHSE.WinForms
             using var editor = new TerrainEditor(SAV.Main);
             editor.ShowDialog();
         }
+
+        private void B_EditFieldItems_Click(object sender, EventArgs e)
+        {
+            using var editor = new FieldItemEditor(SAV.Main);
+            editor.ShowDialog();
+        }
     }
 }
