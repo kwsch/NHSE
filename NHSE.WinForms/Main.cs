@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 using NHSE.Core;
+using NHSE.Injection;
 using NHSE.WinForms.Properties;
 
 namespace NHSE.WinForms
@@ -116,6 +117,36 @@ namespace NHSE.WinForms
             var settings = Settings.Default;
             settings.LastFilePath = path;
             settings.Save();
+        }
+
+        private void Main_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (ModifierKeys != Keys.Control)
+                return;
+
+            switch (e.KeyCode)
+            {
+                case Keys.O:
+                {
+                    Menu_Open(sender, e);
+                    break;
+                }
+                case Keys.I:
+                {
+                    var items = new Item[40];
+                    for (int i = 0; i < items.Length; i++)
+                        items[i] = new Item(Item.NONE);
+                    using var editor = new PlayerItemEditor<Item>(items, 10, 4, true);
+                    editor.ShowDialog();
+                    break;
+                }
+                case Keys.H:
+                {
+                    using var editor = new SysBotRAMEdit(InjectionType.Generic);
+                    editor.ShowDialog();
+                    break;
+                }
+            }
         }
     }
 }

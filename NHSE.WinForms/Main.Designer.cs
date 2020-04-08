@@ -49,6 +49,7 @@
             this.Controls.Add(this.B_Open);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = global::NHSE.WinForms.Properties.Resources.icon;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Main";
@@ -56,6 +57,7 @@
             this.Text = "NHSE";
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Main_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Main_DragEnter);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
             this.ResumeLayout(false);
 
         }
