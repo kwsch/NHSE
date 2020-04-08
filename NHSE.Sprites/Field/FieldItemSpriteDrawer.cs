@@ -37,11 +37,10 @@ namespace NHSE.Sprites
             return result;
         }
 
-        public Bitmap GetBitmapLayerAcre(FieldItemLayer layer, int x0, int y0)
+        private static int[] GetBitmapLayerAcre(FieldItemLayer layer, int x0, int y0, out int width, out int height)
         {
-            var items = layer.Tiles;
-            var height = layer.MapHeight;
-            var width = items.Length / height;
+            height = layer.GridWidth;
+            width = layer.GridWidth;
 
             var bmpData = new int[width * height];
             var stride = layer.GridWidth;
@@ -57,31 +56,23 @@ namespace NHSE.Sprites
                 }
             }
 
-            var result = new Bitmap(width, height, PixelFormat.Format32bppArgb);
-            var bData = result.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
-            Marshal.Copy(bmpData, 0, bData.Scan0, bmpData.Length);
-            result.UnlockBits(bData);
-            return result;
+            return bmpData;
         }
 
         public Bitmap GetBitmapLayerAcre(FieldItemLayer layer, int x0, int y0, int scale)
         {
-            var map = GetBitmapLayerAcre(layer, x0, y0);
-            map = ImageUtil.ResizeImage(map, map.Width * scale, map.Height * scale);
-
-            // Obtain raw data
-            var bData = map.LockBits(new Rectangle(0, 0, map.Width, map.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
-            var ptr = bData.Scan0;
-            var data = new int[map.Width * map.Height];
-            Marshal.Copy(ptr, data, 0, data.Length);
+            var map = GetBitmapLayerAcre(layer, x0, y0, out int mh, out int mw);
+            var data = ImageUtil.ScalePixelImage(map, scale, mw, mh, out var fw, out var fh);
 
             // draw symbols over special items now?
 
             // Slap on a grid
-            var w = map.Width;
-            var h = map.Height;
-            const int grid = -0x1000000; // 0xFF000000u
-            for (int x = scale; x < w; x += scale)
+            var w = fw;
+            var h = fh;
+            const int grid = -0x777778; // 0xFF888888u
+
+            // Horizontal Lines
+            for (int x = 0; x < w; x++)
             {
                 for (int y = scale; y < h; y += scale)
                 {
@@ -90,10 +81,18 @@ namespace NHSE.Sprites
                 }
             }
 
+            // Vertical Lines
+            for (int y = 0; y < h; y++)
+            {
+                for (int x = scale; x < w; x += scale)
+                {
+                    var index = (y * w) + x;
+                    data[index] = grid;
+                }
+            }
+
             // Return final data
-            Marshal.Copy(data, 0, ptr, data.Length);
-            map.UnlockBits(bData);
-            return map;
+            return ImageUtil.GetBitmap(data, fw, fh);
         }
 
         public Bitmap GetBitmapLayer(FieldItemLayer layer, int x, int y, int scale = 1)

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
@@ -11,14 +10,10 @@ namespace NHSE.WinForms
     public partial class FieldItemEditor : Form
     {
         private readonly MainSave SAV;
-        private readonly Button[] Grid;
         private readonly FieldItemManager Items;
 
-        private int GridWidth => Items.Layer1.GridWidth;
-        private int GridHeight => Items.Layer1.GridHeight;
-
-        private const int SquareSize = 25;
         private const int MapScale = 1;
+        private const int AcreScale = 17;
 
         public FieldItemEditor(MainSave sav)
         {
@@ -26,14 +21,13 @@ namespace NHSE.WinForms
             InitializeComponent();
 
             Items = new FieldItemManager(SAV.GetFieldItems());
-            Grid = GenerateGrid(GridWidth, GridHeight);
 
             foreach (var acre in MapGrid.Acres)
                 CB_Acre.Items.Add(acre.Name);
 
             PG_Tile.SelectedObject = new FieldItem();
             CB_Acre.SelectedIndex = 0;
-            ReloadMap();
+            LoadGrid(X, Y);
         }
 
         private int X;
@@ -47,7 +41,6 @@ namespace NHSE.WinForms
         {
             Items.Layer1.GetViewAnchorCoordinates(acre, out X, out Y);
             LoadGrid(X, Y);
-            UpdateArrowVisibility(acre);
         }
 
         private FieldItemLayer Layer => NUD_Layer.Value == 1 ? Items.Layer1 : Items.Layer2;
@@ -59,84 +52,59 @@ namespace NHSE.WinForms
 
         private void LoadGrid(int topX, int topY)
         {
-            var layer = Layer;
-            for (int x = 0; x < GridWidth; x++)
-            {
-                for (int y = 0; y < GridHeight; y++)
-                {
-                    var controlIndex = (y * GridWidth) + x;
-                    var b = Grid[controlIndex];
-
-                    var rx = topX + x;
-                    var ry = topY + y;
-                    var tile = layer.GetTile(rx, ry);
-                    RefreshTile(b, tile);
-                }
-            }
+            ReloadGrid(Layer, topX, topY);
+            UpdateArrowVisibility();
             ReloadMap();
         }
 
-        private void UpdateArrowVisibility(int index)
+        private void ReloadGrid(FieldItemLayer layer, int topX, int topY)
         {
-            B_Up.Enabled = index >= MapGrid.AcreWidth;
-            B_Down.Enabled = index < MapGrid.AcreWidth * (MapGrid.AcreHeight - 1);
-            B_Left.Enabled = index % MapGrid.AcreWidth != 0;
-            B_Right.Enabled = index % MapGrid.AcreWidth != MapGrid.AcreWidth - 1;
+            PB_Acre.Image = SpriteUtil.FieldItems.GetBitmapLayerAcre(layer, topX, topY, AcreScale);
         }
 
-        private Button[] GenerateGrid(int w, int h)
+        private void UpdateArrowVisibility()
         {
-            var grid = new Button[w * h];
-            int i = 0;
-            for (int y = 0; y < h; y++)
-            {
-                for (int x = 0; x < w; x++)
-                {
-                    var item = CreateGridItem(index: i, x, y);
-                    FLP_Tile.Controls.Add(item);
-                    grid[i++] = item;
-                }
+            B_Up.Enabled = Y != 0;
+            B_Down.Enabled = Y < Layer.MapHeight - Layer.GridHeight;
+            B_Left.Enabled = X != 0;
+            B_Right.Enabled = X < Layer.MapWidth - Layer.GridWidth;
+        }
 
-                var last = grid[i - 1];
-                FLP_Tile.SetFlowBreak(last, true);
+        private void PB_Acre_MouseClick(object sender, MouseEventArgs e)
+        {
+            var tile = GetTile(Layer, e);
+            switch (ModifierKeys)
+            {
+                default: ViewTile(tile); return;
+                case Keys.Shift: SetTile(tile); return;
+                case Keys.Alt: DeleteTile(tile); return;
             }
-
-            return grid;
         }
 
-        private Button CreateGridItem(int index, int x, int y)
+        private int HoverX;
+        private int HoverY;
+
+        private FieldItem GetTile(FieldItemLayer layer, MouseEventArgs e)
         {
-            var button = new Button
-            {
-                Name = index.ToString(),
-                Text = $"{index:000} ({x},{y})",
-                Size = new Size(SquareSize, SquareSize),
-                Padding = Padding.Empty,
-                Margin = Padding.Empty,
-                ContextMenuStrip = CM_Click,
-                FlatStyle = FlatStyle.Flat,
-            };
+            SetHoveredItem(e);
+            return layer.GetTile(X + HoverX, Y + HoverY);
+        }
 
-            button.Click += (sender, args) =>
-            {
-                var tile = GetTile(Layer, index);
-                switch (ModifierKeys)
-                {
-                    default: ViewTile(tile); return;
-                    case Keys.Shift: SetTile(tile, button); return;
-                    case Keys.Alt: DeleteTile(tile, button); return;
-                }
-            };
-            button.MouseEnter += (sender, args) =>
-            {
-                var tile = GetTile(Layer, index);
-                var str = GameInfo.Strings;
-                var name = str.GetItemName(tile.DisplayItemId);
-                TT_Hover.SetToolTip(button, name);
-            };
-            button.MouseLeave += (sender, args) => TT_Hover.RemoveAll();
+        private void SetHoveredItem(MouseEventArgs e)
+        {
+            HoverX = e.X / AcreScale;
+            HoverY = e.Y / AcreScale;
+        }
 
-            return button;
+        private void PB_Acre_MouseMove(object sender, MouseEventArgs e)
+        {
+            var oldTile = Layer.GetTile(X + HoverX, Y + HoverY);
+            var tile = GetTile(Layer, e);
+            if (tile == oldTile)
+                return;
+            var str = GameInfo.Strings;
+            var name = str.GetItemName(tile.DisplayItemId);
+            TT_Hover.SetToolTip(PB_Acre, name);
         }
 
         private void ViewTile(FieldItem tile)
@@ -146,18 +114,18 @@ namespace NHSE.WinForms
             PG_Tile.SelectedObject = pgt;
         }
 
-        private void SetTile(FieldItem tile, Control obj)
+        private void SetTile(FieldItem tile)
         {
             var pgt = (FieldItem)PG_Tile.SelectedObject;
             tile.CopyFrom(pgt);
-            RefreshTile(obj, tile);
+            ReloadGrid(Layer, X, Y);
             ReloadMap();
         }
 
-        private void DeleteTile(FieldItem tile, Control obj)
+        private void DeleteTile(FieldItem tile)
         {
             tile.Delete();
-            RefreshTile(obj, tile);
+            ReloadGrid(Layer, X, Y);
             ReloadMap();
         }
 
@@ -172,50 +140,69 @@ namespace NHSE.WinForms
 
         private void Menu_View_Click(object sender, EventArgs e)
         {
-            GetTile(sender, out var tile, out _);
+            var tile = Layer.GetTile(X + HoverX, Y + HoverY);
             ViewTile(tile);
         }
 
         private void Menu_Set_Click(object sender, EventArgs e)
         {
-            GetTile(sender, out var tile, out var obj);
-            SetTile(tile, obj);
+            var tile = Layer.GetTile(X + HoverX, Y + HoverY);
+            SetTile(tile);
         }
 
         private void Menu_Reset_Click(object sender, EventArgs e)
         {
-            GetTile(sender, out var tile, out var obj);
-            DeleteTile(tile, obj);
+            var tile = Layer.GetTile(X + HoverX, Y + HoverY);
+            DeleteTile(tile);
         }
 
-        private void GetTile(object sender, out FieldItem tile, out Button obj)
+        private void B_Up_Click(object sender, EventArgs e)
         {
-            obj = WinFormsUtil.GetUnderlyingControl<Button>(sender) ?? throw new ArgumentNullException(nameof(sender));
+            if (ModifierKeys != Keys.Shift)
+            {
+                if (Y != 0)
+                    LoadGrid(X, --Y);
+                return;
+            }
 
-            var index = Array.IndexOf(Grid, obj);
-            if (index < 0)
-                throw new ArgumentException(nameof(Button));
-
-            tile = GetTile(Layer, index);
+            CB_Acre.SelectedIndex -= MapGrid.AcreWidth;
         }
 
-        private FieldItem GetTile(FieldItemLayer layer, int index)
+        private void B_Left_Click(object sender, EventArgs e)
         {
-            var x = X + (index % layer.GridWidth);
-            var y = Y + (index / layer.GridWidth);
-            return layer.GetTile(x, y);
+            if (ModifierKeys != Keys.Shift)
+            {
+                if (X != 0)
+                    LoadGrid(--X, Y);
+                return;
+            }
+
+            --CB_Acre.SelectedIndex;
         }
 
-        private static void RefreshTile(Control button, FieldItem tile)
+        private void B_Right_Click(object sender, EventArgs e)
         {
-            button.Text = ItemInfo.GetItemKind(tile).ToString();
-            button.BackColor = FieldItemSprite.GetItemColor(tile);
+            if (ModifierKeys != Keys.Shift)
+            {
+                if (X != Layer.MapWidth - 1)
+                    LoadGrid(++X, Y);
+                return;
+            }
+
+            ++CB_Acre.SelectedIndex;
         }
 
-        private void B_Up_Click(object sender, EventArgs e) => CB_Acre.SelectedIndex -= MapGrid.AcreWidth;
-        private void B_Left_Click(object sender, EventArgs e) => --CB_Acre.SelectedIndex;
-        private void B_Right_Click(object sender, EventArgs e) => ++CB_Acre.SelectedIndex;
-        private void B_Down_Click(object sender, EventArgs e) => CB_Acre.SelectedIndex += MapGrid.AcreWidth;
+        private void B_Down_Click(object sender, EventArgs e)
+        {
+            if (ModifierKeys != Keys.Shift)
+            {
+                if (Y != Layer.MapHeight - 1)
+                    LoadGrid(X, ++Y);
+                return;
+            }
+
+            CB_Acre.SelectedIndex += MapGrid.AcreWidth;
+        }
 
         private void B_DumpAcre_Click(object sender, EventArgs e)
         {
