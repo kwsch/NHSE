@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
@@ -21,7 +22,17 @@ namespace NHSE.Sprites
         public static Bitmap GetBitmap(byte[] data, int width, int height, PixelFormat format = PixelFormat.Format32bppArgb)
         {
             var bmp = new Bitmap(width, height, format);
-            var bmpData = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.WriteOnly, format);
+            var bmpData = bmp.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.WriteOnly, format);
+            var ptr = bmpData.Scan0;
+            Marshal.Copy(data, 0, ptr, data.Length);
+            bmp.UnlockBits(bmpData);
+            return bmp;
+        }
+
+        public static Bitmap GetBitmap(int[] data, int width, int height, PixelFormat format = PixelFormat.Format32bppArgb)
+        {
+            var bmp = new Bitmap(width, height, format);
+            var bmpData = bmp.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.WriteOnly, format);
             var ptr = bmpData.Scan0;
             Marshal.Copy(data, 0, ptr, data.Length);
             bmp.UnlockBits(bmpData);
@@ -49,6 +60,29 @@ namespace NHSE.Sprites
             graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
 
             return destImage;
+        }
+
+        public static int[] ScalePixelImage(int[] data, int scale, int w, int h, out int fW, out int fH)
+        {
+            fW = scale * w;
+            fH = scale * h;
+            var scaled = new int[fW * fH];
+
+            // For each pixel, copy to the X indexes, then block copy the row to the other rows.
+            for (int y = 0, i = 0; y < fH; y += scale)
+            {
+                var baseIndex = y * fW;
+                for (int x = 0; x < fW; x += scale, i++)
+                {
+                    for (int x1 = 0; x1 < scale; x1++)
+                        scaled[baseIndex + x + x1] = data[i];
+                }
+
+                for (int y1 = 1; y1 < scale; y1++)
+                    Array.Copy(scaled, baseIndex, scaled, baseIndex + (y1 * fW), fW);
+            }
+
+            return scaled;
         }
     }
 }
