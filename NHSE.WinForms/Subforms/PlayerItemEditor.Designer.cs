@@ -120,6 +120,7 @@
             this.Controls.Add(this.ItemEditor);
             this.Controls.Add(this.B_Cancel);
             this.Controls.Add(this.B_Save);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = global::NHSE.WinForms.Properties.Resources.icon;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

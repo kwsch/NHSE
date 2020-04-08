@@ -88,20 +88,22 @@
             // 
             // L_Count
             // 
-            this.L_Count.Location = new System.Drawing.Point(3, 3);
-            this.L_Count.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Count.AutoSize = true;
+            this.L_Count.Location = new System.Drawing.Point(44, 6);
+            this.L_Count.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.L_Count.Name = "L_Count";
-            this.L_Count.Size = new System.Drawing.Size(79, 20);
+            this.L_Count.Size = new System.Drawing.Size(38, 13);
             this.L_Count.TabIndex = 7;
             this.L_Count.Text = "Count:";
             this.L_Count.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // L_Uses
             // 
-            this.L_Uses.Location = new System.Drawing.Point(3, 3);
-            this.L_Uses.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Uses.AutoSize = true;
+            this.L_Uses.Location = new System.Drawing.Point(48, 6);
+            this.L_Uses.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.L_Uses.Name = "L_Uses";
-            this.L_Uses.Size = new System.Drawing.Size(79, 20);
+            this.L_Uses.Size = new System.Drawing.Size(34, 13);
             this.L_Uses.TabIndex = 9;
             this.L_Uses.Text = "Uses:";
             this.L_Uses.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -120,10 +122,11 @@
             // 
             // L_Flag0
             // 
-            this.L_Flag0.Location = new System.Drawing.Point(3, 3);
-            this.L_Flag0.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Flag0.AutoSize = true;
+            this.L_Flag0.Location = new System.Drawing.Point(46, 6);
+            this.L_Flag0.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.L_Flag0.Name = "L_Flag0";
-            this.L_Flag0.Size = new System.Drawing.Size(79, 20);
+            this.L_Flag0.Size = new System.Drawing.Size(36, 13);
             this.L_Flag0.TabIndex = 11;
             this.L_Flag0.Text = "Flag0:";
             this.L_Flag0.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -143,10 +146,11 @@
             // 
             // L_Flag1
             // 
-            this.L_Flag1.Location = new System.Drawing.Point(3, 3);
-            this.L_Flag1.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Flag1.AutoSize = true;
+            this.L_Flag1.Location = new System.Drawing.Point(46, 6);
+            this.L_Flag1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.L_Flag1.Name = "L_Flag1";
-            this.L_Flag1.Size = new System.Drawing.Size(79, 20);
+            this.L_Flag1.Size = new System.Drawing.Size(36, 13);
             this.L_Flag1.TabIndex = 13;
             this.L_Flag1.Text = "Flag1:";
             this.L_Flag1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -221,8 +225,9 @@
             // 
             // FLP_Count
             // 
-            this.FLP_Count.Controls.Add(this.L_Count);
             this.FLP_Count.Controls.Add(this.NUD_Count);
+            this.FLP_Count.Controls.Add(this.L_Count);
+            this.FLP_Count.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.FLP_Count.Location = new System.Drawing.Point(0, 46);
             this.FLP_Count.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Count.Name = "FLP_Count";
@@ -231,8 +236,9 @@
             // 
             // FLP_Uses
             // 
-            this.FLP_Uses.Controls.Add(this.L_Uses);
             this.FLP_Uses.Controls.Add(this.NUD_Uses);
+            this.FLP_Uses.Controls.Add(this.L_Uses);
+            this.FLP_Uses.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.FLP_Uses.Location = new System.Drawing.Point(0, 72);
             this.FLP_Uses.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Uses.Name = "FLP_Uses";
@@ -241,8 +247,9 @@
             // 
             // FLP_Flag0
             // 
-            this.FLP_Flag0.Controls.Add(this.L_Flag0);
             this.FLP_Flag0.Controls.Add(this.NUD_Flag0);
+            this.FLP_Flag0.Controls.Add(this.L_Flag0);
+            this.FLP_Flag0.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.FLP_Flag0.Location = new System.Drawing.Point(0, 98);
             this.FLP_Flag0.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Flag0.Name = "FLP_Flag0";
@@ -251,8 +258,9 @@
             // 
             // FLP_Flag1
             // 
-            this.FLP_Flag1.Controls.Add(this.L_Flag1);
             this.FLP_Flag1.Controls.Add(this.NUD_Flag1);
+            this.FLP_Flag1.Controls.Add(this.L_Flag1);
+            this.FLP_Flag1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.FLP_Flag1.Location = new System.Drawing.Point(0, 124);
             this.FLP_Flag1.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Flag1.Name = "FLP_Flag1";
@@ -273,9 +281,13 @@
             this.CM_Hand.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.FLP_Count.ResumeLayout(false);
+            this.FLP_Count.PerformLayout();
             this.FLP_Uses.ResumeLayout(false);
+            this.FLP_Uses.PerformLayout();
             this.FLP_Flag0.ResumeLayout(false);
+            this.FLP_Flag0.PerformLayout();
             this.FLP_Flag1.ResumeLayout(false);
+            this.FLP_Flag1.PerformLayout();
             this.ResumeLayout(false);
 
         }
