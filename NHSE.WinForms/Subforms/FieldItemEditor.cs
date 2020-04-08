@@ -119,17 +119,17 @@ namespace NHSE.WinForms
 
             button.Click += (sender, args) =>
             {
-                GetTile(button, out var tile, out var obj);
+                var tile = GetTile(Layer, index);
                 switch (ModifierKeys)
                 {
                     default: ViewTile(tile); return;
-                    case Keys.Shift: SetTile(tile, obj); return;
-                    case Keys.Alt: DeleteTile(tile, obj); return;
+                    case Keys.Shift: SetTile(tile, button); return;
+                    case Keys.Alt: DeleteTile(tile, button); return;
                 }
             };
             button.MouseEnter += (sender, args) =>
             {
-                GetTile(button, out var tile, out var obj);
+                var tile = GetTile(Layer, index);
                 var str = GameInfo.Strings;
                 var name = str.GetItemName(tile.DisplayItemId);
                 TT_Hover.SetToolTip(button, name);
@@ -196,10 +196,14 @@ namespace NHSE.WinForms
             if (index < 0)
                 throw new ArgumentException(nameof(Button));
 
-            var layer = Layer;
-            var x = X + (index % GridWidth);
-            var y = Y + (index / GridWidth);
-            tile = layer.GetTile(x, y);
+            tile = GetTile(Layer, index);
+        }
+
+        private FieldItem GetTile(FieldItemLayer layer, int index)
+        {
+            var x = X + (index % layer.GridWidth);
+            var y = Y + (index / layer.GridWidth);
+            return layer.GetTile(x, y);
         }
 
         private static void RefreshTile(Control button, FieldItem tile)

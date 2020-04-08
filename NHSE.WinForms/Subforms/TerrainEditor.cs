@@ -113,12 +113,12 @@ namespace NHSE.WinForms
 
             button.Click += (sender, args) =>
             {
-                GetTile(button, out var tile, out var obj);
+                var tile = GetTile(index);
                 switch (ModifierKeys)
                 {
                     default: ViewTile(tile); return;
-                    case Keys.Shift: SetTile(tile, obj); return;
-                    case Keys.Alt: DeleteTile(tile, obj); return;
+                    case Keys.Shift: SetTile(tile, button); return;
+                    case Keys.Alt: DeleteTile(tile, button); return;
                 }
             };
             return button;
@@ -180,9 +180,14 @@ namespace NHSE.WinForms
             if (index < 0)
                 throw new ArgumentException(nameof(Button));
 
+            tile = GetTile(index);
+        }
+
+        private TerrainTile GetTile(int index)
+        {
             var x = X + (index % GridWidth);
             var y = Y + (index / GridWidth);
-            tile = Terrain.GetTile(x, y);
+            return Terrain.GetTile(x, y);
         }
 
         private static void RefreshTile(Control button, TerrainTile tile)
