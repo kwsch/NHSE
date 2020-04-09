@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 namespace NHSE.Core
 {
     [StructLayout(LayoutKind.Explicit, Size = SIZE, Pack = 1)]
-    public class FieldItem
+    public class FieldItem : IHeldItem
     {
         public const ushort EXTENSION = 0xFFFD;
         public const ushort NONE = 0xFFFE;
@@ -63,7 +63,7 @@ namespace NHSE.Core
             Count = UseCount = 0;
         }
 
-        public void CopyFrom(Item item)
+        public void CopyFrom(IHeldItem item)
         {
             ItemId = item.ItemId;
             Flags0 = item.Flags0;

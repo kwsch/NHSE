@@ -3,8 +3,8 @@ using System.Runtime.InteropServices;
 
 namespace NHSE.Core
 {
-    [StructLayout(LayoutKind.Sequential)]
-    public class Item
+    [StructLayout(LayoutKind.Explicit, Size = SIZE, Pack = 1)]
+    public class Item : IHeldItem
     {
         public static readonly Item NO_ITEM = new Item {ItemId = NONE};
         public const ushort NONE = 0xFFFE;
@@ -16,11 +16,11 @@ namespace NHSE.Core
             0x1E1B, 0x1E1C, 0x1E1D, 0x1E1E, 0x1E1F, 0x1E20, 0x1E21, 0x1E22
         };
 
-        public ushort ItemId;
-        public byte Flags0;
-        public byte Flags1;
-        public ushort Count;
-        public ushort UseCount;
+        [field: FieldOffset(0)] public ushort ItemId { get; set; }
+        [field: FieldOffset(2)] public byte Flags0 { get; set; }
+        [field: FieldOffset(3)] public byte Flags1 { get; set; }
+        [field: FieldOffset(4)] public ushort Count { get; set; }
+        [field: FieldOffset(6)] public ushort UseCount { get; set; }
 
         public ItemType Type => (ItemType) (Flags1 & 3);
         public int ReservedIndex => (Flags1 >> 2) & 0xF;
