@@ -68,6 +68,13 @@ namespace NHSE.Sprites
             fH = scale * h;
             var scaled = new int[fW * fH];
 
+            ScalePixelImage(data, scaled, fW, fH, scale);
+
+            return scaled;
+        }
+
+        private static void ScalePixelImage(int[] data, int[] scaled, int fW, int fH, int scale)
+        {
             // For each pixel, copy to the X indexes, then block copy the row to the other rows.
             for (int y = 0, i = 0; y < fH; y += scale)
             {
@@ -85,8 +92,6 @@ namespace NHSE.Sprites
                 for (int y1 = 1; y1 < scale; y1++)
                     Array.Copy(scaled, baseIndex, scaled, baseIndex + (y1 * fW), fW);
             }
-
-            return scaled;
         }
     }
 }

@@ -32,20 +32,26 @@ namespace NHSE.Sprites
             width = layer.GridWidth;
 
             var bmpData = new int[width * height];
+            LoadPixelsFromLayer(layer, x0, y0, width, bmpData);
+
+            return bmpData;
+        }
+
+        private static void LoadPixelsFromLayer(FieldItemLayer layer, int x0, int y0, int width, int[] bmpData)
+        {
             var stride = layer.GridWidth;
 
-            for (int x = 0; x < stride; x++)
+            for (int y = 0; y < stride; y++)
             {
-                for (int y = 0; y < stride; y++)
+                var baseIndex = (y * width);
+                for (int x = 0; x < stride; x++)
                 {
                     var tile = layer.GetTile(x + x0, y + y0);
                     var color = FieldItemSprite.GetItemColor(tile).ToArgb();
-                    var i = (y * width) + x;
-                    bmpData[i] = color;
+                    var index = baseIndex + x;
+                    bmpData[index] = color;
                 }
             }
-
-            return bmpData;
         }
 
         public static Bitmap GetBitmapLayerAcre(FieldItemLayer layer, int x0, int y0, int scale)
@@ -99,11 +105,12 @@ namespace NHSE.Sprites
             const int grid = -0x777778; // 0xFF888888u
 
             // Horizontal Lines
-            for (int x = 0; x < w; x++)
+            for (int y = scale; y < h; y += scale)
             {
-                for (int y = scale; y < h; y += scale)
+                var baseIndex = y * w;
+                for (int x = 0; x < w; x++)
                 {
-                    var index = (y * w) + x;
+                    var index = baseIndex + x;
                     data[index] = grid;
                 }
             }
@@ -111,9 +118,10 @@ namespace NHSE.Sprites
             // Vertical Lines
             for (int y = 0; y < h; y++)
             {
+                var baseIndex = y * w;
                 for (int x = scale; x < w; x += scale)
                 {
-                    var index = (y * w) + x;
+                    var index = baseIndex + x;
                     data[index] = grid;
                 }
             }
