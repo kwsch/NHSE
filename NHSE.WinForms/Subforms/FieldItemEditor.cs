@@ -13,7 +13,7 @@ namespace NHSE.WinForms
         private readonly FieldItemManager Items;
 
         private const int MapScale = 1;
-        private const int AcreScale = 17;
+        private const int AcreScale = 16;
 
         public FieldItemEditor(MainSave sav)
         {
@@ -103,7 +103,7 @@ namespace NHSE.WinForms
             if (tile == oldTile)
                 return;
             var str = GameInfo.Strings;
-            var name = str.GetItemName(tile.DisplayItemId);
+            var name = str.GetItemName(tile);
             TT_Hover.SetToolTip(PB_Acre, name);
         }
 
