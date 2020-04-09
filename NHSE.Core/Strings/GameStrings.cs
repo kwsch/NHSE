@@ -102,6 +102,33 @@ namespace NHSE.Core
             return GetItemName(index);
         }
 
+        public string GetItemName(FieldItem item)
+        {
+            var index = item.DisplayItemId;
+            if (index == FieldItem.NONE)
+                return itemlist[0];
+
+            var items = itemlistdisplay;
+            if (index >= items.Length)
+            {
+                if (FieldItemList.Items.TryGetValue(index, out var val))
+                    return val.Name;
+                return "???";
+            }
+
+            var kind = ItemInfo.GetItemKind(index);
+            if (kind == ItemKind.Kind_DIYRecipe)
+            {
+                var display = itemlistdisplay[index];
+                var recipeID = item.Count;
+                var isKnown = RecipeList.Recipes.TryGetValue(recipeID, out var result);
+                var makes = isKnown ? GetItemName(result) : recipeID.ToString("000");
+                return $"{display} - {makes}";
+            }
+
+            return GetItemName(index);
+        }
+
         public string GetItemName(ushort index)
         {
             if (index >= itemlistdisplay.Length)
