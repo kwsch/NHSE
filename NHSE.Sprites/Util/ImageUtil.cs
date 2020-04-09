@@ -71,13 +71,17 @@ namespace NHSE.Sprites
             // For each pixel, copy to the X indexes, then block copy the row to the other rows.
             for (int y = 0, i = 0; y < fH; y += scale)
             {
+                // Fill the X pixels
                 var baseIndex = y * fW;
                 for (int x = 0; x < fW; x += scale, i++)
                 {
+                    var v = data[i];
+                    var xi = baseIndex + x;
                     for (int x1 = 0; x1 < scale; x1++)
-                        scaled[baseIndex + x + x1] = data[i];
+                        scaled[xi + x1] = v;
                 }
 
+                // Copy entire pixel row down
                 for (int y1 = 1; y1 < scale; y1++)
                     Array.Copy(scaled, baseIndex, scaled, baseIndex + (y1 * fW), fW);
             }

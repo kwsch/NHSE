@@ -1,6 +1,4 @@
 ﻿using System.Drawing;
-using System.Drawing.Imaging;
-using System.Runtime.InteropServices;
 using NHSE.Core;
 
 namespace NHSE.Sprites
@@ -30,11 +28,7 @@ namespace NHSE.Sprites
                 }
             }
 
-            var result = new Bitmap(width, height, PixelFormat.Format32bppArgb);
-            var bData = result.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
-            Marshal.Copy(bmpData, 0, bData.Scan0, bmpData.Length);
-            result.UnlockBits(bData);
-            return result;
+            return ImageUtil.GetBitmap(bmpData, width, height);
         }
 
         private static int[] GetBitmapLayerAcre(FieldItemLayer layer, int x0, int y0, out int width, out int height)
@@ -62,13 +56,19 @@ namespace NHSE.Sprites
         public Bitmap GetBitmapLayerAcre(FieldItemLayer layer, int x0, int y0, int scale)
         {
             var map = GetBitmapLayerAcre(layer, x0, y0, out int mh, out int mw);
-            var data = ImageUtil.ScalePixelImage(map, scale, mw, mh, out var fw, out var fh);
+            var data = ImageUtil.ScalePixelImage(map, scale, mw, mh, out var w, out var h);
 
             // draw symbols over special items now?
 
             // Slap on a grid
-            var w = fw;
-            var h = fh;
+            DrawGrid(data, w, h, scale);
+
+            // Return final data
+            return ImageUtil.GetBitmap(data, w, h);
+        }
+
+        private static void DrawGrid(int[] data, int w, int h, int scale)
+        {
             const int grid = -0x777778; // 0xFF888888u
 
             // Horizontal Lines
@@ -90,9 +90,6 @@ namespace NHSE.Sprites
                     data[index] = grid;
                 }
             }
-
-            // Return final data
-            return ImageUtil.GetBitmap(data, fw, fh);
         }
 
         public Bitmap GetBitmapLayer(FieldItemLayer layer, int x, int y, int scale = 1)
