@@ -47,7 +47,7 @@ namespace NHSE.WinForms
 
         private void ReloadMap()
         {
-            PB_Map.Image = SpriteUtil.FieldItems.GetBitmapLayer(Layer, X, Y);
+            PB_Map.Image = FieldItemSpriteDrawer.GetBitmapLayer(Layer, X, Y);
         }
 
         private void LoadGrid(int topX, int topY)
@@ -59,7 +59,7 @@ namespace NHSE.WinForms
 
         private void ReloadGrid(FieldItemLayer layer, int topX, int topY)
         {
-            PB_Acre.Image = SpriteUtil.FieldItems.GetBitmapLayerAcre(layer, topX, topY, AcreScale);
+            PB_Acre.Image = FieldItemSpriteDrawer.GetBitmapLayerAcre(layer, topX, topY, AcreScale);
         }
 
         private void UpdateArrowVisibility()
@@ -301,7 +301,7 @@ namespace NHSE.WinForms
             }
 
             const string name = "map";
-            var bmp = SpriteUtil.FieldItems.GetBitmapLayer(Items.Layer1);
+            var bmp = FieldItemSpriteDrawer.GetBitmapLayer(Items.Layer1);
             using var sfd = new SaveFileDialog
             {
                 Filter = "png file (*.png)|*.png|All files (*.*)|*.*",

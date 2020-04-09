@@ -3,14 +3,9 @@ using NHSE.Core;
 
 namespace NHSE.Sprites
 {
-    public class FieldItemSpriteDrawer
+    public static class FieldItemSpriteDrawer
     {
-        public int Width { get; set; } = 8;
-        public int Height { get; set; } = 8;
-
-        public Bitmap GetImage(FieldItem item) => FieldItemSprite.GetImage(item, Width, Height);
-
-        public Bitmap GetBitmapLayer(FieldItemLayer layer)
+        public static Bitmap GetBitmapLayer(FieldItemLayer layer)
         {
             var items = layer.Tiles;
             var height = layer.MapHeight;
@@ -53,18 +48,50 @@ namespace NHSE.Sprites
             return bmpData;
         }
 
-        public Bitmap GetBitmapLayerAcre(FieldItemLayer layer, int x0, int y0, int scale)
+        public static Bitmap GetBitmapLayerAcre(FieldItemLayer layer, int x0, int y0, int scale)
         {
             var map = GetBitmapLayerAcre(layer, x0, y0, out int mh, out int mw);
             var data = ImageUtil.ScalePixelImage(map, scale, mw, mh, out var w, out var h);
 
             // draw symbols over special items now?
+            DrawDirectionals(data, layer, w, x0, y0, scale);
 
             // Slap on a grid
             DrawGrid(data, w, h, scale);
 
             // Return final data
             return ImageUtil.GetBitmap(data, w, h);
+        }
+
+        private static void DrawDirectionals(int[] data, FieldItemLayer layer, int w, int x0, int y0, int scale)
+        {
+            for (int x = x0; x < x0 + layer.GridWidth; x++)
+            {
+                for (int y = y0; y < y0 + layer.GridHeight; y++)
+                {
+                    var tile = layer.GetTile(x, y);
+                    if (!tile.IsExtension)
+                        continue;
+                    DrawDirectional(data, tile, (x - x0) * scale, (y - y0) * scale, scale, w);
+                }
+            }
+        }
+
+        private static void DrawDirectional(int[] data, FieldItem tile, int x0, int y0, int scale, int w)
+        {
+            var eX = tile.ExtensionX;
+            var eY = tile.ExtensionY;
+            var sum = eX + eY;
+            var start = scale / (sum + 1);
+            var startX = eX >= eY ? 0 : start;
+            var startY = eX <= eY ? 0 : start;
+
+            var baseIndex = (w * y0) + x0;
+            for (int x = startX, y = startY; x < scale && y < scale; x += eX, y += eY)
+            {
+                var index = baseIndex + (w * y) + x;
+                data[index] ^= 0x808080;
+            }
         }
 
         private static void DrawGrid(int[] data, int w, int h, int scale)
@@ -92,7 +119,7 @@ namespace NHSE.Sprites
             }
         }
 
-        public Bitmap GetBitmapLayer(FieldItemLayer layer, int x, int y, int scale = 1)
+        public static Bitmap GetBitmapLayer(FieldItemLayer layer, int x, int y, int scale = 1)
         {
             var map = GetBitmapLayer(layer);
             if (scale > 1)
