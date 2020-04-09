@@ -32,11 +32,16 @@ namespace NHSE.Sprites
         public static Bitmap GetBitmap(int[] data, int width, int height, PixelFormat format = PixelFormat.Format32bppArgb)
         {
             var bmp = new Bitmap(width, height, format);
-            var bmpData = bmp.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.WriteOnly, format);
+            SetBitmapData(bmp, data, format);
+            return bmp;
+        }
+
+        public static void SetBitmapData(Bitmap bmp, int[] data, PixelFormat format = PixelFormat.Format32bppArgb)
+        {
+            var bmpData = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.WriteOnly, format);
             var ptr = bmpData.Scan0;
             Marshal.Copy(data, 0, ptr, data.Length);
             bmp.UnlockBits(bmpData);
-            return bmp;
         }
 
         // https://stackoverflow.com/a/24199315
@@ -73,7 +78,7 @@ namespace NHSE.Sprites
             return scaled;
         }
 
-        private static void ScalePixelImage(int[] data, int[] scaled, int fW, int fH, int scale)
+        public static void ScalePixelImage(int[] data, int[] scaled, int fW, int fH, int scale)
         {
             // For each pixel, copy to the X indexes, then block copy the row to the other rows.
             for (int y = 0, i = 0; y < fH; y += scale)

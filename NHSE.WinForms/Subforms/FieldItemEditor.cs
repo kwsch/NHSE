@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
@@ -15,12 +16,31 @@ namespace NHSE.WinForms
         private const int MapScale = 1;
         private const int AcreScale = 16;
 
+        // Cached acre view objects to remove allocation/GC
+        private readonly int[] Scale1;
+        private readonly int[] ScaleX;
+        private readonly Bitmap ScaleAcre;
+
+        private readonly int[] Map;
+        private readonly Bitmap MapReticle;
+
+        private int X;
+        private int Y;
+
         public FieldItemEditor(MainSave sav)
         {
             SAV = sav;
             InitializeComponent();
 
             Items = new FieldItemManager(SAV.GetFieldItems());
+
+            var l1 = Items.Layer1;
+            Scale1 = new int[l1.GridWidth * l1.GridHeight];
+            ScaleX = new int[Scale1.Length * AcreScale * AcreScale];
+            ScaleAcre = new Bitmap(l1.GridWidth * AcreScale, l1.GridHeight * AcreScale);
+
+            Map = new int[l1.MapWidth * l1.MapHeight * MapScale * MapScale];
+            MapReticle = new Bitmap(l1.MapWidth * MapScale, l1.MapHeight * MapScale);
 
             foreach (var acre in MapGrid.Acres)
                 CB_Acre.Items.Add(acre.Name);
@@ -29,9 +49,6 @@ namespace NHSE.WinForms
             CB_Acre.SelectedIndex = 0;
             LoadGrid(X, Y);
         }
-
-        private int X;
-        private int Y;
 
         private int AcreIndex => CB_Acre.SelectedIndex;
 
@@ -47,7 +64,7 @@ namespace NHSE.WinForms
 
         private void ReloadMap()
         {
-            PB_Map.Image = FieldItemSpriteDrawer.GetBitmapLayer(Layer, X, Y);
+            PB_Map.Image = FieldItemSpriteDrawer.GetBitmapLayer(Layer, X, Y, Map, MapReticle);
         }
 
         private void LoadGrid(int topX, int topY)
@@ -59,7 +76,7 @@ namespace NHSE.WinForms
 
         private void ReloadGrid(FieldItemLayer layer, int topX, int topY)
         {
-            PB_Acre.Image = FieldItemSpriteDrawer.GetBitmapLayerAcre(layer, topX, topY, AcreScale);
+            PB_Acre.Image = FieldItemSpriteDrawer.GetBitmapLayerAcre(layer, topX, topY, AcreScale, Scale1, ScaleX, ScaleAcre);
         }
 
         private void UpdateArrowVisibility()

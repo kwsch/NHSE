@@ -16,6 +16,8 @@
             if (disposing && (components != null))
             {
                 components.Dispose();
+                ScaleAcre.Dispose();
+                MapReticle.Dispose();
             }
             base.Dispose(disposing);
         }

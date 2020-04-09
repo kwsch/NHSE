@@ -12,6 +12,13 @@ namespace NHSE.Sprites
             var width = items.Length / height;
 
             var bmpData = new int[width * height];
+            LoadBitmapLayer(items, bmpData, width, height);
+
+            return ImageUtil.GetBitmap(bmpData, width, height);
+        }
+
+        private static void LoadBitmapLayer(FieldItem[] items, int[] bmpData, int width, int height)
+        {
             for (int x = 0; x < width; x++)
             {
                 var ix = x * height;
@@ -22,8 +29,6 @@ namespace NHSE.Sprites
                     bmpData[(y * width) + x] = FieldItemSprite.GetItemColor(tile).ToArgb();
                 }
             }
-
-            return ImageUtil.GetBitmap(bmpData, width, height);
         }
 
         private static int[] GetBitmapLayerAcre(FieldItemLayer layer, int x0, int y0, out int width, out int height)
@@ -54,6 +59,28 @@ namespace NHSE.Sprites
             }
         }
 
+        // non-allocation image generator
+        public static Bitmap GetBitmapLayerAcre(FieldItemLayer layer, int x0, int y0, int scale, int[] acre1, int[] acreScale, Bitmap dest)
+        {
+            var w = layer.GridWidth;
+            var h = layer.GridHeight;
+            LoadPixelsFromLayer(layer, x0, y0, w, acre1);
+            w *= scale;
+            h *= scale;
+            ImageUtil.ScalePixelImage(acre1, acreScale, w, h, scale);
+
+            // draw symbols over special items now?
+            DrawDirectionals(acreScale, layer, w, x0, y0, scale);
+
+            // Slap on a grid
+            DrawGrid(acreScale, w, h, scale);
+
+            // Return final data
+            ImageUtil.SetBitmapData(dest, acreScale);
+            return dest;
+        }
+
+        // unused -- allocates!
         public static Bitmap GetBitmapLayerAcre(FieldItemLayer layer, int x0, int y0, int scale)
         {
             var map = GetBitmapLayerAcre(layer, x0, y0, out int mh, out int mw);
@@ -136,7 +163,14 @@ namespace NHSE.Sprites
             return DrawViewReticle(map, layer, x, y, scale);
         }
 
-        private static Bitmap DrawViewReticle(Bitmap map, MapGrid g, int x, int y, int scale)
+        public static Bitmap GetBitmapLayer(FieldItemLayer layer, int x, int y, int[] data, Bitmap dest)
+        {
+            LoadBitmapLayer(layer.Tiles, data, layer.MapWidth, layer.MapHeight);
+            ImageUtil.SetBitmapData(dest, data);
+            return DrawViewReticle(dest, layer, x, y);
+        }
+
+        private static Bitmap DrawViewReticle(Bitmap map, MapGrid g, int x, int y, int scale = 1)
         {
             using var gfx = Graphics.FromImage(map);
             using var pen = new Pen(Color.Red);
