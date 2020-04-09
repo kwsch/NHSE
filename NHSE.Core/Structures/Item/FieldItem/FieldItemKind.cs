@@ -49,4 +49,9 @@
         StoneE,
         UnitIconHole,
     }
+
+    public static class FieldItemKindExtensions
+    {
+        public static bool IsWeed(this FieldItemKind type) => FieldItemKind.PltWeedAut0 <= type && type <= FieldItemKind.PltWeedWin1;
+    }
 }

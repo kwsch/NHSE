@@ -55,6 +55,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TT_Hover = new System.Windows.Forms.ToolTip(this.components);
             this.PB_Acre = new System.Windows.Forms.PictureBox();
+            this.B_RemoveAllWeeds = new System.Windows.Forms.Button();
+            this.B_FillHoles = new System.Windows.Forms.Button();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
@@ -320,11 +322,33 @@
             this.PB_Acre.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PB_Acre_MouseClick);
             this.PB_Acre.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PB_Acre_MouseMove);
             // 
+            // B_RemoveAllWeeds
+            // 
+            this.B_RemoveAllWeeds.Location = new System.Drawing.Point(857, 235);
+            this.B_RemoveAllWeeds.Name = "B_RemoveAllWeeds";
+            this.B_RemoveAllWeeds.Size = new System.Drawing.Size(112, 40);
+            this.B_RemoveAllWeeds.TabIndex = 29;
+            this.B_RemoveAllWeeds.Text = "Remove Weeds";
+            this.B_RemoveAllWeeds.UseVisualStyleBackColor = true;
+            this.B_RemoveAllWeeds.Click += new System.EventHandler(this.B_RemoveAllWeeds_Click);
+            // 
+            // B_FillHoles
+            // 
+            this.B_FillHoles.Location = new System.Drawing.Point(857, 281);
+            this.B_FillHoles.Name = "B_FillHoles";
+            this.B_FillHoles.Size = new System.Drawing.Size(112, 40);
+            this.B_FillHoles.TabIndex = 30;
+            this.B_FillHoles.Text = "Fill Holes";
+            this.B_FillHoles.UseVisualStyleBackColor = true;
+            this.B_FillHoles.Click += new System.EventHandler(this.B_FillHoles_Click);
+            // 
             // FieldItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(981, 537);
+            this.Controls.Add(this.B_FillHoles);
+            this.Controls.Add(this.B_RemoveAllWeeds);
             this.Controls.Add(this.PB_Acre);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.NUD_Layer);
@@ -389,5 +413,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolTip TT_Hover;
         private System.Windows.Forms.PictureBox PB_Acre;
+        private System.Windows.Forms.Button B_RemoveAllWeeds;
+        private System.Windows.Forms.Button B_FillHoles;
     }
 }

@@ -381,5 +381,29 @@ namespace NHSE.WinForms
         }
 
         private void NUD_Layer_ValueChanged(object sender, EventArgs e) => LoadGrid(X, Y);
+
+        private void B_RemoveAllWeeds_Click(object sender, EventArgs e)
+        {
+            int count = Layer.RemoveAllWeeds();
+            if (count == 0)
+            {
+                WinFormsUtil.Alert("Nothing removed from the map (none found).");
+                return;
+            }
+            LoadGrid(X, Y);
+            System.Media.SystemSounds.Asterisk.Play();
+        }
+
+        private void B_FillHoles_Click(object sender, EventArgs e)
+        {
+            int count = Layer.RemoveAllHoles();
+            if (count == 0)
+            {
+                WinFormsUtil.Alert("Nothing removed from the map (none found).");
+                return;
+            }
+            LoadGrid(X, Y);
+            System.Media.SystemSounds.Asterisk.Play();
+        }
     }
 }

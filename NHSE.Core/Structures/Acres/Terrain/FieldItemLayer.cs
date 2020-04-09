@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 
 namespace NHSE.Core
 {
@@ -60,5 +61,27 @@ namespace NHSE.Core
                 tile.CopyFrom(tiles[i]);
             }
         }
+
+        public int ClearField(Func<FieldItemKind, bool> criteria)
+        {
+            int count = 0;
+            var fi = FieldItemList.Items;
+            foreach (var t in Tiles)
+            {
+                var disp = t.DisplayItemId;
+                if (!fi.TryGetValue(disp, out var val))
+                    continue;
+
+                if (!criteria(val.Kind))
+                    continue;
+                t.Delete();
+                count++;
+            }
+
+            return count;
+        }
+
+        public int RemoveAllHoles() => ClearField(z => z == FieldItemKind.UnitIconHole);
+        public int RemoveAllWeeds() => ClearField(z => z.IsWeed());
     }
 }
