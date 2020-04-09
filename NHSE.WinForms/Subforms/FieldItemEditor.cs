@@ -405,5 +405,7 @@ namespace NHSE.WinForms
             LoadGrid(X, Y);
             System.Media.SystemSounds.Asterisk.Play();
         }
+
+        private void PG_Tile_PropertyValueChanged(object s, PropertyValueChangedEventArgs e) => PG_Tile.SelectedObject = PG_Tile.SelectedObject;
     }
 }

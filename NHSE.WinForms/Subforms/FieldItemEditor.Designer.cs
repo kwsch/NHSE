@@ -90,10 +90,13 @@
             // 
             this.PG_Tile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.PG_Tile.HelpVisible = false;
             this.PG_Tile.Location = new System.Drawing.Point(767, 12);
             this.PG_Tile.Name = "PG_Tile";
-            this.PG_Tile.Size = new System.Drawing.Size(202, 217);
+            this.PG_Tile.PropertySort = System.Windows.Forms.PropertySort.Categorized;
+            this.PG_Tile.Size = new System.Drawing.Size(202, 372);
             this.PG_Tile.TabIndex = 9;
+            this.PG_Tile.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.PG_Tile_PropertyValueChanged);
             // 
             // CB_Acre
             // 
@@ -324,9 +327,9 @@
             // 
             // B_RemoveAllWeeds
             // 
-            this.B_RemoveAllWeeds.Location = new System.Drawing.Point(857, 235);
+            this.B_RemoveAllWeeds.Location = new System.Drawing.Point(767, 393);
             this.B_RemoveAllWeeds.Name = "B_RemoveAllWeeds";
-            this.B_RemoveAllWeeds.Size = new System.Drawing.Size(112, 40);
+            this.B_RemoveAllWeeds.Size = new System.Drawing.Size(98, 40);
             this.B_RemoveAllWeeds.TabIndex = 29;
             this.B_RemoveAllWeeds.Text = "Remove Weeds";
             this.B_RemoveAllWeeds.UseVisualStyleBackColor = true;
@@ -334,9 +337,9 @@
             // 
             // B_FillHoles
             // 
-            this.B_FillHoles.Location = new System.Drawing.Point(857, 281);
+            this.B_FillHoles.Location = new System.Drawing.Point(871, 393);
             this.B_FillHoles.Name = "B_FillHoles";
-            this.B_FillHoles.Size = new System.Drawing.Size(112, 40);
+            this.B_FillHoles.Size = new System.Drawing.Size(98, 40);
             this.B_FillHoles.TabIndex = 30;
             this.B_FillHoles.Text = "Fill Holes";
             this.B_FillHoles.UseVisualStyleBackColor = true;

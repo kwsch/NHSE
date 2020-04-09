@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Runtime.InteropServices;
 
 namespace NHSE.Core
@@ -10,26 +11,29 @@ namespace NHSE.Core
         public const ushort NONE = 0xFFFE;
         public const int SIZE = 8;
 
-        public bool IsNone => ItemType == NONE;
-        public bool IsExtension => ItemType == EXTENSION;
-        public bool IsRoot => ItemType < EXTENSION;
+        private const string HeldItem = nameof(HeldItem);
+        private const string ExtensionItem = nameof(ExtensionItem);
+        private const string Derived = nameof(Derived);
+
+        [Category(Derived)] public bool IsNone => ItemType == NONE;
+        [Category(Derived)] public bool IsExtension => ItemType == EXTENSION;
+        [Category(Derived)] public bool IsRoot => ItemType < EXTENSION;
+        [Category(Derived)] public ushort DisplayItemId => IsExtension ? ExtensionItemId : ItemId;
 
         // Item Definition
-        [FieldOffset(0)] public ushort ItemId;
-        [FieldOffset(2)] public byte Flags0;
-        [FieldOffset(3)] public byte Flags1;
-        [FieldOffset(4)] public ushort Count;
-        [FieldOffset(6)] public ushort UseCount;
+        [field: FieldOffset(0)][Category(HeldItem)] public ushort ItemId { get; set; }
+        [field: FieldOffset(2)][Category(HeldItem)] public byte Flags0 { get; set; }
+        [field: FieldOffset(3)][Category(HeldItem)] public byte Flags1 { get; set; }
+        [field: FieldOffset(4)][Category(HeldItem)] public ushort Count { get; set; }
+        [field: FieldOffset(6)][Category(HeldItem)] public ushort UseCount { get; set; }
 
         // Field Item Definition
-        [FieldOffset(0)] public ushort ItemType;
-        [FieldOffset(2)] public byte Rotation;
-        [FieldOffset(3)] public byte E03;
-        [FieldOffset(4)] public ushort ExtensionItemId;
-        [FieldOffset(6)] public byte ExtensionX;
-        [FieldOffset(7)] public byte ExtensionY;
-
-        public ushort DisplayItemId => IsExtension ? ExtensionItemId : ItemId;
+        [field: FieldOffset(0)][Category(ExtensionItem)] public ushort ItemType { get; set; }
+        [field: FieldOffset(2)][Category(ExtensionItem)] public byte Rotation { get; set; }
+        [field: FieldOffset(3)][Category(ExtensionItem)] public byte E03 { get; set; }
+        [field: FieldOffset(4)][Category(ExtensionItem)] public ushort ExtensionItemId { get; set; }
+        [field: FieldOffset(6)][Category(ExtensionItem)] public byte ExtensionX { get; set; }
+        [field: FieldOffset(7)][Category(ExtensionItem)] public byte ExtensionY { get; set; }
 
         public FieldItem() { } // marshalling
 
