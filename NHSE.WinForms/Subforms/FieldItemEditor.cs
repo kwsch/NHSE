@@ -423,6 +423,40 @@ namespace NHSE.WinForms
             System.Media.SystemSounds.Asterisk.Play();
         }
 
+        private void B_RemovePlants_Click(object sender, EventArgs e)
+        {
+            const string q = "Are you sure you want to remove all plants?";
+            var question = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, q);
+            if (question != DialogResult.Yes)
+                return;
+
+            int count = Layer.RemoveAllPlants();
+            if (count == 0)
+            {
+                WinFormsUtil.Alert("Nothing removed from the map (none found).");
+                return;
+            }
+            LoadGrid(X, Y);
+            System.Media.SystemSounds.Asterisk.Play();
+        }
+
+        private void B_RemoveAll_Click(object sender, EventArgs e)
+        {
+            const string q = "Are you sure you want to remove everything?";
+            var question = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, q);
+            if (question != DialogResult.Yes)
+                return;
+
+            int count = Layer.RemoveAll(_ => true);
+            if (count == 0)
+            {
+                WinFormsUtil.Alert("Nothing removed from the map (none found).");
+                return;
+            }
+            LoadGrid(X, Y);
+            System.Media.SystemSounds.Asterisk.Play();
+        }
+
         private void PG_Tile_PropertyValueChanged(object s, PropertyValueChangedEventArgs e) => PG_Tile.SelectedObject = PG_Tile.SelectedObject;
     }
 }

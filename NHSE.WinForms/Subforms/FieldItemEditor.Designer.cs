@@ -59,6 +59,8 @@
             this.PB_Acre = new System.Windows.Forms.PictureBox();
             this.B_RemoveAllWeeds = new System.Windows.Forms.Button();
             this.B_FillHoles = new System.Windows.Forms.Button();
+            this.B_RemovePlants = new System.Windows.Forms.Button();
+            this.B_RemoveAll = new System.Windows.Forms.Button();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
@@ -347,11 +349,33 @@
             this.B_FillHoles.UseVisualStyleBackColor = true;
             this.B_FillHoles.Click += new System.EventHandler(this.B_FillHoles_Click);
             // 
+            // B_RemovePlants
+            // 
+            this.B_RemovePlants.Location = new System.Drawing.Point(767, 439);
+            this.B_RemovePlants.Name = "B_RemovePlants";
+            this.B_RemovePlants.Size = new System.Drawing.Size(98, 40);
+            this.B_RemovePlants.TabIndex = 31;
+            this.B_RemovePlants.Text = "Remove Plants";
+            this.B_RemovePlants.UseVisualStyleBackColor = true;
+            this.B_RemovePlants.Click += new System.EventHandler(this.B_RemovePlants_Click);
+            // 
+            // B_RemoveAll
+            // 
+            this.B_RemoveAll.Location = new System.Drawing.Point(871, 439);
+            this.B_RemoveAll.Name = "B_RemoveAll";
+            this.B_RemoveAll.Size = new System.Drawing.Size(98, 40);
+            this.B_RemoveAll.TabIndex = 32;
+            this.B_RemoveAll.Text = "Remove Plants";
+            this.B_RemoveAll.UseVisualStyleBackColor = true;
+            this.B_RemoveAll.Click += new System.EventHandler(this.B_RemoveAll_Click);
+            // 
             // FieldItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(981, 537);
+            this.Controls.Add(this.B_RemoveAll);
+            this.Controls.Add(this.B_RemovePlants);
             this.Controls.Add(this.B_FillHoles);
             this.Controls.Add(this.B_RemoveAllWeeds);
             this.Controls.Add(this.PB_Acre);
@@ -420,5 +444,7 @@
         private System.Windows.Forms.PictureBox PB_Acre;
         private System.Windows.Forms.Button B_RemoveAllWeeds;
         private System.Windows.Forms.Button B_FillHoles;
+        private System.Windows.Forms.Button B_RemovePlants;
+        private System.Windows.Forms.Button B_RemoveAll;
     }
 }

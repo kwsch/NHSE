@@ -62,7 +62,7 @@ namespace NHSE.Core
             }
         }
 
-        public int ClearField(Func<FieldItemKind, bool> criteria)
+        public int ClearFieldPlanted(Func<FieldItemKind, bool> criteria)
         {
             int count = 0;
             var fi = FieldItemList.Items;
@@ -81,7 +81,22 @@ namespace NHSE.Core
             return count;
         }
 
-        public int RemoveAllHoles() => ClearField(z => z == FieldItemKind.UnitIconHole);
-        public int RemoveAllWeeds() => ClearField(z => z.IsWeed());
+        public int RemoveAll(Func<FieldItem, bool> criteria)
+        {
+            int count = 0;
+            foreach (var t in Tiles)
+            {
+                if (!criteria(t))
+                    continue;
+                t.Delete();
+                count++;
+            }
+
+            return count;
+        }
+
+        public int RemoveAllHoles() => ClearFieldPlanted(z => z == FieldItemKind.UnitIconHole);
+        public int RemoveAllWeeds() => ClearFieldPlanted(z => z.IsWeed());
+        public int RemoveAllPlants() => ClearFieldPlanted(_ => true);
     }
 }
