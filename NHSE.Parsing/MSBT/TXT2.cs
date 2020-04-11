@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace NHSE.Parsing
 {
@@ -7,5 +8,9 @@ namespace NHSE.Parsing
         public uint NumberOfStrings;
 
         public readonly List<MSBTTextString> Strings = new List<MSBTTextString>();
+
+        public TXT2() : base(string.Empty, Array.Empty<byte>())
+        {
+        }
     }
 }

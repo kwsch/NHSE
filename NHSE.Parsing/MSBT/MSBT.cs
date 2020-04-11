@@ -75,9 +75,10 @@ namespace NHSE.Parsing
 
 				for (int i = 0; i < grp.NumberOfLabels; i++)
 				{
-                    MSBTLabel lbl = new MSBTLabel {Length = Convert.ToUInt32(br.ReadByte())};
-                    lbl.Name = br.ReadString((int)lbl.Length);
-					lbl.Index = br.ReadUInt32();
+                    var length = Convert.ToUInt32(br.ReadByte());
+					var name = br.ReadString((int)length);
+					var index = br.ReadUInt32();
+                    var lbl = new MSBTLabel(name) {Index = index, Length = length};
 					LBL1.Labels.Add(lbl);
 				}
 			}

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace NHSE.Parsing
 {
@@ -8,5 +9,9 @@ namespace NHSE.Parsing
 
         public readonly List<MSBTGroup> Groups = new List<MSBTGroup>();
         public readonly List<MSBTLabel> Labels = new List<MSBTLabel>();
+
+        public LBL1() : base(string.Empty, Array.Empty<byte>())
+        {
+        }
     }
 }
