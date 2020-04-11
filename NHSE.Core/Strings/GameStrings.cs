@@ -62,7 +62,7 @@ namespace NHSE.Core
 
         public string GetVillager(string name)
         {
-            return VillagerMap.TryGetValue(name, out var result) ? result : "???";
+            return VillagerMap.TryGetValue(name, out var result) ? result : name;
         }
 
         public static string[] GetItemDisplayList(string[] items)
