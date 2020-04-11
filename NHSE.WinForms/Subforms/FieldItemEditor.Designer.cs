@@ -365,7 +365,7 @@
             this.B_RemoveAll.Name = "B_RemoveAll";
             this.B_RemoveAll.Size = new System.Drawing.Size(98, 40);
             this.B_RemoveAll.TabIndex = 32;
-            this.B_RemoveAll.Text = "Remove Plants";
+            this.B_RemoveAll.Text = "Remove All";
             this.B_RemoveAll.UseVisualStyleBackColor = true;
             this.B_RemoveAll.Click += new System.EventHandler(this.B_RemoveAll_Click);
             // 

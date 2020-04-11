@@ -19,12 +19,13 @@ namespace NHSE.Core
         [Category(Derived)] public bool IsExtension => ItemType == EXTENSION;
         [Category(Derived)] public bool IsRoot => ItemType < EXTENSION;
         [Category(Derived)] public ushort DisplayItemId => IsExtension ? ExtensionItemId : ItemId;
+        [Category(Derived)] public bool IsBuried => (Flags0 & 4) != 0;
 
         // Item Definition
         [field: FieldOffset(0)][Category(HeldItem)] public ushort ItemId { get; set; }
         [field: FieldOffset(2)][Category(HeldItem)] public byte Flags0 { get; set; }
         [field: FieldOffset(3)][Category(HeldItem)] public byte Flags1 { get; set; }
-        [field: FieldOffset(4)][Category(HeldItem)] public ushort Count { get; set; }
+        [field: FieldOffset(4)][Category(HeldItem)] public ushort Count { get; set; } // Tree Shake/Fossil Item ID
         [field: FieldOffset(6)][Category(HeldItem)] public ushort UseCount { get; set; }
 
         // Field Item Definition

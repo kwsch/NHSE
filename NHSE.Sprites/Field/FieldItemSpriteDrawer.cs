@@ -103,10 +103,32 @@ namespace NHSE.Sprites
                 for (int y = y0; y < y0 + layer.GridHeight; y++)
                 {
                     var tile = layer.GetTile(x, y);
-                    if (!tile.IsExtension)
+                    if (tile.IsNone)
                         continue;
-                    DrawDirectional(data, tile, (x - x0) * scale, (y - y0) * scale, scale, w);
+                    if (tile.IsBuried)
+                        DrawX(data, (x - x0) * scale, (y - y0) * scale, scale, w);
+                    else if (tile.IsExtension)
+                        DrawDirectional(data, tile, (x - x0) * scale, (y - y0) * scale, scale, w);
                 }
+            }
+        }
+
+        private static void DrawX(int[] data, int x0, int y0, int scale, int w)
+        {
+            var opposite = scale - 1;
+            var wo = w * opposite;
+
+            // Starting offsets for each of the slashes
+            var bBackward = (w * y0) + x0; // Backwards \
+            var bForward = bBackward + wo; //  Forwards /
+
+            for (int x = 0; x < scale; x++)
+            {
+                var wx = w * x;
+                var backward = bBackward + x + wx;
+                data[backward] ^= 0x808080;
+                var forward = bForward + x - wx;
+                data[forward] ^= 0x808080;
             }
         }
 
