@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using NHSE.Parsing.Properties;
 
 namespace NHSE.Parsing
 {
     public class BCSV
     {
+        private static readonly BCSVEnumDictionary EnumLookup = new BCSVEnumDictionary(Resources.specs_111.Split('\n'));
+
         public const int MAGIC = 0x42435356; // BCSV
 
         public readonly byte[] Data;
@@ -72,7 +75,7 @@ namespace NHSE.Parsing
             {
                 1 => Data[offset].ToString(),
                 2 => BitConverter.ToInt16(Data, offset).ToString(),
-                4 => $"0x{BitConverter.ToUInt32(Data, offset):X8}",
+                4 => EnumLookup[BitConverter.ToUInt32(Data, offset)],
                 8 => $"0x{BitConverter.ToUInt64(Data, offset):X16}",
                 _ => Encoding.UTF8.GetString(Data, offset, length),
             };
