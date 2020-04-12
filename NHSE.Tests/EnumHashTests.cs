@@ -15,12 +15,5 @@ namespace NHSE.Tests
             var computed = CRC32.Compute(str);
             computed.Should().Be(val);
         }
-
-        [Fact]
-        public void DUmmy()
-        {
-            var folder = @"D:\Kurt\Desktop\v11 bcsv";
-            GameBCSVDumper.UpdateDumps(folder, folder, true);
-        }
     }
 }
