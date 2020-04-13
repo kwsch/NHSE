@@ -9,25 +9,25 @@ namespace NHSE.Core
 
         public uint BuyPrice { get; set; }
 
-        public uint SellSunday1 { get; set; }
-        public uint SellSunday2 { get; set; }
+        public uint SellSundayAM { get; set; }
+        public uint SellSundayPM { get; set; }
 
-        public uint SellMonday1 { get; set; }
-        public uint SellMonday2 { get; set; }
+        public uint SellMondayAM { get; set; }
+        public uint SellMondayPM { get; set; }
 
-        public uint SellTuesday1 { get; set; }
-        public uint SellTuesday2 { get; set; }
+        public uint SellTuesdayAM { get; set; }
+        public uint SellTuesdayPM { get; set; }
 
-        public uint SellWednesday1 { get; set; }
-        public uint SellWednesday2 { get; set; }
+        public uint SellWednesdayAM { get; set; }
+        public uint SellWednesdayPM { get; set; }
 
-        public uint SellThursday1 { get; set; }
-        public uint SellThursday2 { get; set; }
+        public uint SellThursdayAM { get; set; }
+        public uint SellThursdayPM { get; set; }
 
-        public uint SellFriday1 { get; set; }
-        public uint SellFriday2 { get; set; }
+        public uint SellFridayAM { get; set; }
+        public uint SellFridayPM { get; set; }
 
-        public uint SellSaturday1 { get; set; }
-        public uint SellSaturday2 { get; set; }
+        public uint SellSaturdayAM { get; set; }
+        public uint SellSaturdayPM { get; set; }
     }
 }

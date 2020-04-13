@@ -40,5 +40,13 @@ namespace NHSE.Tests
             var bytes = obj.ToBytesClass();
             bytes.Length.Should().Be(TerrainTile.SIZE);
         }
+
+        [Fact]
+        public void TurnipMarshal()
+        {
+            var obj = new TurnipStonk();
+            var bytes = obj.ToBytesClass();
+            bytes.Length.Should().Be(TurnipStonk.SIZE);
+        }
     }
 }
