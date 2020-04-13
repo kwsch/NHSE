@@ -295,7 +295,7 @@ namespace NHSE.WinForms
             var path = ofd.FileName;
             var fi = new FileInfo(path);
 
-            int expect = layer.AcreTileCount * FieldItem.SIZE;
+            int expect = layer.MapTileCount * FieldItem.SIZE;
             if (fi.Length != expect)
             {
                 WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X}", path);
