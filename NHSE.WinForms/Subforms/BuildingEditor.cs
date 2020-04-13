@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Sprites;
@@ -116,5 +117,53 @@ namespace NHSE.WinForms
         }
 
         private void NUD_PlazaCoordinate_ValueChanged(object sender, EventArgs e) => DrawMap(Index);
+
+
+        private void B_DumpAll_Click(object sender, EventArgs e)
+        {
+            using var sfd = new SaveFileDialog
+            {
+                Filter = "New Horizons Building List (*.nhb)|*.nhb|All files (*.*)|*.*",
+                FileName = "buildings.nhb",
+            };
+            if (sfd.ShowDialog() != DialogResult.OK)
+                return;
+
+            var path = sfd.FileName;
+            byte[] data = Building.SetArray(Buildings);
+            File.WriteAllBytes(path, data);
+        }
+
+        private void B_ImportAll_Click(object sender, EventArgs e)
+        {
+            using var ofd = new OpenFileDialog
+            {
+                Filter = "New Horizons Building List (*.nhb)|*.nhb|All files (*.*)|*.*",
+                FileName = "buildings.nhb",
+            };
+            if (ofd.ShowDialog() != DialogResult.OK)
+                return;
+
+            var path = ofd.FileName;
+            var fi = new FileInfo(path);
+
+            int expect = MainSaveOffsets.BuildingCount * Building.SIZE;
+            if (fi.Length != expect)
+            {
+                WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X}", path);
+                return;
+            }
+
+            var data = File.ReadAllBytes(path);
+            var arr = Building.GetArray(data);
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Buildings[i].CopyFrom(arr[i]);
+                LB_Items.Items[i] = Buildings[i].ToString();
+            }
+            LB_Items.SelectedIndex = 0;
+            DrawMap(0);
+            System.Media.SystemSounds.Asterisk.Play();
+        }
     }
 }

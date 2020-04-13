@@ -33,6 +33,17 @@ namespace NHSE.Core
             Unk08 = Unk0C = Unk10 = 0;
         }
 
+        public void CopyFrom(Building building)
+        {
+            BuildingType = building.BuildingType;
+            X = building.X;
+            Y = building.Y;
+            Rotation = building.Rotation;
+            Unk08 = building.Unk08;
+            Unk0C = building.Unk0C;
+            Unk10 = building.Unk10;
+        }
+
         public static Building[] GetArray(byte[] data) => data.GetArray<Building>(SIZE);
         public static byte[] SetArray(IReadOnlyList<Building> data) => data.SetArray(SIZE);
         public override string ToString() => ToString(Array.Empty<string>());

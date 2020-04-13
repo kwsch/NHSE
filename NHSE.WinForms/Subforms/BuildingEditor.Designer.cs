@@ -56,6 +56,8 @@
             this.NUD_PlazaX = new System.Windows.Forms.NumericUpDown();
             this.L_PlazaY = new System.Windows.Forms.Label();
             this.NUD_PlazaY = new System.Windows.Forms.NumericUpDown();
+            this.B_Import = new System.Windows.Forms.Button();
+            this.B_Dump = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BuildingType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_X)).BeginInit();
@@ -347,53 +349,91 @@
             // 
             // L_PlazaX
             // 
-            this.L_PlazaX.Location = new System.Drawing.Point(434, 503);
+            this.L_PlazaX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.L_PlazaX.Location = new System.Drawing.Point(497, 503);
             this.L_PlazaX.Name = "L_PlazaX";
-            this.L_PlazaX.Size = new System.Drawing.Size(70, 20);
+            this.L_PlazaX.Size = new System.Drawing.Size(62, 20);
             this.L_PlazaX.TabIndex = 104;
             this.L_PlazaX.Text = "Plaza X:";
             this.L_PlazaX.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // NUD_PlazaX
             // 
-            this.NUD_PlazaX.Location = new System.Drawing.Point(506, 504);
+            this.NUD_PlazaX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.NUD_PlazaX.Location = new System.Drawing.Point(560, 504);
             this.NUD_PlazaX.Maximum = new decimal(new int[] {
             1024,
             0,
             0,
             0});
             this.NUD_PlazaX.Name = "NUD_PlazaX";
-            this.NUD_PlazaX.Size = new System.Drawing.Size(45, 20);
+            this.NUD_PlazaX.Size = new System.Drawing.Size(39, 20);
             this.NUD_PlazaX.TabIndex = 103;
+            this.NUD_PlazaX.Value = new decimal(new int[] {
+            555,
+            0,
+            0,
+            0});
             this.NUD_PlazaX.ValueChanged += new System.EventHandler(this.NUD_PlazaCoordinate_ValueChanged);
             // 
             // L_PlazaY
             // 
-            this.L_PlazaY.Location = new System.Drawing.Point(434, 526);
+            this.L_PlazaY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.L_PlazaY.Location = new System.Drawing.Point(497, 526);
             this.L_PlazaY.Name = "L_PlazaY";
-            this.L_PlazaY.Size = new System.Drawing.Size(70, 20);
+            this.L_PlazaY.Size = new System.Drawing.Size(62, 20);
             this.L_PlazaY.TabIndex = 102;
             this.L_PlazaY.Text = "Plaza Y:";
             this.L_PlazaY.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // NUD_PlazaY
             // 
-            this.NUD_PlazaY.Location = new System.Drawing.Point(506, 527);
+            this.NUD_PlazaY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.NUD_PlazaY.Location = new System.Drawing.Point(560, 527);
             this.NUD_PlazaY.Maximum = new decimal(new int[] {
             1024,
             0,
             0,
             0});
             this.NUD_PlazaY.Name = "NUD_PlazaY";
-            this.NUD_PlazaY.Size = new System.Drawing.Size(45, 20);
+            this.NUD_PlazaY.Size = new System.Drawing.Size(39, 20);
             this.NUD_PlazaY.TabIndex = 101;
+            this.NUD_PlazaY.Value = new decimal(new int[] {
+            555,
+            0,
+            0,
+            0});
             this.NUD_PlazaY.ValueChanged += new System.EventHandler(this.NUD_PlazaCoordinate_ValueChanged);
+            // 
+            // B_Import
+            // 
+            this.B_Import.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.B_Import.Location = new System.Drawing.Point(424, 527);
+            this.B_Import.Name = "B_Import";
+            this.B_Import.Size = new System.Drawing.Size(65, 23);
+            this.B_Import.TabIndex = 106;
+            this.B_Import.Text = "Import";
+            this.B_Import.UseVisualStyleBackColor = true;
+            this.B_Import.Click += new System.EventHandler(this.B_ImportAll_Click);
+            // 
+            // B_Dump
+            // 
+            this.B_Dump.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.B_Dump.Location = new System.Drawing.Point(424, 501);
+            this.B_Dump.Name = "B_Dump";
+            this.B_Dump.Size = new System.Drawing.Size(65, 23);
+            this.B_Dump.TabIndex = 105;
+            this.B_Dump.Text = "Dump";
+            this.B_Dump.UseVisualStyleBackColor = true;
+            this.B_Dump.Click += new System.EventHandler(this.B_DumpAll_Click);
             // 
             // BuildingEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 561);
+            this.Controls.Add(this.B_Import);
+            this.Controls.Add(this.B_Dump);
             this.Controls.Add(this.L_PlazaX);
             this.Controls.Add(this.NUD_PlazaX);
             this.Controls.Add(this.L_PlazaY);
@@ -456,5 +496,7 @@
         private System.Windows.Forms.NumericUpDown NUD_PlazaX;
         private System.Windows.Forms.Label L_PlazaY;
         private System.Windows.Forms.NumericUpDown NUD_PlazaY;
+        private System.Windows.Forms.Button B_Import;
+        private System.Windows.Forms.Button B_Dump;
     }
 }
