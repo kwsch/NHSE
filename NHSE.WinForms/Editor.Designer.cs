@@ -86,12 +86,12 @@
             this.NUD_PatternIndex = new System.Windows.Forms.NumericUpDown();
             this.PB_Pattern = new System.Windows.Forms.PictureBox();
             this.Tab_Map = new System.Windows.Forms.TabPage();
+            this.B_EditFieldItems = new System.Windows.Forms.Button();
             this.B_EditTerrain = new System.Windows.Forms.Button();
             this.B_EditAcres = new System.Windows.Forms.Button();
             this.B_EditTurnipExchange = new System.Windows.Forms.Button();
             this.B_EditBuildings = new System.Windows.Forms.Button();
             this.B_RecycleBin = new System.Windows.Forms.Button();
-            this.B_EditFieldItems = new System.Windows.Forms.Button();
             this.Menu_Editor.SuspendLayout();
             this.TC_Editors.SuspendLayout();
             this.Tab_Players.SuspendLayout();
@@ -137,7 +137,7 @@
             // 
             this.Menu_Open.Name = "Menu_Open";
             this.Menu_Open.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.Menu_Open.Size = new System.Drawing.Size(180, 22);
+            this.Menu_Open.Size = new System.Drawing.Size(146, 22);
             this.Menu_Open.Text = "Open";
             this.Menu_Open.Click += new System.EventHandler(this.Menu_Open_Click);
             // 
@@ -145,7 +145,7 @@
             // 
             this.Menu_Save.Name = "Menu_Save";
             this.Menu_Save.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.Menu_Save.Size = new System.Drawing.Size(180, 22);
+            this.Menu_Save.Size = new System.Drawing.Size(146, 22);
             this.Menu_Save.Text = "Save";
             this.Menu_Save.Click += new System.EventHandler(this.Menu_Save_Click);
             // 
@@ -187,7 +187,7 @@
             // Menu_RAMEdit
             // 
             this.Menu_RAMEdit.Name = "Menu_RAMEdit";
-            this.Menu_RAMEdit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
+            this.Menu_RAMEdit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
             this.Menu_RAMEdit.Size = new System.Drawing.Size(206, 22);
             this.Menu_RAMEdit.Text = "RAM Edit";
             this.Menu_RAMEdit.Click += new System.EventHandler(this.Menu_RAMEdit_Click);
@@ -739,6 +739,16 @@
             this.Tab_Map.Text = "Map";
             this.Tab_Map.UseVisualStyleBackColor = true;
             // 
+            // B_EditFieldItems
+            // 
+            this.B_EditFieldItems.Location = new System.Drawing.Point(202, 122);
+            this.B_EditFieldItems.Name = "B_EditFieldItems";
+            this.B_EditFieldItems.Size = new System.Drawing.Size(92, 40);
+            this.B_EditFieldItems.TabIndex = 18;
+            this.B_EditFieldItems.Text = "Edit Field Items";
+            this.B_EditFieldItems.UseVisualStyleBackColor = true;
+            this.B_EditFieldItems.Click += new System.EventHandler(this.B_EditFieldItems_Click);
+            // 
             // B_EditTerrain
             // 
             this.B_EditTerrain.Location = new System.Drawing.Point(300, 122);
@@ -788,16 +798,6 @@
             this.B_RecycleBin.Text = "Edit Recycle Bin";
             this.B_RecycleBin.UseVisualStyleBackColor = true;
             this.B_RecycleBin.Click += new System.EventHandler(this.B_RecycleBin_Click);
-            // 
-            // B_EditFieldItems
-            // 
-            this.B_EditFieldItems.Location = new System.Drawing.Point(202, 122);
-            this.B_EditFieldItems.Name = "B_EditFieldItems";
-            this.B_EditFieldItems.Size = new System.Drawing.Size(92, 40);
-            this.B_EditFieldItems.TabIndex = 18;
-            this.B_EditFieldItems.Text = "Edit Field Items";
-            this.B_EditFieldItems.UseVisualStyleBackColor = true;
-            this.B_EditFieldItems.Click += new System.EventHandler(this.B_EditFieldItems_Click);
             // 
             // Editor
             // 
