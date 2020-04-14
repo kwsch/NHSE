@@ -399,64 +399,37 @@ namespace NHSE.WinForms
 
         private void NUD_Layer_ValueChanged(object sender, EventArgs e) => LoadGrid(X, Y);
 
-        private void B_RemoveAllWeeds_Click(object sender, EventArgs e)
+        private void Remove(Control sender, Func<int, int, int, int, int> removal)
         {
-            int count = Layer.RemoveAllWeeds();
-            if (count == 0)
-            {
-                WinFormsUtil.Alert("Nothing removed from the map (none found).");
-                return;
-            }
-            LoadGrid(X, Y);
-            System.Media.SystemSounds.Asterisk.Play();
-        }
+            bool wholeMap = ModifierKeys == Keys.Shift;
 
-        private void B_FillHoles_Click(object sender, EventArgs e)
-        {
-            int count = Layer.RemoveAllHoles();
-            if (count == 0)
-            {
-                WinFormsUtil.Alert("Nothing removed from the map (none found).");
-                return;
-            }
-            LoadGrid(X, Y);
-            System.Media.SystemSounds.Asterisk.Play();
-        }
-
-        private void B_RemovePlants_Click(object sender, EventArgs e)
-        {
-            const string q = "Are you sure you want to remove all plants?";
+            string q = $"Are you sure you want to remove {sender.Text}?";
             var question = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, q);
             if (question != DialogResult.Yes)
                 return;
 
-            int count = Layer.RemoveAllPlants();
+            var count = wholeMap
+                ? removal(0, 0, Layer.MapWidth, Layer.MapHeight)
+                : removal(X, Y, Layer.GridWidth, Layer.GridHeight);
+
             if (count == 0)
             {
-                WinFormsUtil.Alert("Nothing removed from the map (none found).");
+                WinFormsUtil.Alert("Nothing removed (none found).");
                 return;
             }
             LoadGrid(X, Y);
-            System.Media.SystemSounds.Asterisk.Play();
+            WinFormsUtil.Alert($"Removed {count} from the map.");
         }
 
-        private void B_RemoveAll_Click(object sender, EventArgs e)
-        {
-            const string q = "Are you sure you want to remove everything?";
-            var question = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, q);
-            if (question != DialogResult.Yes)
-                return;
-
-            int count = Layer.RemoveAll(_ => true);
-            if (count == 0)
-            {
-                WinFormsUtil.Alert("Nothing removed from the map (none found).");
-                return;
-            }
-            LoadGrid(X, Y);
-            System.Media.SystemSounds.Asterisk.Play();
-        }
+        private void B_RemoveAllWeeds_Click(object sender, EventArgs e) => Remove(B_RemoveAllWeeds, Layer.RemoveAllWeeds);
+        private void B_FillHoles_Click(object sender, EventArgs e) => Remove(B_FillHoles, Layer.RemoveAllHoles);
+        private void B_RemovePlants_Click(object sender, EventArgs e) => Remove(B_RemovePlants, Layer.RemoveAllPlants);
+        private void B_RemoveFences_Click(object sender, EventArgs e) => Remove(B_RemoveFences, Layer.RemoveAllFences);
+        private void B_RemoveObjects_Click(object sender, EventArgs e) => Remove(B_RemoveObjects, Layer.RemoveAllObjects);
+        private void B_RemoveAll_Click(object sender, EventArgs e) => Remove(B_RemoveAll, Layer.RemoveAll);
+        private void B_RemovePlacedItems_Click(object sender, EventArgs e) => Remove(B_RemovePlacedItems, Layer.RemoveAllPlacedItems);
 
         private void PG_Tile_PropertyValueChanged(object s, PropertyValueChangedEventArgs e) => PG_Tile.SelectedObject = PG_Tile.SelectedObject;
+
     }
 }

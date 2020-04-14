@@ -61,11 +61,16 @@
             this.B_FillHoles = new System.Windows.Forms.Button();
             this.B_RemovePlants = new System.Windows.Forms.Button();
             this.B_RemoveAll = new System.Windows.Forms.Button();
+            this.B_RemoveFences = new System.Windows.Forms.Button();
+            this.B_RemoveObjects = new System.Windows.Forms.Button();
+            this.GB_Remove = new System.Windows.Forms.GroupBox();
+            this.B_RemovePlacedItems = new System.Windows.Forms.Button();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Layer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Acre)).BeginInit();
+            this.GB_Remove.SuspendLayout();
             this.SuspendLayout();
             // 
             // B_Cancel
@@ -331,53 +336,96 @@
             // 
             // B_RemoveAllWeeds
             // 
-            this.B_RemoveAllWeeds.Location = new System.Drawing.Point(767, 393);
+            this.B_RemoveAllWeeds.Location = new System.Drawing.Point(6, 17);
             this.B_RemoveAllWeeds.Name = "B_RemoveAllWeeds";
-            this.B_RemoveAllWeeds.Size = new System.Drawing.Size(98, 40);
+            this.B_RemoveAllWeeds.Size = new System.Drawing.Size(92, 23);
             this.B_RemoveAllWeeds.TabIndex = 29;
-            this.B_RemoveAllWeeds.Text = "Remove Weeds";
+            this.B_RemoveAllWeeds.Text = "Weeds";
             this.B_RemoveAllWeeds.UseVisualStyleBackColor = true;
             this.B_RemoveAllWeeds.Click += new System.EventHandler(this.B_RemoveAllWeeds_Click);
             // 
             // B_FillHoles
             // 
-            this.B_FillHoles.Location = new System.Drawing.Point(871, 393);
+            this.B_FillHoles.Location = new System.Drawing.Point(105, 39);
             this.B_FillHoles.Name = "B_FillHoles";
-            this.B_FillHoles.Size = new System.Drawing.Size(98, 40);
+            this.B_FillHoles.Size = new System.Drawing.Size(91, 23);
             this.B_FillHoles.TabIndex = 30;
-            this.B_FillHoles.Text = "Fill Holes";
+            this.B_FillHoles.Text = "Holes";
             this.B_FillHoles.UseVisualStyleBackColor = true;
             this.B_FillHoles.Click += new System.EventHandler(this.B_FillHoles_Click);
             // 
             // B_RemovePlants
             // 
-            this.B_RemovePlants.Location = new System.Drawing.Point(767, 439);
+            this.B_RemovePlants.Location = new System.Drawing.Point(6, 39);
             this.B_RemovePlants.Name = "B_RemovePlants";
-            this.B_RemovePlants.Size = new System.Drawing.Size(98, 40);
+            this.B_RemovePlants.Size = new System.Drawing.Size(92, 23);
             this.B_RemovePlants.TabIndex = 31;
-            this.B_RemovePlants.Text = "Remove Plants";
+            this.B_RemovePlants.Text = "Plants";
             this.B_RemovePlants.UseVisualStyleBackColor = true;
             this.B_RemovePlants.Click += new System.EventHandler(this.B_RemovePlants_Click);
             // 
             // B_RemoveAll
             // 
-            this.B_RemoveAll.Location = new System.Drawing.Point(871, 439);
+            this.B_RemoveAll.Location = new System.Drawing.Point(104, 83);
             this.B_RemoveAll.Name = "B_RemoveAll";
-            this.B_RemoveAll.Size = new System.Drawing.Size(98, 40);
+            this.B_RemoveAll.Size = new System.Drawing.Size(91, 23);
             this.B_RemoveAll.TabIndex = 32;
-            this.B_RemoveAll.Text = "Remove All";
+            this.B_RemoveAll.Text = "All";
             this.B_RemoveAll.UseVisualStyleBackColor = true;
             this.B_RemoveAll.Click += new System.EventHandler(this.B_RemoveAll_Click);
+            // 
+            // B_RemoveFences
+            // 
+            this.B_RemoveFences.Location = new System.Drawing.Point(105, 17);
+            this.B_RemoveFences.Name = "B_RemoveFences";
+            this.B_RemoveFences.Size = new System.Drawing.Size(91, 23);
+            this.B_RemoveFences.TabIndex = 33;
+            this.B_RemoveFences.Text = "Fences";
+            this.B_RemoveFences.UseVisualStyleBackColor = true;
+            this.B_RemoveFences.Click += new System.EventHandler(this.B_RemoveFences_Click);
+            // 
+            // B_RemoveObjects
+            // 
+            this.B_RemoveObjects.Location = new System.Drawing.Point(6, 61);
+            this.B_RemoveObjects.Name = "B_RemoveObjects";
+            this.B_RemoveObjects.Size = new System.Drawing.Size(92, 23);
+            this.B_RemoveObjects.TabIndex = 34;
+            this.B_RemoveObjects.Text = "Non-Items";
+            this.B_RemoveObjects.UseVisualStyleBackColor = true;
+            this.B_RemoveObjects.Click += new System.EventHandler(this.B_RemoveObjects_Click);
+            // 
+            // GB_Remove
+            // 
+            this.GB_Remove.Controls.Add(this.B_RemovePlacedItems);
+            this.GB_Remove.Controls.Add(this.B_RemoveFences);
+            this.GB_Remove.Controls.Add(this.B_RemoveObjects);
+            this.GB_Remove.Controls.Add(this.B_RemoveAllWeeds);
+            this.GB_Remove.Controls.Add(this.B_FillHoles);
+            this.GB_Remove.Controls.Add(this.B_RemovePlants);
+            this.GB_Remove.Controls.Add(this.B_RemoveAll);
+            this.GB_Remove.Location = new System.Drawing.Point(767, 385);
+            this.GB_Remove.Name = "GB_Remove";
+            this.GB_Remove.Size = new System.Drawing.Size(202, 113);
+            this.GB_Remove.TabIndex = 35;
+            this.GB_Remove.TabStop = false;
+            this.GB_Remove.Text = "Remove from View (Hold Shift=Map)";
+            // 
+            // B_RemovePlacedItems
+            // 
+            this.B_RemovePlacedItems.Location = new System.Drawing.Point(6, 83);
+            this.B_RemovePlacedItems.Name = "B_RemovePlacedItems";
+            this.B_RemovePlacedItems.Size = new System.Drawing.Size(92, 23);
+            this.B_RemovePlacedItems.TabIndex = 36;
+            this.B_RemovePlacedItems.Text = "Placed Items";
+            this.B_RemovePlacedItems.UseVisualStyleBackColor = true;
+            this.B_RemovePlacedItems.Click += new System.EventHandler(this.B_RemovePlacedItems_Click);
             // 
             // FieldItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(981, 537);
-            this.Controls.Add(this.B_RemoveAll);
-            this.Controls.Add(this.B_RemovePlants);
-            this.Controls.Add(this.B_FillHoles);
-            this.Controls.Add(this.B_RemoveAllWeeds);
+            this.Controls.Add(this.GB_Remove);
             this.Controls.Add(this.PB_Acre);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.NUD_Layer);
@@ -409,6 +457,7 @@
             this.CM_Picture.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Layer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Acre)).EndInit();
+            this.GB_Remove.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -446,5 +495,9 @@
         private System.Windows.Forms.Button B_FillHoles;
         private System.Windows.Forms.Button B_RemovePlants;
         private System.Windows.Forms.Button B_RemoveAll;
+        private System.Windows.Forms.Button B_RemoveFences;
+        private System.Windows.Forms.Button B_RemoveObjects;
+        private System.Windows.Forms.GroupBox GB_Remove;
+        private System.Windows.Forms.Button B_RemovePlacedItems;
     }
 }

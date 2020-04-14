@@ -53,5 +53,7 @@
     public static class FieldItemKindExtensions
     {
         public static bool IsWeed(this FieldItemKind type) => FieldItemKind.PltWeedAut0 <= type && type <= FieldItemKind.PltWeedWin1;
+        public static bool IsPlant(this FieldItemKind type) => FieldItemKind.PltFlwAnemone <= type && type <= FieldItemKind.PltWeedWin1;
+        public static bool IsFence(this FieldItemKind type) => FieldItemKind.FenceBamboo <= type && type <= FieldItemKind.FenceWoodWhite;
     }
 }

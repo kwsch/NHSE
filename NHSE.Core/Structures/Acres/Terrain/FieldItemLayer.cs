@@ -62,41 +62,64 @@ namespace NHSE.Core
             }
         }
 
-        public int ClearFieldPlanted(Func<FieldItemKind, bool> criteria)
+        public int ClearFieldPlanted(Func<FieldItemKind, bool> criteria) => ClearFieldPlanted(0, 0, MapWidth, MapHeight, criteria);
+        public int RemoveAll(Func<FieldItem, bool> criteria) => RemoveAll(0, 0, MapWidth, MapHeight, criteria);
+
+        public int ClearFieldPlanted(int xmin, int ymin, int width, int height, Func<FieldItemKind, bool> criteria)
         {
             int count = 0;
             var fi = FieldItemList.Items;
-            foreach (var t in Tiles)
+
+            for (int x = xmin; x < xmin + width; x++)
             {
-                var disp = t.DisplayItemId;
-                if (!fi.TryGetValue(disp, out var val))
-                    continue;
+                for (int y = ymin; y < ymin + height; y++)
+                {
+                    var t = GetTile(x, y);
+                    var disp = t.DisplayItemId;
+                    if (!fi.TryGetValue(disp, out var val))
+                        continue;
 
-                if (!criteria(val.Kind))
-                    continue;
-                t.Delete();
-                count++;
+                    if (!criteria(val.Kind))
+                        continue;
+                    t.Delete();
+                    count++;
+                }
             }
-
             return count;
         }
 
-        public int RemoveAll(Func<FieldItem, bool> criteria)
+        public int RemoveAll(int xmin, int ymin, int width, int height, Func<FieldItem, bool> criteria)
         {
             int count = 0;
-            foreach (var t in Tiles)
+            for (int x = xmin; x < xmin + width; x++)
             {
-                if (!criteria(t))
-                    continue;
-                t.Delete();
-                count++;
+                for (int y = ymin; y < ymin + height; y++)
+                {
+                    var t = GetTile(x, y);
+                    if (!criteria(t))
+                        continue;
+                    t.Delete();
+                    count++;
+                }
             }
-
             return count;
         }
 
         public int RemoveAllHoles() => ClearFieldPlanted(z => z == FieldItemKind.UnitIconHole);
         public int RemoveAllWeeds() => ClearFieldPlanted(z => z.IsWeed());
-        public int RemoveAllPlants() => ClearFieldPlanted(_ => true);
+        public int RemoveAllPlants() => ClearFieldPlanted(z => z.IsPlant());
+        public int RemoveAllFences() => ClearFieldPlanted(z => z.IsFence());
+        public int RemoveAllObjects() => ClearFieldPlanted(_ => true);
+        public int RemoveAll() => RemoveAll(_ => true);
+
+        public int RemoveAllHoles(int xmin, int ymin, int width, int height) => ClearFieldPlanted(xmin, ymin, width, height, z => z == FieldItemKind.UnitIconHole);
+        public int RemoveAllWeeds(int xmin, int ymin, int width, int height) => ClearFieldPlanted(xmin, ymin, width, height, z => z.IsWeed());
+        public int RemoveAllPlants(int xmin, int ymin, int width, int height) => ClearFieldPlanted(xmin, ymin, width, height, z => z.IsPlant());
+        public int RemoveAllFences(int xmin, int ymin, int width, int height) => ClearFieldPlanted(xmin, ymin, width, height, z => z.IsFence());
+        public int RemoveAllObjects(int xmin, int ymin, int width, int height) => ClearFieldPlanted(xmin, ymin, width, height, _ => true);
+
+        public int RemoveAll(int xmin, int ymin, int width, int height) => RemoveAll(xmin, ymin, width, height, _ => true);
+        public int RemoveAllPlacedItems(int xmin, int ymin, int width, int height) => RemoveAll(xmin, ymin, width,
+            height, z => z.DisplayItemId != FieldItem.NONE && !FieldItemList.Items.ContainsKey(z.DisplayItemId));
     }
 }
