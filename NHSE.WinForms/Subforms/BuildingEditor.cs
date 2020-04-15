@@ -118,7 +118,6 @@ namespace NHSE.WinForms
 
         private void NUD_PlazaCoordinate_ValueChanged(object sender, EventArgs e) => DrawMap(Index);
 
-
         private void B_DumpAll_Click(object sender, EventArgs e)
         {
             using var sfd = new SaveFileDialog
@@ -147,7 +146,7 @@ namespace NHSE.WinForms
             var path = ofd.FileName;
             var fi = new FileInfo(path);
 
-            int expect = MainSaveOffsets.BuildingCount * Building.SIZE;
+            const int expect = MainSaveOffsets.BuildingCount * Building.SIZE;
             if (fi.Length != expect)
             {
                 WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X}", path);

@@ -430,6 +430,5 @@ namespace NHSE.WinForms
         private void B_RemovePlacedItems_Click(object sender, EventArgs e) => Remove(B_RemovePlacedItems, Layer.RemoveAllPlacedItems);
 
         private void PG_Tile_PropertyValueChanged(object s, PropertyValueChangedEventArgs e) => PG_Tile.SelectedObject = PG_Tile.SelectedObject;
-
     }
 }
