@@ -27,7 +27,18 @@ namespace NHSE.WinForms
                 Open(args[i]);
         }
 
-        private static void Open(HorizonSave file) => new Editor(file).Show();
+        private static void Open(HorizonSave file)
+        {
+            bool sized = file.ValidateSizes();
+            if (!sized)
+            {
+                const string sizeBad = "Save file sizes appear to be incorrect.";
+                if (WinFormsUtil.Prompt(MessageBoxButtons.YesNo, sizeBad, "Continue?") != DialogResult.Yes)
+                    return;
+            }
+
+            new Editor(file).Show();
+        }
 
         private void Main_DragEnter(object sender, DragEventArgs e)
         {

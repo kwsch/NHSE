@@ -57,5 +57,27 @@ namespace NHSE.Core
             foreach (var pair in Players.SelectMany(z => z))
                 pair.Data.ReplaceOccurrences(original, updated);
         }
+
+        public bool ValidateSizes()
+        {
+            var info = Main.Info.GetKnownRevisionIndex();
+            if (info < 0)
+                return false;
+            var sizes = RevisionChecker.SizeInfo[info];
+            if (Main.Data.Length != sizes.Main)
+                return false;
+            foreach (var p in Players)
+            {
+                if (p.Personal.Data.Length != sizes.Personal)
+                    return false;
+                if (p.Photo.Data.Length != sizes.PhotoStudioIsland)
+                    return false;
+                if (p.PostBox.Data.Length != sizes.PostBox)
+                    return false;
+                if (p.Profile.Data.Length != sizes.Profile)
+                    return false;
+            }
+            return true;
+        }
     }
 }
