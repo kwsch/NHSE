@@ -29,7 +29,17 @@ namespace NHSE.WinForms
         private void Menu_Save_Click(object sender, EventArgs e)
         {
             SaveAll();
-            SAV.Save((uint)DateTime.Now.Ticks);
+            try
+            {
+                SAV.Save((uint) DateTime.Now.Ticks);
+            }
+#pragma warning disable CA1031 // Do not catch general exception types
+            catch (Exception ex)
+#pragma warning restore CA1031 // Do not catch general exception types
+            {
+                WinFormsUtil.Error("Unable to save files to their original location.", ex.Message);
+                return;
+            }
             WinFormsUtil.Alert("Saved all save data!");
         }
 
