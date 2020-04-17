@@ -29,10 +29,10 @@ namespace NHSE.Core
             var hd = File.ReadAllBytes(hdr);
             var md = File.ReadAllBytes(dat);
 
-            var decrypted = Encryption.Decrypt(hd, md);
+            Encryption.Decrypt(hd, md);
 
             Header = hd;
-            Data = decrypted;
+            Data = md;
             DataPath = dat;
             HeaderPath = hdr;
 
@@ -76,7 +76,7 @@ namespace NHSE.Core
             }
         }
 
-        public string GetString(int offset, int maxLength) => StringUtil.GetString(Data, offset, maxLength);
-        public static byte[] GetBytes(string value, int maxLength) => StringUtil.GetBytes(value, maxLength);
+        protected string GetString(int offset, int maxLength) => StringUtil.GetString(Data, offset, maxLength);
+        protected static byte[] GetBytes(string value, int maxLength) => StringUtil.GetBytes(value, maxLength);
     }
 }

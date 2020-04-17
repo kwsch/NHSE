@@ -21,12 +21,11 @@ namespace NHSE.Core
         }
 
         /// <summary>
-        /// Decrypts the <see cref="encData"/> using the <see cref="headerData"/>.
+        /// Decrypts the <see cref="encData"/> using the <see cref="headerData"/> in place.
         /// </summary>
         /// <param name="headerData">Header Data</param>
         /// <param name="encData">Encrypted SaveData</param>
-        /// <returns>Decrypted SaveData</returns>
-        public static byte[] Decrypt(byte[] headerData, byte[] encData)
+        public static void Decrypt(byte[] headerData, byte[] encData)
         {
             // First 256 bytes go unused
             var importantData = new uint[0x80];
@@ -41,10 +40,8 @@ namespace NHSE.Core
             // Do the AES
             using var aesCtr = new Aes128CounterMode(counter);
             var transform = aesCtr.CreateDecryptor(key, counter);
-            var decData = new byte[encData.Length];
 
-            transform.TransformBlock(encData, 0, encData.Length, decData, 0);
-            return decData;
+            transform.TransformBlock(encData, 0, encData.Length, encData, 0);
         }
 
         private static CryptoFile GenerateHeaderFile(uint seed, byte[] versionData)
