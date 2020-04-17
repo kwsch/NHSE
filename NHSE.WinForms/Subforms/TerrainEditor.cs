@@ -269,7 +269,7 @@ namespace NHSE.WinForms
             int expect = Terrain.AcreTileCount * TerrainTile.SIZE;
             if (fi.Length != expect)
             {
-                WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X}", path);
+                WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X})", path);
                 return;
             }
 
@@ -295,7 +295,7 @@ namespace NHSE.WinForms
             int expect = Terrain.MapTileCount * TerrainTile.SIZE;
             if (fi.Length != expect)
             {
-                WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X}", path);
+                WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X})", path);
                 return;
             }
 

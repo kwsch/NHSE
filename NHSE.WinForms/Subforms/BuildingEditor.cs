@@ -149,7 +149,7 @@ namespace NHSE.WinForms
             const int expect = MainSaveOffsets.BuildingCount * Building.SIZE;
             if (fi.Length != expect)
             {
-                WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X}", path);
+                WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X})", path);
                 return;
             }
 

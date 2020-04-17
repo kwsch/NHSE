@@ -271,7 +271,7 @@ namespace NHSE.WinForms
             int expect = layer.AcreTileCount * FieldItem.SIZE;
             if (fi.Length != expect)
             {
-                WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X}", path);
+                WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X})", path);
                 return;
             }
 
@@ -298,7 +298,7 @@ namespace NHSE.WinForms
             int expect = layer.MapTileCount * FieldItem.SIZE;
             if (fi.Length != expect)
             {
-                WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X}", path);
+                WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X})", path);
                 return;
             }
 
