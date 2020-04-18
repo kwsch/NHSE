@@ -306,6 +306,7 @@ namespace NHSE.WinForms
             NUD_Variant.Value = v.Variant;
             CB_Personality.SelectedIndex = (int) v.Personality;
             TB_Catchphrase.Text = v.CatchPhrase;
+            CHK_VillagerMovingOut.Checked = v.MovingOut;
         }
 
         private void SaveVillager(int index)
@@ -316,6 +317,7 @@ namespace NHSE.WinForms
             v.Variant = (byte)NUD_Variant.Value;
             v.Personality = (VillagerPersonality)CB_Personality.SelectedIndex;
             v.CatchPhrase = TB_Catchphrase.Text;
+            v.MovingOut = CHK_VillagerMovingOut.Checked;
 
             SAV.Main.SetVillager(v, index);
         }
@@ -460,6 +462,18 @@ namespace NHSE.WinForms
                 return;
 
             v.Furniture = items;
+            SAV.Main.SetVillager(v, VillagerIndex);
+        }
+
+        private void B_EditVillagerFlags_Click(object sender, EventArgs e)
+        {
+            var v = SAV.Main.GetVillager(VillagerIndex);
+            var flags = v.GetEventFlagsSave();
+            using var editor = new VillagerFlagEditor(flags);
+            if (editor.ShowDialog() != DialogResult.OK)
+                return;
+
+            v.SetEventFlagsSave(flags);
             SAV.Main.SetVillager(v, VillagerIndex);
         }
 

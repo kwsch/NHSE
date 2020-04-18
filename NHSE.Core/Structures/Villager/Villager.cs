@@ -72,6 +72,25 @@ namespace NHSE.Core
             set => VillagerItem.SetArray(value).CopyTo(Data, 0x105EC);
         }
 
+        // State Flags
+        public byte State2 { get => Data[0x11EFA]; set => Data[0x11EFA] = value; }
+        public bool MovingOut { get => (State2 & 2) == 2; set => State2 = (byte)((State2 & ~2) | (value ? 2 : 0)); }
+
+        // EventFlagsNPCSaveParam
+        private const int EventFlagsSaveCount = 0x100; // Future-proof allocation! Release version used <20% of the amount allocated.
+
+        public ushort[] GetEventFlagsSave()
+        {
+            var value = new ushort[EventFlagsSaveCount];
+            Buffer.BlockCopy(Data, 0x11EFC, value, 0, sizeof(ushort) * value.Length);
+            return value;
+        }
+
+        public void SetEventFlagsSave(ushort[] value)
+        {
+            Buffer.BlockCopy(value, 0, Data, 0x11EFC, sizeof(ushort) * value.Length);
+        }
+
         public override string ToString() => InternalName;
         public string InternalName => VillagerUtil.GetInternalVillagerName((VillagerSpecies) Species, Variant);
         public int Gender => ((int)Personality / 4) & 1; // 0 = M, 1 = F

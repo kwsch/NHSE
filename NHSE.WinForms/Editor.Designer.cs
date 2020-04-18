@@ -92,6 +92,8 @@
             this.B_EditTurnipExchange = new System.Windows.Forms.Button();
             this.B_EditBuildings = new System.Windows.Forms.Button();
             this.B_RecycleBin = new System.Windows.Forms.Button();
+            this.CHK_VillagerMovingOut = new System.Windows.Forms.CheckBox();
+            this.B_EditVillagerFlags = new System.Windows.Forms.Button();
             this.Menu_Editor.SuspendLayout();
             this.TC_Editors.SuspendLayout();
             this.Tab_Players.SuspendLayout();
@@ -426,6 +428,8 @@
             // 
             // Tab_Villagers
             // 
+            this.Tab_Villagers.Controls.Add(this.B_EditVillagerFlags);
+            this.Tab_Villagers.Controls.Add(this.CHK_VillagerMovingOut);
             this.Tab_Villagers.Controls.Add(this.B_EditFurniture);
             this.Tab_Villagers.Controls.Add(this.B_LoadVillager);
             this.Tab_Villagers.Controls.Add(this.B_DumpVillager);
@@ -799,6 +803,26 @@
             this.B_RecycleBin.UseVisualStyleBackColor = true;
             this.B_RecycleBin.Click += new System.EventHandler(this.B_RecycleBin_Click);
             // 
+            // CHK_VillagerMovingOut
+            // 
+            this.CHK_VillagerMovingOut.AutoSize = true;
+            this.CHK_VillagerMovingOut.Location = new System.Drawing.Point(232, 99);
+            this.CHK_VillagerMovingOut.Name = "CHK_VillagerMovingOut";
+            this.CHK_VillagerMovingOut.Size = new System.Drawing.Size(81, 17);
+            this.CHK_VillagerMovingOut.TabIndex = 27;
+            this.CHK_VillagerMovingOut.Text = "Moving Out";
+            this.CHK_VillagerMovingOut.UseVisualStyleBackColor = true;
+            // 
+            // B_EditVillagerFlags
+            // 
+            this.B_EditVillagerFlags.Location = new System.Drawing.Point(300, 168);
+            this.B_EditVillagerFlags.Name = "B_EditVillagerFlags";
+            this.B_EditVillagerFlags.Size = new System.Drawing.Size(92, 40);
+            this.B_EditVillagerFlags.TabIndex = 28;
+            this.B_EditVillagerFlags.Text = "Edit Flags";
+            this.B_EditVillagerFlags.UseVisualStyleBackColor = true;
+            this.B_EditVillagerFlags.Click += new System.EventHandler(this.B_EditVillagerFlags_Click);
+            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -904,6 +928,8 @@
         private System.Windows.Forms.Button B_EditTerrain;
         private System.Windows.Forms.Button B_EditPlayerFlags;
         private System.Windows.Forms.Button B_EditFieldItems;
+        private System.Windows.Forms.CheckBox CHK_VillagerMovingOut;
+        private System.Windows.Forms.Button B_EditVillagerFlags;
     }
 }
 
