@@ -40,16 +40,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Update="Subforms\FlagEditor.cs">
+    <Compile Update="Subforms\Player\FlagEditor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Subforms\PropertyEditor - Copy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Subforms\FieldItemEditor.cs">
+    <Compile Update="Subforms\Map\FieldItemEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Subforms\TerrainEditor.cs">
+    <Compile Update="Subforms\Map\TerrainEditor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Subforms\SingleObjectEditor.cs">
@@ -64,13 +64,16 @@
     <Compile Update="Subforms\PropertyEditor.Designer.cs">
       <DependentUpon>PropertyEditor.cs</DependentUpon>
     </Compile>
-    <Compile Update="Subforms\ItemReceivedEditor.cs">
+    <Compile Update="Subforms\Player\ItemReceivedEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Subforms\ActivityEditor.cs">
+    <Compile Update="Subforms\Player\ActivityEditor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Subforms\SysBot\SysBotRAMEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subforms\Villager\VillagerFlagEditor.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
