@@ -73,8 +73,10 @@ namespace NHSE.Core
         }
 
         // State Flags
-        public byte State2 { get => Data[0x11EFA]; set => Data[0x11EFA] = value; }
-        public bool MovingOut { get => (State2 & 2) == 2; set => State2 = (byte)((State2 & ~2) | (value ? 2 : 0)); }
+        public byte BirthType { get => Data[0x11EF8]; set => Data[0x11EF8] = value; }
+        public byte InducementType { get => Data[0x11EF9]; set => Data[0x11EF9] = value; }
+        public byte MoveType { get => Data[0x11EFA]; set => Data[0x11EFA] = value; }
+        public bool MovingOut { get => (MoveType & 2) == 2; set => MoveType = (byte)((MoveType & ~2) | (value ? 2 : 0)); }
 
         // EventFlagsNPCSaveParam
         private const int EventFlagsSaveCount = 0x100; // Future-proof allocation! Release version used <20% of the amount allocated.
