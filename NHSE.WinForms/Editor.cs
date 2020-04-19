@@ -13,12 +13,16 @@ namespace NHSE.WinForms
     public partial class Editor : Form
     {
         private readonly HorizonSave SAV;
+        private readonly VillagerEditor Villagers;
 
         public Editor(HorizonSave file)
         {
             InitializeComponent();
             SAV = file;
-            LoadAll();
+
+            LoadPlayers();
+            LoadMain();
+            Villagers = LoadVillagers();
         }
 
         private void Menu_Open_Click(object sender, EventArgs e)
@@ -75,7 +79,7 @@ namespace NHSE.WinForms
             }
 
             SAV.Load(dir);
-            LoadAll(); // reload all fields
+            ReloadAll(); // reload all fields
             System.Media.SystemSounds.Asterisk.Play();
         }
 
@@ -108,17 +112,28 @@ namespace NHSE.WinForms
             sysbot.Show();
         }
 
-        private void LoadAll()
+        private void ReloadAll()
         {
+            Villagers.Villagers = SAV.Main.GetVillagers();
+            Villagers.Origin = SAV.Players[0].Personal;
             LoadPlayers();
-            LoadVillagers();
             LoadMain();
+        }
+
+        private VillagerEditor LoadVillagers()
+        {
+            var p0 = SAV.Players[0].Personal;
+            var villagers = SAV.Main.GetVillagers();
+            var v = new VillagerEditor(villagers, p0) {Dock = DockStyle.Fill};
+            Tab_Villagers.Controls.Add(v);
+            return v;
         }
 
         private void SaveAll()
         {
             SavePlayer(PlayerIndex);
-            SaveVillager(VillagerIndex);
+            Villagers.Save();
+            SAV.Main.SetVillagers(Villagers.Villagers);
         }
 
         #region Player Editing
@@ -133,17 +148,6 @@ namespace NHSE.WinForms
             CB_Players.SelectedIndex = 0;
         }
 
-        private void LoadVillagers()
-        {
-            CB_Personality.Items.Clear();
-            var personalities = Enum.GetNames(typeof(VillagerPersonality));
-            foreach (var p in personalities)
-                CB_Personality.Items.Add(p);
-
-            VillagerIndex = -1;
-            LoadVillager(0);
-        }
-
         private void LoadMain()
         {
             LoadPattern(0);
@@ -151,7 +155,6 @@ namespace NHSE.WinForms
 
         private int PlayerIndex = -1;
         private void LoadPlayer(object sender, EventArgs e) => LoadPlayer(CB_Players.SelectedIndex);
-        private void LoadVillager(object sender, EventArgs e) => LoadVillager((int)NUD_Villager.Value - 1);
         private void LoadPattern(object sender, EventArgs e) => LoadPattern((int)NUD_PatternIndex.Value - 1);
 
         private void B_EditPlayerItems_Click(object sender, EventArgs e)
@@ -283,57 +286,6 @@ namespace NHSE.WinForms
 
         #endregion
 
-        #region Villager Editing
-
-        private int VillagerIndex = -1;
-
-        private void LoadVillager(int index)
-        {
-            if (VillagerIndex >= 0)
-                SaveVillager(VillagerIndex);
-
-            if (index < 0)
-                return;
-
-            var v = SAV.Main.GetVillager(index);
-            LoadVillager(v);
-            VillagerIndex = index;
-        }
-
-        private void LoadVillager(Villager v)
-        {
-            NUD_Species.Value = v.Species;
-            NUD_Variant.Value = v.Variant;
-            CB_Personality.SelectedIndex = (int) v.Personality;
-            TB_Catchphrase.Text = v.CatchPhrase;
-            CHK_VillagerMovingOut.Checked = v.MovingOut;
-        }
-
-        private void SaveVillager(int index)
-        {
-            var v = SAV.Main.GetVillager(index);
-
-            v.Species = (byte)NUD_Species.Value;
-            v.Variant = (byte)NUD_Variant.Value;
-            v.Personality = (VillagerPersonality)CB_Personality.SelectedIndex;
-            v.CatchPhrase = TB_Catchphrase.Text;
-            v.MovingOut = CHK_VillagerMovingOut.Checked;
-
-            SAV.Main.SetVillager(v, index);
-        }
-
-        private string GetCurrentVillagerInternalName() => VillagerUtil.GetInternalVillagerName((VillagerSpecies)NUD_Species.Value, (int)NUD_Variant.Value);
-        private void ChangeVillager(object sender, EventArgs e) => ChangeVillager();
-        private void ChangeVillager()
-        {
-            var name = GetCurrentVillagerInternalName();
-            L_InternalName.Text = name;
-            L_ExternalName.Text = GameInfo.Strings.GetVillager(name);
-            PB_Villager.Image = VillagerSprite.GetVillagerSprite(name);
-        }
-
-        #endregion
-
         #region Patterns
 
         private int PatternIndex = -1;
@@ -368,8 +320,6 @@ namespace NHSE.WinForms
             string name;
             if (pb == PB_Player)
                 name = SAV.Players[PlayerIndex].Personal.PlayerName;
-            else if (pb == PB_Villager)
-                name = L_ExternalName.Text;
             else
                 name = "photo";
 
@@ -383,98 +333,6 @@ namespace NHSE.WinForms
                 return;
 
             bmp.Save(sfd.FileName, ImageFormat.Png);
-        }
-
-        private void B_DumpVillager_Click(object sender, EventArgs e)
-        {
-            if (ModifierKeys == Keys.Shift)
-            {
-                using var fbd = new FolderBrowserDialog();
-                if (fbd.ShowDialog() != DialogResult.OK)
-                    return;
-
-                var dir = Path.GetDirectoryName(fbd.SelectedPath);
-                if (dir == null || !Directory.Exists(dir))
-                    return;
-                SAV.Main.DumpVillagers(fbd.SelectedPath);
-                return;
-            }
-
-            var name = L_ExternalName.Text;
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Villager (*.nhv)|*.nhv|All files (*.*)|*.*",
-                FileName = $"{name}.nhv",
-            };
-            if (sfd.ShowDialog() != DialogResult.OK)
-                return;
-
-            SaveVillager(VillagerIndex);
-            var v = SAV.Main.GetVillager(VillagerIndex);
-            File.WriteAllBytes(sfd.FileName, v.Data);
-        }
-
-        private void B_LoadVillager_Click(object sender, EventArgs e)
-        {
-            var name = L_ExternalName.Text;
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Villager (*.nhv)|*.nhv|All files (*.*)|*.*",
-                FileName = $"{name}.nhv",
-            };
-            if (ofd.ShowDialog() != DialogResult.OK)
-                return;
-
-            var file = ofd.FileName;
-            var original = SAV.Main.GetVillager(VillagerIndex);
-            var expectLength = original.Data.Length;
-            var fi = new FileInfo(file);
-            if (fi.Length != expectLength)
-            {
-                var msg = $"Imported villager's data length (0x{fi.Length:X}) does not match the required length (0x{expectLength:X}).";
-                WinFormsUtil.Error("Cancelling:", msg);
-                return;
-            }
-
-            var data = File.ReadAllBytes(ofd.FileName);
-            var v = new Villager(data);
-            var player0 = SAV.Players[0].Personal;
-            if (!v.IsOriginatedFrom(player0))
-            {
-                var result = WinFormsUtil.Prompt(MessageBoxButtons.YesNoCancel,
-                    $"Imported Villager did not originate from Villager0 ({player0.PlayerName})'s data.", "Update values?");
-                if (result == DialogResult.Cancel)
-                    return;
-                if (result == DialogResult.Yes)
-                    v.ChangeOrigins(player0, v.Data);
-            }
-
-            SAV.Main.SetVillager(v, VillagerIndex);
-            LoadVillager(v);
-        }
-
-        private void B_EditFurniture_Click(object sender, EventArgs e)
-        {
-            var v = SAV.Main.GetVillager(VillagerIndex);
-            var items = v.Furniture;
-            using var editor = new PlayerItemEditor<VillagerItem>(items, 8, 2);
-            if (editor.ShowDialog() != DialogResult.OK)
-                return;
-
-            v.Furniture = items;
-            SAV.Main.SetVillager(v, VillagerIndex);
-        }
-
-        private void B_EditVillagerFlags_Click(object sender, EventArgs e)
-        {
-            var v = SAV.Main.GetVillager(VillagerIndex);
-            var flags = v.GetEventFlagsSave();
-            using var editor = new VillagerFlagEditor(flags);
-            if (editor.ShowDialog() != DialogResult.OK)
-                return;
-
-            v.SetEventFlagsSave(flags);
-            SAV.Main.SetVillager(v, VillagerIndex);
         }
 
         private void B_DumpDesign_Click(object sender, EventArgs e)

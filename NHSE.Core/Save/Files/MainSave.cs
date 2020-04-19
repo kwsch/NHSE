@@ -11,8 +11,24 @@ namespace NHSE.Core
         public readonly MainSaveOffsets Offsets;
         public MainSave(string folder) : base(folder, "main") => Offsets = MainSaveOffsets.GetOffsets(Info);
 
+        public const int VillagerCount = 10;
         public Villager GetVillager(int index) => Offsets.ReadVillager(Data, index);
         public void SetVillager(Villager value, int index) => Offsets.WriteVillager(value, Data, index);
+
+        public Villager[] GetVillagers()
+        {
+            var villagers = new Villager[VillagerCount];
+            for (int i = 0; i < villagers.Length; i++)
+                villagers[i] = GetVillager(i);
+            return villagers;
+        }
+
+        public void SetVillagers(IReadOnlyList<Villager> villagers)
+        {
+            for (int i = 0; i < villagers.Count; i++)
+                SetVillager(villagers[i], i);
+        }
+
         public DesignPattern GetDesign(int index) => Offsets.ReadPattern(Data, index);
         public void SetDesign(DesignPattern value, int index) => Offsets.WritePattern(value, Data, index);
 

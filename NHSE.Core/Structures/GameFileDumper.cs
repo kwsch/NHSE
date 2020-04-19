@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 
 namespace NHSE.Core
 {
@@ -54,17 +55,19 @@ namespace NHSE.Core
         /// <summary>
         /// Dumps all villagers in their decrypted state to the requested <see cref="path"/>.
         /// </summary>
-        /// <param name="sav">Save Data to dump from</param>
+        /// <param name="villagers">Data to dump from</param>
         /// <param name="path">Path to dump to</param>
-        public static void DumpVillagers(this MainSave sav, string path)
+        public static void DumpVillagers(this IEnumerable<Villager> villagers, string path)
         {
-            for (int i = 0; i < 10; i++)
-            {
-                var v = sav.GetVillager(i);
-                var name = GameInfo.Strings.GetVillager(v.InternalName);
-                var dest = Path.Combine(path, $"{name}.nhv");
-                File.WriteAllBytes(dest, v.Data);
-            }
+            foreach (var v in villagers)
+                v.DumpVillager(path);
+        }
+
+        private static void DumpVillager(this Villager v, string path)
+        {
+            var name = GameInfo.Strings.GetVillager(v.InternalName);
+            var dest = Path.Combine(path, $"{name}.nhv");
+            File.WriteAllBytes(dest, v.Data);
         }
 
         /// <summary>

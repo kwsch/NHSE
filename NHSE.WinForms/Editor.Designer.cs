@@ -16,6 +16,7 @@
             if (disposing && (components != null))
             {
                 components.Dispose();
+                Villagers.Dispose();
             }
             base.Dispose(disposing);
         }
@@ -61,22 +62,6 @@
             this.CM_Picture = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Menu_SavePNG = new System.Windows.Forms.ToolStripMenuItem();
             this.Tab_Villagers = new System.Windows.Forms.TabPage();
-            this.B_EditFurniture = new System.Windows.Forms.Button();
-            this.B_LoadVillager = new System.Windows.Forms.Button();
-            this.B_DumpVillager = new System.Windows.Forms.Button();
-            this.L_ExternalName = new System.Windows.Forms.Label();
-            this.L_InternalName = new System.Windows.Forms.Label();
-            this.TB_Catchphrase = new System.Windows.Forms.TextBox();
-            this.L_Catchphrase = new System.Windows.Forms.Label();
-            this.L_Personality = new System.Windows.Forms.Label();
-            this.NUD_Variant = new System.Windows.Forms.NumericUpDown();
-            this.L_Variant = new System.Windows.Forms.Label();
-            this.NUD_Species = new System.Windows.Forms.NumericUpDown();
-            this.L_Species = new System.Windows.Forms.Label();
-            this.CB_Personality = new System.Windows.Forms.ComboBox();
-            this.PB_Villager = new System.Windows.Forms.PictureBox();
-            this.L_VillagerID = new System.Windows.Forms.Label();
-            this.NUD_Villager = new System.Windows.Forms.NumericUpDown();
             this.Tab_Designs = new System.Windows.Forms.TabPage();
             this.PB_Palette = new System.Windows.Forms.PictureBox();
             this.L_PatternName = new System.Windows.Forms.Label();
@@ -92,8 +77,6 @@
             this.B_EditTurnipExchange = new System.Windows.Forms.Button();
             this.B_EditBuildings = new System.Windows.Forms.Button();
             this.B_RecycleBin = new System.Windows.Forms.Button();
-            this.CHK_VillagerMovingOut = new System.Windows.Forms.CheckBox();
-            this.B_EditVillagerFlags = new System.Windows.Forms.Button();
             this.Menu_Editor.SuspendLayout();
             this.TC_Editors.SuspendLayout();
             this.Tab_Players.SuspendLayout();
@@ -102,11 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).BeginInit();
             this.CM_Picture.SuspendLayout();
-            this.Tab_Villagers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_Variant)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_Species)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_Villager)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_Villager)).BeginInit();
             this.Tab_Designs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Palette)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_PatternIndex)).BeginInit();
@@ -428,24 +406,6 @@
             // 
             // Tab_Villagers
             // 
-            this.Tab_Villagers.Controls.Add(this.B_EditVillagerFlags);
-            this.Tab_Villagers.Controls.Add(this.CHK_VillagerMovingOut);
-            this.Tab_Villagers.Controls.Add(this.B_EditFurniture);
-            this.Tab_Villagers.Controls.Add(this.B_LoadVillager);
-            this.Tab_Villagers.Controls.Add(this.B_DumpVillager);
-            this.Tab_Villagers.Controls.Add(this.L_ExternalName);
-            this.Tab_Villagers.Controls.Add(this.L_InternalName);
-            this.Tab_Villagers.Controls.Add(this.TB_Catchphrase);
-            this.Tab_Villagers.Controls.Add(this.L_Catchphrase);
-            this.Tab_Villagers.Controls.Add(this.L_Personality);
-            this.Tab_Villagers.Controls.Add(this.NUD_Variant);
-            this.Tab_Villagers.Controls.Add(this.L_Variant);
-            this.Tab_Villagers.Controls.Add(this.NUD_Species);
-            this.Tab_Villagers.Controls.Add(this.L_Species);
-            this.Tab_Villagers.Controls.Add(this.CB_Personality);
-            this.Tab_Villagers.Controls.Add(this.PB_Villager);
-            this.Tab_Villagers.Controls.Add(this.L_VillagerID);
-            this.Tab_Villagers.Controls.Add(this.NUD_Villager);
             this.Tab_Villagers.Location = new System.Drawing.Point(4, 22);
             this.Tab_Villagers.Name = "Tab_Villagers";
             this.Tab_Villagers.Padding = new System.Windows.Forms.Padding(3);
@@ -453,177 +413,6 @@
             this.Tab_Villagers.TabIndex = 0;
             this.Tab_Villagers.Text = "Villagers";
             this.Tab_Villagers.UseVisualStyleBackColor = true;
-            // 
-            // B_EditFurniture
-            // 
-            this.B_EditFurniture.Location = new System.Drawing.Point(202, 168);
-            this.B_EditFurniture.Name = "B_EditFurniture";
-            this.B_EditFurniture.Size = new System.Drawing.Size(92, 40);
-            this.B_EditFurniture.TabIndex = 26;
-            this.B_EditFurniture.Text = "Edit Furniture";
-            this.B_EditFurniture.UseVisualStyleBackColor = true;
-            this.B_EditFurniture.Click += new System.EventHandler(this.B_EditFurniture_Click);
-            // 
-            // B_LoadVillager
-            // 
-            this.B_LoadVillager.Location = new System.Drawing.Point(104, 168);
-            this.B_LoadVillager.Name = "B_LoadVillager";
-            this.B_LoadVillager.Size = new System.Drawing.Size(92, 40);
-            this.B_LoadVillager.TabIndex = 25;
-            this.B_LoadVillager.Text = "Load Villager";
-            this.B_LoadVillager.UseVisualStyleBackColor = true;
-            this.B_LoadVillager.Click += new System.EventHandler(this.B_LoadVillager_Click);
-            // 
-            // B_DumpVillager
-            // 
-            this.B_DumpVillager.Location = new System.Drawing.Point(6, 168);
-            this.B_DumpVillager.Name = "B_DumpVillager";
-            this.B_DumpVillager.Size = new System.Drawing.Size(92, 40);
-            this.B_DumpVillager.TabIndex = 24;
-            this.B_DumpVillager.Text = "Dump Villager";
-            this.B_DumpVillager.UseVisualStyleBackColor = true;
-            this.B_DumpVillager.Click += new System.EventHandler(this.B_DumpVillager_Click);
-            // 
-            // L_ExternalName
-            // 
-            this.L_ExternalName.AutoSize = true;
-            this.L_ExternalName.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_ExternalName.Location = new System.Drawing.Point(275, 11);
-            this.L_ExternalName.Name = "L_ExternalName";
-            this.L_ExternalName.Size = new System.Drawing.Size(91, 14);
-            this.L_ExternalName.TabIndex = 23;
-            this.L_ExternalName.Text = "externalName";
-            // 
-            // L_InternalName
-            // 
-            this.L_InternalName.AutoSize = true;
-            this.L_InternalName.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_InternalName.Location = new System.Drawing.Point(275, 31);
-            this.L_InternalName.Name = "L_InternalName";
-            this.L_InternalName.Size = new System.Drawing.Size(91, 14);
-            this.L_InternalName.TabIndex = 22;
-            this.L_InternalName.Text = "internalName";
-            // 
-            // TB_Catchphrase
-            // 
-            this.TB_Catchphrase.Location = new System.Drawing.Point(232, 73);
-            this.TB_Catchphrase.Name = "TB_Catchphrase";
-            this.TB_Catchphrase.Size = new System.Drawing.Size(100, 20);
-            this.TB_Catchphrase.TabIndex = 21;
-            // 
-            // L_Catchphrase
-            // 
-            this.L_Catchphrase.Location = new System.Drawing.Point(142, 73);
-            this.L_Catchphrase.Name = "L_Catchphrase";
-            this.L_Catchphrase.Size = new System.Drawing.Size(84, 20);
-            this.L_Catchphrase.TabIndex = 20;
-            this.L_Catchphrase.Text = "Catchphrase:";
-            this.L_Catchphrase.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // L_Personality
-            // 
-            this.L_Personality.Location = new System.Drawing.Point(142, 51);
-            this.L_Personality.Name = "L_Personality";
-            this.L_Personality.Size = new System.Drawing.Size(84, 20);
-            this.L_Personality.TabIndex = 19;
-            this.L_Personality.Text = "Personality:";
-            this.L_Personality.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // NUD_Variant
-            // 
-            this.NUD_Variant.Location = new System.Drawing.Point(232, 29);
-            this.NUD_Variant.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.NUD_Variant.Name = "NUD_Variant";
-            this.NUD_Variant.Size = new System.Drawing.Size(37, 20);
-            this.NUD_Variant.TabIndex = 18;
-            this.NUD_Variant.ValueChanged += new System.EventHandler(this.ChangeVillager);
-            // 
-            // L_Variant
-            // 
-            this.L_Variant.Location = new System.Drawing.Point(142, 29);
-            this.L_Variant.Name = "L_Variant";
-            this.L_Variant.Size = new System.Drawing.Size(84, 20);
-            this.L_Variant.TabIndex = 17;
-            this.L_Variant.Text = "Variant:";
-            this.L_Variant.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // NUD_Species
-            // 
-            this.NUD_Species.Location = new System.Drawing.Point(232, 7);
-            this.NUD_Species.Maximum = new decimal(new int[] {
-            400,
-            0,
-            0,
-            0});
-            this.NUD_Species.Name = "NUD_Species";
-            this.NUD_Species.Size = new System.Drawing.Size(37, 20);
-            this.NUD_Species.TabIndex = 16;
-            this.NUD_Species.ValueChanged += new System.EventHandler(this.ChangeVillager);
-            // 
-            // L_Species
-            // 
-            this.L_Species.Location = new System.Drawing.Point(142, 7);
-            this.L_Species.Name = "L_Species";
-            this.L_Species.Size = new System.Drawing.Size(84, 20);
-            this.L_Species.TabIndex = 15;
-            this.L_Species.Text = "Species:";
-            this.L_Species.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // CB_Personality
-            // 
-            this.CB_Personality.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_Personality.FormattingEnabled = true;
-            this.CB_Personality.Location = new System.Drawing.Point(232, 51);
-            this.CB_Personality.Name = "CB_Personality";
-            this.CB_Personality.Size = new System.Drawing.Size(100, 21);
-            this.CB_Personality.TabIndex = 14;
-            // 
-            // PB_Villager
-            // 
-            this.PB_Villager.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PB_Villager.ContextMenuStrip = this.CM_Picture;
-            this.PB_Villager.Location = new System.Drawing.Point(6, 33);
-            this.PB_Villager.Name = "PB_Villager";
-            this.PB_Villager.Size = new System.Drawing.Size(130, 130);
-            this.PB_Villager.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PB_Villager.TabIndex = 13;
-            this.PB_Villager.TabStop = false;
-            // 
-            // L_VillagerID
-            // 
-            this.L_VillagerID.Location = new System.Drawing.Point(6, 6);
-            this.L_VillagerID.Name = "L_VillagerID";
-            this.L_VillagerID.Size = new System.Drawing.Size(87, 20);
-            this.L_VillagerID.TabIndex = 12;
-            this.L_VillagerID.Text = "Villager Index:";
-            this.L_VillagerID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // NUD_Villager
-            // 
-            this.NUD_Villager.Location = new System.Drawing.Point(99, 6);
-            this.NUD_Villager.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.NUD_Villager.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.NUD_Villager.Name = "NUD_Villager";
-            this.NUD_Villager.Size = new System.Drawing.Size(37, 20);
-            this.NUD_Villager.TabIndex = 0;
-            this.NUD_Villager.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.NUD_Villager.ValueChanged += new System.EventHandler(this.LoadVillager);
             // 
             // Tab_Designs
             // 
@@ -803,26 +592,6 @@
             this.B_RecycleBin.UseVisualStyleBackColor = true;
             this.B_RecycleBin.Click += new System.EventHandler(this.B_RecycleBin_Click);
             // 
-            // CHK_VillagerMovingOut
-            // 
-            this.CHK_VillagerMovingOut.AutoSize = true;
-            this.CHK_VillagerMovingOut.Location = new System.Drawing.Point(232, 99);
-            this.CHK_VillagerMovingOut.Name = "CHK_VillagerMovingOut";
-            this.CHK_VillagerMovingOut.Size = new System.Drawing.Size(81, 17);
-            this.CHK_VillagerMovingOut.TabIndex = 27;
-            this.CHK_VillagerMovingOut.Text = "Moving Out";
-            this.CHK_VillagerMovingOut.UseVisualStyleBackColor = true;
-            // 
-            // B_EditVillagerFlags
-            // 
-            this.B_EditVillagerFlags.Location = new System.Drawing.Point(300, 168);
-            this.B_EditVillagerFlags.Name = "B_EditVillagerFlags";
-            this.B_EditVillagerFlags.Size = new System.Drawing.Size(92, 40);
-            this.B_EditVillagerFlags.TabIndex = 28;
-            this.B_EditVillagerFlags.Text = "Edit Flags";
-            this.B_EditVillagerFlags.UseVisualStyleBackColor = true;
-            this.B_EditVillagerFlags.Click += new System.EventHandler(this.B_EditVillagerFlags_Click);
-            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -846,12 +615,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).EndInit();
             this.CM_Picture.ResumeLayout(false);
-            this.Tab_Villagers.ResumeLayout(false);
-            this.Tab_Villagers.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_Variant)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_Species)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_Villager)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_Villager)).EndInit();
             this.Tab_Designs.ResumeLayout(false);
             this.Tab_Designs.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Palette)).EndInit();
@@ -887,30 +650,14 @@
         private System.Windows.Forms.NumericUpDown NUD_Wallet;
         private System.Windows.Forms.Button B_EditPlayerItems;
         private System.Windows.Forms.ToolStripMenuItem Menu_DumpDecrypted;
-        private System.Windows.Forms.Label L_VillagerID;
-        private System.Windows.Forms.NumericUpDown NUD_Villager;
-        private System.Windows.Forms.PictureBox PB_Villager;
-        private System.Windows.Forms.Label L_Species;
-        private System.Windows.Forms.ComboBox CB_Personality;
-        private System.Windows.Forms.NumericUpDown NUD_Species;
-        private System.Windows.Forms.NumericUpDown NUD_Variant;
-        private System.Windows.Forms.Label L_Variant;
-        private System.Windows.Forms.Label L_Personality;
-        private System.Windows.Forms.TextBox TB_Catchphrase;
-        private System.Windows.Forms.Label L_Catchphrase;
-        private System.Windows.Forms.Label L_InternalName;
-        private System.Windows.Forms.Label L_ExternalName;
         private System.Windows.Forms.ContextMenuStrip CM_Picture;
         private System.Windows.Forms.ToolStripMenuItem Menu_SavePNG;
         private System.Windows.Forms.ToolStripMenuItem Menu_VerifyHashes;
-        private System.Windows.Forms.Button B_DumpVillager;
         private System.Windows.Forms.Button B_EditPlayerRecipes;
         private System.Windows.Forms.TabPage Tab_Map;
         private System.Windows.Forms.Button B_RecycleBin;
         private System.Windows.Forms.Button B_EditPlayerStorage;
         private System.Windows.Forms.ToolStripMenuItem Menu_LoadDecrypted;
-        private System.Windows.Forms.Button B_LoadVillager;
-        private System.Windows.Forms.Button B_EditFurniture;
         private System.Windows.Forms.Button B_EditPlayerReceivedItems;
         private System.Windows.Forms.TabPage Tab_Designs;
         private System.Windows.Forms.Button B_LoadDesign;
@@ -928,8 +675,6 @@
         private System.Windows.Forms.Button B_EditTerrain;
         private System.Windows.Forms.Button B_EditPlayerFlags;
         private System.Windows.Forms.Button B_EditFieldItems;
-        private System.Windows.Forms.CheckBox CHK_VillagerMovingOut;
-        private System.Windows.Forms.Button B_EditVillagerFlags;
     }
 }
 
