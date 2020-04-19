@@ -73,6 +73,7 @@
             this.CHK_VillagerMovingOut.TabIndex = 45;
             this.CHK_VillagerMovingOut.Text = "Moving Out";
             this.CHK_VillagerMovingOut.UseVisualStyleBackColor = true;
+            this.CHK_VillagerMovingOut.CheckedChanged += new System.EventHandler(this.CHK_VillagerMovingOut_CheckedChanged);
             // 
             // B_EditFurniture
             // 

@@ -12,6 +12,7 @@ namespace NHSE.WinForms
         public IVillagerOrigin Origin;
         private readonly MainSave SAV;
         private int VillagerIndex = -1;
+        private bool Loading;
 
         public VillagerEditor(Villager[] villagers, IVillagerOrigin origin, MainSave sav, bool hasHouses)
         {
@@ -54,11 +55,13 @@ namespace NHSE.WinForms
 
         private void LoadVillager(Villager v)
         {
+            Loading = true;
             NUD_Species.Value = v.Species;
             NUD_Variant.Value = v.Variant;
             CB_Personality.SelectedIndex = (int)v.Personality;
             TB_Catchphrase.Text = v.CatchPhrase;
             CHK_VillagerMovingOut.Checked = v.MovingOut;
+            Loading = false;
         }
 
         private void SaveVillager(int index)
@@ -70,6 +73,19 @@ namespace NHSE.WinForms
             v.Personality = (VillagerPersonality)CB_Personality.SelectedIndex;
             v.CatchPhrase = TB_Catchphrase.Text;
             v.MovingOut = CHK_VillagerMovingOut.Checked;
+        }
+
+        private void CHK_VillagerMovingOut_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Loading)
+                return;
+
+            if (!CHK_VillagerMovingOut.Checked)
+                return;
+
+            const string question = "Are you trying to make the Villager move out?";
+            const string reply = "If so, set the Event Flag (024 - ForceMoveOut) to 1 so that the Villager is removed by the game.";
+            WinFormsUtil.Alert(question, reply);
         }
 
         private void B_DumpVillager_Click(object sender, EventArgs e)
