@@ -10,14 +10,19 @@ namespace NHSE.WinForms
     {
         public Villager[] Villagers;
         public IVillagerOrigin Origin;
+        private readonly MainSave SAV;
         private int VillagerIndex = -1;
 
-        public VillagerEditor(Villager[] villagers, IVillagerOrigin origin)
+        public VillagerEditor(Villager[] villagers, IVillagerOrigin origin, MainSave sav, bool hasHouses)
         {
             Villagers = villagers;
             Origin = origin;
+            SAV = sav;
             InitializeComponent();
             LoadVillagers();
+
+            if (!hasHouses)
+                B_DumpHouse.Visible = B_LoadHouse.Visible = false;
         }
 
         public void Save() => SaveVillager(VillagerIndex);
@@ -160,6 +165,61 @@ namespace NHSE.WinForms
             L_InternalName.Text = name;
             L_ExternalName.Text = GameInfo.Strings.GetVillager(name);
             PB_Villager.Image = VillagerSprite.GetVillagerSprite(name);
+        }
+
+        private void B_DumpHouse_Click(object sender, EventArgs e)
+        {
+            if (ModifierKeys == Keys.Shift)
+            {
+                using var fbd = new FolderBrowserDialog();
+                if (fbd.ShowDialog() != DialogResult.OK)
+                    return;
+
+                var dir = Path.GetDirectoryName(fbd.SelectedPath);
+                if (dir == null || !Directory.Exists(dir))
+                    return;
+                SAV.DumpVillagerHouses(fbd.SelectedPath);
+                return;
+            }
+
+            var name = L_ExternalName.Text;
+            using var sfd = new SaveFileDialog
+            {
+                Filter = "New Horizons Villager House (*.nhvh)|*.nhvh|All files (*.*)|*.*",
+                FileName = $"{name}.nhvh",
+            };
+            if (sfd.ShowDialog() != DialogResult.OK)
+                return;
+
+            var h = SAV.GetVillagerHouse(VillagerIndex);
+            var data = h.ToBytesClass();
+            File.WriteAllBytes(sfd.FileName, data);
+        }
+
+        private void B_LoadHouse_Click(object sender, EventArgs e)
+        {
+            var name = L_ExternalName.Text;
+            using var ofd = new OpenFileDialog
+            {
+                Filter = "New Horizons Villager House (*.nhvh)|*.nhvh|All files (*.*)|*.*",
+                FileName = $"{name}.nhvh",
+            };
+            if (ofd.ShowDialog() != DialogResult.OK)
+                return;
+
+            var file = ofd.FileName;
+            var fi = new FileInfo(file);
+            const int expectLength = VillagerHouse.SIZE;
+            if (fi.Length != expectLength)
+            {
+                var msg = $"Imported villager house's data length (0x{fi.Length:X}) does not match the required length (0x{expectLength:X}).";
+                WinFormsUtil.Error("Cancelling:", msg);
+                return;
+            }
+
+            var data = File.ReadAllBytes(file);
+            var h = data.ToClass<VillagerHouse>();
+            SAV.SetVillagerHouse(h, VillagerIndex);
         }
     }
 }

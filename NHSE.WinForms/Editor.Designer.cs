@@ -77,6 +77,10 @@
             this.B_EditTurnipExchange = new System.Windows.Forms.Button();
             this.B_EditBuildings = new System.Windows.Forms.Button();
             this.B_RecycleBin = new System.Windows.Forms.Button();
+            this.B_LoadHouse = new System.Windows.Forms.Button();
+            this.B_DumpHouse = new System.Windows.Forms.Button();
+            this.NUD_PlayerHouse = new System.Windows.Forms.NumericUpDown();
+            this.L_PlayerHouse = new System.Windows.Forms.Label();
             this.Menu_Editor.SuspendLayout();
             this.TC_Editors.SuspendLayout();
             this.Tab_Players.SuspendLayout();
@@ -90,6 +94,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_PatternIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Pattern)).BeginInit();
             this.Tab_Map.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PlayerHouse)).BeginInit();
             this.SuspendLayout();
             // 
             // Menu_Editor
@@ -518,6 +523,10 @@
             // 
             // Tab_Map
             // 
+            this.Tab_Map.Controls.Add(this.L_PlayerHouse);
+            this.Tab_Map.Controls.Add(this.NUD_PlayerHouse);
+            this.Tab_Map.Controls.Add(this.B_LoadHouse);
+            this.Tab_Map.Controls.Add(this.B_DumpHouse);
             this.Tab_Map.Controls.Add(this.B_EditFieldItems);
             this.Tab_Map.Controls.Add(this.B_EditTerrain);
             this.Tab_Map.Controls.Add(this.B_EditAcres);
@@ -592,6 +601,52 @@
             this.B_RecycleBin.UseVisualStyleBackColor = true;
             this.B_RecycleBin.Click += new System.EventHandler(this.B_RecycleBin_Click);
             // 
+            // B_LoadHouse
+            // 
+            this.B_LoadHouse.Location = new System.Drawing.Point(106, 29);
+            this.B_LoadHouse.Name = "B_LoadHouse";
+            this.B_LoadHouse.Size = new System.Drawing.Size(92, 40);
+            this.B_LoadHouse.TabIndex = 50;
+            this.B_LoadHouse.Text = "Load House";
+            this.B_LoadHouse.UseVisualStyleBackColor = true;
+            this.B_LoadHouse.Click += new System.EventHandler(this.B_LoadHouse_Click);
+            // 
+            // B_DumpHouse
+            // 
+            this.B_DumpHouse.Location = new System.Drawing.Point(8, 29);
+            this.B_DumpHouse.Name = "B_DumpHouse";
+            this.B_DumpHouse.Size = new System.Drawing.Size(92, 40);
+            this.B_DumpHouse.TabIndex = 49;
+            this.B_DumpHouse.Text = "Dump House";
+            this.B_DumpHouse.UseVisualStyleBackColor = true;
+            this.B_DumpHouse.Click += new System.EventHandler(this.B_DumpHouse_Click);
+            // 
+            // numericUpDown1
+            // 
+            this.NUD_PlayerHouse.Location = new System.Drawing.Point(106, 6);
+            this.NUD_PlayerHouse.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NUD_PlayerHouse.Name = "NUD_PlayerHouse";
+            this.NUD_PlayerHouse.Size = new System.Drawing.Size(45, 20);
+            this.NUD_PlayerHouse.TabIndex = 51;
+            this.NUD_PlayerHouse.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // L_PlayerHouse
+            // 
+            this.L_PlayerHouse.Location = new System.Drawing.Point(16, 6);
+            this.L_PlayerHouse.Name = "L_PlayerHouse";
+            this.L_PlayerHouse.Size = new System.Drawing.Size(84, 20);
+            this.L_PlayerHouse.TabIndex = 52;
+            this.L_PlayerHouse.Text = "Player House:";
+            this.L_PlayerHouse.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -621,6 +676,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_PatternIndex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Pattern)).EndInit();
             this.Tab_Map.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PlayerHouse)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -675,6 +731,10 @@
         private System.Windows.Forms.Button B_EditTerrain;
         private System.Windows.Forms.Button B_EditPlayerFlags;
         private System.Windows.Forms.Button B_EditFieldItems;
+        private System.Windows.Forms.NumericUpDown NUD_PlayerHouse;
+        private System.Windows.Forms.Button B_LoadHouse;
+        private System.Windows.Forms.Button B_DumpHouse;
+        private System.Windows.Forms.Label L_PlayerHouse;
     }
 }
 

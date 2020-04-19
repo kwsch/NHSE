@@ -124,7 +124,7 @@ namespace NHSE.WinForms
         {
             var p0 = SAV.Players[0].Personal;
             var villagers = SAV.Main.GetVillagers();
-            var v = new VillagerEditor(villagers, p0) {Dock = DockStyle.Fill};
+            var v = new VillagerEditor(villagers, p0, SAV.Main, true) {Dock = DockStyle.Fill};
             Tab_Villagers.Controls.Add(v);
             return v;
         }
@@ -146,6 +146,7 @@ namespace NHSE.WinForms
 
             PlayerIndex = -1;
             CB_Players.SelectedIndex = 0;
+            NUD_PlayerHouse.Maximum = CB_Players.Items.Count;
         }
 
         private void LoadMain()
@@ -438,6 +439,63 @@ namespace NHSE.WinForms
         {
             using var editor = new FieldItemEditor(SAV.Main);
             editor.ShowDialog();
+        }
+
+        private void B_DumpHouse_Click(object sender, EventArgs e)
+        {
+            if (ModifierKeys == Keys.Shift)
+            {
+                using var fbd = new FolderBrowserDialog();
+                if (fbd.ShowDialog() != DialogResult.OK)
+                    return;
+
+                var dir = Path.GetDirectoryName(fbd.SelectedPath);
+                if (dir == null || !Directory.Exists(dir))
+                    return;
+                SAV.DumpPlayerHouses(fbd.SelectedPath);
+                return;
+            }
+
+            var index = (int)(NUD_PlayerHouse.Value - 1);
+            var name = CB_Players.Items[index].ToString();
+            using var sfd = new SaveFileDialog
+            {
+                Filter = "New Horizons Player House (*.nhph)|*.nhph|All files (*.*)|*.*",
+                FileName = $"{name}.nhph",
+            };
+            if (sfd.ShowDialog() != DialogResult.OK)
+                return;
+
+            var h = SAV.Main.GetPlayerHouse(index);
+            var data = h.ToBytesClass();
+            File.WriteAllBytes(sfd.FileName, data);
+        }
+
+        private void B_LoadHouse_Click(object sender, EventArgs e)
+        {
+            var index = (int)(NUD_PlayerHouse.Value - 1);
+            var name = CB_Players.Items[index].ToString();
+            using var ofd = new OpenFileDialog
+            {
+                Filter = "New Horizons Player House (*.nhph)|*.nhph|All files (*.*)|*.*",
+                FileName = $"{name}.nhph",
+            };
+            if (ofd.ShowDialog() != DialogResult.OK)
+                return;
+
+            var file = ofd.FileName;
+            var fi = new FileInfo(file);
+            const int expectLength = PlayerHouse.SIZE;
+            if (fi.Length != expectLength)
+            {
+                var msg = $"Imported player house's data length (0x{fi.Length:X}) does not match the required length (0x{expectLength:X}).";
+                WinFormsUtil.Error("Cancelling:", msg);
+                return;
+            }
+
+            var data = File.ReadAllBytes(file);
+            var h = data.ToClass<PlayerHouse>();
+            SAV.Main.SetPlayerHouse(h, index);
         }
     }
 }

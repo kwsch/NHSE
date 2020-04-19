@@ -46,6 +46,8 @@
             this.PB_Villager = new System.Windows.Forms.PictureBox();
             this.L_VillagerID = new System.Windows.Forms.Label();
             this.NUD_Villager = new System.Windows.Forms.NumericUpDown();
+            this.B_LoadHouse = new System.Windows.Forms.Button();
+            this.B_DumpHouse = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Variant)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Species)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Villager)).BeginInit();
@@ -54,7 +56,7 @@
             // 
             // B_EditVillagerFlags
             // 
-            this.B_EditVillagerFlags.Location = new System.Drawing.Point(297, 165);
+            this.B_EditVillagerFlags.Location = new System.Drawing.Point(297, 119);
             this.B_EditVillagerFlags.Name = "B_EditVillagerFlags";
             this.B_EditVillagerFlags.Size = new System.Drawing.Size(92, 40);
             this.B_EditVillagerFlags.TabIndex = 46;
@@ -74,7 +76,7 @@
             // 
             // B_EditFurniture
             // 
-            this.B_EditFurniture.Location = new System.Drawing.Point(199, 165);
+            this.B_EditFurniture.Location = new System.Drawing.Point(199, 119);
             this.B_EditFurniture.Name = "B_EditFurniture";
             this.B_EditFurniture.Size = new System.Drawing.Size(92, 40);
             this.B_EditFurniture.TabIndex = 44;
@@ -242,10 +244,32 @@
             0});
             this.NUD_Villager.ValueChanged += new System.EventHandler(this.LoadVillager);
             // 
+            // B_LoadHouse
+            // 
+            this.B_LoadHouse.Location = new System.Drawing.Point(297, 165);
+            this.B_LoadHouse.Name = "B_LoadHouse";
+            this.B_LoadHouse.Size = new System.Drawing.Size(92, 40);
+            this.B_LoadHouse.TabIndex = 48;
+            this.B_LoadHouse.Text = "Load House";
+            this.B_LoadHouse.UseVisualStyleBackColor = true;
+            this.B_LoadHouse.Click += new System.EventHandler(this.B_LoadHouse_Click);
+            // 
+            // B_DumpHouse
+            // 
+            this.B_DumpHouse.Location = new System.Drawing.Point(199, 165);
+            this.B_DumpHouse.Name = "B_DumpHouse";
+            this.B_DumpHouse.Size = new System.Drawing.Size(92, 40);
+            this.B_DumpHouse.TabIndex = 47;
+            this.B_DumpHouse.Text = "Dump House";
+            this.B_DumpHouse.UseVisualStyleBackColor = true;
+            this.B_DumpHouse.Click += new System.EventHandler(this.B_DumpHouse_Click);
+            // 
             // VillagerEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.B_LoadHouse);
+            this.Controls.Add(this.B_DumpHouse);
             this.Controls.Add(this.B_EditVillagerFlags);
             this.Controls.Add(this.CHK_VillagerMovingOut);
             this.Controls.Add(this.B_EditFurniture);
@@ -295,5 +319,7 @@
         private System.Windows.Forms.PictureBox PB_Villager;
         private System.Windows.Forms.Label L_VillagerID;
         private System.Windows.Forms.NumericUpDown NUD_Villager;
+        private System.Windows.Forms.Button B_LoadHouse;
+        private System.Windows.Forms.Button B_DumpHouse;
     }
 }

@@ -7,6 +7,8 @@ namespace NHSE.Core
     /// </summary>
     public abstract class MainSaveOffsets
     {
+        public const int PlayerCount = 8;
+
         public abstract int Villager { get; }
         public const int VillagerSize = 0x12AB0;
         public const int VillagerCount = 10;
@@ -22,9 +24,12 @@ namespace NHSE.Core
 
         public abstract int TurnipExchange { get; }
 
+        public abstract int EventFlagLand { get; }
         public abstract int FieldItem { get; }
         public abstract int Acres { get; }
         public abstract int Terrain { get; }
+        public abstract int PlayerHouseList { get; }
+        public abstract int NpcHouseList { get; }
 
         public static MainSaveOffsets GetOffsets(FileHeaderInfo Info)
         {

@@ -44,6 +44,34 @@ namespace NHSE.Core
             set => Building.SetArray(value).CopyTo(Data, Offsets.Buildings);
         }
 
+        public PlayerHouse GetPlayerHouse(int index)
+        {
+            if ((uint)index >= MainSaveOffsets.PlayerCount)
+                throw new ArgumentOutOfRangeException(nameof(index));
+            return Data.Slice(Offsets.PlayerHouseList + (index * PlayerHouse.SIZE), PlayerHouse.SIZE).ToClass<PlayerHouse>();
+        }
+
+        public void SetPlayerHouse(PlayerHouse h, int index)
+        {
+            if ((uint)index >= MainSaveOffsets.PlayerCount)
+                throw new ArgumentOutOfRangeException(nameof(index));
+            h.ToBytesClass().CopyTo(Data, Offsets.PlayerHouseList + (index * PlayerHouse.SIZE));
+        }
+
+        public VillagerHouse GetVillagerHouse(int index)
+        {
+            if ((uint)index >= MainSaveOffsets.VillagerCount)
+                throw new ArgumentOutOfRangeException(nameof(index));
+            return Data.Slice(Offsets.NpcHouseList + (index * VillagerHouse.SIZE), VillagerHouse.SIZE).ToClass<VillagerHouse>();
+        }
+
+        public void SetVillagerHouse(VillagerHouse h, int index)
+        {
+            if ((uint)index >= MainSaveOffsets.VillagerCount)
+                throw new ArgumentOutOfRangeException(nameof(index));
+            h.ToBytesClass().CopyTo(Data, Offsets.NpcHouseList + (index * VillagerHouse.SIZE));
+        }
+
         public TurnipStonk Turnips
         {
             get => Data.Slice(Offsets.TurnipExchange, TurnipStonk.SIZE).ToClass<TurnipStonk>();

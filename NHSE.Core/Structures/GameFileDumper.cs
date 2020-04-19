@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace NHSE.Core
@@ -16,7 +17,7 @@ namespace NHSE.Core
         /// <param name="path">Path to dump to</param>
         public static void Dump(this HorizonSave sav, string path)
         {
-            sav.Main.Dump(path);
+            sav.Main.DumpVillagerHouses(path);
             foreach (var p in sav.Players)
             {
                 var dir = Path.Combine(path, p.DirectoryName);
@@ -53,7 +54,54 @@ namespace NHSE.Core
         }
 
         /// <summary>
-        /// Dumps all villagers in their decrypted state to the requested <see cref="path"/>.
+        /// Dumps all villager houses to the requested <see cref="path"/>.
+        /// </summary>
+        /// <param name="sav">Save Data to dump from</param>
+        /// <param name="path">Path to dump to</param>
+        public static void DumpPlayerHouses(this HorizonSave sav, string path)
+        {
+            var count = Math.Min(sav.Players.Length, MainSaveOffsets.PlayerCount);
+            for (int i = 0; i < count; i++)
+            {
+                var p = sav.Players[i];
+                var h = sav.Main.GetPlayerHouse(i);
+                h.Dump(path, p.Personal);
+            }
+        }
+
+        private static void Dump(this PlayerHouse h, string path, Personal p)
+        {
+            var name = GameInfo.Strings.GetVillager(p.PlayerName);
+            var dest = Path.Combine(path, $"{name}.nhph");
+            var data = h.ToBytesClass();
+            File.WriteAllBytes(dest, data);
+        }
+
+        /// <summary>
+        /// Dumps all villager houses to the requested <see cref="path"/>.
+        /// </summary>
+        /// <param name="sav">Save Data to dump from</param>
+        /// <param name="path">Path to dump to</param>
+        public static void DumpVillagerHouses(this MainSave sav, string path)
+        {
+            for (int i = 0; i < MainSaveOffsets.VillagerCount; i++)
+            {
+                var v = sav.GetVillager(i);
+                var h = sav.GetVillagerHouse(i);
+                h.Dump(path, v);
+            }
+        }
+
+        private static void Dump(this VillagerHouse h, string path, Villager v)
+        {
+            var name = GameInfo.Strings.GetVillager(v.InternalName);
+            var dest = Path.Combine(path, $"{name}.nhvh");
+            var data = h.ToBytesClass();
+            File.WriteAllBytes(dest, data);
+        }
+
+        /// <summary>
+        /// Dumps all villagers to the requested <see cref="path"/>.
         /// </summary>
         /// <param name="villagers">Data to dump from</param>
         /// <param name="path">Path to dump to</param>
@@ -71,7 +119,7 @@ namespace NHSE.Core
         }
 
         /// <summary>
-        /// Dumps all villagers in their decrypted state to the requested <see cref="path"/>.
+        /// Dumps all designs to the requested <see cref="path"/>.
         /// </summary>
         /// <param name="sav">Save Data to dump from</param>
         /// <param name="path">Path to dump to</param>
