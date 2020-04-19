@@ -1,6 +1,6 @@
 ﻿namespace NHSE.WinForms
 {
-    partial class ActivityEditor
+    partial class AchievementEditor
     {
         /// <summary>
         /// Required designer variable.

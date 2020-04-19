@@ -42,7 +42,7 @@
             this.TC_Editors = new System.Windows.Forms.TabControl();
             this.Tab_Players = new System.Windows.Forms.TabPage();
             this.B_EditPlayerFlags = new System.Windows.Forms.Button();
-            this.B_EditActivities = new System.Windows.Forms.Button();
+            this.B_EditAchievements = new System.Windows.Forms.Button();
             this.B_EditPlayerReceivedItems = new System.Windows.Forms.Button();
             this.B_EditPlayerStorage = new System.Windows.Forms.Button();
             this.B_EditPlayerRecipes = new System.Windows.Forms.Button();
@@ -188,7 +188,7 @@
             // Tab_Players
             // 
             this.Tab_Players.Controls.Add(this.B_EditPlayerFlags);
-            this.Tab_Players.Controls.Add(this.B_EditActivities);
+            this.Tab_Players.Controls.Add(this.B_EditAchievements);
             this.Tab_Players.Controls.Add(this.B_EditPlayerReceivedItems);
             this.Tab_Players.Controls.Add(this.B_EditPlayerStorage);
             this.Tab_Players.Controls.Add(this.B_EditPlayerRecipes);
@@ -223,15 +223,15 @@
             this.B_EditPlayerFlags.UseVisualStyleBackColor = true;
             this.B_EditPlayerFlags.Click += new System.EventHandler(this.B_EditPlayerFlags_Click);
             // 
-            // B_EditActivities
+            // B_EditAchievements
             // 
-            this.B_EditActivities.Location = new System.Drawing.Point(301, 122);
-            this.B_EditActivities.Name = "B_EditActivities";
-            this.B_EditActivities.Size = new System.Drawing.Size(92, 40);
-            this.B_EditActivities.TabIndex = 16;
-            this.B_EditActivities.Text = "Edit Activities";
-            this.B_EditActivities.UseVisualStyleBackColor = true;
-            this.B_EditActivities.Click += new System.EventHandler(this.B_EditActivities_Click);
+            this.B_EditAchievements.Location = new System.Drawing.Point(301, 122);
+            this.B_EditAchievements.Name = "B_EditAchievements";
+            this.B_EditAchievements.Size = new System.Drawing.Size(92, 40);
+            this.B_EditAchievements.TabIndex = 16;
+            this.B_EditAchievements.Text = "Edit Achievements";
+            this.B_EditAchievements.UseVisualStyleBackColor = true;
+            this.B_EditAchievements.Click += new System.EventHandler(this.B_EditAchievements_Click);
             // 
             // B_EditPlayerReceivedItems
             // 
@@ -668,7 +668,7 @@
         private System.Windows.Forms.Label L_PatternName;
         private System.Windows.Forms.PictureBox PB_Palette;
         private System.Windows.Forms.Button B_EditBuildings;
-        private System.Windows.Forms.Button B_EditActivities;
+        private System.Windows.Forms.Button B_EditAchievements;
         private System.Windows.Forms.ToolStripMenuItem Menu_RAMEdit;
         private System.Windows.Forms.Button B_EditTurnipExchange;
         private System.Windows.Forms.Button B_EditAcres;

@@ -4,16 +4,16 @@ using NHSE.Core;
 
 namespace NHSE.WinForms
 {
-    public partial class ActivityEditor : Form
+    public partial class AchievementEditor : Form
     {
         private readonly uint[] Counts;
 
-        public ActivityEditor(uint[] counts)
+        public AchievementEditor(uint[] counts)
         {
             Counts = counts;
             InitializeComponent();
             for (int i = 0; i < counts.Length; i++)
-                LB_Counts.Items.Add(ActivityNames.GetActivityName(i, counts[i]));
+                LB_Counts.Items.Add(LifeSupportAchievement.GetName(i, counts[i]));
             DialogResult = DialogResult.Cancel;
             LB_Counts.SelectedIndex = 0;
         }
@@ -34,7 +34,7 @@ namespace NHSE.WinForms
                 return;
 
             Counts[Index] = (uint) NUD_Count.Value;
-            LB_Counts.Items[Index] = ActivityNames.GetActivityName(Index, Counts[Index]);
+            LB_Counts.Items[Index] = LifeSupportAchievement.GetName(Index, Counts[Index]);
         }
 
         private void LB_Counts_SelectedIndexChanged(object sender, EventArgs e)

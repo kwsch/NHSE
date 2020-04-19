@@ -266,11 +266,11 @@ namespace NHSE.WinForms
             pers.Wallet = wallet;
         }
 
-        private void B_EditActivities_Click(object sender, EventArgs e)
+        private void B_EditAchievements_Click(object sender, EventArgs e)
         {
             var pers = SAV.Players[PlayerIndex].Personal;
             var records = pers.GetActivities();
-            using var editor = new ActivityEditor(records);
+            using var editor = new AchievementEditor(records);
             if (editor.ShowDialog() == DialogResult.OK)
                 pers.SetActivities(records);
         }

@@ -67,7 +67,7 @@
     <Compile Update="Subforms\Player\ItemReceivedEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Subforms\Player\ActivityEditor.cs">
+    <Compile Update="Subforms\Player\AchievementEditor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Subforms\SysBot\SysBotRAMEdit.cs">

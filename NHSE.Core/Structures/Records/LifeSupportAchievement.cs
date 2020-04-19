@@ -2,7 +2,7 @@
 
 namespace NHSE.Core
 {
-    public static class ActivityNames
+    public static class LifeSupportAchievement
     {
         private const string Unknown = "???";
 
@@ -91,7 +91,7 @@ namespace NHSE.Core
             {90,"BuildFence"}, // 柵を置くハチを5連続捕まえた
         };
 
-        public static string GetActivityName(int index, uint count)
+        public static string GetName(int index, uint count)
         {
             var dict = Dictionary;
             if (dict.TryGetValue(index, out var val))
