@@ -6,55 +6,34 @@ namespace NHSE.Tests
 {
     public class MarshalTests
     {
-        [Fact]
-        public void ItemMarshal()
-        {
-            var item = new Item();
-            var bytes = item.ToBytesClass();
-            bytes.Length.Should().Be(Item.SIZE);
-        }
+        [Fact] public void MarshalItem() => MarshalTest<Item>(Item.SIZE);
+        [Fact] public void MarshalVillagerItem() => MarshalTest<VillagerItem>(VillagerItem.SIZE);
+        [Fact] public void MarshalTerrainTile() => MarshalTest<TerrainTile>(TerrainTile.SIZE);
+        [Fact] public void MarshalTurnip() => MarshalTest<TurnipStonk>(TurnipStonk.SIZE);
+        [Fact] public void MarshalBuilding() => MarshalTest<Building>(Building.SIZE);
+        [Fact] public void MarshalVillagerHouse() => MarshalTest<VillagerHouse>(VillagerHouse.SIZE);
 
-        [Fact]
-        public void VillagerItemMarshal()
-        {
-            var item = new VillagerItem();
-            var bytes = item.ToBytesClass();
-            bytes.Length.Should().Be(VillagerItem.SIZE);
-        }
+        [Fact] public void MarshalVillagerHouseItem() => MarshalTestS<VillagerHouseItem>(VillagerHouseItem.SIZE);
+        [Fact] public void MarshalGSaveItemName() => MarshalTestS<GSaveItemName>(GSaveItemName.SIZE);
 
-        [Fact]
-        public void FieldItemMarshal()
+        private static void MarshalTest<T>(int size) where T : class, new()
         {
-            var item = new FieldItem();
-            var bytes = item.ToBytesClass();
-            bytes.Length.Should().Be(Item.SIZE);
-
-            var other = new FieldItem();
-            item.CopyFrom(other);
-        }
-
-        [Fact]
-        public void TerrainTileMarshal()
-        {
-            var obj = new TerrainTile();
+            var obj = new T();
             var bytes = obj.ToBytesClass();
-            bytes.Length.Should().Be(TerrainTile.SIZE);
+            bytes.Length.Should().Be(size);
+
+            var recomputed = bytes.ToClass<T>();
+            recomputed.Should().NotBeNull();
         }
 
-        [Fact]
-        public void TurnipMarshal()
+        private static void MarshalTestS<T>(int size) where T : struct
         {
-            var obj = new TurnipStonk();
-            var bytes = obj.ToBytesClass();
-            bytes.Length.Should().Be(TurnipStonk.SIZE);
-        }
+            var obj = new T();
+            var bytes = obj.ToBytes();
+            bytes.Length.Should().Be(size);
 
-        [Fact]
-        public void BuildingMarshal()
-        {
-            var obj = new Building();
-            var bytes = obj.ToBytesClass();
-            bytes.Length.Should().Be(Building.SIZE);
+            var recomputed = bytes.ToStructure<T>();
+            recomputed.Should().NotBeNull();
         }
     }
 }

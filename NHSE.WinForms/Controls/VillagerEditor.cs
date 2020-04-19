@@ -123,8 +123,8 @@ namespace NHSE.WinForms
             var player0 = Origin;
             if (!v.IsOriginatedFrom(player0))
             {
-                var result = WinFormsUtil.Prompt(MessageBoxButtons.YesNoCancel,
-                    $"Imported Villager did not originate from Resident Rep's data.", "Update values?");
+                const string msg = "Imported Villager did not originate from Resident Rep's data.";
+                var result = WinFormsUtil.Prompt(MessageBoxButtons.YesNoCancel, msg, "Update values?");
                 if (result == DialogResult.Cancel)
                     return;
                 if (result == DialogResult.Yes)

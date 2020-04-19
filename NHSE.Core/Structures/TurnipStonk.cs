@@ -2,12 +2,12 @@
 
 namespace NHSE.Core
 {
-    [StructLayout(LayoutKind.Sequential)]
-    public class TurnipStonk
+    [StructLayout(LayoutKind.Sequential, Size = SIZE)]
+    public class TurnipStonk // GSaveShopKabu
     {
-        public const int SIZE = sizeof(uint) * (1 + (2 * 7));
+        public const int SIZE = 0x44;
 
-        public uint BuyPrice { get; set; }
+        public uint BuyPrice { get; set; } // KaburibaKabuka
 
         public uint SellSundayAM { get; set; }
         public uint SellSundayPM { get; set; }
@@ -29,5 +29,8 @@ namespace NHSE.Core
 
         public uint SellSaturdayAM { get; set; }
         public uint SellSaturdayPM { get; set; }
+
+        public uint Pattern { get; set; } // KabukaPattern
+        public uint Unk_6C4E0099 { get; set; }
     }
 }

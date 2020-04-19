@@ -84,6 +84,18 @@ namespace NHSE.Core
         public FieldItem[] GetFieldItems() => FieldItem.GetArray(Data.Slice(Offsets.FieldItem, MapGrid.MapTileCount32x32 * FieldItem.SIZE * 2));
         public void SetFieldItems(IReadOnlyList<FieldItem> array) => FieldItem.SetArray(array).CopyTo(Data, Offsets.FieldItem);
 
+        public ushort OutsideFieldTemplateUniqueId
+        {
+            get => BitConverter.ToUInt16(Data, Offsets.Acres + AcreSizeAll);
+            set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.Acres + AcreSizeAll);
+        }
+
+        public ushort MainFieldParamUniqueID
+        {
+            get => BitConverter.ToUInt16(Data, Offsets.Acres + AcreSizeAll + 2);
+            set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.Acres + AcreSizeAll + 2);
+        }
+
         public uint PlazaX
         {
             get => BitConverter.ToUInt32(Data, Offsets.Acres + AcreSizeAll + 4);
