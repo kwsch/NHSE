@@ -74,10 +74,11 @@ namespace NHSE.WinForms
             NUD_BuildingType.Value = (int)b.BuildingType;
             NUD_X.Value = b.X;
             NUD_Y.Value = b.Y;
-            NUD_Rot.Value = b.Rotation;
-            NUD_08.Value = b.Unk08;
-            NUD_0C.Value = b.Unk0C;
-            NUD_10.Value = b.Unk10;
+            NUD_Angle.Value = b.Angle;
+            NUD_Bit.Value = b.Bit;
+            NUD_Type.Value = b.Type;
+            NUD_TypeArg.Value = b.TypeArg;
+            NUD_UniqueID.Value = b.UniqueID;
             Loading = false;
         }
 
@@ -93,14 +94,16 @@ namespace NHSE.WinForms
                 b.X = (ushort)n.Value;
             else if (sender == NUD_Y)
                 b.Y = (ushort)n.Value;
-            else if (sender == NUD_Rot)
-                b.Rotation = (ushort)n.Value;
-            else if (sender == NUD_08)
-                b.Unk08 = (uint)n.Value;
-            else if (sender == NUD_0C)
-                b.Unk0C = (uint)n.Value;
-            else if (sender == NUD_10)
-                b.Unk10 = (uint)n.Value;
+            else if (sender == NUD_Angle)
+                b.Angle = (byte)n.Value;
+            else if (sender == NUD_Bit)
+                b.Bit = (sbyte)n.Value;
+            else if (sender == NUD_Type)
+                b.Type = (ushort)n.Value;
+            else if (sender == NUD_TypeArg)
+                b.TypeArg = (byte)n.Value;
+            else if (sender == NUD_UniqueID)
+                b.UniqueID = (ushort)n.Value;
 
             LB_Items.Items[Index] = Buildings[Index].ToString();
             DrawMap(Index);

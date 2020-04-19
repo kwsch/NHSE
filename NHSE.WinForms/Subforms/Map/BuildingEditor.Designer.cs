@@ -38,15 +38,17 @@
             this.L_BuildingX = new System.Windows.Forms.Label();
             this.NUD_Y = new System.Windows.Forms.NumericUpDown();
             this.L_BuildingY = new System.Windows.Forms.Label();
-            this.NUD_Rot = new System.Windows.Forms.NumericUpDown();
+            this.NUD_Angle = new System.Windows.Forms.NumericUpDown();
             this.L_BuildingRotation = new System.Windows.Forms.Label();
-            this.NUD_08 = new System.Windows.Forms.NumericUpDown();
-            this.L_Building08 = new System.Windows.Forms.Label();
-            this.NUD_0C = new System.Windows.Forms.NumericUpDown();
-            this.L_Building0C = new System.Windows.Forms.Label();
-            this.NUD_10 = new System.Windows.Forms.NumericUpDown();
-            this.L_Building10 = new System.Windows.Forms.Label();
+            this.NUD_Type = new System.Windows.Forms.NumericUpDown();
+            this.L_BuildingStructureType = new System.Windows.Forms.Label();
+            this.NUD_TypeArg = new System.Windows.Forms.NumericUpDown();
+            this.L_BuildingStructureArg = new System.Windows.Forms.Label();
+            this.NUD_UniqueID = new System.Windows.Forms.NumericUpDown();
+            this.L_BuildingUniqueID = new System.Windows.Forms.Label();
             this.GB_Building = new System.Windows.Forms.GroupBox();
+            this.L_Bit = new System.Windows.Forms.Label();
+            this.NUD_Bit = new System.Windows.Forms.NumericUpDown();
             this.GB_Info = new System.Windows.Forms.GroupBox();
             this.L_StructureValues = new System.Windows.Forms.Label();
             this.CB_StructureValues = new System.Windows.Forms.ComboBox();
@@ -62,11 +64,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BuildingType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_X)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Y)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_Rot)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_08)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_0C)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_Angle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_Type)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_TypeArg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_UniqueID)).BeginInit();
             this.GB_Building.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_Bit)).BeginInit();
             this.GB_Info.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_PlazaX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_PlazaY)).BeginInit();
@@ -75,7 +78,7 @@
             // B_Save
             // 
             this.B_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.B_Save.Location = new System.Drawing.Point(609, 501);
+            this.B_Save.Location = new System.Drawing.Point(609, 528);
             this.B_Save.Name = "B_Save";
             this.B_Save.Size = new System.Drawing.Size(65, 23);
             this.B_Save.TabIndex = 1;
@@ -86,7 +89,7 @@
             // B_Cancel
             // 
             this.B_Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.B_Cancel.Location = new System.Drawing.Point(609, 527);
+            this.B_Cancel.Location = new System.Drawing.Point(609, 554);
             this.B_Cancel.Name = "B_Cancel";
             this.B_Cancel.Size = new System.Drawing.Size(65, 23);
             this.B_Cancel.TabIndex = 2;
@@ -102,7 +105,7 @@
             this.LB_Items.FormattingEnabled = true;
             this.LB_Items.Location = new System.Drawing.Point(12, 12);
             this.LB_Items.Name = "LB_Items";
-            this.LB_Items.Size = new System.Drawing.Size(206, 537);
+            this.LB_Items.Size = new System.Drawing.Size(206, 563);
             this.LB_Items.TabIndex = 3;
             this.LB_Items.SelectedIndexChanged += new System.EventHandler(this.LB_Items_SelectedIndexChanged);
             // 
@@ -135,7 +138,7 @@
             // 
             // NUD_X
             // 
-            this.NUD_X.Location = new System.Drawing.Point(61, 35);
+            this.NUD_X.Location = new System.Drawing.Point(61, 34);
             this.NUD_X.Maximum = new decimal(new int[] {
             255,
             0,
@@ -148,7 +151,7 @@
             // 
             // L_BuildingX
             // 
-            this.L_BuildingX.Location = new System.Drawing.Point(35, 34);
+            this.L_BuildingX.Location = new System.Drawing.Point(35, 33);
             this.L_BuildingX.Name = "L_BuildingX";
             this.L_BuildingX.Size = new System.Drawing.Size(20, 18);
             this.L_BuildingX.TabIndex = 8;
@@ -157,7 +160,7 @@
             // 
             // NUD_Y
             // 
-            this.NUD_Y.Location = new System.Drawing.Point(136, 35);
+            this.NUD_Y.Location = new System.Drawing.Point(136, 34);
             this.NUD_Y.Maximum = new decimal(new int[] {
             255,
             0,
@@ -170,124 +173,153 @@
             // 
             // L_BuildingY
             // 
-            this.L_BuildingY.Location = new System.Drawing.Point(107, 34);
+            this.L_BuildingY.Location = new System.Drawing.Point(107, 33);
             this.L_BuildingY.Name = "L_BuildingY";
             this.L_BuildingY.Size = new System.Drawing.Size(23, 18);
             this.L_BuildingY.TabIndex = 10;
             this.L_BuildingY.Text = "Y:";
             this.L_BuildingY.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // NUD_Rot
+            // NUD_Angle
             // 
-            this.NUD_Rot.Location = new System.Drawing.Point(112, 60);
-            this.NUD_Rot.Maximum = new decimal(new int[] {
+            this.NUD_Angle.Location = new System.Drawing.Point(112, 59);
+            this.NUD_Angle.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
-            this.NUD_Rot.Name = "NUD_Rot";
-            this.NUD_Rot.Size = new System.Drawing.Size(69, 20);
-            this.NUD_Rot.TabIndex = 13;
-            this.NUD_Rot.ValueChanged += new System.EventHandler(this.NUD_BuildingType_ValueChanged);
+            this.NUD_Angle.Name = "NUD_Angle";
+            this.NUD_Angle.Size = new System.Drawing.Size(69, 20);
+            this.NUD_Angle.TabIndex = 13;
+            this.NUD_Angle.ValueChanged += new System.EventHandler(this.NUD_BuildingType_ValueChanged);
             // 
             // L_BuildingRotation
             // 
-            this.L_BuildingRotation.Location = new System.Drawing.Point(6, 59);
+            this.L_BuildingRotation.Location = new System.Drawing.Point(6, 58);
             this.L_BuildingRotation.Name = "L_BuildingRotation";
             this.L_BuildingRotation.Size = new System.Drawing.Size(100, 18);
             this.L_BuildingRotation.TabIndex = 12;
-            this.L_BuildingRotation.Text = "Rotation:";
+            this.L_BuildingRotation.Text = "Angle:";
             this.L_BuildingRotation.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // NUD_08
+            // NUD_Type
             // 
-            this.NUD_08.Location = new System.Drawing.Point(112, 80);
-            this.NUD_08.Maximum = new decimal(new int[] {
+            this.NUD_Type.Location = new System.Drawing.Point(112, 105);
+            this.NUD_Type.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
-            this.NUD_08.Name = "NUD_08";
-            this.NUD_08.Size = new System.Drawing.Size(69, 20);
-            this.NUD_08.TabIndex = 15;
-            this.NUD_08.ValueChanged += new System.EventHandler(this.NUD_BuildingType_ValueChanged);
+            this.NUD_Type.Name = "NUD_Type";
+            this.NUD_Type.Size = new System.Drawing.Size(69, 20);
+            this.NUD_Type.TabIndex = 15;
+            this.NUD_Type.ValueChanged += new System.EventHandler(this.NUD_BuildingType_ValueChanged);
             // 
-            // L_Building08
+            // L_BuildingStructureType
             // 
-            this.L_Building08.Location = new System.Drawing.Point(6, 79);
-            this.L_Building08.Name = "L_Building08";
-            this.L_Building08.Size = new System.Drawing.Size(100, 18);
-            this.L_Building08.TabIndex = 14;
-            this.L_Building08.Text = "Unknown 0x08:";
-            this.L_Building08.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_BuildingStructureType.Location = new System.Drawing.Point(6, 104);
+            this.L_BuildingStructureType.Name = "L_BuildingStructureType";
+            this.L_BuildingStructureType.Size = new System.Drawing.Size(100, 18);
+            this.L_BuildingStructureType.TabIndex = 14;
+            this.L_BuildingStructureType.Text = "Type:";
+            this.L_BuildingStructureType.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // NUD_0C
+            // NUD_TypeArg
             // 
-            this.NUD_0C.Location = new System.Drawing.Point(112, 100);
-            this.NUD_0C.Maximum = new decimal(new int[] {
+            this.NUD_TypeArg.Location = new System.Drawing.Point(112, 126);
+            this.NUD_TypeArg.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
-            this.NUD_0C.Name = "NUD_0C";
-            this.NUD_0C.Size = new System.Drawing.Size(69, 20);
-            this.NUD_0C.TabIndex = 17;
-            this.NUD_0C.ValueChanged += new System.EventHandler(this.NUD_BuildingType_ValueChanged);
+            this.NUD_TypeArg.Name = "NUD_TypeArg";
+            this.NUD_TypeArg.Size = new System.Drawing.Size(69, 20);
+            this.NUD_TypeArg.TabIndex = 17;
+            this.NUD_TypeArg.ValueChanged += new System.EventHandler(this.NUD_BuildingType_ValueChanged);
             // 
-            // L_Building0C
+            // L_BuildingStructureArg
             // 
-            this.L_Building0C.Location = new System.Drawing.Point(6, 99);
-            this.L_Building0C.Name = "L_Building0C";
-            this.L_Building0C.Size = new System.Drawing.Size(100, 18);
-            this.L_Building0C.TabIndex = 16;
-            this.L_Building0C.Text = "Unknown 0x0A:";
-            this.L_Building0C.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_BuildingStructureArg.Location = new System.Drawing.Point(6, 125);
+            this.L_BuildingStructureArg.Name = "L_BuildingStructureArg";
+            this.L_BuildingStructureArg.Size = new System.Drawing.Size(100, 18);
+            this.L_BuildingStructureArg.TabIndex = 16;
+            this.L_BuildingStructureArg.Text = "TypeArg:";
+            this.L_BuildingStructureArg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // NUD_10
+            // NUD_UniqueID
             // 
-            this.NUD_10.Location = new System.Drawing.Point(112, 120);
-            this.NUD_10.Maximum = new decimal(new int[] {
+            this.NUD_UniqueID.Location = new System.Drawing.Point(112, 147);
+            this.NUD_UniqueID.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
-            this.NUD_10.Name = "NUD_10";
-            this.NUD_10.Size = new System.Drawing.Size(69, 20);
-            this.NUD_10.TabIndex = 19;
-            this.NUD_10.ValueChanged += new System.EventHandler(this.NUD_BuildingType_ValueChanged);
+            this.NUD_UniqueID.Name = "NUD_UniqueID";
+            this.NUD_UniqueID.Size = new System.Drawing.Size(69, 20);
+            this.NUD_UniqueID.TabIndex = 19;
+            this.NUD_UniqueID.ValueChanged += new System.EventHandler(this.NUD_BuildingType_ValueChanged);
             // 
-            // L_Building10
+            // L_BuildingUniqueID
             // 
-            this.L_Building10.Location = new System.Drawing.Point(6, 119);
-            this.L_Building10.Name = "L_Building10";
-            this.L_Building10.Size = new System.Drawing.Size(100, 18);
-            this.L_Building10.TabIndex = 18;
-            this.L_Building10.Text = "Unknown 0x0C:";
-            this.L_Building10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_BuildingUniqueID.Location = new System.Drawing.Point(6, 146);
+            this.L_BuildingUniqueID.Name = "L_BuildingUniqueID";
+            this.L_BuildingUniqueID.Size = new System.Drawing.Size(100, 18);
+            this.L_BuildingUniqueID.TabIndex = 18;
+            this.L_BuildingUniqueID.Text = "UniqueID:";
+            this.L_BuildingUniqueID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // GB_Building
             // 
             this.GB_Building.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.GB_Building.Controls.Add(this.L_Bit);
+            this.GB_Building.Controls.Add(this.NUD_Bit);
             this.GB_Building.Controls.Add(this.L_BuildingType);
             this.GB_Building.Controls.Add(this.NUD_BuildingType);
-            this.GB_Building.Controls.Add(this.NUD_10);
+            this.GB_Building.Controls.Add(this.NUD_UniqueID);
             this.GB_Building.Controls.Add(this.L_BuildingX);
-            this.GB_Building.Controls.Add(this.L_Building10);
+            this.GB_Building.Controls.Add(this.L_BuildingUniqueID);
             this.GB_Building.Controls.Add(this.NUD_X);
-            this.GB_Building.Controls.Add(this.NUD_0C);
+            this.GB_Building.Controls.Add(this.NUD_TypeArg);
             this.GB_Building.Controls.Add(this.L_BuildingY);
-            this.GB_Building.Controls.Add(this.L_Building0C);
+            this.GB_Building.Controls.Add(this.L_BuildingStructureArg);
             this.GB_Building.Controls.Add(this.NUD_Y);
-            this.GB_Building.Controls.Add(this.NUD_08);
+            this.GB_Building.Controls.Add(this.NUD_Type);
             this.GB_Building.Controls.Add(this.L_BuildingRotation);
-            this.GB_Building.Controls.Add(this.L_Building08);
-            this.GB_Building.Controls.Add(this.NUD_Rot);
-            this.GB_Building.Location = new System.Drawing.Point(224, 404);
+            this.GB_Building.Controls.Add(this.L_BuildingStructureType);
+            this.GB_Building.Controls.Add(this.NUD_Angle);
+            this.GB_Building.Location = new System.Drawing.Point(224, 401);
             this.GB_Building.Name = "GB_Building";
-            this.GB_Building.Size = new System.Drawing.Size(194, 147);
+            this.GB_Building.Size = new System.Drawing.Size(194, 176);
             this.GB_Building.TabIndex = 21;
             this.GB_Building.TabStop = false;
             this.GB_Building.Text = "Editor";
+            // 
+            // L_Bit
+            // 
+            this.L_Bit.Location = new System.Drawing.Point(6, 79);
+            this.L_Bit.Name = "L_Bit";
+            this.L_Bit.Size = new System.Drawing.Size(100, 18);
+            this.L_Bit.TabIndex = 20;
+            this.L_Bit.Text = "Bit:";
+            this.L_Bit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // NUD_Bit
+            // 
+            this.NUD_Bit.Location = new System.Drawing.Point(112, 80);
+            this.NUD_Bit.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.NUD_Bit.Minimum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            -2147483648});
+            this.NUD_Bit.Name = "NUD_Bit";
+            this.NUD_Bit.Size = new System.Drawing.Size(69, 20);
+            this.NUD_Bit.TabIndex = 21;
+            this.NUD_Bit.ValueChanged += new System.EventHandler(this.NUD_BuildingType_ValueChanged);
             // 
             // GB_Info
             // 
@@ -296,9 +328,9 @@
             this.GB_Info.Controls.Add(this.CB_StructureValues);
             this.GB_Info.Controls.Add(this.L_StructureType);
             this.GB_Info.Controls.Add(this.CB_StructureType);
-            this.GB_Info.Location = new System.Drawing.Point(424, 404);
+            this.GB_Info.Location = new System.Drawing.Point(424, 401);
             this.GB_Info.Name = "GB_Info";
-            this.GB_Info.Size = new System.Drawing.Size(250, 94);
+            this.GB_Info.Size = new System.Drawing.Size(250, 117);
             this.GB_Info.TabIndex = 22;
             this.GB_Info.TabStop = false;
             this.GB_Info.Text = "Info";
@@ -306,7 +338,7 @@
             // L_StructureValues
             // 
             this.L_StructureValues.AutoSize = true;
-            this.L_StructureValues.Location = new System.Drawing.Point(17, 51);
+            this.L_StructureValues.Location = new System.Drawing.Point(17, 64);
             this.L_StructureValues.Name = "L_StructureValues";
             this.L_StructureValues.Size = new System.Drawing.Size(42, 13);
             this.L_StructureValues.TabIndex = 22;
@@ -320,7 +352,7 @@
             this.CB_StructureValues.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_StructureValues.DropDownWidth = 322;
             this.CB_StructureValues.FormattingEnabled = true;
-            this.CB_StructureValues.Location = new System.Drawing.Point(20, 64);
+            this.CB_StructureValues.Location = new System.Drawing.Point(20, 80);
             this.CB_StructureValues.Name = "CB_StructureValues";
             this.CB_StructureValues.Size = new System.Drawing.Size(221, 21);
             this.CB_StructureValues.TabIndex = 21;
@@ -328,7 +360,7 @@
             // L_StructureType
             // 
             this.L_StructureType.AutoSize = true;
-            this.L_StructureType.Location = new System.Drawing.Point(17, 12);
+            this.L_StructureType.Location = new System.Drawing.Point(17, 18);
             this.L_StructureType.Name = "L_StructureType";
             this.L_StructureType.Size = new System.Drawing.Size(80, 13);
             this.L_StructureType.TabIndex = 20;
@@ -341,7 +373,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CB_StructureType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_StructureType.FormattingEnabled = true;
-            this.CB_StructureType.Location = new System.Drawing.Point(20, 26);
+            this.CB_StructureType.Location = new System.Drawing.Point(20, 35);
             this.CB_StructureType.Name = "CB_StructureType";
             this.CB_StructureType.Size = new System.Drawing.Size(221, 21);
             this.CB_StructureType.TabIndex = 0;
@@ -350,7 +382,7 @@
             // L_PlazaX
             // 
             this.L_PlazaX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.L_PlazaX.Location = new System.Drawing.Point(497, 503);
+            this.L_PlazaX.Location = new System.Drawing.Point(497, 530);
             this.L_PlazaX.Name = "L_PlazaX";
             this.L_PlazaX.Size = new System.Drawing.Size(62, 20);
             this.L_PlazaX.TabIndex = 104;
@@ -360,7 +392,7 @@
             // NUD_PlazaX
             // 
             this.NUD_PlazaX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.NUD_PlazaX.Location = new System.Drawing.Point(560, 504);
+            this.NUD_PlazaX.Location = new System.Drawing.Point(560, 531);
             this.NUD_PlazaX.Maximum = new decimal(new int[] {
             1024,
             0,
@@ -379,7 +411,7 @@
             // L_PlazaY
             // 
             this.L_PlazaY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.L_PlazaY.Location = new System.Drawing.Point(497, 526);
+            this.L_PlazaY.Location = new System.Drawing.Point(497, 553);
             this.L_PlazaY.Name = "L_PlazaY";
             this.L_PlazaY.Size = new System.Drawing.Size(62, 20);
             this.L_PlazaY.TabIndex = 102;
@@ -389,7 +421,7 @@
             // NUD_PlazaY
             // 
             this.NUD_PlazaY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.NUD_PlazaY.Location = new System.Drawing.Point(560, 527);
+            this.NUD_PlazaY.Location = new System.Drawing.Point(560, 554);
             this.NUD_PlazaY.Maximum = new decimal(new int[] {
             1024,
             0,
@@ -408,7 +440,7 @@
             // B_Import
             // 
             this.B_Import.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.B_Import.Location = new System.Drawing.Point(424, 527);
+            this.B_Import.Location = new System.Drawing.Point(424, 554);
             this.B_Import.Name = "B_Import";
             this.B_Import.Size = new System.Drawing.Size(65, 23);
             this.B_Import.TabIndex = 106;
@@ -419,7 +451,7 @@
             // B_Dump
             // 
             this.B_Dump.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.B_Dump.Location = new System.Drawing.Point(424, 501);
+            this.B_Dump.Location = new System.Drawing.Point(424, 528);
             this.B_Dump.Name = "B_Dump";
             this.B_Dump.Size = new System.Drawing.Size(65, 23);
             this.B_Dump.TabIndex = 105;
@@ -431,7 +463,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 561);
+            this.ClientSize = new System.Drawing.Size(684, 588);
             this.Controls.Add(this.B_Import);
             this.Controls.Add(this.B_Dump);
             this.Controls.Add(this.L_PlazaX);
@@ -454,11 +486,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BuildingType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_X)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Y)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_Rot)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_08)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_0C)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_Angle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_Type)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_TypeArg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_UniqueID)).EndInit();
             this.GB_Building.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_Bit)).EndInit();
             this.GB_Info.ResumeLayout(false);
             this.GB_Info.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_PlazaX)).EndInit();
@@ -478,14 +511,14 @@
         private System.Windows.Forms.Label L_BuildingX;
         private System.Windows.Forms.NumericUpDown NUD_Y;
         private System.Windows.Forms.Label L_BuildingY;
-        private System.Windows.Forms.NumericUpDown NUD_Rot;
+        private System.Windows.Forms.NumericUpDown NUD_Angle;
         private System.Windows.Forms.Label L_BuildingRotation;
-        private System.Windows.Forms.NumericUpDown NUD_08;
-        private System.Windows.Forms.Label L_Building08;
-        private System.Windows.Forms.NumericUpDown NUD_0C;
-        private System.Windows.Forms.Label L_Building0C;
-        private System.Windows.Forms.NumericUpDown NUD_10;
-        private System.Windows.Forms.Label L_Building10;
+        private System.Windows.Forms.NumericUpDown NUD_Type;
+        private System.Windows.Forms.Label L_BuildingStructureType;
+        private System.Windows.Forms.NumericUpDown NUD_TypeArg;
+        private System.Windows.Forms.Label L_BuildingStructureArg;
+        private System.Windows.Forms.NumericUpDown NUD_UniqueID;
+        private System.Windows.Forms.Label L_BuildingUniqueID;
         private System.Windows.Forms.GroupBox GB_Building;
         private System.Windows.Forms.GroupBox GB_Info;
         private System.Windows.Forms.Label L_StructureValues;
@@ -498,5 +531,7 @@
         private System.Windows.Forms.NumericUpDown NUD_PlazaY;
         private System.Windows.Forms.Button B_Import;
         private System.Windows.Forms.Button B_Dump;
+        private System.Windows.Forms.Label L_Bit;
+        private System.Windows.Forms.NumericUpDown NUD_Bit;
     }
 }

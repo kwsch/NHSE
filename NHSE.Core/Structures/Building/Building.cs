@@ -1,36 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Runtime.InteropServices;
 
 namespace NHSE.Core
 {
-    [StructLayout(LayoutKind.Sequential)]
+    [StructLayout(LayoutKind.Explicit, Size = SIZE, Pack = 1)]
     public class Building : INamedObject
     {
         public const int SIZE = 0x14;
-        private const string Details = nameof(Details);
 
-        [Category(Details), Description("Type of Building")]
-        public BuildingType BuildingType { get; set; }
+        [field: FieldOffset(0x00)] public BuildingType BuildingType { get; set; }
+        [field: FieldOffset(0x02)] public ushort X { get; set; }
+        [field: FieldOffset(0x04)] public ushort Y { get; set; }
 
-        [Category(Details), Description("X Coordinate of Building")]
-        public ushort X { get; set; }
+        [field: FieldOffset(0x06)] public byte Angle { get; set; }
+        [field: FieldOffset(0x07)] public sbyte Bit { get; set; }
 
-        [Category(Details), Description("Y Coordinate of Building")]
-        public ushort Y { get; set; }
+        [field: FieldOffset(0x08)] public ushort Type { get; set; }
+        [field: FieldOffset(0x0A)] public byte TypeArg { get; set; }
 
-        public ushort Rotation { get; set; }
-
-        public uint Unk08 { get; set; }
-        public uint Unk0C { get; set; }
-        public uint Unk10 { get; set; }
+        [field: FieldOffset(0x0C)] public ushort UniqueID { get; set; }
+        [field: FieldOffset(0x10)] public uint Unused { get; set; }
 
         public void Clear()
         {
             BuildingType = 0;
-            X = Y = Rotation = 0;
-            Unk08 = Unk0C = Unk10 = 0;
+            X = Y = Angle = 0;
+            Bit = 0;
+            Type = TypeArg = 0;
+            UniqueID = 0;
+            Unused = 0;
         }
 
         public void CopyFrom(Building building)
@@ -38,10 +37,12 @@ namespace NHSE.Core
             BuildingType = building.BuildingType;
             X = building.X;
             Y = building.Y;
-            Rotation = building.Rotation;
-            Unk08 = building.Unk08;
-            Unk0C = building.Unk0C;
-            Unk10 = building.Unk10;
+            Angle = building.Angle;
+            Bit = building.Bit;
+            Type = building.Type;
+            TypeArg = building.TypeArg;
+            UniqueID = building.UniqueID;
+            Unused = building.Unused;
         }
 
         public static Building[] GetArray(byte[] data) => data.GetArray<Building>(SIZE);
