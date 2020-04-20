@@ -149,8 +149,9 @@ namespace NHSE.WinForms
             var path = ofd.FileName;
             var fi = new FileInfo(path);
 
-            const int expect = MainSaveOffsets.BuildingCount * Building.SIZE;
-            if (fi.Length != expect)
+            const int expect = Building.SIZE * MainSaveOffsets.BuildingCount; // 46
+            const int oldSize = Building.SIZE * 40;
+            if (fi.Length != expect && fi.Length != oldSize)
             {
                 WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X})", path);
                 return;
