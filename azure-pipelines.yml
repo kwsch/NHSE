@@ -36,7 +36,7 @@ steps:
     FileEncoding: 'auto'
     WriteBOM: false
     VersionNumber: '$(Build.BuildNumber)'
-    FileVersionNumber: $(Build.BuildNumber)'
+    FileVersionNumber: '$(Build.BuildNumber)'
     LogLevel: 'verbose'
     FailOnWarning: false
     DisableTelemetry: false
