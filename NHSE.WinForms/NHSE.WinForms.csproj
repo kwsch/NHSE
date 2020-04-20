@@ -40,6 +40,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Update="Subforms\Map\LandFlagEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Subforms\Player\FlagEditor.cs">
       <SubType>Form</SubType>
     </Compile>

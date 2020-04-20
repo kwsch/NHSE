@@ -72,6 +72,20 @@ namespace NHSE.Core
             h.ToBytesClass().CopyTo(Data, Offsets.NpcHouseList + (index * VillagerHouse.SIZE));
         }
 
+        private const int EventFlagsSaveCount = 0x400;
+
+        public short[] GetEventFlagLand()
+        {
+            var value = new short[EventFlagsSaveCount];
+            Buffer.BlockCopy(Data, Offsets.EventFlagLand, value, 0, sizeof(short) * value.Length);
+            return value;
+        }
+
+        public void SetEventFlagLand(short[] value)
+        {
+            Buffer.BlockCopy(value, 0, Data, Offsets.EventFlagLand, sizeof(short) * value.Length);
+        }
+
         public TurnipStonk Turnips
         {
             get => Data.Slice(Offsets.TurnipExchange, TurnipStonk.SIZE).ToClass<TurnipStonk>();

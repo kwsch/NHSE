@@ -497,5 +497,13 @@ namespace NHSE.WinForms
             var h = data.ToClass<PlayerHouse>();
             SAV.Main.SetPlayerHouse(h, index);
         }
+
+        private void B_EditLandFlags_Click(object sender, EventArgs e)
+        {
+            var flags = SAV.Main.GetEventFlagLand();
+            using var editor = new LandFlagEditor(flags);
+            if (editor.ShowDialog() == DialogResult.OK)
+                SAV.Main.SetEventFlagLand(flags);
+        }
     }
 }
