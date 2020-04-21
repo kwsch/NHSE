@@ -31,6 +31,8 @@ namespace NHSE.Core
         public abstract int PlayerHouseList { get; }
         public abstract int NpcHouseList { get; }
 
+        public abstract int LastSavedTime { get; }
+
         public static MainSaveOffsets GetOffsets(FileHeaderInfo Info)
         {
             var rev = Info.GetKnownRevisionIndex();

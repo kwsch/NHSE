@@ -21,5 +21,6 @@
 
         public override int TurnipExchange => 0x412060; // +0x7A0 from v1.0
         public override int RecycleBin => 0xABDE70; // +0x1E70 from v1.0
+        public override int LastSavedTime => RecycleBin + 0x4958;
     }
 }

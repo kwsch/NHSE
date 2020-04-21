@@ -149,5 +149,7 @@ namespace NHSE.Core
             get => BitConverter.ToUInt32(Data, Offsets.Acres + AcreSizeAll + 8);
             set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.Acres + AcreSizeAll + 8);
         }
+
+        public GSaveTime LastSaved => Data.Slice(Offsets.LastSavedTime, GSaveTime.SIZE).ToStructure<GSaveTime>();
     }
 }

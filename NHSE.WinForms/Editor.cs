@@ -10,7 +10,7 @@ using NHSE.Sprites;
 
 namespace NHSE.WinForms
 {
-    public partial class Editor : Form
+    public sealed partial class Editor : Form
     {
         private readonly HorizonSave SAV;
         private readonly VillagerEditor Villagers;
@@ -23,6 +23,8 @@ namespace NHSE.WinForms
             LoadPlayers();
             LoadMain();
             Villagers = LoadVillagers();
+
+            Text = SAV.GetSaveTitle("NHSE");
         }
 
         private void Menu_Open_Click(object sender, EventArgs e)
