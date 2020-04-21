@@ -203,7 +203,7 @@ namespace NHSE.WinForms
 
         private void B_ZeroElevation_Click(object sender, EventArgs e)
         {
-            if (DialogResult.Yes != WinFormsUtil.Prompt(MessageBoxButtons.YesNo, "Set the elevation of all tiles on the map to 0?"))
+            if (DialogResult.Yes != WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgTerrainSetElevation0))
                 return;
             foreach (var t in Terrain.Tiles)
                 t.Elevation = 0;
@@ -213,7 +213,7 @@ namespace NHSE.WinForms
 
         private void B_SetAll_Click(object sender, EventArgs e)
         {
-            if (DialogResult.Yes != WinFormsUtil.Prompt(MessageBoxButtons.YesNo, "Set the tile from the Tile Editor to all tiles on the map?"))
+            if (DialogResult.Yes != WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgTerrainSetAll))
                 return;
             var pgt = (TerrainTile)PG_Tile.SelectedObject;
             foreach (var t in Terrain.Tiles)
@@ -269,7 +269,7 @@ namespace NHSE.WinForms
             int expect = Terrain.AcreTileCount * TerrainTile.SIZE;
             if (fi.Length != expect)
             {
-                WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X})", path);
+                WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expect));
                 return;
             }
 
@@ -295,7 +295,7 @@ namespace NHSE.WinForms
             int expect = Terrain.MapTileCount * TerrainTile.SIZE;
             if (fi.Length != expect)
             {
-                WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X})", path);
+                WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expect));
                 return;
             }
 
@@ -310,7 +310,7 @@ namespace NHSE.WinForms
             var pb = WinFormsUtil.GetUnderlyingControl<PictureBox>(sender);
             if (pb?.Image == null)
             {
-                WinFormsUtil.Alert("No picture loaded.");
+                WinFormsUtil.Alert(MessageStrings.MsgNoPictureLoaded);
                 return;
             }
 

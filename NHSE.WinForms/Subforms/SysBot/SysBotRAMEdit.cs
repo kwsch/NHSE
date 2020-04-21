@@ -32,7 +32,7 @@ namespace NHSE.WinForms
             var offset = StringUtil.GetHexValue(RamOffset.Text);
             if (offset == 0)
             {
-                WinFormsUtil.Error("Incorrect hex offset.");
+                WinFormsUtil.Error(MessageStrings.MsgInvalidHexValue);
                 return;
             }
 

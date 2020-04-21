@@ -45,10 +45,10 @@ namespace NHSE.WinForms
             catch (Exception ex)
 #pragma warning restore CA1031 // Do not catch general exception types
             {
-                WinFormsUtil.Error("Unable to save files to their original location.", ex.Message);
+                WinFormsUtil.Error(MessageStrings.MsgSaveDataExportFail, ex.Message);
                 return;
             }
-            WinFormsUtil.Alert("Saved all save data!");
+            WinFormsUtil.Alert(MessageStrings.MsgSaveDataExportSuccess);
         }
 
         private void Menu_DumpDecrypted_Click(object sender, EventArgs e)
@@ -78,7 +78,7 @@ namespace NHSE.WinForms
             var dir = Path.GetDirectoryName(main);
             if (dir is null || !Directory.Exists(dir))
             {
-                WinFormsUtil.Alert("Directory does not exist!");
+                WinFormsUtil.Alert(MessageStrings.MsgImportDirectoryDoesNotExist);
                 return;
             }
 
@@ -92,11 +92,11 @@ namespace NHSE.WinForms
             var result = SAV.GetInvalidHashes().ToArray();
             if (result.Length == 0)
             {
-                WinFormsUtil.Alert("Hashes are valid.");
+                WinFormsUtil.Alert(MessageStrings.MsgSaveDataHashesValid);
                 return;
             }
 
-            if (WinFormsUtil.Prompt(MessageBoxButtons.YesNo, "Export results to clipboard?") != DialogResult.Yes)
+            if (WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgAskExportResultToClipboard) != DialogResult.Yes)
                 return;
 
             var lines = result.Select(z => z.ToString());
@@ -318,7 +318,7 @@ namespace NHSE.WinForms
             var pb = WinFormsUtil.GetUnderlyingControl<PictureBox>(sender);
             if (pb?.Image == null)
             {
-                WinFormsUtil.Alert("No picture loaded.");
+                WinFormsUtil.Alert(MessageStrings.MsgNoPictureLoaded);
                 return;
             }
 
@@ -386,8 +386,8 @@ namespace NHSE.WinForms
             var fi = new FileInfo(file);
             if (fi.Length != expectLength)
             {
-                var msg = $"Imported Design Pattern's data length (0x{fi.Length:X}) does not match the required length (0x{expectLength:X}).";
-                WinFormsUtil.Error("Cancelling:", msg);
+                var msg = string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength);
+                WinFormsUtil.Error(MessageStrings.MsgCanceling, msg);
                 return;
             }
 
@@ -396,8 +396,8 @@ namespace NHSE.WinForms
             var player0 = SAV.Players[0].Personal;
             if (!d.IsOriginatedFrom(player0))
             {
-                var result = WinFormsUtil.Prompt(MessageBoxButtons.YesNoCancel,
-                    $"Imported Design Pattern did not originate from Villager0 ({player0.PlayerName})'s data.", "Update values?");
+                var notHost = string.Format(MessageStrings.MsgDataDidNotOriginateFromHost_0, player0.PlayerName);
+                var result = WinFormsUtil.Prompt(MessageBoxButtons.YesNoCancel, notHost, MessageStrings.MsgAskUpdateValues);
                 if (result == DialogResult.Cancel)
                     return;
                 if (result == DialogResult.Yes)
@@ -492,8 +492,8 @@ namespace NHSE.WinForms
             const int expectLength = PlayerHouse.SIZE;
             if (fi.Length != expectLength)
             {
-                var msg = $"Imported player house's data length (0x{fi.Length:X}) does not match the required length (0x{expectLength:X}).";
-                WinFormsUtil.Error("Cancelling:", msg);
+                var msg = string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength);
+                WinFormsUtil.Error(MessageStrings.MsgCanceling, msg);
                 return;
             }
 

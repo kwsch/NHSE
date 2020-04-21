@@ -83,9 +83,7 @@ namespace NHSE.WinForms
             if (!CHK_VillagerMovingOut.Checked)
                 return;
 
-            const string question = "Are you trying to make the Villager move out?";
-            const string reply = "If so, set the Event Flag (024 - ForceMoveOut) to 1 so that the Villager is removed by the game.";
-            WinFormsUtil.Alert(question, reply);
+            WinFormsUtil.Alert(MessageStrings.MsgMoveOut, MessageStrings.MsgMoveOutSuggest);
         }
 
         private void B_DumpVillager_Click(object sender, EventArgs e)
@@ -128,14 +126,13 @@ namespace NHSE.WinForms
             if (ofd.ShowDialog() != DialogResult.OK)
                 return;
 
-            var file = ofd.FileName;
+            var path = ofd.FileName;
             var original = Villagers[VillagerIndex];
             var expectLength = original.Data.Length;
-            var fi = new FileInfo(file);
+            var fi = new FileInfo(path);
             if (fi.Length != expectLength)
             {
-                var msg = $"Imported villager's data length (0x{fi.Length:X}) does not match the required length (0x{expectLength:X}).";
-                WinFormsUtil.Error("Cancelling:", msg);
+                WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength), path);
                 return;
             }
 
@@ -144,8 +141,8 @@ namespace NHSE.WinForms
             var player0 = Origin;
             if (!v.IsOriginatedFrom(player0))
             {
-                const string msg = "Imported Villager did not originate from Resident Rep's data.";
-                var result = WinFormsUtil.Prompt(MessageBoxButtons.YesNoCancel, msg, "Update values?");
+                string msg = string.Format(MessageStrings.MsgDataDidNotOriginateFromHost_0, player0.PlayerName);
+                var result = WinFormsUtil.Prompt(MessageBoxButtons.YesNoCancel, msg, MessageStrings.MsgAskUpdateValues);
                 if (result == DialogResult.Cancel)
                     return;
                 if (result == DialogResult.Yes)
@@ -229,7 +226,7 @@ namespace NHSE.WinForms
             if (fi.Length != expectLength)
             {
                 var msg = $"Imported villager house's data length (0x{fi.Length:X}) does not match the required length (0x{expectLength:X}).";
-                WinFormsUtil.Error("Cancelling:", msg);
+                WinFormsUtil.Error(MessageStrings.MsgCanceling, msg);
                 return;
             }
 

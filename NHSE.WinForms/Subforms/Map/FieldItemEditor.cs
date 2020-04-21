@@ -271,7 +271,7 @@ namespace NHSE.WinForms
             int expect = layer.AcreTileCount * FieldItem.SIZE;
             if (fi.Length != expect)
             {
-                WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X})", path);
+                WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expect));
                 return;
             }
 
@@ -298,7 +298,7 @@ namespace NHSE.WinForms
             int expect = layer.MapTileCount * FieldItem.SIZE;
             if (fi.Length != expect)
             {
-                WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X})", path);
+                WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expect));
                 return;
             }
 
@@ -313,7 +313,7 @@ namespace NHSE.WinForms
             var pb = WinFormsUtil.GetUnderlyingControl<PictureBox>(sender);
             if (pb?.Image == null)
             {
-                WinFormsUtil.Alert("No picture loaded.");
+                WinFormsUtil.Alert(MessageStrings.MsgNoPictureLoaded);
                 return;
             }
 
@@ -403,7 +403,7 @@ namespace NHSE.WinForms
         {
             bool wholeMap = ModifierKeys == Keys.Shift;
 
-            string q = $"Are you sure you want to remove {sender.Text}?";
+            string q = string.Format(MessageStrings.MsgFieldItemRemoveAsk, sender.Text);
             var question = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, q);
             if (question != DialogResult.Yes)
                 return;
@@ -414,11 +414,11 @@ namespace NHSE.WinForms
 
             if (count == 0)
             {
-                WinFormsUtil.Alert("Nothing removed (none found).");
+                WinFormsUtil.Alert(MessageStrings.MsgFieldItemRemoveNone);
                 return;
             }
             LoadGrid(X, Y);
-            WinFormsUtil.Alert($"Removed {count} from the map.");
+            WinFormsUtil.Alert(string.Format(MessageStrings.MsgFieldItemRemoveCount, count));
         }
 
         private void B_RemoveAllWeeds_Click(object sender, EventArgs e) => Remove(B_RemoveAllWeeds, Layer.RemoveAllWeeds);

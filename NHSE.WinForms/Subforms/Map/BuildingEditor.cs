@@ -153,7 +153,7 @@ namespace NHSE.WinForms
             const int oldSize = Building.SIZE * 40;
             if (fi.Length != expect && fi.Length != oldSize)
             {
-                WinFormsUtil.Error($"Expected size (0x{expect:X}) != Input size (0x{fi.Length:X})", path);
+                WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expect));
                 return;
             }
 

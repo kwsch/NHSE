@@ -75,8 +75,8 @@ namespace NHSE.WinForms
             if (read.Length != write.Length)
             {
                 var prompt = WinFormsUtil.Prompt(MessageBoxButtons.OKCancel,
-                    $"Read size (0x{read.Length:X}) != Write Size (0x{write.Length})",
-                    "Write anyway?");
+                    string.Format(MessageStrings.MsgDataSizeMismatchRAM, read.Length, write.Length),
+                    MessageStrings.MsgAskWriteAnyway);
 
                 if (prompt != DialogResult.OK)
                     return;
@@ -92,10 +92,7 @@ namespace NHSE.WinForms
             if (Settings.SysBotPrompted)
                 return;
 
-            const string info = "This SysBot reads and writes RAM directly to your game when called to Read/Write.";
-            const string reqd = "Using this functionality requires the sys-botbase sysmodule running on the console." +
-                                "Your console must be on the same network as the PC running this program.";
-            WinFormsUtil.Alert(info, reqd);
+            WinFormsUtil.Alert(MessageStrings.MsgSysBotInfo, MessageStrings.MsgSysBotRequired);
             Settings.SysBotPrompted = true;
             Settings.Save();
         }

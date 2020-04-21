@@ -4,6 +4,8 @@ namespace NHSE.Core
 {
     public interface IVillagerOrigin
     {
+        string PlayerName { get; }
+        string TownName { get; }
         byte[] GetTownIdentity();
         byte[] GetPlayerIdentity();
     }

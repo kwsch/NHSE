@@ -36,8 +36,8 @@ namespace NHSE.WinForms
             bool sized = file.ValidateSizes();
             if (!sized)
             {
-                const string sizeBad = "Save file sizes appear to be incorrect.";
-                if (WinFormsUtil.Prompt(MessageBoxButtons.YesNo, sizeBad, "Continue?") != DialogResult.Yes)
+                var prompt = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgSaveDataSizeMismatch, MessageStrings.MsgAskContinue);
+                if (prompt != DialogResult.Yes)
                     return;
             }
 
@@ -116,8 +116,7 @@ namespace NHSE.WinForms
             var dir = Path.GetDirectoryName(path);
             if (dir is null || !Directory.Exists(dir)) // ya never know
             {
-                WinFormsUtil.Error("Unable to open the folder that contains the save file.",
-                    "Try moving it to another location and opening from there.");
+                WinFormsUtil.Error(MessageStrings.MsgSaveDataImportFail, MessageStrings.MsgSaveDataImportSuggest);
                 return;
             }
 
