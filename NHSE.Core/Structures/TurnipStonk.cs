@@ -30,7 +30,15 @@ namespace NHSE.Core
         public uint SellSaturdayAM { get; set; }
         public uint SellSaturdayPM { get; set; }
 
-        public uint Pattern { get; set; } // KabukaPattern
+        public TurnipPattern Pattern { get; set; } // KabukaPattern
         public uint Unk_6C4E0099 { get; set; }
+    }
+
+    public enum TurnipPattern : uint
+    {
+        Fluctuating,
+        LargeSpike,
+        Decreasing,
+        SmallSpike,
     }
 }
