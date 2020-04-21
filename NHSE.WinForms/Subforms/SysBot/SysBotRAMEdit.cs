@@ -12,6 +12,7 @@ namespace NHSE.WinForms
         public SysBotRAMEdit(InjectionType type)
         {
             InitializeComponent();
+            this.TranslateInterface(GameInfo.CurrentLanguage);
             Bot = new SysBotController(type);
             RamOffset.Text = Bot.GetDefaultOffset().ToString("X8");
 

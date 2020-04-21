@@ -17,6 +17,7 @@ namespace NHSE.WinForms
         public PlayerItemEditor(IReadOnlyList<T> array, int width, int height, bool sysbot = false)
         {
             InitializeComponent();
+            this.TranslateInterface(GameInfo.CurrentLanguage);
             Items = array;
 
             var Editor = ItemGrid = new ItemGridEditor(ItemEditor, Items) {Dock = DockStyle.Fill};

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using NHSE.Core;
 
 namespace NHSE.WinForms
 {
@@ -8,6 +9,7 @@ namespace NHSE.WinForms
         public SingleObjectEditor(T obj, PropertySort sort)
         {
             InitializeComponent();
+            this.TranslateInterface(GameInfo.CurrentLanguage);
             DialogResult = DialogResult.Cancel;
             PG_Item.PropertySort = sort;
             PG_Item.SelectedObject = obj;

@@ -6,6 +6,8 @@ namespace NHSE.WinForms
 {
     internal static class WinFormsUtil
     {
+        internal static void TranslateInterface(Control form, string lang) => form.TranslateInterface(lang);
+
         #region Message Displays
         /// <summary>
         /// Displays a dialog showing the details of an error.

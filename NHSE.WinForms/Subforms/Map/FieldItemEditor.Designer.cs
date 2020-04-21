@@ -54,7 +54,7 @@
             this.CHK_SnapToAcre = new System.Windows.Forms.CheckBox();
             this.L_Coordinates = new System.Windows.Forms.Label();
             this.NUD_Layer = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
+            this.L_Layer = new System.Windows.Forms.Label();
             this.TT_Hover = new System.Windows.Forms.ToolTip(this.components);
             this.PB_Acre = new System.Windows.Forms.PictureBox();
             this.B_RemoveAllWeeds = new System.Windows.Forms.Button();
@@ -309,14 +309,14 @@
             0});
             this.NUD_Layer.ValueChanged += new System.EventHandler(this.NUD_Layer_ValueChanged);
             // 
-            // label1
+            // L_Layer
             // 
-            this.label1.Location = new System.Drawing.Point(632, 365);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 19);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Layer:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_Layer.Location = new System.Drawing.Point(632, 365);
+            this.L_Layer.Name = "L_Layer";
+            this.L_Layer.Size = new System.Drawing.Size(53, 19);
+            this.L_Layer.TabIndex = 27;
+            this.L_Layer.Text = "Layer:";
+            this.L_Layer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // TT_Hover
             // 
@@ -427,7 +427,7 @@
             this.ClientSize = new System.Drawing.Size(981, 537);
             this.Controls.Add(this.GB_Remove);
             this.Controls.Add(this.PB_Acre);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.L_Layer);
             this.Controls.Add(this.NUD_Layer);
             this.Controls.Add(this.L_Coordinates);
             this.Controls.Add(this.CHK_SnapToAcre);
@@ -488,7 +488,7 @@
         private System.Windows.Forms.CheckBox CHK_SnapToAcre;
         private System.Windows.Forms.Label L_Coordinates;
         private System.Windows.Forms.NumericUpDown NUD_Layer;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label L_Layer;
         private System.Windows.Forms.ToolTip TT_Hover;
         private System.Windows.Forms.PictureBox PB_Acre;
         private System.Windows.Forms.Button B_RemoveAllWeeds;

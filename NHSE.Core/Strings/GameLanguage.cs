@@ -22,7 +22,7 @@ namespace NHSE.Core
         /// <summary>
         /// Language codes supported for loading string resources
         /// </summary>
-        private static readonly string[] LanguageCodes = { "en" };
+        private static readonly string[] LanguageCodes = { "en", "jp", "zh" };
 
         public static string[] GetStrings(string ident, string lang, string type = "text")
         {

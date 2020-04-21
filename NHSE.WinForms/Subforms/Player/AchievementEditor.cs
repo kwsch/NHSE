@@ -12,6 +12,7 @@ namespace NHSE.WinForms
         {
             Counts = counts;
             InitializeComponent();
+            this.TranslateInterface(GameInfo.CurrentLanguage);
             for (int i = 0; i < counts.Length; i++)
                 LB_Counts.Items.Add(LifeSupportAchievement.GetName(i, counts[i]));
             DialogResult = DialogResult.Cancel;

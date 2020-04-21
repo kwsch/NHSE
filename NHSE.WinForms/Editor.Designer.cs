@@ -672,12 +672,14 @@
             // 
             // Menu_Language
             // 
-            this.Menu_Language.Enabled = false;
+            this.Menu_Language.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Menu_Language.Items.AddRange(new object[] {
-            "English"});
+            "English",
+            "日本語",
+            "简体中文"});
             this.Menu_Language.Name = "Menu_Language";
             this.Menu_Language.Size = new System.Drawing.Size(115, 23);
-            this.Menu_Language.Text = "Language";
+            this.Menu_Language.SelectedIndexChanged += new System.EventHandler(this.Menu_Language_SelectedIndexChanged);
             // 
             // Editor
             // 

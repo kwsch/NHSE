@@ -13,6 +13,7 @@ namespace NHSE.WinForms
         public PropertyEditor(IReadOnlyList<T> objects, IReadOnlyList<string> names)
         {
             InitializeComponent();
+            this.TranslateInterface(GameInfo.CurrentLanguage);
             Objects = objects;
             Names = names;
             DialogResult = DialogResult.Cancel;

@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Windows.Forms;
+using NHSE.Core;
 using NHSE.Injection;
 
 namespace NHSE.WinForms
@@ -11,6 +12,7 @@ namespace NHSE.WinForms
         public SimpleHexEditor(byte[] originalBytes)
         {
             InitializeComponent();
+            this.TranslateInterface(GameInfo.CurrentLanguage);
             RTB_RAM.Text = string.Join(" ", originalBytes.Select(z => $"{z:X2}"));
             Bytes = originalBytes;
         }

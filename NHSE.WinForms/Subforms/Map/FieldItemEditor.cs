@@ -29,9 +29,10 @@ namespace NHSE.WinForms
 
         public FieldItemEditor(MainSave sav)
         {
-            SAV = sav;
             InitializeComponent();
+            this.TranslateInterface(GameInfo.CurrentLanguage);
 
+            SAV = sav;
             Items = new FieldItemManager(SAV.GetFieldItems());
 
             var l1 = Items.Layer1;

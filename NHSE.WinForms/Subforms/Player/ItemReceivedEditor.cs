@@ -13,6 +13,7 @@ namespace NHSE.WinForms
         {
             Player = player;
             InitializeComponent();
+            this.TranslateInterface(GameInfo.CurrentLanguage);
             FillCheckBoxes();
             Initialize(GameInfo.Strings.ItemDataSource);
             CLB_Items.SelectedIndex = 0x50;

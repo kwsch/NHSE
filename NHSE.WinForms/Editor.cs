@@ -18,6 +18,10 @@ namespace NHSE.WinForms
         public Editor(HorizonSave file)
         {
             InitializeComponent();
+
+            Menu_Language.SelectedIndex = 0; // en -- triggers translation
+            // this.TranslateInterface(GameInfo.CurrentLanguage);
+
             SAV = file;
 
             LoadPlayers();
@@ -25,13 +29,21 @@ namespace NHSE.WinForms
             Villagers = LoadVillagers();
 
             Text = SAV.GetSaveTitle("NHSE");
-            Menu_Language.SelectedIndex = 0; // en
         }
 
         private void Menu_Settings_Click(object sender, EventArgs e)
         {
             using var editor = new SettingsEditor();
             editor.ShowDialog();
+        }
+
+        private void Menu_Language_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Menu_Options.DropDown.Close();
+            if ((uint)Menu_Language.SelectedIndex >= GameLanguage.LanguageCount)
+                return;
+            GameInfo.SetLanguage2Char(Menu_Language.SelectedIndex);
+            this.TranslateInterface(GameInfo.CurrentLanguage);
         }
 
         private void Menu_Save_Click(object sender, EventArgs e)

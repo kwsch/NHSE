@@ -13,6 +13,7 @@ namespace NHSE.WinForms
         public SysBotUI(AutoInjector injector, SysBotController c)
         {
             InitializeComponent();
+            this.TranslateInterface(GameInfo.CurrentLanguage);
             Bot = c;
             Injector = injector;
 

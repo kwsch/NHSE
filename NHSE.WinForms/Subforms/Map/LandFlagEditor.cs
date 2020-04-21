@@ -10,8 +10,10 @@ namespace NHSE.WinForms
 
         public LandFlagEditor(short[] counts)
         {
-            Counts = counts;
             InitializeComponent();
+            this.TranslateInterface(GameInfo.CurrentLanguage);
+
+            Counts = counts;
             for (ushort i = 0; i < counts.Length; i++)
                 LB_Counts.Items.Add(EventFlagLand.GetFlagName(i, counts[i]));
             DialogResult = DialogResult.Cancel;

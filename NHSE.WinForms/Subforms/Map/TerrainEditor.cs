@@ -22,9 +22,10 @@ namespace NHSE.WinForms
 
         public TerrainEditor(MainSave sav)
         {
-            SAV = sav;
             InitializeComponent();
+            this.TranslateInterface(GameInfo.CurrentLanguage);
 
+            SAV = sav;
             Terrain = new TerrainManager(SAV.GetTerrain());
             Grid = GenerateGrid(GridWidth, GridHeight);
 

@@ -14,6 +14,7 @@ namespace NHSE.WinForms
         public AcreEditor(MainSave sav)
         {
             InitializeComponent();
+            this.TranslateInterface(GameInfo.CurrentLanguage);
             SAV = sav;
 
             Acres = new[]

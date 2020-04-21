@@ -8,14 +8,28 @@
 
   <ItemGroup>
     <None Remove="Resources\byte\item_kind.bin" />
+    <None Remove="Resources\text\en\MessageStrings_en.txt" />
     <None Remove="Resources\text\en\text_item_en.txt" />
     <None Remove="Resources\text\en\text_villager_en.txt" />
+    <None Remove="Resources\text\jp\MessageStrings_jp.txt" />
+    <None Remove="Resources\text\jp\text_item_jp.txt" />
+    <None Remove="Resources\text\jp\text_villager_jp.txt" />
+    <None Remove="Resources\text\zh\MessageStrings_zh.txt" />
+    <None Remove="Resources\text\zh\text_item_zh.txt" />
+    <None Remove="Resources\text\zh\text_villager_zh.txt" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\byte\item_kind.bin" />
+    <EmbeddedResource Include="Resources\text\en\MessageStrings_en.txt" />
     <EmbeddedResource Include="Resources\text\en\text_item_en.txt" />
     <EmbeddedResource Include="Resources\text\en\text_villager_en.txt" />
+    <EmbeddedResource Include="Resources\text\jp\MessageStrings_jp.txt" />
+    <EmbeddedResource Include="Resources\text\jp\text_item_jp.txt" />
+    <EmbeddedResource Include="Resources\text\jp\text_villager_jp.txt" />
+    <EmbeddedResource Include="Resources\text\zh\MessageStrings_zh.txt" />
+    <EmbeddedResource Include="Resources\text\zh\text_item_zh.txt" />
+    <EmbeddedResource Include="Resources\text\zh\text_villager_zh.txt" />
   </ItemGroup>
 
 </Project>

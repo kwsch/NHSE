@@ -12,6 +12,7 @@ namespace NHSE.WinForms
         {
             Counts = counts;
             InitializeComponent();
+            this.TranslateInterface(GameInfo.CurrentLanguage);
             for (ushort i = 0; i < counts.Length; i++)
                 LB_Counts.Items.Add(EventFlagVillager.GetFlagName(i, counts[i]));
             DialogResult = DialogResult.Cancel;

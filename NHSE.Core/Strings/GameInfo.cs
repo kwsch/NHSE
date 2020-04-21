@@ -7,8 +7,8 @@
     {
         private static readonly GameStrings?[] Languages = new GameStrings[GameLanguage.LanguageCount];
 
-        public static string CurrentLanguage { get; set; } = GameLanguage.DefaultLanguage;
-        public static GameStrings Strings { get; set; } = GetStrings(CurrentLanguage);
+        public static string CurrentLanguage { get; private set; } = GameLanguage.DefaultLanguage;
+        public static GameStrings Strings { get; private set; } = GetStrings(CurrentLanguage);
 
         /// <summary>
         /// Gets the Game Strings for a specific language.
@@ -23,6 +23,13 @@
         public static GameStrings GetStrings(int index)
         {
             return Languages[index] ??= new GameStrings(GameLanguage.Language2Char(index));
+        }
+
+        public static void SetLanguage2Char(int index)
+        {
+            var lang = GameLanguage.Language2Char(index);
+            CurrentLanguage = lang;
+            Strings = GetStrings(lang);
         }
     }
 }

@@ -17,6 +17,7 @@ namespace NHSE.WinForms
         public BuildingEditor(IReadOnlyList<Building> buildings, MainSave sav)
         {
             InitializeComponent();
+            this.TranslateInterface(GameInfo.CurrentLanguage);
             SAV = sav;
             Buildings = buildings;
             Terrain = new TerrainManager(sav.GetTerrain());

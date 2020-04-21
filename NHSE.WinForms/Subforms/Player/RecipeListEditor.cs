@@ -16,6 +16,7 @@ namespace NHSE.WinForms
             Player = player;
             Known = Player.Personal.GetRecipeList();
             InitializeComponent();
+            this.TranslateInterface(GameInfo.CurrentLanguage);
 
             var gotoSource = FillCheckBoxes();
             gotoSource.SortByText();

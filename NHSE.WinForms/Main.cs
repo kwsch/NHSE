@@ -157,7 +157,13 @@ namespace NHSE.WinForms
         private void Main_KeyDown(object sender, KeyEventArgs e)
         {
             if (ModifierKeys != Keys.Control)
+            {
+#if DEBUG
+                if (ModifierKeys == (Keys.Control | Keys.Alt) && e.KeyCode == Keys.D)
+                    DevUtil.UpdateAll();
+#endif
                 return;
+            }
 
             switch (e.KeyCode)
             {
