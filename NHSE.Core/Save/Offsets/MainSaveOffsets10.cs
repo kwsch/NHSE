@@ -19,6 +19,6 @@
 
         public override int TurnipExchange => 0x4118C0;
         public override int RecycleBin => 0xABC000; // yep.
-        public override int LastSavedTime => RecycleBin + 0x4958;
+        public override int LastSavedTime => RecycleBin + 0x4928;
     }
 }
