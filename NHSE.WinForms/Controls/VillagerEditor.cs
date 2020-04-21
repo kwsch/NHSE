@@ -232,6 +232,8 @@ namespace NHSE.WinForms
 
             var data = File.ReadAllBytes(file);
             var h = data.ToClass<VillagerHouse>();
+            var current = SAV.GetVillagerHouse(VillagerIndex);
+            h.NPC1 = current.NPC1;
             SAV.SetVillagerHouse(h, VillagerIndex);
         }
     }
