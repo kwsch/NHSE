@@ -20,5 +20,11 @@
     <Setting Name="SysBotGenericOffset" Type="System.UInt32" Scope="User">
       <Value Profile="(Default)">2889584832</Value>
     </Setting>
+    <Setting Name="AutomaticBackup" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="BackupPrompted" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

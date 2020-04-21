@@ -25,11 +25,13 @@ namespace NHSE.WinForms
             Villagers = LoadVillagers();
 
             Text = SAV.GetSaveTitle("NHSE");
+            Menu_Language.SelectedIndex = 0; // en
         }
 
-        private void Menu_Open_Click(object sender, EventArgs e)
+        private void Menu_Settings_Click(object sender, EventArgs e)
         {
-            WinFormsUtil.Alert("I don't do anything yet!");
+            using var editor = new SettingsEditor();
+            editor.ShowDialog();
         }
 
         private void Menu_Save_Click(object sender, EventArgs e)

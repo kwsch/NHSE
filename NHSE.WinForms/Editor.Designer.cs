@@ -32,7 +32,6 @@
             this.components = new System.ComponentModel.Container();
             this.Menu_Editor = new System.Windows.Forms.MenuStrip();
             this.Menu_File = new System.Windows.Forms.ToolStripMenuItem();
-            this.Menu_Open = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Save = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Tools = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_DumpDecrypted = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,6 +70,7 @@
             this.NUD_PatternIndex = new System.Windows.Forms.NumericUpDown();
             this.PB_Pattern = new System.Windows.Forms.PictureBox();
             this.Tab_Map = new System.Windows.Forms.TabPage();
+            this.B_EditLandFlags = new System.Windows.Forms.Button();
             this.L_PlayerHouse = new System.Windows.Forms.Label();
             this.NUD_PlayerHouse = new System.Windows.Forms.NumericUpDown();
             this.B_LoadHouse = new System.Windows.Forms.Button();
@@ -81,7 +81,9 @@
             this.B_EditTurnipExchange = new System.Windows.Forms.Button();
             this.B_EditBuildings = new System.Windows.Forms.Button();
             this.B_RecycleBin = new System.Windows.Forms.Button();
-            this.B_EditLandFlags = new System.Windows.Forms.Button();
+            this.Menu_Options = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menu_Settings = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menu_Language = new System.Windows.Forms.ToolStripComboBox();
             this.Menu_Editor.SuspendLayout();
             this.TC_Editors.SuspendLayout();
             this.Tab_Players.SuspendLayout();
@@ -103,7 +105,8 @@
             this.Menu_Editor.BackColor = System.Drawing.SystemColors.Control;
             this.Menu_Editor.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Menu_File,
-            this.Menu_Tools});
+            this.Menu_Tools,
+            this.Menu_Options});
             this.Menu_Editor.Location = new System.Drawing.Point(0, 0);
             this.Menu_Editor.Name = "Menu_Editor";
             this.Menu_Editor.Size = new System.Drawing.Size(404, 24);
@@ -113,25 +116,16 @@
             // Menu_File
             // 
             this.Menu_File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Menu_Open,
             this.Menu_Save});
             this.Menu_File.Name = "Menu_File";
             this.Menu_File.Size = new System.Drawing.Size(37, 20);
             this.Menu_File.Text = "File";
             // 
-            // Menu_Open
-            // 
-            this.Menu_Open.Name = "Menu_Open";
-            this.Menu_Open.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.Menu_Open.Size = new System.Drawing.Size(146, 22);
-            this.Menu_Open.Text = "Open";
-            this.Menu_Open.Click += new System.EventHandler(this.Menu_Open_Click);
-            // 
             // Menu_Save
             // 
             this.Menu_Save.Name = "Menu_Save";
             this.Menu_Save.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.Menu_Save.Size = new System.Drawing.Size(146, 22);
+            this.Menu_Save.Size = new System.Drawing.Size(180, 22);
             this.Menu_Save.Text = "Save";
             this.Menu_Save.Click += new System.EventHandler(this.Menu_Save_Click);
             // 
@@ -543,6 +537,16 @@
             this.Tab_Map.Text = "Map";
             this.Tab_Map.UseVisualStyleBackColor = true;
             // 
+            // B_EditLandFlags
+            // 
+            this.B_EditLandFlags.Location = new System.Drawing.Point(202, 76);
+            this.B_EditLandFlags.Name = "B_EditLandFlags";
+            this.B_EditLandFlags.Size = new System.Drawing.Size(92, 40);
+            this.B_EditLandFlags.TabIndex = 53;
+            this.B_EditLandFlags.Text = "Edit Flags";
+            this.B_EditLandFlags.UseVisualStyleBackColor = true;
+            this.B_EditLandFlags.Click += new System.EventHandler(this.B_EditLandFlags_Click);
+            // 
             // L_PlayerHouse
             // 
             this.L_PlayerHouse.Location = new System.Drawing.Point(16, 6);
@@ -649,15 +653,31 @@
             this.B_RecycleBin.UseVisualStyleBackColor = true;
             this.B_RecycleBin.Click += new System.EventHandler(this.B_RecycleBin_Click);
             // 
-            // B_EditLandFlags
+            // Menu_Options
             // 
-            this.B_EditLandFlags.Location = new System.Drawing.Point(202, 76);
-            this.B_EditLandFlags.Name = "B_EditLandFlags";
-            this.B_EditLandFlags.Size = new System.Drawing.Size(92, 40);
-            this.B_EditLandFlags.TabIndex = 53;
-            this.B_EditLandFlags.Text = "Edit Flags";
-            this.B_EditLandFlags.UseVisualStyleBackColor = true;
-            this.B_EditLandFlags.Click += new System.EventHandler(this.B_EditLandFlags_Click);
+            this.Menu_Options.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Menu_Language,
+            this.Menu_Settings});
+            this.Menu_Options.Name = "Menu_Options";
+            this.Menu_Options.Size = new System.Drawing.Size(61, 20);
+            this.Menu_Options.Text = "Options";
+            // 
+            // Menu_Settings
+            // 
+            this.Menu_Settings.Name = "Menu_Settings";
+            this.Menu_Settings.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.Menu_Settings.Size = new System.Drawing.Size(180, 22);
+            this.Menu_Settings.Text = "Settings";
+            this.Menu_Settings.Click += new System.EventHandler(this.Menu_Settings_Click);
+            // 
+            // Menu_Language
+            // 
+            this.Menu_Language.Enabled = false;
+            this.Menu_Language.Items.AddRange(new object[] {
+            "English"});
+            this.Menu_Language.Name = "Menu_Language";
+            this.Menu_Language.Size = new System.Drawing.Size(115, 23);
+            this.Menu_Language.Text = "Language";
             // 
             // Editor
             // 
@@ -698,7 +718,6 @@
 
         private System.Windows.Forms.MenuStrip Menu_Editor;
         private System.Windows.Forms.ToolStripMenuItem Menu_File;
-        private System.Windows.Forms.ToolStripMenuItem Menu_Open;
         private System.Windows.Forms.ToolStripMenuItem Menu_Save;
         private System.Windows.Forms.ToolStripMenuItem Menu_Tools;
         private System.Windows.Forms.TabControl TC_Editors;
@@ -748,6 +767,9 @@
         private System.Windows.Forms.Button B_DumpHouse;
         private System.Windows.Forms.Label L_PlayerHouse;
         private System.Windows.Forms.Button B_EditLandFlags;
+        private System.Windows.Forms.ToolStripMenuItem Menu_Options;
+        private System.Windows.Forms.ToolStripComboBox Menu_Language;
+        private System.Windows.Forms.ToolStripMenuItem Menu_Settings;
     }
 }
 

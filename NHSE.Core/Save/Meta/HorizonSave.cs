@@ -87,5 +87,12 @@ namespace NHSE.Core
 
             return $"{prefix} - {townName} @ {timestamp}";
         }
+
+        public string GetBackupFolderTitle()
+        {
+            var townName = Players[0].Personal.TownName;
+            var timestamp = Main.LastSaved.TimeStamp.Replace(':', '.');
+            return StringUtil.CleanFileName($"{townName} - {timestamp}");
+        }
     }
 }
