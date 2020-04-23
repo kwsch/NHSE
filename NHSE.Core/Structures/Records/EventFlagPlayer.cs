@@ -43,6 +43,7 @@ namespace NHSE.Core
             {0x01A, new EventFlagPlayer(0 , 1   , 0026, "KinuyoTalkBoforeFlag"                       )}, // きぬよ|今までに会話したことある？
             {0x01B, new EventFlagPlayer(0 , 1   , 0027, "KinuyoTalkTodayFlag"                        )}, // きぬよ|今日すでに会話した？(来訪用)
             {0x01D, new EventFlagPlayer(0 , 1   , 0029, "SkkTalkBeforeFlag"                          )}, // シャンク|今までに会話したことある？
+            {0x01F, new EventFlagPlayer(0 , 1   , 0031, "ReijiTalkBeforeFlag"                        )}, // レイジ|行商で会話したことある？
             {0x021, new EventFlagPlayer(0 , 1   , 0033, "RollanTalkTodayFlag"                        )}, // ローラン|今日すでに会話した？
             {0x022, new EventFlagPlayer(0 , 3   , 0034, "RollanBuyLargeCount"                        )}, // ローラン|今日ラグ大を買った枚数
             {0x023, new EventFlagPlayer(0 , 3   , 0035, "RollanBuyMediumCount"                       )}, // ローラン|今日ラグ中を買った枚数
@@ -86,6 +87,7 @@ namespace NHSE.Core
             {0x054, new EventFlagPlayer(0 , 1   , 0084, "JohnnyTalkBeforeFlag"                       )}, // ジョニー|今までに会話したことある？
             {0x055, new EventFlagPlayer(0 , 1   , 0085, "KotonoTalkBeforeFlag"                       )}, // ことの|今までに会話したことある？
             {0x056, new EventFlagPlayer(0 , 1   , 0086, "RollanTalkBeforeFlag"                       )}, // ローラン|今までに会話したことある？
+            {0x058, new EventFlagPlayer(0 , 1   , 0088, "TunekichiTalkBefore"                        )}, // つねきち|今までに会話したことある？
             {0x059, new EventFlagPlayer(0 , 128 , 0089, "KotonoQuestCount"                           )}, // ことの|ことのとの親密度
             {0x05A, new EventFlagPlayer(0 , 1   , 0090, "KotonoQuestStartFlag"                       )}, // ことの|クエスト開始
             {0x05B, new EventFlagPlayer(0 , 1   , 0091, "KotonoQuestClearFlag"                       )}, // ことの|クエスト完了
@@ -152,6 +154,9 @@ namespace NHSE.Core
             {0x0B6, new EventFlagPlayer(0 , 1   , 0182, "SzaHeardSonkatsuExplain"                    )}, // しずえ|村活のことの説明聞いた？
             {0x0B7, new EventFlagPlayer(0 , 1   , 0183, "SzaHeardMuraokoshiExplain"                  )}, // しずえ|村おこしのことの説明聞いた？
             {0x0B8, new EventFlagPlayer(0 , 1   , 0184, "SzaHeardAboutHousingKit"                    )}, // たぬきち|土地確保解禁の説明聞いた？
+            {0x0BF, new EventFlagPlayer(0 , 1   , 0191, "FoxTalkTodayFlag"                           )}, // つねきち|今日つねきちと会話した？
+            {0x0C0, new EventFlagPlayer(0 , 1   , 0192, "FoxBuyTodayFlag"                            )}, // つねきち|今日いなりマーケットで買い物した？
+            {0x0C1, new EventFlagPlayer(0 , 1   , 0193, "FoxBuyArtTodayFlag"                         )}, // つねきち|今日いなりマーケットで美術品買った？
             {0x0C2, new EventFlagPlayer(0 , 1   , 0194, "TownNewsHeardEventSpaceOpenFlag"            )}, // 村内放送|村内放送でイベント広場が完成した告知を聞いた？
             {0x0C3, new EventFlagPlayer(0 , 1   , 0195, "PcDidNotKnowKK"                             )}, // プレイヤー|序盤にとたけけ知らないと答えた
             {0x0C4, new EventFlagPlayer(0 , 1   , 0196, "RcoAfterHouseRemodel"                       )}, // たぬきち｜家増築後の説明発生する？
@@ -740,29 +745,136 @@ namespace NHSE.Core
             {0x374, new EventFlagPlayer(0 , 1   , 0884, "PynGetPreVisitRecipeFlag"                   )}, // イースター|準備期間にレシピを受け取った？
             {0x376, new EventFlagPlayer(0 , 1   , 0886, "PynInventRecipeFlag"                        )}, // ぴょんたろう|イースターエッグ関連レシピをひらめいた？
             {0x377, new EventFlagPlayer(0 , 1   , 0887, "SnowmanDIYMailFlag"                         )}, // ゆきだるま|DIYレシピの手紙送った？
+            {0x378, new EventFlagPlayer(0 , 64  , 0888, "AlwJuneBrideDayCount"                       )}, // リサ/ジューンブライド|今年クリアした回数
             {0x379, new EventFlagPlayer(0 , 1   , 0889, "EasterCannotGetNnpcRecipeFlag"              )}, // イースター|一般NPCから受け取り損ねたレシピがある？
+            {0x37A, new EventFlagPlayer(0 , 1   , 0890, "AlwJuneBrideQuestStartFlag"                 )}, // リサ/ジューンブライド|クエスト開始フラグ
+            {0x37B, new EventFlagPlayer(0 , 1   , 0891, "AlwJuneBrideQuestClearFlag"                 )}, // リサ/ジューンブライド|今日クリアした？
+            {0x37C, new EventFlagPlayer(0 , 1   , 0892, "StampRallyRunningForPlayer"                 )}, // スタンプラリーに参加中？
+            {0x37D, new EventFlagPlayer(0 , 1   , 0893, "OwlInsectStampRally1"                       )}, // スタンプラリー（ムシ）1つ目を押した？
+            {0x37E, new EventFlagPlayer(0 , 1   , 0894, "OwlInsectStampRally2"                       )}, // スタンプラリー（ムシ）2つ目を押した？
+            {0x37F, new EventFlagPlayer(0 , 1   , 0895, "OwlInsectStampRally3"                       )}, // スタンプラリー（ムシ）3つ目を押した？
+            {0x380, new EventFlagPlayer(0 , 1   , 0896, "OwlFishStampRally1"                         )}, // スタンプラリー（サカナ）1つ目を押した？
+            {0x381, new EventFlagPlayer(0 , 1   , 0897, "OwlFishStampRally2"                         )}, // スタンプラリー（サカナ）2つ目を押した？
+            {0x382, new EventFlagPlayer(0 , 1   , 0898, "OwlFishStampRally3"                         )}, // スタンプラリー（サカナ）3つ目を押した？
+            {0x383, new EventFlagPlayer(0 , 1   , 0899, "OwlFossilStampRally1"                       )}, // スタンプラリー（かせき）1つ目を押した？
+            {0x384, new EventFlagPlayer(0 , 1   , 0900, "OwlFossilStampRally2"                       )}, // スタンプラリー（かせき）2つ目を押した？
+            {0x385, new EventFlagPlayer(0 , 1   , 0901, "OwlFossilStampRally3"                       )}, // スタンプラリー（かせき）3つ目を押した？
+            {0x386, new EventFlagPlayer(0 , 1   , 0902, "AlpJuneBrideExchangeFlag"                   )}, // カイゾー/ジューンブライド|今日交換した？
+            {0x387, new EventFlagPlayer(0 , 1   , 0903, "AlwJuneBrideRemakeOpenFlag"                 )}, // リサ/ジューンブライド|リメイクテーマ解禁済み？
             {0x388, new EventFlagPlayer(0 , 9999, 0904, "MailSendFlag_VersionUp"                     )}, // 手紙|アップデートお礼手紙を送った
             {0x389, new EventFlagPlayer(0 , 1   , 0905, "MailSendFlag_BundledEdition"                )}, // 手紙|同梱版購入お礼手紙を送った
+            {0x38B, new EventFlagPlayer(0 , 1   , 0907, "GetMayDayTicket"                            )}, // メーデー|メーデーりょこうけんを入手した？
             {0x38D, new EventFlagPlayer(0 , 1   , 0909, "PAnnouncePreEaster"                         )}, // 島内放送|イースター準備期間の放送を聞いた？
             {0x390, new EventFlagPlayer(0 , 7   , 0912, "ShootDownEasterOverCountRecipeBalloon"      )}, // イースター|たまご風船をレシピ排出数がない状態で撃ち落とした数をカウント
+            {0x391, new EventFlagPlayer(0 , 1   , 0913, "RcoEarthDayAnnouncement"                    )}, // アースデー|案内所たぬきちのアースデー告知を聞いた？
+            {0x392, new EventFlagPlayer(0 , 1   , 0914, "RcoEarthDayGetHedge"                        )}, // アースデー|アースデー期間にたぬきちから「いけがき」もらった？
+            {0x393, new EventFlagPlayer(0 , 1   , 0915, "SloTalkAboutHedge"                          )}, // レイジ|レイジから「いけがき」の話をされたことある？
+            {0x394, new EventFlagPlayer(0 , 3   , 0916, "SloBuyCount"                                )}, // レイジ|行商レイジから買い物した回数
             {0x397, new EventFlagPlayer(0 , 1   , 0919, "TalkRumorOVlgFavoriteToday"                 )}, // 今日RumorOP_Favorite（同じ島の住人P）を聞いたか？
             {0x398, new EventFlagPlayer(0 , 1   , 0920, "EasterCompleteFlag"                         )}, // イースター|イベントを最後までクリアしたことがある？
             {0x399, new EventFlagPlayer(0 , 1   , 0921, "PhoneCallPrintServiceDelayFlag"             )}, // ポスター解禁入電が次回ゲーム開始時に先延ばしされたか？
+            {0x39A, new EventFlagPlayer(0 , 1   , 0922, "EarthdayDailyAllClear"                      )}, // アースデー用の5倍日課を両方クリアしたことがある
             {0x39B, new EventFlagPlayer(0 , 9999, 0923, "GetCountEasterEggGround"                    )}, // イースター期間中のじめんのたまごの取得数
             {0x39C, new EventFlagPlayer(0 , 9999, 0924, "GetCountEasterEggRock"                      )}, // イースター期間中のいわのたまごの取得数
             {0x39D, new EventFlagPlayer(0 , 9999, 0925, "GetCountEasterEggLeaf"                      )}, // イースター期間中のはっぱのたまごの取得数
             {0x39E, new EventFlagPlayer(0 , 9999, 0926, "GetCountEasterEggForest"                    )}, // イースター期間中のもりのたまごの取得数
             {0x39F, new EventFlagPlayer(0 , 9999, 0927, "GetCountEasterEggSky"                       )}, // イースター期間中のそらとぶたまごの取得数
             {0x3A0, new EventFlagPlayer(0 , 9999, 0928, "GetCountEasterEggFish"                      )}, // イースター期間中のサカナのたまごの取得数
+            {0x3A1, new EventFlagPlayer(0 , 1   , 0929, "DodHeardAboutMayDayTravelTicket"            )}, // メーデー|モーリー|たぬきちから預かったメーデー旅行券の説明聞いたか？
+            {0x3A2, new EventFlagPlayer(0 , 1   , 0930, "UseMayDayTicket"                            )}, // メーデー|メーデー旅行券を使用した？
+            {0x3A6, new EventFlagPlayer(0 , 1   , 0934, "OwlShowPaintingMyself"                      )}, // フータ|自分が絵画クエストを達成した
+            {0x3A7, new EventFlagPlayer(0 , 1   , 0935, "Owl1stTalkMuseum2"                          )}, // フータ|博物館②完成後の挨拶した？
+            {0x3A8, new EventFlagPlayer(0 , 1   , 0936, "OwlPaintingQuestExplain"                    )}, // フータ|絵画クエストの説明を受けたか？
+            {0x3A9, new EventFlagPlayer(0 , 1   , 0937, "FutaReadyForMuseum2"                        )}, // フータ|博物館②建設条件達成の報告を聞いたか？
+            {0x3AA, new EventFlagPlayer(0 , 1   , 0938, "HeldCeremonyMuseum2"                        )}, // セレモニ|博物館②を開いた
+            {0x3AB, new EventFlagPlayer(0 , 2   , 0939, "EarthdayDailyClearNum"                      )}, // アースデー専用クエストを今日クリアした数
+            {0x3AC, new EventFlagPlayer(0 , 1   , 0940, "OwlShowPaintingBeforeQuest"                 )}, // フータ|絵画クエスト前に絵画を見せたか？
+            {0x3AD, new EventFlagPlayer(0 , 1   , 0941, "OwlPaintingQuestDeclined"                   )}, // フータ|絵画クエストで寄贈を断ったことある
             {0x3AE, new EventFlagPlayer(0 , 10  , 0942, "LastIslandRepApproachVillagerIndex"         )}, // 最後に島評判アップアプローチ会話をしたNPCの住人番号
             {0x3B0, new EventFlagPlayer(0 , 1   , 0944, "ChangedPermanentNum"                        )}, // 疑似本体IDが合わないフラグ
+            {0x3B1, new EventFlagPlayer(0 , 1   , 0945, "ClearMayDayTour"                            )}, // メーデーツアーの謎解きをクリアした？
             {0x3B2, new EventFlagPlayer(0 , 3   , 0946, "NnpcApproachNoIslandRepCount"               )}, // アプローチ会話｜評判UP応援会話を見ないまま経過したプレイ日数
+            {0x3B3, new EventFlagPlayer(0 , 1   , 0947, "JuneBridePlacementDataClearFlag"            )}, // ジューンブライド|配置データクリア
+            {0x3B4, new EventFlagPlayer(0 , 1   , 0948, "SloGetHedge"                                )}, // レイジ|レイジから「いけがき」をもらった？
+            {0x3B5, new EventFlagPlayer(0 , 1   , 0949, "XctGerReward"                               )}, // メーデー|みしらぬネコから報酬をもらった？
+            {0x3B6, new EventFlagPlayer(0 , 1   , 0950, "SpnJuneBrideClearTalkFrag"                  )}, // パニエル/ジューンブライド|今日クリア後の会話した？
+            {0x3B7, new EventFlagPlayer(0 , 1   , 0951, "AlwJuneBrideTalkBeforeFlag"                 )}, // リサ/ジューンブライド|面識ある？
+            {0x3B8, new EventFlagPlayer(0 , 1   , 0952, "AlpJuneBrideTalkBeforeFlag"                 )}, // カイゾー/ジューンブライド|面識ある？
+            {0x3B9, new EventFlagPlayer(0 , 1   , 0953, "SpnJuneBrideTalkEventFrag"                  )}, // パニエル/ジューンブライド|今年イベント期間中に会話した？
             {0x3BA, new EventFlagPlayer(0 , 9999, 0954, "PynVisitYear"                               )}, // ぴょんたろうが来訪した年
             {0x3BB, new EventFlagPlayer(0 , 1   , 0955, "PynVisitToday"                              )}, // ぴょんたろうが今日来訪NPCとして来訪する
+            {0x3BC, new EventFlagPlayer(0 , 1   , 0956, "OwlStampPlayed"                             )}, // フータ|スタンプラリーに参加したことがある
+            {0x3BF, new EventFlagPlayer(0 , 1   , 0959, "OwlStampPocketWasFull"                      )}, // フータ|スタンプラリー報酬受け取りでポケットいっぱいだった
+            {0x3C0, new EventFlagPlayer(0 , 1   , 0960, "OwlStampGotInsectReward"                    )}, // フータ|その日、スタンプ(ムシ)報酬を貰った
+            {0x3C1, new EventFlagPlayer(0 , 1   , 0961, "OwlStampGotFishReward"                      )}, // フータ|その日、スタンプ(サカナ)報酬を貰った
+            {0x3C2, new EventFlagPlayer(0 , 1   , 0962, "OwlStampGotFossilReward"                    )}, // フータ|その日、スタンプ(化石)報酬を貰った
+            {0x3D5, new EventFlagPlayer(0 , 1   , 0981, "DocDeliveryPurchaseExplain"                 )}, // ロドリー|宅配・買取サービスの説明聞いた？
             {0x3D6, new EventFlagPlayer(0 , 1   , 0982, "TalkRumorN2TodayAnyone"                     )}, // 今日誰かにRumorN2を聞いたか？
+            {0x3D7, new EventFlagPlayer(0 , 1   , 0983, "TownNewsHeardMuseum2OpenFlag"               )}, // 村内放送|博物館建物②が建った告知を聞いた？
             {0x3DC, new EventFlagPlayer(0 , 1   , 0988, "KinuyoMydesginMachineFlag"                  )}, // きぬよ|マイデザイン端末の説明聞いたことある？
+            {0x3DD, new EventFlagPlayer(0 , 1   , 0989, "OwlStampGotInsect"                          )}, // フータ|その日、フータスタンプ(ムシ)を押した
+            {0x3DE, new EventFlagPlayer(0 , 1   , 0990, "OwlStampGotFish"                            )}, // フータ|その日、フータスタンプ(サカナ)を押した
+            {0x3DF, new EventFlagPlayer(0 , 1   , 0991, "OwlStampGotFossil"                          )}, // フータ|その日、フータスタンプ(化石)を押した
+            {0x3E0, new EventFlagPlayer(0 , 1   , 0992, "CompleteEventMayDay"                        )}, // メーデーイベントが全て完了した
+            {0x3E1, new EventFlagPlayer(0 , 64  , 0993, "AlwJuneBrideDayAlreadyCount"                )}, // リサ/ジューンブライド|今までに何日目までクリアしたか用カウント
+            {0x3E2, new EventFlagPlayer(0 , 1   , 0994, "PAnnounceEarthDay"                          )}, // 島内放送|アースデー初回ログイン時の放送を聞いた？
             {0x3E3, new EventFlagPlayer(0 , 1   , 0995, "TipsChatFlag"                               )}, // チャット説明ダイアログを見たか？
+            {0x3E4, new EventFlagPlayer(0 , 1   , 0996, "RcoEarthDayAnnouncementPre"                 )}, // アースデー|案内所たぬきちのアースデー準備中告知を聞いた？
+            {0x3E5, new EventFlagPlayer(0 , 1   , 0997, "FoxPreVisitBuyArtFlag"                      )}, // つねきち|事前来訪中に美術品を買った？
+            {0x3E6, new EventFlagPlayer(0 , 1   , 0998, "FoxPreVisitWantSellFlag"                    )}, // つねきち|事前来訪で美術品を売り込み中？
+            {0x3E7, new EventFlagPlayer(0 , 1   , 0999, "SloTalkedToday"                             )}, // レイジ|今日会話した？
+            {0x3EB, new EventFlagPlayer(0 , 2   , 1003, "CurrentJuneBrideTheme"                      )}, // 現在のジューンブライドのテーマ
+            {0x3EC, new EventFlagPlayer(0 , 2   , 1004, "PreviousJuneBrideTheme"                     )}, // 前回のジューンブライドのテーマ
+            {0x3ED, new EventFlagPlayer(0 , 1   , 1005, "IsSelectedJuneBrideCuteThisYear"            )}, // ジューンブライド|今年キュートが選ばれたか？
+            {0x3EE, new EventFlagPlayer(0 , 1   , 1006, "IsSelectedJuneBrideChicThisYear"            )}, // ジューンブライド|今年シックが選ばれたか？
+            {0x3EF, new EventFlagPlayer(0 , 1   , 1007, "IsSelectedJuneBrideGardenThisYear"          )}, // ジューンブライド|今年ガーデンが選ばれたか？
+            {0x3F2, new EventFlagPlayer(0 , 9999, 1010, "LastPlayJuneBrideYear"                      )}, // ジューンブライド|最後に遊んだジューンブライドの年
+            {0x3F3, new EventFlagPlayer(0 , 1   , 1011, "FoxFirstTalkInShipFlag"                     )}, // つねきち|船内で会話したことある？
+            {0x3F4, new EventFlagPlayer(0 , 1   , 1012, "FoxInvitedShipFlag"                         )}, // つねきち|船へ誘導された？
             {0x3F5, new EventFlagPlayer(0 , 1   , 1013, "NoticeAboutSmartPhoneCase"                  )}, // 作業台リメイク|スマホケースの説明ダイアログ見た
+            {0x3F6, new EventFlagPlayer(0 , 1   , 1014, "AlwJuneBridePleaseShootFlag"                )}, // リサ/ジューンブライド|写真も撮ってと言われた
+            {0x3F7, new EventFlagPlayer(0 , 1   , 1015, "OwlPaintingQuestReminder"                   )}, // フータ|その日、美術品提出の催促を受けた
+            {0x3F9, new EventFlagPlayer(0 , 1   , 1017, "DocUsePurchaseServiceFalg"                  )}, // ロドリー|買取サービス使った？
+            {0x3FA, new EventFlagPlayer(0 , 1   , 1018, "UsePurchaseBOXFalg"                         )}, // 買取BOX使った？
+            {0x3FB, new EventFlagPlayer(0 , 1   , 1019, "FoxForcedTalkTodayFlag"                     )}, // つねきち|今日お店で入店時の強制会話した？
+            {0x3FC, new EventFlagPlayer(0 , 1   , 1020, "FoxForcedTalk2TodayFlag"                    )}, // つねきち|今日お店で退店時の強制会話した？
+            {0x3FE, new EventFlagPlayer(0 , 9999, 1022, "EDDIYFlowerWreathOrderYear"                 )}, // 花を摘んでリースをつくる活動受注年
+            {0x3FF, new EventFlagPlayer(0 , 9999, 1023, "EDDIYCorollaOrderYear"                      )}, // 花を摘んで花冠をつくる活動受注年
+            {0x400, new EventFlagPlayer(0 , 1   , 1024, "OwlStampGotRewardExplain"                   )}, // フータ|スタンプラリー報酬は二重に貰えない説明を受けた
+            {0x401, new EventFlagPlayer(0 , 1   , 1025, "UseNavigationMayDayTour"                    )}, // メーデー|緊急脱出サービスを使用中？
+            {0x402, new EventFlagPlayer(0 , 1   , 1026, "FirstPlayAfterMuseumBuilt2Flag"             )}, // 博物館2に拡張したあとのプレイ初日？
+            {0x404, new EventFlagPlayer(0 , 256 , 1028, "AlwJuneBrideTotalClearCount"                )}, // リサ/ジューンブライド|今年クリアした回数（１日何回でも）
+            {0x405, new EventFlagPlayer(0 , 1   , 1029, "SloTalkedWeedFirst"                         )}, // レイジ|雑草初回会話したことある？
+            {0x406, new EventFlagPlayer(0 , 1   , 1030, "SpnJuneBrideGetFenceFrag"                   )}, // パニエル/ジューンブライド|今年柵もらった？
+            {0x407, new EventFlagPlayer(0 , 1   , 1031, "SpnJuneBrideNotGetFenceTodayFrag"           )}, // パニエル/ジューンブライド|今日柵もらえなかった？
+            {0x408, new EventFlagPlayer(0 , 1   , 1032, "JuneBrideBGMHasUnlocked"                    )}, // ジューンブライド|今年BGMが解禁されているか？
+            {0x40A, new EventFlagPlayer(0 , 1   , 1034, "XctFirstTalk"                               )}, // みしらぬネコ/メーデー|面識ある？
+            {0x40B, new EventFlagPlayer(0 , 1   , 1035, "PAnnounceJuneBride"                         )}, // 島内放送|ジューンブライド初回ログイン時の放送を聞いた？
+            {0x40C, new EventFlagPlayer(0 , 1   , 1036, "StandByPhoneCallJuneBrideSpn"               )}, // 電話デモ|今年パニエルからジューンブライド告知された？
+            {0x40D, new EventFlagPlayer(0 , 1   , 1037, "AlpJuneBrideGetStickFrag"                   )}, // カイゾー/ジューンブライド|今年ステッキもらった？
+            {0x40F, new EventFlagPlayer(0 , 10  , 1039, "LastApproachVillagerIndex"                  )}, // 最後にアプローチ会話をしたNPCの住人番号
+            {0x410, new EventFlagPlayer(0 , 1   , 1040, "StandByPhoneCallJuneBride"                  )}, // 電話デモ|ジューンブライド告知電話するか？
+            {0x414, new EventFlagPlayer(0 , 1   , 1044, "AlwJuneBridePartyTalkFlag"                  )}, // リサ/ジューンブライド|パーティの案内された
+            {0x415, new EventFlagPlayer(0 , 1   , 1045, "AlwJuneBrideLastDayTalkFlag"                )}, // リサ/ジューンブライド|最終日の挨拶された
+            {0x416, new EventFlagPlayer(0 , 1   , 1046, "VisitFriendMileageGet"                      )}, // よその島へのおでかけマイルゲット
+            {0x417, new EventFlagPlayer(0 , 1   , 1047, "AlwJuneBrideBalloonFlag"                    )}, // リサ/ジューンブライド|バルーン出す状態？
+            {0x419, new EventFlagPlayer(0 , 1   , 1049, "GstRichItemFlag"                            )}, // ゆうたろう|高価な品もらった？
+            {0x41C, new EventFlagPlayer(0 , 1   , 1052, "PlayerPocketUIEnableInCommuneIsland"        )}, // プレイヤー|コミューン島でのポケットUI解禁
+            {0x41D, new EventFlagPlayer(0 , 5   , 1053, "GotoMysteryTour"                            )}, // モーリー|ミステリーツアー島に行った回数
+            {0x41E, new EventFlagPlayer(0 , 1   , 1054, "EnableGotoRareMysteryTour"                  )}, // モーリー|ミステリーツアーのレア島に行っていいか？
+            {0x41F, new EventFlagPlayer(0 , 1   , 1055, "VisitMysteryTourID20"                       )}, // ID: 20のミステリーツアー島にその日行ったことがある
+            {0x420, new EventFlagPlayer(0 , 1   , 1056, "PAnnounceStampRally"                        )}, // 島内放送|国際ミュージアムの放送を聞いた？
+            {0x421, new EventFlagPlayer(0 , 1   , 1057, "FoxPreVisitBuyArtMaxFlag"                   )}, // つねきち|事前来訪中に2個美術品を買った？
+            {0x424, new EventFlagPlayer(0 , 9999, 1060, "EDDIYFlowerWreathClearYear"                 )}, // 花を摘んでリースをつくる活動達成年
+            {0x425, new EventFlagPlayer(0 , 9999, 1061, "EDDIYCorollaClearYear"                      )}, // 花を摘んで花冠をつくる活動達成年
+            {0x42C, new EventFlagPlayer(0 , 3   , 1068, "InducedNpcNum"                              )}, // お出かけ先で勧誘したNPCの数
+            {0x42D, new EventFlagPlayer(0 , 1   , 1069, "TalkFreeMultiDayEventTodayFlag"             )}, // 今日、期間型イベント用のFreeFを聞いたか？
+            {0x42E, new EventFlagPlayer(0 , -1  , 1070, "EarthDayBonus"                              )}, // アースデーの5倍クエストをクリアした日フラグ
+            {0x42F, new EventFlagPlayer(0 , 1   , 1071, "TalkVillagerClearToday"                     )}, // 日課あいさつ活動を今日クリア済み
+            {0x430, new EventFlagPlayer(0 , 1   , 1072, "EarthDayFirstQuestSystem"                   )}, // アースデーの5倍クエストをまだ出していない（システム用）
+            {0x431, new EventFlagPlayer(0 , 1   , 1073, "EarthDayFirstQuestTalk"                     )}, // アースデーの5倍クエストをまだ出していない（会話用）
+            {0x433, new EventFlagPlayer(0 , 1   , 1075, "MailSendFlag_EarthDayNotice"                )}, // 手紙|アースデー導入の手紙を送った？
+            {0x434, new EventFlagPlayer(0 , 1   , 1076, "PAnnounceMayDayTour"                        )}, // 島内放送|アースデー初回ログイン時の放送を聞いた？
         };
 
         private const string Unknown = "???";

@@ -6,179 +6,180 @@ namespace NHSE.Core
     {
         public static IReadOnlyList<ushort> Bugs = new ushort[]
         {
-            582, // brown cicada
-            583, // tiger butterfly
-            584, // Rajah Brooke's birdwing
-            585, // red dragonfly
-            586, // Queen Alexandra's birdwing
-            587, // pondskater
-            588, // ant
-            590, // pill bug
-            591, // wharf roach
-            592, // moth
-            594, // diving beetle
-            595, // darner dragonfly
-            596, // goliath beetle
-            597, // fly
-            598, // orchid mantis
-            599, // tiger beetle
-            600, // horned hercules
-            601, // evening cicada
-            602, // cyclommatus stag
-            603, // firefly
-            604, // dung beetle
-            605, // rice grasshopper
-            606, // mosquito
-            607, // mantis
-            608, // stinkbug
-            609, // citrus long-horned beetle
-            610, // peacock butterfly
-            611, // snail
-            612, // horned dynastid
-            613, // grasshopper
-            614, // earth-boring dung beetle
-            615, // horned atlas
-            616, // walking leaf
-            617, // cricket
-            618, // giant cicada
-            619, // spider
-            620, // agrias butterfly
-            621, // robust cicada
-            622, // bagworm
-            623, // honeybee
-            624, // miyama stag
-            625, // yellow butterfly
-            626, // common butterfly
-            627, // emperor butterfly
-            628, // centipede
-            630, // walking stick
-            631, // rainbow stag
-            632, // saw stag
-            633, // flea
-            634, // mole cricket
-            635, // banded dragonfly
-            636, // monarch butterfly
-            637, // giant stag
-            638, // golden stag
-            639, // scarab beetle
-            640, // scorpion
-            641, // cicada shell
-            642, // bell cricket
-            643, // wasp
-            644, // long locust
-            645, // jewel beetle
-            646, // tarantula
-            647, // ladybug
-            648, // migratory locust
-            649, // walker cicada
-            650, // violin beetle
-            651, // hermit crab
-            652, // Atlas moth
-            653, // horned elephant
-            3477, // common bluebottle
-            3478, // paper kite butterfly
-            3479, // great purple emperor
-            3480, // drone beetle
-            3482, // giraffe stag
-            3483, // man-faced stink bug
-            3484, // Madagascan sunset moth
-            3485, // blue weevil beetle
-            3487, // rosalia batesi beetle
-            3539, // snowflake
-            3540, // large snowflake
-            4702, // Wisp spirit piece
-            5157, // giant water bug
-            5339, // damselfly
-            5859, // cherry-blossom petal
-            7374, // maple leaf
+            00582, // brown cicada
+            00583, // tiger butterfly
+            00584, // Rajah Brooke's birdwing
+            00585, // red dragonfly
+            00586, // Queen Alexandra's birdwing
+            00587, // pondskater
+            00588, // ant
+            00590, // pill bug
+            00591, // wharf roach
+            00592, // moth
+            00594, // diving beetle
+            00595, // darner dragonfly
+            00596, // goliath beetle
+            00597, // fly
+            00598, // orchid mantis
+            00599, // tiger beetle
+            00600, // horned hercules
+            00601, // evening cicada
+            00602, // cyclommatus stag
+            00603, // firefly
+            00604, // dung beetle
+            00605, // rice grasshopper
+            00606, // mosquito
+            00607, // mantis
+            00608, // stinkbug
+            00609, // citrus long-horned beetle
+            00610, // peacock butterfly
+            00611, // snail
+            00612, // horned dynastid
+            00613, // grasshopper
+            00614, // earth-boring dung beetle
+            00615, // horned atlas
+            00616, // walking leaf
+            00617, // cricket
+            00618, // giant cicada
+            00619, // spider
+            00620, // agrias butterfly
+            00621, // robust cicada
+            00622, // bagworm
+            00623, // honeybee
+            00624, // miyama stag
+            00625, // yellow butterfly
+            00626, // common butterfly
+            00627, // emperor butterfly
+            00628, // centipede
+            00630, // walking stick
+            00631, // rainbow stag
+            00632, // saw stag
+            00633, // flea
+            00634, // mole cricket
+            00635, // banded dragonfly
+            00636, // monarch butterfly
+            00637, // giant stag
+            00638, // golden stag
+            00639, // scarab beetle
+            00640, // scorpion
+            00641, // cicada shell
+            00642, // bell cricket
+            00643, // wasp
+            00644, // long locust
+            00645, // jewel beetle
+            00646, // tarantula
+            00647, // ladybug
+            00648, // migratory locust
+            00649, // walker cicada
+            00650, // violin beetle
+            00651, // hermit crab
+            00652, // Atlas moth
+            00653, // horned elephant
+            03477, // common bluebottle
+            03478, // paper kite butterfly
+            03479, // great purple emperor
+            03480, // drone beetle
+            03482, // giraffe stag
+            03483, // man-faced stink bug
+            03484, // Madagascan sunset moth
+            03485, // blue weevil beetle
+            03487, // rosalia batesi beetle
+            03539, // snowflake
+            03540, // large snowflake
+            04702, // Wisp spirit piece
+            05157, // giant water bug
+            05339, // damselfly
+            05859, // cherry-blossom petal
+            07374, // maple leaf
         };
 
         public static IReadOnlyList<ushort> Fish = new ushort[]
         {
-            0328, // crucian carp
-            0329, // goldfish
-            2215, // bitterling
-            2216, // pale chub
-            2217, // dace
-            2219, // carp
-            2220, // koi
-            2221, // pop-eyed goldfish
-            2222, // killifish
-            2223, // crawfish
-            2224, // soft-shelled turtle
-            2225, // tadpole
-            2226, // frog
-            2227, // freshwater goby
-            2228, // loach
-            2229, // catfish
-            2231, // giant snakehead
-            2232, // bluegill
-            2233, // yellow perch
-            2234, // black bass
-            2235, // pike
-            2236, // pond smelt
-            2237, // sweetfish
-            2238, // cherry salmon
-            2239, // char
-            2241, // stringfish
-            2242, // salmon
-            2243, // king salmon
-            2244, // mitten crab
-            2245, // guppy
-            2246, // nibble fish
-            2247, // angelfish
-            2248, // neon tetra
-            2249, // piranha
-            2250, // arowana
-            2251, // dorado
-            2252, // gar
-            2253, // arapaima
-            2254, // saddled bichir
-            2255, // sea butterfly
-            2256, // sea horse
-            2257, // clown fish
-            2258, // surgeonfish
-            2259, // butterfly fish
-            2260, // Napoleonfish
-            2261, // zebra turkeyfish
-            2262, // blowfish
-            2263, // puffer fish
-            2264, // horse mackerel
-            2265, // barred knifejaw
-            2266, // sea bass
-            2267, // red snapper
-            2268, // dab
-            2269, // olive flounder
-            2270, // squid
-            2271, // moray eel
-            2272, // ribbon eel
-            2273, // football fish
-            2274, // tuna
-            2275, // blue marlin
-            2276, // giant trevally
-            2277, // ray
-            2278, // ocean sunfish
-            2279, // hammerhead shark
-            2280, // great white shark
-            2281, // saw shark
-            2282, // whale shark
-            2283, // oarfish
-            2284, // coelacanth
-            2502, // stone
-            3466, // empty can
-            3469, // boot
-            3470, // old tire
-            4189, // sturgeon
-            4190, // tilapia
-            4191, // betta
-            4192, // snapping turtle
-            4193, // golden trout
-            4194, // rainbowfish
-            4201, // anchovy
-            4202, // mahi-mahi
-            4203, // suckerfish
-            4204, // barreleye
-            5254, // ranchu goldfish
+            00328, // crucian carp
+            00329, // goldfish
+            02215, // bitterling
+            02216, // pale chub
+            02217, // dace
+            02219, // carp
+            02220, // koi
+            02221, // pop-eyed goldfish
+            02222, // killifish
+            02223, // crawfish
+            02224, // soft-shelled turtle
+            02225, // tadpole
+            02226, // frog
+            02227, // freshwater goby
+            02228, // loach
+            02229, // catfish
+            02231, // giant snakehead
+            02232, // bluegill
+            02233, // yellow perch
+            02234, // black bass
+            02235, // pike
+            02236, // pond smelt
+            02237, // sweetfish
+            02238, // cherry salmon
+            02239, // char
+            02241, // stringfish
+            02242, // salmon
+            02243, // king salmon
+            02244, // mitten crab
+            02245, // guppy
+            02246, // nibble fish
+            02247, // angelfish
+            02248, // neon tetra
+            02249, // piranha
+            02250, // arowana
+            02251, // dorado
+            02252, // gar
+            02253, // arapaima
+            02254, // saddled bichir
+            02255, // sea butterfly
+            02256, // sea horse
+            02257, // clown fish
+            02258, // surgeonfish
+            02259, // butterfly fish
+            02260, // Napoleonfish
+            02261, // zebra turkeyfish
+            02262, // blowfish
+            02263, // puffer fish
+            02264, // horse mackerel
+            02265, // barred knifejaw
+            02266, // sea bass
+            02267, // red snapper
+            02268, // dab
+            02269, // olive flounder
+            02270, // squid
+            02271, // moray eel
+            02272, // ribbon eel
+            02273, // football fish
+            02274, // tuna
+            02275, // blue marlin
+            02276, // giant trevally
+            02277, // ray
+            02278, // ocean sunfish
+            02279, // hammerhead shark
+            02280, // great white shark
+            02281, // saw shark
+            02282, // whale shark
+            02283, // oarfish
+            02284, // coelacanth
+            02502, // stone
+            03466, // empty can
+            03469, // boot
+            03470, // old tire
+            04189, // sturgeon
+            04190, // tilapia
+            04191, // betta
+            04192, // snapping turtle
+            04193, // golden trout
+            04194, // rainbowfish
+            04201, // anchovy
+            04202, // mahi-mahi
+            04203, // suckerfish
+            04204, // barreleye
+            05254, // ranchu goldfish
+            12514, // water egg
         };
     }
 }

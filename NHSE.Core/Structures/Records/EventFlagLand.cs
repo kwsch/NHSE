@@ -63,12 +63,14 @@ namespace NHSE.Core
             {0x029, new EventFlagLand(0 , 6    , 0041, "RcoMoveReservedKind"                        )}, // たぬきち|建物移設の予約種類判別カウンタ
             {0x02A, new EventFlagLand(0 , 1    , 0042, "QuestReserveStart"                          )}, // クエスト予約解禁
             {0x02B, new EventFlagLand(0 , -1   , 0043, "VillageDaysCount"                           )}, // 村の経過日数
+            {0x02C, new EventFlagLand(0 , 1    , 0044, "PeddlingAvailableSlo"                       )}, // 行商解禁済|レイジ
             {0x02D, new EventFlagLand(0 , 1    , 0045, "MarketBuilt"                                )}, // まめつぶ商店が建った
             {0x02E, new EventFlagLand(0 , 1    , 0046, "PeddingAvailableBoa"                        )}, // カブ解禁済｜カブリバ
             {0x02F, new EventFlagLand(0 , 1    , 0047, "MarketConstruction1"                        )}, // まめきちの店|テント→商店（小）工事中
             {0x030, new EventFlagLand(0 , 1    , 0048, "MarketConstruction2"                        )}, // まめきちの店||商店（小）→倉庫　工事中
             {0x031, new EventFlagLand(0 , 1    , 0049, "FirstKabuBuy"                               )}, // 島の誰かがカブを買ったことがある
             {0x032, new EventFlagLand(0 , 1    , 0050, "FirstKabuPattern"                           )}, // 初回カブ価パターン適用済みフラグ
+            {0x033, new EventFlagLand(4 , 4    , 0051, "FoxArtStockCount"                           )}, // つねきち|美術品の在庫
             {0x034, new EventFlagLand(0 , 1    , 0052, "EventPlazaBuiltToday"                       )}, // イベント広場完成当日
             {0x035, new EventFlagLand(0 , 8    , 0053, "CountNnpcHouseSpaceSet"                     )}, // 建築予定地を確保し終えた数
             {0x036, new EventFlagLand(0 , 1    , 0054, "GlobalEventReady"                           )}, // グローバルイベント準備中
@@ -273,11 +275,48 @@ namespace NHSE.Core
             {0x121, new EventFlagLand(0 , 10   , 0289, "CampRandomSelectMoveOutNpc"                 )}, // キャンプ場|ランダム選出転出NPCが何番目の住人か？(0:未抽選/抽選対象なし)
             {0x122, new EventFlagLand(0 , 1    , 0290, "CampFireRemoved"                            )}, // 広場のキャンプファイアー撤去
             {0x125, new EventFlagLand(0 , 1    , 0293, "UnlockEaster"                               )}, // BCATにてイースター解禁
+            {0x126, new EventFlagLand(0 , 5    , 0294, "MuseumConstruction2"                        )}, // 博物館1→2への工事中
+            {0x127, new EventFlagLand(0 , 1    , 0295, "MuseumGrowupEnable2"                        )}, // 博物館2への成長条件達成
+            {0x130, new EventFlagLand(0 , 1    , 0304, "OwlWantsPainting"                           )}, // フータの絵画クエストを開始した
             {0x131, new EventFlagLand(0 , 10   , 0305, "CampTodaySelectMoveOutNpc"                  )}, // キャンプ場|強制転出NPCが何番目の住人か？(0:未抽選/抽選対象なし)
+            {0x132, new EventFlagLand(0 , 1    , 0306, "Museum3Built"                               )}, // 博物館②完成
+            {0x133, new EventFlagLand(0 , 1    , 0307, "Museum3BuiltToday"                          )}, // 博物館②完成当日か？
+            {0x134, new EventFlagLand(0 , 10000, 0308, "CountMuseum2AfterBuild"                     )}, // 博物館②|オープンして何日目か
+            {0x135, new EventFlagLand(0 , 1    , 0309, "Museum2ConstructionToday"                   )}, // 今日、博物館②工事当日であるか？
             {0x136, new EventFlagLand(0 , 1    , 0310, "GrowUpAfterPatch1_1"                        )}, // 1.1適用して成長処理をした
+            {0x137, new EventFlagLand(0 , 1    , 0311, "GrowUpAfterPatch1_2"                        )}, // 1.2適用して成長処理をした
+            {0x13B, new EventFlagLand(0 , 1    , 0315, "EarthdaySloFirstVisit"                      )}, // アースデーの初回レイジを予約した
+            {0x13D, new EventFlagLand(0 , 1    , 0317, "SloPeddlerPurchaceToday"                    )}, // レイジ行商|今回の来訪で島の誰かが商品購入した？
+            {0x13E, new EventFlagLand(0 , 1    , 0318, "FoxPreVisitToday"                           )}, // つねきちが今日事前来訪する
             {0x13F, new EventFlagLand(0 , 1    , 0319, "AnyPlayerHouseBuilt"                        )}, // 住人の誰かのマイホームが１度でも建ったことがある
+            {0x140, new EventFlagLand(0 , 50   , 0320, "MuseumFishStampRackLotID1"                  )}, // 国際ミュージアム|1つ目のサカナのスタンプ台ID
+            {0x141, new EventFlagLand(0 , 50   , 0321, "MuseumFishStampRackLotID2"                  )}, // 国際ミュージアム|2つ目のサカナのスタンプ台ID
+            {0x142, new EventFlagLand(0 , 50   , 0322, "MuseumFishStampRackLotID3"                  )}, // 国際ミュージアム|3つ目のサカナのスタンプ台ID
+            {0x143, new EventFlagLand(0 , 50   , 0323, "MuseumInsectStampRackLotID1"                )}, // 国際ミュージアム|1つ目のムシのスタンプ台ID
+            {0x144, new EventFlagLand(0 , 50   , 0324, "MuseumInsectStampRackLotID2"                )}, // 国際ミュージアム|2つ目のムシのスタンプ台ID
+            {0x145, new EventFlagLand(0 , 50   , 0325, "MuseumInsectStampRackLotID3"                )}, // 国際ミュージアム|3つ目のムシのスタンプ台ID
+            {0x146, new EventFlagLand(0 , 50   , 0326, "MuseumFossilStampRackLotID1"                )}, // 国際ミュージアム|1つ目のかせきのスタンプ台ID
+            {0x147, new EventFlagLand(0 , 50   , 0327, "MuseumFossilStampRackLotID2"                )}, // 国際ミュージアム|2つ目のかせきのスタンプ台ID
+            {0x148, new EventFlagLand(0 , 50   , 0328, "MuseumFossilStampRackLotID3"                )}, // 国際ミュージアム|3つ目のかせきのスタンプ台ID
             {0x149, new EventFlagLand(0 , 1    , 0329, "AOC_EventFlag_000"                          )}, // AOC同期フラグ| 000 Compass
             {0x14A, new EventFlagLand(0 , 1    , 0330, "AOC_EventFlag_001"                          )}, // AOC同期フラグ| 001 NSO加入特典
+            {0x14C, new EventFlagLand(0 , 1    , 0332, "FoxPreVisitReserve"                         )}, // 事前来訪つねきちを翌日に予約する
+            {0x14D, new EventFlagLand(0 , 1    , 0333, "FoxMovedToMarket"                           )}, // つねきち|来訪時にフィールドから船へ移動した
+            {0x14E, new EventFlagLand(0 , 1    , 0334, "FoxAndShipReserve"                          )}, // つねきち船＋フィールドを予約する
+            {0x14F, new EventFlagLand(0 , 1    , 0335, "BCAT_EventFlag_002"                         )}, // 国際ミュージアム解禁
+            {0x150, new EventFlagLand(0 , 1    , 0336, "BCAT_EventFlag_004"                         )}, // x)ジューンブライド解禁
+            {0x151, new EventFlagLand(0 , 1    , 0337, "BCAT_EventFlag_001"                         )}, // メーデー解禁
+            {0x152, new EventFlagLand(0 , 1    , 0338, "BCAT_EventFlag_003"                         )}, // ジューンブライド解禁
+            {0x157, new EventFlagLand(0 , 1    , 0343, "FoxPreVisit1Today"                          )}, // つねきち1回目の事前来訪当日
+            {0x158, new EventFlagLand(0 , 1    , 0344, "FoxPreVisit2Today"                          )}, // つねきち2回目の事前来訪当日
+            {0x159, new EventFlagLand(0 , 1    , 0345, "EarthdaySloFirstVisitToday"                 )}, // 今日がアースデーの初回レイジ来訪日
+            {0x15B, new EventFlagLand(0 , 1    , 0347, "UnlockJuneBrideSeq"                         )}, // ゲーム進行的にジューンブライド解禁
+            {0x15C, new EventFlagLand(0 , -1   , 0348, "RandomKey1"                                 )}, // ランダムキーa
+            {0x15D, new EventFlagLand(0 , -1   , 0349, "RandomKey2"                                 )}, // ランダムキーb
+            {0x15E, new EventFlagLand(0 , -1   , 0350, "RandomKey3"                                 )}, // ランダムキーc
+            {0x15F, new EventFlagLand(0 , -1   , 0351, "RandomKey4"                                 )}, // ランダムキーd
+            {0x160, new EventFlagLand(0 , 1    , 0352, "FoxPreVisitAlreadyBuyToday"                 )}, // つねきち|今日誰かが事前来訪中に美術品を買った
+            {0x161, new EventFlagLand(0 , 1    , 0353, "RcoHasResolvedMoveKitBug"                   )}, // いせつキットバグを解消したか
         };
 
         private const string Unknown = "???";

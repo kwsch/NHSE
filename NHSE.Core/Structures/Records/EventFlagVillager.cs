@@ -57,6 +57,8 @@ namespace NHSE.Core
             {0x029, new EventFlagVillager(0 , 10  , 0041, "MoveInOrder"                                )}, // 土地売約済み状態のNPCの転入順
             {0x02A, new EventFlagVillager(0 , 1   , 0042, "EquipEasterWear"                            )}, // イースター用装備にする
             {0x02B, new EventFlagVillager(0 , 10  , 0043, "ForceMoveOutVillagerIndex"                  )}, // 強制転出に指定した住人番号
+            {0x02C, new EventFlagVillager(0 , 1   , 0044, "DisplayJuneBridePresent"                    )}, // ジューンブライド | 絵皿を飾るか？
+            {0x02D, new EventFlagVillager(0 , 7   , 0045, "ProgressDaysJuneBrideParty"                 )}, // ジューンブライド | 結婚パーティに参加してからの経過日数
         };
 
         private const string Unknown = "???";

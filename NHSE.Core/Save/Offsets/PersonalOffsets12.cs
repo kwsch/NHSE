@@ -20,6 +20,6 @@
         public override int Bank => 0x6A424; // +0x17F0 from v1.1
         public override int Recipes => Bank + 0x10;
 
-        public override int MaxRecipeID { get; } = 0x2C8;
+        public override int MaxRecipeID { get; } = 0x2CB;
     }
 }

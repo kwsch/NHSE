@@ -83,7 +83,7 @@ namespace NHSE.Core
             {0x072, 04036}, // log decorative shelves
             {0x073, 04037}, // log wall-mounted clock
             {0x074, 04038}, // log stool
-            {0x075, 04039}, // log sofa
+            {0x075, 04039}, // log chair
             {0x076, 04040}, // log dining table
             {0x077, 04041}, // log bed
             {0x078, 04025}, // unglazed dish set
@@ -598,6 +598,9 @@ namespace NHSE.Core
             {0x2C6, 12423}, // Bunny Day flooring
             {0x2C7, 12578}, // Bunny Day wand
             {0x2C8, 12630}, // Bunny Day fence
+            {0x2C9, 12758}, // hedge
+            {0x2CA, 12894}, // wedding fence
+            {0x2CB, 12695}, // wedding wand
         };
     }
 }

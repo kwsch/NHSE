@@ -51,6 +51,21 @@ namespace NHSE.Core
             {0xEAC8, new FieldItemDefinition(0xEAC8, "PltTreePear", FieldItemKind.PltTreeOak)}, // ナシの木（成木）
             {0xEAC9, new FieldItemDefinition(0xEAC9, "PltTreeCherry", FieldItemKind.PltTreeOak)}, // さくらんぼの木（成木）
             {0xEACA, new FieldItemDefinition(0xEACA, "PltTreePeach", FieldItemKind.PltTreeOak)}, // モモの木（成木）
+            {0xEACB, new FieldItemDefinition(0xEACB, "PltBushAzalea3White", FieldItemKind.PltBushAzalea)}, // ツツジ白（成木花）
+            {0xEACC, new FieldItemDefinition(0xEACC, "PltBushAzalea0White", FieldItemKind.PltBushAzalea)}, // ツツジ白（苗）
+            {0xEACD, new FieldItemDefinition(0xEACD, "PltBushAzalea2White", FieldItemKind.PltBushAzalea)}, // ツツジ白（成木つぼみ）
+            {0xEACF, new FieldItemDefinition(0xEACF, "PltBushAzalea4White", FieldItemKind.PltBushAzalea)}, // ツツジ白（成木花なし）
+            {0xEAD0, new FieldItemDefinition(0xEAD0, "PltBushAzalea1White", FieldItemKind.PltBushAzalea)}, // ツツジ白（成長１）
+            {0xEAD1, new FieldItemDefinition(0xEAD1, "PltBushHibiscus3Red", FieldItemKind.PltBushHibiscus)}, // ハイビスカス赤（成木花）
+            {0xEAD2, new FieldItemDefinition(0xEAD2, "PltBushHibiscus0Red", FieldItemKind.PltBushHibiscus)}, // ハイビスカス赤（苗）
+            {0xEAD3, new FieldItemDefinition(0xEAD3, "PltBushHibiscus2Red", FieldItemKind.PltBushHibiscus)}, // ハイビスカス赤（成木つぼみ）
+            {0xEAD4, new FieldItemDefinition(0xEAD4, "PltBushHibiscus4Red", FieldItemKind.PltBushHibiscus)}, // ハイビスカス赤（成木花なし）
+            {0xEAD5, new FieldItemDefinition(0xEAD5, "PltBushHibiscus1Red", FieldItemKind.PltBushHibiscus)}, // ハイビスカス赤（成長１）
+            {0xEAD6, new FieldItemDefinition(0xEAD6, "PltBushHolly3", FieldItemKind.PltBushHolly)}, // ヒイラギ（成木花）
+            {0xEAD7, new FieldItemDefinition(0xEAD7, "PltBushHolly0", FieldItemKind.PltBushHolly)}, // ヒイラギ（苗）
+            {0xEAD8, new FieldItemDefinition(0xEAD8, "PltBushHolly2", FieldItemKind.PltBushHolly)}, // ヒイラギ（成木つぼみ）
+            {0xEAD9, new FieldItemDefinition(0xEAD9, "PltBushHolly1", FieldItemKind.PltBushHolly)}, // ヒイラギ（成長１）
+            {0xEADA, new FieldItemDefinition(0xEADA, "PltBushHolly4", FieldItemKind.PltBushHolly)}, // ヒイラギ（成木花なし）
             {0xEAF7, new FieldItemDefinition(0xEAF7, "PltFlwCosmos2Black", FieldItemKind.PltFlwCosmos)}, // コスモス黒（つぼみ）
             {0xEAF8, new FieldItemDefinition(0xEAF8, "PltFlwCosmos3Orange", FieldItemKind.PltFlwCosmos)}, // コスモスオレンジ（花）
             {0xEAF9, new FieldItemDefinition(0xEAF9, "PltFlwCosmos3Black", FieldItemKind.PltFlwCosmos)}, // コスモス黒（花）
@@ -224,6 +239,16 @@ namespace NHSE.Core
             {0xEBF3, new FieldItemDefinition(0xEBF3, "PltFlwHyacinth1Blue", FieldItemKind.PltFlwHyacinth)}, // ヒヤシンス青（茎）
             {0xEBF4, new FieldItemDefinition(0xEBF4, "PltFlwHyacinth2Blue", FieldItemKind.PltFlwHyacinth)}, // ヒヤシンス青（つぼみ）
             {0xEBF5, new FieldItemDefinition(0xEBF5, "PltFlwHyacinth1Orange", FieldItemKind.PltFlwHyacinth)}, // ヒヤシンスオレンジ（茎）
+            {0xEBF9, new FieldItemDefinition(0xEBF9, "PltBushHydrangea", FieldItemKind.PltBushHydrangea)}, // あじさい青（苗）
+            {0xEBFB, new FieldItemDefinition(0xEBFB, "PltBushHydrangea0Pink", FieldItemKind.PltBushHydrangea)}, // あじさい桃（苗）
+            {0xEBFC, new FieldItemDefinition(0xEBFC, "PltBushHydrangea1Blue", FieldItemKind.PltBushHydrangea)}, // あじさい青（成長１）
+            {0xEBFD, new FieldItemDefinition(0xEBFD, "PltBushHydrangea2Blue", FieldItemKind.PltBushHydrangea)}, // あじさい青（成木つぼみ）
+            {0xEBFE, new FieldItemDefinition(0xEBFE, "PltBushHydrangea3Blue", FieldItemKind.PltBushHydrangea)}, // あじさい青（成木花）
+            {0xEBFF, new FieldItemDefinition(0xEBFF, "PltBushHydrangea4Blue", FieldItemKind.PltBushHydrangea)}, // あじさい青（成木花なし）
+            {0xEC00, new FieldItemDefinition(0xEC00, "PltBushHydrangea1Pink", FieldItemKind.PltBushHydrangea)}, // あじさい桃（成長１）
+            {0xEC01, new FieldItemDefinition(0xEC01, "PltBushHydrangea2Pink", FieldItemKind.PltBushHydrangea)}, // あじさい桃（成木つぼみ）
+            {0xEC02, new FieldItemDefinition(0xEC02, "PltBushHydrangea3Pink", FieldItemKind.PltBushHydrangea)}, // あじさい桃（成木花）
+            {0xEC03, new FieldItemDefinition(0xEC03, "PltBushHydrangea4Pink", FieldItemKind.PltBushHydrangea)}, // あじさい桃（成木花なし）
             {0xEC04, new FieldItemDefinition(0xEC04, "PltFlwMum1White", FieldItemKind.PltFlwMum)}, // キク白（茎）
             {0xEC05, new FieldItemDefinition(0xEC05, "PltFlwMum1Yellow", FieldItemKind.PltFlwMum)}, // キク黄（茎）
             {0xEC06, new FieldItemDefinition(0xEC06, "PltFlwMum1Purple", FieldItemKind.PltFlwMum)}, // キク紫（茎）
@@ -251,6 +276,16 @@ namespace NHSE.Core
             {0xEC1D, new FieldItemDefinition(0xEC1D, "PltFlwAnemones3Pink", FieldItemKind.PltFlwAnemone)}, // アネモネ桃（花）
             {0xEC1E, new FieldItemDefinition(0xEC1E, "PltFlwAnemones2Orange", FieldItemKind.PltFlwAnemone)}, // アネモネオレンジ（つぼみ）
             {0xEC1F, new FieldItemDefinition(0xEC1F, "PltFlwAnemones3Orange", FieldItemKind.PltFlwAnemone)}, // アネモネオレンジ（花）
+            {0xEC20, new FieldItemDefinition(0xEC20, "PltBushAzalea1Pink", FieldItemKind.PltBushAzalea)}, // ツツジ桃（成長１）
+            {0xEC21, new FieldItemDefinition(0xEC21, "PltBushAzalea0Pink", FieldItemKind.PltBushAzalea)}, // ツツジ桃（苗）
+            {0xEC22, new FieldItemDefinition(0xEC22, "PltBushAzalea2Pink", FieldItemKind.PltBushAzalea)}, // ツツジ桃（成長つぼみ）
+            {0xEC23, new FieldItemDefinition(0xEC23, "PltBushAzalea3Pink", FieldItemKind.PltBushAzalea)}, // ツツジ桃（成木花）
+            {0xEC24, new FieldItemDefinition(0xEC24, "PltBushAzalea4Pink", FieldItemKind.PltBushAzalea)}, // ツツジ桃（成木花なし）
+            {0xEC25, new FieldItemDefinition(0xEC25, "PltBushHibiscus0Yellow", FieldItemKind.PltBushHibiscus)}, // ハイビスカス黄（苗）
+            {0xEC26, new FieldItemDefinition(0xEC26, "PltBushHibiscus1Yellow", FieldItemKind.PltBushHibiscus)}, // ハイビスカス黄（成長１）
+            {0xEC27, new FieldItemDefinition(0xEC27, "PltBushHibiscus2Yellow", FieldItemKind.PltBushHibiscus)}, // ハイビスカス黄（成木つぼみ）
+            {0xEC28, new FieldItemDefinition(0xEC28, "PltBushHibiscus3Yellow", FieldItemKind.PltBushHibiscus)}, // ハイビスカス黄（成木花）
+            {0xEC29, new FieldItemDefinition(0xEC29, "PltBushHibiscus4Yellow", FieldItemKind.PltBushHibiscus)}, // ハイビスカス黄（成木花なし）
             {0xEC32, new FieldItemDefinition(0xEC32, "PltFlwMum1Green", FieldItemKind.PltFlwMum)}, // キク緑（茎）
             {0xEC33, new FieldItemDefinition(0xEC33, "PltFlwMum2Green", FieldItemKind.PltFlwMum)}, // キク緑（つぼみ）
             {0xEC34, new FieldItemDefinition(0xEC34, "PltFlwMum3Green", FieldItemKind.PltFlwMum)}, // キク緑（花）
@@ -334,7 +369,31 @@ namespace NHSE.Core
             {0xECC2, new FieldItemDefinition(0xECC2, "FenceWoodNatural", FieldItemKind.FenceWoodWhite)}, // ナチュラルな柵
             {0xECC3, new FieldItemDefinition(0xECC3, "FenceLattice3", FieldItemKind.FenceLattice)}, // ラティスナチュラル
             {0xECC4, new FieldItemDefinition(0xECC4, "FenceCommune", FieldItemKind.FenceHorizontalLog)}, // コミューン島専用柵
+            {0xECF4, new FieldItemDefinition(0xECF4, "PltBushOsmathus5Yello", FieldItemKind.PltBushOsmanthus)}, // キンモクセイ黄（成木花なし）
+            {0xECF5, new FieldItemDefinition(0xECF5, "PltBushOsmathus4Yello", FieldItemKind.PltBushOsmanthus)}, // キンモクセイ黄（成木花）
+            {0xECF6, new FieldItemDefinition(0xECF6, "PltBushOsmathus2Yello", FieldItemKind.PltBushOsmanthus)}, // キンモクセイ黄（成長１）
+            {0xECF7, new FieldItemDefinition(0xECF7, "PltBushOsmathus3Yello", FieldItemKind.PltBushOsmanthus)}, // キンモクセイ黄（成木つぼみ）
+            {0xECF8, new FieldItemDefinition(0xECF8, "PltBushOsmathus1Yello", FieldItemKind.PltBushOsmanthus)}, // キンモクセイ黄（苗）
+            {0xECF9, new FieldItemDefinition(0xECF9, "PltBushOsmathus5Orange", FieldItemKind.PltBushOsmanthus)}, // キンモクセイオレンジ（成木花なし）
+            {0xECFA, new FieldItemDefinition(0xECFA, "PltBushOsmathus4Orange", FieldItemKind.PltBushOsmanthus)}, // キンモクセイオレンジ（成木花）
+            {0xECFB, new FieldItemDefinition(0xECFB, "PltBushOsmathus3Orange", FieldItemKind.PltBushOsmanthus)}, // キンモクセイオレンジ（成木つぼみ）
+            {0xECFC, new FieldItemDefinition(0xECFC, "PltBushOsmathus1Orange", FieldItemKind.PltBushOsmanthus)}, // キンモクセイオレンジ（苗）
+            {0xECFD, new FieldItemDefinition(0xECFD, "PltBushOsmathus2Orange", FieldItemKind.PltBushOsmanthus)}, // キンモクセイオレンジ（成長１）
+            {0xECFE, new FieldItemDefinition(0xECFE, "PltBushCamellia1Pink", FieldItemKind.PltBushCamellia)}, // ツバキピンク（苗）
+            {0xECFF, new FieldItemDefinition(0xECFF, "PltBushCamellia2Pink", FieldItemKind.PltBushCamellia)}, // ツバキピンク（成長１）
+            {0xED00, new FieldItemDefinition(0xED00, "PltBushCamellia3Pink", FieldItemKind.PltBushCamellia)}, // ツバキピンク（成木つぼみ）
+            {0xED01, new FieldItemDefinition(0xED01, "PltBushCamellia4Pink", FieldItemKind.PltBushCamellia)}, // ツバキピンク（成木花）
+            {0xED02, new FieldItemDefinition(0xED02, "PltBushCamellia1Red", FieldItemKind.PltBushCamellia)}, // ツバキ赤（苗）
+            {0xED03, new FieldItemDefinition(0xED03, "PltBushCamellia5Pink", FieldItemKind.PltBushCamellia)}, // ツバキピンク（成木花なし）
+            {0xED04, new FieldItemDefinition(0xED04, "PltBushCamellia2Red", FieldItemKind.PltBushCamellia)}, // ツバキ赤（成長１）
+            {0xED05, new FieldItemDefinition(0xED05, "PltBushCamellia3Red", FieldItemKind.PltBushCamellia)}, // ツバキ赤（成木つぼみ）
+            {0xED06, new FieldItemDefinition(0xED06, "PltBushCamellia4Red", FieldItemKind.PltBushCamellia)}, // ツバキ赤（成木花）
+            {0xED07, new FieldItemDefinition(0xED07, "PltBushCamellia5Red", FieldItemKind.PltBushCamellia)}, // ツバキ赤（成木花なし）
+            {0xED08, new FieldItemDefinition(0xED08, "FenceIkegaki", FieldItemKind.FenceIkegaki)}, // いけがきの柵
+            {0xED0B, new FieldItemDefinition(0xED0B, "FenceJuneBride3", FieldItemKind.FenceJuneBride)}, // ジューンブライドな柵緑
             {0xED0C, new FieldItemDefinition(0xED0C, "FenceEasterEgg", FieldItemKind.FenceEasterEgg)}, // イースターの柵
+            {0xED0D, new FieldItemDefinition(0xED0D, "FenceJuneBride", FieldItemKind.FenceJuneBride)}, // ジューンブライドな柵
+            {0xED0E, new FieldItemDefinition(0xED0E, "FenceJuneBride1", FieldItemKind.FenceJuneBride)}, // ジューンブライドな柵ピンク
             {0xED16, new FieldItemDefinition(0xED16, "PltTreeEasterEgg", FieldItemKind.PltTreeOak)}, // イースターのタマゴの木
         };
     }
