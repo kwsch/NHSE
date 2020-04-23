@@ -255,7 +255,6 @@ namespace NHSE.WinForms
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                throw;
             }
 
             PlayerIndex = index;
