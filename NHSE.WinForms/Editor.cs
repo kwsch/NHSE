@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Injection;
 using NHSE.Sprites;
+using NHSE.WinForms.Properties;
 
 namespace NHSE.WinForms
 {
@@ -25,7 +26,9 @@ namespace NHSE.WinForms
             LoadMain();
             Villagers = LoadVillagers();
 
-            Menu_Language.SelectedIndex = 0; // en -- triggers translation
+            var lang = Settings.Default.Language;
+            var index = GameLanguage.GetLanguageIndex(lang);
+            Menu_Language.SelectedIndex = index; // triggers translation
             // this.TranslateInterface(GameInfo.CurrentLanguage);
 
             Text = SAV.GetSaveTitle("NHSE");
@@ -42,8 +45,12 @@ namespace NHSE.WinForms
             Menu_Options.DropDown.Close();
             if ((uint)Menu_Language.SelectedIndex >= GameLanguage.LanguageCount)
                 return;
-            GameInfo.SetLanguage2Char(Menu_Language.SelectedIndex);
-            this.TranslateInterface(GameInfo.CurrentLanguage);
+            var lang = GameInfo.SetLanguage2Char(Menu_Language.SelectedIndex);
+
+            this.TranslateInterface(lang);
+            var settings = Settings.Default;
+            settings.Language = lang;
+            settings.Save();
         }
 
         private void Menu_Save_Click(object sender, EventArgs e)

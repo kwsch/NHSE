@@ -25,11 +25,12 @@
             return Languages[index] ??= new GameStrings(GameLanguage.Language2Char(index));
         }
 
-        public static void SetLanguage2Char(int index)
+        public static string SetLanguage2Char(int index)
         {
             var lang = GameLanguage.Language2Char(index);
             CurrentLanguage = lang;
             Strings = GetStrings(lang);
+            return lang;
         }
     }
 }
