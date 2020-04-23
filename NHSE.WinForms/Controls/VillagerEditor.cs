@@ -16,10 +16,10 @@ namespace NHSE.WinForms
 
         public VillagerEditor(Villager[] villagers, IVillagerOrigin origin, MainSave sav, bool hasHouses)
         {
+            InitializeComponent();
             Villagers = villagers;
             Origin = origin;
             SAV = sav;
-            InitializeComponent();
             LoadVillagers();
 
             B_EditHouses.Visible = hasHouses;

@@ -15,6 +15,8 @@ namespace NHSE.WinForms
         private static string GetTranslationFileNameInternal(string lang) => $"lang_{lang}";
         private static string GetTranslationFileNameExternal(string lang) => $"lang_{lang}.txt";
 
+        internal static Action LoadSpecialForms = () => { };
+
         private static TranslationContext GetContext(string lang)
         {
             if (Context.TryGetValue(lang, out var context))
@@ -173,6 +175,8 @@ namespace NHSE.WinForms
 
         public static void LoadAllForms(params string[] banlist)
         {
+            LoadSpecialForms();
+
             var q = from t in System.Reflection.Assembly.GetExecutingAssembly().GetTypes()
                     where t.BaseType == typeof(Form) && !banlist.Contains(t.Name)
                     select t;

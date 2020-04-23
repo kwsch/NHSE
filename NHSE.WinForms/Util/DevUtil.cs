@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
+using NHSE.WinForms.Properties;
 
 namespace NHSE.WinForms
 {
@@ -29,6 +30,7 @@ namespace NHSE.WinForms
 
         private static void UpdateTranslations()
         {
+            WinFormsTranslator.LoadSpecialForms = LoadSpecialForms;
             WinFormsTranslator.SetRemovalMode(false); // add mode
             WinFormsTranslator.LoadAllForms(LoadBanlist); // populate with every possible control
             WinFormsTranslator.UpdateAll(DefaultLanguage, Languages); // propagate to others
@@ -57,9 +59,18 @@ namespace NHSE.WinForms
             Application.Exit();
         }
 
+        private static void LoadSpecialForms()
+        {
+            // For forms that require more complete initialization (dynamically added user controls)
+            var path = Settings.Default.LastFilePath;
+            var sav = new HorizonSave(path);
+            using var editor = new Editor(sav);
+        }
+
         private static readonly string[] LoadBanlist =
         {
             nameof(SettingsEditor),
+            nameof(Editor), // special handling above
         };
 
         private static readonly string[] Banlist =

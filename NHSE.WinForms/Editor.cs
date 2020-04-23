@@ -19,14 +19,14 @@ namespace NHSE.WinForms
         {
             InitializeComponent();
 
-            Menu_Language.SelectedIndex = 0; // en -- triggers translation
-            // this.TranslateInterface(GameInfo.CurrentLanguage);
-
             SAV = file;
 
             LoadPlayers();
             LoadMain();
             Villagers = LoadVillagers();
+
+            Menu_Language.SelectedIndex = 0; // en -- triggers translation
+            // this.TranslateInterface(GameInfo.CurrentLanguage);
 
             Text = SAV.GetSaveTitle("NHSE");
         }

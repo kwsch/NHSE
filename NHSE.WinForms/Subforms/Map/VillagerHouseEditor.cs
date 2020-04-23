@@ -59,6 +59,7 @@ namespace NHSE.WinForms
             var name = GameInfo.Strings.GetVillager(v);
             return $"{name}'s House";
         }
+
         private void B_DumpHouse_Click(object sender, EventArgs e)
         {
             if (ModifierKeys == Keys.Shift)
