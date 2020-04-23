@@ -123,6 +123,30 @@ namespace NHSE.WinForms.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to AcreEditor=Editor de Acres
+        ///ActivityEditor=Editor de Actividad
+        ///BuildingEditor=Editor de Edificios
+        ///FieldItemEditor=Editor de Objetos (Terreno)
+        ///FlagEditor=Editor de Flags
+        ///ItemReceivedEditor=Editor de Objetos Recibidos
+        ///SimpleHexEditor=Editor de RAM
+        ///SysBotRAMEdit=SysBotUI
+        ///SysBotUI=SysBotUI
+        ///TerrainEditor=Editor de Terreno
+        ///VillagerHouseEditor=Editor de Casas (Ciudadanos)
+        ///AcreEditor.B_Cancel=Cancelar
+        ///AcreEditor.B_Export=Exportar
+        ///AcreEditor.B_Import=Importar
+        ///AcreEditor.B_Save=Guardar
+        ///AcreEditor.L_Acre [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string lang_es {
+            get {
+                return ResourceManager.GetString("lang_es", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to AcreEditor=Acre Editor
         ///ActivityEditor=Record Editor
         ///BuildingEditor=Building Editor
@@ -249,32 +273,6 @@ namespace NHSE.WinForms.Properties {
         internal static string lang_zh {
             get {
                 return ResourceManager.GetString("lang_zh", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to AcreEditor=Acre Editor
-        ///ActivityEditor=Record Editor
-        ///BuildingEditor=Building Editor
-        ///FieldItemEditor=Field Item Editor
-        ///FlagEditor=Flag Editor
-        ///ItemReceivedEditor=Received Item List Editor
-        ///SimpleHexEditor=RAM Edit
-        ///SysBotRAMEdit=SysBotUI
-        ///SysBotUI=SysBotUI
-        ///TerrainEditor=Terrain Editor
-        ///VillagerHouseEditor=Villager House Editor
-        ///AcreEditor.B_Cancel=Cancel
-        ///AcreEditor.B_Export=Export
-        ///AcreEditor.B_Import=Import
-        ///AcreEditor.B_Save=Save
-        ///AcreEditor.L_AcreList=Name Table:
-        ///AcreEditor.L_Hovered=Hovered
-        ///Activi [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string lang_zh1 {
-            get {
-                return ResourceManager.GetString("lang_zh1", resourceCulture);
             }
         }
     }
