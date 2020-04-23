@@ -2755,8 +2755,7 @@ pétard
 puits simple
 site réservé par Thibou
 kit chantier boutique
-tente 2
-de d'⁠n
+tente 
 
 
 
@@ -5356,8 +5355,7 @@ chapeau classe (Violet)
 
 
 
-kit 2
-de d'⁠n
+kit 
 kit déménagement
 kit déménagement couture
 kit déménagement boutique

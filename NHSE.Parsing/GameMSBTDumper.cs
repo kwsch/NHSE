@@ -26,6 +26,19 @@ namespace NHSE.Parsing
             return result;
         }
 
+        public static string[] GetVillagerListResource(string msgPath)
+        {
+            var file = Path.Combine(msgPath, "Npc", "STR_NNpcName.msbt");
+            var list = GetLabelList(file);
+            var normal = list.Select(z => $"{z.Label}\t{z.Text}").OrderBy(z => z);
+
+            file = Path.Combine(msgPath, "Npc", "STR_SNpcName.msbt");
+            list = GetLabelList(file);
+            var special = list.Select(z => $"{z.Label}\t{z.Text}").OrderBy(z => z);
+
+            return normal.Concat(special).ToArray();
+        }
+
         public static Dictionary<ushort, string> GetItemList(string msgPath)
         {
             var result = new Dictionary<ushort, string>();
@@ -83,10 +96,16 @@ namespace NHSE.Parsing
         {
             foreach (var path in files.Where(z => z.EndsWith("msbt")))
             {
-                var msbt = new MSBT(File.ReadAllBytes(path));
-                foreach (var e in msbt.LBL1.Labels)
-                    yield return GetCleanLabelText(e, msbt.TXT2.Strings);
+                foreach (var valueTuple in GetLabelList(path))
+                    yield return valueTuple;
             }
+        }
+
+        private static IEnumerable<(string Label, string Text)> GetLabelList(string path)
+        {
+            var msbt = new MSBT(File.ReadAllBytes(path));
+            foreach (var e in msbt.LBL1.Labels)
+                yield return GetCleanLabelText(e, msbt.TXT2.Strings);
         }
 
         private static (string Label, string Text) GetCleanLabelText(MSBTLabel lbl, IList<MSBTTextString> txt)

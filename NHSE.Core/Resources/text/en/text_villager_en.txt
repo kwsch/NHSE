@@ -28,7 +28,7 @@ brd04	Jitters
 brd05	Piper
 brd06	Admiral
 brd08	Midge
-brd11	Jakey
+brd11	Jacob
 brd15	Lucha
 brd16	Jacques
 brd17	Peck
@@ -160,7 +160,7 @@ flg01	Ribbot
 flg02	Frobert
 flg03	Camofrog
 flg04	Drift
-flg05	Wart Jr
+flg05	Wart Jr.
 flg06	Puddles
 flg07	Jeremiah
 flg09	Tad
@@ -308,7 +308,7 @@ pig01	Truffles
 pig02	Rasher
 pig03	Hugh
 pig04	Lucy
-pig05	Crackle
+pig05	Spork
 pig08	Cobb
 pig09	Boris
 pig10	Maggie
@@ -395,3 +395,65 @@ wol08	Vivian
 wol09	Skye
 wol10	Kyle
 wol12	Audie
+alp	Cyrus
+alw	Reese
+bev	Chip
+bey	C.J.
+boa	Joan
+boc	Daisy Mae
+bpt	Katrina
+chm	Nat
+chy	Flick
+cml	Saharah
+dga	Copper
+dgb	Booker
+doc	Wilbur
+dod	Orville
+fox	Redd
+fsl	Phineas
+grf	Gracie
+gstA	Wisp
+gstB	Wisp
+gul	Gulliver
+hgc	Label
+hgh	Mabel
+hgs	Sable
+kpg	Grams
+kpm	Leilani
+kpp	Kapp'n
+kps	Leila
+lom	Katie
+mka	Blanca
+mnk	Porter
+mob	Don
+mol	Resetti
+otg	Lottie
+ott	Lyle
+owl	Blathers
+ows	Celeste
+pck	Pavé
+pge	Brewster
+pkn	Jack
+plk	Pelly
+plm	Phyllis
+plo	Pete
+poo	Harriet
+pyn	Zipper
+rcm	Timmy
+rco	Tom Nook
+rct	Tommy
+rei	Jingle
+seo	Pascal
+skk	Kicks
+slo	Leif
+spn	Harvey
+sza	Isabelle
+szo	Digby
+tap	Luna
+tkkA	K.K.
+tkkB	DJ KK
+ttlA	Tortimer
+tuk	Franklin
+upa	Shrunk
+wrl	Wendell
+xct	Rover

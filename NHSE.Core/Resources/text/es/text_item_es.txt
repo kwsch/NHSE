@@ -2755,7 +2755,7 @@ cañón de confeti
 pozo de piedra
 carpa de Sócrates
 kit de tienda
-tienda de n
+tienda de 
 
 
 
@@ -5355,7 +5355,7 @@ pamela elegante (Púrpura)
 
 
 
-kit de n
+kit de 
 kit de traslado
 kit de traslado de sastrería
 kit de traslado de tienda
