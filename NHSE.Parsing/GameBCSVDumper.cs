@@ -36,7 +36,7 @@ namespace NHSE.Parsing
                 Console.WriteLine($"Created {fn}");
             }
 
-            DumpS("milestones.txt", GetMilestoneList(pathBCSV));
+            DumpS("lifeSupportAchievement.txt", GetLifeSupportAchievementList(pathBCSV));
             DumpS("recipeDictionary.txt", GetRecipeList(pathBCSV));
             DumpS("outsideAcres.txt", GetAcreNames(pathBCSV));
 
@@ -184,14 +184,16 @@ namespace NHSE.Parsing
             return result;
         }
 
-        public static List<string> GetMilestoneList(string pathBCSV, string fn = "EventFlagsLifeSupportAchievementParam.bcsv")
+        public static List<string> GetLifeSupportAchievementList(string pathBCSV, string fn = "EventFlagsLifeSupportAchievementParam.bcsv")
         {
             var bcsv = BCSVConverter.GetBCSV(pathBCSV, fn);
 
             var dict = bcsv.GetFieldDictionary();
             var findex = dict[0x54706054];
             var fname = dict[0x45F320F2];
-            var fjp = dict[0x85CF1615];
+            var fcomment = dict[0x85CF1615];
+            var fv1 = dict[0x3FE43170];
+            var fv2 = dict[0x4171A41D];
 
             var result = new List<string>();
             for (int i = 0; i < bcsv.EntryCount; i++)
@@ -199,10 +201,20 @@ namespace NHSE.Parsing
                 var iid = bcsv.ReadValue(i, findex);
                 var ival = ushort.Parse(iid);
 
-                var name = bcsv.ReadValue(i, fname).TrimEnd('\0');
-                var jp = bcsv.ReadValue(i, fjp).TrimEnd('\0');
+                ival++; // offset by 1; index 0 is used for something else
 
-                var kvp = $"{{{ival:00}, \"{name}\"}}, // {jp}";
+                var iv1 = bcsv.ReadValue(i, fv1).Substring(2);
+                var iv1a = int.Parse(iv1, NumberStyles.HexNumber);
+
+                var iv2 = bcsv.ReadValue(i, fv2).Substring(2);
+                var iv2a = int.Parse(iv2, NumberStyles.HexNumber);
+
+                var name = bcsv.ReadValue(i, fname).TrimEnd('\0');
+                var comment = bcsv.ReadValue(i, fcomment).TrimEnd('\0');
+
+                var paddedName = $"\"{name}\"".PadRight(30, ' ');
+                var v = $"new {nameof(LifeSupportAchievement)}({iv1a,2}, {iv2a,4}, {ival:0000}, {paddedName})";
+                var kvp = $"{{0x{ival:X3}, {v}}}, // {comment}";
                 result.Add(kvp);
             }
 
