@@ -117,6 +117,7 @@ namespace NHSE.WinForms
             var current = Houses[Index];
             h.NPC1 = current.NPC1;
             Houses[Index] = h;
+            PG_Item.SelectedObject = h;
         }
     }
 }
