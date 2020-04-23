@@ -81,15 +81,40 @@ namespace NHSE.WinForms.Properties {
         ///SysBotRAMEdit=SysBotUI
         ///SysBotUI=SysBotUI
         ///TerrainEditor=Terrain Editor
+        ///VillagerHouseEditor=Villager House Editor
         ///AcreEditor.B_Cancel=Cancel
         ///AcreEditor.B_Export=Export
         ///AcreEditor.B_Import=Import
         ///AcreEditor.B_Save=Save
         ///AcreEditor.L_AcreList=Name Table:
         ///AcreEditor.L_Hovered=Hovered
-        ///AcreEditor.L_X0=x
-        ///AcreEditor.L_X1=1
-        ///AcreEditor. [rest of string was truncated]&quot;;.
+        ///Activi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string lang_de {
+            get {
+                return ResourceManager.GetString("lang_de", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AcreEditor=Acre Editor
+        ///ActivityEditor=Record Editor
+        ///BuildingEditor=Building Editor
+        ///FieldItemEditor=Field Item Editor
+        ///FlagEditor=Flag Editor
+        ///ItemReceivedEditor=Received Item List Editor
+        ///SimpleHexEditor=RAM Edit
+        ///SysBotRAMEdit=SysBotUI
+        ///SysBotUI=SysBotUI
+        ///TerrainEditor=Terrain Editor
+        ///VillagerHouseEditor=Villager House Editor
+        ///AcreEditor.B_Cancel=Cancel
+        ///AcreEditor.B_Export=Export
+        ///AcreEditor.B_Import=Import
+        ///AcreEditor.B_Save=Save
+        ///AcreEditor.L_AcreList=Name Table:
+        ///AcreEditor.L_Hovered=Hovered
+        ///Activi [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string lang_en {
             get {
@@ -108,15 +133,66 @@ namespace NHSE.WinForms.Properties {
         ///SysBotRAMEdit=SysBotUI
         ///SysBotUI=SysBotUI
         ///TerrainEditor=Terrain Editor
+        ///VillagerHouseEditor=Villager House Editor
         ///AcreEditor.B_Cancel=Cancel
         ///AcreEditor.B_Export=Export
         ///AcreEditor.B_Import=Import
         ///AcreEditor.B_Save=Save
         ///AcreEditor.L_AcreList=Name Table:
         ///AcreEditor.L_Hovered=Hovered
-        ///AcreEditor.L_X0=x
-        ///AcreEditor.L_X1=1
-        ///AcreEditor. [rest of string was truncated]&quot;;.
+        ///Activi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string lang_fr {
+            get {
+                return ResourceManager.GetString("lang_fr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AcreEditor=Acre Editor
+        ///ActivityEditor=Record Editor
+        ///BuildingEditor=Building Editor
+        ///FieldItemEditor=Field Item Editor
+        ///FlagEditor=Flag Editor
+        ///ItemReceivedEditor=Received Item List Editor
+        ///SimpleHexEditor=RAM Edit
+        ///SysBotRAMEdit=SysBotUI
+        ///SysBotUI=SysBotUI
+        ///TerrainEditor=Terrain Editor
+        ///VillagerHouseEditor=Villager House Editor
+        ///AcreEditor.B_Cancel=Cancel
+        ///AcreEditor.B_Export=Export
+        ///AcreEditor.B_Import=Import
+        ///AcreEditor.B_Save=Save
+        ///AcreEditor.L_AcreList=Name Table:
+        ///AcreEditor.L_Hovered=Hovered
+        ///Activi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string lang_it {
+            get {
+                return ResourceManager.GetString("lang_it", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AcreEditor=Acre Editor
+        ///ActivityEditor=Record Editor
+        ///BuildingEditor=Building Editor
+        ///FieldItemEditor=Field Item Editor
+        ///FlagEditor=Flag Editor
+        ///ItemReceivedEditor=Received Item List Editor
+        ///SimpleHexEditor=RAM Edit
+        ///SysBotRAMEdit=SysBotUI
+        ///SysBotUI=SysBotUI
+        ///TerrainEditor=Terrain Editor
+        ///VillagerHouseEditor=Villager House Editor
+        ///AcreEditor.B_Cancel=Cancel
+        ///AcreEditor.B_Export=Export
+        ///AcreEditor.B_Import=Import
+        ///AcreEditor.B_Save=Save
+        ///AcreEditor.L_AcreList=Name Table:
+        ///AcreEditor.L_Hovered=Hovered
+        ///Activi [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string lang_jp {
             get {
@@ -135,19 +211,70 @@ namespace NHSE.WinForms.Properties {
         ///SysBotRAMEdit=SysBotUI
         ///SysBotUI=SysBotUI
         ///TerrainEditor=Terrain Editor
+        ///VillagerHouseEditor=Villager House Editor
         ///AcreEditor.B_Cancel=Cancel
         ///AcreEditor.B_Export=Export
         ///AcreEditor.B_Import=Import
         ///AcreEditor.B_Save=Save
         ///AcreEditor.L_AcreList=Name Table:
         ///AcreEditor.L_Hovered=Hovered
-        ///AcreEditor.L_X0=x
-        ///AcreEditor.L_X1=1
-        ///AcreEditor. [rest of string was truncated]&quot;;.
+        ///Activi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string lang_ko {
+            get {
+                return ResourceManager.GetString("lang_ko", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AcreEditor=Acre Editor
+        ///ActivityEditor=Record Editor
+        ///BuildingEditor=Building Editor
+        ///FieldItemEditor=Field Item Editor
+        ///FlagEditor=Flag Editor
+        ///ItemReceivedEditor=Received Item List Editor
+        ///SimpleHexEditor=RAM Edit
+        ///SysBotRAMEdit=SysBotUI
+        ///SysBotUI=SysBotUI
+        ///TerrainEditor=Terrain Editor
+        ///VillagerHouseEditor=Villager House Editor
+        ///AcreEditor.B_Cancel=Cancel
+        ///AcreEditor.B_Export=Export
+        ///AcreEditor.B_Import=Import
+        ///AcreEditor.B_Save=Save
+        ///AcreEditor.L_AcreList=Name Table:
+        ///AcreEditor.L_Hovered=Hovered
+        ///Activi [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string lang_zh {
             get {
                 return ResourceManager.GetString("lang_zh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AcreEditor=Acre Editor
+        ///ActivityEditor=Record Editor
+        ///BuildingEditor=Building Editor
+        ///FieldItemEditor=Field Item Editor
+        ///FlagEditor=Flag Editor
+        ///ItemReceivedEditor=Received Item List Editor
+        ///SimpleHexEditor=RAM Edit
+        ///SysBotRAMEdit=SysBotUI
+        ///SysBotUI=SysBotUI
+        ///TerrainEditor=Terrain Editor
+        ///VillagerHouseEditor=Villager House Editor
+        ///AcreEditor.B_Cancel=Cancel
+        ///AcreEditor.B_Export=Export
+        ///AcreEditor.B_Import=Import
+        ///AcreEditor.B_Save=Save
+        ///AcreEditor.L_AcreList=Name Table:
+        ///AcreEditor.L_Hovered=Hovered
+        ///Activi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string lang_zh1 {
+            get {
+                return ResourceManager.GetString("lang_zh1", resourceCulture);
             }
         }
     }

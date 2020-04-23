@@ -22,6 +22,7 @@ namespace NHSE.Parsing
                     result[i] = string.Empty;
             }
             result[0] = "(None)";
+            result[5794] = "DIY recipe";
             return result;
         }
 
@@ -96,6 +97,12 @@ namespace NHSE.Parsing
             var text = txt[index].ToString(Encoding.Unicode);
             if (text.StartsWith("\u000e")) // string formatting present; discard formatting!
                 text = text.Substring(6);
+
+            const char germanJunk = '\u000e';
+            int junk = text.IndexOf(germanJunk);
+            if (junk != -1) // string formatting present; discard formatting! (german)
+                text = text.Substring(0, junk);
+
             text = StringUtil.TrimFromZero(text);
 
             return (label, text);

@@ -8,12 +8,27 @@
 
   <ItemGroup>
     <None Remove="Resources\byte\item_kind.bin" />
+    <None Remove="Resources\text\de\MessageStrings_de.txt" />
+    <None Remove="Resources\text\de\text_item_de.txt" />
+    <None Remove="Resources\text\de\text_villager_de.txt" />
     <None Remove="Resources\text\en\MessageStrings_en.txt" />
     <None Remove="Resources\text\en\text_item_en.txt" />
     <None Remove="Resources\text\en\text_villager_en.txt" />
+    <None Remove="Resources\text\es\MessageStrings_es.txt" />
+    <None Remove="Resources\text\es\text_item_es.txt" />
+    <None Remove="Resources\text\es\text_villager_es.txt" />
+    <None Remove="Resources\text\fr\MessageStrings_fr.txt" />
+    <None Remove="Resources\text\fr\text_item_fr.txt" />
+    <None Remove="Resources\text\fr\text_villager_fr.txt" />
+    <None Remove="Resources\text\it\MessageStrings_it.txt" />
+    <None Remove="Resources\text\it\text_item_it.txt" />
+    <None Remove="Resources\text\it\text_villager_it.txt" />
     <None Remove="Resources\text\jp\MessageStrings_jp.txt" />
     <None Remove="Resources\text\jp\text_item_jp.txt" />
     <None Remove="Resources\text\jp\text_villager_jp.txt" />
+    <None Remove="Resources\text\ko\MessageStrings_ko.txt" />
+    <None Remove="Resources\text\ko\text_item_ko.txt" />
+    <None Remove="Resources\text\ko\text_villager_ko.txt" />
     <None Remove="Resources\text\zh\MessageStrings_zh.txt" />
     <None Remove="Resources\text\zh\text_item_zh.txt" />
     <None Remove="Resources\text\zh\text_villager_zh.txt" />
@@ -21,12 +36,27 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\byte\item_kind.bin" />
+    <EmbeddedResource Include="Resources\text\de\MessageStrings_de.txt" />
+    <EmbeddedResource Include="Resources\text\de\text_item_de.txt" />
+    <EmbeddedResource Include="Resources\text\de\text_villager_de.txt" />
     <EmbeddedResource Include="Resources\text\en\MessageStrings_en.txt" />
     <EmbeddedResource Include="Resources\text\en\text_item_en.txt" />
     <EmbeddedResource Include="Resources\text\en\text_villager_en.txt" />
+    <EmbeddedResource Include="Resources\text\es\MessageStrings_es.txt" />
+    <EmbeddedResource Include="Resources\text\es\text_item_es.txt" />
+    <EmbeddedResource Include="Resources\text\es\text_villager_es.txt" />
+    <EmbeddedResource Include="Resources\text\fr\MessageStrings_fr.txt" />
+    <EmbeddedResource Include="Resources\text\fr\text_item_fr.txt" />
+    <EmbeddedResource Include="Resources\text\fr\text_villager_fr.txt" />
+    <EmbeddedResource Include="Resources\text\it\MessageStrings_it.txt" />
+    <EmbeddedResource Include="Resources\text\it\text_item_it.txt" />
+    <EmbeddedResource Include="Resources\text\it\text_villager_it.txt" />
     <EmbeddedResource Include="Resources\text\jp\MessageStrings_jp.txt" />
     <EmbeddedResource Include="Resources\text\jp\text_item_jp.txt" />
     <EmbeddedResource Include="Resources\text\jp\text_villager_jp.txt" />
+    <EmbeddedResource Include="Resources\text\ko\MessageStrings_ko.txt" />
+    <EmbeddedResource Include="Resources\text\ko\text_item_ko.txt" />
+    <EmbeddedResource Include="Resources\text\ko\text_villager_ko.txt" />
     <EmbeddedResource Include="Resources\text\zh\MessageStrings_zh.txt" />
     <EmbeddedResource Include="Resources\text\zh\text_item_zh.txt" />
     <EmbeddedResource Include="Resources\text\zh\text_villager_zh.txt" />

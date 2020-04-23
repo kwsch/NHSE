@@ -38,6 +38,9 @@
             this.Menu_VerifyHashes = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_LoadDecrypted = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_RAMEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menu_Options = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menu_Language = new System.Windows.Forms.ToolStripComboBox();
+            this.Menu_Settings = new System.Windows.Forms.ToolStripMenuItem();
             this.TC_Editors = new System.Windows.Forms.TabControl();
             this.Tab_Players = new System.Windows.Forms.TabPage();
             this.B_EditPlayerFlags = new System.Windows.Forms.Button();
@@ -81,9 +84,6 @@
             this.B_EditTurnipExchange = new System.Windows.Forms.Button();
             this.B_EditBuildings = new System.Windows.Forms.Button();
             this.B_RecycleBin = new System.Windows.Forms.Button();
-            this.Menu_Options = new System.Windows.Forms.ToolStripMenuItem();
-            this.Menu_Settings = new System.Windows.Forms.ToolStripMenuItem();
-            this.Menu_Language = new System.Windows.Forms.ToolStripComboBox();
             this.Menu_Editor.SuspendLayout();
             this.TC_Editors.SuspendLayout();
             this.Tab_Players.SuspendLayout();
@@ -125,7 +125,7 @@
             // 
             this.Menu_Save.Name = "Menu_Save";
             this.Menu_Save.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.Menu_Save.Size = new System.Drawing.Size(180, 22);
+            this.Menu_Save.Size = new System.Drawing.Size(138, 22);
             this.Menu_Save.Text = "Save";
             this.Menu_Save.Click += new System.EventHandler(this.Menu_Save_Click);
             // 
@@ -171,6 +171,39 @@
             this.Menu_RAMEdit.Size = new System.Drawing.Size(206, 22);
             this.Menu_RAMEdit.Text = "RAM Edit";
             this.Menu_RAMEdit.Click += new System.EventHandler(this.Menu_RAMEdit_Click);
+            // 
+            // Menu_Options
+            // 
+            this.Menu_Options.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Menu_Language,
+            this.Menu_Settings});
+            this.Menu_Options.Name = "Menu_Options";
+            this.Menu_Options.Size = new System.Drawing.Size(61, 20);
+            this.Menu_Options.Text = "Options";
+            // 
+            // Menu_Language
+            // 
+            this.Menu_Language.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Menu_Language.Items.AddRange(new object[] {
+            "English",
+            "日本語",
+            "Deutsch",
+            "Español",
+            "Français",
+            "Italiano",
+            "한국어",
+            "简体中文"});
+            this.Menu_Language.Name = "Menu_Language";
+            this.Menu_Language.Size = new System.Drawing.Size(115, 23);
+            this.Menu_Language.SelectedIndexChanged += new System.EventHandler(this.Menu_Language_SelectedIndexChanged);
+            // 
+            // Menu_Settings
+            // 
+            this.Menu_Settings.Name = "Menu_Settings";
+            this.Menu_Settings.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.Menu_Settings.Size = new System.Drawing.Size(180, 22);
+            this.Menu_Settings.Text = "Settings";
+            this.Menu_Settings.Click += new System.EventHandler(this.Menu_Settings_Click);
             // 
             // TC_Editors
             // 
@@ -652,34 +685,6 @@
             this.B_RecycleBin.Text = "Edit Recycle Bin";
             this.B_RecycleBin.UseVisualStyleBackColor = true;
             this.B_RecycleBin.Click += new System.EventHandler(this.B_RecycleBin_Click);
-            // 
-            // Menu_Options
-            // 
-            this.Menu_Options.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Menu_Language,
-            this.Menu_Settings});
-            this.Menu_Options.Name = "Menu_Options";
-            this.Menu_Options.Size = new System.Drawing.Size(61, 20);
-            this.Menu_Options.Text = "Options";
-            // 
-            // Menu_Settings
-            // 
-            this.Menu_Settings.Name = "Menu_Settings";
-            this.Menu_Settings.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.Menu_Settings.Size = new System.Drawing.Size(180, 22);
-            this.Menu_Settings.Text = "Settings";
-            this.Menu_Settings.Click += new System.EventHandler(this.Menu_Settings_Click);
-            // 
-            // Menu_Language
-            // 
-            this.Menu_Language.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Menu_Language.Items.AddRange(new object[] {
-            "English",
-            "日本語",
-            "简体中文"});
-            this.Menu_Language.Name = "Menu_Language";
-            this.Menu_Language.Size = new System.Drawing.Size(115, 23);
-            this.Menu_Language.SelectedIndexChanged += new System.EventHandler(this.Menu_Language_SelectedIndexChanged);
             // 
             // Editor
             // 
