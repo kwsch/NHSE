@@ -240,9 +240,16 @@ namespace NHSE.WinForms
             NUD_NookMiles.Value = Math.Min(int.MaxValue, pers.NookMiles.Value);
             NUD_Wallet.Value = Math.Min(int.MaxValue, pers.Wallet.Value);
 
-            var photo = pers.GetPhotoData();
-            var bmp = new Bitmap(new MemoryStream(photo));
-            PB_Player.Image = bmp;
+            try
+            {
+                var photo = pers.GetPhotoData();
+                PB_Player.Image = new Bitmap(new MemoryStream(photo));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
 
             PlayerIndex = index;
         }
