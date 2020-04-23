@@ -15,10 +15,10 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="SysBotPouchOffset" Type="System.UInt32" Scope="User">
-      <Value Profile="(Default)">2889584832</Value>
+      <Value Profile="(Default)">2890343376</Value>
     </Setting>
     <Setting Name="SysBotGenericOffset" Type="System.UInt32" Scope="User">
-      <Value Profile="(Default)">2889584832</Value>
+      <Value Profile="(Default)">2890343376</Value>
     </Setting>
     <Setting Name="AutomaticBackup" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
