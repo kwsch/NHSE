@@ -17,7 +17,7 @@ namespace NHSE.Core
         /// <param name="path">Path to dump to</param>
         public static void Dump(this HorizonSave sav, string path)
         {
-            sav.Main.DumpVillagerHouses(path);
+            sav.Main.Dump(path);
             foreach (var p in sav.Players)
             {
                 var dir = Path.Combine(path, p.DirectoryName);
