@@ -52,12 +52,14 @@ namespace NHSE.WinForms
             LB_Items.Items[Index] = GetHouseSummary(Houses[Index]);
         }
 
-        private string GetHouseSummary(VillagerHouse house)
+        private string GetHouseSummary(VillagerHouse house) => $"{GetVillagerName(house)}'s House";
+
+        private string GetVillagerName(VillagerHouse house)
         {
             var villagerIndex = house.NPC1;
             var v = (uint) villagerIndex >= Villagers.Count ? "???" : Villagers[villagerIndex].InternalName;
             var name = GameInfo.Strings.GetVillager(v);
-            return $"{name}'s House";
+            return name;
         }
 
         private void B_DumpHouse_Click(object sender, EventArgs e)
@@ -75,8 +77,7 @@ namespace NHSE.WinForms
                 return;
             }
 
-            var v = (uint)Index >= Villagers.Count ? "???" : Villagers[Index].InternalName;
-            var name = GameInfo.Strings.GetVillager(v);
+            var name = GetVillagerName(Houses[Index]);
             using var sfd = new SaveFileDialog
             {
                 Filter = "New Horizons Villager House (*.nhvh)|*.nhvh|All files (*.*)|*.*",
@@ -92,8 +93,7 @@ namespace NHSE.WinForms
 
         private void B_LoadHouse_Click(object sender, EventArgs e)
         {
-            var v = (uint)Index >= Villagers.Count ? "???" : Villagers[Index].InternalName;
-            var name = GameInfo.Strings.GetVillager(v);
+            var name = GetVillagerName(Houses[Index]);
             using var ofd = new OpenFileDialog
             {
                 Filter = "New Horizons Villager House (*.nhvh)|*.nhvh|All files (*.*)|*.*",
