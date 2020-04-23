@@ -3,12 +3,12 @@
     public interface IHouseInfo
     {
         uint HouseLevel { get; set; }
-        ushort WallUniqueID { get; set; }
-        ushort RoofUniqueID { get; set; }
-        ushort DoorUniqueID { get; set; }
-        ushort OrderWallUniqueID { get; set; }
-        ushort OrderRoofUniqueID { get; set; }
-        ushort OrderDoorUniqueID { get; set; }
+        WallType WallUniqueID { get; set; }
+        RoofType RoofUniqueID { get; set; }
+        DoorKind DoorUniqueID { get; set; }
+        WallType OrderWallUniqueID { get; set; }
+        RoofType OrderRoofUniqueID { get; set; }
+        DoorKind OrderDoorUniqueID { get; set; }
         GSaveItemName DoorDecoItemName { get; set; }
     }
 

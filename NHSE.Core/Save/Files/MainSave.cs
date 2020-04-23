@@ -72,6 +72,20 @@ namespace NHSE.Core
             h.ToBytesClass().CopyTo(Data, Offsets.NpcHouseList + (index * VillagerHouse.SIZE));
         }
 
+        public VillagerHouse[] GetVillagerHouses()
+        {
+            var villagers = new VillagerHouse[VillagerCount];
+            for (int i = 0; i < villagers.Length; i++)
+                villagers[i] = GetVillagerHouse(i);
+            return villagers;
+        }
+
+        public void SetVillagerHouses(IReadOnlyList<VillagerHouse> houses)
+        {
+            for (int i = 0; i < houses.Count; i++)
+                SetVillagerHouse(houses[i], i);
+        }
+
         private const int EventFlagsSaveCount = 0x400;
 
         public short[] GetEventFlagLand()

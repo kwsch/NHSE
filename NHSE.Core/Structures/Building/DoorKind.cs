@@ -1,6 +1,6 @@
 ﻿namespace NHSE.Core
 {
-    public enum DoorKind
+    public enum DoorKind : ushort
     {
         HouseDoorStandardAR = 0x00,
         HouseDoorStandardAS = 0x02,
