@@ -105,13 +105,13 @@ namespace NHSE.Core
         /// </summary>
         /// <param name="villagers">Data to dump from</param>
         /// <param name="path">Path to dump to</param>
-        public static void DumpVillagers(this IEnumerable<Villager> villagers, string path)
+        public static void Dump(this IEnumerable<Villager> villagers, string path)
         {
             foreach (var v in villagers)
-                v.DumpVillager(path);
+                v.Dump(path);
         }
 
-        private static void DumpVillager(this Villager v, string path)
+        private static void Dump(this Villager v, string path)
         {
             var name = GameInfo.Strings.GetVillager(v.InternalName);
             var dest = Path.Combine(path, $"{name}.nhv");
@@ -125,14 +125,27 @@ namespace NHSE.Core
         /// <param name="path">Path to dump to</param>
         public static void DumpDesigns(this MainSave sav, string path)
         {
-            for (int i = 0; i < 50; i++)
-            {
-                var dp = sav.GetDesign(i);
-                var name = dp.DesignName;
-                var fn = StringUtil.CleanFileName($"{name}.nhd");
-                var dest = Path.Combine(path, fn);
-                File.WriteAllBytes(dest, dp.Data);
-            }
+            for (int i = 0; i < MainSaveOffsets.PatternCount; i++)
+                sav.GetDesign(i).Dump(path);
+        }
+
+        /// <summary>
+        /// Dumps all designs to the requested <see cref="path"/>.
+        /// </summary>
+        /// <param name="patterns">Patterns to dump</param>
+        /// <param name="path">Path to dump to</param>
+        public static void Dump(this IEnumerable<DesignPattern> patterns, string path)
+        {
+            foreach (var dp in patterns)
+                dp.Dump(path);
+        }
+
+        private static void Dump(this DesignPattern dp, string path)
+        {
+            var name = dp.DesignName;
+            var fn = StringUtil.CleanFileName($"{name}.nhd");
+            var dest = Path.Combine(path, fn);
+            File.WriteAllBytes(dest, dp.Data);
         }
     }
 }

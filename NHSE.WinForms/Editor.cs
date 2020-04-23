@@ -6,7 +6,6 @@ using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Injection;
-using NHSE.Sprites;
 using NHSE.WinForms.Properties;
 
 namespace NHSE.WinForms
@@ -23,7 +22,6 @@ namespace NHSE.WinForms
             SAV = file;
 
             LoadPlayers();
-            LoadMain();
             Villagers = LoadVillagers();
 
             var lang = Settings.Default.Language;
@@ -140,7 +138,6 @@ namespace NHSE.WinForms
             Villagers.Villagers = SAV.Main.GetVillagers();
             Villagers.Origin = SAV.Players[0].Personal;
             LoadPlayers();
-            LoadMain();
         }
 
         private VillagerEditor LoadVillagers()
@@ -172,14 +169,8 @@ namespace NHSE.WinForms
             NUD_PlayerHouse.Maximum = CB_Players.Items.Count;
         }
 
-        private void LoadMain()
-        {
-            LoadPattern(0);
-        }
-
         private int PlayerIndex = -1;
         private void LoadPlayer(object sender, EventArgs e) => LoadPlayer(CB_Players.SelectedIndex);
-        private void LoadPattern(object sender, EventArgs e) => LoadPattern((int)NUD_PatternIndex.Value - 1);
 
         private void B_EditPlayerItems_Click(object sender, EventArgs e)
         {
@@ -252,7 +243,9 @@ namespace NHSE.WinForms
                 var photo = pers.GetPhotoData();
                 PB_Player.Image = new Bitmap(new MemoryStream(photo));
             }
+#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception e)
+#pragma warning restore CA1031 // Do not catch general exception types
             {
                 Console.WriteLine(e);
             }
@@ -316,28 +309,6 @@ namespace NHSE.WinForms
 
         #endregion
 
-        #region Patterns
-
-        private int PatternIndex = -1;
-
-        private void LoadPattern(int index)
-        {
-            var pattern = SAV.Main.GetDesign(index);
-            LoadPattern(pattern);
-            PatternIndex = index;
-        }
-
-        private void LoadPattern(DesignPattern designPattern)
-        {
-            PB_Pattern.Image = ImageUtil.ResizeImage(designPattern.GetImage(), 128, 128);
-            PB_Palette.Image = ImageUtil.ResizeImage(designPattern.GetPalette(), 150, 10);
-            L_PatternName.Text = designPattern.DesignName + Environment.NewLine +
-                                 designPattern.TownName + Environment.NewLine +
-                                 designPattern.PlayerName;
-        }
-
-        #endregion
-
         private void Menu_SavePNG_Click(object sender, EventArgs e)
         {
             var pb = WinFormsUtil.GetUnderlyingControl<PictureBox>(sender);
@@ -364,77 +335,6 @@ namespace NHSE.WinForms
 
             bmp.Save(sfd.FileName, ImageFormat.Png);
         }
-
-        private void B_DumpDesign_Click(object sender, EventArgs e)
-        {
-            if (ModifierKeys == Keys.Shift)
-            {
-                using var fbd = new FolderBrowserDialog();
-                if (fbd.ShowDialog() != DialogResult.OK)
-                    return;
-
-                var dir = Path.GetDirectoryName(fbd.SelectedPath);
-                if (dir == null || !Directory.Exists(dir))
-                    return;
-                SAV.Main.DumpDesigns(fbd.SelectedPath);
-                return;
-            }
-
-            var original = SAV.Main.GetDesign(PatternIndex);
-            var name = original.DesignName;
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Design Pattern (*.nhd)|*.nhd|All files (*.*)|*.*",
-                FileName = $"{name}.nhd",
-            };
-            if (sfd.ShowDialog() != DialogResult.OK)
-                return;
-
-            var d = SAV.Main.GetDesign(PatternIndex);
-            File.WriteAllBytes(sfd.FileName, d.Data);
-        }
-
-        private void B_LoadDesign_Click(object sender, EventArgs e)
-        {
-            var original = SAV.Main.GetDesign(PatternIndex);
-            var name = original.DesignName;
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Design Pattern (*.nhd)|*.nhd|All files (*.*)|*.*",
-                FileName = $"{name}.nhd",
-            };
-            if (ofd.ShowDialog() != DialogResult.OK)
-                return;
-
-            var file = ofd.FileName;
-            var expectLength = original.Data.Length;
-            var fi = new FileInfo(file);
-            if (fi.Length != expectLength)
-            {
-                var msg = string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength);
-                WinFormsUtil.Error(MessageStrings.MsgCanceling, msg);
-                return;
-            }
-
-            var data = File.ReadAllBytes(ofd.FileName);
-            var d = new DesignPattern(data);
-            var player0 = SAV.Players[0].Personal;
-            if (!d.IsOriginatedFrom(player0))
-            {
-                var notHost = string.Format(MessageStrings.MsgDataDidNotOriginateFromHost_0, player0.PlayerName);
-                var result = WinFormsUtil.Prompt(MessageBoxButtons.YesNoCancel, notHost, MessageStrings.MsgAskUpdateValues);
-                if (result == DialogResult.Cancel)
-                    return;
-                if (result == DialogResult.Yes)
-                    d.ChangeOrigins(player0, d.Data);
-            }
-
-            SAV.Main.SetDesign(d, PatternIndex);
-            LoadPattern(d);
-        }
-
-        private void PB_Pattern_MouseEnter(object sender, EventArgs e) => PB_Pattern.BackColor = Color.GreenYellow;
-        private void PB_Pattern_MouseLeave(object sender, EventArgs e) => PB_Pattern.BackColor = Color.Transparent;
 
         private void B_EditBuildings_Click(object sender, EventArgs e)
         {
@@ -533,6 +433,14 @@ namespace NHSE.WinForms
             using var editor = new LandFlagEditor(flags);
             if (editor.ShowDialog() == DialogResult.OK)
                 SAV.Main.SetEventFlagLand(flags);
+        }
+
+        private void B_EditPatterns_Click(object sender, EventArgs e)
+        {
+            var patterns = SAV.Main.GetDesigns();
+            using var editor = new PatternEditor(patterns);
+            if (editor.ShowDialog() == DialogResult.OK)
+                SAV.Main.SetDesigns(patterns);
         }
     }
 }

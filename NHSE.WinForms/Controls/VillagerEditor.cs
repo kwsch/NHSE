@@ -96,7 +96,7 @@ namespace NHSE.WinForms
                 var dir = Path.GetDirectoryName(fbd.SelectedPath);
                 if (dir == null || !Directory.Exists(dir))
                     return;
-                Villagers.DumpVillagers(fbd.SelectedPath);
+                Villagers.Dump(fbd.SelectedPath);
                 return;
             }
 

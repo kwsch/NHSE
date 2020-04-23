@@ -86,6 +86,21 @@ namespace NHSE.Core
                 SetVillagerHouse(houses[i], i);
         }
 
+        public DesignPattern[] GetDesigns()
+        {
+            var result = new DesignPattern[MainSaveOffsets.PatternCount];
+            for (int i = 0; i <result.Length; i++)
+                result[i] = GetDesign(i);
+            return result;
+        }
+
+        public void SetDesigns(IReadOnlyList<DesignPattern> value)
+        {
+            var count = Math.Min(MainSaveOffsets.PatternCount, value.Count);
+            for (int i = 0; i < count; i++)
+                SetDesign(value[i], i);
+        }
+
         private const int EventFlagsSaveCount = 0x400;
 
         public short[] GetEventFlagLand()
