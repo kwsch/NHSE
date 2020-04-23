@@ -111,6 +111,56 @@
             }),
         });
 
+        private const uint REVISION_120_ID = 2;
+        private const int REV_120_MAIN_SAVE_SIZE = 0xACECD0;
+        private const int REV_120_PERSONAL_SAVE_SIZE = 0x6D6C0;
+        private const int REV_120_POSTBOX_SAVE_SIZE = REV_110_POSTBOX_SAVE_SIZE;
+        private const int REV_120_PHOTO_STUDIO_ISLAND_SIZE = 0x2C9C0;
+        private const int REV_120_PROFILE_SIZE = REV_110_PROFILE_SIZE;
+
+        public static readonly FileHashInfo REV_120 = new FileHashInfo(REVISION_120_ID, new[]
+        {
+            new FileHashDetails("main.dat", REV_120_MAIN_SAVE_SIZE, new[]
+            {
+                new FileHashRegion(0x000110, 0x000114, 0x1D6D5C),
+                new FileHashRegion(0x1D6E70, 0x1D6E74, 0x323C0C),
+                new FileHashRegion(0x4FAB90, 0x4FAB94, 0x035AFC),
+                new FileHashRegion(0x530690, 0x530694, 0x0362BC),
+                new FileHashRegion(0x566A60, 0x566A64, 0x035AFC),
+                new FileHashRegion(0x59C560, 0x59C564, 0x0362BC),
+                new FileHashRegion(0x5D2930, 0x5D2934, 0x035AFC),
+                new FileHashRegion(0x608430, 0x608434, 0x0362BC),
+                new FileHashRegion(0x63E800, 0x63E804, 0x035AFC),
+                new FileHashRegion(0x674300, 0x674304, 0x0362BC),
+                new FileHashRegion(0x6AA6D0, 0x6AA6D4, 0x035AFC),
+                new FileHashRegion(0x6E01D0, 0x6E01D4, 0x0362BC),
+                new FileHashRegion(0x7165A0, 0x7165A4, 0x035AFC),
+                new FileHashRegion(0x74C0A0, 0x74C0A4, 0x0362BC),
+                new FileHashRegion(0x782470, 0x782474, 0x035AFC),
+                new FileHashRegion(0x7B7F70, 0x7B7F74, 0x0362BC),
+                new FileHashRegion(0x7EE340, 0x7EE344, 0x035AFC),
+                new FileHashRegion(0x823E40, 0x823E44, 0x0362BC),
+                new FileHashRegion(0x85A100, 0x85A104, 0x26899C)
+            }),
+            new FileHashDetails("personal.dat", REV_120_PERSONAL_SAVE_SIZE, new[]
+            {
+                new FileHashRegion(0x00110, 0x00114, 0x35AFC),
+                new FileHashRegion(0x35C10, 0x35C14, 0x362BC)
+            }),
+            new FileHashDetails("postbox.dat", REV_120_POSTBOX_SAVE_SIZE, new[]
+            {
+                new FileHashRegion(0x000100, 0x00104, 0xB4448C)
+            }),
+            new FileHashDetails("photo_studio_island.dat", REV_120_PHOTO_STUDIO_ISLAND_SIZE, new[]
+            {
+                new FileHashRegion(0x000100, 0x00104, 0x262BC)
+            }),
+            new FileHashDetails("profile.dat", REV_120_PROFILE_SIZE, new[]
+            {
+                new FileHashRegion(0x000100, 0x00104, 0x6945C)
+            }),
+        });
+
         #endregion
     }
 }

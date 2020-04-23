@@ -44,6 +44,7 @@ namespace NHSE.Core
                 3 => new MainSaveOffsets11(),
                 4 => new MainSaveOffsets11(),
                 5 => new MainSaveOffsets11(),
+                6 => new MainSaveOffsets11(),
                 _ => throw new IndexOutOfRangeException("Unknown revision!"),
             };
         }
