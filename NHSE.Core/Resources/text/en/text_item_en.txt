@@ -1,33 +1,60 @@
 (None)
 
+scenic painting
 
 
+graceful painting (forgery)
+graceful painting
 
 
+quaint painting (forgery)
+quaint painting
 
 
+basic painting (forgery)
+basic painting
 
 
+famous painting (forgery)
+famous painting
 
+perfect painting
 
 
+serene painting (forgery)
+serene painting
 
 
+wistful painting (forgery)
+wistful painting
 
 
+moving painting (forgery)
+moving painting
 
+warm painting
 
 
 
+dynamic painting
 
 
+jolly painting (forgery)
+jolly painting
 
+common painting
 
+proper painting
 
+nice painting
 
+flowery painting
 
+moody painting
 
 
+amazing painting (forgery)
+amazing painting
 
 
 
@@ -36,47 +63,20 @@
 
 
 
+scary painting (forgery)
+scary painting
 
+worthy painting
 
 
+solemn painting (forgery)
+solemn painting
 
 
+wild painting right half (forgery)
+wild painting right half
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+calm painting
 
 clackercart
 
@@ -196,8 +196,8 @@ ophthalmo torso
 mammoth skull
 mammoth torso
 
-pachysaurus skull
-pachysaurus tail
+pachy skull
+pachy tail
 
 
 parasaur skull
@@ -1329,22 +1329,22 @@ skeleton
 school desk
 podium
 basic teacher's desk
+motherly statue
+motherly statue (forgery)
+gallant statue
+gallant statue (forgery)
+robust statue
+robust statue (forgery)
+ancient statue
+ancient statue (forgery)
+great statue
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+beautiful statue
+beautiful statue (forgery)
+mystic statue
+mystic statue (forgery)
+valiant statue
+valiant statue (forgery)
 
 hamster cage
 
@@ -2672,7 +2672,7 @@ layered tank (Yellow)
 
 silk shirt (Green)
 
-raglan tee (Red)
+raglan shirt (Red)
 
 
 tweed dress (Yellow)
@@ -2755,7 +2755,7 @@ party popper
 simple well
 Blathers's tent marker
 shop construction kit
-<N>'s tent
+ tent
 
 
 
@@ -2818,7 +2818,7 @@ bamboo tree
 
 
 
-
+white-azalea start
 
 slingshot
 dress shirt (White)
@@ -2858,8 +2858,8 @@ dress shirt (White)
 
 
 
-
-
+young white azalea
+white-azalea bush
 
 yellow cosmos
 yellow-cosmos bag
@@ -3017,15 +3017,15 @@ black-lily buds
 
 
 
+red-hibiscus start
 
+young red hibiscus
+red-hibiscus bush
 
+holly start
 
-
-
-
-
-
-
+young holly
+holly bush
 
 
 
@@ -3262,7 +3262,7 @@ princess dress (Blue)
 sleeveless sweater dress (Gray)
 argyle vest (Blue)
 wasp nest
-explorer tee (Camel)
+explorer shirt (Camel)
 flashy jacket (White)
 work shirt (Red-striped necktie)
 
@@ -3334,7 +3334,7 @@ timer
 LCD TV (20 in.)
 track jacket (Navy blue)
 track pants (Navy blue)
-
+cake dress (White)
 kilt (Red)
 
 waistcoat (Gray)
@@ -3469,7 +3469,7 @@ tea set
 beach towel
 boot
 old tire
-switch
+light switch
 golden toilet
 golden seat
 tailored jacket (Gray)
@@ -3784,21 +3784,21 @@ green-mum buds
 den desk
 den chair
 potted ivy
+pink-azalea start
+young pink azalea
+pink-azalea bush
 
+yellow-hibiscus start
+young yellow hibiscus
+yellow-hibiscus bush
 
+pink-hydrangea start
+young pink hydrangea
+pink-hydrangea bush
 
-
-
-
-
-
-
-
-
-
-
-
-
+blue-hydrangea start
+young blue hydrangea
+blue-hydrangea bush
 
 pine bonsai tree
 
@@ -4037,7 +4037,7 @@ log garden lounge
 log decorative shelves
 log wall-mounted clock
 log stool
-log sofa
+log chair
 log dining table
 log bed
 log bench
@@ -4611,7 +4611,7 @@ oval glasses (Green)
 earbuds combo (Brown)
 desert-princess outfit (Blue)
 floral lace skirt (Light blue)
-colorful striped sweater (Navy
+colorful striped sweater (Navy, light blue & pink)
 flare skirt (Red)
 madras plaid shirt (Green)
 zigzag-print dress (Purple)
@@ -5355,7 +5355,7 @@ elegant hat (Purple)
 
 
 
-<N>'s kit
+ kit
 moving kit
 tailors moving kit
 shop moving kit
@@ -5690,7 +5690,7 @@ mohawk wig (Hair Color)
 pompadour wig (Hair Color)
 samurai wig (Hair Color)
 matronly bun (Hair Color)
-
+bridal veil (White)
 bun wig (Pink)
 
 geisha wig (Red)
@@ -5792,7 +5792,7 @@ net
 
 
 message bottle
-DIY recipe
+
 geometric-print pants (Blue)
 dreamy dress (Pink)
 flashy kimono (Green)
@@ -6647,9 +6647,9 @@ Truffles's photo
 Rasher's photo
 Hugh's photo
 Pango's photo
-Jakey's photo
+Jacob's photo
 Lucy's photo
-Crackle's photo
+Spork's photo
 Cobb's photo
 Boris's photo
 Maggie's photo
@@ -7637,11 +7637,11 @@ rugby uniform (Orange & black)
 energetic sweater (Light blue)
 energetic sweater (Purple)
 energetic sweater (Pink)
-colorful striped sweater (White
-colorful striped sweater (White
-colorful striped sweater (Black
-colorful striped sweater (Orange
-colorful striped sweater (Gray
+colorful striped sweater (White, blue & green)
+colorful striped sweater (White, yellow & red)
+colorful striped sweater (Black, coral & pink)
+colorful striped sweater (Orange, yellow & black)
+colorful striped sweater (Gray, white & light blue)
 rainbow sweater (White)
 rainbow sweater (Red)
 rainbow sweater (Green)
@@ -8202,7 +8202,7 @@ bone tee (Yellow)
 misty tee (Green)
 marble-dots tee (Black)
 simple-dots tee (Yellow)
-zigzag shirt (Red
+zigzag shirt (Red, green & gold)
 blossom tee (Pink)
 bold aloha shirt (Navy blue)
 spider-web tee (Black)
@@ -8394,10 +8394,10 @@ tunic tank (Mint)
 green kitchen mat
 blue kitchen mat
 yellow kitchen mat
-raglan tee (Green)
-raglan tee (Blue)
-raglan tee (Black)
-raglan tee (White)
+raglan shirt (Green)
+raglan shirt (Blue)
+raglan shirt (Black)
+raglan shirt (White)
 gilet and shirt (Blue)
 gilet and shirt (Red)
 gilet and shirt (Gray)
@@ -9429,9 +9429,9 @@ dollhouse dress (Light blue)
 sunflower dress (Orange)
 sunflower dress (Navy blue)
 clover dress (Dark green)
-explorer tee (Avocado)
-explorer tee (Beige)
-explorer tee (Blue)
+explorer shirt (Avocado)
+explorer shirt (Beige)
+explorer shirt (Blue)
 guayabera shirt (Red)
 guayabera shirt (Brown)
 guayabera shirt (Blue)
@@ -10452,7 +10452,7 @@ Elvis's poster
 Canberra's poster
 Colton's poster
 Marina's poster
-Crackle's poster
+Spork's poster
 Freckles's poster
 Bam's poster
 Friga's poster
@@ -10811,7 +10811,7 @@ Robin's poster
 Piper's poster
 Stu's poster
 Ursala's poster
-Jakey's poster
+Jacob's poster
 Admiral's poster
 Snooty's poster
 Kiki's poster
@@ -12212,7 +12212,7 @@ mossy garden rock
 
 デモ用たぬきマイルカード
 
-
+Bell-bag rug
 
 
 
@@ -12399,17 +12399,17 @@ Nook Inc. silk rug
 Bunny Day arch
 
 
-
-
-
-
-
-
-
-
-
-
-
+wedding bench
+wedding arch
+wedding cake
+wedding head table
+wedding chair
+wedding table
+wedding decoration
+wedding candle set
+wedding pipe organ
+wedding welcome board
+wedding flower stand
 wobbling Zipper toy
 Bunny Day lamp
 Bunny Day bed
@@ -12429,10 +12429,10 @@ camper tee (Green)
 
 
 
+white wedding flooring
 
-
-
-
+brown wedding flooring
+green wedding flooring
 
 Bunny Day table
 Bunny Day wardrobe
@@ -12459,43 +12459,43 @@ leaf-egg shoes (Green)
 wood-egg shoes (Orange)
 sky-egg shoes (Blue)
 water-egg shoes (Purple)
+wedding-party wall
+blue wedding rug
+
+white wedding rug
+red wedding rug
+white wedding wall
+
+brown wedding wall
+green wedding wall
+thank-you Mom mug
+thank-you Dad mug
+Rover's briefcase
 
 
 
+yellow-tea-olive start
+young yellow tea olive
+yellow-tea-olive bush
+
+orange-tea-olive start
+young orange tea olive
+orange-tea-olive bush
+
+fossil plaque
+bug plaque
+fish plaque
+red-camellia start
+young red camellia
+red-camellia bush
+pink-camellia start
+young pink camellia
+pink-camellia bush
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+wedding pumps (White)
+wedding shoes (White)
+wedding tuxedo (White)
 
 
 
@@ -12531,19 +12531,20 @@ Bunny Day wreath
 
 
 
-
-
-
-
-
-
-
-
-
+rock-head statue 
+rock-head statue  (forgery)
+informative statue
+informative statue (forgery)
+tremendous statue
+tremendous statue (forgery)
+warrior statue
+warrior statue (forgery)
+familiar statue
 
 Nintendo Switch
 egg message bottle
 
+heart crystal
 
 
 
@@ -12562,20 +12563,19 @@ egg message bottle
 
 
 
+Reese & Cyrus photo plate
 
 
 
 
+wild painting left half
+wild painting left half (forgery)
 
 
 
-
-
-
-
-
-
-
+handmade cape (Red)
+handmade crown (Red)
+summer-solstice crown (Yellow)
 Bunny Day wand
 ACNH Nintendo Switch
 
@@ -12613,19 +12613,372 @@ ACNH Nintendo Switch
 
 
 
+worn axe
+
+
+twinkling painting
+academic painting
+academic painting (forgery)
+sinking painting
+detailed painting
+detailed painting (forgery)
+glowing painting
+mysterious painting
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+scenic painting (forgery)
 Bunny Day fence
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wedding wand
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+world map
+
+
+
+
+
+white-azalea nursery
+pink-azalea nursery
+blue-hydrangea nursery
+pink-hydrangea nursery
+yellow-hibiscus nursery
+red-hibiscus nursery
+yellow-tea-olive nursery
+orange-tea-olive nursery
+red-camellia nursery
+pink-camellia nursery
+holly nursery
+hedge
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wedding fence
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+winter-solstice sweater (Beige)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+coral Nook Inc. aloha shirt (Coral)
+green Nook Inc. aloha shirt (Green)

@@ -47,7 +47,11 @@ namespace NHSE.Parsing
                 var itemIDs = label.Substring(underscore + 1);
                 ushort itemID = ushort.Parse(itemIDs);
 
-                result.Add(itemID, text);
+                var itemText = text;
+                if (label.StartsWith("PictureFake") || label.StartsWith("SculptureFake"))
+                    itemText = $"{itemText} (forgery)";
+
+                result.Add(itemID, itemText);
             }
         }
 
