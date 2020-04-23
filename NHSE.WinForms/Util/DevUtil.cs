@@ -10,7 +10,7 @@ namespace NHSE.WinForms
 #if DEBUG
     public static class DevUtil
     {
-        private static readonly string[] Languages = { "jp", "zh" };
+        private static readonly string[] Languages = { "jp", "de", "es", "fr", "it", "ko", "zh" };
         private const string DefaultLanguage = GameLanguage.DefaultLanguage;
 
         public static bool IsUpdatingTranslations { get; private set; }
@@ -65,6 +65,8 @@ namespace NHSE.WinForms
             var path = Settings.Default.LastFilePath;
             var sav = new HorizonSave(path);
             using var editor = new Editor(sav);
+            using var items = new PlayerItemEditor<Item>(new[] {new Item()}, 1, 1);
+            using var so = new SingleObjectEditor<object>(new object(), PropertySort.NoSort);
         }
 
         private static readonly string[] LoadBanlist =
@@ -81,6 +83,7 @@ namespace NHSE.WinForms
             "AcreEditor.L_X",
             "AcreEditor.L_Y",
             "L_Coordinates",
+            "L_PatternName=",
         };
 
         private static readonly string[] PurgeBanlist =

@@ -236,9 +236,22 @@ namespace NHSE.WinForms
 
         public TranslationContext(IEnumerable<string> content, char separator = Separator)
         {
-            var entries = content.Select(z => z.Split(separator)).Where(z => z.Length == 2);
-            foreach (var kvp in entries.Where(z => !Translation.ContainsKey(z[0])))
-                Translation.Add(kvp[0], kvp[1]);
+            var entries = GetContent(content, separator);
+            foreach (var kvp in entries.Where(z => !Translation.ContainsKey(z.Key)))
+                Translation.Add(kvp.Key, kvp.Value);
+        }
+
+        private static IEnumerable<KeyValuePair<string, string>> GetContent(IEnumerable<string> content, char separator)
+        {
+            foreach (var line in content)
+            {
+                var index = line.IndexOf(separator);
+                if (index < 0)
+                    continue;
+                var key = line.Substring(0, index);
+                var value = line.Substring(index + 1);
+                yield return new KeyValuePair<string, string>(key, value);
+            }
         }
 
         public string GetTranslatedText(string val, string fallback)
