@@ -54,8 +54,12 @@ namespace NHSE.Core
             var map = new Dictionary<string, string>(arr.Count);
             foreach (var kvp in arr)
             {
-                var split = kvp.Split('\t');
-                map.Add(split[0], split[1]);
+                var index = kvp.IndexOf('\t');
+                if (index < 0)
+                    continue;
+                var abbrev = kvp.Substring(0, index);
+                var name = kvp.Substring(index + 1);
+                map.Add(abbrev, name);
             }
             return map;
         }
