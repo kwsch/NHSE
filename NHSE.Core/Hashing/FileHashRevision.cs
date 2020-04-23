@@ -123,29 +123,29 @@
             new FileHashDetails("main.dat", REV_120_MAIN_SAVE_SIZE, new[]
             {
                 new FileHashRegion(0x000110, 0x000114, 0x1D6D5C),
-                new FileHashRegion(0x1D6E70, 0x1D6E74, 0x323C0C),
-                new FileHashRegion(0x4FAB90, 0x4FAB94, 0x035AFC),
-                new FileHashRegion(0x530690, 0x530694, 0x0362BC),
-                new FileHashRegion(0x566A60, 0x566A64, 0x035AFC),
-                new FileHashRegion(0x59C560, 0x59C564, 0x0362BC),
-                new FileHashRegion(0x5D2930, 0x5D2934, 0x035AFC),
-                new FileHashRegion(0x608430, 0x608434, 0x0362BC),
-                new FileHashRegion(0x63E800, 0x63E804, 0x035AFC),
-                new FileHashRegion(0x674300, 0x674304, 0x0362BC),
-                new FileHashRegion(0x6AA6D0, 0x6AA6D4, 0x035AFC),
-                new FileHashRegion(0x6E01D0, 0x6E01D4, 0x0362BC),
-                new FileHashRegion(0x7165A0, 0x7165A4, 0x035AFC),
-                new FileHashRegion(0x74C0A0, 0x74C0A4, 0x0362BC),
-                new FileHashRegion(0x782470, 0x782474, 0x035AFC),
-                new FileHashRegion(0x7B7F70, 0x7B7F74, 0x0362BC),
-                new FileHashRegion(0x7EE340, 0x7EE344, 0x035AFC),
-                new FileHashRegion(0x823E40, 0x823E44, 0x0362BC),
-                new FileHashRegion(0x85A100, 0x85A104, 0x26899C)
+                new FileHashRegion(0x1D6E70, 0x1D6E74, 0x323EBC),
+                new FileHashRegion(0x4FAE40, 0x4FAE44, 0x035D2C),
+                new FileHashRegion(0x530B70, 0x530B74, 0x03787C),
+                new FileHashRegion(0x568500, 0x568504, 0x035D2C),
+                new FileHashRegion(0x59E230, 0x59E234, 0x03787C),
+                new FileHashRegion(0x5D5BC0, 0x5D5BC4, 0x035D2C),
+                new FileHashRegion(0x60B8F0, 0x60B8F4, 0x03787C),
+                new FileHashRegion(0x643280, 0x643284, 0x035D2C),
+                new FileHashRegion(0x678FB0, 0x678FB4, 0x03787C),
+                new FileHashRegion(0x6B0940, 0x6B0944, 0x035D2C),
+                new FileHashRegion(0x6E6670, 0x6E6674, 0x03787C),
+                new FileHashRegion(0x71E000, 0x71E004, 0x035D2C),
+                new FileHashRegion(0x753D30, 0x753D34, 0x03787C),
+                new FileHashRegion(0x78B6C0, 0x78B6C4, 0x035D2C),
+                new FileHashRegion(0x7C13F0, 0x7C13F4, 0x03787C),
+                new FileHashRegion(0x7F8D80, 0x7F8D84, 0x035D2C),
+                new FileHashRegion(0x82EAB0, 0x82EAB4, 0x03787C),
+                new FileHashRegion(0x866330, 0x866334, 0x26899C)
             }),
             new FileHashDetails("personal.dat", REV_120_PERSONAL_SAVE_SIZE, new[]
             {
-                new FileHashRegion(0x00110, 0x00114, 0x35AFC),
-                new FileHashRegion(0x35C10, 0x35C14, 0x362BC)
+                new FileHashRegion(0x00110, 0x00114, 0x35D2C),
+                new FileHashRegion(0x35E40, 0x35E44, 0x3787C)
             }),
             new FileHashDetails("postbox.dat", REV_120_POSTBOX_SAVE_SIZE, new[]
             {
@@ -153,7 +153,7 @@
             }),
             new FileHashDetails("photo_studio_island.dat", REV_120_PHOTO_STUDIO_ISLAND_SIZE, new[]
             {
-                new FileHashRegion(0x000100, 0x00104, 0x262BC)
+                new FileHashRegion(0x000100, 0x00104, 0x2C8BC)
             }),
             new FileHashDetails("profile.dat", REV_120_PROFILE_SIZE, new[]
             {
