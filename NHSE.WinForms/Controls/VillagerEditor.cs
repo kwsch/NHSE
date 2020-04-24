@@ -181,6 +181,7 @@ namespace NHSE.WinForms
 
         private void B_EditHouse_Click(object sender, EventArgs e)
         {
+            SaveVillager(VillagerIndex);
             var villagers = SAV.GetVillagers();
             var houses = SAV.GetVillagerHouses();
             using var editor = new VillagerHouseEditor(houses, villagers, SAV, VillagerIndex);
