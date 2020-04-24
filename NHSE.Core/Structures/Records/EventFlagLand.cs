@@ -4,18 +4,19 @@ namespace NHSE.Core
 {
     public class EventFlagLand
     {
-        public readonly short Value1;
-        public readonly short Value2;
+        // these are actually unsigned
+        public readonly short DefaultValue;
+        public readonly short MaxValue;
 
         public readonly ushort Index;
         public readonly string Name;
 
-        public EventFlagLand(short v1, short v2, ushort index, string name)
+        public EventFlagLand(short init, short max, ushort index, string name)
         {
             Name = name;
             Index = index;
-            Value1 = v1;
-            Value2 = v2;
+            DefaultValue = init;
+            MaxValue = max;
         }
 
         public static readonly IReadOnlyDictionary<ushort, EventFlagLand> List = new Dictionary<ushort, EventFlagLand>

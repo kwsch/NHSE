@@ -5,18 +5,19 @@ namespace NHSE.Core
 {
     public class EventFlagPlayer
     {
-        public readonly short Value1;
-        public readonly short Value2;
+        // these are actually unsigned
+        public readonly short DefaultValue;
+        public readonly short MaxValue;
 
         public readonly ushort Index;
         public readonly string Name;
 
-        public EventFlagPlayer(short v1, short v2, ushort index, string name)
+        public EventFlagPlayer(short init, short max, ushort index, string name)
         {
             Name = name;
             Index = index;
-            Value1 = v1;
-            Value2 = v2;
+            DefaultValue = init;
+            MaxValue = max;
         }
 
         public static readonly IReadOnlyDictionary<ushort, EventFlagPlayer> List = new Dictionary<ushort, EventFlagPlayer>
