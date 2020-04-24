@@ -8,6 +8,7 @@ namespace NHSE.Core
     {
         public static readonly Item NO_ITEM = new Item {ItemId = NONE};
         public const ushort NONE = 0xFFFE;
+        public const ushort DIYRecipe = 0x16A2;
         public const int SIZE = 8;
 
         private static readonly ushort[] resolvedItemIdArray =

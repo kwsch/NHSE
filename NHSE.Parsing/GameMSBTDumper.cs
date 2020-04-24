@@ -26,6 +26,26 @@ namespace NHSE.Parsing
             return result;
         }
 
+        public static string[] GetArtList(string msgPath)
+        {
+            var file = Path.Combine(msgPath, "Item", "STR_ItemName_01_Art.msbt");
+            var pairs = GetLabelList(file).ToArray(); // (itemID, itemName)
+
+            var result = new List<string>();
+            foreach (var (Label, Text) in pairs)
+            {
+                var label = Label;
+                var underscore = label.IndexOf('_');
+                var itemIDs = label.Substring(underscore + 1);
+                ushort itemID = ushort.Parse(itemIDs);
+
+                var fake = label.Contains("Fake") ? " (forgery)" : string.Empty;
+                result.Add($"{itemID:00000}, // {Text}{fake}");
+            }
+            result.Sort();
+            return result.ToArray();
+        }
+
         public static string[] GetVillagerListResource(string msgPath)
         {
             var file = Path.Combine(msgPath, "Npc", "STR_NNpcName.msbt");

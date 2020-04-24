@@ -48,21 +48,25 @@ namespace NHSE.WinForms
             System.Media.SystemSounds.Asterisk.Play();
         }
 
-        private void B_GiveAll_Click(object sender, EventArgs e)
+        private void GiveEverything(IReadOnlyList<string> items, bool value = true)
         {
-            var items = GameInfo.Strings.itemlist;
-            bool value = ModifierKeys != Keys.Alt;
-            for (int i = 0x50; i < CLB_Items.Items.Count; i++)
+            for (int i = 1; i < CLB_Items.Items.Count; i++)
             {
                 if (string.IsNullOrEmpty(items[i]))
+                    continue;
+                if (i == Item.DIYRecipe)
                     continue;
                 CLB_Items.SetItemChecked(i, value);
             }
             System.Media.SystemSounds.Asterisk.Play();
         }
 
+        private static void ShowContextMenuBelow(ToolStripDropDown c, Control n) => c.Show(n.PointToScreen(new System.Drawing.Point(0, n.Height)));
+        private void B_GiveAll_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_Buttons, (Control)sender);
         private void B_AllBugs_Click(object sender, EventArgs e) => GiveAll(GameLists.Bugs, ModifierKeys != Keys.Alt);
         private void B_AllFish_Click(object sender, EventArgs e) => GiveAll(GameLists.Fish, ModifierKeys != Keys.Alt);
+        private void B_AllArt_Click(object sender, EventArgs e) => GiveAll(GameLists.Art, ModifierKeys != Keys.Alt);
+        private void B_GiveEverything_Click(object sender, EventArgs e) => GiveEverything(GameInfo.Strings.itemlist, ModifierKeys != Keys.Alt);
         private void B_Cancel_Click(object sender, EventArgs e) => Close();
 
         private void B_Save_Click(object sender, EventArgs e)

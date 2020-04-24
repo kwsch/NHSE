@@ -181,5 +181,79 @@ namespace NHSE.Core
             05254, // ranchu goldfish
             12514, // water egg
         };
+
+        public static readonly IReadOnlyList<ushort> Art = new ushort[]
+        {
+            00002, // scenic painting 
+            00005, // graceful painting (forgery) 
+            00006, // graceful painting 
+            00009, // quaint painting (forgery) 
+            00010, // quaint painting 
+            00013, // basic painting (forgery) 
+            00014, // basic painting 
+            00017, // famous painting (forgery) 
+            00018, // famous painting 
+            00020, // perfect painting 
+            00023, // serene painting (forgery) 
+            00024, // serene painting 
+            00027, // wistful painting (forgery) 
+            00028, // wistful painting 
+            00031, // moving painting (forgery) 
+            00032, // moving painting 
+            00034, // warm painting 
+            00038, // dynamic painting 
+            00041, // jolly painting (forgery) 
+            00042, // jolly painting 
+            00044, // common painting 
+            00046, // proper painting 
+            00048, // nice painting 
+            00050, // flowery painting 
+            00052, // moody painting 
+            00055, // amazing painting (forgery) 
+            00056, // amazing painting 
+            00065, // scary painting (forgery) 
+            00066, // scary painting 
+            00068, // worthy painting 
+            00071, // solemn painting (forgery) 
+            00072, // solemn painting 
+            00075, // wild painting right half (forgery) 
+            00076, // wild painting right half 
+            00078, // calm painting 
+            01331, // motherly statue 
+            01332, // motherly statue (forgery) 
+            01333, // gallant statue 
+            01334, // gallant statue (forgery) 
+            01335, // robust statue 
+            01336, // robust statue (forgery) 
+            01337, // ancient statue 
+            01338, // ancient statue (forgery) 
+            01339, // great statue 
+            01341, // beautiful statue 
+            01342, // beautiful statue (forgery) 
+            01343, // mystic statue 
+            01344, // mystic statue (forgery) 
+            01345, // valiant statue 
+            01346, // valiant statue (forgery) 
+            12533, // rock-head statue  
+            12534, // rock-head statue  (forgery) 
+            12535, // informative statue 
+            12536, // informative statue (forgery) 
+            12537, // tremendous statue 
+            12538, // tremendous statue (forgery) 
+            12539, // warrior statue 
+            12540, // warrior statue (forgery) 
+            12541, // familiar statue 
+            12570, // wild painting left half 
+            12571, // wild painting left half (forgery) 
+            12618, // twinkling painting 
+            12619, // academic painting 
+            12620, // academic painting (forgery) 
+            12621, // sinking painting 
+            12622, // detailed painting 
+            12623, // detailed painting (forgery) 
+            12624, // glowing painting 
+            12625, // mysterious painting 
+            12629, // scenic painting (forgery) 
+        };
     }
 }
