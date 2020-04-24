@@ -15,6 +15,8 @@ namespace NHSE.Core
 
         public abstract int Patterns { get; }
         public const int PatternCount = 50;
+        public abstract int PatternsPRO { get; }
+        public abstract int PatternFlag { get; }
 
         public abstract int Buildings { get; }
         public const int BuildingCount = 46;
@@ -62,6 +64,21 @@ namespace NHSE.Core
             if ((uint)index >= PatternCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
             p.Data.CopyTo(data, Patterns + (index * DesignPattern.SIZE));
+        }
+
+        public DesignPatternPRO ReadPatternPRO(byte[] data, int index)
+        {
+            if ((uint)index >= PatternCount)
+                throw new ArgumentOutOfRangeException(nameof(index));
+            var v = data.Slice(PatternsPRO + (index * DesignPatternPRO.SIZE), DesignPatternPRO.SIZE);
+            return new DesignPatternPRO(v);
+        }
+
+        public void WritePatternPRO(DesignPatternPRO p, byte[] data, int index)
+        {
+            if ((uint)index >= PatternCount)
+                throw new ArgumentOutOfRangeException(nameof(index));
+            p.Data.CopyTo(data, PatternsPRO + (index * DesignPatternPRO.SIZE));
         }
 
         public Villager ReadVillager(byte[] data, int index)

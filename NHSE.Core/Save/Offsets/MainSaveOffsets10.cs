@@ -7,6 +7,8 @@
     {
         public override int Villager => 0x110;
         public override int Patterns => 0x1D72F0;
+        public override int PatternsPRO => Patterns + (PatternCount * DesignPattern.SIZE);
+        public override int PatternFlag => PatternsPRO + (PatternCount * DesignPatternPRO.SIZE);
 
         public override int EventFlagLand => FieldItem - 0x800;
         public override int FieldItem => 0x2018FC;

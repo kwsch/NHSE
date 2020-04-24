@@ -43,6 +43,9 @@
     <Compile Update="Subforms\Map\LandFlagEditor.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Subforms\Map\PatternEditorPRO.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Subforms\Map\PatternEditor.cs">
       <SubType>Form</SubType>
     </Compile>

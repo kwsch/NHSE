@@ -147,5 +147,35 @@ namespace NHSE.Core
             var dest = Path.Combine(path, fn);
             File.WriteAllBytes(dest, dp.Data);
         }
+
+        /// <summary>
+        /// Dumps all designs to the requested <see cref="path"/>.
+        /// </summary>
+        /// <param name="sav">Save Data to dump from</param>
+        /// <param name="path">Path to dump to</param>
+        public static void DumpDesignsPRO(this MainSave sav, string path)
+        {
+            for (int i = 0; i < MainSaveOffsets.PatternCount; i++)
+                sav.GetDesignPRO(i).Dump(path);
+        }
+
+        /// <summary>
+        /// Dumps all designs to the requested <see cref="path"/>.
+        /// </summary>
+        /// <param name="patterns">Patterns to dump</param>
+        /// <param name="path">Path to dump to</param>
+        public static void Dump(this IEnumerable<DesignPatternPRO> patterns, string path)
+        {
+            foreach (var dp in patterns)
+                dp.Dump(path);
+        }
+
+        private static void Dump(this DesignPatternPRO dp, string path)
+        {
+            var name = dp.DesignName;
+            var fn = StringUtil.CleanFileName($"{name}.nhpd");
+            var dest = Path.Combine(path, fn);
+            File.WriteAllBytes(dest, dp.Data);
+        }
     }
 }

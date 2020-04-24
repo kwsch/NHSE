@@ -31,6 +31,8 @@ namespace NHSE.Core
 
         public DesignPattern GetDesign(int index) => Offsets.ReadPattern(Data, index);
         public void SetDesign(DesignPattern value, int index) => Offsets.WritePattern(value, Data, index);
+        public DesignPatternPRO GetDesignPRO(int index) => Offsets.ReadPatternPRO(Data, index);
+        public void SetDesignPRO(DesignPatternPRO value, int index) => Offsets.WritePatternPRO(value, Data, index);
 
         public IReadOnlyList<Item> RecycleBin
         {
@@ -99,6 +101,21 @@ namespace NHSE.Core
             var count = Math.Min(MainSaveOffsets.PatternCount, value.Count);
             for (int i = 0; i < count; i++)
                 SetDesign(value[i], i);
+        }
+
+        public DesignPatternPRO[] GetDesignsPRO()
+        {
+            var result = new DesignPatternPRO[MainSaveOffsets.PatternCount];
+            for (int i = 0; i < result.Length; i++)
+                result[i] = GetDesignPRO(i);
+            return result;
+        }
+
+        public void SetDesignsPRO(IReadOnlyList<DesignPatternPRO> value)
+        {
+            var count = Math.Min(MainSaveOffsets.PatternCount, value.Count);
+            for (int i = 0; i < count; i++)
+                SetDesignPRO(value[i], i);
         }
 
         private const int EventFlagsSaveCount = 0x400;

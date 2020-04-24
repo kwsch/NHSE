@@ -442,5 +442,13 @@ namespace NHSE.WinForms
             if (editor.ShowDialog() == DialogResult.OK)
                 SAV.Main.SetDesigns(patterns);
         }
+
+        private void B_EditPRODesigns_Click(object sender, EventArgs e)
+        {
+            var patterns = SAV.Main.GetDesignsPRO();
+            using var editor = new PatternEditorPRO(patterns);
+            if (editor.ShowDialog() == DialogResult.OK)
+                SAV.Main.SetDesignsPRO(patterns);
+        }
     }
 }

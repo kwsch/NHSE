@@ -77,6 +77,7 @@
             this.PB_Player = new System.Windows.Forms.PictureBox();
             this.TC_Editors = new System.Windows.Forms.TabControl();
             this.B_EditPatterns = new System.Windows.Forms.Button();
+            this.B_EditPRODesigns = new System.Windows.Forms.Button();
             this.Menu_Editor.SuspendLayout();
             this.CM_Picture.SuspendLayout();
             this.Tab_Map.SuspendLayout();
@@ -211,6 +212,7 @@
             // 
             // Tab_Map
             // 
+            this.Tab_Map.Controls.Add(this.B_EditPRODesigns);
             this.Tab_Map.Controls.Add(this.B_EditPatterns);
             this.Tab_Map.Controls.Add(this.B_EditLandFlags);
             this.Tab_Map.Controls.Add(this.L_PlayerHouse);
@@ -269,7 +271,7 @@
             // 
             // B_LoadHouse
             // 
-            this.B_LoadHouse.Location = new System.Drawing.Point(106, 29);
+            this.B_LoadHouse.Location = new System.Drawing.Point(104, 29);
             this.B_LoadHouse.Name = "B_LoadHouse";
             this.B_LoadHouse.Size = new System.Drawing.Size(92, 40);
             this.B_LoadHouse.TabIndex = 50;
@@ -575,13 +577,23 @@
             // 
             // B_EditPatterns
             // 
-            this.B_EditPatterns.Location = new System.Drawing.Point(106, 168);
+            this.B_EditPatterns.Location = new System.Drawing.Point(104, 122);
             this.B_EditPatterns.Name = "B_EditPatterns";
             this.B_EditPatterns.Size = new System.Drawing.Size(92, 40);
             this.B_EditPatterns.TabIndex = 54;
             this.B_EditPatterns.Text = "Edit Patterns";
             this.B_EditPatterns.UseVisualStyleBackColor = true;
             this.B_EditPatterns.Click += new System.EventHandler(this.B_EditPatterns_Click);
+            // 
+            // B_EditPRODesigns
+            // 
+            this.B_EditPRODesigns.Location = new System.Drawing.Point(104, 168);
+            this.B_EditPRODesigns.Name = "B_EditPRODesigns";
+            this.B_EditPRODesigns.Size = new System.Drawing.Size(92, 40);
+            this.B_EditPRODesigns.TabIndex = 55;
+            this.B_EditPRODesigns.Text = "Edit PRO Designs";
+            this.B_EditPRODesigns.UseVisualStyleBackColor = true;
+            this.B_EditPRODesigns.Click += new System.EventHandler(this.B_EditPRODesigns_Click);
             // 
             // Editor
             // 
@@ -662,6 +674,7 @@
         private System.Windows.Forms.PictureBox PB_Player;
         private System.Windows.Forms.TabControl TC_Editors;
         private System.Windows.Forms.Button B_EditPatterns;
+        private System.Windows.Forms.Button B_EditPRODesigns;
     }
 }
 
