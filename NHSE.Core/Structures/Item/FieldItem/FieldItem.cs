@@ -27,6 +27,7 @@ namespace NHSE.Core
         [field: FieldOffset(3)][Category(HeldItem)] public byte Flags1 { get; set; }
         [field: FieldOffset(4)][Category(HeldItem)] public ushort Count { get; set; } // Tree Shake/Fossil Item ID
         [field: FieldOffset(6)][Category(HeldItem)] public ushort UseCount { get; set; }
+        [field: FieldOffset(4)][Category(HeldItem)] public FlowerGene Genes { get; set; } // flowers only
 
         // Field Item Definition
         [field: FieldOffset(0)][Category(ExtensionItem)] public ushort ItemType { get; set; }

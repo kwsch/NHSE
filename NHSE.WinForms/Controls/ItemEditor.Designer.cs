@@ -448,6 +448,7 @@
             this.CHK_F2.Text = "F2";
             this.CHK_F2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_F2.UseVisualStyleBackColor = true;
+            this.CHK_F2.Visible = false;
             // 
             // CHK_F1
             // 
@@ -462,6 +463,7 @@
             this.CHK_F1.Text = "F1";
             this.CHK_F1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_F1.UseVisualStyleBackColor = true;
+            this.CHK_F1.Visible = false;
             // 
             // CHK_F4
             // 
@@ -476,6 +478,7 @@
             this.CHK_F4.Text = "F4";
             this.CHK_F4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_F4.UseVisualStyleBackColor = true;
+            this.CHK_F4.Visible = false;
             // 
             // CHK_F3
             // 
@@ -490,6 +493,7 @@
             this.CHK_F3.Text = "F3";
             this.CHK_F3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_F3.UseVisualStyleBackColor = true;
+            this.CHK_F3.Visible = false;
             // 
             // CHK_F6
             // 
@@ -504,6 +508,7 @@
             this.CHK_F6.Text = "F6";
             this.CHK_F6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_F6.UseVisualStyleBackColor = true;
+            this.CHK_F6.Visible = false;
             // 
             // CHK_F5
             // 
@@ -518,18 +523,19 @@
             this.CHK_F5.Text = "F5";
             this.CHK_F5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_F5.UseVisualStyleBackColor = true;
+            this.CHK_F5.Visible = false;
             // 
             // CHK_F8
             // 
             this.CHK_F8.AutoSize = true;
             this.CHK_F8.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_F8.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_F8.Location = new System.Drawing.Point(66, 54);
+            this.CHK_F8.Location = new System.Drawing.Point(31, 54);
             this.CHK_F8.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_F8.Name = "CHK_F8";
-            this.CHK_F8.Size = new System.Drawing.Size(40, 18);
+            this.CHK_F8.Size = new System.Drawing.Size(75, 18);
             this.CHK_F8.TabIndex = 6;
-            this.CHK_F8.Text = "F8";
+            this.CHK_F8.Text = "Watered";
             this.CHK_F8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_F8.UseVisualStyleBackColor = true;
             // 
@@ -538,7 +544,7 @@
             this.CHK_F7.AutoSize = true;
             this.CHK_F7.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_F7.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_F7.Location = new System.Drawing.Point(26, 54);
+            this.CHK_F7.Location = new System.Drawing.Point(66, 72);
             this.CHK_F7.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_F7.Name = "CHK_F7";
             this.CHK_F7.Size = new System.Drawing.Size(40, 18);
@@ -546,6 +552,7 @@
             this.CHK_F7.Text = "F7";
             this.CHK_F7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_F7.UseVisualStyleBackColor = true;
+            this.CHK_F7.Visible = false;
             // 
             // ItemEditor
             // 
