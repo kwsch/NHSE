@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
 namespace NHSE.Core
@@ -22,6 +23,9 @@ namespace NHSE.Core
         [field: FieldOffset(3)] public byte Flags1 { get; set; }
         [field: FieldOffset(4)] public ushort Count { get; set; }
         [field: FieldOffset(6)] public ushort UseCount { get; set; }
+
+        [field: FieldOffset(4)] public FlowerGene Genes { get; set; } // flowers only
+        [field: FieldOffset(6)] public byte FlowerFlags { get; set; } // flowers only
 
         public ItemType Type => (ItemType) (Flags1 & 3);
         public int ReservedIndex => (Flags1 >> 2) & 0xF;
@@ -78,5 +82,19 @@ namespace NHSE.Core
         public uint U08, U0C, U10, U14, U18, U1C, U20, U24, U28;
         public new static VillagerItem[] GetArray(byte[] data) => data.GetArray<VillagerItem>(SIZE);
         public static byte[] SetArray(IReadOnlyList<VillagerItem> data) => data.SetArray(SIZE);
+    }
+
+    [Flags]
+    public enum FlowerGene : byte
+    {
+        None = 0,
+        R1 = 1,
+        R2 = 1 << 1,
+        Y1 = 1 << 2,
+        Y2 = 1 << 3,
+        W1 = 1 << 4,
+        W2 = 1 << 5,
+        S1 = 1 << 6,
+        S2 = 1 << 7,
     }
 }

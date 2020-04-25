@@ -1,4 +1,6 @@
-﻿namespace NHSE.Core
+﻿using static NHSE.Core.ItemKind;
+
+namespace NHSE.Core
 {
 #pragma warning disable CA1027 // Mark enums with FlagsAttribute
     public enum ItemKind : byte
@@ -148,5 +150,10 @@
         UnitIcon_FlwTulip,
 
         Unknown = byte.MaxValue,
+    }
+
+    public static class ItemKindExtensions
+    {
+        public static bool IsFlower(this ItemKind k) => (Kind_Flower <= k && k <= Kind_FlowerSeed) || (UnitIcon_FlwAnemone <= k && k <= UnitIcon_FlwTulip);
     }
 }
