@@ -60,5 +60,27 @@ namespace NHSE.Core
                 tile.CopyFrom(tiles[i]);
             }
         }
+
+        public void SetAll(TerrainTile tile, in bool interiorOnly)
+        {
+            if (interiorOnly)
+            {
+                // skip outermost ring of tiles
+                int xmin = GridWidth;
+                int ymin = GridHeight;
+                int xmax = MapWidth - GridWidth;
+                int ymax = MapHeight - GridHeight;
+                for (int x = xmin; x < xmax; x++)
+                {
+                    for (int y = ymin; y < ymax; y++)
+                        GetTile(x, y).CopyFrom(tile);
+                }
+            }
+            else
+            {
+                foreach (var t in Tiles)
+                    t.CopyFrom(tile);
+            }
+        }
     }
 }

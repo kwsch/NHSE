@@ -38,5 +38,6 @@ namespace NHSE.WinForms
 
         public static string MsgTerrainSetElevation0 { get; set; } = "Set the elevation of all tiles on the map to 0?";
         public static string MsgTerrainSetAll { get; set; } = "Set the tile from the Tile Editor to all tiles on the map?";
+        public static string MsgTerrainSetAllSkipExterior { get; set; } = "Do you want to skip the tiles in exterior acres (beach/rocks)?";
     }
 }

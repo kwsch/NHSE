@@ -216,9 +216,10 @@ namespace NHSE.WinForms
         {
             if (DialogResult.Yes != WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgTerrainSetAll))
                 return;
+
             var pgt = (TerrainTile)PG_Tile.SelectedObject;
-            foreach (var t in Terrain.Tiles)
-                t.CopyFrom(pgt);
+            bool interiorOnly = DialogResult.Yes == WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgTerrainSetAllSkipExterior);
+            Terrain.SetAll(pgt, interiorOnly);
             LoadGrid(X, Y);
             System.Media.SystemSounds.Asterisk.Play();
         }
