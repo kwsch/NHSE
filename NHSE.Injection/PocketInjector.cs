@@ -87,17 +87,27 @@ namespace NHSE.Injection
 
         public bool Validate(byte[] data)
         {
-            if (BitConverter.ToUInt32(data, pocket) > 20) // pouch21-39 count
-                return false;
-
             if (!ValidateEnabled)
                 return true;
 
-            for (int i = 4; i < 0x18; i += 4)
+            // Check the unlocked slot count -- expect 0,10,20
+            var bagCount = BitConverter.ToUInt32(data, pocket);
+            if (bagCount > 20 || bagCount % 10 != 0) // pouch21-39 count
+                return false;
+
+            // Check the item wheel binding -- expect -1 or [0,7]
+            // Disallow duplicate binds!
+            var bound = new List<byte>();
+            for (int i = 0; i < 20; i++)
             {
-                var val = BitConverter.ToInt32(data, pocket + i);
-                if (val != -1)
+                var bind = data[pocket + 4 + i];
+                if (bind == 0xFF)
+                    continue;
+                if (bind > 7)
                     return false;
+                if (bound.Contains(bind))
+                    return false;
+                bound.Add(bind);
             }
 
             return true;
