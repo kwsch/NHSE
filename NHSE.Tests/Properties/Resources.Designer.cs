@@ -63,6 +63,16 @@ namespace NHSE.Tests.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] itempacket {
+            get {
+                object obj = ResourceManager.GetObject("itempacket", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] STR_ItemName_41_Turnip {
             get {
                 object obj = ResourceManager.GetObject("STR_ItemName_41_Turnip", resourceCulture);

@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NHSE.Core\NHSE.Core.csproj" />
+    <ProjectReference Include="..\NHSE.Injection\NHSE.Injection.csproj" />
     <ProjectReference Include="..\NHSE.Parsing\NHSE.Parsing.csproj" />
   </ItemGroup>
 
