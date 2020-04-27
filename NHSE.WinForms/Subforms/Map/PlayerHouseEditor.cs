@@ -6,30 +6,30 @@ using NHSE.Core;
 
 namespace NHSE.WinForms
 {
-    public partial class VillagerHouseEditor : Form
+    public partial class PlayerHouseEditor : Form
     {
         private readonly MainSave SAV;
-        public readonly VillagerHouse[] Houses;
-        private readonly IReadOnlyList<Villager> Villagers;
+        public readonly PlayerHouse[] Houses;
+        private readonly IReadOnlyList<Player> Players;
 
         private int Index;
 
-        public VillagerHouseEditor(VillagerHouse[] houses, IReadOnlyList<Villager> villagers, MainSave sav, int index)
+        public PlayerHouseEditor(PlayerHouse[] houses, IReadOnlyList<Player> players, MainSave sav, int index)
         {
             InitializeComponent();
             this.TranslateInterface(GameInfo.CurrentLanguage);
             SAV = sav;
             Houses = houses;
-            Villagers = villagers;
+            Players = players;
             DialogResult = DialogResult.Cancel;
 
-            foreach (var obj in Houses)
-                LB_Items.Items.Add(GetHouseSummary(obj));
+            for (var i = 0; i < Houses.Length; i++)
+            {
+                var obj = Houses[i];
+                LB_Items.Items.Add(GetHouseSummary(obj, i));
+            }
 
-            var hIndex = Array.FindIndex(houses, z => z.NPC1 == index);
-            if (hIndex < 0)
-                hIndex = 0;
-            LB_Items.SelectedIndex = hIndex;
+            LB_Items.SelectedIndex = index;
         }
 
         private void B_Cancel_Click(object sender, EventArgs e) => Close();
@@ -49,18 +49,10 @@ namespace NHSE.WinForms
 
         private void PG_Item_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
         {
-            LB_Items.Items[Index] = GetHouseSummary(Houses[Index]);
+            LB_Items.Items[Index] = GetHouseSummary(Houses[Index], Index);
         }
 
-        private string GetHouseSummary(VillagerHouse house) => $"{GetVillagerName(house)}'s House";
-
-        private string GetVillagerName(VillagerHouse house)
-        {
-            var villagerIndex = house.NPC1;
-            var v = (uint) villagerIndex >= Villagers.Count ? "???" : Villagers[villagerIndex].InternalName;
-            var name = GameInfo.Strings.GetVillager(v);
-            return name;
-        }
+        private string GetHouseSummary(PlayerHouse house, int index) => $"{Players[index].Personal.PlayerName}'s House (lv {house.HouseLevel})";
 
         private void B_DumpHouse_Click(object sender, EventArgs e)
         {
@@ -77,11 +69,11 @@ namespace NHSE.WinForms
                 return;
             }
 
-            var name = GetVillagerName(Houses[Index]);
+            var name = GetHouseSummary(Houses[Index], Index);
             using var sfd = new SaveFileDialog
             {
-                Filter = "New Horizons Villager House (*.nhvh)|*.nhvh|All files (*.*)|*.*",
-                FileName = $"{name}.nhvh",
+                Filter = "New Horizons Player House (*.nhph)|*.nhph|All files (*.*)|*.*",
+                FileName = $"{name}.nhph",
             };
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
@@ -93,11 +85,11 @@ namespace NHSE.WinForms
 
         private void B_LoadHouse_Click(object sender, EventArgs e)
         {
-            var name = GetVillagerName(Houses[Index]);
+            var name = GetHouseSummary(Houses[Index], Index);
             using var ofd = new OpenFileDialog
             {
-                Filter = "New Horizons Villager House (*.nhvh)|*.nhvh|All files (*.*)|*.*",
-                FileName = $"{name}.nhvh",
+                Filter = "New Horizons Player House (*.nhph)|*.nhph|All files (*.*)|*.*",
+                FileName = $"{name}.nhph",
             };
             if (ofd.ShowDialog() != DialogResult.OK)
                 return;
@@ -112,11 +104,8 @@ namespace NHSE.WinForms
             }
 
             var data = File.ReadAllBytes(file);
-            var h = data.ToClass<VillagerHouse>();
-            var current = Houses[Index];
-            h.NPC1 = current.NPC1;
-            Houses[Index] = h;
-            PG_Item.SelectedObject = h;
+            var h = data.ToClass<PlayerHouse>();
+            PG_Item.SelectedObject = Houses[Index] = h;
         }
     }
 }
