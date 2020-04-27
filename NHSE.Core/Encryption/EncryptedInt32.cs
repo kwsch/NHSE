@@ -55,7 +55,7 @@ namespace NHSE.Core
         {
             var val = Read(data, offset);
             if (val.Checksum != CalculateChecksum(val.OriginalEncrypted))
-                throw new ArgumentException(nameof(offset));
+                throw new ArgumentException($"Failed to verify the {nameof(EncryptedInt32)} at {nameof(offset)}");
             return val;
         }
 
