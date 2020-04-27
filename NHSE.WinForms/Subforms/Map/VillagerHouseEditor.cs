@@ -9,7 +9,7 @@ namespace NHSE.WinForms
     public partial class VillagerHouseEditor : Form
     {
         private readonly MainSave SAV;
-        public readonly VillagerHouse[] Houses;
+        private readonly VillagerHouse[] Houses;
         private readonly IReadOnlyList<Villager> Villagers;
 
         private int Index;

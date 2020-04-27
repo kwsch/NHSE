@@ -176,15 +176,15 @@ namespace NHSE.WinForms
             var player = SAV.Players[PlayerIndex];
             {
                 var pers = player.Personal;
-                var p1 = pers.Pocket1;
-                var p2 = pers.Pocket2;
-                var items = p2.Concat(p1).ToArray();
+                var bag = pers.Bag;
+                var pocket = pers.Pocket;
+                var items = pocket.Concat(bag).ToArray();
                 using var editor = new PlayerItemEditor<Item>(items, 10, 4, sysbot: true);
                 if (editor.ShowDialog() != DialogResult.OK)
                     return;
 
-                pers.Pocket2 = items.Take(p2.Count).ToArray();
-                pers.Pocket1 = items.Skip(p2.Count).Take(p1.Count).ToArray();
+                pers.Pocket = items.Take(pocket.Count).ToArray();
+                pers.Bag = items.Skip(pocket.Count).Take(bag.Count).ToArray();
             }
         }
 
@@ -237,6 +237,10 @@ namespace NHSE.WinForms
             NUD_NookMiles.Value = Math.Min(int.MaxValue, pers.NookMiles.Value);
             NUD_Wallet.Value = Math.Min(int.MaxValue, pers.Wallet.Value);
 
+            // swapped on purpose -- first count is the first two rows of items
+            NUD_PocketCount1.Value = Math.Min(int.MaxValue, pers.PocketCount);
+            NUD_PocketCount2.Value = Math.Min(int.MaxValue, pers.BagCount);
+
             try
             {
                 var photo = pers.GetPhotoData();
@@ -286,6 +290,10 @@ namespace NHSE.WinForms
             var wallet = pers.Wallet;
             wallet.Value = (uint)NUD_Wallet.Value;
             pers.Wallet = wallet;
+
+            // swapped on purpose -- first count is the first two rows of items
+            pers.PocketCount = (uint)NUD_PocketCount1.Value;
+            pers.BagCount = (uint)NUD_PocketCount2.Value;
         }
 
         private void B_EditAchievements_Click(object sender, EventArgs e)
@@ -317,12 +325,7 @@ namespace NHSE.WinForms
                 return;
             }
 
-            string name;
-            if (pb == PB_Player)
-                name = SAV.Players[PlayerIndex].Personal.PlayerName;
-            else
-                name = "photo";
-
+            string name = SAV.Players[PlayerIndex].Personal.PlayerName;
             var bmp = pb.Image;
             using var sfd = new SaveFileDialog
             {

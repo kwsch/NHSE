@@ -79,6 +79,10 @@
             this.PB_Player = new System.Windows.Forms.PictureBox();
             this.TC_Editors = new System.Windows.Forms.TabControl();
             this.B_EditPlayerHouses = new System.Windows.Forms.Button();
+            this.NUD_PocketCount1 = new System.Windows.Forms.NumericUpDown();
+            this.NUD_PocketCount2 = new System.Windows.Forms.NumericUpDown();
+            this.L_PocketCount1 = new System.Windows.Forms.Label();
+            this.L_PocketCount2 = new System.Windows.Forms.Label();
             this.Menu_Editor.SuspendLayout();
             this.CM_Picture.SuspendLayout();
             this.Tab_Map.SuspendLayout();
@@ -90,6 +94,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).BeginInit();
             this.TC_Editors.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PocketCount1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PocketCount2)).BeginInit();
             this.SuspendLayout();
             // 
             // Menu_Editor
@@ -340,6 +346,10 @@
             // 
             // Tab_Players
             // 
+            this.Tab_Players.Controls.Add(this.L_PocketCount2);
+            this.Tab_Players.Controls.Add(this.L_PocketCount1);
+            this.Tab_Players.Controls.Add(this.NUD_PocketCount2);
+            this.Tab_Players.Controls.Add(this.NUD_PocketCount1);
             this.Tab_Players.Controls.Add(this.B_EditPlayer);
             this.Tab_Players.Controls.Add(this.B_EditPlayerFlags);
             this.Tab_Players.Controls.Add(this.B_EditPlayerItems);
@@ -570,6 +580,60 @@
             this.B_EditPlayerHouses.UseVisualStyleBackColor = true;
             this.B_EditPlayerHouses.Click += new System.EventHandler(this.B_EditPlayerHouses_Click);
             // 
+            // NUD_PocketCount1
+            // 
+            this.NUD_PocketCount1.Location = new System.Drawing.Point(104, 167);
+            this.NUD_PocketCount1.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.NUD_PocketCount1.Name = "NUD_PocketCount1";
+            this.NUD_PocketCount1.Size = new System.Drawing.Size(41, 20);
+            this.NUD_PocketCount1.TabIndex = 19;
+            this.NUD_PocketCount1.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            // 
+            // NUD_PocketCount2
+            // 
+            this.NUD_PocketCount2.Location = new System.Drawing.Point(104, 188);
+            this.NUD_PocketCount2.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.NUD_PocketCount2.Name = "NUD_PocketCount2";
+            this.NUD_PocketCount2.Size = new System.Drawing.Size(41, 20);
+            this.NUD_PocketCount2.TabIndex = 20;
+            this.NUD_PocketCount2.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            // 
+            // L_PocketCount1
+            // 
+            this.L_PocketCount1.AutoSize = true;
+            this.L_PocketCount1.Location = new System.Drawing.Point(148, 170);
+            this.L_PocketCount1.Name = "L_PocketCount1";
+            this.L_PocketCount1.Size = new System.Drawing.Size(81, 13);
+            this.L_PocketCount1.TabIndex = 21;
+            this.L_PocketCount1.Text = "Pocket Count 1";
+            this.L_PocketCount1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // L_PocketCount2
+            // 
+            this.L_PocketCount2.AutoSize = true;
+            this.L_PocketCount2.Location = new System.Drawing.Point(148, 191);
+            this.L_PocketCount2.Name = "L_PocketCount2";
+            this.L_PocketCount2.Size = new System.Drawing.Size(81, 13);
+            this.L_PocketCount2.TabIndex = 22;
+            this.L_PocketCount2.Text = "Pocket Count 2";
+            this.L_PocketCount2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -596,6 +660,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).EndInit();
             this.TC_Editors.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PocketCount1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PocketCount2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -652,6 +718,10 @@
         private System.Windows.Forms.ToolStripMenuItem B_EditPlayerRecipes;
         private System.Windows.Forms.Button B_EditPlayer;
         private System.Windows.Forms.Button B_EditPlayerHouses;
+        private System.Windows.Forms.Label L_PocketCount2;
+        private System.Windows.Forms.Label L_PocketCount1;
+        private System.Windows.Forms.NumericUpDown NUD_PocketCount2;
+        private System.Windows.Forms.NumericUpDown NUD_PocketCount1;
     }
 }
 

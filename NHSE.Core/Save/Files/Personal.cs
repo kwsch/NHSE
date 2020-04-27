@@ -58,16 +58,28 @@ namespace NHSE.Core
             set => value.Write(Data, Offsets.NookMiles);
         }
 
-        public IReadOnlyList<Item> Pocket1
+        public IReadOnlyList<Item> Bag // Slots 21-40
         {
             get => Item.GetArray(Data.Slice(Offsets.Pockets1, Offsets.Pockets1Count * Item.SIZE));
             set => Item.SetArray(value).CopyTo(Data, Offsets.Pockets1);
         }
 
-        public IReadOnlyList<Item> Pocket2
+        public uint BagCount // Count of the Bag Slots that are available for use
+        {
+            get => BitConverter.ToUInt32(Data, Offsets.Pockets1 + (Offsets.Pockets1Count * Item.SIZE));
+            set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.Pockets1 + (Offsets.Pockets1Count * Item.SIZE));
+        }
+
+        public IReadOnlyList<Item> Pocket // Slots 1-20
         {
             get => Item.GetArray(Data.Slice(Offsets.Pockets2, Offsets.Pockets2Count * Item.SIZE));
             set => Item.SetArray(value).CopyTo(Data, Offsets.Pockets2);
+        }
+
+        public uint PocketCount // Count of the Pocket Slots that are available for use
+        {
+            get => BitConverter.ToUInt32(Data, Offsets.Pockets2 + (Offsets.Pockets2Count * Item.SIZE));
+            set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.Pockets2 + (Offsets.Pockets2Count * Item.SIZE));
         }
 
         public IReadOnlyList<Item> Storage

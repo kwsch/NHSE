@@ -8,7 +8,7 @@ namespace NHSE.WinForms
 {
     public partial class PlayerHouseEditor : Form
     {
-        public readonly PlayerHouse[] Houses;
+        private readonly PlayerHouse[] Houses;
         private readonly IReadOnlyList<Player> Players;
 
         private int Index;
