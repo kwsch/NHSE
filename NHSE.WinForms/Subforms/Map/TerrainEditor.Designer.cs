@@ -95,8 +95,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PG_Tile.Location = new System.Drawing.Point(820, 12);
             this.PG_Tile.Name = "PG_Tile";
+            this.PG_Tile.PropertySort = System.Windows.Forms.PropertySort.Categorized;
             this.PG_Tile.Size = new System.Drawing.Size(229, 244);
             this.PG_Tile.TabIndex = 9;
+            this.PG_Tile.ToolbarVisible = false;
             // 
             // CB_Acre
             // 

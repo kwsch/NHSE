@@ -7,18 +7,34 @@ namespace NHSE.Core
     [StructLayout(LayoutKind.Sequential)]
     public class TerrainTile
     {
+        // tile[2] (u16 model, u16 variation, u16 angle)
+        // u16 elevation
         public const int SIZE = 0xE;
+        private const string Terrain = nameof(Terrain);
+        private const string Road = nameof(Road);
         private const string Details = nameof(Details);
 
-        [Category(Details), Description("Terrain model to be loaded for this tile.")]
+        // Tile
+        [Category(Terrain), Description("Terrain model to be loaded for this tile.")]
         public TerrainUnitModel UnitModel { get; set; }
 
-        public ushort Unk2 { get; set; }
-        public ushort Unk4 { get; set; }
-        public ushort Unk6 { get; set; }
-        public ushort Unk8 { get; set; }
-        public ushort UnkA { get; set; }
+        [Category(Terrain), Description("Variant of the terrain model.")]
+        public ushort Variation { get; set; }
 
+        [Category(Terrain), Description("Angle of the terrain model.")]
+        public ushort LandMakingAngle { get; set; }
+
+        // Road
+        [Category(Road), Description("Road model to be loaded on top of the Terrain model.")]
+        public TerrainUnitModel UnitModelRoad { get; set; }
+
+        [Category(Road), Description("Variant of the road model.")]
+        public ushort VariationRoad { get; set; }
+
+        [Category(Road), Description("Angle of the road model.")]
+        public ushort LandMakingAngleRoad { get; set; }
+
+        // Elevation
         [Category(Details), Description("How high the terrain tile is elevated.")]
         public ushort Elevation { get; set; }
 
@@ -27,18 +43,18 @@ namespace NHSE.Core
 
         public void Clear()
         {
-            UnitModel = 0;
-            Unk2 = Unk4 = Unk6 = Unk8 = UnkA = Elevation = 0;
+            UnitModel = UnitModelRoad = 0;
+            Variation = LandMakingAngle = VariationRoad = LandMakingAngleRoad = Elevation = 0;
         }
 
         public void CopyFrom(TerrainTile source)
         {
             UnitModel = source.UnitModel;
-            Unk2 = source.Unk2;
-            Unk4 = source.Unk4;
-            Unk6 = source.Unk6;
-            Unk8 = source.Unk8;
-            UnkA = source.UnkA;
+            Variation = source.Variation;
+            LandMakingAngle = source.LandMakingAngle;
+            UnitModelRoad = source.UnitModelRoad;
+            VariationRoad = source.VariationRoad;
+            LandMakingAngleRoad = source.LandMakingAngleRoad;
             Elevation = source.Elevation;
         }
     }
