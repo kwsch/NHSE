@@ -166,7 +166,6 @@ namespace NHSE.WinForms
 
             PlayerIndex = -1;
             CB_Players.SelectedIndex = 0;
-            NUD_PlayerHouse.Maximum = CB_Players.Items.Count;
         }
 
         private int PlayerIndex = -1;
@@ -370,63 +369,6 @@ namespace NHSE.WinForms
             editor.ShowDialog();
         }
 
-        private void B_DumpHouse_Click(object sender, EventArgs e)
-        {
-            if (ModifierKeys == Keys.Shift)
-            {
-                using var fbd = new FolderBrowserDialog();
-                if (fbd.ShowDialog() != DialogResult.OK)
-                    return;
-
-                var dir = Path.GetDirectoryName(fbd.SelectedPath);
-                if (dir == null || !Directory.Exists(dir))
-                    return;
-                SAV.DumpPlayerHouses(fbd.SelectedPath);
-                return;
-            }
-
-            var index = (int)(NUD_PlayerHouse.Value - 1);
-            var name = CB_Players.Items[index].ToString();
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Player House (*.nhph)|*.nhph|All files (*.*)|*.*",
-                FileName = $"{name}.nhph",
-            };
-            if (sfd.ShowDialog() != DialogResult.OK)
-                return;
-
-            var h = SAV.Main.GetPlayerHouse(index);
-            var data = h.ToBytesClass();
-            File.WriteAllBytes(sfd.FileName, data);
-        }
-
-        private void B_LoadHouse_Click(object sender, EventArgs e)
-        {
-            var index = (int)(NUD_PlayerHouse.Value - 1);
-            var name = CB_Players.Items[index].ToString();
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Player House (*.nhph)|*.nhph|All files (*.*)|*.*",
-                FileName = $"{name}.nhph",
-            };
-            if (ofd.ShowDialog() != DialogResult.OK)
-                return;
-
-            var file = ofd.FileName;
-            var fi = new FileInfo(file);
-            const int expectLength = PlayerHouse.SIZE;
-            if (fi.Length != expectLength)
-            {
-                var msg = string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength);
-                WinFormsUtil.Error(MessageStrings.MsgCanceling, msg);
-                return;
-            }
-
-            var data = File.ReadAllBytes(file);
-            var h = data.ToClass<PlayerHouse>();
-            SAV.Main.SetPlayerHouse(h, index);
-        }
-
         private void B_EditLandFlags_Click(object sender, EventArgs e)
         {
             var flags = SAV.Main.GetEventFlagLand();
@@ -449,6 +391,18 @@ namespace NHSE.WinForms
             using var editor = new PatternEditorPRO(patterns);
             if (editor.ShowDialog() == DialogResult.OK)
                 SAV.Main.SetDesignsPRO(patterns);
+        }
+
+        private static void ShowContextMenuBelow(ToolStripDropDown c, Control n) => c.Show(n.PointToScreen(new Point(0, n.Height)));
+        private void B_EditPlayer_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_EditPlayer, B_EditPlayer);
+        private void B_EditMap_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_EditMap, B_EditMap);
+
+        private void B_EditPlayerHouses_Click(object sender, EventArgs e)
+        {
+            var houses = SAV.Main.GetPlayerHouses();
+            using var editor = new PlayerHouseEditor(houses, SAV.Players, PlayerIndex);
+            if (editor.ShowDialog() == DialogResult.OK)
+                SAV.Main.SetPlayerHouses(houses);
         }
     }
 }

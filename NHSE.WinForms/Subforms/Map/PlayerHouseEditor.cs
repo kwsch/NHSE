@@ -8,17 +8,15 @@ namespace NHSE.WinForms
 {
     public partial class PlayerHouseEditor : Form
     {
-        private readonly MainSave SAV;
         public readonly PlayerHouse[] Houses;
         private readonly IReadOnlyList<Player> Players;
 
         private int Index;
 
-        public PlayerHouseEditor(PlayerHouse[] houses, IReadOnlyList<Player> players, MainSave sav, int index)
+        public PlayerHouseEditor(PlayerHouse[] houses, IReadOnlyList<Player> players, int index)
         {
             InitializeComponent();
             this.TranslateInterface(GameInfo.CurrentLanguage);
-            SAV = sav;
             Houses = houses;
             Players = players;
             DialogResult = DialogResult.Cancel;
@@ -52,7 +50,11 @@ namespace NHSE.WinForms
             LB_Items.Items[Index] = GetHouseSummary(Houses[Index], Index);
         }
 
-        private string GetHouseSummary(PlayerHouse house, int index) => $"{Players[index].Personal.PlayerName}'s House (lv {house.HouseLevel})";
+        private string GetHouseSummary(PlayerHouse house, int index)
+        {
+            var houseName = index >= Players.Count ? $"House {index}" : $"{Players[index].Personal.PlayerName}'s House";
+            return $"{houseName} (lv {house.HouseLevel})";
+        }
 
         private void B_DumpHouse_Click(object sender, EventArgs e)
         {
@@ -65,7 +67,7 @@ namespace NHSE.WinForms
                 var dir = Path.GetDirectoryName(fbd.SelectedPath);
                 if (dir == null || !Directory.Exists(dir))
                     return;
-                SAV.DumpVillagerHouses(fbd.SelectedPath);
+                Houses.DumpPlayerHouses(Players, fbd.SelectedPath);
                 return;
             }
 

@@ -44,24 +44,26 @@
             this.CM_Picture = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Menu_SavePNG = new System.Windows.Forms.ToolStripMenuItem();
             this.Tab_Map = new System.Windows.Forms.TabPage();
+            this.B_EditMap = new System.Windows.Forms.Button();
+            this.CM_EditMap = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.B_EditTerrain = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditBuildings = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditAcres = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditFieldItems = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditPRODesigns = new System.Windows.Forms.Button();
+            this.B_EditPatterns = new System.Windows.Forms.Button();
             this.B_EditLandFlags = new System.Windows.Forms.Button();
-            this.L_PlayerHouse = new System.Windows.Forms.Label();
-            this.NUD_PlayerHouse = new System.Windows.Forms.NumericUpDown();
-            this.B_LoadHouse = new System.Windows.Forms.Button();
-            this.B_DumpHouse = new System.Windows.Forms.Button();
-            this.B_EditFieldItems = new System.Windows.Forms.Button();
-            this.B_EditTerrain = new System.Windows.Forms.Button();
-            this.B_EditAcres = new System.Windows.Forms.Button();
             this.B_EditTurnipExchange = new System.Windows.Forms.Button();
-            this.B_EditBuildings = new System.Windows.Forms.Button();
             this.B_RecycleBin = new System.Windows.Forms.Button();
             this.Tab_Villagers = new System.Windows.Forms.TabPage();
             this.Tab_Players = new System.Windows.Forms.TabPage();
+            this.B_EditPlayer = new System.Windows.Forms.Button();
+            this.CM_EditPlayer = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.B_EditPlayerStorage = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditPlayerReceivedItems = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditAchievements = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditPlayerRecipes = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditPlayerFlags = new System.Windows.Forms.Button();
-            this.B_EditAchievements = new System.Windows.Forms.Button();
-            this.B_EditPlayerReceivedItems = new System.Windows.Forms.Button();
-            this.B_EditPlayerStorage = new System.Windows.Forms.Button();
-            this.B_EditPlayerRecipes = new System.Windows.Forms.Button();
             this.B_EditPlayerItems = new System.Windows.Forms.Button();
             this.L_Wallet = new System.Windows.Forms.Label();
             this.NUD_Wallet = new System.Windows.Forms.NumericUpDown();
@@ -76,13 +78,13 @@
             this.CB_Players = new System.Windows.Forms.ComboBox();
             this.PB_Player = new System.Windows.Forms.PictureBox();
             this.TC_Editors = new System.Windows.Forms.TabControl();
-            this.B_EditPatterns = new System.Windows.Forms.Button();
-            this.B_EditPRODesigns = new System.Windows.Forms.Button();
+            this.B_EditPlayerHouses = new System.Windows.Forms.Button();
             this.Menu_Editor.SuspendLayout();
             this.CM_Picture.SuspendLayout();
             this.Tab_Map.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_PlayerHouse)).BeginInit();
+            this.CM_EditMap.SuspendLayout();
             this.Tab_Players.SuspendLayout();
+            this.CM_EditPlayer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Wallet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_NookMiles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).BeginInit();
@@ -212,18 +214,12 @@
             // 
             // Tab_Map
             // 
+            this.Tab_Map.Controls.Add(this.B_EditPlayerHouses);
+            this.Tab_Map.Controls.Add(this.B_EditMap);
             this.Tab_Map.Controls.Add(this.B_EditPRODesigns);
             this.Tab_Map.Controls.Add(this.B_EditPatterns);
             this.Tab_Map.Controls.Add(this.B_EditLandFlags);
-            this.Tab_Map.Controls.Add(this.L_PlayerHouse);
-            this.Tab_Map.Controls.Add(this.NUD_PlayerHouse);
-            this.Tab_Map.Controls.Add(this.B_LoadHouse);
-            this.Tab_Map.Controls.Add(this.B_DumpHouse);
-            this.Tab_Map.Controls.Add(this.B_EditFieldItems);
-            this.Tab_Map.Controls.Add(this.B_EditTerrain);
-            this.Tab_Map.Controls.Add(this.B_EditAcres);
             this.Tab_Map.Controls.Add(this.B_EditTurnipExchange);
-            this.Tab_Map.Controls.Add(this.B_EditBuildings);
             this.Tab_Map.Controls.Add(this.B_RecycleBin);
             this.Tab_Map.Location = new System.Drawing.Point(4, 22);
             this.Tab_Map.Name = "Tab_Map";
@@ -233,9 +229,78 @@
             this.Tab_Map.Text = "Map";
             this.Tab_Map.UseVisualStyleBackColor = true;
             // 
+            // B_EditMap
+            // 
+            this.B_EditMap.ContextMenuStrip = this.CM_EditMap;
+            this.B_EditMap.Location = new System.Drawing.Point(300, 168);
+            this.B_EditMap.Name = "B_EditMap";
+            this.B_EditMap.Size = new System.Drawing.Size(92, 40);
+            this.B_EditMap.TabIndex = 2;
+            this.B_EditMap.Text = "Edit Map...";
+            this.B_EditMap.UseVisualStyleBackColor = true;
+            this.B_EditMap.Click += new System.EventHandler(this.B_EditMap_Click);
+            // 
+            // CM_EditMap
+            // 
+            this.CM_EditMap.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.B_EditTerrain,
+            this.B_EditBuildings,
+            this.B_EditAcres,
+            this.B_EditFieldItems});
+            this.CM_EditMap.Name = "CM_EditMap";
+            this.CM_EditMap.Size = new System.Drawing.Size(155, 92);
+            // 
+            // B_EditTerrain
+            // 
+            this.B_EditTerrain.Name = "B_EditTerrain";
+            this.B_EditTerrain.Size = new System.Drawing.Size(154, 22);
+            this.B_EditTerrain.Text = "Edit Terrain";
+            this.B_EditTerrain.Click += new System.EventHandler(this.B_EditTerrain_Click);
+            // 
+            // B_EditBuildings
+            // 
+            this.B_EditBuildings.Name = "B_EditBuildings";
+            this.B_EditBuildings.Size = new System.Drawing.Size(154, 22);
+            this.B_EditBuildings.Text = "Edit Buildings";
+            this.B_EditBuildings.Click += new System.EventHandler(this.B_EditBuildings_Click);
+            // 
+            // B_EditAcres
+            // 
+            this.B_EditAcres.Name = "B_EditAcres";
+            this.B_EditAcres.Size = new System.Drawing.Size(154, 22);
+            this.B_EditAcres.Text = "Edit Acres";
+            this.B_EditAcres.Click += new System.EventHandler(this.B_EditAcres_Click);
+            // 
+            // B_EditFieldItems
+            // 
+            this.B_EditFieldItems.Name = "B_EditFieldItems";
+            this.B_EditFieldItems.Size = new System.Drawing.Size(154, 22);
+            this.B_EditFieldItems.Text = "Edit Field items";
+            this.B_EditFieldItems.Click += new System.EventHandler(this.B_EditFieldItems_Click);
+            // 
+            // B_EditPRODesigns
+            // 
+            this.B_EditPRODesigns.Location = new System.Drawing.Point(104, 52);
+            this.B_EditPRODesigns.Name = "B_EditPRODesigns";
+            this.B_EditPRODesigns.Size = new System.Drawing.Size(92, 40);
+            this.B_EditPRODesigns.TabIndex = 55;
+            this.B_EditPRODesigns.Text = "Edit PRO Designs";
+            this.B_EditPRODesigns.UseVisualStyleBackColor = true;
+            this.B_EditPRODesigns.Click += new System.EventHandler(this.B_EditPRODesigns_Click);
+            // 
+            // B_EditPatterns
+            // 
+            this.B_EditPatterns.Location = new System.Drawing.Point(104, 6);
+            this.B_EditPatterns.Name = "B_EditPatterns";
+            this.B_EditPatterns.Size = new System.Drawing.Size(92, 40);
+            this.B_EditPatterns.TabIndex = 54;
+            this.B_EditPatterns.Text = "Edit Patterns";
+            this.B_EditPatterns.UseVisualStyleBackColor = true;
+            this.B_EditPatterns.Click += new System.EventHandler(this.B_EditPatterns_Click);
+            // 
             // B_EditLandFlags
             // 
-            this.B_EditLandFlags.Location = new System.Drawing.Point(202, 76);
+            this.B_EditLandFlags.Location = new System.Drawing.Point(300, 122);
             this.B_EditLandFlags.Name = "B_EditLandFlags";
             this.B_EditLandFlags.Size = new System.Drawing.Size(92, 40);
             this.B_EditLandFlags.TabIndex = 53;
@@ -243,85 +308,9 @@
             this.B_EditLandFlags.UseVisualStyleBackColor = true;
             this.B_EditLandFlags.Click += new System.EventHandler(this.B_EditLandFlags_Click);
             // 
-            // L_PlayerHouse
-            // 
-            this.L_PlayerHouse.Location = new System.Drawing.Point(16, 6);
-            this.L_PlayerHouse.Name = "L_PlayerHouse";
-            this.L_PlayerHouse.Size = new System.Drawing.Size(84, 20);
-            this.L_PlayerHouse.TabIndex = 52;
-            this.L_PlayerHouse.Text = "Player House:";
-            this.L_PlayerHouse.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // NUD_PlayerHouse
-            // 
-            this.NUD_PlayerHouse.Location = new System.Drawing.Point(106, 6);
-            this.NUD_PlayerHouse.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.NUD_PlayerHouse.Name = "NUD_PlayerHouse";
-            this.NUD_PlayerHouse.Size = new System.Drawing.Size(45, 20);
-            this.NUD_PlayerHouse.TabIndex = 51;
-            this.NUD_PlayerHouse.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // B_LoadHouse
-            // 
-            this.B_LoadHouse.Location = new System.Drawing.Point(104, 29);
-            this.B_LoadHouse.Name = "B_LoadHouse";
-            this.B_LoadHouse.Size = new System.Drawing.Size(92, 40);
-            this.B_LoadHouse.TabIndex = 50;
-            this.B_LoadHouse.Text = "Load House";
-            this.B_LoadHouse.UseVisualStyleBackColor = true;
-            this.B_LoadHouse.Click += new System.EventHandler(this.B_LoadHouse_Click);
-            // 
-            // B_DumpHouse
-            // 
-            this.B_DumpHouse.Location = new System.Drawing.Point(8, 29);
-            this.B_DumpHouse.Name = "B_DumpHouse";
-            this.B_DumpHouse.Size = new System.Drawing.Size(92, 40);
-            this.B_DumpHouse.TabIndex = 49;
-            this.B_DumpHouse.Text = "Dump House";
-            this.B_DumpHouse.UseVisualStyleBackColor = true;
-            this.B_DumpHouse.Click += new System.EventHandler(this.B_DumpHouse_Click);
-            // 
-            // B_EditFieldItems
-            // 
-            this.B_EditFieldItems.Location = new System.Drawing.Point(202, 122);
-            this.B_EditFieldItems.Name = "B_EditFieldItems";
-            this.B_EditFieldItems.Size = new System.Drawing.Size(92, 40);
-            this.B_EditFieldItems.TabIndex = 18;
-            this.B_EditFieldItems.Text = "Edit Field Items";
-            this.B_EditFieldItems.UseVisualStyleBackColor = true;
-            this.B_EditFieldItems.Click += new System.EventHandler(this.B_EditFieldItems_Click);
-            // 
-            // B_EditTerrain
-            // 
-            this.B_EditTerrain.Location = new System.Drawing.Point(300, 122);
-            this.B_EditTerrain.Name = "B_EditTerrain";
-            this.B_EditTerrain.Size = new System.Drawing.Size(92, 40);
-            this.B_EditTerrain.TabIndex = 17;
-            this.B_EditTerrain.Text = "Edit Terrain";
-            this.B_EditTerrain.UseVisualStyleBackColor = true;
-            this.B_EditTerrain.Click += new System.EventHandler(this.B_EditTerrain_Click);
-            // 
-            // B_EditAcres
-            // 
-            this.B_EditAcres.Location = new System.Drawing.Point(300, 168);
-            this.B_EditAcres.Name = "B_EditAcres";
-            this.B_EditAcres.Size = new System.Drawing.Size(92, 40);
-            this.B_EditAcres.TabIndex = 16;
-            this.B_EditAcres.Text = "Edit Acres";
-            this.B_EditAcres.UseVisualStyleBackColor = true;
-            this.B_EditAcres.Click += new System.EventHandler(this.B_EditAcres_Click);
-            // 
             // B_EditTurnipExchange
             // 
-            this.B_EditTurnipExchange.Location = new System.Drawing.Point(6, 122);
+            this.B_EditTurnipExchange.Location = new System.Drawing.Point(6, 6);
             this.B_EditTurnipExchange.Name = "B_EditTurnipExchange";
             this.B_EditTurnipExchange.Size = new System.Drawing.Size(92, 40);
             this.B_EditTurnipExchange.TabIndex = 15;
@@ -329,19 +318,9 @@
             this.B_EditTurnipExchange.UseVisualStyleBackColor = true;
             this.B_EditTurnipExchange.Click += new System.EventHandler(this.B_EditTurnipExchange_Click);
             // 
-            // B_EditBuildings
-            // 
-            this.B_EditBuildings.Location = new System.Drawing.Point(300, 76);
-            this.B_EditBuildings.Name = "B_EditBuildings";
-            this.B_EditBuildings.Size = new System.Drawing.Size(92, 40);
-            this.B_EditBuildings.TabIndex = 14;
-            this.B_EditBuildings.Text = "Edit Buildings";
-            this.B_EditBuildings.UseVisualStyleBackColor = true;
-            this.B_EditBuildings.Click += new System.EventHandler(this.B_EditBuildings_Click);
-            // 
             // B_RecycleBin
             // 
-            this.B_RecycleBin.Location = new System.Drawing.Point(6, 168);
+            this.B_RecycleBin.Location = new System.Drawing.Point(6, 52);
             this.B_RecycleBin.Name = "B_RecycleBin";
             this.B_RecycleBin.Size = new System.Drawing.Size(92, 40);
             this.B_RecycleBin.TabIndex = 13;
@@ -361,11 +340,8 @@
             // 
             // Tab_Players
             // 
+            this.Tab_Players.Controls.Add(this.B_EditPlayer);
             this.Tab_Players.Controls.Add(this.B_EditPlayerFlags);
-            this.Tab_Players.Controls.Add(this.B_EditAchievements);
-            this.Tab_Players.Controls.Add(this.B_EditPlayerReceivedItems);
-            this.Tab_Players.Controls.Add(this.B_EditPlayerStorage);
-            this.Tab_Players.Controls.Add(this.B_EditPlayerRecipes);
             this.Tab_Players.Controls.Add(this.B_EditPlayerItems);
             this.Tab_Players.Controls.Add(this.L_Wallet);
             this.Tab_Players.Controls.Add(this.NUD_Wallet);
@@ -387,55 +363,64 @@
             this.Tab_Players.Text = "Players";
             this.Tab_Players.UseVisualStyleBackColor = true;
             // 
+            // B_EditPlayer
+            // 
+            this.B_EditPlayer.ContextMenuStrip = this.CM_EditPlayer;
+            this.B_EditPlayer.Location = new System.Drawing.Point(300, 168);
+            this.B_EditPlayer.Name = "B_EditPlayer";
+            this.B_EditPlayer.Size = new System.Drawing.Size(92, 40);
+            this.B_EditPlayer.TabIndex = 18;
+            this.B_EditPlayer.Text = "Edit Player...";
+            this.B_EditPlayer.UseVisualStyleBackColor = true;
+            this.B_EditPlayer.Click += new System.EventHandler(this.B_EditPlayer_Click);
+            // 
+            // CM_EditPlayer
+            // 
+            this.CM_EditPlayer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.B_EditPlayerStorage,
+            this.B_EditPlayerReceivedItems,
+            this.B_EditAchievements,
+            this.B_EditPlayerRecipes});
+            this.CM_EditPlayer.Name = "CM_EditPlayer";
+            this.CM_EditPlayer.Size = new System.Drawing.Size(177, 92);
+            // 
+            // B_EditPlayerStorage
+            // 
+            this.B_EditPlayerStorage.Name = "B_EditPlayerStorage";
+            this.B_EditPlayerStorage.Size = new System.Drawing.Size(176, 22);
+            this.B_EditPlayerStorage.Text = "Edit Storage";
+            this.B_EditPlayerStorage.Click += new System.EventHandler(this.B_Storage_Click);
+            // 
+            // B_EditPlayerReceivedItems
+            // 
+            this.B_EditPlayerReceivedItems.Name = "B_EditPlayerReceivedItems";
+            this.B_EditPlayerReceivedItems.Size = new System.Drawing.Size(176, 22);
+            this.B_EditPlayerReceivedItems.Text = "Edit Received Items";
+            this.B_EditPlayerReceivedItems.Click += new System.EventHandler(this.B_EditPlayerReceivedItems_Click);
+            // 
+            // B_EditAchievements
+            // 
+            this.B_EditAchievements.Name = "B_EditAchievements";
+            this.B_EditAchievements.Size = new System.Drawing.Size(176, 22);
+            this.B_EditAchievements.Text = "Edit Achievements";
+            this.B_EditAchievements.Click += new System.EventHandler(this.B_EditAchievements_Click);
+            // 
+            // B_EditPlayerRecipes
+            // 
+            this.B_EditPlayerRecipes.Name = "B_EditPlayerRecipes";
+            this.B_EditPlayerRecipes.Size = new System.Drawing.Size(176, 22);
+            this.B_EditPlayerRecipes.Text = "Edit Recipes";
+            this.B_EditPlayerRecipes.Click += new System.EventHandler(this.B_EditPlayerRecipes_Click);
+            // 
             // B_EditPlayerFlags
             // 
-            this.B_EditPlayerFlags.Location = new System.Drawing.Point(202, 122);
+            this.B_EditPlayerFlags.Location = new System.Drawing.Point(300, 122);
             this.B_EditPlayerFlags.Name = "B_EditPlayerFlags";
             this.B_EditPlayerFlags.Size = new System.Drawing.Size(92, 40);
             this.B_EditPlayerFlags.TabIndex = 17;
             this.B_EditPlayerFlags.Text = "Edit Flags";
             this.B_EditPlayerFlags.UseVisualStyleBackColor = true;
             this.B_EditPlayerFlags.Click += new System.EventHandler(this.B_EditPlayerFlags_Click);
-            // 
-            // B_EditAchievements
-            // 
-            this.B_EditAchievements.Location = new System.Drawing.Point(301, 122);
-            this.B_EditAchievements.Name = "B_EditAchievements";
-            this.B_EditAchievements.Size = new System.Drawing.Size(92, 40);
-            this.B_EditAchievements.TabIndex = 16;
-            this.B_EditAchievements.Text = "Edit Achievements";
-            this.B_EditAchievements.UseVisualStyleBackColor = true;
-            this.B_EditAchievements.Click += new System.EventHandler(this.B_EditAchievements_Click);
-            // 
-            // B_EditPlayerReceivedItems
-            // 
-            this.B_EditPlayerReceivedItems.Location = new System.Drawing.Point(300, 168);
-            this.B_EditPlayerReceivedItems.Name = "B_EditPlayerReceivedItems";
-            this.B_EditPlayerReceivedItems.Size = new System.Drawing.Size(92, 40);
-            this.B_EditPlayerReceivedItems.TabIndex = 15;
-            this.B_EditPlayerReceivedItems.Text = "Edit Received Items";
-            this.B_EditPlayerReceivedItems.UseVisualStyleBackColor = true;
-            this.B_EditPlayerReceivedItems.Click += new System.EventHandler(this.B_EditPlayerReceivedItems_Click);
-            // 
-            // B_EditPlayerStorage
-            // 
-            this.B_EditPlayerStorage.Location = new System.Drawing.Point(104, 168);
-            this.B_EditPlayerStorage.Name = "B_EditPlayerStorage";
-            this.B_EditPlayerStorage.Size = new System.Drawing.Size(92, 40);
-            this.B_EditPlayerStorage.TabIndex = 14;
-            this.B_EditPlayerStorage.Text = "Edit Storage";
-            this.B_EditPlayerStorage.UseVisualStyleBackColor = true;
-            this.B_EditPlayerStorage.Click += new System.EventHandler(this.B_Storage_Click);
-            // 
-            // B_EditPlayerRecipes
-            // 
-            this.B_EditPlayerRecipes.Location = new System.Drawing.Point(202, 168);
-            this.B_EditPlayerRecipes.Name = "B_EditPlayerRecipes";
-            this.B_EditPlayerRecipes.Size = new System.Drawing.Size(92, 40);
-            this.B_EditPlayerRecipes.TabIndex = 13;
-            this.B_EditPlayerRecipes.Text = "Edit Recipes";
-            this.B_EditPlayerRecipes.UseVisualStyleBackColor = true;
-            this.B_EditPlayerRecipes.Click += new System.EventHandler(this.B_EditPlayerRecipes_Click);
             // 
             // B_EditPlayerItems
             // 
@@ -575,25 +560,15 @@
             this.TC_Editors.Size = new System.Drawing.Size(404, 237);
             this.TC_Editors.TabIndex = 1;
             // 
-            // B_EditPatterns
+            // B_EditPlayerHouses
             // 
-            this.B_EditPatterns.Location = new System.Drawing.Point(104, 122);
-            this.B_EditPatterns.Name = "B_EditPatterns";
-            this.B_EditPatterns.Size = new System.Drawing.Size(92, 40);
-            this.B_EditPatterns.TabIndex = 54;
-            this.B_EditPatterns.Text = "Edit Patterns";
-            this.B_EditPatterns.UseVisualStyleBackColor = true;
-            this.B_EditPatterns.Click += new System.EventHandler(this.B_EditPatterns_Click);
-            // 
-            // B_EditPRODesigns
-            // 
-            this.B_EditPRODesigns.Location = new System.Drawing.Point(104, 168);
-            this.B_EditPRODesigns.Name = "B_EditPRODesigns";
-            this.B_EditPRODesigns.Size = new System.Drawing.Size(92, 40);
-            this.B_EditPRODesigns.TabIndex = 55;
-            this.B_EditPRODesigns.Text = "Edit PRO Designs";
-            this.B_EditPRODesigns.UseVisualStyleBackColor = true;
-            this.B_EditPRODesigns.Click += new System.EventHandler(this.B_EditPRODesigns_Click);
+            this.B_EditPlayerHouses.Location = new System.Drawing.Point(6, 168);
+            this.B_EditPlayerHouses.Name = "B_EditPlayerHouses";
+            this.B_EditPlayerHouses.Size = new System.Drawing.Size(92, 40);
+            this.B_EditPlayerHouses.TabIndex = 56;
+            this.B_EditPlayerHouses.Text = "Edit Player Houses";
+            this.B_EditPlayerHouses.UseVisualStyleBackColor = true;
+            this.B_EditPlayerHouses.Click += new System.EventHandler(this.B_EditPlayerHouses_Click);
             // 
             // Editor
             // 
@@ -612,9 +587,10 @@
             this.Menu_Editor.PerformLayout();
             this.CM_Picture.ResumeLayout(false);
             this.Tab_Map.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_PlayerHouse)).EndInit();
+            this.CM_EditMap.ResumeLayout(false);
             this.Tab_Players.ResumeLayout(false);
             this.Tab_Players.PerformLayout();
+            this.CM_EditPlayer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Wallet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_NookMiles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).EndInit();
@@ -642,23 +618,11 @@
         private System.Windows.Forms.ToolStripMenuItem Menu_Settings;
         private System.Windows.Forms.TabPage Tab_Map;
         private System.Windows.Forms.Button B_EditLandFlags;
-        private System.Windows.Forms.Label L_PlayerHouse;
-        private System.Windows.Forms.NumericUpDown NUD_PlayerHouse;
-        private System.Windows.Forms.Button B_LoadHouse;
-        private System.Windows.Forms.Button B_DumpHouse;
-        private System.Windows.Forms.Button B_EditFieldItems;
-        private System.Windows.Forms.Button B_EditTerrain;
-        private System.Windows.Forms.Button B_EditAcres;
         private System.Windows.Forms.Button B_EditTurnipExchange;
-        private System.Windows.Forms.Button B_EditBuildings;
         private System.Windows.Forms.Button B_RecycleBin;
         private System.Windows.Forms.TabPage Tab_Villagers;
         private System.Windows.Forms.TabPage Tab_Players;
         private System.Windows.Forms.Button B_EditPlayerFlags;
-        private System.Windows.Forms.Button B_EditAchievements;
-        private System.Windows.Forms.Button B_EditPlayerReceivedItems;
-        private System.Windows.Forms.Button B_EditPlayerStorage;
-        private System.Windows.Forms.Button B_EditPlayerRecipes;
         private System.Windows.Forms.Button B_EditPlayerItems;
         private System.Windows.Forms.Label L_Wallet;
         private System.Windows.Forms.NumericUpDown NUD_Wallet;
@@ -675,6 +639,19 @@
         private System.Windows.Forms.TabControl TC_Editors;
         private System.Windows.Forms.Button B_EditPatterns;
         private System.Windows.Forms.Button B_EditPRODesigns;
+        private System.Windows.Forms.Button B_EditMap;
+        private System.Windows.Forms.ContextMenuStrip CM_EditMap;
+        private System.Windows.Forms.ToolStripMenuItem B_EditTerrain;
+        private System.Windows.Forms.ToolStripMenuItem B_EditBuildings;
+        private System.Windows.Forms.ToolStripMenuItem B_EditAcres;
+        private System.Windows.Forms.ToolStripMenuItem B_EditFieldItems;
+        private System.Windows.Forms.ContextMenuStrip CM_EditPlayer;
+        private System.Windows.Forms.ToolStripMenuItem B_EditPlayerStorage;
+        private System.Windows.Forms.ToolStripMenuItem B_EditPlayerReceivedItems;
+        private System.Windows.Forms.ToolStripMenuItem B_EditAchievements;
+        private System.Windows.Forms.ToolStripMenuItem B_EditPlayerRecipes;
+        private System.Windows.Forms.Button B_EditPlayer;
+        private System.Windows.Forms.Button B_EditPlayerHouses;
     }
 }
 

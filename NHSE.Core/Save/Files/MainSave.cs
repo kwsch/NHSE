@@ -11,14 +11,12 @@ namespace NHSE.Core
         public readonly MainSaveOffsets Offsets;
         public MainSave(string folder) : base(folder, "main") => Offsets = MainSaveOffsets.GetOffsets(Info);
 
-        public const int VillagerCount = 10;
-        public const int PlayerCount = 8;
         public Villager GetVillager(int index) => Offsets.ReadVillager(Data, index);
         public void SetVillager(Villager value, int index) => Offsets.WriteVillager(value, Data, index);
 
         public Villager[] GetVillagers()
         {
-            var villagers = new Villager[VillagerCount];
+            var villagers = new Villager[MainSaveOffsets.VillagerCount];
             for (int i = 0; i < villagers.Length; i++)
                 villagers[i] = GetVillager(i);
             return villagers;
@@ -77,7 +75,7 @@ namespace NHSE.Core
 
         public VillagerHouse[] GetVillagerHouses()
         {
-            var villagers = new VillagerHouse[VillagerCount];
+            var villagers = new VillagerHouse[MainSaveOffsets.VillagerCount];
             for (int i = 0; i < villagers.Length; i++)
                 villagers[i] = GetVillagerHouse(i);
             return villagers;
@@ -91,7 +89,7 @@ namespace NHSE.Core
 
         public PlayerHouse[] GetPlayerHouses()
         {
-            var villagers = new PlayerHouse[PlayerCount];
+            var villagers = new PlayerHouse[MainSaveOffsets.PlayerCount];
             for (int i = 0; i < villagers.Length; i++)
                 villagers[i] = GetPlayerHouse(i);
             return villagers;
