@@ -9,6 +9,8 @@ namespace NHSE.Sprites
     {
         public static Color GetTileColor(TerrainTile tile)
         {
+            if (tile.UnitModelRoad.IsRoad())
+                return Color.RosyBrown;
             var name = tile.UnitModel.ToString();
             var baseColor = GetTileColor(name);
             if (tile.Elevation == 0)

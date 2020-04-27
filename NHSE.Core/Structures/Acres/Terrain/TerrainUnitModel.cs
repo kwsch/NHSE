@@ -249,4 +249,10 @@
         RoadWood7A = 0x110,
         RoadWood8A = 0x111,
     }
+
+    public static class TerrainUnitModelExtensions
+    {
+        public static bool IsRoad(this TerrainUnitModel t) =>
+            t >= TerrainUnitModel.RoadBrick0A || (TerrainUnitModel.RoadSoil0A <= t && t <= TerrainUnitModel.RoadStone8A);
+    }
 }
