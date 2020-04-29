@@ -29,9 +29,12 @@
     <None Remove="Resources\text\ko\MessageStrings_ko.txt" />
     <None Remove="Resources\text\ko\text_item_ko.txt" />
     <None Remove="Resources\text\ko\text_villager_ko.txt" />
-    <None Remove="Resources\text\zh\MessageStrings_zh.txt" />
-    <None Remove="Resources\text\zh\text_item_zh.txt" />
-    <None Remove="Resources\text\zh\text_villager_zh.txt" />
+    <None Remove="Resources\text\zhs\MessageStrings_zhs.txt" />
+    <None Remove="Resources\text\zhs\text_item_zhs.txt" />
+    <None Remove="Resources\text\zhs\text_villager_zhs.txt" />
+    <None Remove="Resources\text\zht\MessageStrings_zht.txt" />
+    <None Remove="Resources\text\zht\text_item_zht.txt" />
+    <None Remove="Resources\text\zht\text_villager_zht.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -57,9 +60,12 @@
     <EmbeddedResource Include="Resources\text\ko\MessageStrings_ko.txt" />
     <EmbeddedResource Include="Resources\text\ko\text_item_ko.txt" />
     <EmbeddedResource Include="Resources\text\ko\text_villager_ko.txt" />
-    <EmbeddedResource Include="Resources\text\zh\MessageStrings_zh.txt" />
-    <EmbeddedResource Include="Resources\text\zh\text_item_zh.txt" />
-    <EmbeddedResource Include="Resources\text\zh\text_villager_zh.txt" />
+    <EmbeddedResource Include="Resources\text\zhs\MessageStrings_zhs.txt" />
+    <EmbeddedResource Include="Resources\text\zhs\text_item_zhs.txt" />
+    <EmbeddedResource Include="Resources\text\zhs\text_villager_zhs.txt" />
+    <EmbeddedResource Include="Resources\text\zht\MessageStrings_zht.txt" />
+    <EmbeddedResource Include="Resources\text\zht\text_item_zht.txt" />
+    <EmbeddedResource Include="Resources\text\zht\text_villager_zht.txt" />
   </ItemGroup>
 
 </Project>
