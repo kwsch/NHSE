@@ -11,22 +11,23 @@ namespace NHSE.Sprites
         {
             if (tile.UnitModelRoad.IsRoad())
                 return Color.RosyBrown;
-            var name = tile.UnitModel.ToString();
-            var baseColor = GetTileColor(name);
+            var baseColor = GetTileDefaultColor(tile.UnitModel);
             if (tile.Elevation == 0)
                 return baseColor;
 
             return ColorUtil.Blend(baseColor, Color.White, 1d / (tile.Elevation + 1));
         }
 
-        private static Color GetTileColor(string name)
+        private static readonly Color CliffBase = ColorUtil.Blend(Color.ForestGreen, Color.Black, 0.6d);
+
+        private static Color GetTileDefaultColor(TerrainUnitModel mdl)
         {
-            if (name.StartsWith("River")) // River
+            if (mdl.IsRiver())
                 return Color.DeepSkyBlue;
-            if (name.StartsWith("Fall")) // Waterfall
+            if (mdl.IsFall())
                 return Color.DarkBlue;
-            if (name.Contains("Cliff"))
-                return ColorUtil.Blend(Color.ForestGreen, Color.Black, 0.5d);
+            if (mdl.IsCliff())
+                return CliffBase;
             return Color.ForestGreen;
         }
 

@@ -1,4 +1,6 @@
-﻿namespace NHSE.Core
+﻿using static NHSE.Core.TerrainUnitModel;
+
+namespace NHSE.Core
 {
     public enum TerrainUnitModel : ushort
     {
@@ -252,7 +254,9 @@
 
     public static class TerrainUnitModelExtensions
     {
-        public static bool IsRoad(this TerrainUnitModel t) =>
-            t >= TerrainUnitModel.RoadBrick0A || (TerrainUnitModel.RoadSoil0A <= t && t <= TerrainUnitModel.RoadStone8A);
+        public static bool IsRoad(this TerrainUnitModel t) => t >= RoadBrick0A || (RoadSoil0A <= t && t <= RoadStone8A);
+        public static bool IsFall(this TerrainUnitModel t) => (Fall101 <= t && t <= Fall404) || (Fall103 <= t && t <= Fall424);
+        public static bool IsCliff(this TerrainUnitModel t) => (Cliff0A <= t && t <= Cliff8) || (t == Cliff2B);
+        public static bool IsRiver(this TerrainUnitModel t) => (River0A <= t && t <= River8A);
     }
 }
