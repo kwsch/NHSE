@@ -24,8 +24,56 @@ namespace NHSE.Core
         [field: FieldOffset(4)] public ushort Count { get; set; }
         [field: FieldOffset(6)] public ushort UseCount { get; set; }
 
-        [field: FieldOffset(4)] public FlowerGene Genes { get; set; } // flowers only
-        [field: FieldOffset(6)] public byte FlowerFlags { get; set; } // flowers only
+        #region Flowers
+
+        // flowers only
+        [field: FieldOffset(4)] public FlowerGene Genes { get; set; }
+        [field: FieldOffset(5)] private ushort Watered { get; set; }
+        // ReSharper disable once UnusedAutoPropertyAccessor.Local
+        [field: FieldOffset(7)] private byte Unused { get; set; }
+        // offset 7 is unused bits
+
+        public int WaterVal1
+        {
+            get => Watered & 0x1F;
+            set => Watered = (ushort)((Watered & 0xFFE0) | (value & 0x1F));
+        }
+
+        public int DaysWatered
+        {
+            get => (Watered >> 5) & 0x1F;
+            set => Watered = (ushort)((Watered & 0xFC1F) | ((value & 0x1F) << 5));
+        }
+
+        public int WaterVal3
+        {
+            get => (Watered >> 10) & 0x1F;
+            set => Watered = (ushort)((Watered & 0x83FF) | ((value & 0x1F) << 10));
+        }
+
+        public bool IsWatered
+        {
+            get => ((Watered >> 15) & 1) == 1;
+            set => Watered = (ushort)((Watered & 0x7FFF) | (value ? 0x8000 : 0));
+        }
+
+        public void SetFlowerData(FlowerGene gene, int wv1, int days, int wv3, bool watered)
+        {
+            Genes = gene;
+            WaterVal1 = wv1;
+            DaysWatered = days;
+            WaterVal3 = wv3;
+            Unused = 0;
+            IsWatered = watered;
+        }
+
+        public void Water()
+        {
+            DaysWatered = 31;
+            IsWatered = true;
+        }
+
+        #endregion
 
         public ItemType Type => (ItemType) (Flags1 & 3);
         public int ReservedIndex => (Flags1 >> 2) & 0xF;

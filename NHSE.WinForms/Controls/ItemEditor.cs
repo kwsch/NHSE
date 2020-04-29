@@ -38,7 +38,10 @@ namespace NHSE.WinForms
             if (kind.IsFlower())
             {
                 LoadGenes(item.Genes);
-                LoadFlags(item.FlowerFlags);
+                CHK_IsWatered.Checked = item.IsWatered;
+                NUD_Water1.Value = item.WaterVal1;
+                NUD_WaterDays.Value = item.DaysWatered;
+                NUD_Water3.Value = item.WaterVal3;
             }
 
             return item;
@@ -50,8 +53,7 @@ namespace NHSE.WinForms
             item.ItemId = (ushort) id;
             if (kind.IsFlower())
             {
-                item.Genes = SaveGenes();
-                item.FlowerFlags = SaveFlags();
+                item.SetFlowerData(SaveGenes(), (int)NUD_Water1.Value, (int)NUD_WaterDays.Value, (int)NUD_Water3.Value, CHK_IsWatered.Checked);
             }
             else
             {
@@ -129,32 +131,6 @@ namespace NHSE.WinForms
             if (CHK_W2.Checked) val |= FlowerGene.W2;
             if (CHK_S1.Checked) val |= FlowerGene.S1;
             if (CHK_S2.Checked) val |= FlowerGene.S2;
-            return val;
-        }
-
-        private void LoadFlags(byte flags)
-        {
-            CHK_F1.Checked = (flags & 001) != 0;
-            CHK_F2.Checked = (flags & 002) != 0;
-            CHK_F3.Checked = (flags & 004) != 0;
-            CHK_F4.Checked = (flags & 008) != 0;
-            CHK_F5.Checked = (flags & 016) != 0;
-            CHK_F6.Checked = (flags & 032) != 0;
-            CHK_F7.Checked = (flags & 064) != 0;
-            CHK_F8.Checked = (flags & 128) != 0;
-        }
-
-        private byte SaveFlags()
-        {
-            byte val = 0;
-            if (CHK_F1.Checked) val |= 001;
-            if (CHK_F2.Checked) val |= 002;
-            if (CHK_F3.Checked) val |= 004;
-            if (CHK_F4.Checked) val |= 008;
-            if (CHK_F5.Checked) val |= 016;
-            if (CHK_F6.Checked) val |= 032;
-            if (CHK_F7.Checked) val |= 064;
-            if (CHK_F8.Checked) val |= 128;
             return val;
         }
     }

@@ -58,14 +58,13 @@
             this.CHK_S2 = new System.Windows.Forms.CheckBox();
             this.CHK_S1 = new System.Windows.Forms.CheckBox();
             this.FLP_FlowerFlags = new System.Windows.Forms.FlowLayoutPanel();
-            this.CHK_F2 = new System.Windows.Forms.CheckBox();
-            this.CHK_F1 = new System.Windows.Forms.CheckBox();
-            this.CHK_F4 = new System.Windows.Forms.CheckBox();
-            this.CHK_F3 = new System.Windows.Forms.CheckBox();
-            this.CHK_F6 = new System.Windows.Forms.CheckBox();
-            this.CHK_F5 = new System.Windows.Forms.CheckBox();
-            this.CHK_F8 = new System.Windows.Forms.CheckBox();
-            this.CHK_F7 = new System.Windows.Forms.CheckBox();
+            this.CHK_IsWatered = new System.Windows.Forms.CheckBox();
+            this.NUD_WaterDays = new System.Windows.Forms.NumericUpDown();
+            this.L_WaterDays = new System.Windows.Forms.Label();
+            this.NUD_Water1 = new System.Windows.Forms.NumericUpDown();
+            this.L_Water1 = new System.Windows.Forms.Label();
+            this.NUD_Water3 = new System.Windows.Forms.NumericUpDown();
+            this.L_Water3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Count)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Uses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag0)).BeginInit();
@@ -78,6 +77,9 @@
             this.FLP_Flag1.SuspendLayout();
             this.FLP_Genetics.SuspendLayout();
             this.FLP_FlowerFlags.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_WaterDays)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_Water1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_Water3)).BeginInit();
             this.SuspendLayout();
             // 
             // CB_ItemID
@@ -420,14 +422,13 @@
             // 
             // FLP_FlowerFlags
             // 
-            this.FLP_FlowerFlags.Controls.Add(this.CHK_F2);
-            this.FLP_FlowerFlags.Controls.Add(this.CHK_F1);
-            this.FLP_FlowerFlags.Controls.Add(this.CHK_F4);
-            this.FLP_FlowerFlags.Controls.Add(this.CHK_F3);
-            this.FLP_FlowerFlags.Controls.Add(this.CHK_F6);
-            this.FLP_FlowerFlags.Controls.Add(this.CHK_F5);
-            this.FLP_FlowerFlags.Controls.Add(this.CHK_F8);
-            this.FLP_FlowerFlags.Controls.Add(this.CHK_F7);
+            this.FLP_FlowerFlags.Controls.Add(this.CHK_IsWatered);
+            this.FLP_FlowerFlags.Controls.Add(this.NUD_WaterDays);
+            this.FLP_FlowerFlags.Controls.Add(this.L_WaterDays);
+            this.FLP_FlowerFlags.Controls.Add(this.NUD_Water1);
+            this.FLP_FlowerFlags.Controls.Add(this.L_Water1);
+            this.FLP_FlowerFlags.Controls.Add(this.NUD_Water3);
+            this.FLP_FlowerFlags.Controls.Add(this.L_Water3);
             this.FLP_FlowerFlags.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.FLP_FlowerFlags.Location = new System.Drawing.Point(106, 150);
             this.FLP_FlowerFlags.Margin = new System.Windows.Forms.Padding(0);
@@ -435,124 +436,91 @@
             this.FLP_FlowerFlags.Size = new System.Drawing.Size(106, 81);
             this.FLP_FlowerFlags.TabIndex = 20;
             // 
-            // CHK_F2
+            // CHK_IsWatered
             // 
-            this.CHK_F2.AutoSize = true;
-            this.CHK_F2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_F2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_F2.Location = new System.Drawing.Point(66, 0);
-            this.CHK_F2.Margin = new System.Windows.Forms.Padding(0);
-            this.CHK_F2.Name = "CHK_F2";
-            this.CHK_F2.Size = new System.Drawing.Size(40, 18);
-            this.CHK_F2.TabIndex = 0;
-            this.CHK_F2.Text = "F2";
-            this.CHK_F2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_F2.UseVisualStyleBackColor = true;
-            this.CHK_F2.Visible = false;
+            this.CHK_IsWatered.AutoSize = true;
+            this.CHK_IsWatered.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_IsWatered.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHK_IsWatered.Location = new System.Drawing.Point(31, 0);
+            this.CHK_IsWatered.Margin = new System.Windows.Forms.Padding(0);
+            this.CHK_IsWatered.Name = "CHK_IsWatered";
+            this.CHK_IsWatered.Size = new System.Drawing.Size(75, 18);
+            this.CHK_IsWatered.TabIndex = 6;
+            this.CHK_IsWatered.Text = "Watered";
+            this.CHK_IsWatered.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_IsWatered.UseVisualStyleBackColor = true;
             // 
-            // CHK_F1
+            // NUD_WaterDays
             // 
-            this.CHK_F1.AutoSize = true;
-            this.CHK_F1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_F1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_F1.Location = new System.Drawing.Point(26, 0);
-            this.CHK_F1.Margin = new System.Windows.Forms.Padding(0);
-            this.CHK_F1.Name = "CHK_F1";
-            this.CHK_F1.Size = new System.Drawing.Size(40, 18);
-            this.CHK_F1.TabIndex = 1;
-            this.CHK_F1.Text = "F1";
-            this.CHK_F1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_F1.UseVisualStyleBackColor = true;
-            this.CHK_F1.Visible = false;
+            this.NUD_WaterDays.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NUD_WaterDays.Location = new System.Drawing.Point(71, 18);
+            this.NUD_WaterDays.Margin = new System.Windows.Forms.Padding(0);
+            this.NUD_WaterDays.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.NUD_WaterDays.Name = "NUD_WaterDays";
+            this.NUD_WaterDays.Size = new System.Drawing.Size(35, 20);
+            this.NUD_WaterDays.TabIndex = 7;
             // 
-            // CHK_F4
+            // L_WaterDays
             // 
-            this.CHK_F4.AutoSize = true;
-            this.CHK_F4.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_F4.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_F4.Location = new System.Drawing.Point(66, 18);
-            this.CHK_F4.Margin = new System.Windows.Forms.Padding(0);
-            this.CHK_F4.Name = "CHK_F4";
-            this.CHK_F4.Size = new System.Drawing.Size(40, 18);
-            this.CHK_F4.TabIndex = 2;
-            this.CHK_F4.Text = "F4";
-            this.CHK_F4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_F4.UseVisualStyleBackColor = true;
-            this.CHK_F4.Visible = false;
+            this.L_WaterDays.AutoSize = true;
+            this.L_WaterDays.Location = new System.Drawing.Point(34, 21);
+            this.L_WaterDays.Margin = new System.Windows.Forms.Padding(3);
+            this.L_WaterDays.Name = "L_WaterDays";
+            this.L_WaterDays.Size = new System.Drawing.Size(34, 13);
+            this.L_WaterDays.TabIndex = 8;
+            this.L_WaterDays.Text = "Days:";
             // 
-            // CHK_F3
+            // NUD_Water1
             // 
-            this.CHK_F3.AutoSize = true;
-            this.CHK_F3.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_F3.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_F3.Location = new System.Drawing.Point(26, 18);
-            this.CHK_F3.Margin = new System.Windows.Forms.Padding(0);
-            this.CHK_F3.Name = "CHK_F3";
-            this.CHK_F3.Size = new System.Drawing.Size(40, 18);
-            this.CHK_F3.TabIndex = 3;
-            this.CHK_F3.Text = "F3";
-            this.CHK_F3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_F3.UseVisualStyleBackColor = true;
-            this.CHK_F3.Visible = false;
+            this.NUD_Water1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NUD_Water1.Location = new System.Drawing.Point(71, 38);
+            this.NUD_Water1.Margin = new System.Windows.Forms.Padding(0);
+            this.NUD_Water1.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.NUD_Water1.Name = "NUD_Water1";
+            this.NUD_Water1.Size = new System.Drawing.Size(35, 20);
+            this.NUD_Water1.TabIndex = 9;
             // 
-            // CHK_F6
+            // L_Water1
             // 
-            this.CHK_F6.AutoSize = true;
-            this.CHK_F6.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_F6.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_F6.Location = new System.Drawing.Point(66, 36);
-            this.CHK_F6.Margin = new System.Windows.Forms.Padding(0);
-            this.CHK_F6.Name = "CHK_F6";
-            this.CHK_F6.Size = new System.Drawing.Size(40, 18);
-            this.CHK_F6.TabIndex = 4;
-            this.CHK_F6.Text = "F6";
-            this.CHK_F6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_F6.UseVisualStyleBackColor = true;
-            this.CHK_F6.Visible = false;
+            this.L_Water1.AutoSize = true;
+            this.L_Water1.Location = new System.Drawing.Point(32, 41);
+            this.L_Water1.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Water1.Name = "L_Water1";
+            this.L_Water1.Size = new System.Drawing.Size(36, 13);
+            this.L_Water1.TabIndex = 10;
+            this.L_Water1.Text = "Unk1:";
             // 
-            // CHK_F5
+            // NUD_Water3
             // 
-            this.CHK_F5.AutoSize = true;
-            this.CHK_F5.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_F5.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_F5.Location = new System.Drawing.Point(26, 36);
-            this.CHK_F5.Margin = new System.Windows.Forms.Padding(0);
-            this.CHK_F5.Name = "CHK_F5";
-            this.CHK_F5.Size = new System.Drawing.Size(40, 18);
-            this.CHK_F5.TabIndex = 5;
-            this.CHK_F5.Text = "F5";
-            this.CHK_F5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_F5.UseVisualStyleBackColor = true;
-            this.CHK_F5.Visible = false;
+            this.NUD_Water3.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NUD_Water3.Location = new System.Drawing.Point(71, 58);
+            this.NUD_Water3.Margin = new System.Windows.Forms.Padding(0);
+            this.NUD_Water3.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.NUD_Water3.Name = "NUD_Water3";
+            this.NUD_Water3.Size = new System.Drawing.Size(35, 20);
+            this.NUD_Water3.TabIndex = 11;
             // 
-            // CHK_F8
+            // L_Water3
             // 
-            this.CHK_F8.AutoSize = true;
-            this.CHK_F8.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_F8.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_F8.Location = new System.Drawing.Point(31, 54);
-            this.CHK_F8.Margin = new System.Windows.Forms.Padding(0);
-            this.CHK_F8.Name = "CHK_F8";
-            this.CHK_F8.Size = new System.Drawing.Size(75, 18);
-            this.CHK_F8.TabIndex = 6;
-            this.CHK_F8.Text = "Watered";
-            this.CHK_F8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_F8.UseVisualStyleBackColor = true;
-            // 
-            // CHK_F7
-            // 
-            this.CHK_F7.AutoSize = true;
-            this.CHK_F7.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_F7.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_F7.Location = new System.Drawing.Point(66, 72);
-            this.CHK_F7.Margin = new System.Windows.Forms.Padding(0);
-            this.CHK_F7.Name = "CHK_F7";
-            this.CHK_F7.Size = new System.Drawing.Size(40, 18);
-            this.CHK_F7.TabIndex = 7;
-            this.CHK_F7.Text = "F7";
-            this.CHK_F7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_F7.UseVisualStyleBackColor = true;
-            this.CHK_F7.Visible = false;
+            this.L_Water3.AutoSize = true;
+            this.L_Water3.Location = new System.Drawing.Point(32, 61);
+            this.L_Water3.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Water3.Name = "L_Water3";
+            this.L_Water3.Size = new System.Drawing.Size(36, 13);
+            this.L_Water3.TabIndex = 12;
+            this.L_Water3.Text = "Unk2:";
             // 
             // ItemEditor
             // 
@@ -579,6 +547,9 @@
             this.FLP_Genetics.PerformLayout();
             this.FLP_FlowerFlags.ResumeLayout(false);
             this.FLP_FlowerFlags.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_WaterDays)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_Water1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_Water3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -613,13 +584,12 @@
         private System.Windows.Forms.CheckBox CHK_S2;
         private System.Windows.Forms.CheckBox CHK_S1;
         private System.Windows.Forms.FlowLayoutPanel FLP_FlowerFlags;
-        private System.Windows.Forms.CheckBox CHK_F2;
-        private System.Windows.Forms.CheckBox CHK_F1;
-        private System.Windows.Forms.CheckBox CHK_F4;
-        private System.Windows.Forms.CheckBox CHK_F3;
-        private System.Windows.Forms.CheckBox CHK_F6;
-        private System.Windows.Forms.CheckBox CHK_F5;
-        private System.Windows.Forms.CheckBox CHK_F8;
-        private System.Windows.Forms.CheckBox CHK_F7;
+        private System.Windows.Forms.CheckBox CHK_IsWatered;
+        private System.Windows.Forms.NumericUpDown NUD_WaterDays;
+        private System.Windows.Forms.Label L_WaterDays;
+        private System.Windows.Forms.NumericUpDown NUD_Water1;
+        private System.Windows.Forms.Label L_Water1;
+        private System.Windows.Forms.NumericUpDown NUD_Water3;
+        private System.Windows.Forms.Label L_Water3;
     }
 }
