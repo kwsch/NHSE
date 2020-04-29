@@ -65,12 +65,14 @@
             this.B_RemoveObjects = new System.Windows.Forms.Button();
             this.GB_Remove = new System.Windows.Forms.GroupBox();
             this.B_RemovePlacedItems = new System.Windows.Forms.Button();
+            this.TR_Transparency = new System.Windows.Forms.TrackBar();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Layer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Acre)).BeginInit();
             this.GB_Remove.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TR_Transparency)).BeginInit();
             this.SuspendLayout();
             // 
             // B_Cancel
@@ -420,11 +422,23 @@
             this.B_RemovePlacedItems.UseVisualStyleBackColor = true;
             this.B_RemovePlacedItems.Click += new System.EventHandler(this.B_RemovePlacedItems_Click);
             // 
+            // TR_Transparency
+            // 
+            this.TR_Transparency.Location = new System.Drawing.Point(535, 250);
+            this.TR_Transparency.Maximum = 100;
+            this.TR_Transparency.Name = "TR_Transparency";
+            this.TR_Transparency.Size = new System.Drawing.Size(226, 45);
+            this.TR_Transparency.TabIndex = 36;
+            this.TR_Transparency.TickFrequency = 10;
+            this.TR_Transparency.Value = 90;
+            this.TR_Transparency.Scroll += new System.EventHandler(this.TR_Transparency_Scroll);
+            // 
             // FieldItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(981, 537);
+            this.Controls.Add(this.TR_Transparency);
             this.Controls.Add(this.GB_Remove);
             this.Controls.Add(this.PB_Acre);
             this.Controls.Add(this.L_Layer);
@@ -458,6 +472,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Layer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Acre)).EndInit();
             this.GB_Remove.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.TR_Transparency)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -499,5 +514,6 @@
         private System.Windows.Forms.Button B_RemoveObjects;
         private System.Windows.Forms.GroupBox GB_Remove;
         private System.Windows.Forms.Button B_RemovePlacedItems;
+        private System.Windows.Forms.TrackBar TR_Transparency;
     }
 }

@@ -60,7 +60,7 @@ namespace NHSE.Sprites
         }
 
         // non-allocation image generator
-        public static Bitmap GetBitmapLayerAcre(FieldItemLayer layer, int x0, int y0, int scale, int[] acre1, int[] acreScale, Bitmap dest)
+        public static Bitmap GetBitmapLayerAcre(FieldItemLayer layer, int x0, int y0, int scale, int[] acre1, int[] acreScale, Bitmap dest, int transparency = -1)
         {
             var w = layer.GridWidth;
             var h = layer.GridHeight;
@@ -68,6 +68,9 @@ namespace NHSE.Sprites
             w *= scale;
             h *= scale;
             ImageUtil.ScalePixelImage(acre1, acreScale, w, h, scale);
+
+            if (transparency >> 24 != 0xFF)
+                ImageUtil.SetAllTransparencyTo(acreScale, transparency);
 
             // draw symbols over special items now?
             DrawDirectionals(acreScale, layer, w, x0, y0, scale);
@@ -185,9 +188,11 @@ namespace NHSE.Sprites
             return DrawViewReticle(map, layer, x, y, scale);
         }
 
-        public static Bitmap GetBitmapLayer(FieldItemLayer layer, int x, int y, int[] data, Bitmap dest)
+        public static Bitmap GetBitmapLayer(FieldItemLayer layer, int x, int y, int[] data, Bitmap dest, int transparency = -1)
         {
             LoadBitmapLayer(layer.Tiles, data, layer.MapWidth, layer.MapHeight);
+            if (transparency >> 24 != 0xFF)
+                ImageUtil.SetAllTransparencyTo(data, transparency);
             ImageUtil.SetBitmapData(dest, data);
             return DrawViewReticle(dest, layer, x, y);
         }

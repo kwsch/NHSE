@@ -57,7 +57,7 @@ namespace NHSE.Sprites
         {
             var kind = ItemInfo.GetItemKind(item);
             if (kind == ItemKind.Unknown)
-                return item.DisplayItemId == FieldItem.NONE ? Color.LimeGreen : Color.DarkGreen;
+                return item.DisplayItemId == FieldItem.NONE ? Color.Transparent : Color.DarkGreen;
             return Colors[(int)kind];
         }
 

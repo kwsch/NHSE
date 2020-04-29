@@ -24,6 +24,8 @@ namespace NHSE.WinForms
         private readonly int[] Map;
         private readonly Bitmap MapReticle;
 
+        private readonly TerrainManager Terrain;
+
         private int X;
         private int Y;
 
@@ -42,6 +44,9 @@ namespace NHSE.WinForms
 
             Map = new int[l1.MapWidth * l1.MapHeight * MapScale * MapScale];
             MapReticle = new Bitmap(l1.MapWidth * MapScale, l1.MapHeight * MapScale);
+
+            Terrain = new TerrainManager(sav.GetTerrain());
+            PB_Map.BackgroundImage = TerrainSprite.CreateMap(Terrain, 2);
 
             foreach (var acre in MapGrid.Acres)
                 CB_Acre.Items.Add(acre.Name);
@@ -65,19 +70,29 @@ namespace NHSE.WinForms
 
         private void ReloadMap()
         {
-            PB_Map.Image = FieldItemSpriteDrawer.GetBitmapLayer(Layer, X, Y, Map, MapReticle);
+            var transparency = TR_Transparency.Value / 100d;
+            var t = ((int)(0xFF * transparency) << 24) | 0x00FF_FFFF;
+            PB_Map.Image = FieldItemSpriteDrawer.GetBitmapLayer(Layer, X, Y, Map, MapReticle, t);
         }
 
         private void LoadGrid(int topX, int topY)
         {
             ReloadGrid(Layer, topX, topY);
+            ReloadBackground(topX, topY);
             UpdateArrowVisibility();
             ReloadMap();
         }
 
+        private void ReloadBackground(int topX, int topY)
+        {
+            PB_Acre.BackgroundImage = TerrainSprite.GetAcre(topX/2, topY/2, Terrain, AcreScale * 2);
+        }
+
         private void ReloadGrid(FieldItemLayer layer, int topX, int topY)
         {
-            PB_Acre.Image = FieldItemSpriteDrawer.GetBitmapLayerAcre(layer, topX, topY, AcreScale, Scale1, ScaleX, ScaleAcre);
+            var transparency = TR_Transparency.Value / 100d;
+            var t = ((int) (0xFF * transparency) << 24) | 0x00FF_FFFF;
+            PB_Acre.Image = FieldItemSpriteDrawer.GetBitmapLayerAcre(layer, topX, topY, AcreScale, Scale1, ScaleX, ScaleAcre, t);
         }
 
         private void UpdateArrowVisibility()
@@ -179,7 +194,7 @@ namespace NHSE.WinForms
             if (ModifierKeys != Keys.Shift)
             {
                 if (Y != 0)
-                    LoadGrid(X, --Y);
+                    LoadGrid(X, Y -= 2);
                 return;
             }
 
@@ -191,7 +206,7 @@ namespace NHSE.WinForms
             if (ModifierKeys != Keys.Shift)
             {
                 if (X != 0)
-                    LoadGrid(--X, Y);
+                    LoadGrid(X -= 2, Y);
                 return;
             }
 
@@ -202,8 +217,8 @@ namespace NHSE.WinForms
         {
             if (ModifierKeys != Keys.Shift)
             {
-                if (X != Layer.MapWidth - 1)
-                    LoadGrid(++X, Y);
+                if (X != Layer.MapWidth - 2)
+                    LoadGrid(X += 2, Y);
                 return;
             }
 
@@ -340,6 +355,8 @@ namespace NHSE.WinForms
             int mY = e.Y;
             bool centerReticle = CHK_SnapToAcre.Checked;
             GetViewAnchorCoordinates(mX, mY, out var x, out var y, centerReticle);
+            x &= 0xFFFE;
+            y &= 0xFFFE;
 
             var acre = layer.GetAcre(x, y);
             bool sameAcre = AcreIndex == acre;
@@ -431,5 +448,11 @@ namespace NHSE.WinForms
         private void B_RemovePlacedItems_Click(object sender, EventArgs e) => Remove(B_RemovePlacedItems, Layer.RemoveAllPlacedItems);
 
         private void PG_Tile_PropertyValueChanged(object s, PropertyValueChangedEventArgs e) => PG_Tile.SelectedObject = PG_Tile.SelectedObject;
+
+        private void TR_Transparency_Scroll(object sender, EventArgs e)
+        {
+            ReloadGrid(Layer, X, Y);
+            ReloadMap();
+        }
     }
 }

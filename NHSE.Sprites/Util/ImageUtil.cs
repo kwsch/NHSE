@@ -108,5 +108,14 @@ namespace NHSE.Sprites
                     Array.Copy(scaled, baseIndex, scaled, baseIndex + (y1 * fW), fW);
             }
         }
+
+        /// <summary>
+        /// Sets a bitwise and of the requested transparency; this is assuming the pixel value is 0xFF_xx_xx_xx. Single operation laziness!
+        /// </summary>
+        public static void SetAllTransparencyTo(int[] data, int trans)
+        {
+            for (int i = 0; i < data.Length; i++)
+                data[i] &= trans;
+        }
     }
 }

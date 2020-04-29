@@ -142,5 +142,23 @@ namespace NHSE.Sprites
             x = (int) (((bx / 2f) - buildingShift) * scale);
             y = (int) (((by / 2f) - buildingShift) * scale);
         }
+
+        public static Image GetAcre(in int topX, in int topY, TerrainManager terrain, int acreScale)
+        {
+            int[] data = new int[16 * 16];
+            int index = 0;
+            for (int y = 0; y < 16; y++)
+            {
+                var yi = y + topY;
+                for (int x = 0; x < 16; x++, index++)
+                {
+                    var tile = terrain.GetTile(x + topX, yi);
+                    data[index] = GetTileColor(tile).ToArgb();
+                }
+            }
+
+            var final = ImageUtil.ScalePixelImage(data, acreScale, 16, 16, out int fw, out int fh);
+            return ImageUtil.GetBitmap(final, fw, fh);
+        }
     }
 }
