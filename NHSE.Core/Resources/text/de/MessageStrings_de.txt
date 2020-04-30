@@ -26,3 +26,4 @@ MsgSysBotInfo=This SysBot reads and writes RAM directly to your game when called
 MsgSysBotRequired=Using this functionality requires the sys-botbase sysmodule running on the console. Your console must be on the same network as the PC running this program.
 MsgTerrainSetElevation0=Set the elevation of all tiles on the map to 0?
 MsgTerrainSetAll=Set the tile from the Tile Editor to all tiles on the map?
+MsgTerrainSetAllSkipExterior=Do you want to skip the tiles in exterior acres (beach/rocks)?
