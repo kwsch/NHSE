@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Injection;
@@ -49,6 +50,8 @@ namespace NHSE.WinForms
             var settings = Settings.Default;
             settings.Language = lang;
             settings.Save();
+
+            Task.Run(() => TranslationUtil.SetLocalization(typeof(MessageStrings), lang));
         }
 
         private void Menu_Save_Click(object sender, EventArgs e)
