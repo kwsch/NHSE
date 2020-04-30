@@ -1,4 +1,4 @@
-MsgBackupCreateLocation=NHSE può fare backup automatici se crei una cartella chiamata '{0}' nella stessa cartella dell'eseguibile.
+MsgBackupCreateLocation=NHSE puï¿½ fare backup automatici se crei una cartella chiamata '{0}' nella stessa cartella dell'eseguibile.
 MsgBackupCreateQuestion=Vuoi che NHSE faccia automaticamente un backup dei tuoi dati di salvataggio?
 MsgDataSizeMismatchImport=La dimensione del file importato (0x{0:X}) non corrisponde alla dimensione richiesta (0x{1:X}).
 MsgDataSizeMismatchRAM=Dimensione letta (0x{0:X}) != Dimensione da scrivere (0x{1:X}).
@@ -18,11 +18,12 @@ MsgSaveDataExportFail=Impossibile salvare i file nella loro posizione originale.
 MsgSaveDataHashesValid=Gli hash sono validi.
 MsgSaveDataSizeMismatch=La dimensione del file di salvataggio sembra essere non valida.
 MsgMoveOut=Stai cercando di far traslocare il Villager?
-MsgMoveOutSuggest=Se si, imposta l'Event Flag (024 - ForceMoveOut) ad 1 cosicché il Villager sia rimosso dal gioco.
+MsgMoveOutSuggest=Se si, imposta l'Event Flag (024 - ForceMoveOut) ad 1 cosicchï¿½ il Villager sia rimosso dal gioco.
 MsgFieldItemRemoveAsk=Sei sicuro di voler rimuovere {0}?
-MsgFieldItemRemoveNone=Non è stato rimosso niente (non è stato trovato niente).
+MsgFieldItemRemoveNone=Non ï¿½ stato rimosso niente (non ï¿½ stato trovato niente).
 MsgFieldItemRemoveCount={0} rimossi dalla mappa.
 MsgSysBotInfo=Questo SysBot legge e scrive direttamente la RAM sul tuo gioco quando viene chiamato Leggi/Scrivi.
-MsgSysBotRequired=Usare questa funzionalità richiede i moduli: sys-botbase e sysmodule attivi sulla tua console. La console deve essere nella stessa rete del PC che esegue questo programma.
+MsgSysBotRequired=Usare questa funzionalitï¿½ richiede i moduli: sys-botbase e sysmodule attivi sulla tua console. La console deve essere nella stessa rete del PC che esegue questo programma.
 MsgTerrainSetElevation0=Impostare l'altezza di tutti i tile della mappa a 0?
 MsgTerrainSetAll=Impostare tutti i tile della mappa al valore del Tile Editor?
+MsgTerrainSetAllSkipExterior=Do you want to skip the tiles in exterior acres (beach/rocks)?
