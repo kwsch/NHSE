@@ -26,29 +26,38 @@ namespace NHSE.Core
 
         #region Flowers
 
-        // flowers only
+        // flowers only -- this is really just a packed u32
         [field: FieldOffset(4)] public FlowerGene Genes { get; set; }
         [field: FieldOffset(5)] private ushort Watered { get; set; }
         // ReSharper disable once UnusedAutoPropertyAccessor.Local
-        [field: FieldOffset(7)] private byte Unused { get; set; }
+        [field: FieldOffset(7)] private byte Watered2 { get; set; }
         // offset 7 is unused bits
 
-        public int WaterVal1
+        public int DaysWatered
         {
             get => Watered & 0x1F;
             set => Watered = (ushort)((Watered & 0xFFE0) | (value & 0x1F));
         }
 
-        public int DaysWatered
+        public bool GetIsWateredByVisitor(int visitor)
         {
-            get => (Watered >> 5) & 0x1F;
-            set => Watered = (ushort)((Watered & 0xFC1F) | ((value & 0x1F) << 5));
+            if ((uint)visitor >= 10)
+                throw new ArgumentOutOfRangeException(nameof(visitor));
+
+            var shift = 5 + visitor;
+            return (Watered & (1 << shift)) != 0;
         }
 
-        public int WaterVal3
+        public void SetIsWateredByVisitor(int visitor, bool value = true)
         {
-            get => (Watered >> 10) & 0x1F;
-            set => Watered = (ushort)((Watered & 0x83FF) | ((value & 0x1F) << 10));
+            if ((uint)visitor >= 10)
+                throw new ArgumentOutOfRangeException(nameof(visitor));
+
+            var shift = 5 + visitor;
+            var bit = (1 << shift);
+            var mask = ~bit;
+
+            Watered = (ushort)((Watered & mask) | (value ? bit : 0));
         }
 
         public bool IsWatered
@@ -57,18 +66,21 @@ namespace NHSE.Core
             set => Watered = (ushort)((Watered & 0x7FFF) | (value ? 0x8000 : 0));
         }
 
-        public void SetFlowerData(FlowerGene gene, int wv1, int days, int wv3, bool watered)
+        public bool IsWateredGold
         {
-            Genes = gene;
-            WaterVal1 = wv1;
-            DaysWatered = days;
-            WaterVal3 = wv3;
-            Unused = 0;
-            IsWatered = watered;
+            get => (Watered2 & 1) == 1;
+            set => Watered2 = (byte)((Watered2 & 0xFE) | (value ? 1 : 0));
         }
 
-        public void Water()
+        public void Water(bool all = false)
         {
+            if (all)
+            {
+                Watered = 0xFFFF;
+                Watered2 = 1;
+                return;
+            }
+
             DaysWatered = 31;
             IsWatered = true;
         }

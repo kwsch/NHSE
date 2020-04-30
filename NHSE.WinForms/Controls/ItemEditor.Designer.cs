@@ -61,10 +61,17 @@
             this.CHK_IsWatered = new System.Windows.Forms.CheckBox();
             this.NUD_WaterDays = new System.Windows.Forms.NumericUpDown();
             this.L_WaterDays = new System.Windows.Forms.Label();
-            this.NUD_Water1 = new System.Windows.Forms.NumericUpDown();
-            this.L_Water1 = new System.Windows.Forms.Label();
-            this.NUD_Water3 = new System.Windows.Forms.NumericUpDown();
-            this.L_Water3 = new System.Windows.Forms.Label();
+            this.CHK_Gold = new System.Windows.Forms.CheckBox();
+            this.CHK_WV1 = new System.Windows.Forms.CheckBox();
+            this.CHK_WV0 = new System.Windows.Forms.CheckBox();
+            this.CHK_WV3 = new System.Windows.Forms.CheckBox();
+            this.CHK_WV2 = new System.Windows.Forms.CheckBox();
+            this.CHK_WV5 = new System.Windows.Forms.CheckBox();
+            this.CHK_WV4 = new System.Windows.Forms.CheckBox();
+            this.CHK_WV7 = new System.Windows.Forms.CheckBox();
+            this.CHK_WV6 = new System.Windows.Forms.CheckBox();
+            this.CHK_WV9 = new System.Windows.Forms.CheckBox();
+            this.CHK_WV8 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Count)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Uses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag0)).BeginInit();
@@ -78,8 +85,6 @@
             this.FLP_Genetics.SuspendLayout();
             this.FLP_FlowerFlags.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_WaterDays)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_Water1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_Water3)).BeginInit();
             this.SuspendLayout();
             // 
             // CB_ItemID
@@ -244,7 +249,7 @@
             this.FLP_Controls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FLP_Controls.Location = new System.Drawing.Point(0, 0);
             this.FLP_Controls.Name = "FLP_Controls";
-            this.FLP_Controls.Size = new System.Drawing.Size(252, 330);
+            this.FLP_Controls.Size = new System.Drawing.Size(211, 352);
             this.FLP_Controls.TabIndex = 15;
             // 
             // FLP_Count
@@ -305,18 +310,17 @@
             this.FLP_Genetics.Location = new System.Drawing.Point(0, 150);
             this.FLP_Genetics.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Genetics.Name = "FLP_Genetics";
-            this.FLP_Genetics.Size = new System.Drawing.Size(106, 81);
+            this.FLP_Genetics.Size = new System.Drawing.Size(106, 65);
             this.FLP_Genetics.TabIndex = 18;
             // 
             // CHK_R2
             // 
-            this.CHK_R2.AutoSize = true;
             this.CHK_R2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_R2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_R2.Location = new System.Drawing.Point(66, 0);
+            this.CHK_R2.Location = new System.Drawing.Point(56, 0);
             this.CHK_R2.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_R2.Name = "CHK_R2";
-            this.CHK_R2.Size = new System.Drawing.Size(40, 18);
+            this.CHK_R2.Size = new System.Drawing.Size(50, 16);
             this.CHK_R2.TabIndex = 0;
             this.CHK_R2.Text = "R2";
             this.CHK_R2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -324,13 +328,12 @@
             // 
             // CHK_R1
             // 
-            this.CHK_R1.AutoSize = true;
             this.CHK_R1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_R1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_R1.Location = new System.Drawing.Point(26, 0);
+            this.CHK_R1.Location = new System.Drawing.Point(6, 0);
             this.CHK_R1.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_R1.Name = "CHK_R1";
-            this.CHK_R1.Size = new System.Drawing.Size(40, 18);
+            this.CHK_R1.Size = new System.Drawing.Size(50, 16);
             this.CHK_R1.TabIndex = 1;
             this.CHK_R1.Text = "R1";
             this.CHK_R1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -338,13 +341,12 @@
             // 
             // CHK_Y2
             // 
-            this.CHK_Y2.AutoSize = true;
             this.CHK_Y2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_Y2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_Y2.Location = new System.Drawing.Point(66, 18);
+            this.CHK_Y2.Location = new System.Drawing.Point(56, 16);
             this.CHK_Y2.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_Y2.Name = "CHK_Y2";
-            this.CHK_Y2.Size = new System.Drawing.Size(40, 18);
+            this.CHK_Y2.Size = new System.Drawing.Size(50, 16);
             this.CHK_Y2.TabIndex = 2;
             this.CHK_Y2.Text = "Y2";
             this.CHK_Y2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -352,13 +354,12 @@
             // 
             // CHK_Y1
             // 
-            this.CHK_Y1.AutoSize = true;
             this.CHK_Y1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_Y1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_Y1.Location = new System.Drawing.Point(26, 18);
+            this.CHK_Y1.Location = new System.Drawing.Point(6, 16);
             this.CHK_Y1.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_Y1.Name = "CHK_Y1";
-            this.CHK_Y1.Size = new System.Drawing.Size(40, 18);
+            this.CHK_Y1.Size = new System.Drawing.Size(50, 16);
             this.CHK_Y1.TabIndex = 3;
             this.CHK_Y1.Text = "Y1";
             this.CHK_Y1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -366,13 +367,12 @@
             // 
             // CHK_W2
             // 
-            this.CHK_W2.AutoSize = true;
             this.CHK_W2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_W2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_W2.Location = new System.Drawing.Point(66, 36);
+            this.CHK_W2.Location = new System.Drawing.Point(56, 32);
             this.CHK_W2.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_W2.Name = "CHK_W2";
-            this.CHK_W2.Size = new System.Drawing.Size(40, 18);
+            this.CHK_W2.Size = new System.Drawing.Size(50, 16);
             this.CHK_W2.TabIndex = 4;
             this.CHK_W2.Text = "W2";
             this.CHK_W2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -380,13 +380,12 @@
             // 
             // CHK_W1
             // 
-            this.CHK_W1.AutoSize = true;
             this.CHK_W1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_W1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_W1.Location = new System.Drawing.Point(26, 36);
+            this.CHK_W1.Location = new System.Drawing.Point(6, 32);
             this.CHK_W1.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_W1.Name = "CHK_W1";
-            this.CHK_W1.Size = new System.Drawing.Size(40, 18);
+            this.CHK_W1.Size = new System.Drawing.Size(50, 16);
             this.CHK_W1.TabIndex = 5;
             this.CHK_W1.Text = "W1";
             this.CHK_W1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -394,13 +393,12 @@
             // 
             // CHK_S2
             // 
-            this.CHK_S2.AutoSize = true;
             this.CHK_S2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_S2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_S2.Location = new System.Drawing.Point(66, 54);
+            this.CHK_S2.Location = new System.Drawing.Point(56, 48);
             this.CHK_S2.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_S2.Name = "CHK_S2";
-            this.CHK_S2.Size = new System.Drawing.Size(40, 18);
+            this.CHK_S2.Size = new System.Drawing.Size(50, 16);
             this.CHK_S2.TabIndex = 6;
             this.CHK_S2.Text = "S2";
             this.CHK_S2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -408,13 +406,12 @@
             // 
             // CHK_S1
             // 
-            this.CHK_S1.AutoSize = true;
             this.CHK_S1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_S1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_S1.Location = new System.Drawing.Point(26, 54);
+            this.CHK_S1.Location = new System.Drawing.Point(6, 48);
             this.CHK_S1.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_S1.Name = "CHK_S1";
-            this.CHK_S1.Size = new System.Drawing.Size(40, 18);
+            this.CHK_S1.Size = new System.Drawing.Size(50, 16);
             this.CHK_S1.TabIndex = 7;
             this.CHK_S1.Text = "S1";
             this.CHK_S1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -425,23 +422,31 @@
             this.FLP_FlowerFlags.Controls.Add(this.CHK_IsWatered);
             this.FLP_FlowerFlags.Controls.Add(this.NUD_WaterDays);
             this.FLP_FlowerFlags.Controls.Add(this.L_WaterDays);
-            this.FLP_FlowerFlags.Controls.Add(this.NUD_Water1);
-            this.FLP_FlowerFlags.Controls.Add(this.L_Water1);
-            this.FLP_FlowerFlags.Controls.Add(this.NUD_Water3);
-            this.FLP_FlowerFlags.Controls.Add(this.L_Water3);
+            this.FLP_FlowerFlags.Controls.Add(this.CHK_WV2);
+            this.FLP_FlowerFlags.Controls.Add(this.CHK_WV1);
+            this.FLP_FlowerFlags.Controls.Add(this.CHK_WV0);
+            this.FLP_FlowerFlags.Controls.Add(this.CHK_WV5);
+            this.FLP_FlowerFlags.Controls.Add(this.CHK_WV4);
+            this.FLP_FlowerFlags.Controls.Add(this.CHK_WV3);
+            this.FLP_FlowerFlags.Controls.Add(this.CHK_WV8);
+            this.FLP_FlowerFlags.Controls.Add(this.CHK_WV7);
+            this.FLP_FlowerFlags.Controls.Add(this.CHK_WV6);
+            this.FLP_FlowerFlags.Controls.Add(this.CHK_WV9);
+            this.FLP_FlowerFlags.Controls.Add(this.CHK_Gold);
             this.FLP_FlowerFlags.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.FLP_FlowerFlags.Location = new System.Drawing.Point(106, 150);
+            this.FLP_FlowerFlags.Location = new System.Drawing.Point(0, 215);
             this.FLP_FlowerFlags.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_FlowerFlags.Name = "FLP_FlowerFlags";
-            this.FLP_FlowerFlags.Size = new System.Drawing.Size(106, 81);
+            this.FLP_FlowerFlags.Size = new System.Drawing.Size(147, 105);
             this.FLP_FlowerFlags.TabIndex = 20;
             // 
             // CHK_IsWatered
             // 
             this.CHK_IsWatered.AutoSize = true;
             this.CHK_IsWatered.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.FLP_FlowerFlags.SetFlowBreak(this.CHK_IsWatered, true);
             this.CHK_IsWatered.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_IsWatered.Location = new System.Drawing.Point(31, 0);
+            this.CHK_IsWatered.Location = new System.Drawing.Point(72, 0);
             this.CHK_IsWatered.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_IsWatered.Name = "CHK_IsWatered";
             this.CHK_IsWatered.Size = new System.Drawing.Size(75, 18);
@@ -453,7 +458,7 @@
             // NUD_WaterDays
             // 
             this.NUD_WaterDays.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NUD_WaterDays.Location = new System.Drawing.Point(71, 18);
+            this.NUD_WaterDays.Location = new System.Drawing.Point(112, 20);
             this.NUD_WaterDays.Margin = new System.Windows.Forms.Padding(0);
             this.NUD_WaterDays.Maximum = new decimal(new int[] {
             31,
@@ -467,60 +472,158 @@
             // L_WaterDays
             // 
             this.L_WaterDays.AutoSize = true;
-            this.L_WaterDays.Location = new System.Drawing.Point(34, 21);
+            this.FLP_FlowerFlags.SetFlowBreak(this.L_WaterDays, true);
+            this.L_WaterDays.Location = new System.Drawing.Point(75, 23);
             this.L_WaterDays.Margin = new System.Windows.Forms.Padding(3);
             this.L_WaterDays.Name = "L_WaterDays";
             this.L_WaterDays.Size = new System.Drawing.Size(34, 13);
             this.L_WaterDays.TabIndex = 8;
             this.L_WaterDays.Text = "Days:";
+            this.L_WaterDays.Click += new System.EventHandler(this.L_WaterDays_Click);
             // 
-            // NUD_Water1
+            // CHK_Gold
             // 
-            this.NUD_Water1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NUD_Water1.Location = new System.Drawing.Point(71, 38);
-            this.NUD_Water1.Margin = new System.Windows.Forms.Padding(0);
-            this.NUD_Water1.Maximum = new decimal(new int[] {
-            31,
-            0,
-            0,
-            0});
-            this.NUD_Water1.Name = "NUD_Water1";
-            this.NUD_Water1.Size = new System.Drawing.Size(35, 20);
-            this.NUD_Water1.TabIndex = 9;
+            this.CHK_Gold.AutoSize = true;
+            this.CHK_Gold.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_Gold.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHK_Gold.Location = new System.Drawing.Point(45, 88);
+            this.CHK_Gold.Margin = new System.Windows.Forms.Padding(0);
+            this.CHK_Gold.Name = "CHK_Gold";
+            this.CHK_Gold.Size = new System.Drawing.Size(54, 18);
+            this.CHK_Gold.TabIndex = 13;
+            this.CHK_Gold.Text = "Gold";
+            this.CHK_Gold.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_Gold.UseVisualStyleBackColor = true;
             // 
-            // L_Water1
+            // CHK_WV1
             // 
-            this.L_Water1.AutoSize = true;
-            this.L_Water1.Location = new System.Drawing.Point(32, 41);
-            this.L_Water1.Margin = new System.Windows.Forms.Padding(3);
-            this.L_Water1.Name = "L_Water1";
-            this.L_Water1.Size = new System.Drawing.Size(36, 13);
-            this.L_Water1.TabIndex = 10;
-            this.L_Water1.Text = "Unk1:";
+            this.CHK_WV1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHK_WV1.Location = new System.Drawing.Point(51, 40);
+            this.CHK_WV1.Margin = new System.Windows.Forms.Padding(0);
+            this.CHK_WV1.Name = "CHK_WV1";
+            this.CHK_WV1.Size = new System.Drawing.Size(48, 16);
+            this.CHK_WV1.TabIndex = 14;
+            this.CHK_WV1.Text = "V2";
+            this.CHK_WV1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV1.UseVisualStyleBackColor = true;
             // 
-            // NUD_Water3
+            // CHK_WV0
             // 
-            this.NUD_Water3.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NUD_Water3.Location = new System.Drawing.Point(71, 58);
-            this.NUD_Water3.Margin = new System.Windows.Forms.Padding(0);
-            this.NUD_Water3.Maximum = new decimal(new int[] {
-            31,
-            0,
-            0,
-            0});
-            this.NUD_Water3.Name = "NUD_Water3";
-            this.NUD_Water3.Size = new System.Drawing.Size(35, 20);
-            this.NUD_Water3.TabIndex = 11;
+            this.CHK_WV0.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV0.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHK_WV0.Location = new System.Drawing.Point(3, 40);
+            this.CHK_WV0.Margin = new System.Windows.Forms.Padding(0);
+            this.CHK_WV0.Name = "CHK_WV0";
+            this.CHK_WV0.Size = new System.Drawing.Size(48, 16);
+            this.CHK_WV0.TabIndex = 15;
+            this.CHK_WV0.Text = "V1";
+            this.CHK_WV0.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV0.UseVisualStyleBackColor = true;
             // 
-            // L_Water3
+            // CHK_WV3
             // 
-            this.L_Water3.AutoSize = true;
-            this.L_Water3.Location = new System.Drawing.Point(32, 61);
-            this.L_Water3.Margin = new System.Windows.Forms.Padding(3);
-            this.L_Water3.Name = "L_Water3";
-            this.L_Water3.Size = new System.Drawing.Size(36, 13);
-            this.L_Water3.TabIndex = 12;
-            this.L_Water3.Text = "Unk2:";
+            this.CHK_WV3.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV3.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHK_WV3.Location = new System.Drawing.Point(3, 56);
+            this.CHK_WV3.Margin = new System.Windows.Forms.Padding(0);
+            this.CHK_WV3.Name = "CHK_WV3";
+            this.CHK_WV3.Size = new System.Drawing.Size(48, 16);
+            this.CHK_WV3.TabIndex = 16;
+            this.CHK_WV3.Text = "V4";
+            this.CHK_WV3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV3.UseVisualStyleBackColor = true;
+            // 
+            // CHK_WV2
+            // 
+            this.CHK_WV2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHK_WV2.Location = new System.Drawing.Point(99, 40);
+            this.CHK_WV2.Margin = new System.Windows.Forms.Padding(0);
+            this.CHK_WV2.Name = "CHK_WV2";
+            this.CHK_WV2.Size = new System.Drawing.Size(48, 16);
+            this.CHK_WV2.TabIndex = 17;
+            this.CHK_WV2.Text = "V3";
+            this.CHK_WV2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV2.UseVisualStyleBackColor = true;
+            // 
+            // CHK_WV5
+            // 
+            this.CHK_WV5.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV5.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHK_WV5.Location = new System.Drawing.Point(99, 56);
+            this.CHK_WV5.Margin = new System.Windows.Forms.Padding(0);
+            this.CHK_WV5.Name = "CHK_WV5";
+            this.CHK_WV5.Size = new System.Drawing.Size(48, 16);
+            this.CHK_WV5.TabIndex = 18;
+            this.CHK_WV5.Text = "V6";
+            this.CHK_WV5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV5.UseVisualStyleBackColor = true;
+            // 
+            // CHK_WV4
+            // 
+            this.CHK_WV4.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV4.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHK_WV4.Location = new System.Drawing.Point(51, 56);
+            this.CHK_WV4.Margin = new System.Windows.Forms.Padding(0);
+            this.CHK_WV4.Name = "CHK_WV4";
+            this.CHK_WV4.Size = new System.Drawing.Size(48, 16);
+            this.CHK_WV4.TabIndex = 19;
+            this.CHK_WV4.Text = "V5";
+            this.CHK_WV4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV4.UseVisualStyleBackColor = true;
+            // 
+            // CHK_WV7
+            // 
+            this.CHK_WV7.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV7.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHK_WV7.Location = new System.Drawing.Point(51, 72);
+            this.CHK_WV7.Margin = new System.Windows.Forms.Padding(0);
+            this.CHK_WV7.Name = "CHK_WV7";
+            this.CHK_WV7.Size = new System.Drawing.Size(48, 16);
+            this.CHK_WV7.TabIndex = 20;
+            this.CHK_WV7.Text = "V8";
+            this.CHK_WV7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV7.UseVisualStyleBackColor = true;
+            // 
+            // CHK_WV6
+            // 
+            this.CHK_WV6.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV6.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHK_WV6.Location = new System.Drawing.Point(3, 72);
+            this.CHK_WV6.Margin = new System.Windows.Forms.Padding(0);
+            this.CHK_WV6.Name = "CHK_WV6";
+            this.CHK_WV6.Size = new System.Drawing.Size(48, 16);
+            this.CHK_WV6.TabIndex = 21;
+            this.CHK_WV6.Text = "V7";
+            this.CHK_WV6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV6.UseVisualStyleBackColor = true;
+            // 
+            // CHK_WV9
+            // 
+            this.CHK_WV9.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV9.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHK_WV9.Location = new System.Drawing.Point(99, 88);
+            this.CHK_WV9.Margin = new System.Windows.Forms.Padding(0);
+            this.CHK_WV9.Name = "CHK_WV9";
+            this.CHK_WV9.Size = new System.Drawing.Size(48, 16);
+            this.CHK_WV9.TabIndex = 22;
+            this.CHK_WV9.Text = "V10";
+            this.CHK_WV9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV9.UseVisualStyleBackColor = true;
+            // 
+            // CHK_WV8
+            // 
+            this.CHK_WV8.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV8.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHK_WV8.Location = new System.Drawing.Point(99, 72);
+            this.CHK_WV8.Margin = new System.Windows.Forms.Padding(0);
+            this.CHK_WV8.Name = "CHK_WV8";
+            this.CHK_WV8.Size = new System.Drawing.Size(48, 16);
+            this.CHK_WV8.TabIndex = 23;
+            this.CHK_WV8.Text = "V9";
+            this.CHK_WV8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV8.UseVisualStyleBackColor = true;
             // 
             // ItemEditor
             // 
@@ -528,7 +631,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.FLP_Controls);
             this.Name = "ItemEditor";
-            this.Size = new System.Drawing.Size(252, 330);
+            this.Size = new System.Drawing.Size(211, 352);
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Count)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Uses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag0)).EndInit();
@@ -544,12 +647,9 @@
             this.FLP_Flag1.ResumeLayout(false);
             this.FLP_Flag1.PerformLayout();
             this.FLP_Genetics.ResumeLayout(false);
-            this.FLP_Genetics.PerformLayout();
             this.FLP_FlowerFlags.ResumeLayout(false);
             this.FLP_FlowerFlags.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_WaterDays)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_Water1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_Water3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -587,9 +687,16 @@
         private System.Windows.Forms.CheckBox CHK_IsWatered;
         private System.Windows.Forms.NumericUpDown NUD_WaterDays;
         private System.Windows.Forms.Label L_WaterDays;
-        private System.Windows.Forms.NumericUpDown NUD_Water1;
-        private System.Windows.Forms.Label L_Water1;
-        private System.Windows.Forms.NumericUpDown NUD_Water3;
-        private System.Windows.Forms.Label L_Water3;
+        private System.Windows.Forms.CheckBox CHK_Gold;
+        private System.Windows.Forms.CheckBox CHK_WV1;
+        private System.Windows.Forms.CheckBox CHK_WV0;
+        private System.Windows.Forms.CheckBox CHK_WV3;
+        private System.Windows.Forms.CheckBox CHK_WV2;
+        private System.Windows.Forms.CheckBox CHK_WV5;
+        private System.Windows.Forms.CheckBox CHK_WV4;
+        private System.Windows.Forms.CheckBox CHK_WV7;
+        private System.Windows.Forms.CheckBox CHK_WV6;
+        private System.Windows.Forms.CheckBox CHK_WV9;
+        private System.Windows.Forms.CheckBox CHK_WV8;
     }
 }
