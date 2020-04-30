@@ -1,7 +1,7 @@
 NHSE
 =====
 <div>
-  <span>English</span> / <a href=".github/README-jp.md">日本語</a> / <a href=".github/README-zh-CN.md">简体中文</a> / <a href=".github/README-es.md">Español</a> / <a href=".github/README-it.md">Italiano</a>
+  <a href="https://github.com/kwsch/NHSE">English</a> / <a href="README-jp.md">日本語</a> / <a href="README-zh-CN.md">简体中文</a> / <span>Español</span> / <a href="README-it.md">Italiano</a>
 </div>
 
 ![License](https://img.shields.io/badge/License-GPLv3-blue.svg)
