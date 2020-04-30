@@ -54,14 +54,16 @@ namespace NHSE.WinForms
 
         private void B_Load_Click(object sender, EventArgs e)
         {
-            if (ModifierKeys == Keys.Control && Clipboard.ContainsText())
+            bool skipOccupiedSlots = (ModifierKeys & Keys.Alt) != 0;
+            bool importCheatClipboard = (ModifierKeys & Keys.Control) != 0;
+            if (importCheatClipboard && Clipboard.ContainsText())
             {
                 var text = Clipboard.GetText();
                 var bytes = ItemCheatCode.ReadCode(text);
                 var expect = Items[0].ToBytesClass().Length;
                 if (bytes.Length % expect == 0)
                 {
-                    ImportItemData(bytes, expect);
+                    ImportItemData(bytes, expect, skipOccupiedSlots);
                     return;
                 }
             }
@@ -75,17 +77,32 @@ namespace NHSE.WinForms
                 return;
 
             var data = File.ReadAllBytes(sfd.FileName);
-            ImportItemData(data, Items[0].ToBytesClass().Length);
+            ImportItemData(data, Items[0].ToBytesClass().Length, skipOccupiedSlots);
         }
 
-        private void ImportItemData(byte[] data, int expect)
+        private void ImportItemData(byte[] data, int expect, bool skipOccupiedSlots, int start = 0)
         {
             var import = data.GetArray<T>(expect);
-            for (int i = 0; i < import.Length; i++)
-                Items[i].CopyFrom(import[i]);
+
+            ImportItems(import, start, skipOccupiedSlots);
 
             LoadItems();
             System.Media.SystemSounds.Asterisk.Play();
+        }
+
+        private void ImportItems(IReadOnlyList<T> import, int start, bool skipOccupiedSlots)
+        {
+            if (skipOccupiedSlots)
+            {
+                int index = 0;
+                for (int i = start; index < import.Count && i < Items.Count; i++, index++)
+                    Items[i].CopyFrom(import[index]);
+            }
+            else
+            {
+                for (int i = 0; i < import.Count; i++)
+                    Items[i].CopyFrom(import[i]);
+            }
         }
 
         private void B_Inject_Click(object sender, EventArgs e)
