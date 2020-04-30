@@ -10,7 +10,7 @@ namespace NHSE.WinForms
 #if DEBUG
     public static class DevUtil
     {
-        private static readonly string[] Languages = { "jp", "de", "es", "fr", "it", "ko", "zh" };
+        private static readonly string[] Languages = { "jp", "de", "es", "fr", "it", "ko", "zhs", "zht" };
         private const string DefaultLanguage = GameLanguage.DefaultLanguage;
 
         public static bool IsUpdatingTranslations { get; private set; }
