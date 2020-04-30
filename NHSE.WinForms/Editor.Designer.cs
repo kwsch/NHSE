@@ -190,7 +190,9 @@
             "Français",
             "Italiano",
             "한국어",
-            "简体中文"});
+            "简体中文",
+            "繁體中文"
+            });
             this.Menu_Language.Name = "Menu_Language";
             this.Menu_Language.Size = new System.Drawing.Size(115, 23);
             this.Menu_Language.SelectedIndexChanged += new System.EventHandler(this.Menu_Language_SelectedIndexChanged);
