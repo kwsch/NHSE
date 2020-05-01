@@ -257,6 +257,6 @@ namespace NHSE.Core
         public static bool IsRoad(this TerrainUnitModel t) => t >= RoadBrick0A || (RoadSoil0A <= t && t <= RoadStone8A);
         public static bool IsFall(this TerrainUnitModel t) => (Fall101 <= t && t <= Fall404) || (Fall103 <= t && t <= Fall424);
         public static bool IsCliff(this TerrainUnitModel t) => (Cliff0A <= t && t <= Cliff8) || (t == Cliff2B);
-        public static bool IsRiver(this TerrainUnitModel t) => (River0A <= t && t <= River8A);
+        public static bool IsRiver(this TerrainUnitModel t) => River0A <= t && t <= River8A;
     }
 }
