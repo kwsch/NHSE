@@ -5,7 +5,7 @@
 #pragma warning disable CS8618, CA1815
 namespace NHSE.Core
 {
-    [StructLayout(LayoutKind.Sequential, Pack = 1, Size = SIZE, CharSet = CharSet.Unicode)]
+    [StructLayout(LayoutKind.Sequential, Pack = 8)]
     public struct GSaveBulletinBoard
     {
         public const int SIZE = 0xe0ae8;
@@ -14,8 +14,9 @@ namespace NHSE.Core
         public bool _3347e149;                                 // @0x4 size 0x1, align 1
         public BulletinBoardStock Stock;                       // @0x8 size 0xe0ad8, align 8
         public uint LatestUniqueId;                            // @0xe0ae0 size 0x4, align 4
-    };
+    }
 
+    [StructLayout(LayoutKind.Sequential, Pack = 8)]
     public struct BulletinBoardStock
     {
         public const int SIZE = 0xe0ad8;
@@ -28,17 +29,17 @@ namespace NHSE.Core
         public int[] IndexTable;                                 // @0xe0a60 size 0x4, align 4
     }
 
-    [StructLayout(LayoutKind.Sequential, Pack = 1, Size = SIZE, CharSet = CharSet.Unicode)]
+    [StructLayout(LayoutKind.Sequential, Pack = 8, CharSet = CharSet.Unicode)]
     public struct GSaveBBS
     {
         public const int SIZE = 0x77d0;
 
         public GSaveDate Date;                                      // @0x0 size 0x4, align 2
 
-        [field: MarshalAs(UnmanagedType.ByValTStr, SizeConst = 240/2)]
+        [field: MarshalAs(UnmanagedType.ByValTStr, SizeConst = 240)]
         public string Body;                                         // @0x4 size 0x1e0, align 2
 
-        [field: MarshalAs(UnmanagedType.ByValTStr, SizeConst = 48/2)]
+        [field: MarshalAs(UnmanagedType.ByValTStr, SizeConst = 48)]
         public string Footer;                                       // @0x1e4 size 0x60, align 2
 
         public Handwriting HandWrite;                               // @0x244 size 0x7538, align 4
@@ -50,7 +51,7 @@ namespace NHSE.Core
         public uint UniqueId;                                       // @0x77c8 size 0x4, align 4
     }
 
-    [StructLayout(LayoutKind.Sequential, Pack = 1, Size = SIZE)]
+    [StructLayout(LayoutKind.Sequential, Pack = 4)]
     public struct GSaveDate
     {
         public const int SIZE = 4;
@@ -60,23 +61,24 @@ namespace NHSE.Core
         public byte Day;
     }
 
-    [StructLayout(LayoutKind.Sequential, Pack = 1, Size = SIZE)]
+    [StructLayout(LayoutKind.Sequential, Pack = 4)]
     public struct Handwriting
     {
         public const int SIZE = 0x7538;
 
         public const int InkCount = 30_000;
+        public const int PaletteCount = 4;
 
         [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = InkCount)]
         public byte[] Image;
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = PaletteCount)]
         public byte[] Palette;
 
         public uint VerticesNum;
     }
 
-    [StructLayout(LayoutKind.Sequential, Pack = 1, Size = SIZE)]
+    [StructLayout(LayoutKind.Sequential, Pack = 4)]
     public struct GSavePlayerId
     {
         public const int SIZE = 0x38;
@@ -84,27 +86,27 @@ namespace NHSE.Core
         public GSavePlayerBaseId BaseId;
     }
 
-    [StructLayout(LayoutKind.Sequential, Pack = 4, Size = SIZE, CharSet = CharSet.Unicode)]
+    [StructLayout(LayoutKind.Sequential, Pack = 4, CharSet = CharSet.Unicode)]
     public struct GSaveLandId
     {
         public const int SIZE = 0x1C;
 
         public uint Id;
 
-        [field: MarshalAs(UnmanagedType.ByValTStr, SizeConst = 0x14 / 2)]
+        [field: MarshalAs(UnmanagedType.ByValTStr, SizeConst = 10)]
         public string Name;
 
         public byte IslandRubyType;
     }
 
-    [StructLayout(LayoutKind.Sequential, Pack = 4, Size = SIZE, CharSet = CharSet.Unicode)]
+    [StructLayout(LayoutKind.Sequential, Pack = 4, CharSet = CharSet.Unicode)]
     public struct GSavePlayerBaseId
     {
         public const int SIZE = 0x1C;
 
         public uint Id;
 
-        [field: MarshalAs(UnmanagedType.ByValTStr, SizeConst = 0x14 / 2)]
+        [field: MarshalAs(UnmanagedType.ByValTStr, SizeConst = 10)]
         public string Name;
 
         public int Gender; // enum
