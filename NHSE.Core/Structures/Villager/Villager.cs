@@ -6,6 +6,8 @@ namespace NHSE.Core
 {
     public class Villager : IVillagerOrigin
     {
+        public const int SIZE = 0x12AB0;
+
         public readonly byte[] Data;
         public Villager(byte[] data) => Data = data;
 
