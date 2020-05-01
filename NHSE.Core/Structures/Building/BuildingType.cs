@@ -32,6 +32,7 @@
         Campsite = 25,
         Bridge = 26,
         Incline = 27,
+        ReddsTreasureTrawler = 28,
         Studio = 29,
     }
 }
