@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -25,6 +26,9 @@ namespace NHSE.WinForms
         private readonly Bitmap MapReticle;
 
         private readonly TerrainManager Terrain;
+        private readonly IReadOnlyList<Building> Buildings;
+        private readonly uint PlazaX;
+        private readonly uint PlazaY;
 
         private int X;
         private int Y;
@@ -46,7 +50,10 @@ namespace NHSE.WinForms
             MapReticle = new Bitmap(l1.MapWidth * MapScale, l1.MapHeight * MapScale);
 
             Terrain = new TerrainManager(sav.GetTerrain());
-            PB_Map.BackgroundImage = TerrainSprite.CreateMap(Terrain, 2);
+            Buildings = sav.Buildings;
+            PlazaX = sav.PlazaX;
+            PlazaY = sav.PlazaY;
+            PB_Map.BackgroundImage = TerrainSprite.GetMapWithBuildings(Terrain, Buildings, (ushort)PlazaX, (ushort)PlazaY, null, 2);
 
             foreach (var acre in MapGrid.Acres)
                 CB_Acre.Items.Add(acre.Name);
@@ -85,7 +92,7 @@ namespace NHSE.WinForms
 
         private void ReloadBackground(int topX, int topY)
         {
-            PB_Acre.BackgroundImage = TerrainSprite.GetAcre(topX/2, topY/2, Terrain, AcreScale * 2);
+            PB_Acre.BackgroundImage = TerrainSprite.GetAcre(topX/2, topY/2, Terrain, AcreScale * 2, Buildings, (ushort)PlazaX, (ushort)PlazaY);
         }
 
         private void ReloadGrid(FieldItemLayer layer, int topX, int topY)

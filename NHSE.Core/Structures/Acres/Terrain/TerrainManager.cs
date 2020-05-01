@@ -82,5 +82,34 @@ namespace NHSE.Core
                     t.CopyFrom(tile);
             }
         }
+
+        public void GetBuildingCoordinate(ushort bx, ushort by, int scale, out int x, out int y)
+        {
+            // Although there is terrain in the Top Row and Left Column, no buildings can be placed there.
+            // Adjust the building coordinates down-right by an acre.
+            int buildingShift = GridWidth;
+            x = (int)(((bx / 2f) - buildingShift) * scale);
+            y = (int)(((by / 2f) - buildingShift) * scale);
+        }
+
+        public bool GetBuildingRelativeCoordinate(int topX, int topY, int acreScale, ushort bx, ushort by, out int relX, out int relY)
+        {
+            GetBuildingCoordinate(bx, by, acreScale, out var x, out var y);
+            relX = x - (topX * acreScale);
+            relY = y - (topY * acreScale);
+
+            return IsWithinGrid(acreScale, relX, relY);
+        }
+
+        private bool IsWithinGrid(int acreScale, int relX, int relY)
+        {
+            if ((uint)relX >= GridWidth * acreScale)
+                return false;
+
+            if ((uint)relY >= GridHeight * acreScale)
+                return false;
+
+            return true;
+        }
     }
 }

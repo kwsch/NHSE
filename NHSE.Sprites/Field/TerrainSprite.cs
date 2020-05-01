@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using NHSE.Core;
 
@@ -7,40 +6,15 @@ namespace NHSE.Sprites
 {
     public static class TerrainSprite
     {
-        public static Color GetTileColor(TerrainTile tile)
-        {
-            if (tile.UnitModelRoad.IsRoad())
-                return Color.RosyBrown;
-            var baseColor = GetTileDefaultColor(tile.UnitModel);
-            if (tile.Elevation == 0)
-                return baseColor;
+        private static readonly Brush Selected = Brushes.Red;
+        private static readonly Brush Others = Brushes.Yellow;
+        private static readonly Brush Text = Brushes.White;
+        private static readonly Brush Plaza = Brushes.RosyBrown;
+        private static readonly StringFormat BuildingTextFormat = new StringFormat
+            { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
 
-            return ColorUtil.Blend(baseColor, Color.White, 1d / (tile.Elevation + 1));
-        }
-
-        private static readonly Color CliffBase = ColorUtil.Blend(Color.ForestGreen, Color.Black, 0.6d);
-
-        private static Color GetTileDefaultColor(TerrainUnitModel mdl)
-        {
-            if (mdl.IsRiver())
-                return Color.DeepSkyBlue;
-            if (mdl.IsFall())
-                return Color.DarkBlue;
-            if (mdl.IsCliff())
-                return CliffBase;
-            return Color.ForestGreen;
-        }
-
-        private static readonly char[] Numbers = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-
-        public static string GetTileName(TerrainTile tile)
-        {
-            var name = tile.UnitModel.ToString();
-            var num = name.IndexOfAny(Numbers);
-            if (num < 0)
-                return name;
-            return name.Substring(0, num) + Environment.NewLine + name.Substring(num);
-        }
+        private const int PlazaWidth = 6 * 2;
+        private const int PlazaHeight = 5 * 2;
 
         public static Bitmap CreateMap(TerrainManager mgr)
         {
@@ -50,7 +24,7 @@ namespace NHSE.Sprites
                 for (int y = 0; y < mgr.MapHeight; y++)
                 {
                     var tile = mgr.GetTile(x, y);
-                    var color = GetTileColor(tile);
+                    var color = TerrainTileColor.GetTileColor(tile);
                     bmp.SetPixel(x, y, color);
                 }
             }
@@ -91,7 +65,7 @@ namespace NHSE.Sprites
             return map;
         }
 
-        public static Bitmap GetMapWithBuildings(TerrainManager mgr, IReadOnlyList<Building> buildings, ushort plazaX, ushort plazaY, Font f, int scale = 4, int index = -1)
+        public static Bitmap GetMapWithBuildings(TerrainManager mgr, IReadOnlyList<Building> buildings, ushort plazaX, ushort plazaY, Font? f, int scale = 4, int index = -1)
         {
             var map = CreateMap(mgr, scale);
             using var gfx = Graphics.FromImage(map);
@@ -101,49 +75,42 @@ namespace NHSE.Sprites
             return map;
         }
 
-        private static void DrawPlaza(this Graphics gfx, MapGrid g, ushort px, ushort py, int scale)
+        private static void DrawPlaza(this Graphics gfx, TerrainManager g, ushort px, ushort py, int scale)
         {
-            var plaza = Brushes.RosyBrown;
-            GetBuildingCoordinate(g, px, py, scale, out var x, out var y);
+            g.GetBuildingCoordinate(px, py, scale, out var x, out var y);
 
-            var width = scale * 2 * 6;
-            var height = scale * 2 * 5;
+            var width = scale * PlazaWidth;
+            var height = scale * PlazaHeight;
 
-            gfx.FillRectangle(plaza, x, y, width, height);
+            gfx.FillRectangle(Plaza, x, y, width, height);
         }
 
-        private static void DrawBuildings(this Graphics gfx, MapGrid g, IReadOnlyList<Building> buildings, Font f, int scale, int index = -1)
+        private static void DrawBuildings(this Graphics gfx, TerrainManager g, IReadOnlyList<Building> buildings, Font? f, int scale, int index = -1)
         {
-            var selected = Brushes.Red;
-            var others = Brushes.Yellow;
-            var text = Brushes.White;
-            var stringFormat = new StringFormat {Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center};
-
             for (int i = 0; i < buildings.Count; i++)
             {
                 var b = buildings[i];
                 if (b.BuildingType == 0)
                     continue;
-                GetBuildingCoordinate(g,b.X, b.Y, scale, out var x, out var y);
+                g.GetBuildingCoordinate(b.X, b.Y, scale, out var x, out var y);
 
-                var pen = index == i ? selected : others;
-                gfx.FillRectangle(pen, x - scale, y - scale, scale * 2, scale * 2);
-
-                var name = b.BuildingType.ToString();
-                gfx.DrawString(name, f, text, new PointF(x, y - (scale * 2)), stringFormat);
+                var pen = index == i ? Selected : Others;
+                DrawBuilding(gfx, f, scale, pen, x, y, b, Text);
             }
         }
 
-        private static void GetBuildingCoordinate(MapGrid g, ushort bx, ushort by, int scale, out int x, out int y)
+        private static void DrawBuilding(Graphics gfx, Font? f, int scale, Brush pen, int x, int y, Building b, Brush text)
         {
-            // Although there is terrain in the Top Row and Left Column, no buildings can be placed there.
-            // Adjust the building coordinates down-right by an acre.
-            int buildingShift = g.GridWidth;
-            x = (int) (((bx / 2f) - buildingShift) * scale);
-            y = (int) (((by / 2f) - buildingShift) * scale);
+            gfx.FillRectangle(pen, x - scale, y - scale, scale * 2, scale * 2);
+
+            if (f != null)
+            {
+                var name = b.BuildingType.ToString();
+                gfx.DrawString(name, f, text, new PointF(x, y - (scale * 2)), BuildingTextFormat);
+            }
         }
 
-        public static Image GetAcre(in int topX, in int topY, TerrainManager terrain, int acreScale)
+        public static Image GetAcre(in int topX, in int topY, TerrainManager t, int acreScale)
         {
             int[] data = new int[16 * 16];
             int index = 0;
@@ -152,13 +119,46 @@ namespace NHSE.Sprites
                 var yi = y + topY;
                 for (int x = 0; x < 16; x++, index++)
                 {
-                    var tile = terrain.GetTile(x + topX, yi);
-                    data[index] = GetTileColor(tile).ToArgb();
+                    var tile = t.GetTile(x + topX, yi);
+                    data[index] = TerrainTileColor.GetTileColor(tile).ToArgb();
                 }
             }
 
             var final = ImageUtil.ScalePixelImage(data, acreScale, 16, 16, out int fw, out int fh);
             return ImageUtil.GetBitmap(final, fw, fh);
+        }
+
+        public static Image GetAcre(in int topX, in int topY, TerrainManager t, int acreScale, IReadOnlyList<Building> buildings, ushort plazaX, ushort plazaY)
+        {
+            var img = GetAcre(topX, topY, t, acreScale);
+            using var gfx = Graphics.FromImage(img);
+
+            gfx.DrawAcrePlaza(t, topX, topY, plazaX, plazaY, acreScale);
+
+            foreach (var b in buildings)
+            {
+                if (!t.GetBuildingRelativeCoordinate(topX, topY, acreScale, b.X, b.Y, out var x, out var y))
+                {
+                    // Draw the rectangle anyways. The graphics object will write the cropped rectangle correctly!
+                }
+
+                DrawBuilding(gfx, null, acreScale, Others, x, y, b, Text);
+            }
+
+            return img;
+        }
+
+        private static void DrawAcrePlaza(this Graphics gfx, TerrainManager g, int topX, int topY, ushort px, ushort py, int scale)
+        {
+            if (!g.GetBuildingRelativeCoordinate(topX, topY, scale, px, py, out var x, out var y))
+            {
+                // Draw the rectangle anyways. The graphics object will write the cropped rectangle correctly!
+            }
+
+            var width = scale * PlazaWidth;
+            var height = scale * PlazaHeight;
+
+            gfx.FillRectangle(Plaza, x, y, width, height);
         }
     }
 }

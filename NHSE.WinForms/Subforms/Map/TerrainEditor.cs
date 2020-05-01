@@ -193,8 +193,8 @@ namespace NHSE.WinForms
 
         private static void RefreshTile(Control button, TerrainTile tile)
         {
-            button.Text = TerrainSprite.GetTileName(tile);
-            button.BackColor = TerrainSprite.GetTileColor(tile);
+            button.Text = TerrainTileColor.GetTileName(tile);
+            button.BackColor = TerrainTileColor.GetTileColor(tile);
         }
 
         private void B_Up_Click(object sender, EventArgs e) => CB_Acre.SelectedIndex -= MapGrid.AcreWidth;
