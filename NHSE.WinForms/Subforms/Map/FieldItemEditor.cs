@@ -157,18 +157,21 @@ namespace NHSE.WinForms
         private void SetTile(FieldItem tile, int x, int y)
         {
             var pgt = (FieldItem)PG_Tile.SelectedObject;
-            if (CHK_NoOverwrite.Checked && Layer.IsOccupied(pgt, x, y))
+            var permission = Layer.IsOccupied(pgt, x, y);
+            switch (permission)
             {
-                System.Media.SystemSounds.Asterisk.Play();
-                return;
+                case FieldItemPermission.OutOfBounds:
+                case FieldItemPermission.Collision when CHK_NoOverwrite.Checked:
+                    System.Media.SystemSounds.Asterisk.Play();
+                    return;
             }
 
             // Clean up original placed data
-            if (tile.IsRoot)
+            if (tile.IsRoot && CHK_AutoExtension.Checked)
                 Layer.DeleteExtensionTiles(tile, x, y);
 
             // Set new placed data
-            if (pgt.IsRoot)
+            if (pgt.IsRoot && CHK_AutoExtension.Checked)
                 Layer.SetExtensionTiles(pgt, x, y);
             tile.CopyFrom(pgt);
 
@@ -178,7 +181,7 @@ namespace NHSE.WinForms
 
         private void DeleteTile(FieldItem tile, int x, int y)
         {
-            if (tile.IsRoot)
+            if (tile.IsRoot && CHK_AutoExtension.Checked)
                 Layer.DeleteExtensionTiles(tile, x, y);
             tile.Delete();
 

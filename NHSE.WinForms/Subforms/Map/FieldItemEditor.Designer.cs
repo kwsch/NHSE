@@ -67,6 +67,7 @@
             this.B_RemovePlacedItems = new System.Windows.Forms.Button();
             this.TR_Transparency = new System.Windows.Forms.TrackBar();
             this.CHK_NoOverwrite = new System.Windows.Forms.CheckBox();
+            this.CHK_AutoExtension = new System.Windows.Forms.CheckBox();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
@@ -446,11 +447,24 @@
             this.CHK_NoOverwrite.Text = "Prevent Writing Occupied Tiles";
             this.CHK_NoOverwrite.UseVisualStyleBackColor = true;
             // 
+            // CHK_AutoExtension
+            // 
+            this.CHK_AutoExtension.AutoSize = true;
+            this.CHK_AutoExtension.Checked = true;
+            this.CHK_AutoExtension.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CHK_AutoExtension.Location = new System.Drawing.Point(532, 398);
+            this.CHK_AutoExtension.Name = "CHK_AutoExtension";
+            this.CHK_AutoExtension.Size = new System.Drawing.Size(197, 17);
+            this.CHK_AutoExtension.TabIndex = 38;
+            this.CHK_AutoExtension.Text = "Automatically Set/Delete Extensions";
+            this.CHK_AutoExtension.UseVisualStyleBackColor = true;
+            // 
             // FieldItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(981, 537);
+            this.Controls.Add(this.CHK_AutoExtension);
             this.Controls.Add(this.CHK_NoOverwrite);
             this.Controls.Add(this.TR_Transparency);
             this.Controls.Add(this.GB_Remove);
@@ -530,5 +544,6 @@
         private System.Windows.Forms.Button B_RemovePlacedItems;
         private System.Windows.Forms.TrackBar TR_Transparency;
         private System.Windows.Forms.CheckBox CHK_NoOverwrite;
+        private System.Windows.Forms.CheckBox CHK_AutoExtension;
     }
 }

@@ -124,16 +124,7 @@ namespace NHSE.Core
 
         public void DeleteExtensionTiles(FieldItem tile, in int x, in int y)
         {
-            var type = ItemInfo.GetItemSize(tile);
-            var w = type.GetWidth();
-            var h = type.GetHeight();
-
-            if ((tile.Rotation & 1) == 1)
-            {
-                var tmp = w;
-                w = h;
-                h = tmp;
-            }
+            GetTileWidthHeight(tile, x, y, out var w, out var h);
 
             for (int ix = 0; ix < w; ix++)
             {
@@ -149,16 +140,7 @@ namespace NHSE.Core
 
         public void SetExtensionTiles(FieldItem tile, in int x, in int y)
         {
-            var type = ItemInfo.GetItemSize(tile);
-            var w = type.GetWidth();
-            var h = type.GetHeight();
-
-            if ((tile.Rotation & 1) == 1)
-            {
-                var tmp = w;
-                w = h;
-                h = tmp;
-            }
+            GetTileWidthHeight(tile, x, y, out var w, out var h);
 
             for (byte ix = 0; ix < w; ix++)
             {
@@ -172,15 +154,41 @@ namespace NHSE.Core
             }
         }
 
+        private void GetTileWidthHeight(FieldItem tile, int x, int y, out int w, out int h)
+        {
+            var type = ItemInfo.GetItemSize(tile);
+            w = type.GetWidth();
+            h = type.GetHeight();
+
+            // Rotation
+            if ((tile.Rotation & 1) == 1)
+            {
+                var tmp = w;
+                w = h;
+                h = tmp;
+            }
+
+            // Clamp to grid bounds
+            if (x + w - 1 >= MapWidth)
+                w = MapWidth - x;
+            if (y + h - 1 >= MapHeight)
+                h = MapHeight - y;
+        }
+
         /// <summary>
         /// Checks if writing the <see cref="tile"/> at the specified <see cref="x"/> and <see cref="y"/> coordinates will overlap with any existing tiles.
         /// </summary>
         /// <returns>True if any tile will be overwritten, false if nothing is there.</returns>
-        public bool IsOccupied(FieldItem tile, in int x, in int y)
+        public FieldItemPermission IsOccupied(FieldItem tile, in int x, in int y)
         {
             var type = ItemInfo.GetItemSize(tile);
             var w = type.GetWidth();
             var h = type.GetHeight();
+
+            if (x + w - 1 >= MapWidth)
+                return FieldItemPermission.OutOfBounds;
+            if (y + h - 1 >= MapHeight)
+                return FieldItemPermission.OutOfBounds;
 
             if ((tile.Rotation & 1) == 1)
             {
@@ -195,11 +203,18 @@ namespace NHSE.Core
                 {
                     var t = GetTile(x + ix, y + iy);
                     if (!t.IsNone)
-                        return true;
+                        return FieldItemPermission.Collision;
                 }
             }
 
-            return false;
+            return FieldItemPermission.NoCollision;
         }
+    }
+
+    public enum FieldItemPermission
+    {
+        NoCollision,
+        Collision,
+        OutOfBounds,
     }
 }
