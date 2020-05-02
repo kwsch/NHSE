@@ -108,7 +108,7 @@ namespace NHSE.Core
                 return itemlist[0];
             var kind = ItemInfo.GetItemKind(index);
 
-            if (kind == ItemKind.Kind_DIYRecipe)
+            if (kind == ItemKind.Kind_DIYRecipe || kind == ItemKind.Kind_MessageBottle)
             {
                 var display = itemlistdisplay[index];
                 var recipeID = item.Count;
