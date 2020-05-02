@@ -211,6 +211,10 @@ namespace NHSE.Core
 
         public GSaveTime LastSaved => Data.Slice(Offsets.LastSavedTime, GSaveTime.SIZE).ToStructure<GSaveTime>();
 
-        public GSaveBulletinBoard Bulletin => Data.Slice(Offsets.BulletinBoard, GSaveBulletinBoard.SIZE).ToStructure<GSaveBulletinBoard>();
+        public GSaveBulletinBoard Bulletin
+        {
+            get => Data.Slice(Offsets.BulletinBoard, GSaveBulletinBoard.SIZE).ToStructure<GSaveBulletinBoard>();
+            set => value.ToBytes().CopyTo(Data, Offsets.BulletinBoard);
+        }
     }
 }

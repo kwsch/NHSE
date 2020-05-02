@@ -44,6 +44,7 @@
             this.CM_Picture = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Menu_SavePNG = new System.Windows.Forms.ToolStripMenuItem();
             this.Tab_Map = new System.Windows.Forms.TabPage();
+            this.B_EditPlayerHouses = new System.Windows.Forms.Button();
             this.B_EditMap = new System.Windows.Forms.Button();
             this.CM_EditMap = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.B_EditTerrain = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,6 +58,10 @@
             this.B_RecycleBin = new System.Windows.Forms.Button();
             this.Tab_Villagers = new System.Windows.Forms.TabPage();
             this.Tab_Players = new System.Windows.Forms.TabPage();
+            this.L_PocketCount2 = new System.Windows.Forms.Label();
+            this.L_PocketCount1 = new System.Windows.Forms.Label();
+            this.NUD_PocketCount2 = new System.Windows.Forms.NumericUpDown();
+            this.NUD_PocketCount1 = new System.Windows.Forms.NumericUpDown();
             this.B_EditPlayer = new System.Windows.Forms.Button();
             this.CM_EditPlayer = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.B_EditPlayerStorage = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,24 +83,20 @@
             this.CB_Players = new System.Windows.Forms.ComboBox();
             this.PB_Player = new System.Windows.Forms.PictureBox();
             this.TC_Editors = new System.Windows.Forms.TabControl();
-            this.B_EditPlayerHouses = new System.Windows.Forms.Button();
-            this.NUD_PocketCount1 = new System.Windows.Forms.NumericUpDown();
-            this.NUD_PocketCount2 = new System.Windows.Forms.NumericUpDown();
-            this.L_PocketCount1 = new System.Windows.Forms.Label();
-            this.L_PocketCount2 = new System.Windows.Forms.Label();
+            this.B_EditBulletin = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Editor.SuspendLayout();
             this.CM_Picture.SuspendLayout();
             this.Tab_Map.SuspendLayout();
             this.CM_EditMap.SuspendLayout();
             this.Tab_Players.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PocketCount2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PocketCount1)).BeginInit();
             this.CM_EditPlayer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Wallet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_NookMiles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).BeginInit();
             this.TC_Editors.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_PocketCount1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_PocketCount2)).BeginInit();
             this.SuspendLayout();
             // 
             // Menu_Editor
@@ -191,8 +192,7 @@
             "Italiano",
             "한국어",
             "简体中文",
-            "繁體中文"
-            });
+            "繁體中文"});
             this.Menu_Language.Name = "Menu_Language";
             this.Menu_Language.Size = new System.Drawing.Size(115, 23);
             this.Menu_Language.SelectedIndexChanged += new System.EventHandler(this.Menu_Language_SelectedIndexChanged);
@@ -237,6 +237,16 @@
             this.Tab_Map.Text = "Map";
             this.Tab_Map.UseVisualStyleBackColor = true;
             // 
+            // B_EditPlayerHouses
+            // 
+            this.B_EditPlayerHouses.Location = new System.Drawing.Point(6, 168);
+            this.B_EditPlayerHouses.Name = "B_EditPlayerHouses";
+            this.B_EditPlayerHouses.Size = new System.Drawing.Size(92, 40);
+            this.B_EditPlayerHouses.TabIndex = 56;
+            this.B_EditPlayerHouses.Text = "Edit Player Houses";
+            this.B_EditPlayerHouses.UseVisualStyleBackColor = true;
+            this.B_EditPlayerHouses.Click += new System.EventHandler(this.B_EditPlayerHouses_Click);
+            // 
             // B_EditMap
             // 
             this.B_EditMap.ContextMenuStrip = this.CM_EditMap;
@@ -254,36 +264,37 @@
             this.B_EditTerrain,
             this.B_EditBuildings,
             this.B_EditAcres,
-            this.B_EditFieldItems});
+            this.B_EditFieldItems,
+            this.B_EditBulletin});
             this.CM_EditMap.Name = "CM_EditMap";
-            this.CM_EditMap.Size = new System.Drawing.Size(155, 92);
+            this.CM_EditMap.Size = new System.Drawing.Size(181, 136);
             // 
             // B_EditTerrain
             // 
             this.B_EditTerrain.Name = "B_EditTerrain";
-            this.B_EditTerrain.Size = new System.Drawing.Size(154, 22);
+            this.B_EditTerrain.Size = new System.Drawing.Size(180, 22);
             this.B_EditTerrain.Text = "Edit Terrain";
             this.B_EditTerrain.Click += new System.EventHandler(this.B_EditTerrain_Click);
             // 
             // B_EditBuildings
             // 
             this.B_EditBuildings.Name = "B_EditBuildings";
-            this.B_EditBuildings.Size = new System.Drawing.Size(154, 22);
+            this.B_EditBuildings.Size = new System.Drawing.Size(180, 22);
             this.B_EditBuildings.Text = "Edit Buildings";
             this.B_EditBuildings.Click += new System.EventHandler(this.B_EditBuildings_Click);
             // 
             // B_EditAcres
             // 
             this.B_EditAcres.Name = "B_EditAcres";
-            this.B_EditAcres.Size = new System.Drawing.Size(154, 22);
+            this.B_EditAcres.Size = new System.Drawing.Size(180, 22);
             this.B_EditAcres.Text = "Edit Acres";
             this.B_EditAcres.Click += new System.EventHandler(this.B_EditAcres_Click);
             // 
             // B_EditFieldItems
             // 
             this.B_EditFieldItems.Name = "B_EditFieldItems";
-            this.B_EditFieldItems.Size = new System.Drawing.Size(154, 22);
-            this.B_EditFieldItems.Text = "Edit Field items";
+            this.B_EditFieldItems.Size = new System.Drawing.Size(180, 22);
+            this.B_EditFieldItems.Text = "Edit Field Items";
             this.B_EditFieldItems.Click += new System.EventHandler(this.B_EditFieldItems_Click);
             // 
             // B_EditPRODesigns
@@ -374,6 +385,60 @@
             this.Tab_Players.TabIndex = 1;
             this.Tab_Players.Text = "Players";
             this.Tab_Players.UseVisualStyleBackColor = true;
+            // 
+            // L_PocketCount2
+            // 
+            this.L_PocketCount2.AutoSize = true;
+            this.L_PocketCount2.Location = new System.Drawing.Point(148, 191);
+            this.L_PocketCount2.Name = "L_PocketCount2";
+            this.L_PocketCount2.Size = new System.Drawing.Size(81, 13);
+            this.L_PocketCount2.TabIndex = 22;
+            this.L_PocketCount2.Text = "Pocket Count 2";
+            this.L_PocketCount2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // L_PocketCount1
+            // 
+            this.L_PocketCount1.AutoSize = true;
+            this.L_PocketCount1.Location = new System.Drawing.Point(148, 170);
+            this.L_PocketCount1.Name = "L_PocketCount1";
+            this.L_PocketCount1.Size = new System.Drawing.Size(81, 13);
+            this.L_PocketCount1.TabIndex = 21;
+            this.L_PocketCount1.Text = "Pocket Count 1";
+            this.L_PocketCount1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NUD_PocketCount2
+            // 
+            this.NUD_PocketCount2.Location = new System.Drawing.Point(104, 188);
+            this.NUD_PocketCount2.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.NUD_PocketCount2.Name = "NUD_PocketCount2";
+            this.NUD_PocketCount2.Size = new System.Drawing.Size(41, 20);
+            this.NUD_PocketCount2.TabIndex = 20;
+            this.NUD_PocketCount2.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            // 
+            // NUD_PocketCount1
+            // 
+            this.NUD_PocketCount1.Location = new System.Drawing.Point(104, 167);
+            this.NUD_PocketCount1.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.NUD_PocketCount1.Name = "NUD_PocketCount1";
+            this.NUD_PocketCount1.Size = new System.Drawing.Size(41, 20);
+            this.NUD_PocketCount1.TabIndex = 19;
+            this.NUD_PocketCount1.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
             // 
             // B_EditPlayer
             // 
@@ -572,69 +637,12 @@
             this.TC_Editors.Size = new System.Drawing.Size(404, 237);
             this.TC_Editors.TabIndex = 1;
             // 
-            // B_EditPlayerHouses
+            // B_EditBulletin
             // 
-            this.B_EditPlayerHouses.Location = new System.Drawing.Point(6, 168);
-            this.B_EditPlayerHouses.Name = "B_EditPlayerHouses";
-            this.B_EditPlayerHouses.Size = new System.Drawing.Size(92, 40);
-            this.B_EditPlayerHouses.TabIndex = 56;
-            this.B_EditPlayerHouses.Text = "Edit Player Houses";
-            this.B_EditPlayerHouses.UseVisualStyleBackColor = true;
-            this.B_EditPlayerHouses.Click += new System.EventHandler(this.B_EditPlayerHouses_Click);
-            // 
-            // NUD_PocketCount1
-            // 
-            this.NUD_PocketCount1.Location = new System.Drawing.Point(104, 167);
-            this.NUD_PocketCount1.Maximum = new decimal(new int[] {
-            2147483647,
-            0,
-            0,
-            0});
-            this.NUD_PocketCount1.Name = "NUD_PocketCount1";
-            this.NUD_PocketCount1.Size = new System.Drawing.Size(41, 20);
-            this.NUD_PocketCount1.TabIndex = 19;
-            this.NUD_PocketCount1.Value = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            // 
-            // NUD_PocketCount2
-            // 
-            this.NUD_PocketCount2.Location = new System.Drawing.Point(104, 188);
-            this.NUD_PocketCount2.Maximum = new decimal(new int[] {
-            2147483647,
-            0,
-            0,
-            0});
-            this.NUD_PocketCount2.Name = "NUD_PocketCount2";
-            this.NUD_PocketCount2.Size = new System.Drawing.Size(41, 20);
-            this.NUD_PocketCount2.TabIndex = 20;
-            this.NUD_PocketCount2.Value = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            // 
-            // L_PocketCount1
-            // 
-            this.L_PocketCount1.AutoSize = true;
-            this.L_PocketCount1.Location = new System.Drawing.Point(148, 170);
-            this.L_PocketCount1.Name = "L_PocketCount1";
-            this.L_PocketCount1.Size = new System.Drawing.Size(81, 13);
-            this.L_PocketCount1.TabIndex = 21;
-            this.L_PocketCount1.Text = "Pocket Count 1";
-            this.L_PocketCount1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_PocketCount2
-            // 
-            this.L_PocketCount2.AutoSize = true;
-            this.L_PocketCount2.Location = new System.Drawing.Point(148, 191);
-            this.L_PocketCount2.Name = "L_PocketCount2";
-            this.L_PocketCount2.Size = new System.Drawing.Size(81, 13);
-            this.L_PocketCount2.TabIndex = 22;
-            this.L_PocketCount2.Text = "Pocket Count 2";
-            this.L_PocketCount2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.B_EditBulletin.Name = "B_EditBulletin";
+            this.B_EditBulletin.Size = new System.Drawing.Size(180, 22);
+            this.B_EditBulletin.Text = "Edit Bulletin Board";
+            this.B_EditBulletin.Click += new System.EventHandler(this.B_EditBulletin_Click);
             // 
             // Editor
             // 
@@ -656,14 +664,14 @@
             this.CM_EditMap.ResumeLayout(false);
             this.Tab_Players.ResumeLayout(false);
             this.Tab_Players.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PocketCount2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PocketCount1)).EndInit();
             this.CM_EditPlayer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Wallet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_NookMiles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).EndInit();
             this.TC_Editors.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_PocketCount1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_PocketCount2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -724,6 +732,7 @@
         private System.Windows.Forms.Label L_PocketCount1;
         private System.Windows.Forms.NumericUpDown NUD_PocketCount2;
         private System.Windows.Forms.NumericUpDown NUD_PocketCount1;
+        private System.Windows.Forms.ToolStripMenuItem B_EditBulletin;
     }
 }
 

@@ -410,5 +410,13 @@ namespace NHSE.WinForms
             if (editor.ShowDialog() == DialogResult.OK)
                 SAV.Main.SetPlayerHouses(houses);
         }
+
+        private void B_EditBulletin_Click(object sender, EventArgs e)
+        {
+            var boxed = SAV.Main.Bulletin;
+            using var editor = new SingleObjectEditor<object>(boxed, PropertySort.NoSort);
+            if (editor.ShowDialog() == DialogResult.OK)
+                SAV.Main.Bulletin = (GSaveBulletinBoard)boxed;
+        }
     }
 }
