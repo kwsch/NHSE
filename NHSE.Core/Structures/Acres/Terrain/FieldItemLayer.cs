@@ -121,5 +121,86 @@ namespace NHSE.Core
         public int RemoveAll(int xmin, int ymin, int width, int height) => RemoveAll(xmin, ymin, width, height, _ => true);
         public int RemoveAllPlacedItems(int xmin, int ymin, int width, int height) => RemoveAll(xmin, ymin, width,
             height, z => z.DisplayItemId != FieldItem.NONE && !FieldItemList.Items.ContainsKey(z.DisplayItemId));
+
+        public void DeleteExtensionTiles(FieldItem tile, in int x, in int y)
+        {
+            var type = ItemInfo.GetItemSize(tile);
+            var w = type.GetWidth();
+            var h = type.GetHeight();
+
+            if ((tile.Rotation & 1) == 1)
+            {
+                var tmp = w;
+                w = h;
+                h = tmp;
+            }
+
+            for (int ix = 0; ix < w; ix++)
+            {
+                for (int iy = 0; iy < h; iy++)
+                {
+                    if (iy == 0 && ix == 0)
+                        continue;
+                    var t = GetTile(x + ix, y + iy);
+                    t.Delete();
+                }
+            }
+        }
+
+        public void SetExtensionTiles(FieldItem tile, in int x, in int y)
+        {
+            var type = ItemInfo.GetItemSize(tile);
+            var w = type.GetWidth();
+            var h = type.GetHeight();
+
+            if ((tile.Rotation & 1) == 1)
+            {
+                var tmp = w;
+                w = h;
+                h = tmp;
+            }
+
+            for (byte ix = 0; ix < w; ix++)
+            {
+                for (byte iy = 0; iy < h; iy++)
+                {
+                    if (iy == 0 && ix == 0)
+                        continue;
+                    var t = GetTile(x + ix, y + iy);
+                    t.SetAsExtension(tile, ix, iy);
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Checks if writing the <see cref="tile"/> at the specified <see cref="x"/> and <see cref="y"/> coordinates will overlap with any existing tiles.
+        /// </summary>
+        /// <returns>True if any tile will be overwritten, false if nothing is there.</returns>
+        public bool IsOccupied(FieldItem tile, in int x, in int y)
+        {
+            var type = ItemInfo.GetItemSize(tile);
+            var w = type.GetWidth();
+            var h = type.GetHeight();
+
+            if ((tile.Rotation & 1) == 1)
+            {
+                var tmp = w;
+                w = h;
+                h = tmp;
+            }
+
+            for (byte ix = 0; ix < w; ix++)
+            {
+                for (byte iy = 0; iy < h; iy++)
+                {
+                    var t = GetTile(x + ix, y + iy);
+                    if (!t.IsNone)
+                        return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

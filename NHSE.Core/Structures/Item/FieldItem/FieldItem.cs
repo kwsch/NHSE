@@ -76,5 +76,15 @@ namespace NHSE.Core
 
         public static FieldItem[] GetArray(byte[] data) => data.GetArray<FieldItem>(SIZE);
         public static byte[] SetArray(IReadOnlyList<FieldItem> data) => data.SetArray(SIZE);
+
+        public void SetAsExtension(FieldItem tile, byte x, byte y)
+        {
+            ItemType = EXTENSION;
+            Rotation = 0;
+            E03 = 0;
+            ExtensionX = x;
+            ExtensionY = y;
+            ExtensionItemId = tile.ItemId;
+        }
     }
 }

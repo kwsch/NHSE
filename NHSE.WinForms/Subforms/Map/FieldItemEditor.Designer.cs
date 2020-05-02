@@ -66,6 +66,7 @@
             this.GB_Remove = new System.Windows.Forms.GroupBox();
             this.B_RemovePlacedItems = new System.Windows.Forms.Button();
             this.TR_Transparency = new System.Windows.Forms.TrackBar();
+            this.CHK_NoOverwrite = new System.Windows.Forms.CheckBox();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
@@ -433,11 +434,24 @@
             this.TR_Transparency.Value = 90;
             this.TR_Transparency.Scroll += new System.EventHandler(this.TR_Transparency_Scroll);
             // 
+            // CHK_NoOverwrite
+            // 
+            this.CHK_NoOverwrite.AutoSize = true;
+            this.CHK_NoOverwrite.Checked = true;
+            this.CHK_NoOverwrite.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CHK_NoOverwrite.Location = new System.Drawing.Point(534, 416);
+            this.CHK_NoOverwrite.Name = "CHK_NoOverwrite";
+            this.CHK_NoOverwrite.Size = new System.Drawing.Size(173, 17);
+            this.CHK_NoOverwrite.TabIndex = 37;
+            this.CHK_NoOverwrite.Text = "Prevent Writing Occupied Tiles";
+            this.CHK_NoOverwrite.UseVisualStyleBackColor = true;
+            // 
             // FieldItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(981, 537);
+            this.Controls.Add(this.CHK_NoOverwrite);
             this.Controls.Add(this.TR_Transparency);
             this.Controls.Add(this.GB_Remove);
             this.Controls.Add(this.PB_Acre);
@@ -515,5 +529,6 @@
         private System.Windows.Forms.GroupBox GB_Remove;
         private System.Windows.Forms.Button B_RemovePlacedItems;
         private System.Windows.Forms.TrackBar TR_Transparency;
+        private System.Windows.Forms.CheckBox CHK_NoOverwrite;
     }
 }

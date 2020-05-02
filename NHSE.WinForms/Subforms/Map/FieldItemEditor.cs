@@ -112,22 +112,22 @@ namespace NHSE.WinForms
 
         private void PB_Acre_MouseClick(object sender, MouseEventArgs e)
         {
-            var tile = GetTile(Layer, e);
+            var tile = GetTile(Layer, e, out var x, out var y);
             switch (ModifierKeys)
             {
                 default: ViewTile(tile); return;
-                case Keys.Shift: SetTile(tile); return;
-                case Keys.Alt: DeleteTile(tile); return;
+                case Keys.Shift: SetTile(tile, x, y); return;
+                case Keys.Alt: DeleteTile(tile, x, y); return;
             }
         }
 
         private int HoverX;
         private int HoverY;
 
-        private FieldItem GetTile(FieldItemLayer layer, MouseEventArgs e)
+        private FieldItem GetTile(FieldItemLayer layer, MouseEventArgs e, out int x, out int y)
         {
             SetHoveredItem(e);
-            return layer.GetTile(X + HoverX, Y + HoverY);
+            return layer.GetTile(x = X + HoverX, y = Y + HoverY);
         }
 
         private void SetHoveredItem(MouseEventArgs e)
@@ -139,7 +139,7 @@ namespace NHSE.WinForms
         private void PB_Acre_MouseMove(object sender, MouseEventArgs e)
         {
             var oldTile = Layer.GetTile(X + HoverX, Y + HoverY);
-            var tile = GetTile(Layer, e);
+            var tile = GetTile(Layer, e, out _, out _);
             if (tile == oldTile)
                 return;
             var str = GameInfo.Strings;
@@ -154,17 +154,34 @@ namespace NHSE.WinForms
             PG_Tile.SelectedObject = pgt;
         }
 
-        private void SetTile(FieldItem tile)
+        private void SetTile(FieldItem tile, int x, int y)
         {
             var pgt = (FieldItem)PG_Tile.SelectedObject;
+            if (CHK_NoOverwrite.Checked && Layer.IsOccupied(pgt, x, y))
+            {
+                System.Media.SystemSounds.Asterisk.Play();
+                return;
+            }
+
+            // Clean up original placed data
+            if (tile.IsRoot)
+                Layer.DeleteExtensionTiles(tile, x, y);
+
+            // Set new placed data
+            if (pgt.IsRoot)
+                Layer.SetExtensionTiles(pgt, x, y);
             tile.CopyFrom(pgt);
+
             ReloadGrid(Layer, X, Y);
             ReloadMap();
         }
 
-        private void DeleteTile(FieldItem tile)
+        private void DeleteTile(FieldItem tile, int x, int y)
         {
+            if (tile.IsRoot)
+                Layer.DeleteExtensionTiles(tile, x, y);
             tile.Delete();
+
             ReloadGrid(Layer, X, Y);
             ReloadMap();
         }
@@ -186,14 +203,18 @@ namespace NHSE.WinForms
 
         private void Menu_Set_Click(object sender, EventArgs e)
         {
-            var tile = Layer.GetTile(X + HoverX, Y + HoverY);
-            SetTile(tile);
+            int x = X + HoverX;
+            int y = Y + HoverY;
+            var tile = Layer.GetTile(x, y);
+            SetTile(tile, x, y);
         }
 
         private void Menu_Reset_Click(object sender, EventArgs e)
         {
-            var tile = Layer.GetTile(X + HoverX, Y + HoverY);
-            DeleteTile(tile);
+            int x = X + HoverX;
+            int y = Y + HoverY;
+            var tile = Layer.GetTile(x, y);
+            DeleteTile(tile, x, y);
         }
 
         private void B_Up_Click(object sender, EventArgs e)

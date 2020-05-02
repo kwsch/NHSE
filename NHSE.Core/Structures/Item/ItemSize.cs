@@ -79,10 +79,9 @@ namespace NHSE.Core
             {ItemSizeType.S_4_0x4_0_Rug , new ItemSize( 8,  8)}, // 4x4(ラグ)
             {ItemSizeType.S_5_0x4_0_Rug , new ItemSize(10,  8)}, // 5x4(ラグ)
             {ItemSizeType.S_5_0x5_0_Rug , new ItemSize(10, 10)}, // 5x5(ラグ)
-
         };
 
-        public static int GetWidth(this ItemSizeType s) => Dictionary.TryGetValue(s, out var val) ? val.Width : 1;
-        public static int GetHeight(this ItemSizeType s) => Dictionary.TryGetValue(s, out var val) ? val.Height : 1;
+        public static int GetWidth(this ItemSizeType s) => Dictionary.TryGetValue(s, out var val) ? val.Width : 2;
+        public static int GetHeight(this ItemSizeType s) => Dictionary.TryGetValue(s, out var val) ? val.Height : 2;
     }
 }
