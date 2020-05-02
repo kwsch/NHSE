@@ -416,7 +416,7 @@ namespace NHSE.WinForms
             var boxed = SAV.Main.Bulletin;
             using var editor = new SingleObjectEditor<object>(boxed, PropertySort.NoSort);
             if (editor.ShowDialog() == DialogResult.OK)
-                SAV.Main.Bulletin = (GSaveBulletinBoard)boxed;
+                SAV.Main.Bulletin = boxed;
         }
     }
 }

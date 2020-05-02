@@ -70,6 +70,9 @@
     <Compile Update="Subforms\SingleObjectEditor.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Subforms\SingleItemEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Subforms\PropertyEditor - Copy.Designer.cs">
       <DependentUpon>PropertyEditor.cs</DependentUpon>
     </Compile>
@@ -80,6 +83,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Subforms\SysBot\SysBotRAMEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subforms\Villager\SaveRoomFloorWallEditor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Subforms\Villager\VillagerFlagEditor.cs">

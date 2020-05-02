@@ -188,5 +188,16 @@ namespace NHSE.WinForms
             if (editor.ShowDialog() == DialogResult.OK)
                 SAV.SetVillagerHouses(houses);
         }
+
+        private static void ShowContextMenuBelow(ToolStripDropDown c, Control n) => c.Show(n.PointToScreen(new System.Drawing.Point(0, n.Height)));
+        private void B_EditVillager_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_EditVillager, B_EditVillager);
+
+        private void B_EditVillagerRoom_Click(object sender, EventArgs e)
+        {
+            var v = Villagers[VillagerIndex];
+            using var editor = new SaveRoomFloorWallEditor(v.Room);
+            if (editor.ShowDialog() == DialogResult.OK)
+                v.Room = editor.Entity;
+        }
     }
 }
