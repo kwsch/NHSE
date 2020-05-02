@@ -62,18 +62,6 @@ namespace NHSE.Core
 
     [StructLayout(LayoutKind.Sequential, Pack = 4)]
     [TypeConverter(typeof(ValueTypeTypeConverter))]
-    public struct GSaveDate
-    {
-        public const int SIZE = 4;
-        public override string ToString() => $"{Year:0000}-{Month:00}-{Day:00}";
-
-        public ushort Year { get; set; }
-        public byte Month { get; set; }
-        public byte Day { get; set; }
-    }
-
-    [StructLayout(LayoutKind.Sequential, Pack = 4)]
-    [TypeConverter(typeof(ValueTypeTypeConverter))]
     public struct Handwriting
     {
         public const int SIZE = 0x7538;
@@ -88,53 +76,6 @@ namespace NHSE.Core
         public byte[] Palette { get; set; }
 
         public uint VerticesNum { get; set; }
-    }
-
-    [StructLayout(LayoutKind.Sequential, Pack = 4)]
-    [TypeConverter(typeof(ValueTypeTypeConverter))]
-    public struct GSavePlayerId
-    {
-        public const int SIZE = 0x38;
-        public override string ToString() => $"{BaseId.Name}-{LandId.Name}";
-
-        public GSaveLandId LandId { get; set; }
-        public GSavePlayerBaseId BaseId { get; set; }
-    }
-
-    [StructLayout(LayoutKind.Sequential, Pack = 4, CharSet = CharSet.Unicode)]
-    [TypeConverter(typeof(ValueTypeTypeConverter))]
-    public struct GSaveLandId
-    {
-        public const int SIZE = 0x1C;
-        public override string ToString() => Name;
-
-        public uint Id { get; set; }
-
-        [field: MarshalAs(UnmanagedType.ByValTStr, SizeConst = 10)]
-        public string Name { get; set; }
-
-        public byte IslandRubyType { get; set; }
-    }
-
-    [StructLayout(LayoutKind.Sequential, Pack = 4, CharSet = CharSet.Unicode)]
-    [TypeConverter(typeof(ValueTypeTypeConverter))]
-    public struct GSavePlayerBaseId
-    {
-        public const int SIZE = 0x1C;
-        public override string ToString() => Name;
-
-        public uint Id { get; set; }
-
-        [field: MarshalAs(UnmanagedType.ByValTStr, SizeConst = 10)]
-        public string Name { get; set; }
-
-        public Gender Gender { get; set; }
-    }
-
-    public enum Gender
-    {
-        Masculine = 0,
-        Feminine = 1,
     }
 }
 #pragma warning restore CS8618, CA1815, CA1819, IDE1006
