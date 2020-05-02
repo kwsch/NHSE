@@ -42,6 +42,7 @@ namespace NHSE.Parsing
 
             DumpS("fish.txt", GetFishList(pathBCSV, itemNames));
             DumpS("bugs.txt", GetInsectList(pathBCSV, itemNames));
+            DumpS("fossils.txt", GetFossilList(pathBCSV, itemNames));
             DumpS("eventFlagPlayer.txt", GetEventFlagNames(pathBCSV));
             DumpS("eventFlagVillager.txt", GetVillagerEventFlagNames(pathBCSV));
             DumpS("eventFlagLand.txt", GetLandEventFlagNames(pathBCSV));
@@ -293,6 +294,11 @@ namespace NHSE.Parsing
             return GetItemList(pathBCSV, fn, 0x20CB67BC);
         }
 
+        public static IEnumerable<ushort> GetFossilList(string pathBCSV, string fn = "MuseumFossilDonateInfo.bcsv")
+        {
+            return GetItemList(pathBCSV, fn, 0xB76B7D37);
+        }
+
         public static IEnumerable<ushort> GetFishList(string pathBCSV, string fn = "FishStatusParam.bcsv")
         {
             return GetItemList(pathBCSV, fn, 0x20CB67BC);
@@ -308,6 +314,12 @@ namespace NHSE.Parsing
         {
             var insects = GetFishList(pathBCSV, fn);
             return insects.Select(z => $"{z:00000}, // {items[z]}");
+        }
+
+        public static IEnumerable<string> GetFossilList(string pathBCSV, IReadOnlyList<string> items, string fn = "MuseumFossilDonateInfo.bcsv")
+        {
+            var fossils = GetFossilList(pathBCSV, fn);
+            return fossils.Select(z => $"{z:00000}, // {items[z]}");
         }
 
         private static IEnumerable<ushort> GetItemList(string pathBCSV, string fn, uint keyItemIDColumn)

@@ -172,7 +172,6 @@ namespace NHSE.Core
             }
         }
 
-
         /// <summary>
         /// Checks if writing the <see cref="tile"/> at the specified <see cref="x"/> and <see cref="y"/> coordinates will overlap with any existing tiles.
         /// </summary>

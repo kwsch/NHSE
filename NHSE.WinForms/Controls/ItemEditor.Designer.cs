@@ -42,7 +42,7 @@
             this.Menu_View = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Set = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Delete = new System.Windows.Forms.ToolStripMenuItem();
-            this.CB_NamedItemArgument = new System.Windows.Forms.ComboBox();
+            this.CB_Recipe = new System.Windows.Forms.ComboBox();
             this.FLP_Controls = new System.Windows.Forms.FlowLayoutPanel();
             this.FLP_Count = new System.Windows.Forms.FlowLayoutPanel();
             this.FLP_Uses = new System.Windows.Forms.FlowLayoutPanel();
@@ -61,17 +61,18 @@
             this.CHK_IsWatered = new System.Windows.Forms.CheckBox();
             this.NUD_WaterDays = new System.Windows.Forms.NumericUpDown();
             this.L_WaterDays = new System.Windows.Forms.Label();
-            this.CHK_Gold = new System.Windows.Forms.CheckBox();
+            this.CHK_WV2 = new System.Windows.Forms.CheckBox();
             this.CHK_WV1 = new System.Windows.Forms.CheckBox();
             this.CHK_WV0 = new System.Windows.Forms.CheckBox();
-            this.CHK_WV3 = new System.Windows.Forms.CheckBox();
-            this.CHK_WV2 = new System.Windows.Forms.CheckBox();
             this.CHK_WV5 = new System.Windows.Forms.CheckBox();
             this.CHK_WV4 = new System.Windows.Forms.CheckBox();
+            this.CHK_WV3 = new System.Windows.Forms.CheckBox();
+            this.CHK_WV8 = new System.Windows.Forms.CheckBox();
             this.CHK_WV7 = new System.Windows.Forms.CheckBox();
             this.CHK_WV6 = new System.Windows.Forms.CheckBox();
             this.CHK_WV9 = new System.Windows.Forms.CheckBox();
-            this.CHK_WV8 = new System.Windows.Forms.CheckBox();
+            this.CHK_Gold = new System.Windows.Forms.CheckBox();
+            this.CB_Fossil = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Count)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Uses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag0)).BeginInit();
@@ -111,7 +112,6 @@
             this.NUD_Count.Name = "NUD_Count";
             this.NUD_Count.Size = new System.Drawing.Size(56, 20);
             this.NUD_Count.TabIndex = 2;
-            this.NUD_Count.ValueChanged += new System.EventHandler(this.NUD_Count_ValueChanged);
             // 
             // L_Count
             // 
@@ -222,30 +222,31 @@
             this.Menu_Delete.Size = new System.Drawing.Size(107, 22);
             this.Menu_Delete.Text = "Delete";
             // 
-            // CB_NamedItemArgument
+            // CB_Recipe
             // 
-            this.CB_NamedItemArgument.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.CB_NamedItemArgument.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.CB_NamedItemArgument.DropDownWidth = 322;
-            this.CB_NamedItemArgument.FormattingEnabled = true;
-            this.CB_NamedItemArgument.Location = new System.Drawing.Point(3, 24);
-            this.CB_NamedItemArgument.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.CB_NamedItemArgument.Name = "CB_NamedItemArgument";
-            this.CB_NamedItemArgument.Size = new System.Drawing.Size(141, 21);
-            this.CB_NamedItemArgument.TabIndex = 14;
-            this.CB_NamedItemArgument.Visible = false;
-            this.CB_NamedItemArgument.SelectedValueChanged += new System.EventHandler(this.CB_NamedItemArgument_SelectedValueChanged);
+            this.CB_Recipe.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CB_Recipe.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CB_Recipe.DropDownWidth = 322;
+            this.CB_Recipe.FormattingEnabled = true;
+            this.CB_Recipe.Location = new System.Drawing.Point(3, 24);
+            this.CB_Recipe.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.CB_Recipe.Name = "CB_Recipe";
+            this.CB_Recipe.Size = new System.Drawing.Size(141, 21);
+            this.CB_Recipe.TabIndex = 14;
+            this.CB_Recipe.Visible = false;
+            this.CB_Recipe.SelectedValueChanged += new System.EventHandler(this.CB_CountAlias_SelectedValueChanged);
             // 
             // FLP_Controls
             // 
             this.FLP_Controls.Controls.Add(this.CB_ItemID);
-            this.FLP_Controls.Controls.Add(this.CB_NamedItemArgument);
+            this.FLP_Controls.Controls.Add(this.CB_Recipe);
             this.FLP_Controls.Controls.Add(this.FLP_Count);
             this.FLP_Controls.Controls.Add(this.FLP_Uses);
             this.FLP_Controls.Controls.Add(this.FLP_Flag0);
             this.FLP_Controls.Controls.Add(this.FLP_Flag1);
             this.FLP_Controls.Controls.Add(this.FLP_Genetics);
             this.FLP_Controls.Controls.Add(this.FLP_FlowerFlags);
+            this.FLP_Controls.Controls.Add(this.CB_Fossil);
             this.FLP_Controls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FLP_Controls.Location = new System.Drawing.Point(0, 0);
             this.FLP_Controls.Name = "FLP_Controls";
@@ -481,19 +482,18 @@
             this.L_WaterDays.Text = "Days:";
             this.L_WaterDays.Click += new System.EventHandler(this.L_WaterDays_Click);
             // 
-            // CHK_Gold
+            // CHK_WV2
             // 
-            this.CHK_Gold.AutoSize = true;
-            this.CHK_Gold.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_Gold.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_Gold.Location = new System.Drawing.Point(45, 88);
-            this.CHK_Gold.Margin = new System.Windows.Forms.Padding(0);
-            this.CHK_Gold.Name = "CHK_Gold";
-            this.CHK_Gold.Size = new System.Drawing.Size(54, 18);
-            this.CHK_Gold.TabIndex = 13;
-            this.CHK_Gold.Text = "Gold";
-            this.CHK_Gold.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_Gold.UseVisualStyleBackColor = true;
+            this.CHK_WV2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHK_WV2.Location = new System.Drawing.Point(99, 40);
+            this.CHK_WV2.Margin = new System.Windows.Forms.Padding(0);
+            this.CHK_WV2.Name = "CHK_WV2";
+            this.CHK_WV2.Size = new System.Drawing.Size(48, 16);
+            this.CHK_WV2.TabIndex = 17;
+            this.CHK_WV2.Text = "V3";
+            this.CHK_WV2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV2.UseVisualStyleBackColor = true;
             // 
             // CHK_WV1
             // 
@@ -521,32 +521,6 @@
             this.CHK_WV0.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_WV0.UseVisualStyleBackColor = true;
             // 
-            // CHK_WV3
-            // 
-            this.CHK_WV3.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_WV3.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_WV3.Location = new System.Drawing.Point(3, 56);
-            this.CHK_WV3.Margin = new System.Windows.Forms.Padding(0);
-            this.CHK_WV3.Name = "CHK_WV3";
-            this.CHK_WV3.Size = new System.Drawing.Size(48, 16);
-            this.CHK_WV3.TabIndex = 16;
-            this.CHK_WV3.Text = "V4";
-            this.CHK_WV3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_WV3.UseVisualStyleBackColor = true;
-            // 
-            // CHK_WV2
-            // 
-            this.CHK_WV2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_WV2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_WV2.Location = new System.Drawing.Point(99, 40);
-            this.CHK_WV2.Margin = new System.Windows.Forms.Padding(0);
-            this.CHK_WV2.Name = "CHK_WV2";
-            this.CHK_WV2.Size = new System.Drawing.Size(48, 16);
-            this.CHK_WV2.TabIndex = 17;
-            this.CHK_WV2.Text = "V3";
-            this.CHK_WV2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_WV2.UseVisualStyleBackColor = true;
-            // 
             // CHK_WV5
             // 
             this.CHK_WV5.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -572,6 +546,32 @@
             this.CHK_WV4.Text = "V5";
             this.CHK_WV4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_WV4.UseVisualStyleBackColor = true;
+            // 
+            // CHK_WV3
+            // 
+            this.CHK_WV3.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV3.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHK_WV3.Location = new System.Drawing.Point(3, 56);
+            this.CHK_WV3.Margin = new System.Windows.Forms.Padding(0);
+            this.CHK_WV3.Name = "CHK_WV3";
+            this.CHK_WV3.Size = new System.Drawing.Size(48, 16);
+            this.CHK_WV3.TabIndex = 16;
+            this.CHK_WV3.Text = "V4";
+            this.CHK_WV3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV3.UseVisualStyleBackColor = true;
+            // 
+            // CHK_WV8
+            // 
+            this.CHK_WV8.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV8.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHK_WV8.Location = new System.Drawing.Point(99, 72);
+            this.CHK_WV8.Margin = new System.Windows.Forms.Padding(0);
+            this.CHK_WV8.Name = "CHK_WV8";
+            this.CHK_WV8.Size = new System.Drawing.Size(48, 16);
+            this.CHK_WV8.TabIndex = 23;
+            this.CHK_WV8.Text = "V9";
+            this.CHK_WV8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_WV8.UseVisualStyleBackColor = true;
             // 
             // CHK_WV7
             // 
@@ -612,18 +612,33 @@
             this.CHK_WV9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_WV9.UseVisualStyleBackColor = true;
             // 
-            // CHK_WV8
+            // CHK_Gold
             // 
-            this.CHK_WV8.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_WV8.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_WV8.Location = new System.Drawing.Point(99, 72);
-            this.CHK_WV8.Margin = new System.Windows.Forms.Padding(0);
-            this.CHK_WV8.Name = "CHK_WV8";
-            this.CHK_WV8.Size = new System.Drawing.Size(48, 16);
-            this.CHK_WV8.TabIndex = 23;
-            this.CHK_WV8.Text = "V9";
-            this.CHK_WV8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_WV8.UseVisualStyleBackColor = true;
+            this.CHK_Gold.AutoSize = true;
+            this.CHK_Gold.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_Gold.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHK_Gold.Location = new System.Drawing.Point(45, 88);
+            this.CHK_Gold.Margin = new System.Windows.Forms.Padding(0);
+            this.CHK_Gold.Name = "CHK_Gold";
+            this.CHK_Gold.Size = new System.Drawing.Size(54, 18);
+            this.CHK_Gold.TabIndex = 13;
+            this.CHK_Gold.Text = "Gold";
+            this.CHK_Gold.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_Gold.UseVisualStyleBackColor = true;
+            // 
+            // CB_Fossil
+            // 
+            this.CB_Fossil.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CB_Fossil.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CB_Fossil.DropDownWidth = 322;
+            this.CB_Fossil.FormattingEnabled = true;
+            this.CB_Fossil.Location = new System.Drawing.Point(3, 321);
+            this.CB_Fossil.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.CB_Fossil.Name = "CB_Fossil";
+            this.CB_Fossil.Size = new System.Drawing.Size(141, 21);
+            this.CB_Fossil.TabIndex = 21;
+            this.CB_Fossil.Visible = false;
+            this.CB_Fossil.SelectedValueChanged += new System.EventHandler(this.CB_CountAlias_SelectedValueChanged);
             // 
             // ItemEditor
             // 
@@ -668,7 +683,7 @@
         private System.Windows.Forms.ToolStripMenuItem Menu_View;
         private System.Windows.Forms.ToolStripMenuItem Menu_Set;
         private System.Windows.Forms.ToolStripMenuItem Menu_Delete;
-        private System.Windows.Forms.ComboBox CB_NamedItemArgument;
+        private System.Windows.Forms.ComboBox CB_Recipe;
         private System.Windows.Forms.FlowLayoutPanel FLP_Controls;
         private System.Windows.Forms.FlowLayoutPanel FLP_Count;
         private System.Windows.Forms.FlowLayoutPanel FLP_Uses;
@@ -698,5 +713,6 @@
         private System.Windows.Forms.CheckBox CHK_WV6;
         private System.Windows.Forms.CheckBox CHK_WV9;
         private System.Windows.Forms.CheckBox CHK_WV8;
+        private System.Windows.Forms.ComboBox CB_Fossil;
     }
 }

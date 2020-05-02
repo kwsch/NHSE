@@ -8,7 +8,10 @@ namespace NHSE.WinForms
     public partial class ItemEditor : UserControl
     {
         private readonly List<ComboItem> Recipes = GameInfo.Strings.CreateItemDataSource(RecipeList.Recipes, false);
+        private readonly List<ComboItem> Fossils = GameInfo.Strings.CreateItemDataSource(GameLists.Fossils, false);
         private readonly CheckBox[] Watered;
+
+        private bool Loading = true;
 
         public ItemEditor()
         {
@@ -24,25 +27,28 @@ namespace NHSE.WinForms
             };
         }
 
-        private ItemKind kind;
-        private ushort itemID;
-
         public void Initialize(List<ComboItem> items)
         {
             CB_ItemID.DisplayMember = nameof(ComboItem.Text);
             CB_ItemID.ValueMember = nameof(ComboItem.Value);
             CB_ItemID.DataSource = items;
 
-            CB_NamedItemArgument.DisplayMember = nameof(ComboItem.Text);
-            CB_NamedItemArgument.ValueMember = nameof(ComboItem.Value);
-            CB_NamedItemArgument.DataSource = Recipes;
+            CB_Recipe.DisplayMember = nameof(ComboItem.Text);
+            CB_Recipe.ValueMember = nameof(ComboItem.Value);
+            CB_Recipe.DataSource = Recipes;
+
+            CB_Fossil.DisplayMember = nameof(ComboItem.Text);
+            CB_Fossil.ValueMember = nameof(ComboItem.Value);
+            CB_Fossil.DataSource = Fossils;
 
             LoadItem(Item.NO_ITEM);
         }
 
         public Item LoadItem(Item item)
         {
+            Loading = true;
             CB_ItemID.SelectedValue = (int)item.ItemId;
+            var kind = ItemInfo.GetItemKind(item.ItemId);
 
             if (kind.IsFlower())
             {
@@ -59,15 +65,20 @@ namespace NHSE.WinForms
                 NUD_Uses.Value = item.UseCount;
                 NUD_Flag0.Value = item.Flags0;
                 NUD_Flag1.Value = item.Flags1;
+
+                LoadItemTypeValues(kind);
             }
 
+            Loading = false;
             return item;
         }
 
         public Item SetItem(Item item)
         {
-            var id = WinFormsUtil.GetIndex(CB_ItemID);
-            item.ItemId = (ushort) id;
+            var id = (ushort)WinFormsUtil.GetIndex(CB_ItemID);
+            var kind = ItemInfo.GetItemKind(id);
+
+            item.ItemId = id;
             if (kind.IsFlower())
             {
                 item.Genes = SaveGenes();
@@ -89,45 +100,71 @@ namespace NHSE.WinForms
 
         private void CB_ItemID_SelectedValueChanged(object sender, EventArgs e)
         {
-            itemID = (ushort)WinFormsUtil.GetIndex(CB_ItemID);
-            kind = ItemInfo.GetItemKind(itemID);
+            var itemID = (ushort)WinFormsUtil.GetIndex(CB_ItemID);
+            var kind = ItemInfo.GetItemKind(itemID);
 
-            if (kind.IsFlower())
+            ToggleEditorVisibility(kind);
+            if (!Loading)
+                LoadItemTypeValues(kind);
+        }
+
+        private void LoadItemTypeValues(ItemKind k)
+        {
+            switch (k)
             {
-                CB_NamedItemArgument.Visible = false;
+                case ItemKind.Kind_FossilUnknown:
+                    CB_Fossil.SelectedValue = (int) NUD_Count.Value;
+                    break;
+
+                case ItemKind.Kind_DIYRecipe:
+                case ItemKind.Kind_MessageBottle:
+                    CB_Recipe.SelectedValue = (int) NUD_Count.Value;
+                    break;
+            }
+        }
+
+        private void ToggleEditorVisibility(ItemKind k)
+        {
+            if (k.IsFlower())
+            {
+                CB_Recipe.Visible = false;
                 FLP_Uses.Visible = FLP_Count.Visible = FLP_Flag0.Visible = FLP_Flag1.Visible = false;
                 FLP_FlowerFlags.Visible = FLP_Genetics.Visible = true;
                 return;
             }
 
-            switch (kind)
+            switch (k)
             {
-                case ItemKind.Kind_DIYRecipe:
-                    CB_NamedItemArgument.SelectedValue = (int) NUD_Count.Value;
+                case ItemKind.Kind_FossilUnknown:
+                    CB_Fossil.Visible = true;
 
-                    CB_NamedItemArgument.Visible = true;
+                    CB_Recipe.Visible = false;
+                    FLP_Uses.Visible = FLP_Count.Visible = FLP_Flag0.Visible = FLP_Flag1.Visible = false;
+                    FLP_FlowerFlags.Visible = FLP_Genetics.Visible = false;
+                    break;
+
+                case ItemKind.Kind_DIYRecipe:
+                case ItemKind.Kind_MessageBottle:
+                    CB_Recipe.Visible = true;
+
+                    CB_Fossil.Visible = false;
                     FLP_Uses.Visible = FLP_Count.Visible = FLP_Flag0.Visible = FLP_Flag1.Visible = false;
                     FLP_FlowerFlags.Visible = FLP_Genetics.Visible = false;
                     break;
 
                 default:
-                    CB_NamedItemArgument.Visible = false;
+                    CB_Fossil.Visible = false;
+                    CB_Recipe.Visible = false;
                     FLP_Uses.Visible = FLP_Count.Visible = FLP_Flag0.Visible = FLP_Flag1.Visible = true;
                     FLP_FlowerFlags.Visible = FLP_Genetics.Visible = false;
                     break;
             }
         }
 
-        private void CB_NamedItemArgument_SelectedValueChanged(object sender,EventArgs e)
+        private void CB_CountAlias_SelectedValueChanged(object sender,EventArgs e)
         {
-            var val = WinFormsUtil.GetIndex(CB_NamedItemArgument);
+            var val = WinFormsUtil.GetIndex((ComboBox)sender);
             NUD_Count.Value = Math.Max(0, Math.Min(NUD_Count.Maximum, val));
-        }
-
-        private void NUD_Count_ValueChanged(object sender, EventArgs e)
-        {
-            if (kind == ItemKind.Kind_DIYRecipe)
-                CB_NamedItemArgument.SelectedValue = (int) NUD_Count.Value;
         }
 
         private void LoadGenes(FlowerGene genes)

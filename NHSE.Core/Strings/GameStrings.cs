@@ -35,6 +35,20 @@ namespace NHSE.Core
             return dataSource;
         }
 
+        public List<ComboItem> CreateItemDataSource(IReadOnlyCollection<ushort> dict, bool none = true)
+        {
+            var display = itemlistdisplay;
+            var result = new List<ComboItem>(dict.Count);
+            foreach (var x in dict)
+                result.Add(new ComboItem(display[x], x));
+
+            if (none)
+                result.Add(new ComboItem(itemlist[0], Item.NONE));
+
+            result.SortByText();
+            return result;
+        }
+
         public List<ComboItem> CreateItemDataSource(IReadOnlyCollection<KeyValuePair<ushort, ushort>> dict, bool none = true)
         {
             var display = itemlistdisplay;
@@ -87,7 +101,7 @@ namespace NHSE.Core
             return items;
         }
 
-        public string GetItemName(Item item)
+        public string GetItemName(IHeldItem item)
         {
             var index = item.ItemId;
             if (index == Item.NONE)
@@ -101,6 +115,14 @@ namespace NHSE.Core
                 var isKnown = RecipeList.Recipes.TryGetValue(recipeID, out var result);
                 var makes = isKnown ? GetItemName(result) : recipeID.ToString("000");
                 return $"{display} - {makes}";
+            }
+
+            if (kind == ItemKind.Kind_FossilUnknown)
+            {
+                var display = itemlistdisplay[index];
+                var fossilID = item.Count;
+                var fossilName = GetItemName(fossilID);
+                return $"{display} - {fossilName}";
             }
 
             return GetItemName(index);
@@ -120,16 +142,8 @@ namespace NHSE.Core
                 return "???";
             }
 
-            var kind = ItemInfo.GetItemKind(index);
-            if (kind == ItemKind.Kind_DIYRecipe)
-            {
-                var display = itemlistdisplay[index];
-                var recipeID = item.Count;
-                var isKnown = RecipeList.Recipes.TryGetValue(recipeID, out var result);
-                var makes = isKnown ? GetItemName(result) : recipeID.ToString("000");
-                return $"{display} - {makes}";
-            }
-
+            if (item.IsRoot)
+                return GetItemName((IHeldItem)item);
             return GetItemName(index);
         }
 
