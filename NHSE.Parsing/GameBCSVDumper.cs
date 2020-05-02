@@ -47,6 +47,7 @@ namespace NHSE.Parsing
             DumpS("eventFlagLand.txt", GetLandEventFlagNames(pathBCSV));
 
             DumpS("ItemKind.txt", GetPossibleEnum(pathBCSV, "ItemParam.bcsv", 0xFC275E86));
+            DumpS("ItemSize.txt", GetPossibleEnum(pathBCSV, "ItemParam.bcsv", 0xE06FB090));
             DumpS("PlantKind.txt", GetPossibleEnum(pathBCSV, "FgMainParam.bcsv", 0x48EF0398));
             DumpS("TerrainKind.txt", GetNumberedEnumValues(pathBCSV, "FieldLandMakingUnitModelParam.bcsv", 0x39B5A93D, 0x54706054));
             DumpS("BridgeKind.txt", GetNumberedEnumValues(pathBCSV, "StructureBridgeParam.bcsv", 0x39B5A93D, 0x54706054));
@@ -57,7 +58,9 @@ namespace NHSE.Parsing
             DumpS("WallKind.txt", GetNumberedEnumValues(pathBCSV, "StructureHouseWallParam.bcsv", 0x39B5A93D, 0x54706054));
 
             DumpB("item_kind.bin", GetItemKindArray(pathBCSV));
+            DumpB("item_size.bin", GetItemSizeArray(pathBCSV));
             DumpS("plants.txt", GetPlantedNames(pathBCSV));
+            DumpS("item_size_dictionary.txt", GetItemSizeDictionary(pathBCSV));
 
             if (csv)
                 BCSVConverter.DumpAll(pathBCSV, dest, delim);
@@ -153,6 +156,69 @@ namespace NHSE.Parsing
             byte[] result = new byte[max + 1];
             foreach (var kvp in types)
                 result[kvp.Key] = (byte) kvp.Value;
+
+            return result;
+        }
+
+        public static byte[] GetItemSizeArray(string pathBCSV, string fn = "ItemParam.bcsv")
+        {
+            var path = Path.Combine(pathBCSV, fn);
+            var data = File.ReadAllBytes(path);
+            var bcsv = new BCSV(data);
+
+            var dict = bcsv.GetFieldDictionary();
+            var fType = dict[0xE06FB090];
+            var fID = dict[0x54706054];
+
+            var types = new Dictionary<ushort, ItemSizeType>();
+            ushort max = 0;
+            for (int i = 0; i < bcsv.EntryCount; i++)
+            {
+                var id = bcsv.ReadValue(i, fID);
+                var ival = ushort.Parse(id);
+                var type = bcsv.ReadValue(i, fType).TrimEnd('\0');
+                type = ItemSizeExtensions.EnumPrefix + type; // can't start with numbers
+
+                if (!Enum.TryParse<ItemSizeType>(type, out var k))
+                    throw new InvalidEnumArgumentException($"{type} is not a known enum value @ index {i}. Update the enum index first.");
+                types.Add(ival, k);
+
+                if (ival > max)
+                    max = ival;
+            }
+
+            byte[] result = new byte[max + 1];
+            foreach (var kvp in types)
+                result[kvp.Key] = (byte)kvp.Value;
+
+            return result;
+        }
+
+        public static string[] GetItemSizeDictionary(string pathBCSV, string fn = "ItemSize.bcsv")
+        {
+            var path = Path.Combine(pathBCSV, fn);
+            var data = File.ReadAllBytes(path);
+            var bcsv = new BCSV(data);
+
+            var dict = bcsv.GetFieldDictionary();
+
+            var fw = dict[0x16B8F524];
+            var fh = dict[0xBCB13DAF];
+            var fs = dict[0x87BF00E8];
+            var fc = dict[0x977ADFCE];
+
+            string[] result = new string[bcsv.EntryCount];
+
+            const string prefix = nameof(ItemSizeType) + "." + ItemSizeExtensions.EnumPrefix;
+            for (int i = 0; i < bcsv.EntryCount; i++)
+            {
+                var w = bcsv.ReadValue(i, fw).TrimEnd('\0');
+                var h = bcsv.ReadValue(i, fh).TrimEnd('\0');
+                var s = bcsv.ReadValue(i, fs).TrimEnd('\0');
+                var c = bcsv.ReadValue(i, fc).TrimEnd('\0');
+
+                result[i] = $"{{{prefix}{s,-12}, new ItemSize({w,2}, {h,2})}}, // {c}";
+            }
 
             return result;
         }
