@@ -154,6 +154,6 @@ namespace NHSE.Core
 
     public static class ItemKindExtensions
     {
-        public static bool IsFlower(this ItemKind k) => (Kind_Flower <= k && k <= Kind_FlowerSeed) || (UnitIcon_FlwAnemone <= k && k <= UnitIcon_FlwTulip);
+        public static bool IsFlower(this ItemKind k) => (Kind_Flower <= k && k <= Kind_FlowerBud) || (UnitIcon_FlwAnemone <= k && k <= UnitIcon_FlwTulip);
     }
 }
