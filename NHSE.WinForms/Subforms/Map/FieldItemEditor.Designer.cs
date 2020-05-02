@@ -57,24 +57,26 @@
             this.L_Layer = new System.Windows.Forms.Label();
             this.TT_Hover = new System.Windows.Forms.ToolTip(this.components);
             this.PB_Acre = new System.Windows.Forms.PictureBox();
-            this.B_RemoveAllWeeds = new System.Windows.Forms.Button();
-            this.B_FillHoles = new System.Windows.Forms.Button();
-            this.B_RemovePlants = new System.Windows.Forms.Button();
-            this.B_RemoveAll = new System.Windows.Forms.Button();
-            this.B_RemoveFences = new System.Windows.Forms.Button();
-            this.B_RemoveObjects = new System.Windows.Forms.Button();
-            this.GB_Remove = new System.Windows.Forms.GroupBox();
-            this.B_RemovePlacedItems = new System.Windows.Forms.Button();
             this.TR_Transparency = new System.Windows.Forms.TrackBar();
             this.CHK_NoOverwrite = new System.Windows.Forms.CheckBox();
             this.CHK_AutoExtension = new System.Windows.Forms.CheckBox();
+            this.B_RemoveItemDropDown = new System.Windows.Forms.Button();
+            this.CM_Remove = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.B_RemoveAllWeeds = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_RemovePlants = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_RemoveObjects = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_RemovePlacedItems = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_RemoveFences = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_FillHoles = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_RemoveAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.GB_Remove = new System.Windows.Forms.Label();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Layer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Acre)).BeginInit();
-            this.GB_Remove.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TR_Transparency)).BeginInit();
+            this.CM_Remove.SuspendLayout();
             this.SuspendLayout();
             // 
             // B_Cancel
@@ -338,92 +340,6 @@
             this.PB_Acre.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PB_Acre_MouseClick);
             this.PB_Acre.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PB_Acre_MouseMove);
             // 
-            // B_RemoveAllWeeds
-            // 
-            this.B_RemoveAllWeeds.Location = new System.Drawing.Point(6, 17);
-            this.B_RemoveAllWeeds.Name = "B_RemoveAllWeeds";
-            this.B_RemoveAllWeeds.Size = new System.Drawing.Size(92, 23);
-            this.B_RemoveAllWeeds.TabIndex = 29;
-            this.B_RemoveAllWeeds.Text = "Weeds";
-            this.B_RemoveAllWeeds.UseVisualStyleBackColor = true;
-            this.B_RemoveAllWeeds.Click += new System.EventHandler(this.B_RemoveAllWeeds_Click);
-            // 
-            // B_FillHoles
-            // 
-            this.B_FillHoles.Location = new System.Drawing.Point(105, 39);
-            this.B_FillHoles.Name = "B_FillHoles";
-            this.B_FillHoles.Size = new System.Drawing.Size(91, 23);
-            this.B_FillHoles.TabIndex = 30;
-            this.B_FillHoles.Text = "Holes";
-            this.B_FillHoles.UseVisualStyleBackColor = true;
-            this.B_FillHoles.Click += new System.EventHandler(this.B_FillHoles_Click);
-            // 
-            // B_RemovePlants
-            // 
-            this.B_RemovePlants.Location = new System.Drawing.Point(6, 39);
-            this.B_RemovePlants.Name = "B_RemovePlants";
-            this.B_RemovePlants.Size = new System.Drawing.Size(92, 23);
-            this.B_RemovePlants.TabIndex = 31;
-            this.B_RemovePlants.Text = "Plants";
-            this.B_RemovePlants.UseVisualStyleBackColor = true;
-            this.B_RemovePlants.Click += new System.EventHandler(this.B_RemovePlants_Click);
-            // 
-            // B_RemoveAll
-            // 
-            this.B_RemoveAll.Location = new System.Drawing.Point(104, 83);
-            this.B_RemoveAll.Name = "B_RemoveAll";
-            this.B_RemoveAll.Size = new System.Drawing.Size(91, 23);
-            this.B_RemoveAll.TabIndex = 32;
-            this.B_RemoveAll.Text = "All";
-            this.B_RemoveAll.UseVisualStyleBackColor = true;
-            this.B_RemoveAll.Click += new System.EventHandler(this.B_RemoveAll_Click);
-            // 
-            // B_RemoveFences
-            // 
-            this.B_RemoveFences.Location = new System.Drawing.Point(105, 17);
-            this.B_RemoveFences.Name = "B_RemoveFences";
-            this.B_RemoveFences.Size = new System.Drawing.Size(91, 23);
-            this.B_RemoveFences.TabIndex = 33;
-            this.B_RemoveFences.Text = "Fences";
-            this.B_RemoveFences.UseVisualStyleBackColor = true;
-            this.B_RemoveFences.Click += new System.EventHandler(this.B_RemoveFences_Click);
-            // 
-            // B_RemoveObjects
-            // 
-            this.B_RemoveObjects.Location = new System.Drawing.Point(6, 61);
-            this.B_RemoveObjects.Name = "B_RemoveObjects";
-            this.B_RemoveObjects.Size = new System.Drawing.Size(92, 23);
-            this.B_RemoveObjects.TabIndex = 34;
-            this.B_RemoveObjects.Text = "Non-Items";
-            this.B_RemoveObjects.UseVisualStyleBackColor = true;
-            this.B_RemoveObjects.Click += new System.EventHandler(this.B_RemoveObjects_Click);
-            // 
-            // GB_Remove
-            // 
-            this.GB_Remove.Controls.Add(this.B_RemovePlacedItems);
-            this.GB_Remove.Controls.Add(this.B_RemoveFences);
-            this.GB_Remove.Controls.Add(this.B_RemoveObjects);
-            this.GB_Remove.Controls.Add(this.B_RemoveAllWeeds);
-            this.GB_Remove.Controls.Add(this.B_FillHoles);
-            this.GB_Remove.Controls.Add(this.B_RemovePlants);
-            this.GB_Remove.Controls.Add(this.B_RemoveAll);
-            this.GB_Remove.Location = new System.Drawing.Point(767, 385);
-            this.GB_Remove.Name = "GB_Remove";
-            this.GB_Remove.Size = new System.Drawing.Size(202, 113);
-            this.GB_Remove.TabIndex = 35;
-            this.GB_Remove.TabStop = false;
-            this.GB_Remove.Text = "Remove from View (Hold Shift=Map)";
-            // 
-            // B_RemovePlacedItems
-            // 
-            this.B_RemovePlacedItems.Location = new System.Drawing.Point(6, 83);
-            this.B_RemovePlacedItems.Name = "B_RemovePlacedItems";
-            this.B_RemovePlacedItems.Size = new System.Drawing.Size(92, 23);
-            this.B_RemovePlacedItems.TabIndex = 36;
-            this.B_RemovePlacedItems.Text = "Placed Items";
-            this.B_RemovePlacedItems.UseVisualStyleBackColor = true;
-            this.B_RemovePlacedItems.Click += new System.EventHandler(this.B_RemovePlacedItems_Click);
-            // 
             // TR_Transparency
             // 
             this.TR_Transparency.Location = new System.Drawing.Point(535, 250);
@@ -459,15 +375,98 @@
             this.CHK_AutoExtension.Text = "Automatically Set/Delete Extensions";
             this.CHK_AutoExtension.UseVisualStyleBackColor = true;
             // 
+            // B_RemoveItemDropDown
+            // 
+            this.B_RemoveItemDropDown.Location = new System.Drawing.Point(767, 439);
+            this.B_RemoveItemDropDown.Name = "B_RemoveItemDropDown";
+            this.B_RemoveItemDropDown.Size = new System.Drawing.Size(112, 40);
+            this.B_RemoveItemDropDown.TabIndex = 37;
+            this.B_RemoveItemDropDown.Text = "Remove Items...";
+            this.B_RemoveItemDropDown.UseVisualStyleBackColor = true;
+            this.B_RemoveItemDropDown.Click += new System.EventHandler(this.B_RemoveItemDropDown_Click);
+            // 
+            // CM_Remove
+            // 
+            this.CM_Remove.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.B_RemoveAllWeeds,
+            this.B_RemovePlants,
+            this.B_RemoveObjects,
+            this.B_RemovePlacedItems,
+            this.B_RemoveFences,
+            this.B_FillHoles,
+            this.B_RemoveAll});
+            this.CM_Remove.Name = "CM_Picture";
+            this.CM_Remove.ShowImageMargin = false;
+            this.CM_Remove.Size = new System.Drawing.Size(117, 158);
+            // 
+            // B_RemoveAllWeeds
+            // 
+            this.B_RemoveAllWeeds.Name = "B_RemoveAllWeeds";
+            this.B_RemoveAllWeeds.Size = new System.Drawing.Size(116, 22);
+            this.B_RemoveAllWeeds.Text = "Weeds";
+            this.B_RemoveAllWeeds.Click += new System.EventHandler(this.B_RemoveAllWeeds_Click);
+            // 
+            // B_RemovePlants
+            // 
+            this.B_RemovePlants.Name = "B_RemovePlants";
+            this.B_RemovePlants.Size = new System.Drawing.Size(116, 22);
+            this.B_RemovePlants.Text = "Plants";
+            this.B_RemovePlants.Click += new System.EventHandler(this.B_RemovePlants_Click);
+            // 
+            // B_RemoveObjects
+            // 
+            this.B_RemoveObjects.Name = "B_RemoveObjects";
+            this.B_RemoveObjects.Size = new System.Drawing.Size(116, 22);
+            this.B_RemoveObjects.Text = "Objects";
+            this.B_RemoveObjects.Click += new System.EventHandler(this.B_RemoveObjects_Click);
+            // 
+            // B_RemovePlacedItems
+            // 
+            this.B_RemovePlacedItems.Name = "B_RemovePlacedItems";
+            this.B_RemovePlacedItems.Size = new System.Drawing.Size(116, 22);
+            this.B_RemovePlacedItems.Text = "Placed Items";
+            this.B_RemovePlacedItems.Click += new System.EventHandler(this.B_RemovePlacedItems_Click);
+            // 
+            // B_RemoveFences
+            // 
+            this.B_RemoveFences.Name = "B_RemoveFences";
+            this.B_RemoveFences.Size = new System.Drawing.Size(116, 22);
+            this.B_RemoveFences.Text = "Fences";
+            this.B_RemoveFences.Click += new System.EventHandler(this.B_RemoveFences_Click);
+            // 
+            // B_FillHoles
+            // 
+            this.B_FillHoles.Name = "B_FillHoles";
+            this.B_FillHoles.Size = new System.Drawing.Size(116, 22);
+            this.B_FillHoles.Text = "Holes";
+            this.B_FillHoles.Click += new System.EventHandler(this.B_FillHoles_Click);
+            // 
+            // B_RemoveAll
+            // 
+            this.B_RemoveAll.Name = "B_RemoveAll";
+            this.B_RemoveAll.Size = new System.Drawing.Size(116, 22);
+            this.B_RemoveAll.Text = "All";
+            this.B_RemoveAll.Click += new System.EventHandler(this.B_RemoveAll_Click);
+            // 
+            // GB_Remove
+            // 
+            this.GB_Remove.AutoSize = true;
+            this.GB_Remove.Location = new System.Drawing.Point(764, 423);
+            this.GB_Remove.Name = "GB_Remove";
+            this.GB_Remove.Size = new System.Drawing.Size(178, 13);
+            this.GB_Remove.TabIndex = 39;
+            this.GB_Remove.Text = "Remove from View (Hold Shift=Map)";
+            // 
             // FieldItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(981, 537);
+            this.Controls.Add(this.GB_Remove);
+            this.Controls.Add(this.B_RemoveItemDropDown);
             this.Controls.Add(this.CHK_AutoExtension);
             this.Controls.Add(this.CHK_NoOverwrite);
             this.Controls.Add(this.TR_Transparency);
-            this.Controls.Add(this.GB_Remove);
             this.Controls.Add(this.PB_Acre);
             this.Controls.Add(this.L_Layer);
             this.Controls.Add(this.NUD_Layer);
@@ -499,8 +498,8 @@
             this.CM_Picture.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Layer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Acre)).EndInit();
-            this.GB_Remove.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TR_Transparency)).EndInit();
+            this.CM_Remove.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -534,16 +533,18 @@
         private System.Windows.Forms.Label L_Layer;
         private System.Windows.Forms.ToolTip TT_Hover;
         private System.Windows.Forms.PictureBox PB_Acre;
-        private System.Windows.Forms.Button B_RemoveAllWeeds;
-        private System.Windows.Forms.Button B_FillHoles;
-        private System.Windows.Forms.Button B_RemovePlants;
-        private System.Windows.Forms.Button B_RemoveAll;
-        private System.Windows.Forms.Button B_RemoveFences;
-        private System.Windows.Forms.Button B_RemoveObjects;
-        private System.Windows.Forms.GroupBox GB_Remove;
-        private System.Windows.Forms.Button B_RemovePlacedItems;
         private System.Windows.Forms.TrackBar TR_Transparency;
         private System.Windows.Forms.CheckBox CHK_NoOverwrite;
         private System.Windows.Forms.CheckBox CHK_AutoExtension;
+        private System.Windows.Forms.Button B_RemoveItemDropDown;
+        private System.Windows.Forms.ContextMenuStrip CM_Remove;
+        private System.Windows.Forms.ToolStripMenuItem B_RemoveAllWeeds;
+        private System.Windows.Forms.ToolStripMenuItem B_RemovePlants;
+        private System.Windows.Forms.ToolStripMenuItem B_RemoveObjects;
+        private System.Windows.Forms.ToolStripMenuItem B_RemovePlacedItems;
+        private System.Windows.Forms.ToolStripMenuItem B_RemoveFences;
+        private System.Windows.Forms.ToolStripMenuItem B_FillHoles;
+        private System.Windows.Forms.ToolStripMenuItem B_RemoveAll;
+        private System.Windows.Forms.Label GB_Remove;
     }
 }

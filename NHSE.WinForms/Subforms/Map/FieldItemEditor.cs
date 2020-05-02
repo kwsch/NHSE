@@ -132,8 +132,9 @@ namespace NHSE.WinForms
 
         private void SetHoveredItem(MouseEventArgs e)
         {
-            HoverX = e.X / AcreScale;
-            HoverY = e.Y / AcreScale;
+            // Mouse event may fire with a slightly too large x/y; clamp just in case.
+            HoverX = (e.X / AcreScale) & 0x1F;
+            HoverY = (e.Y / AcreScale) & 0x1F;
         }
 
         private void PB_Acre_MouseMove(object sender, MouseEventArgs e)
@@ -448,7 +449,7 @@ namespace NHSE.WinForms
 
         private void NUD_Layer_ValueChanged(object sender, EventArgs e) => LoadGrid(X, Y);
 
-        private void Remove(Control sender, Func<int, int, int, int, int> removal)
+        private void Remove(ToolStripItem sender, Func<int, int, int, int, int> removal)
         {
             bool wholeMap = ModifierKeys == Keys.Shift;
 
@@ -485,5 +486,8 @@ namespace NHSE.WinForms
             ReloadGrid(Layer, X, Y);
             ReloadMap();
         }
+
+        private static void ShowContextMenuBelow(ToolStripDropDown c, Control n) => c.Show(n.PointToScreen(new Point(0, n.Height)));
+        private void B_RemoveItemDropDown_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_Remove, B_RemoveItemDropDown);
     }
 }
