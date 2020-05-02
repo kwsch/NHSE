@@ -195,10 +195,10 @@ namespace NHSE.WinForms
         {
             var player = SAV.Players[PlayerIndex];
             var pers = player.Personal;
-            var p1 = pers.Storage;
+            var p1 = pers.ItemChest;
             using var editor = new PlayerItemEditor<Item>(p1, 10, 5);
             if (editor.ShowDialog() == DialogResult.OK)
-                pers.Storage = p1;
+                pers.ItemChest = p1;
         }
 
         private void B_RecycleBin_Click(object sender, EventArgs e)
@@ -243,6 +243,7 @@ namespace NHSE.WinForms
             // swapped on purpose -- first count is the first two rows of items
             NUD_PocketCount1.Value = Math.Min(int.MaxValue, pers.PocketCount);
             NUD_PocketCount2.Value = Math.Min(int.MaxValue, pers.BagCount);
+            NUD_StorageCount.Value = Math.Min(int.MaxValue, pers.ItemChestCount);
 
             try
             {
@@ -297,6 +298,8 @@ namespace NHSE.WinForms
             // swapped on purpose -- first count is the first two rows of items
             pers.PocketCount = (uint)NUD_PocketCount1.Value;
             pers.BagCount = (uint)NUD_PocketCount2.Value;
+
+            pers.ItemChestCount = (uint)NUD_StorageCount.Value;
         }
 
         private void B_EditAchievements_Click(object sender, EventArgs e)

@@ -82,10 +82,16 @@ namespace NHSE.Core
             set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.Pockets2 + (Offsets.Pockets2Count * Item.SIZE));
         }
 
-        public IReadOnlyList<Item> Storage
+        public IReadOnlyList<Item> ItemChest
         {
-            get => Item.GetArray(Data.Slice(Offsets.Storage, Offsets.StorageCount * Item.SIZE));
-            set => Item.SetArray(value).CopyTo(Data, Offsets.Storage);
+            get => Item.GetArray(Data.Slice(Offsets.ItemChest, Offsets.ItemChestCount * Item.SIZE));
+            set => Item.SetArray(value).CopyTo(Data, Offsets.ItemChest);
+        }
+
+        public uint ItemChestCount // Count of the Item Chest Slots that are available for use
+        {
+            get => BitConverter.ToUInt32(Data, Offsets.ItemChest + (Offsets.ItemChestCount * Item.SIZE));
+            set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.ItemChest + (Offsets.ItemChestCount * Item.SIZE));
         }
 
         public uint[] GetActivities()

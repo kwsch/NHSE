@@ -16,7 +16,7 @@ namespace NHSE.Core
 
         public abstract int Pockets1 { get; }
         public abstract int Pockets2 { get; }
-        public abstract int Storage { get; }
+        public abstract int ItemChest { get; }
         public abstract int ReceivedItems { get; }
 
         public abstract int Bank { get; }
@@ -25,7 +25,7 @@ namespace NHSE.Core
         public int MaxActivityID { get; } = 100; // guess
         public int Pockets1Count { get; } = 20;
         public int Pockets2Count { get; } = 20;
-        public int StorageCount { get; } = 5000;
+        public int ItemChestCount { get; } = 5000;
         public virtual int MaxRecipeID { get; } = 0x2A0;
 
         public static PersonalOffsets GetOffsets(FileHeaderInfo Info)

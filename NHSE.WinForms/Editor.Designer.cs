@@ -84,6 +84,8 @@
             this.PB_Player = new System.Windows.Forms.PictureBox();
             this.TC_Editors = new System.Windows.Forms.TabControl();
             this.B_EditBulletin = new System.Windows.Forms.ToolStripMenuItem();
+            this.L_StorageCount = new System.Windows.Forms.Label();
+            this.NUD_StorageCount = new System.Windows.Forms.NumericUpDown();
             this.Menu_Editor.SuspendLayout();
             this.CM_Picture.SuspendLayout();
             this.Tab_Map.SuspendLayout();
@@ -97,6 +99,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).BeginInit();
             this.TC_Editors.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_StorageCount)).BeginInit();
             this.SuspendLayout();
             // 
             // Menu_Editor
@@ -267,33 +270,33 @@
             this.B_EditFieldItems,
             this.B_EditBulletin});
             this.CM_EditMap.Name = "CM_EditMap";
-            this.CM_EditMap.Size = new System.Drawing.Size(181, 136);
+            this.CM_EditMap.Size = new System.Drawing.Size(172, 114);
             // 
             // B_EditTerrain
             // 
             this.B_EditTerrain.Name = "B_EditTerrain";
-            this.B_EditTerrain.Size = new System.Drawing.Size(180, 22);
+            this.B_EditTerrain.Size = new System.Drawing.Size(171, 22);
             this.B_EditTerrain.Text = "Edit Terrain";
             this.B_EditTerrain.Click += new System.EventHandler(this.B_EditTerrain_Click);
             // 
             // B_EditBuildings
             // 
             this.B_EditBuildings.Name = "B_EditBuildings";
-            this.B_EditBuildings.Size = new System.Drawing.Size(180, 22);
+            this.B_EditBuildings.Size = new System.Drawing.Size(171, 22);
             this.B_EditBuildings.Text = "Edit Buildings";
             this.B_EditBuildings.Click += new System.EventHandler(this.B_EditBuildings_Click);
             // 
             // B_EditAcres
             // 
             this.B_EditAcres.Name = "B_EditAcres";
-            this.B_EditAcres.Size = new System.Drawing.Size(180, 22);
+            this.B_EditAcres.Size = new System.Drawing.Size(171, 22);
             this.B_EditAcres.Text = "Edit Acres";
             this.B_EditAcres.Click += new System.EventHandler(this.B_EditAcres_Click);
             // 
             // B_EditFieldItems
             // 
             this.B_EditFieldItems.Name = "B_EditFieldItems";
-            this.B_EditFieldItems.Size = new System.Drawing.Size(180, 22);
+            this.B_EditFieldItems.Size = new System.Drawing.Size(171, 22);
             this.B_EditFieldItems.Text = "Edit Field Items";
             this.B_EditFieldItems.Click += new System.EventHandler(this.B_EditFieldItems_Click);
             // 
@@ -359,6 +362,8 @@
             // 
             // Tab_Players
             // 
+            this.Tab_Players.Controls.Add(this.L_StorageCount);
+            this.Tab_Players.Controls.Add(this.NUD_StorageCount);
             this.Tab_Players.Controls.Add(this.L_PocketCount2);
             this.Tab_Players.Controls.Add(this.L_PocketCount1);
             this.Tab_Players.Controls.Add(this.NUD_PocketCount2);
@@ -640,9 +645,36 @@
             // B_EditBulletin
             // 
             this.B_EditBulletin.Name = "B_EditBulletin";
-            this.B_EditBulletin.Size = new System.Drawing.Size(180, 22);
+            this.B_EditBulletin.Size = new System.Drawing.Size(171, 22);
             this.B_EditBulletin.Text = "Edit Bulletin Board";
             this.B_EditBulletin.Click += new System.EventHandler(this.B_EditBulletin_Click);
+            // 
+            // L_StorageCount
+            // 
+            this.L_StorageCount.AutoSize = true;
+            this.L_StorageCount.Location = new System.Drawing.Point(200, 145);
+            this.L_StorageCount.Name = "L_StorageCount";
+            this.L_StorageCount.Size = new System.Drawing.Size(75, 13);
+            this.L_StorageCount.TabIndex = 24;
+            this.L_StorageCount.Text = "Storage Count";
+            this.L_StorageCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NUD_StorageCount
+            // 
+            this.NUD_StorageCount.Location = new System.Drawing.Point(151, 142);
+            this.NUD_StorageCount.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.NUD_StorageCount.Name = "NUD_StorageCount";
+            this.NUD_StorageCount.Size = new System.Drawing.Size(46, 20);
+            this.NUD_StorageCount.TabIndex = 23;
+            this.NUD_StorageCount.Value = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
             // 
             // Editor
             // 
@@ -672,6 +704,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).EndInit();
             this.TC_Editors.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_StorageCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -733,6 +766,8 @@
         private System.Windows.Forms.NumericUpDown NUD_PocketCount2;
         private System.Windows.Forms.NumericUpDown NUD_PocketCount1;
         private System.Windows.Forms.ToolStripMenuItem B_EditBulletin;
+        private System.Windows.Forms.Label L_StorageCount;
+        private System.Windows.Forms.NumericUpDown NUD_StorageCount;
     }
 }
 

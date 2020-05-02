@@ -14,7 +14,7 @@
         public override int Pockets1 => 0x35E50; // +0x230 from v1.1
         public override int Pockets2 => Pockets1 + (8 * Pockets1Count) + 0x18;
         public override int Wallet => Pockets2 + (8 * Pockets2Count) + 0x18;
-        public override int Storage => Wallet + 0xC;
+        public override int ItemChest => Wallet + 0xC;
         public override int ReceivedItems => 0x3FE98; // +0x230 from v1.1
 
         public override int Bank => 0x6A424; // +0x17F0 from v1.1
