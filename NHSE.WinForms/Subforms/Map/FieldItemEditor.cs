@@ -240,6 +240,10 @@ namespace NHSE.WinForms
         {
             var all = ArrayUtil.ConcatAll(Map.Items.Layer1.Tiles, Map.Items.Layer2.Tiles);
             SAV.SetFieldItems(all);
+            SAV.SetTerrainTiles(Map.Terrain.Tiles);
+            SAV.Buildings = Map.Buildings;
+            SAV.PlazaX = Map.PlazaX;
+            SAV.PlazaY = Map.PlazaY;
             Close();
         }
 
