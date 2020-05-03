@@ -11,6 +11,7 @@ namespace NHSE.Core
         public readonly string[] itemlistdisplay;
         public readonly Dictionary<string, string> VillagerMap;
         public readonly List<ComboItem> ItemDataSource;
+        public readonly Dictionary<string, string> InternalNameTranslation = new Dictionary<string, string>();
 
         private string[] Get(string ident) => GameLanguage.GetStrings(ident, lang);
 

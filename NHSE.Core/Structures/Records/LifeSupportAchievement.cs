@@ -20,7 +20,7 @@ namespace NHSE.Core
 
         private const string Unknown = "???";
 
-        private static readonly IReadOnlyDictionary<int, LifeSupportAchievement> Dictionary = new Dictionary<int, LifeSupportAchievement>
+        public static readonly IReadOnlyDictionary<int, LifeSupportAchievement> Dictionary = new Dictionary<int, LifeSupportAchievement>
         {
             {0x001, new LifeSupportAchievement( 3,   -1, 0001, "CatchFish"                   )}, // サカナを釣った
             {0x002, new LifeSupportAchievement( 3,   -1, 0002, "CatchInsect"                 )}, // ムシを捕まえた

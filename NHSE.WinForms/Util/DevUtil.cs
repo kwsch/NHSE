@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -25,6 +26,7 @@ namespace NHSE.WinForms
             IsUpdatingTranslations = true;
             DumpStringsMessage();
             UpdateTranslations();
+            UpdateInternalNameTranslations();
             IsUpdatingTranslations = false;
         }
 
@@ -91,12 +93,46 @@ namespace NHSE.WinForms
             nameof(SettingsEditor),
         };
 
+        private static void UpdateInternalNameTranslations()
+        {
+            var langs = new[] { DefaultLanguage }.Concat(Languages);
+            var available = new[]
+            {
+                LifeSupportAchievement.Dictionary.Values.Select(z => z.Name),
+                EventFlagPlayer.List.Values.Select(z => z.Name),
+                EventFlagLand.List.Values.Select(z => z.Name),
+                EventFlagVillager.List.Values.Select(z => z.Name),
+            }.SelectMany(z => z);
+
+            var translatables = new HashSet<string>(available);
+            foreach (var lang in langs)
+            {
+                var str = GameInfo.GetStrings(lang);
+                var dict = str.InternalNameTranslation;
+
+                var oldKeys = dict
+                    .Where(kvp => translatables.Contains(kvp.Key));
+                var newKeys = translatables
+                    .Where(key => !dict.ContainsKey(key))
+                    .Select(z => new KeyValuePair<string, string>(z, z));
+
+                var allKeys = oldKeys.Concat(newKeys);
+
+                var newDict = allKeys.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+
+                var result = newDict.Select(z => $"{z.Key}={z.Value}");
+                var dir = GetResourcePath();
+                var location = GetFileLocationInText("internal", dir, lang);
+                File.WriteAllLines(location, result);
+            }
+        }
+
         private static void DumpStringsMessage() => DumpStrings(typeof(MessageStrings));
 
         private static void DumpStrings(Type t)
         {
-            var dir = GetResourcePath();
             var langs = new[] { DefaultLanguage }.Concat(Languages);
+            var dir = GetResourcePath();
             foreach (var lang in langs)
             {
                 TranslationUtil.SetLocalization(t, lang);

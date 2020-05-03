@@ -87,6 +87,25 @@ namespace NHSE.WinForms
         /// <summary>
         /// Applies localization to a static class containing language-specific strings.
         /// </summary>
+        /// <param name="dict">Dictionary of translatable strings</param>
+        /// <param name="lines">Lines containing the localized strings</param>
+        private static void SetLocalization(IDictionary<string, string> dict, IReadOnlyCollection<string> lines)
+        {
+            if (lines.Count == 0)
+                return;
+            foreach (var line in lines)
+            {
+                var index = line.IndexOf(TranslationSplitter);
+                if (index < 0)
+                    continue;
+                var prop = line.Substring(0, index);
+                dict[prop] = line.Substring(index + 1);
+            }
+        }
+
+        /// <summary>
+        /// Applies localization to a static class containing language-specific strings.
+        /// </summary>
         /// <param name="t">Type of the static class containing the desired strings.</param>
         /// <param name="languageFilePrefix">Prefix of the language file to use.  Example: if the target is legality_en.txt, <paramref name="languageFilePrefix"/> should be "legality".</param>
         /// <param name="currentCultureCode">Culture information</param>
@@ -104,6 +123,12 @@ namespace NHSE.WinForms
         public static void SetLocalization(Type t, string currentCultureCode)
         {
             SetLocalization(t, t.Name, currentCultureCode);
+        }
+
+        public static void SetLocalization(IDictionary<string, string> dict, string currentCultureCode)
+        {
+            var lines = ResourceUtil.GetStringList($"internal_{currentCultureCode}");
+            SetLocalization(dict, lines);
         }
     }
 }
