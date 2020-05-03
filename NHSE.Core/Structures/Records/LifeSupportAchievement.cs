@@ -2,13 +2,13 @@
 
 namespace NHSE.Core
 {
-    public class LifeSupportAchievement
+    public class LifeSupportAchievement : INamedValue
     {
         public readonly short FlagLand;
         public readonly short FlagPlayer;
 
-        public readonly ushort Index;
-        public readonly string Name;
+        public ushort Index { get; }
+        public string Name { get; }
 
         public LifeSupportAchievement(short land, short player, ushort index, string name)
         {
@@ -20,7 +20,7 @@ namespace NHSE.Core
 
         private const string Unknown = "???";
 
-        public static readonly IReadOnlyDictionary<int, LifeSupportAchievement> Dictionary = new Dictionary<int, LifeSupportAchievement>
+        public static readonly IReadOnlyDictionary<int, LifeSupportAchievement> List = new Dictionary<int, LifeSupportAchievement>
         {
             {0x001, new LifeSupportAchievement( 3,   -1, 0001, "CatchFish"                   )}, // サカナを釣った
             {0x002, new LifeSupportAchievement( 3,   -1, 0002, "CatchInsect"                 )}, // ムシを捕まえた
@@ -108,9 +108,22 @@ namespace NHSE.Core
             {0x05D, new LifeSupportAchievement(-1,   -1, 0093, "PlantBushSeedling"           )}, // 各種低木の苗を植えた
         };
 
+        public static string GetName(int index, uint count, IReadOnlyDictionary<string, string> str)
+        {
+            var dict = List;
+            if (dict.TryGetValue(index, out var val))
+            {
+                string name = val.Name;
+                if (str.TryGetValue(name, out var translated))
+                    name = translated;
+                return $"{index:00} - {name} = {count}";
+            }
+            return $"{index:00} - {Unknown} = {count}";
+        }
+
         public static string GetName(int index, uint count)
         {
-            var dict = Dictionary;
+            var dict = List;
             if (dict.TryGetValue(index, out var val))
                 return $"{index:00} - {val.Name} = {count}";
             return $"{index:00} - {Unknown} = {count}";

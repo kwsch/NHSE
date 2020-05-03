@@ -3,13 +3,13 @@
 
 namespace NHSE.Core
 {
-    public class EventFlagVillager
+    public class EventFlagVillager : INamedValue
     {
         public readonly short Value1;
         public readonly short Value2;
 
-        public readonly ushort Index;
-        public readonly string Name;
+        public ushort Index { get; }
+        public string Name { get; }
 
         public EventFlagVillager(short v1, short v2, ushort index, string name)
         {
@@ -63,12 +63,25 @@ namespace NHSE.Core
 
         private const string Unknown = "???";
 
-        public static string GetFlagName(ushort index, ushort count)
+        public static string GetName(ushort index, uint count, IReadOnlyDictionary<string, string> str)
         {
             var dict = List;
             if (dict.TryGetValue(index, out var val))
-                return $"{index:000} - {val.Name} = {count}";
-            return $"{index:000} - {Unknown} = {count}";
+            {
+                string name = val.Name;
+                if (str.TryGetValue(name, out var translated))
+                    name = translated;
+                return $"{index:00} - {name} = {count}";
+            }
+            return $"{index:00} - {Unknown} = {count}";
+        }
+
+        public static string GetName(ushort index, uint count)
+        {
+            var dict = List;
+            if (dict.TryGetValue(index, out var val))
+                return $"{index:00} - {val.Name} = {count}";
+            return $"{index:00} - {Unknown} = {count}";
         }
     }
 }

@@ -14,8 +14,9 @@ namespace NHSE.WinForms
             this.TranslateInterface(GameInfo.CurrentLanguage);
 
             Counts = counts;
+            var str = GameInfo.Strings.InternalNameTranslation;
             for (ushort i = 0; i < counts.Length; i++)
-                LB_Counts.Items.Add(EventFlagLand.GetFlagName(i, counts[i]));
+                LB_Counts.Items.Add(EventFlagLand.GetName(i, counts[i], str));
             DialogResult = DialogResult.Cancel;
             LB_Counts.SelectedIndex = 0;
         }
@@ -36,7 +37,7 @@ namespace NHSE.WinForms
                 return;
 
             Counts[Index] = (short) NUD_Count.Value;
-            LB_Counts.Items[Index] = EventFlagLand.GetFlagName((ushort)Index, Counts[Index]);
+            LB_Counts.Items[Index] = EventFlagLand.GetName((ushort)Index, Counts[Index], GameInfo.Strings.InternalNameTranslation);
         }
 
         private void LB_Counts_SelectedIndexChanged(object sender, EventArgs e)

@@ -98,7 +98,7 @@ namespace NHSE.WinForms
             var langs = new[] { DefaultLanguage }.Concat(Languages);
             var available = new[]
             {
-                LifeSupportAchievement.Dictionary.Values.Select(z => z.Name),
+                LifeSupportAchievement.List.Values.Select(z => z.Name),
                 EventFlagPlayer.List.Values.Select(z => z.Name),
                 EventFlagLand.List.Values.Select(z => z.Name),
                 EventFlagVillager.List.Values.Select(z => z.Name),

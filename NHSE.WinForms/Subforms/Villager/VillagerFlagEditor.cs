@@ -13,8 +13,9 @@ namespace NHSE.WinForms
             Counts = counts;
             InitializeComponent();
             this.TranslateInterface(GameInfo.CurrentLanguage);
+            var str = GameInfo.Strings.InternalNameTranslation;
             for (ushort i = 0; i < counts.Length; i++)
-                LB_Counts.Items.Add(EventFlagVillager.GetFlagName(i, counts[i]));
+                LB_Counts.Items.Add(EventFlagVillager.GetName(i, counts[i], str));
             DialogResult = DialogResult.Cancel;
             LB_Counts.SelectedIndex = 0;
         }
@@ -35,7 +36,7 @@ namespace NHSE.WinForms
                 return;
 
             Counts[Index] = (ushort) NUD_Count.Value;
-            LB_Counts.Items[Index] = EventFlagVillager.GetFlagName((ushort)Index, Counts[Index]);
+            LB_Counts.Items[Index] = EventFlagVillager.GetName((ushort)Index, Counts[Index], GameInfo.Strings.InternalNameTranslation);
         }
 
         private void LB_Counts_SelectedIndexChanged(object sender, EventArgs e)

@@ -51,7 +51,11 @@ namespace NHSE.WinForms
             settings.Language = lang;
             settings.Save();
 
-            Task.Run(() => TranslationUtil.SetLocalization(typeof(MessageStrings), lang));
+            Task.Run(() =>
+            {
+                TranslationUtil.SetLocalization(typeof(MessageStrings), lang);
+                TranslationUtil.SetLocalization(GameInfo.Strings.InternalNameTranslation, lang);
+            });
         }
 
         private void Menu_Save_Click(object sender, EventArgs e)
