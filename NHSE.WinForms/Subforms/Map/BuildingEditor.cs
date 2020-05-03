@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Sprites;
@@ -20,7 +19,7 @@ namespace NHSE.WinForms
             this.TranslateInterface(GameInfo.CurrentLanguage);
             SAV = sav;
             Buildings = buildings;
-            Terrain = new TerrainManager(sav.GetTerrain());
+            Terrain = new TerrainManager(sav.GetTerrainTiles());
 
             NUD_PlazaX.Value = sav.PlazaX;
             NUD_PlazaY.Value = sav.PlazaY;
@@ -122,49 +121,15 @@ namespace NHSE.WinForms
 
         private void NUD_PlazaCoordinate_ValueChanged(object sender, EventArgs e) => DrawMap(Index);
 
-        private void B_DumpAll_Click(object sender, EventArgs e)
-        {
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Building List (*.nhb)|*.nhb|All files (*.*)|*.*",
-                FileName = "buildings.nhb",
-            };
-            if (sfd.ShowDialog() != DialogResult.OK)
-                return;
-
-            var path = sfd.FileName;
-            byte[] data = Building.SetArray(Buildings);
-            File.WriteAllBytes(path, data);
-        }
+        private void B_DumpAll_Click(object sender, EventArgs e) => MapDumpHelper.DumpBuildings(Buildings);
 
         private void B_ImportAll_Click(object sender, EventArgs e)
         {
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Building List (*.nhb)|*.nhb|All files (*.*)|*.*",
-                FileName = "buildings.nhb",
-            };
-            if (ofd.ShowDialog() != DialogResult.OK)
+            if (!MapDumpHelper.ImportBuildings(Buildings))
                 return;
 
-            var path = ofd.FileName;
-            var fi = new FileInfo(path);
-
-            const int expect = Building.SIZE * MainSaveOffsets.BuildingCount; // 46
-            const int oldSize = Building.SIZE * 40;
-            if (fi.Length != expect && fi.Length != oldSize)
-            {
-                WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expect));
-                return;
-            }
-
-            var data = File.ReadAllBytes(path);
-            var arr = Building.GetArray(data);
-            for (int i = 0; i < arr.Length; i++)
-            {
-                Buildings[i].CopyFrom(arr[i]);
+            for (int i = 0; i < Buildings.Count; i++)
                 LB_Items.Items[i] = Buildings[i].ToString();
-            }
             LB_Items.SelectedIndex = 0;
             DrawMap(0);
             System.Media.SystemSounds.Asterisk.Play();

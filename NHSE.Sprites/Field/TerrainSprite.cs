@@ -110,7 +110,7 @@ namespace NHSE.Sprites
             }
         }
 
-        public static Image GetAcre(in int topX, in int topY, TerrainManager t, int acreScale)
+        public static Bitmap GetAcre(in int topX, in int topY, TerrainManager t, int acreScale)
         {
             int[] data = new int[16 * 16];
             int index = 0;
@@ -128,21 +128,25 @@ namespace NHSE.Sprites
             return ImageUtil.GetBitmap(final, fw, fh);
         }
 
-        public static Image GetAcre(in int topX, in int topY, TerrainManager t, int acreScale, IReadOnlyList<Building> buildings, ushort plazaX, ushort plazaY)
+        public static Bitmap GetAcre(in int topX, in int topY, TerrainManager t, int acreScale, IReadOnlyList<Building> buildings, ushort plazaX, ushort plazaY, Font f, int index = -1)
         {
             var img = GetAcre(topX, topY, t, acreScale);
             using var gfx = Graphics.FromImage(img);
 
             gfx.DrawAcrePlaza(t, topX, topY, plazaX, plazaY, acreScale);
 
-            foreach (var b in buildings)
+            for (var i = 0; i < buildings.Count; i++)
             {
-                if (!t.GetBuildingRelativeCoordinate(topX, topY, acreScale, b.X, b.Y, out var x, out var y))
-                {
-                    // Draw the rectangle anyways. The graphics object will write the cropped rectangle correctly!
-                }
+                var b = buildings[i];
+                t.GetBuildingRelativeCoordinates(topX, topY, acreScale, b.X, b.Y, out var x, out var y);
 
-                DrawBuilding(gfx, null, acreScale, Others, x, y, b, Text);
+                var pen = index == i ? Selected : Others;
+                DrawBuilding(gfx, null, acreScale, pen, x, y, b, Text);
+
+                if (!t.IsWithinGrid(acreScale, x, y))
+                    continue;
+                var name = b.BuildingType.ToString();
+                gfx.DrawString(name, f, Text, new PointF(x, y - (acreScale * 2)), BuildingTextFormat);
             }
 
             return img;
@@ -150,10 +154,7 @@ namespace NHSE.Sprites
 
         private static void DrawAcrePlaza(this Graphics gfx, TerrainManager g, int topX, int topY, ushort px, ushort py, int scale)
         {
-            if (!g.GetBuildingRelativeCoordinate(topX, topY, scale, px, py, out var x, out var y))
-            {
-                // Draw the rectangle anyways. The graphics object will write the cropped rectangle correctly!
-            }
+            g.GetBuildingRelativeCoordinates(topX, topY, scale, px, py, out var x, out var y);
 
             var width = scale * PlazaWidth;
             var height = scale * PlazaHeight;

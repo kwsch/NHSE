@@ -1,37 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.IO;
 using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Sprites;
 
 namespace NHSE.WinForms
 {
-    public partial class FieldItemEditor : Form
+    public sealed partial class FieldItemEditor : Form
     {
         private readonly MainSave SAV;
-        private readonly FieldItemManager Items;
 
-        private const int MapScale = 1;
-        private const int AcreScale = 16;
+        private readonly MapManager Map;
+        private readonly MapViewer View;
 
-        // Cached acre view objects to remove allocation/GC
-        private readonly int[] Scale1;
-        private readonly int[] ScaleX;
-        private readonly Bitmap ScaleAcre;
+        private bool Loading;
+        private int SelectedBuildingIndex;
 
-        private readonly int[] Map;
-        private readonly Bitmap MapReticle;
-
-        private readonly TerrainManager Terrain;
-        private readonly IReadOnlyList<Building> Buildings;
-        private readonly uint PlazaX;
-        private readonly uint PlazaY;
-
-        private int X;
-        private int Y;
+        private int HoverX;
+        private int HoverY;
 
         public FieldItemEditor(MainSave sav)
         {
@@ -39,28 +26,26 @@ namespace NHSE.WinForms
             this.TranslateInterface(GameInfo.CurrentLanguage);
 
             SAV = sav;
-            Items = new FieldItemManager(SAV.GetFieldItems());
+            Map = new MapManager(sav);
+            View = new MapViewer(Map);
 
-            var l1 = Items.Layer1;
-            Scale1 = new int[l1.GridWidth * l1.GridHeight];
-            ScaleX = new int[Scale1.Length * AcreScale * AcreScale];
-            ScaleAcre = new Bitmap(l1.GridWidth * AcreScale, l1.GridHeight * AcreScale);
-
-            Map = new int[l1.MapWidth * l1.MapHeight * MapScale * MapScale];
-            MapReticle = new Bitmap(l1.MapWidth * MapScale, l1.MapHeight * MapScale);
-
-            Terrain = new TerrainManager(sav.GetTerrain());
-            Buildings = sav.Buildings;
-            PlazaX = sav.PlazaX;
-            PlazaY = sav.PlazaY;
-            PB_Map.BackgroundImage = TerrainSprite.GetMapWithBuildings(Terrain, Buildings, (ushort)PlazaX, (ushort)PlazaY, null, 2);
-
+            Loading = true;
             foreach (var acre in MapGrid.Acres)
                 CB_Acre.Items.Add(acre.Name);
 
+            NUD_PlazaX.Value = sav.PlazaX;
+            NUD_PlazaY.Value = sav.PlazaY;
+
+            foreach (var obj in Map.Buildings)
+                LB_Items.Items.Add(obj.ToString());
+
+            ReloadMapBackground();
             PG_Tile.SelectedObject = new FieldItem();
+            PG_TerrainTile.SelectedObject = new TerrainTile();
+            LB_Items.SelectedIndex = 0;
             CB_Acre.SelectedIndex = 0;
-            LoadGrid(X, Y);
+            Loading = false;
+            LoadItemGridAcre();
         }
 
         private int AcreIndex => CB_Acre.SelectedIndex;
@@ -69,78 +54,116 @@ namespace NHSE.WinForms
 
         private void ChangeViewToAcre(int acre)
         {
-            Items.Layer1.GetViewAnchorCoordinates(acre, out X, out Y);
-            LoadGrid(X, Y);
+            View.SetViewToAcre(acre);
+            LoadItemGridAcre();
         }
 
-        private FieldItemLayer Layer => NUD_Layer.Value == 1 ? Items.Layer1 : Items.Layer2;
-
-        private void ReloadMap()
+        private void LoadItemGridAcre()
         {
-            var transparency = TR_Transparency.Value / 100d;
-            var t = ((int)(0xFF * transparency) << 24) | 0x00FF_FFFF;
-            PB_Map.Image = FieldItemSpriteDrawer.GetBitmapLayer(Layer, X, Y, Map, MapReticle, t);
-        }
-
-        private void LoadGrid(int topX, int topY)
-        {
-            ReloadGrid(Layer, topX, topY);
-            ReloadBackground(topX, topY);
+            ReloadItems();
+            ReloadAcreBackground();
             UpdateArrowVisibility();
-            ReloadMap();
         }
 
-        private void ReloadBackground(int topX, int topY)
+        private int GetItemTransparency() => ((int)(0xFF * TR_Transparency.Value / 100d) << 24) | 0x00FF_FFFF;
+        private void ReloadMapBackground() => PB_Map.BackgroundImage = View.GetBackgroundTerrain(SelectedBuildingIndex);
+        private void ReloadAcreBackground() => PB_Acre.BackgroundImage = View.GetBackgroundAcre(L_Coordinates.Font, SelectedBuildingIndex);
+        private void ReloadMapItemGrid() => PB_Map.Image = View.GetMapWithReticle(GetItemTransparency());
+        private void ReloadAcreItemGrid() => PB_Acre.Image = View.GetLayerAcre(GetItemTransparency());
+
+        private void ReloadItems()
         {
-            PB_Acre.BackgroundImage = TerrainSprite.GetAcre(topX/2, topY/2, Terrain, AcreScale * 2, Buildings, (ushort)PlazaX, (ushort)PlazaY);
+            ReloadAcreItemGrid();
+            ReloadMapItemGrid();
         }
 
-        private void ReloadGrid(FieldItemLayer layer, int topX, int topY)
+        private void ReloadBuildingsTerrain()
         {
-            var transparency = TR_Transparency.Value / 100d;
-            var t = ((int) (0xFF * transparency) << 24) | 0x00FF_FFFF;
-            PB_Acre.Image = FieldItemSpriteDrawer.GetBitmapLayerAcre(layer, topX, topY, AcreScale, Scale1, ScaleX, ScaleAcre, t);
+            ReloadAcreBackground();
+            ReloadMapBackground();
         }
 
         private void UpdateArrowVisibility()
         {
-            B_Up.Enabled = Y != 0;
-            B_Down.Enabled = Y < Layer.MapHeight - Layer.GridHeight;
-            B_Left.Enabled = X != 0;
-            B_Right.Enabled = X < Layer.MapWidth - Layer.GridWidth;
+            B_Up.Enabled = View.CanUp;
+            B_Down.Enabled = View.CanDown;
+            B_Left.Enabled = View.CanLeft;
+            B_Right.Enabled = View.CanRight;
         }
 
         private void PB_Acre_MouseClick(object sender, MouseEventArgs e)
         {
-            var tile = GetTile(Layer, e, out var x, out var y);
+            if (RB_Item.Checked)
+                OmniTile(e);
+            else if (RB_Terrain.Checked)
+                OmniTileTerrain(e);
+        }
+
+        private void OmniTile(MouseEventArgs e)
+        {
+            var tile = GetTile(Map.CurrentLayer, e, out var x, out var y);
+            OmniTile(tile, x, y);
+        }
+
+        private void OmniTileTerrain(MouseEventArgs e)
+        {
+            SetHoveredItem(e);
+            var x = View.X + HoverX;
+            var y = View.Y + HoverY;
+            var tile = Map.Terrain.GetTile(x / 2, y / 2);
+            OmniTileTerrain(tile);
+        }
+
+        private void OmniTile(FieldItem tile, int x, int y)
+        {
             switch (ModifierKeys)
             {
-                default: ViewTile(tile); return;
-                case Keys.Shift: SetTile(tile, x, y); return;
-                case Keys.Alt: DeleteTile(tile, x, y); return;
+                default:
+                    ViewTile(tile);
+                    return;
+                case Keys.Shift:
+                    SetTile(tile, x, y);
+                    return;
+                case Keys.Alt:
+                    DeleteTile(tile, x, y);
+                    return;
             }
         }
 
-        private int HoverX;
-        private int HoverY;
+        private void OmniTileTerrain(TerrainTile tile)
+        {
+            switch (ModifierKeys)
+            {
+                default:
+                    ViewTile(tile);
+                    return;
+                case Keys.Shift:
+                    SetTile(tile);
+                    return;
+                case Keys.Alt:
+                    DeleteTile(tile);
+                    return;
+            }
+        }
 
         private FieldItem GetTile(FieldItemLayer layer, MouseEventArgs e, out int x, out int y)
         {
             SetHoveredItem(e);
-            return layer.GetTile(x = X + HoverX, y = Y + HoverY);
+            return layer.GetTile(x = View.X + HoverX, y = View.Y + HoverY);
         }
 
         private void SetHoveredItem(MouseEventArgs e)
         {
             // Mouse event may fire with a slightly too large x/y; clamp just in case.
-            HoverX = (e.X / AcreScale) & 0x1F;
-            HoverY = (e.Y / AcreScale) & 0x1F;
+            HoverX = (e.X / View.AcreScale) & 0x1F;
+            HoverY = (e.Y / View.AcreScale) & 0x1F;
         }
 
         private void PB_Acre_MouseMove(object sender, MouseEventArgs e)
         {
-            var oldTile = Layer.GetTile(X + HoverX, Y + HoverY);
-            var tile = GetTile(Layer, e, out _, out _);
+            var l = Map.CurrentLayer;
+            var oldTile = l.GetTile(View.X + HoverX, View.Y + HoverY);
+            var tile = GetTile(l, e, out _, out _);
             if (tile == oldTile)
                 return;
             var str = GameInfo.Strings;
@@ -153,12 +176,22 @@ namespace NHSE.WinForms
             var pgt = (FieldItem)PG_Tile.SelectedObject;
             pgt.CopyFrom(tile);
             PG_Tile.SelectedObject = pgt;
+            TC_Editor.SelectedTab = Tab_Item;
+        }
+
+        private void ViewTile(TerrainTile tile)
+        {
+            var pgt = (TerrainTile)PG_TerrainTile.SelectedObject;
+            pgt.CopyFrom(tile);
+            PG_TerrainTile.SelectedObject = pgt;
+            TC_Editor.SelectedTab = Tab_Terrain;
         }
 
         private void SetTile(FieldItem tile, int x, int y)
         {
+            var l = Map.CurrentLayer;
             var pgt = (FieldItem)PG_Tile.SelectedObject;
-            var permission = Layer.IsOccupied(pgt, x, y);
+            var permission = l.IsOccupied(pgt, x, y);
             switch (permission)
             {
                 case FieldItemPermission.OutOfBounds:
@@ -169,189 +202,178 @@ namespace NHSE.WinForms
 
             // Clean up original placed data
             if (tile.IsRoot && CHK_AutoExtension.Checked)
-                Layer.DeleteExtensionTiles(tile, x, y);
+                l.DeleteExtensionTiles(tile, x, y);
 
             // Set new placed data
             if (pgt.IsRoot && CHK_AutoExtension.Checked)
-                Layer.SetExtensionTiles(pgt, x, y);
+                l.SetExtensionTiles(pgt, x, y);
             tile.CopyFrom(pgt);
 
-            ReloadGrid(Layer, X, Y);
-            ReloadMap();
+            ReloadItems();
+        }
+
+        private void SetTile(TerrainTile tile)
+        {
+            var pgt = (TerrainTile)PG_TerrainTile.SelectedObject;
+            tile.CopyFrom(pgt);
+
+            ReloadBuildingsTerrain();
         }
 
         private void DeleteTile(FieldItem tile, int x, int y)
         {
             if (tile.IsRoot && CHK_AutoExtension.Checked)
-                Layer.DeleteExtensionTiles(tile, x, y);
+                Map.CurrentLayer.DeleteExtensionTiles(tile, x, y);
             tile.Delete();
+            ReloadItems();
+        }
 
-            ReloadGrid(Layer, X, Y);
-            ReloadMap();
+        private void DeleteTile(TerrainTile tile)
+        {
+            tile.Clear();
+            ReloadBuildingsTerrain();
         }
 
         private void B_Cancel_Click(object sender, EventArgs e) => Close();
 
         private void B_Save_Click(object sender, EventArgs e)
         {
-            var all = ArrayUtil.ConcatAll(Items.Layer1.Tiles, Items.Layer2.Tiles);
+            var all = ArrayUtil.ConcatAll(Map.Items.Layer1.Tiles, Map.Items.Layer2.Tiles);
             SAV.SetFieldItems(all);
             Close();
         }
 
         private void Menu_View_Click(object sender, EventArgs e)
         {
-            var tile = Layer.GetTile(X + HoverX, Y + HoverY);
-            ViewTile(tile);
+            var x = View.X + HoverX;
+            var y = View.Y + HoverY;
+
+            if (RB_Item.Checked)
+            {
+                var tile = Map.CurrentLayer.GetTile(x, y);
+                ViewTile(tile);
+            }
+            else if (RB_Terrain.Checked)
+            {
+                var tile = Map.Terrain.GetTile(x / 2, y / 2);
+                ViewTile(tile);
+            }
         }
 
         private void Menu_Set_Click(object sender, EventArgs e)
         {
-            int x = X + HoverX;
-            int y = Y + HoverY;
-            var tile = Layer.GetTile(x, y);
-            SetTile(tile, x, y);
+            var x = View.X + HoverX;
+            var y = View.Y + HoverY;
+
+            if (RB_Item.Checked)
+            {
+                var tile = Map.CurrentLayer.GetTile(x, y);
+                SetTile(tile, x, y);
+            }
+            else if (RB_Terrain.Checked)
+            {
+                var tile = Map.Terrain.GetTile(x / 2, y / 2);
+                SetTile(tile);
+            }
         }
 
         private void Menu_Reset_Click(object sender, EventArgs e)
         {
-            int x = X + HoverX;
-            int y = Y + HoverY;
-            var tile = Layer.GetTile(x, y);
-            DeleteTile(tile, x, y);
+            var x = View.X + HoverX;
+            var y = View.Y + HoverY;
+
+            if (RB_Item.Checked)
+            {
+                var tile = Map.CurrentLayer.GetTile(x, y);
+                DeleteTile(tile, x, y);
+            }
+            else if (RB_Terrain.Checked)
+            {
+                var tile = Map.Terrain.GetTile(x / 2, y / 2);
+                DeleteTile(tile);
+            }
         }
 
         private void B_Up_Click(object sender, EventArgs e)
         {
-            if (ModifierKeys != Keys.Shift)
-            {
-                if (Y != 0)
-                    LoadGrid(X, Y -= 2);
-                return;
-            }
-
-            CB_Acre.SelectedIndex -= MapGrid.AcreWidth;
+            if (ModifierKeys == Keys.Shift)
+                CB_Acre.SelectedIndex -= MapGrid.AcreWidth;
+            else if (View.ArrowUp())
+                LoadItemGridAcre();
         }
 
         private void B_Left_Click(object sender, EventArgs e)
         {
-            if (ModifierKeys != Keys.Shift)
-            {
-                if (X != 0)
-                    LoadGrid(X -= 2, Y);
-                return;
-            }
-
-            --CB_Acre.SelectedIndex;
+            if (ModifierKeys == Keys.Shift)
+                --CB_Acre.SelectedIndex;
+            else if (View.ArrowLeft())
+                LoadItemGridAcre();
         }
 
         private void B_Right_Click(object sender, EventArgs e)
         {
-            if (ModifierKeys != Keys.Shift)
-            {
-                if (X != Layer.MapWidth - 2)
-                    LoadGrid(X += 2, Y);
-                return;
-            }
-
-            ++CB_Acre.SelectedIndex;
+            if (ModifierKeys == Keys.Shift)
+                ++CB_Acre.SelectedIndex;
+            else if (View.ArrowRight())
+                LoadItemGridAcre();
         }
 
         private void B_Down_Click(object sender, EventArgs e)
         {
-            if (ModifierKeys != Keys.Shift)
-            {
-                if (Y != Layer.MapHeight - 1)
-                    LoadGrid(X, ++Y);
-                return;
-            }
-
-            CB_Acre.SelectedIndex += MapGrid.AcreWidth;
+            if (ModifierKeys == Keys.Shift)
+                CB_Acre.SelectedIndex += MapGrid.AcreWidth;
+            else if (View.ArrowDown())
+                LoadItemGridAcre();
         }
 
-        private void B_DumpAcre_Click(object sender, EventArgs e)
-        {
-            var layer = Layer;
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Field Item Layer (*.nhl)|*.nhl|All files (*.*)|*.*",
-                FileName = $"{CB_Acre.Text}-{NUD_Layer.Value}.nhl",
-            };
-            if (sfd.ShowDialog() != DialogResult.OK)
-                return;
-
-            var path = sfd.FileName;
-            var acre = AcreIndex;
-            var data = layer.DumpAcre(acre);
-            File.WriteAllBytes(path, data);
-        }
-
-        private void B_DumpAllAcres_Click(object sender, EventArgs e)
-        {
-            var layer = Layer;
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Field Item Layer (*.nhl)|*.nhl|All files (*.*)|*.*",
-                FileName = "acres.nhl",
-            };
-            if (sfd.ShowDialog() != DialogResult.OK)
-                return;
-
-            var path = sfd.FileName;
-            var data = layer.DumpAllAcres();
-            File.WriteAllBytes(path, data);
-        }
+        private void B_DumpAcre_Click(object sender, EventArgs e) => MapDumpHelper.DumpLayerAcreSingle(Map.CurrentLayer, AcreIndex, CB_Acre.Text, (int)NUD_Layer.Value);
+        private void B_DumpAllAcres_Click(object sender, EventArgs e) => MapDumpHelper.DumpLayerAcreAll(Map.CurrentLayer);
 
         private void B_ImportAcre_Click(object sender, EventArgs e)
         {
-            var layer = Layer;
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Field Item Layer (*.nhl)|*.nhl|All files (*.*)|*.*",
-                FileName = $"{CB_Acre.Text}-{NUD_Layer.Value}.nhl",
-            };
-            if (ofd.ShowDialog() != DialogResult.OK)
+            var layer = Map.CurrentLayer;
+            if (!MapDumpHelper.ImportToLayerAcreSingle(layer, AcreIndex, CB_Acre.Text, (int)NUD_Layer.Value))
                 return;
-
-            var path = ofd.FileName;
-            var fi = new FileInfo(path);
-
-            int expect = layer.AcreTileCount * FieldItem.SIZE;
-            if (fi.Length != expect)
-            {
-                WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expect));
-                return;
-            }
-
-            var data = File.ReadAllBytes(path);
-            layer.ImportAcre(AcreIndex, data);
             ChangeViewToAcre(AcreIndex);
             System.Media.SystemSounds.Asterisk.Play();
         }
 
         private void B_ImportAllAcres_Click(object sender, EventArgs e)
         {
-            var layer = Layer;
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Field Item Layer (*.nhl)|*.nhl|All files (*.*)|*.*",
-                FileName = "acres.nhl",
-            };
-            if (ofd.ShowDialog() != DialogResult.OK)
+            if (!MapDumpHelper.ImportToLayerAcreAll(Map.CurrentLayer))
+                return;
+            ChangeViewToAcre(AcreIndex);
+            System.Media.SystemSounds.Asterisk.Play();
+        }
+
+        private void B_DumpBuildings_Click(object sender, EventArgs e) => MapDumpHelper.DumpBuildings(Map.Buildings);
+
+        private void B_ImportBuildings_Click(object sender, EventArgs e)
+        {
+            if (!MapDumpHelper.ImportBuildings(Map.Buildings))
                 return;
 
-            var path = ofd.FileName;
-            var fi = new FileInfo(path);
+            for (int i = 0; i < Map.Buildings.Count; i++)
+                LB_Items.Items[i] = Map.Buildings[i].ToString();
+            LB_Items.SelectedIndex = 0;
+            System.Media.SystemSounds.Asterisk.Play();
+            ReloadBuildingsTerrain();
+        }
+        private void B_DumpTerrainAcre_Click(object sender, EventArgs e) => MapDumpHelper.DumpTerrainAcre(Map.Terrain, AcreIndex, CB_Acre.Text);
+        private void B_DumpTerrainAll_Click(object sender, EventArgs e) => MapDumpHelper.DumpTerrainAll(Map.Terrain);
 
-            int expect = layer.MapTileCount * FieldItem.SIZE;
-            if (fi.Length != expect)
-            {
-                WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expect));
+        private void B_ImportTerrainAcre_Click(object sender, EventArgs e)
+        {
+            if (!MapDumpHelper.ImportTerrainAcre(Map.Terrain, AcreIndex, CB_Acre.Text))
                 return;
-            }
+            ChangeViewToAcre(AcreIndex);
+            System.Media.SystemSounds.Asterisk.Play();
+        }
 
-            var data = File.ReadAllBytes(path);
-            layer.ImportAllAcres(data);
+        private void B_ImportTerrainAll_Click(object sender, EventArgs e)
+        {
+            if (!MapDumpHelper.ImportTerrainAll(Map.Terrain))
+                return;
             ChangeViewToAcre(AcreIndex);
             System.Media.SystemSounds.Asterisk.Play();
         }
@@ -366,7 +388,7 @@ namespace NHSE.WinForms
             }
 
             const string name = "map";
-            var bmp = FieldItemSpriteDrawer.GetBitmapLayer(Items.Layer1);
+            var bmp = FieldItemSpriteDrawer.GetBitmapLayer(Map.Items.Layer1);
             using var sfd = new SaveFileDialog
             {
                 Filter = "png file (*.png)|*.png|All files (*.*)|*.*",
@@ -382,11 +404,11 @@ namespace NHSE.WinForms
 
         private void ClickMapAt(MouseEventArgs e, bool skipLagCheck)
         {
-            var layer = Items.Layer1;
+            var layer = Map.Items.Layer1;
             int mX = e.X;
             int mY = e.Y;
             bool centerReticle = CHK_SnapToAcre.Checked;
-            GetViewAnchorCoordinates(mX, mY, out var x, out var y, centerReticle);
+            View.GetViewAnchorCoordinates(mX, mY, out var x, out var y, centerReticle);
             x &= 0xFFFE;
             y &= 0xFFFE;
 
@@ -402,8 +424,8 @@ namespace NHSE.WinForms
                 else
                 {
                     const int delta = 0; // disabled = 0
-                    var dx = Math.Abs(X - x);
-                    var dy = Math.Abs(Y - y);
+                    var dx = Math.Abs(View.X - x);
+                    var dy = Math.Abs(View.Y - y);
                     if (dx <= delta && dy <= delta && !sameAcre)
                         return;
                 }
@@ -411,25 +433,13 @@ namespace NHSE.WinForms
 
             if (!CHK_SnapToAcre.Checked)
             {
-                LoadGrid(X = x, Y = y);
+                View.SetViewTo(x, y);
+                LoadItemGridAcre();
                 return;
             }
 
             if (!sameAcre)
                 CB_Acre.SelectedIndex = acre;
-        }
-
-        private static void GetCursorCoordinates(int mX, int mY, out int x, out int y)
-        {
-            x = mX / MapScale;
-            y = mY / MapScale;
-        }
-
-        private void GetViewAnchorCoordinates(int mX, int mY, out int x, out int y, bool centerReticle)
-        {
-            var layer = Items.Layer1;
-            GetCursorCoordinates(mX, mY, out x, out y);
-            layer.GetViewAnchorCoordinates(ref x, ref y, centerReticle);
         }
 
         private void PB_Map_MouseMove(object sender, MouseEventArgs e)
@@ -440,14 +450,16 @@ namespace NHSE.WinForms
             }
             else
             {
-                int mX = e.X;
-                int mY = e.Y;
-                GetCursorCoordinates(mX, mY, out var x, out var y);
+                View.GetCursorCoordinates(e.X, e.Y, out var x, out var y);
                 L_Coordinates.Text = $"({x:000},{y:000}) = (0x{x:X2},0x{y:X2})";
             }
         }
 
-        private void NUD_Layer_ValueChanged(object sender, EventArgs e) => LoadGrid(X, Y);
+        private void NUD_Layer_ValueChanged(object sender, EventArgs e)
+        {
+            Map.MapLayer = (int) NUD_Layer.Value - 1;
+            LoadItemGridAcre();
+        }
 
         private void Remove(ToolStripItem sender, Func<int, int, int, int, int> removal)
         {
@@ -458,36 +470,109 @@ namespace NHSE.WinForms
             if (question != DialogResult.Yes)
                 return;
 
-            var count = wholeMap
-                ? removal(0, 0, Layer.MapWidth, Layer.MapHeight)
-                : removal(X, Y, Layer.GridWidth, Layer.GridHeight);
+            int count = View.RemoveFieldItems(removal, wholeMap);
 
             if (count == 0)
             {
                 WinFormsUtil.Alert(MessageStrings.MsgFieldItemRemoveNone);
                 return;
             }
-            LoadGrid(X, Y);
+            LoadItemGridAcre();
             WinFormsUtil.Alert(string.Format(MessageStrings.MsgFieldItemRemoveCount, count));
         }
 
-        private void B_RemoveAllWeeds_Click(object sender, EventArgs e) => Remove(B_RemoveAllWeeds, Layer.RemoveAllWeeds);
-        private void B_FillHoles_Click(object sender, EventArgs e) => Remove(B_FillHoles, Layer.RemoveAllHoles);
-        private void B_RemovePlants_Click(object sender, EventArgs e) => Remove(B_RemovePlants, Layer.RemoveAllPlants);
-        private void B_RemoveFences_Click(object sender, EventArgs e) => Remove(B_RemoveFences, Layer.RemoveAllFences);
-        private void B_RemoveObjects_Click(object sender, EventArgs e) => Remove(B_RemoveObjects, Layer.RemoveAllObjects);
-        private void B_RemoveAll_Click(object sender, EventArgs e) => Remove(B_RemoveAll, Layer.RemoveAll);
-        private void B_RemovePlacedItems_Click(object sender, EventArgs e) => Remove(B_RemovePlacedItems, Layer.RemoveAllPlacedItems);
+        private void B_RemoveAllWeeds_Click(object sender, EventArgs e) => Remove(B_RemoveAllWeeds, Map.CurrentLayer.RemoveAllWeeds);
+        private void B_FillHoles_Click(object sender, EventArgs e) => Remove(B_FillHoles, Map.CurrentLayer.RemoveAllHoles);
+        private void B_RemovePlants_Click(object sender, EventArgs e) => Remove(B_RemovePlants, Map.CurrentLayer.RemoveAllPlants);
+        private void B_RemoveFences_Click(object sender, EventArgs e) => Remove(B_RemoveFences, Map.CurrentLayer.RemoveAllFences);
+        private void B_RemoveObjects_Click(object sender, EventArgs e) => Remove(B_RemoveObjects, Map.CurrentLayer.RemoveAllObjects);
+        private void B_RemoveAll_Click(object sender, EventArgs e) => Remove(B_RemoveAll, Map.CurrentLayer.RemoveAll);
+        private void B_RemovePlacedItems_Click(object sender, EventArgs e) => Remove(B_RemovePlacedItems, Map.CurrentLayer.RemoveAllPlacedItems);
 
         private void PG_Tile_PropertyValueChanged(object s, PropertyValueChangedEventArgs e) => PG_Tile.SelectedObject = PG_Tile.SelectedObject;
 
-        private void TR_Transparency_Scroll(object sender, EventArgs e)
-        {
-            ReloadGrid(Layer, X, Y);
-            ReloadMap();
-        }
-
         private static void ShowContextMenuBelow(ToolStripDropDown c, Control n) => c.Show(n.PointToScreen(new Point(0, n.Height)));
         private void B_RemoveItemDropDown_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_Remove, B_RemoveItemDropDown);
+        private void B_DumpLoadField_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_DLField, B_DumpLoadField);
+        private void B_DumpLoadTerrain_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_DLTerrain, B_DumpLoadTerrain);
+        private void B_DumpLoadBuildings_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_DLBuilding, B_DumpLoadBuildings);
+        private void B_ModifyAllTerrain_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_Terrain, B_ModifyAllTerrain);
+        private void TR_Transparency_Scroll(object sender, EventArgs e) => ReloadItems();
+
+        #region Buildings
+
+        private void B_Help_Click(object sender, EventArgs e)
+        {
+            using var form = new BuildingHelp();
+            form.ShowDialog();
+        }
+
+        private void NUD_PlazaX_ValueChanged(object sender, EventArgs e)
+        {
+            if (Loading)
+                return;
+            Map.PlazaX = (uint) NUD_PlazaX.Value;
+            ReloadBuildingsTerrain();
+        }
+
+        private void NUD_PlazaY_ValueChanged(object sender, EventArgs e)
+        {
+            if (Loading)
+                return;
+            Map.PlazaY = (uint) NUD_PlazaY.Value;
+            ReloadBuildingsTerrain();
+        }
+
+        private void LB_Items_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (LB_Items.SelectedIndex < 0)
+                return;
+            LoadIndex(LB_Items.SelectedIndex);
+            ReloadBuildingsTerrain();
+        }
+
+        private void LoadIndex(int index)
+        {
+            Loading = true;
+            SelectedBuildingIndex = index;
+            var b = Map.Buildings[index];
+            NUD_BuildingType.Value = (int)b.BuildingType;
+            NUD_X.Value = b.X;
+            NUD_Y.Value = b.Y;
+            NUD_Angle.Value = b.Angle;
+            NUD_Bit.Value = b.Bit;
+            NUD_Type.Value = b.Type;
+            NUD_TypeArg.Value = b.TypeArg;
+            NUD_UniqueID.Value = b.UniqueID;
+            Loading = false;
+        }
+
+        private void NUD_BuildingType_ValueChanged(object sender, EventArgs e)
+        {
+            if (Loading || !(sender is NumericUpDown n))
+                return;
+
+            var b = Map.Buildings[SelectedBuildingIndex];
+            if (sender == NUD_BuildingType)
+                b.BuildingType = (BuildingType)n.Value;
+            else if (sender == NUD_X)
+                b.X = (ushort)n.Value;
+            else if (sender == NUD_Y)
+                b.Y = (ushort)n.Value;
+            else if (sender == NUD_Angle)
+                b.Angle = (byte)n.Value;
+            else if (sender == NUD_Bit)
+                b.Bit = (sbyte)n.Value;
+            else if (sender == NUD_Type)
+                b.Type = (ushort)n.Value;
+            else if (sender == NUD_TypeArg)
+                b.TypeArg = (byte)n.Value;
+            else if (sender == NUD_UniqueID)
+                b.UniqueID = (ushort)n.Value;
+
+            LB_Items.Items[SelectedBuildingIndex] = Map.Buildings[SelectedBuildingIndex].ToString();
+            ReloadBuildingsTerrain();
+        }
+        #endregion
     }
 }

@@ -40,6 +40,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Update="Subforms\Map\BuildingHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Subforms\Map\LandFlagEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,9 +64,7 @@
     <Compile Update="Subforms\PropertyEditor - Copy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Subforms\Map\FieldItemEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Update="Subforms\Map\FieldItemEditor.cs" />
     <Compile Update="Subforms\Map\TerrainEditor.cs">
       <SubType>Form</SubType>
     </Compile>

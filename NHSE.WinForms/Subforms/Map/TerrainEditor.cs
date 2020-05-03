@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.IO;
 using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Sprites;
@@ -26,7 +25,7 @@ namespace NHSE.WinForms
             this.TranslateInterface(GameInfo.CurrentLanguage);
 
             SAV = sav;
-            Terrain = new TerrainManager(SAV.GetTerrain());
+            Terrain = new TerrainManager(SAV.GetTerrainTiles());
             Grid = GenerateGrid(GridWidth, GridHeight);
 
             foreach (var acre in MapGrid.Acres)
@@ -151,7 +150,7 @@ namespace NHSE.WinForms
 
         private void B_Save_Click(object sender, EventArgs e)
         {
-            SAV.SetTerrain(Terrain.Tiles);
+            SAV.SetTerrainTiles(Terrain.Tiles);
             Close();
         }
 
@@ -201,6 +200,8 @@ namespace NHSE.WinForms
         private void B_Left_Click(object sender, EventArgs e) => --CB_Acre.SelectedIndex;
         private void B_Right_Click(object sender, EventArgs e) => ++CB_Acre.SelectedIndex;
         private void B_Down_Click(object sender, EventArgs e) => CB_Acre.SelectedIndex += MapGrid.AcreWidth;
+        private void B_DumpAcre_Click(object sender, EventArgs e) => MapDumpHelper.DumpTerrainAcre(Terrain, AcreIndex, CB_Acre.Text);
+        private void B_DumpAllAcres_Click(object sender, EventArgs e) => MapDumpHelper.DumpTerrainAll(Terrain);
 
         private void B_ZeroElevation_Click(object sender, EventArgs e)
         {
@@ -224,85 +225,18 @@ namespace NHSE.WinForms
             System.Media.SystemSounds.Asterisk.Play();
         }
 
-        private void B_DumpAcre_Click(object sender, EventArgs e)
-        {
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Terrain (*.nht)|*.nht|All files (*.*)|*.*",
-                FileName = $"{CB_Acre.Text}.nht",
-            };
-            if (sfd.ShowDialog() != DialogResult.OK)
-                return;
-
-            var path = sfd.FileName;
-            var acre = AcreIndex;
-            var data = Terrain.DumpAcre(acre);
-            File.WriteAllBytes(path, data);
-        }
-
-        private void B_DumpAllAcres_Click(object sender, EventArgs e)
-        {
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Terrain (*.nht)|*.nht|All files (*.*)|*.*",
-                FileName = "terrainAcres.nht",
-            };
-            if (sfd.ShowDialog() != DialogResult.OK)
-                return;
-
-            var path = sfd.FileName;
-            var data = Terrain.DumpAllAcres();
-            File.WriteAllBytes(path, data);
-        }
-
         private void B_ImportAcre_Click(object sender, EventArgs e)
         {
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Terrain (*.nht)|*.nht|All files (*.*)|*.*",
-                FileName = $"{CB_Acre.Text}.nht",
-            };
-            if (ofd.ShowDialog() != DialogResult.OK)
+            if (!MapDumpHelper.ImportTerrainAcre(Terrain, AcreIndex, CB_Acre.Text))
                 return;
-
-            var path = ofd.FileName;
-            var fi = new FileInfo(path);
-
-            int expect = Terrain.AcreTileCount * TerrainTile.SIZE;
-            if (fi.Length != expect)
-            {
-                WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expect));
-                return;
-            }
-
-            var data = File.ReadAllBytes(path);
-            Terrain.ImportAcre(AcreIndex, data);
             ChangeViewToAcre(AcreIndex);
             System.Media.SystemSounds.Asterisk.Play();
         }
 
         private void B_ImportAllAcres_Click(object sender, EventArgs e)
         {
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Terrain (*.nht)|*.nht|All files (*.*)|*.*",
-                FileName = "terrainAcres.nht",
-            };
-            if (ofd.ShowDialog() != DialogResult.OK)
+            if (!MapDumpHelper.ImportTerrainAll(Terrain))
                 return;
-
-            var path = ofd.FileName;
-            var fi = new FileInfo(path);
-
-            int expect = Terrain.MapTileCount * TerrainTile.SIZE;
-            if (fi.Length != expect)
-            {
-                WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expect));
-                return;
-            }
-
-            var data = File.ReadAllBytes(path);
-            Terrain.ImportAllAcres(data);
             ChangeViewToAcre(AcreIndex);
             System.Media.SystemSounds.Asterisk.Play();
         }
