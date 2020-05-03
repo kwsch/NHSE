@@ -101,10 +101,14 @@
             this.B_Help = new System.Windows.Forms.Button();
             this.LB_Items = new System.Windows.Forms.ListBox();
             this.Tab_Terrain = new System.Windows.Forms.TabPage();
+            this.L_TerrainTileLabelTransparency = new System.Windows.Forms.Label();
+            this.TR_Terrain = new System.Windows.Forms.TrackBar();
+            this.TR_BuildingTransparency = new System.Windows.Forms.TrackBar();
+            this.L_BuildingTransparency = new System.Windows.Forms.Label();
             this.PG_TerrainTile = new System.Windows.Forms.PropertyGrid();
+            this.L_FieldItemTransparency = new System.Windows.Forms.Label();
             this.B_DumpLoadTerrain = new System.Windows.Forms.Button();
             this.B_ModifyAllTerrain = new System.Windows.Forms.Button();
-            this.L_FieldItemTransparency = new System.Windows.Forms.Label();
             this.CM_DLTerrain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.B_DumpTerrainAcre = new System.Windows.Forms.ToolStripMenuItem();
             this.B_DumpTerrainAll = new System.Windows.Forms.ToolStripMenuItem();
@@ -116,8 +120,6 @@
             this.RB_Item = new System.Windows.Forms.RadioButton();
             this.RB_Terrain = new System.Windows.Forms.RadioButton();
             this.L_TileMode = new System.Windows.Forms.Label();
-            this.TR_BuildingTransparency = new System.Windows.Forms.TrackBar();
-            this.L_BuildingTransparency = new System.Windows.Forms.Label();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
@@ -141,9 +143,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_PlazaX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_PlazaY)).BeginInit();
             this.Tab_Terrain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TR_Terrain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TR_BuildingTransparency)).BeginInit();
             this.CM_DLTerrain.SuspendLayout();
             this.CM_Terrain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TR_BuildingTransparency)).BeginInit();
             this.SuspendLayout();
             // 
             // B_Cancel
@@ -369,10 +372,11 @@
             // 
             // TR_Transparency
             // 
-            this.TR_Transparency.Location = new System.Drawing.Point(3, 293);
+            this.TR_Transparency.AutoSize = false;
+            this.TR_Transparency.Location = new System.Drawing.Point(3, 332);
             this.TR_Transparency.Maximum = 100;
             this.TR_Transparency.Name = "TR_Transparency";
-            this.TR_Transparency.Size = new System.Drawing.Size(237, 45);
+            this.TR_Transparency.Size = new System.Drawing.Size(237, 28);
             this.TR_Transparency.TabIndex = 36;
             this.TR_Transparency.TickFrequency = 10;
             this.TR_Transparency.Value = 90;
@@ -886,6 +890,8 @@
             // 
             // Tab_Terrain
             // 
+            this.Tab_Terrain.Controls.Add(this.L_TerrainTileLabelTransparency);
+            this.Tab_Terrain.Controls.Add(this.TR_Terrain);
             this.Tab_Terrain.Controls.Add(this.TR_BuildingTransparency);
             this.Tab_Terrain.Controls.Add(this.L_BuildingTransparency);
             this.Tab_Terrain.Controls.Add(this.PG_TerrainTile);
@@ -900,6 +906,47 @@
             this.Tab_Terrain.Text = "Terrain";
             this.Tab_Terrain.UseVisualStyleBackColor = true;
             // 
+            // L_TerrainTileLabelTransparency
+            // 
+            this.L_TerrainTileLabelTransparency.AutoSize = true;
+            this.L_TerrainTileLabelTransparency.Location = new System.Drawing.Point(8, 272);
+            this.L_TerrainTileLabelTransparency.Name = "L_TerrainTileLabelTransparency";
+            this.L_TerrainTileLabelTransparency.Size = new System.Drawing.Size(157, 13);
+            this.L_TerrainTileLabelTransparency.TabIndex = 46;
+            this.L_TerrainTileLabelTransparency.Text = "Terrain Tile Label Transparency";
+            // 
+            // TR_Terrain
+            // 
+            this.TR_Terrain.AutoSize = false;
+            this.TR_Terrain.Location = new System.Drawing.Point(3, 285);
+            this.TR_Terrain.Maximum = 255;
+            this.TR_Terrain.Name = "TR_Terrain";
+            this.TR_Terrain.Size = new System.Drawing.Size(237, 28);
+            this.TR_Terrain.TabIndex = 45;
+            this.TR_Terrain.TickFrequency = 32;
+            this.TR_Terrain.Scroll += new System.EventHandler(this.TR_Terrain_Scroll);
+            // 
+            // TR_BuildingTransparency
+            // 
+            this.TR_BuildingTransparency.AutoSize = false;
+            this.TR_BuildingTransparency.Location = new System.Drawing.Point(3, 381);
+            this.TR_BuildingTransparency.Maximum = 255;
+            this.TR_BuildingTransparency.Name = "TR_BuildingTransparency";
+            this.TR_BuildingTransparency.Size = new System.Drawing.Size(237, 28);
+            this.TR_BuildingTransparency.TabIndex = 43;
+            this.TR_BuildingTransparency.TickFrequency = 16;
+            this.TR_BuildingTransparency.Value = 255;
+            this.TR_BuildingTransparency.Scroll += new System.EventHandler(this.TR_BuildingTransparency_Scroll);
+            // 
+            // L_BuildingTransparency
+            // 
+            this.L_BuildingTransparency.AutoSize = true;
+            this.L_BuildingTransparency.Location = new System.Drawing.Point(8, 365);
+            this.L_BuildingTransparency.Name = "L_BuildingTransparency";
+            this.L_BuildingTransparency.Size = new System.Drawing.Size(112, 13);
+            this.L_BuildingTransparency.TabIndex = 44;
+            this.L_BuildingTransparency.Text = "Building Transparency";
+            // 
             // PG_TerrainTile
             // 
             this.PG_TerrainTile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -910,6 +957,15 @@
             this.PG_TerrainTile.Size = new System.Drawing.Size(238, 266);
             this.PG_TerrainTile.TabIndex = 41;
             this.PG_TerrainTile.ToolbarVisible = false;
+            // 
+            // L_FieldItemTransparency
+            // 
+            this.L_FieldItemTransparency.AutoSize = true;
+            this.L_FieldItemTransparency.Location = new System.Drawing.Point(8, 316);
+            this.L_FieldItemTransparency.Name = "L_FieldItemTransparency";
+            this.L_FieldItemTransparency.Size = new System.Drawing.Size(120, 13);
+            this.L_FieldItemTransparency.TabIndex = 42;
+            this.L_FieldItemTransparency.Text = "Field Item Transparency";
             // 
             // B_DumpLoadTerrain
             // 
@@ -930,15 +986,6 @@
             this.B_ModifyAllTerrain.Text = "Modify All...";
             this.B_ModifyAllTerrain.UseVisualStyleBackColor = true;
             this.B_ModifyAllTerrain.Click += new System.EventHandler(this.B_ModifyAllTerrain_Click);
-            // 
-            // L_FieldItemTransparency
-            // 
-            this.L_FieldItemTransparency.AutoSize = true;
-            this.L_FieldItemTransparency.Location = new System.Drawing.Point(8, 277);
-            this.L_FieldItemTransparency.Name = "L_FieldItemTransparency";
-            this.L_FieldItemTransparency.Size = new System.Drawing.Size(120, 13);
-            this.L_FieldItemTransparency.TabIndex = 42;
-            this.L_FieldItemTransparency.Text = "Field Item Transparency";
             // 
             // CM_DLTerrain
             // 
@@ -1033,26 +1080,6 @@
             this.L_TileMode.Text = "Tile Editor Mode";
             this.L_TileMode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // TR_BuildingTransparency
-            // 
-            this.TR_BuildingTransparency.Location = new System.Drawing.Point(3, 362);
-            this.TR_BuildingTransparency.Maximum = 255;
-            this.TR_BuildingTransparency.Name = "TR_BuildingTransparency";
-            this.TR_BuildingTransparency.Size = new System.Drawing.Size(237, 45);
-            this.TR_BuildingTransparency.TabIndex = 43;
-            this.TR_BuildingTransparency.TickFrequency = 16;
-            this.TR_BuildingTransparency.Value = 255;
-            this.TR_BuildingTransparency.Scroll += new System.EventHandler(this.TR_BuildingTransparency_Scroll);
-            // 
-            // L_BuildingTransparency
-            // 
-            this.L_BuildingTransparency.AutoSize = true;
-            this.L_BuildingTransparency.Location = new System.Drawing.Point(8, 346);
-            this.L_BuildingTransparency.Name = "L_BuildingTransparency";
-            this.L_BuildingTransparency.Size = new System.Drawing.Size(112, 13);
-            this.L_BuildingTransparency.TabIndex = 44;
-            this.L_BuildingTransparency.Text = "Building Transparency";
-            // 
             // FieldItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1110,9 +1137,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_PlazaY)).EndInit();
             this.Tab_Terrain.ResumeLayout(false);
             this.Tab_Terrain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TR_Terrain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TR_BuildingTransparency)).EndInit();
             this.CM_DLTerrain.ResumeLayout(false);
             this.CM_Terrain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.TR_BuildingTransparency)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1208,5 +1236,7 @@
         private System.Windows.Forms.Label L_TileMode;
         private System.Windows.Forms.TrackBar TR_BuildingTransparency;
         private System.Windows.Forms.Label L_BuildingTransparency;
+        private System.Windows.Forms.Label L_TerrainTileLabelTransparency;
+        private System.Windows.Forms.TrackBar TR_Terrain;
     }
 }

@@ -9,6 +9,7 @@ namespace NHSE.Sprites
         private static readonly Brush Selected = Brushes.Red;
         private static readonly Brush Others = Brushes.Yellow;
         private static readonly Brush Text = Brushes.White;
+        private static readonly Brush Tile = Brushes.Black;
         private static readonly Brush Plaza = Brushes.RosyBrown;
         private static readonly StringFormat BuildingTextFormat = new StringFormat
             { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
@@ -130,7 +131,7 @@ namespace NHSE.Sprites
             }
         }
 
-        public static Bitmap GetAcre(MapView m, Font f, int[] scale1, int[] scaleX, Bitmap acre, int index, byte transparency)
+        public static Bitmap GetAcre(MapView m, Font f, int[] scale1, int[] scaleX, Bitmap acre, int index, byte tbuild, byte tterrain)
         {
             int mx = m.X / 2;
             int my = m.Y / 2;
@@ -142,7 +143,7 @@ namespace NHSE.Sprites
 
             using var gfx = Graphics.FromImage(acre);
 
-            gfx.DrawAcrePlaza(m.Map.Terrain, mx, my, (ushort)m.Map.PlazaX, (ushort)m.Map.PlazaY, m.TerrainScale, transparency);
+            gfx.DrawAcrePlaza(m.Map.Terrain, mx, my, (ushort)m.Map.PlazaX, (ushort)m.Map.PlazaY, m.TerrainScale, tbuild);
 
             var buildings = m.Map.Buildings;
             var t = m.Map.Terrain;
@@ -152,10 +153,10 @@ namespace NHSE.Sprites
                 t.GetBuildingRelativeCoordinates(mx, my, m.TerrainScale, b.X, b.Y, out var x, out var y);
 
                 var pen = index == i ? Selected : Others;
-                if (transparency != byte.MaxValue)
+                if (tbuild != byte.MaxValue)
                 {
                     var orig = ((SolidBrush) pen).Color;
-                    pen = new SolidBrush(Color.FromArgb(transparency, orig));
+                    pen = new SolidBrush(Color.FromArgb(tbuild, orig));
                 }
                 DrawBuilding(gfx, null, m.TerrainScale, pen, x, y, b, Text);
             }
@@ -174,7 +175,30 @@ namespace NHSE.Sprites
                 gfx.DrawString(name, f, Text, new PointF(x, y - (m.TerrainScale * 2)), BuildingTextFormat);
             }
 
+            if (tterrain != 0)
+                DrawTerrainTileNames(mx, my, gfx, t, f, m.TerrainScale, tterrain);
+
             return acre;
+        }
+
+        private static void DrawTerrainTileNames(int topX, int topY, Graphics gfx, TerrainManager t, Font f, int scale, byte transparency)
+        {
+            var pen= transparency != byte.MaxValue ? new SolidBrush(Color.FromArgb(transparency, Color.Black)) : Tile;
+
+            for (int y = 0; y < 16; y++)
+            {
+                var yi = y + topY;
+                int cy = (y * scale) + (scale / 2);
+                for (int x = 0; x < 16; x++)
+                {
+                    var xi = x + topX;
+                    var tile = t.GetTile(xi, yi);
+
+                    int cx = (x * scale) + (scale / 2);
+                    var name = TerrainTileColor.GetTileName(tile);
+                    gfx.DrawString(name, f, pen, new PointF(cx, cy), BuildingTextFormat);
+                }
+            }
         }
 
         private static void DrawAcrePlaza(this Graphics gfx, TerrainManager g, int topX, int topY, ushort px, ushort py, int scale, byte transparency)

@@ -62,9 +62,9 @@ namespace NHSE.WinForms
             return FieldItemSpriteDrawer.GetBitmapItemLayerAcre(layer, topX, topY, AcreScale, PixelsItemAcre1, PixelsItemAcreX, ScaleAcre, t);
         }
 
-        public Bitmap GetBackgroundAcre(Font f, byte transparency, int index = -1)
+        public Bitmap GetBackgroundAcre(Font f, byte tbuild, byte tterrain, int index = -1)
         {
-            return TerrainSprite.GetAcre(this, f, PixelsBackgroundAcre1, PixelsBackgroundAcreX, BackgroundAcre, index, transparency);
+            return TerrainSprite.GetAcre(this, f, PixelsBackgroundAcre1, PixelsBackgroundAcreX, BackgroundAcre, index, tbuild, tterrain);
         }
 
         private Bitmap GetMapWithReticle(int topX, int topY, int t, FieldItemLayer layer)
