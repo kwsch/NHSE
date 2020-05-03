@@ -22,6 +22,7 @@ MsgMoveOutSuggest=If so, set the Event Flag (024 - ForceMoveOut) to 1 so that th
 MsgFieldItemRemoveAsk=Are you sure you want to remove {0}?
 MsgFieldItemRemoveNone=Nothing removed (none found).
 MsgFieldItemRemoveCount=Removed {0} from the map.
+MsgFieldItemUnsupportedLayer2Tile=Unsupported Layer2 items detected.
 MsgSysBotInfo=This SysBot reads and writes RAM directly to your game when called to Read/Write.
 MsgSysBotRequired=Using this functionality requires the sys-botbase sysmodule running on the console. Your console must be on the same network as the PC running this program.
 MsgTerrainSetElevation0=Set the elevation of all tiles on the map to 0?
