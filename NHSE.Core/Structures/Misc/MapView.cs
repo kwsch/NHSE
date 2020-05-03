@@ -5,10 +5,11 @@ namespace NHSE.Core
     public class MapView
     {
         private const int ViewInterval = 2;
-        protected readonly MapManager Map;
+        public readonly MapManager Map;
 
-        public int MapScale { get; set; } = 1;
-        public int AcreScale { get; set; } = 16;
+        public int MapScale { get; } = 1;
+        public int AcreScale { get; } = 16;
+        public int TerrainScale => AcreScale * 2;
 
         // Top Left Anchor Coordinates
         public int X { get; set; }

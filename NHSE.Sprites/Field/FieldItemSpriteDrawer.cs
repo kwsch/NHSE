@@ -5,7 +5,7 @@ namespace NHSE.Sprites
 {
     public static class FieldItemSpriteDrawer
     {
-        public static Bitmap GetBitmapLayer(FieldItemLayer layer)
+        public static Bitmap GetBitmapItemLayer(FieldItemLayer layer)
         {
             var items = layer.Tiles;
             var height = layer.MapHeight;
@@ -31,17 +31,6 @@ namespace NHSE.Sprites
             }
         }
 
-        private static int[] GetBitmapLayerAcre(FieldItemLayer layer, int x0, int y0, out int width, out int height)
-        {
-            height = layer.GridWidth;
-            width = layer.GridWidth;
-
-            var bmpData = new int[width * height];
-            LoadPixelsFromLayer(layer, x0, y0, width, bmpData);
-
-            return bmpData;
-        }
-
         private static void LoadPixelsFromLayer(FieldItemLayer layer, int x0, int y0, int width, int[] bmpData)
         {
             var stride = layer.GridWidth;
@@ -60,7 +49,7 @@ namespace NHSE.Sprites
         }
 
         // non-allocation image generator
-        public static Bitmap GetBitmapLayerAcre(FieldItemLayer layer, int x0, int y0, int scale, int[] acre1, int[] acreScale, Bitmap dest, int transparency = -1)
+        public static Bitmap GetBitmapItemLayerAcre(FieldItemLayer layer, int x0, int y0, int scale, int[] acre1, int[] acreScale, Bitmap dest, int transparency = -1)
         {
             var w = layer.GridWidth;
             var h = layer.GridHeight;
@@ -76,27 +65,12 @@ namespace NHSE.Sprites
             DrawDirectionals(acreScale, layer, w, x0, y0, scale);
 
             // Slap on a grid
-            DrawGrid(acreScale, w, h, scale);
+            const int gridlineColor = 0; // let the underlying image grid show instead
+            DrawGrid(acreScale, w, h, scale, gridlineColor);
 
             // Return final data
             ImageUtil.SetBitmapData(dest, acreScale);
             return dest;
-        }
-
-        // unused -- allocates!
-        public static Bitmap GetBitmapLayerAcre(FieldItemLayer layer, int x0, int y0, int scale)
-        {
-            var map = GetBitmapLayerAcre(layer, x0, y0, out int mh, out int mw);
-            var data = ImageUtil.ScalePixelImage(map, scale, mw, mh, out var w, out var h);
-
-            // draw symbols over special items now?
-            DrawDirectionals(data, layer, w, x0, y0, scale);
-
-            // Slap on a grid
-            DrawGrid(data, w, h, scale);
-
-            // Return final data
-            return ImageUtil.GetBitmap(data, w, h);
         }
 
         private static void DrawDirectionals(int[] data, FieldItemLayer layer, int w, int x0, int y0, int scale)
@@ -152,10 +126,8 @@ namespace NHSE.Sprites
             }
         }
 
-        private static void DrawGrid(int[] data, int w, int h, int scale)
+        public static void DrawGrid(int[] data, int w, int h, int scale, int gridlineColor)
         {
-            const int grid = -0x777778; // 0xFF888888u
-
             // Horizontal Lines
             for (int y = scale; y < h; y += scale)
             {
@@ -163,7 +135,7 @@ namespace NHSE.Sprites
                 for (int x = 0; x < w; x++)
                 {
                     var index = baseIndex + x;
-                    data[index] = grid;
+                    data[index] = gridlineColor;
                 }
             }
 
@@ -174,21 +146,12 @@ namespace NHSE.Sprites
                 for (int x = scale; x < w; x += scale)
                 {
                     var index = baseIndex + x;
-                    data[index] = grid;
+                    data[index] = gridlineColor;
                 }
             }
         }
 
-        public static Bitmap GetBitmapLayer(FieldItemLayer layer, int x, int y, int scale = 1)
-        {
-            var map = GetBitmapLayer(layer);
-            if (scale > 1)
-                map = ImageUtil.ResizeImage(map, map.Width, map.Height);
-
-            return DrawViewReticle(map, layer, x, y, scale);
-        }
-
-        public static Bitmap GetBitmapLayer(FieldItemLayer layer, int x, int y, int[] data, Bitmap dest, int transparency = -1)
+        public static Bitmap GetBitmapItemLayer(FieldItemLayer layer, int x, int y, int[] data, Bitmap dest, int transparency = -1)
         {
             LoadBitmapLayer(layer.Tiles, data, layer.MapWidth, layer.MapHeight);
             if (transparency >> 24 != 0xFF)

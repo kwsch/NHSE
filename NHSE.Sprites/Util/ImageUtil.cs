@@ -54,6 +54,14 @@ namespace NHSE.Sprites
             bmp.UnlockBits(bmpData);
         }
 
+        public static void GetBitmapData(Bitmap bmp, int[] data, PixelFormat format = PixelFormat.Format32bppArgb)
+        {
+            var bmpData = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.WriteOnly, format);
+            var ptr = bmpData.Scan0;
+            Marshal.Copy(ptr, data, 0, data.Length);
+            bmp.UnlockBits(bmpData);
+        }
+
         // https://stackoverflow.com/a/24199315
         public static Bitmap ResizeImage(Image image, int width, int height)
         {

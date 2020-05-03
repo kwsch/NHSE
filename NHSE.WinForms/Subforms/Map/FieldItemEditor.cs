@@ -66,8 +66,19 @@ namespace NHSE.WinForms
         }
 
         private int GetItemTransparency() => ((int)(0xFF * TR_Transparency.Value / 100d) << 24) | 0x00FF_FFFF;
-        private void ReloadMapBackground() => PB_Map.BackgroundImage = View.GetBackgroundTerrain(SelectedBuildingIndex);
-        private void ReloadAcreBackground() => PB_Acre.BackgroundImage = View.GetBackgroundAcre(L_Coordinates.Font, SelectedBuildingIndex);
+
+        private void ReloadMapBackground()
+        {
+            PB_Map.BackgroundImage = View.GetBackgroundTerrain(SelectedBuildingIndex);
+            PB_Map.Invalidate(); // background image reassigning to same img doesn't redraw; force it
+        }
+
+        private void ReloadAcreBackground()
+        {
+            PB_Acre.BackgroundImage = View.GetBackgroundAcre(L_Coordinates.Font, SelectedBuildingIndex);
+            PB_Acre.Invalidate(); // background image reassigning to same img doesn't redraw; force it
+        }
+
         private void ReloadMapItemGrid() => PB_Map.Image = View.GetMapWithReticle(GetItemTransparency());
         private void ReloadAcreItemGrid() => PB_Acre.Image = View.GetLayerAcre(GetItemTransparency());
 
@@ -392,7 +403,7 @@ namespace NHSE.WinForms
             }
 
             const string name = "map";
-            var bmp = FieldItemSpriteDrawer.GetBitmapLayer(Map.Items.Layer1);
+            var bmp = FieldItemSpriteDrawer.GetBitmapItemLayer(Map.Items.Layer1);
             using var sfd = new SaveFileDialog
             {
                 Filter = "png file (*.png)|*.png|All files (*.*)|*.*",

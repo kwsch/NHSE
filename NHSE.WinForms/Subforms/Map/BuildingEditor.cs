@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Sprites;
@@ -10,21 +11,29 @@ namespace NHSE.WinForms
     {
         private readonly IReadOnlyList<Building> Buildings;
         private readonly MainSave SAV;
-        private readonly TerrainManager Terrain;
         private static readonly IReadOnlyDictionary<string, string[]> HelpDictionary = StructureUtil.GetStructureHelpList();
 
-        public BuildingEditor(IReadOnlyList<Building> buildings, MainSave sav)
+        private readonly Bitmap Map;
+        private readonly int[] Scale1;
+        private readonly int[] ScaleX;
+        private readonly MapTerrainStructure Manager;
+        private const int scale = 4;
+
+        public BuildingEditor(MainSave sav)
         {
             InitializeComponent();
             this.TranslateInterface(GameInfo.CurrentLanguage);
+            Manager = new MapTerrainStructure(sav);
             SAV = sav;
-            Buildings = buildings;
-            Terrain = new TerrainManager(sav.GetTerrainTiles());
+            Buildings = Manager.Buildings;
 
+            Scale1 = new int[Manager.Terrain.MapWidth * Manager.Terrain.MapHeight];
+            ScaleX = new int[Scale1.Length * scale * scale];
+            Map = new Bitmap(Manager.Terrain.MapWidth * scale, Manager.Terrain.MapHeight * scale);
             NUD_PlazaX.Value = sav.PlazaX;
             NUD_PlazaY.Value = sav.PlazaY;
 
-            foreach (var obj in buildings)
+            foreach (var obj in Manager.Buildings)
                 LB_Items.Items.Add(obj.ToString());
 
             LB_Items.SelectedIndex = 0;
@@ -43,6 +52,7 @@ namespace NHSE.WinForms
             SAV.PlazaY = (uint)NUD_PlazaY.Value;
 
             DialogResult = DialogResult.OK;
+            SAV.Buildings = Manager.Buildings;
             Close();
         }
 
@@ -52,10 +62,9 @@ namespace NHSE.WinForms
         private void DrawMap(in int index)
         {
             var font = B_Save.Font;
-            const int scale = 4;
-            var px = (ushort) NUD_PlazaX.Value;
-            var py = (ushort) NUD_PlazaY.Value;
-            PB_Map.Image = TerrainSprite.GetMapWithBuildings(Terrain, Buildings, px, py, font, scale, index);
+            Manager.PlazaX = (ushort) NUD_PlazaX.Value;
+            Manager.PlazaY = (ushort) NUD_PlazaY.Value;
+            PB_Map.Image = TerrainSprite.GetMapWithBuildings(Manager, font, Scale1, ScaleX, Map, scale, index);
         }
 
         private void LB_Items_SelectedIndexChanged(object sender, EventArgs e)

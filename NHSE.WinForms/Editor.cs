@@ -346,10 +346,8 @@ namespace NHSE.WinForms
 
         private void B_EditBuildings_Click(object sender, EventArgs e)
         {
-            var buildings = SAV.Main.Buildings;
-            using var editor = new BuildingEditor(buildings, SAV.Main);
-            if (editor.ShowDialog() == DialogResult.OK)
-                SAV.Main.Buildings = buildings;
+            using var editor = new BuildingEditor(SAV.Main);
+            editor.ShowDialog();
         }
 
         private void B_EditTurnipExchange_Click(object sender, EventArgs e)

@@ -19,6 +19,10 @@ namespace NHSE.WinForms
         private const int SquareSize = 50;
         private const int MapScale = 2;
 
+        private readonly int[] Scale1;
+        private readonly int[] ScaleX;
+        private readonly Bitmap Map;
+
         public TerrainEditor(MainSave sav)
         {
             InitializeComponent();
@@ -30,6 +34,10 @@ namespace NHSE.WinForms
 
             foreach (var acre in MapGrid.Acres)
                 CB_Acre.Items.Add(acre.Name);
+
+            Scale1 = new int[Terrain.MapWidth * Terrain.MapHeight];
+            ScaleX = new int[Scale1.Length * MapScale * MapScale];
+            Map = new Bitmap(Terrain.MapWidth * MapScale, Terrain.MapHeight * MapScale);
 
             PG_Tile.SelectedObject = new TerrainTile();
             CB_Acre.SelectedIndex = 0;
@@ -50,7 +58,7 @@ namespace NHSE.WinForms
             UpdateArrowVisibility(acre);
         }
 
-        private void ReloadMap() => PB_Map.Image = TerrainSprite.CreateMap(Terrain, MapScale, X, Y);
+        private void ReloadMap() => PB_Map.Image = TerrainSprite.CreateMap(Terrain, MapScale, X, Y, Scale1, ScaleX, Map);
 
         private void LoadGrid(int topX, int topY)
         {
@@ -251,7 +259,7 @@ namespace NHSE.WinForms
             }
 
             const string name = "map";
-            var bmp = TerrainSprite.CreateMap(Terrain);
+
             using var sfd = new SaveFileDialog
             {
                 Filter = "png file (*.png)|*.png|All files (*.*)|*.*",
@@ -260,6 +268,8 @@ namespace NHSE.WinForms
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
+            var bmp = new Bitmap(Terrain.MapWidth, Terrain.MapHeight);
+            ImageUtil.SetBitmapData(bmp, Scale1);
             bmp.Save(sfd.FileName, ImageFormat.Png);
         }
 
