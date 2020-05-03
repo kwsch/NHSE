@@ -10,7 +10,7 @@ namespace NHSE.Core
 
         public MapManager(MainSave sav) : base(sav)
         {
-            Items = new FieldItemManager(sav.GetFieldItems());
+            Items = new FieldItemManager(sav);
         }
 
         public FieldItemLayer CurrentLayer => MapLayer == 0 ? Items.Layer1 : Items.Layer2;

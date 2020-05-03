@@ -182,8 +182,19 @@ namespace NHSE.Core
         public TerrainTile[] GetTerrainTiles() => TerrainTile.GetArray(Data.Slice(Offsets.LandMakingMap, MapGrid.MapTileCount16x16 * TerrainTile.SIZE));
         public void SetTerrainTiles(IReadOnlyList<TerrainTile> array) => TerrainTile.SetArray(array).CopyTo(Data, Offsets.LandMakingMap);
 
-        public FieldItem[] GetFieldItems() => FieldItem.GetArray(Data.Slice(Offsets.FieldItem, MapGrid.MapTileCount32x32 * FieldItem.SIZE * 2));
-        public void SetFieldItems(IReadOnlyList<FieldItem> array) => FieldItem.SetArray(array).CopyTo(Data, Offsets.FieldItem);
+        private const int FieldItemLayerSize = MapGrid.MapTileCount32x32 * FieldItem.SIZE;
+        private const int FieldItemFlagSize = MapGrid.MapTileCount32x32 / 8; // bitflags
+
+        private int FieldItemLayer1 => Offsets.FieldItem;
+        private int FieldItemLayer2 => Offsets.FieldItem + FieldItemLayerSize;
+        public int FieldItemFlag1 => Offsets.FieldItem + (FieldItemLayerSize * 2);
+        public int FieldItemFlag2 => Offsets.FieldItem + (FieldItemLayerSize * 2) + FieldItemFlagSize;
+
+        public FieldItem[] GetFieldItemLayer1() => FieldItem.GetArray(Data.Slice(FieldItemLayer1, FieldItemLayerSize));
+        public void SetFieldItemLayer1(IReadOnlyList<FieldItem> array) => FieldItem.SetArray(array).CopyTo(Data, FieldItemLayer1);
+
+        public FieldItem[] GetFieldItemLayer2() => FieldItem.GetArray(Data.Slice(FieldItemLayer2, FieldItemLayerSize));
+        public void SetFieldItemLayer2(IReadOnlyList<FieldItem> array) => FieldItem.SetArray(array).CopyTo(Data, FieldItemLayer2);
 
         public ushort OutsideFieldTemplateUniqueId
         {

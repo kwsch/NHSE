@@ -176,12 +176,13 @@ namespace NHSE.WinForms
         {
             var l = Map.CurrentLayer;
             var oldTile = l.GetTile(View.X + HoverX, View.Y + HoverY);
-            var tile = GetTile(l, e, out _, out _);
+            var tile = GetTile(l, e, out var x, out var y);
             if (tile == oldTile)
                 return;
             var str = GameInfo.Strings;
             var name = str.GetItemName(tile);
             TT_Hover.SetToolTip(PB_Acre, name);
+            SetCoordinateText(x, y);
         }
 
         private void ViewTile(FieldItem tile)
@@ -251,8 +252,17 @@ namespace NHSE.WinForms
 
         private void B_Save_Click(object sender, EventArgs e)
         {
-            var all = ArrayUtil.ConcatAll(Map.Items.Layer1.Tiles, Map.Items.Layer2.Tiles);
-            SAV.SetFieldItems(all);
+            var unsupported = Map.Items.GetUnsupportedTiles();
+            if (unsupported.Count != 0)
+            {
+                var err = MessageStrings.MsgFieldItemUnsupportedLayer2Tile;
+                var ask = MessageStrings.MsgAskContinue;
+                var prompt = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, err, ask);
+                if (prompt != DialogResult.Yes)
+                    return;
+            }
+
+            Map.Items.Save();
             SAV.SetTerrainTiles(Map.Terrain.Tiles);
             SAV.Buildings = Map.Buildings;
             SAV.PlazaX = Map.PlazaX;
@@ -468,9 +478,11 @@ namespace NHSE.WinForms
             else
             {
                 View.GetCursorCoordinates(e.X, e.Y, out var x, out var y);
-                L_Coordinates.Text = $"({x:000},{y:000}) = (0x{x:X2},0x{y:X2})";
+                SetCoordinateText(x, y);
             }
         }
+
+        private void SetCoordinateText(int x, int y) => L_Coordinates.Text = $"({x:000},{y:000}) = (0x{x:X2},0x{y:X2})";
 
         private void NUD_Layer_ValueChanged(object sender, EventArgs e)
         {
