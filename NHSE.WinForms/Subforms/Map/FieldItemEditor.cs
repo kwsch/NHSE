@@ -75,7 +75,7 @@ namespace NHSE.WinForms
 
         private void ReloadAcreBackground()
         {
-            PB_Acre.BackgroundImage = View.GetBackgroundAcre(L_Coordinates.Font, SelectedBuildingIndex);
+            PB_Acre.BackgroundImage = View.GetBackgroundAcre(L_Coordinates.Font, (byte)TR_BuildingTransparency.Value, SelectedBuildingIndex);
             PB_Acre.Invalidate(); // background image reassigning to same img doesn't redraw; force it
         }
 
@@ -513,6 +513,7 @@ namespace NHSE.WinForms
         private void B_DumpLoadBuildings_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_DLBuilding, B_DumpLoadBuildings);
         private void B_ModifyAllTerrain_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_Terrain, B_ModifyAllTerrain);
         private void TR_Transparency_Scroll(object sender, EventArgs e) => ReloadItems();
+        private void TR_BuildingTransparency_Scroll(object sender, EventArgs e) => ReloadBuildingsTerrain();
 
         #region Buildings
 

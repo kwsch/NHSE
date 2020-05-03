@@ -115,7 +115,9 @@
             this.B_SetAllTerrain = new System.Windows.Forms.ToolStripMenuItem();
             this.RB_Item = new System.Windows.Forms.RadioButton();
             this.RB_Terrain = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.L_TileMode = new System.Windows.Forms.Label();
+            this.TR_BuildingTransparency = new System.Windows.Forms.TrackBar();
+            this.L_BuildingTransparency = new System.Windows.Forms.Label();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
@@ -141,6 +143,7 @@
             this.Tab_Terrain.SuspendLayout();
             this.CM_DLTerrain.SuspendLayout();
             this.CM_Terrain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TR_BuildingTransparency)).BeginInit();
             this.SuspendLayout();
             // 
             // B_Cancel
@@ -173,7 +176,7 @@
             this.PG_Tile.Location = new System.Drawing.Point(3, 3);
             this.PG_Tile.Name = "PG_Tile";
             this.PG_Tile.PropertySort = System.Windows.Forms.PropertySort.Categorized;
-            this.PG_Tile.Size = new System.Drawing.Size(238, 390);
+            this.PG_Tile.Size = new System.Drawing.Size(238, 379);
             this.PG_Tile.TabIndex = 9;
             this.PG_Tile.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.PG_Tile_PropertyValueChanged);
             // 
@@ -181,7 +184,7 @@
             // 
             this.CB_Acre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_Acre.FormattingEnabled = true;
-            this.CB_Acre.Location = new System.Drawing.Point(712, 259);
+            this.CB_Acre.Location = new System.Drawing.Point(712, 358);
             this.CB_Acre.Name = "CB_Acre";
             this.CB_Acre.Size = new System.Drawing.Size(49, 21);
             this.CB_Acre.TabIndex = 10;
@@ -189,7 +192,7 @@
             // 
             // L_Acre
             // 
-            this.L_Acre.Location = new System.Drawing.Point(619, 262);
+            this.L_Acre.Location = new System.Drawing.Point(619, 360);
             this.L_Acre.Name = "L_Acre";
             this.L_Acre.Size = new System.Drawing.Size(87, 19);
             this.L_Acre.TabIndex = 11;
@@ -228,7 +231,7 @@
             // 
             // B_Up
             // 
-            this.B_Up.Location = new System.Drawing.Point(581, 285);
+            this.B_Up.Location = new System.Drawing.Point(578, 287);
             this.B_Up.Name = "B_Up";
             this.B_Up.Size = new System.Drawing.Size(32, 32);
             this.B_Up.TabIndex = 18;
@@ -238,7 +241,7 @@
             // 
             // B_Left
             // 
-            this.B_Left.Location = new System.Drawing.Point(551, 315);
+            this.B_Left.Location = new System.Drawing.Point(548, 317);
             this.B_Left.Name = "B_Left";
             this.B_Left.Size = new System.Drawing.Size(32, 32);
             this.B_Left.TabIndex = 19;
@@ -248,7 +251,7 @@
             // 
             // B_Right
             // 
-            this.B_Right.Location = new System.Drawing.Point(611, 315);
+            this.B_Right.Location = new System.Drawing.Point(608, 317);
             this.B_Right.Name = "B_Right";
             this.B_Right.Size = new System.Drawing.Size(32, 32);
             this.B_Right.TabIndex = 20;
@@ -258,7 +261,7 @@
             // 
             // B_Down
             // 
-            this.B_Down.Location = new System.Drawing.Point(581, 345);
+            this.B_Down.Location = new System.Drawing.Point(578, 347);
             this.B_Down.Name = "B_Down";
             this.B_Down.Size = new System.Drawing.Size(32, 32);
             this.B_Down.TabIndex = 22;
@@ -318,7 +321,7 @@
             // 
             // NUD_Layer
             // 
-            this.NUD_Layer.Location = new System.Drawing.Point(712, 286);
+            this.NUD_Layer.Location = new System.Drawing.Point(712, 385);
             this.NUD_Layer.Maximum = new decimal(new int[] {
             2,
             0,
@@ -341,11 +344,11 @@
             // 
             // L_Layer
             // 
-            this.L_Layer.Location = new System.Drawing.Point(619, 287);
+            this.L_Layer.Location = new System.Drawing.Point(619, 385);
             this.L_Layer.Name = "L_Layer";
             this.L_Layer.Size = new System.Drawing.Size(87, 19);
             this.L_Layer.TabIndex = 27;
-            this.L_Layer.Text = "Layer:";
+            this.L_Layer.Text = "Item Layer:";
             this.L_Layer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // TT_Hover
@@ -366,10 +369,10 @@
             // 
             // TR_Transparency
             // 
-            this.TR_Transparency.Location = new System.Drawing.Point(529, 481);
+            this.TR_Transparency.Location = new System.Drawing.Point(3, 293);
             this.TR_Transparency.Maximum = 100;
             this.TR_Transparency.Name = "TR_Transparency";
-            this.TR_Transparency.Size = new System.Drawing.Size(234, 45);
+            this.TR_Transparency.Size = new System.Drawing.Size(237, 45);
             this.TR_Transparency.TabIndex = 36;
             this.TR_Transparency.TickFrequency = 10;
             this.TR_Transparency.Value = 90;
@@ -380,7 +383,7 @@
             this.CHK_NoOverwrite.AutoSize = true;
             this.CHK_NoOverwrite.Checked = true;
             this.CHK_NoOverwrite.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_NoOverwrite.Location = new System.Drawing.Point(533, 435);
+            this.CHK_NoOverwrite.Location = new System.Drawing.Point(535, 478);
             this.CHK_NoOverwrite.Name = "CHK_NoOverwrite";
             this.CHK_NoOverwrite.Size = new System.Drawing.Size(196, 17);
             this.CHK_NoOverwrite.TabIndex = 37;
@@ -392,7 +395,7 @@
             this.CHK_AutoExtension.AutoSize = true;
             this.CHK_AutoExtension.Checked = true;
             this.CHK_AutoExtension.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_AutoExtension.Location = new System.Drawing.Point(533, 417);
+            this.CHK_AutoExtension.Location = new System.Drawing.Point(535, 460);
             this.CHK_AutoExtension.Name = "CHK_AutoExtension";
             this.CHK_AutoExtension.Size = new System.Drawing.Size(202, 17);
             this.CHK_AutoExtension.TabIndex = 38;
@@ -883,7 +886,11 @@
             // 
             // Tab_Terrain
             // 
+            this.Tab_Terrain.Controls.Add(this.TR_BuildingTransparency);
+            this.Tab_Terrain.Controls.Add(this.L_BuildingTransparency);
             this.Tab_Terrain.Controls.Add(this.PG_TerrainTile);
+            this.Tab_Terrain.Controls.Add(this.L_FieldItemTransparency);
+            this.Tab_Terrain.Controls.Add(this.TR_Transparency);
             this.Tab_Terrain.Controls.Add(this.B_DumpLoadTerrain);
             this.Tab_Terrain.Controls.Add(this.B_ModifyAllTerrain);
             this.Tab_Terrain.Location = new System.Drawing.Point(4, 22);
@@ -900,7 +907,7 @@
             this.PG_TerrainTile.Location = new System.Drawing.Point(3, 3);
             this.PG_TerrainTile.Name = "PG_TerrainTile";
             this.PG_TerrainTile.PropertySort = System.Windows.Forms.PropertySort.Categorized;
-            this.PG_TerrainTile.Size = new System.Drawing.Size(238, 404);
+            this.PG_TerrainTile.Size = new System.Drawing.Size(238, 266);
             this.PG_TerrainTile.TabIndex = 41;
             this.PG_TerrainTile.ToolbarVisible = false;
             // 
@@ -927,7 +934,7 @@
             // L_FieldItemTransparency
             // 
             this.L_FieldItemTransparency.AutoSize = true;
-            this.L_FieldItemTransparency.Location = new System.Drawing.Point(534, 465);
+            this.L_FieldItemTransparency.Location = new System.Drawing.Point(8, 277);
             this.L_FieldItemTransparency.Name = "L_FieldItemTransparency";
             this.L_FieldItemTransparency.Size = new System.Drawing.Size(120, 13);
             this.L_FieldItemTransparency.TabIndex = 42;
@@ -997,7 +1004,7 @@
             // 
             this.RB_Item.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.RB_Item.Checked = true;
-            this.RB_Item.Location = new System.Drawing.Point(641, 371);
+            this.RB_Item.Location = new System.Drawing.Point(641, 299);
             this.RB_Item.Name = "RB_Item";
             this.RB_Item.Size = new System.Drawing.Size(120, 20);
             this.RB_Item.TabIndex = 43;
@@ -1009,7 +1016,7 @@
             // RB_Terrain
             // 
             this.RB_Terrain.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RB_Terrain.Location = new System.Drawing.Point(641, 390);
+            this.RB_Terrain.Location = new System.Drawing.Point(641, 282);
             this.RB_Terrain.Name = "RB_Terrain";
             this.RB_Terrain.Size = new System.Drawing.Size(120, 20);
             this.RB_Terrain.TabIndex = 44;
@@ -1017,28 +1024,46 @@
             this.RB_Terrain.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.RB_Terrain.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // L_TileMode
             // 
-            this.label1.Location = new System.Drawing.Point(641, 350);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 20);
-            this.label1.TabIndex = 45;
-            this.label1.Text = "Tile Editor Mode";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_TileMode.Location = new System.Drawing.Point(641, 259);
+            this.L_TileMode.Name = "L_TileMode";
+            this.L_TileMode.Size = new System.Drawing.Size(120, 20);
+            this.L_TileMode.TabIndex = 45;
+            this.L_TileMode.Text = "Tile Editor Mode";
+            this.L_TileMode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // TR_BuildingTransparency
+            // 
+            this.TR_BuildingTransparency.Location = new System.Drawing.Point(3, 362);
+            this.TR_BuildingTransparency.Maximum = 255;
+            this.TR_BuildingTransparency.Name = "TR_BuildingTransparency";
+            this.TR_BuildingTransparency.Size = new System.Drawing.Size(237, 45);
+            this.TR_BuildingTransparency.TabIndex = 43;
+            this.TR_BuildingTransparency.TickFrequency = 16;
+            this.TR_BuildingTransparency.Value = 255;
+            this.TR_BuildingTransparency.Scroll += new System.EventHandler(this.TR_BuildingTransparency_Scroll);
+            // 
+            // L_BuildingTransparency
+            // 
+            this.L_BuildingTransparency.AutoSize = true;
+            this.L_BuildingTransparency.Location = new System.Drawing.Point(8, 346);
+            this.L_BuildingTransparency.Name = "L_BuildingTransparency";
+            this.L_BuildingTransparency.Size = new System.Drawing.Size(112, 13);
+            this.L_BuildingTransparency.TabIndex = 44;
+            this.L_BuildingTransparency.Text = "Building Transparency";
             // 
             // FieldItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1027, 537);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.L_TileMode);
             this.Controls.Add(this.RB_Terrain);
             this.Controls.Add(this.RB_Item);
-            this.Controls.Add(this.L_FieldItemTransparency);
             this.Controls.Add(this.TC_Editor);
             this.Controls.Add(this.CHK_AutoExtension);
             this.Controls.Add(this.CHK_NoOverwrite);
-            this.Controls.Add(this.TR_Transparency);
             this.Controls.Add(this.PB_Acre);
             this.Controls.Add(this.L_Layer);
             this.Controls.Add(this.NUD_Layer);
@@ -1084,8 +1109,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_PlazaX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_PlazaY)).EndInit();
             this.Tab_Terrain.ResumeLayout(false);
+            this.Tab_Terrain.PerformLayout();
             this.CM_DLTerrain.ResumeLayout(false);
             this.CM_Terrain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.TR_BuildingTransparency)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1178,6 +1205,8 @@
         private System.Windows.Forms.PropertyGrid PG_TerrainTile;
         private System.Windows.Forms.RadioButton RB_Item;
         private System.Windows.Forms.RadioButton RB_Terrain;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label L_TileMode;
+        private System.Windows.Forms.TrackBar TR_BuildingTransparency;
+        private System.Windows.Forms.Label L_BuildingTransparency;
     }
 }

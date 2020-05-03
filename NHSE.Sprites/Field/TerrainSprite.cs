@@ -130,7 +130,7 @@ namespace NHSE.Sprites
             }
         }
 
-        public static Bitmap GetAcre(MapView m, Font f, int[] scale1, int[] scaleX, Bitmap acre, int index = -1)
+        public static Bitmap GetAcre(MapView m, Font f, int[] scale1, int[] scaleX, Bitmap acre, int index, byte transparency)
         {
             int mx = m.X / 2;
             int my = m.Y / 2;
@@ -142,7 +142,7 @@ namespace NHSE.Sprites
 
             using var gfx = Graphics.FromImage(acre);
 
-            gfx.DrawAcrePlaza(m.Map.Terrain, mx, my, (ushort)m.Map.PlazaX, (ushort)m.Map.PlazaY, m.TerrainScale);
+            gfx.DrawAcrePlaza(m.Map.Terrain, mx, my, (ushort)m.Map.PlazaX, (ushort)m.Map.PlazaY, m.TerrainScale, transparency);
 
             var buildings = m.Map.Buildings;
             var t = m.Map.Terrain;
@@ -152,6 +152,11 @@ namespace NHSE.Sprites
                 t.GetBuildingRelativeCoordinates(mx, my, m.TerrainScale, b.X, b.Y, out var x, out var y);
 
                 var pen = index == i ? Selected : Others;
+                if (transparency != byte.MaxValue)
+                {
+                    var orig = ((SolidBrush) pen).Color;
+                    pen = new SolidBrush(Color.FromArgb(transparency, orig));
+                }
                 DrawBuilding(gfx, null, m.TerrainScale, pen, x, y, b, Text);
             }
 
@@ -172,14 +177,20 @@ namespace NHSE.Sprites
             return acre;
         }
 
-        private static void DrawAcrePlaza(this Graphics gfx, TerrainManager g, int topX, int topY, ushort px, ushort py, int scale)
+        private static void DrawAcrePlaza(this Graphics gfx, TerrainManager g, int topX, int topY, ushort px, ushort py, int scale, byte transparency)
         {
             g.GetBuildingRelativeCoordinates(topX, topY, scale, px, py, out var x, out var y);
 
             var width = scale * PlazaWidth;
             var height = scale * PlazaHeight;
 
-            gfx.FillRectangle(Plaza, x, y, width, height);
+            var pen = Plaza;
+            if (transparency != byte.MaxValue)
+            {
+                var orig = ((SolidBrush)pen).Color;
+                pen = new SolidBrush(Color.FromArgb(transparency, orig));
+            }
+            gfx.FillRectangle(pen, x, y, width, height);
         }
     }
 }
