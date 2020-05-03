@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace NHSE.Injection
 {
@@ -29,18 +30,35 @@ namespace NHSE.Injection
         {
             if ((!AutoInjectEnabled && !force) || !Injector.Connected)
                 return InjectionResult.Skipped;
-            var result = Injector.Read();
-            AfterRead(result);
-            return result;
+
+            try
+            {
+                var result = Injector.Read();
+                AfterRead(result);
+                return result;
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return InjectionResult.FailConnectionError;
+            }
         }
 
         public InjectionResult Write(bool force = false)
         {
             if ((!AutoInjectEnabled && !force) || !Injector.Connected)
                 return InjectionResult.Skipped;
-            var result = Injector.Write();
-            AfterWrite(result);
-            return result;
+            try
+            {
+                var result = Injector.Write();
+                AfterWrite(result);
+                return result;
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return InjectionResult.FailConnectionError;
+            }
         }
 
         public void SetWriteOffset(in uint offset)

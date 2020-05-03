@@ -5,6 +5,7 @@
         Skipped,
         Success,
         FailValidate,
+        FailConnectionError,
         Same,
     }
 }

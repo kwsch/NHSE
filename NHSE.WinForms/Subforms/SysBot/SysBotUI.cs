@@ -50,8 +50,9 @@ namespace NHSE.WinForms
             try
             {
                 var result = Injector.Write(true);
-                if (result != InjectionResult.Success)
-                    WinFormsUtil.Alert(result.ToString());
+                if (result == InjectionResult.Success)
+                    return;
+                WinFormsUtil.Alert(result.ToString());
             }
 #pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
@@ -59,6 +60,7 @@ namespace NHSE.WinForms
             {
                 WinFormsUtil.Error(ex.Message);
             }
+            TurnOffAuto();
         }
 
         private void B_ReadCurrent_Click(object sender, EventArgs e)
@@ -66,8 +68,9 @@ namespace NHSE.WinForms
             try
             {
                 var result = Injector.Read(true);
-                if (result != InjectionResult.Success)
-                    WinFormsUtil.Alert(result.ToString());
+                if (result == InjectionResult.Success)
+                    return;
+                WinFormsUtil.Alert(result.ToString());
             }
 #pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
@@ -75,6 +78,15 @@ namespace NHSE.WinForms
             {
                 WinFormsUtil.Error(ex.Message);
             }
+            TurnOffAuto();
+        }
+
+        private void TurnOffAuto()
+        {
+            if (CHK_AutoRead.Checked)
+                CHK_AutoRead.Checked = false;
+            if (CHK_AutoWrite.Checked)
+                CHK_AutoWrite.Checked = false;
         }
 
         private void CHK_AutoWrite_CheckedChanged(object sender, EventArgs e) => Injector.AutoInjectEnabled = CHK_AutoWrite.Checked;
