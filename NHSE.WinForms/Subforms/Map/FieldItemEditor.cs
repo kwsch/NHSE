@@ -324,7 +324,7 @@ namespace NHSE.WinForms
         private void B_Up_Click(object sender, EventArgs e)
         {
             if (ModifierKeys == Keys.Shift)
-                CB_Acre.SelectedIndex -= MapGrid.AcreWidth;
+                CB_Acre.SelectedIndex = Math.Max(0, CB_Acre.SelectedIndex - MapGrid.AcreWidth);
             else if (View.ArrowUp())
                 LoadItemGridAcre();
         }
@@ -332,7 +332,7 @@ namespace NHSE.WinForms
         private void B_Left_Click(object sender, EventArgs e)
         {
             if (ModifierKeys == Keys.Shift)
-                --CB_Acre.SelectedIndex;
+                CB_Acre.SelectedIndex = Math.Max(0, CB_Acre.SelectedIndex - 1);
             else if (View.ArrowLeft())
                 LoadItemGridAcre();
         }
@@ -340,7 +340,7 @@ namespace NHSE.WinForms
         private void B_Right_Click(object sender, EventArgs e)
         {
             if (ModifierKeys == Keys.Shift)
-                ++CB_Acre.SelectedIndex;
+                CB_Acre.SelectedIndex = Math.Min(CB_Acre.SelectedIndex + 1, CB_Acre.Items.Count - 1);
             else if (View.ArrowRight())
                 LoadItemGridAcre();
         }
@@ -348,7 +348,7 @@ namespace NHSE.WinForms
         private void B_Down_Click(object sender, EventArgs e)
         {
             if (ModifierKeys == Keys.Shift)
-                CB_Acre.SelectedIndex += MapGrid.AcreWidth;
+                CB_Acre.SelectedIndex = Math.Min(CB_Acre.SelectedIndex + MapGrid.AcreWidth, CB_Acre.Items.Count - 1);
             else if (View.ArrowDown())
                 LoadItemGridAcre();
         }
