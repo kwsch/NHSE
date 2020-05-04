@@ -1,4 +1,6 @@
-﻿namespace NHSE.Core
+﻿using static NHSE.Core.FieldItemKind;
+
+namespace NHSE.Core
 {
     public enum FieldItemKind : byte
     {
@@ -60,8 +62,12 @@
 
     public static class FieldItemKindExtensions
     {
-        public static bool IsWeed(this FieldItemKind type) => FieldItemKind.PltWeedAut0 <= type && type <= FieldItemKind.PltWeedWin1;
-        public static bool IsPlant(this FieldItemKind type) => FieldItemKind.PltFlwAnemone <= type && type <= FieldItemKind.PltWeedWin1;
-        public static bool IsFence(this FieldItemKind type) => FieldItemKind.FenceBamboo <= type && type <= FieldItemKind.FenceWoodWhite;
+        public static bool IsWeed(this FieldItemKind type) => PltWeedAut0 <= type && type <= PltWeedWin1;
+        public static bool IsPlant(this FieldItemKind type) => PltFlwAnemone <= type && type <= PltWeedWin1;
+        public static bool IsFence(this FieldItemKind type) => FenceBamboo <= type && type <= FenceWoodWhite;
+        public static bool IsBush(this FieldItemKind type) => PltBushAzalea <= type && type <= PltBushOsmanthus;
+        public static bool IsFlower(this FieldItemKind type) => PltFlwAnemone <= type && type <= PltFlwYuri;
+        public static bool IsTree(this FieldItemKind type) => PltTreeBamboo <= type && type <= PltTreePalm;
+        public static bool IsStone(this FieldItemKind type) => StoneA <= type && type <= StoneE;
     }
 }

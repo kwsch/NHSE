@@ -1,9 +1,10 @@
 ﻿namespace NHSE.Core
 {
-    public class FieldItemDefinition
+    public class FieldItemDefinition : INamedValue
     {
-        public readonly ushort Index;
-        public readonly string Name;
+        public ushort Index { get; }
+        public string Name { get; }
+
         public readonly FieldItemKind Kind;
 
         public FieldItemDefinition(ushort id, string name, FieldItemKind kind)
