@@ -6,11 +6,12 @@ namespace NHSE.WinForms
 {
     public partial class SingleObjectEditor<T> : Form where T : class
     {
-        public SingleObjectEditor(T obj, PropertySort sort)
+        public SingleObjectEditor(T obj, PropertySort sort, bool showHelp)
         {
             InitializeComponent();
             this.TranslateInterface(GameInfo.CurrentLanguage);
             DialogResult = DialogResult.Cancel;
+            PG_Item.HelpVisible = showHelp;
             PG_Item.PropertySort = sort;
             PG_Item.SelectedObject = obj;
         }

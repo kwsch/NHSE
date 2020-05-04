@@ -357,7 +357,7 @@ namespace NHSE.WinForms
         private void B_EditTurnipExchange_Click(object sender, EventArgs e)
         {
             var turnips = SAV.Main.Turnips;
-            using var editor = new SingleObjectEditor<TurnipStonk>(turnips, PropertySort.NoSort);
+            using var editor = new SingleObjectEditor<TurnipStonk>(turnips, PropertySort.Categorized, false);
             if (editor.ShowDialog() == DialogResult.OK)
                 SAV.Main.Turnips = turnips;
         }
@@ -419,7 +419,7 @@ namespace NHSE.WinForms
         private void B_EditBulletin_Click(object sender, EventArgs e)
         {
             var boxed = SAV.Main.Bulletin;
-            using var editor = new SingleObjectEditor<object>(boxed, PropertySort.NoSort);
+            using var editor = new SingleObjectEditor<object>(boxed, PropertySort.NoSort, false);
             if (editor.ShowDialog() == DialogResult.OK)
                 SAV.Main.Bulletin = boxed;
         }
