@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 namespace NHSE.Core
 {
     [StructLayout(LayoutKind.Explicit, Size = SIZE, Pack = 1)]
-    public class FieldItem : IHeldItem
+    public class FieldItem : IHeldItem, ICopyableItem<FieldItem>
     {
         public const ushort EXTENSION = 0xFFFD;
         public const ushort NONE = 0xFFFE;
@@ -49,6 +49,8 @@ namespace NHSE.Core
             ExtensionY = item.ExtensionY;
         }
 
+        public int Size => SIZE;
+
         public FieldItem(ushort itemId = NONE, byte flags0 = 0, byte flags1 = 0, byte count = 0, ushort useCount = 0)
         {
             ItemId = itemId;
@@ -65,7 +67,7 @@ namespace NHSE.Core
             Count = UseCount = 0;
         }
 
-        public void CopyFrom(IHeldItem item)
+        public void CopyFrom(Item item)
         {
             ItemId = item.ItemId;
             Flags0 = item.Flags0;

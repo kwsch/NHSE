@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 namespace NHSE.Core
 {
     [StructLayout(LayoutKind.Explicit, Size = SIZE, Pack = 1)]
-    public class Item : IHeldItem
+    public class Item : IHeldItem, ICopyableItem<IHeldItem>
     {
         public static readonly Item NO_ITEM = new Item {ItemId = NONE};
         public const ushort NONE = 0xFFFE;
@@ -108,7 +108,9 @@ namespace NHSE.Core
             Count = UseCount = 0;
         }
 
-        public void CopyFrom(Item item)
+        public virtual int Size => SIZE;
+
+        public void CopyFrom(IHeldItem item)
         {
             ItemId = item.ItemId;
             Flags0 = item.Flags0;
@@ -133,28 +135,5 @@ namespace NHSE.Core
                 _ => ItemId,
             };
         }
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public sealed class VillagerItem : Item
-    {
-        public new const int SIZE = 0x2C;
-        public uint U08, U0C, U10, U14, U18, U1C, U20, U24, U28;
-        public new static VillagerItem[] GetArray(byte[] data) => data.GetArray<VillagerItem>(SIZE);
-        public static byte[] SetArray(IReadOnlyList<VillagerItem> data) => data.SetArray(SIZE);
-    }
-
-    [Flags]
-    public enum FlowerGene : byte
-    {
-        None = 0,
-        R1 = 1,
-        R2 = 1 << 1,
-        Y1 = 1 << 2,
-        Y2 = 1 << 3,
-        W1 = 1 << 4,
-        W2 = 1 << 5,
-        S1 = 1 << 6,
-        S2 = 1 << 7,
     }
 }

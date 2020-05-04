@@ -10,17 +10,17 @@ namespace NHSE.WinForms
 {
     public partial class PlayerItemEditor<T> : Form where T : Item
     {
-        private readonly IReadOnlyList<T> Items;
         private readonly Action LoadItems;
         private readonly ItemGridEditor ItemGrid;
+        private readonly ItemArrayEditor<T> ItemArray;
 
         public PlayerItemEditor(IReadOnlyList<T> array, int width, int height, bool sysbot = false)
         {
             InitializeComponent();
             this.TranslateInterface(GameInfo.CurrentLanguage);
-            Items = array;
+            ItemArray = new ItemArrayEditor<T>(array);
 
-            var Editor = ItemGrid = new ItemGridEditor(ItemEditor, Items) {Dock = DockStyle.Fill};
+            var Editor = ItemGrid = new ItemGridEditor(ItemEditor, array) {Dock = DockStyle.Fill};
             Editor.InitializeGrid(width, height);
             PAN_Items.Controls.Add(Editor);
 
@@ -48,7 +48,7 @@ namespace NHSE.WinForms
             };
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
-            var bytes = Items.SetArray(Items[0].ToBytesClass().Length);
+            var bytes = ItemArray.Write();
             File.WriteAllBytes(sfd.FileName, bytes);
         }
 
@@ -60,10 +60,9 @@ namespace NHSE.WinForms
             {
                 var text = Clipboard.GetText();
                 var bytes = ItemCheatCode.ReadCode(text);
-                var expect = Items[0].ToBytesClass().Length;
-                if (bytes.Length % expect == 0)
+                if (bytes.Length % ItemArray.ItemSize == 0)
                 {
-                    ImportItemData(bytes, expect, skipOccupiedSlots);
+                    ImportItemData(bytes, skipOccupiedSlots);
                     return;
                 }
             }
@@ -77,49 +76,15 @@ namespace NHSE.WinForms
                 return;
 
             var data = File.ReadAllBytes(sfd.FileName);
-            ImportItemData(data, Items[0].ToBytesClass().Length, skipOccupiedSlots);
+            ImportItemData(data, skipOccupiedSlots);
         }
 
-        private void ImportItemData(byte[] data, int expect, bool skipOccupiedSlots, int start = 0)
+        private void ImportItemData(byte[] data, bool skipOccupiedSlots, int start = 0)
         {
-            var import = data.GetArray<T>(expect);
-
-            ImportItems(import, start, skipOccupiedSlots);
+            ItemArray.ImportItemDataX(data, skipOccupiedSlots, start);
 
             LoadItems();
             System.Media.SystemSounds.Asterisk.Play();
-        }
-
-        private void ImportItems(IReadOnlyList<T> import, int start, bool skipOccupiedSlots)
-        {
-            if (skipOccupiedSlots)
-            {
-                int importIndex = 0;
-                for (int destIndex = start; importIndex < import.Count && destIndex < Items.Count;)
-                {
-                    var importItem = import[importIndex];
-                    if (importItem.ItemId == Item.NONE)
-                    {
-                        importIndex++;
-                        continue;
-                    }
-
-                    var destItem = Items[destIndex];
-                    if (destItem.ItemId != Item.NONE)
-                    {
-                        destIndex++;
-                        continue;
-                    }
-                    destItem.CopyFrom(importItem);
-                    importIndex++;
-                    destIndex++;
-                }
-            }
-            else
-            {
-                for (int i = 0; i < import.Count; i++)
-                    Items[i].CopyFrom(import[i]);
-            }
         }
 
         private void B_Inject_Click(object sender, EventArgs e)
@@ -144,7 +109,7 @@ namespace NHSE.WinForms
             }
 
             var sb = new SysBotController(InjectionType.Pouch);
-            var pockInject = new PocketInjector(Items, sb.Bot);
+            var pockInject = new PocketInjector(ItemArray.Items, sb.Bot);
             var ai = new AutoInjector(pockInject, AfterRead, AfterWrite);
 
             ItemGrid.ItemChanged = () => ai.Write(true);
