@@ -94,9 +94,26 @@ namespace NHSE.WinForms
         {
             if (skipOccupiedSlots)
             {
-                int index = 0;
-                for (int i = start; index < import.Count && i < Items.Count; i++, index++)
-                    Items[i].CopyFrom(import[index]);
+                int importIndex = 0;
+                for (int destIndex = start; importIndex < import.Count && destIndex < Items.Count;)
+                {
+                    var importItem = import[importIndex];
+                    if (importItem.ItemId == Item.NONE)
+                    {
+                        importIndex++;
+                        continue;
+                    }
+
+                    var destItem = Items[destIndex];
+                    if (destItem.ItemId != Item.NONE)
+                    {
+                        destIndex++;
+                        continue;
+                    }
+                    destItem.CopyFrom(importItem);
+                    importIndex++;
+                    destIndex++;
+                }
             }
             else
             {
