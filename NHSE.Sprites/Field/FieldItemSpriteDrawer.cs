@@ -26,7 +26,7 @@ namespace NHSE.Sprites
                 {
                     var index = ix + y;
                     var tile = items[index];
-                    bmpData[(y * width) + x] = FieldItemSprite.GetItemColor(tile).ToArgb();
+                    bmpData[(y * width) + x] = FieldItemColor.GetItemColor(tile).ToArgb();
                 }
             }
         }
@@ -41,7 +41,7 @@ namespace NHSE.Sprites
                 for (int x = 0; x < stride; x++)
                 {
                     var tile = layer.GetTile(x + x0, y + y0);
-                    var color = FieldItemSprite.GetItemColor(tile).ToArgb();
+                    var color = FieldItemColor.GetItemColor(tile).ToArgb();
                     var index = baseIndex + x;
                     bmpData[index] = color;
                 }
