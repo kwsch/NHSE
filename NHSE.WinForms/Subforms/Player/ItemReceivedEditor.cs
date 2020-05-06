@@ -50,6 +50,13 @@ namespace NHSE.WinForms
 
         private void GiveEverything(IReadOnlyList<string> items, bool value = true)
         {
+            if (!value)
+            {
+                for (ushort i = 0; i < CLB_Items.Items.Count; i++)
+                    CLB_Items.SetItemChecked(i, false);
+                return;
+            }
+
             var skip = GameLists.NoCheckReceived;
             for (ushort i = 1; i < CLB_Items.Items.Count; i++)
             {
@@ -57,7 +64,7 @@ namespace NHSE.WinForms
                     continue;
                 if (skip.Contains(i))
                     continue;
-                CLB_Items.SetItemChecked(i, value);
+                CLB_Items.SetItemChecked(i, true);
             }
             System.Media.SystemSounds.Asterisk.Play();
         }
