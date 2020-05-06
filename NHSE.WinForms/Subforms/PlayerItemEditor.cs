@@ -112,7 +112,7 @@ namespace NHSE.WinForms
             var pockInject = new PocketInjector(ItemArray.Items, sb.Bot);
             var ai = new AutoInjector(pockInject, AfterRead, AfterWrite);
 
-            ItemGrid.ItemChanged = () => ai.Write(true);
+            ItemGrid.ItemChanged = () => ai.Write();
             var sysbot = new SysBotUI(ai, sb);
             sysbot.Show();
         }
