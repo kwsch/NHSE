@@ -33,8 +33,8 @@ namespace NHSE.WinForms
             foreach (var acre in MapGrid.Acres)
                 CB_Acre.Items.Add(acre.Name);
 
-            NUD_PlazaX.Value = sav.PlazaX;
-            NUD_PlazaY.Value = sav.PlazaY;
+            NUD_PlazaX.Value = sav.EventPlazaLeftUpX;
+            NUD_PlazaY.Value = sav.EventPlazaLeftUpZ;
 
             foreach (var obj in Map.Buildings)
                 LB_Items.Items.Add(obj.ToString());
@@ -265,8 +265,8 @@ namespace NHSE.WinForms
             Map.Items.Save();
             SAV.SetTerrainTiles(Map.Terrain.Tiles);
             SAV.Buildings = Map.Buildings;
-            SAV.PlazaX = Map.PlazaX;
-            SAV.PlazaY = Map.PlazaY;
+            SAV.EventPlazaLeftUpX = Map.PlazaX;
+            SAV.EventPlazaLeftUpZ = Map.PlazaY;
             Close();
         }
 
@@ -517,6 +517,9 @@ namespace NHSE.WinForms
         private void B_RemoveObjects_Click(object sender, EventArgs e) => Remove(B_RemoveObjects, Map.CurrentLayer.RemoveAllObjects);
         private void B_RemoveAll_Click(object sender, EventArgs e) => Remove(B_RemoveAll, Map.CurrentLayer.RemoveAll);
         private void B_RemovePlacedItems_Click(object sender, EventArgs e) => Remove(B_RemovePlacedItems, Map.CurrentLayer.RemoveAllPlacedItems);
+        private void B_RemoveShells_Click(object sender, EventArgs e) => Remove(B_RemoveShells, Map.CurrentLayer.RemoveAllShells);
+        private void B_RemoveBranches_Click(object sender, EventArgs e) => Remove(B_RemoveBranches, Map.CurrentLayer.RemoveAllBranches);
+        private void B_RemoveFlowers_Click(object sender, EventArgs e) => Remove(B_RemoveFlowers, Map.CurrentLayer.RemoveAllFlowers);
 
         private void PG_Tile_PropertyValueChanged(object s, PropertyValueChangedEventArgs e) => PG_Tile.SelectedObject = PG_Tile.SelectedObject;
 

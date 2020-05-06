@@ -30,8 +30,8 @@ namespace NHSE.WinForms
             Scale1 = new int[Manager.Terrain.MapWidth * Manager.Terrain.MapHeight];
             ScaleX = new int[Scale1.Length * scale * scale];
             Map = new Bitmap(Manager.Terrain.MapWidth * scale, Manager.Terrain.MapHeight * scale);
-            NUD_PlazaX.Value = sav.PlazaX;
-            NUD_PlazaY.Value = sav.PlazaY;
+            NUD_PlazaX.Value = sav.EventPlazaLeftUpX;
+            NUD_PlazaY.Value = sav.EventPlazaLeftUpZ;
 
             foreach (var obj in Manager.Buildings)
                 LB_Items.Items.Add(obj.ToString());
@@ -48,8 +48,8 @@ namespace NHSE.WinForms
 
         private void B_Save_Click(object sender, EventArgs e)
         {
-            SAV.PlazaX = (uint)NUD_PlazaX.Value;
-            SAV.PlazaY = (uint)NUD_PlazaY.Value;
+            SAV.EventPlazaLeftUpX = (uint)NUD_PlazaX.Value;
+            SAV.EventPlazaLeftUpZ = (uint)NUD_PlazaY.Value;
 
             DialogResult = DialogResult.OK;
             SAV.Buildings = Manager.Buildings;

@@ -208,13 +208,13 @@ namespace NHSE.Core
             set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.OutsideField + AcreSizeAll + 2);
         }
 
-        public uint PlazaX
+        public uint EventPlazaLeftUpX
         {
             get => BitConverter.ToUInt32(Data, Offsets.OutsideField + AcreSizeAll + 4);
             set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.OutsideField + AcreSizeAll + 4);
         }
 
-        public uint PlazaY
+        public uint EventPlazaLeftUpZ
         {
             get => BitConverter.ToUInt32(Data, Offsets.OutsideField + AcreSizeAll + 8);
             set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.OutsideField + AcreSizeAll + 8);

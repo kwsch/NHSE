@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace NHSE.Core
@@ -64,6 +65,8 @@ namespace NHSE.Core
 
         public int ClearFieldPlanted(Func<FieldItemKind, bool> criteria) => ClearFieldPlanted(0, 0, MapWidth, MapHeight, criteria);
         public int RemoveAll(Func<FieldItem, bool> criteria) => RemoveAll(0, 0, MapWidth, MapHeight, criteria);
+        public int RemoveAll(HashSet<ushort> items) => RemoveAll(0, 0, MapWidth, MapHeight, z => items.Contains(z.DisplayItemId));
+        public int RemoveAll(ushort item) => RemoveAll(0, 0, MapWidth, MapHeight, z => z.DisplayItemId == item);
 
         public int ClearFieldPlanted(int xmin, int ymin, int width, int height, Func<FieldItemKind, bool> criteria)
         {
@@ -116,9 +119,12 @@ namespace NHSE.Core
         public int RemoveAllWeeds(int xmin, int ymin, int width, int height) => ClearFieldPlanted(xmin, ymin, width, height, z => z.IsWeed());
         public int RemoveAllPlants(int xmin, int ymin, int width, int height) => ClearFieldPlanted(xmin, ymin, width, height, z => z.IsPlant());
         public int RemoveAllFences(int xmin, int ymin, int width, int height) => ClearFieldPlanted(xmin, ymin, width, height, z => z.IsFence());
+        public int RemoveAllFlowers(int xmin, int ymin, int width, int height) => ClearFieldPlanted(xmin, ymin, width, height, z => z.IsFlower());
         public int RemoveAllObjects(int xmin, int ymin, int width, int height) => ClearFieldPlanted(xmin, ymin, width, height, _ => true);
 
         public int RemoveAll(int xmin, int ymin, int width, int height) => RemoveAll(xmin, ymin, width, height, _ => true);
+        public int RemoveAllShells(int xmin, int ymin, int width, int height) => RemoveAll(xmin, ymin, width, height, z => GameLists.Shells.Contains(z.DisplayItemId));
+        public int RemoveAllBranches(int xmin, int ymin, int width, int height) => RemoveAll(xmin, ymin, width, height, z => z.DisplayItemId == 2500);
         public int RemoveAllPlacedItems(int xmin, int ymin, int width, int height) => RemoveAll(xmin, ymin, width,
             height, z => z.DisplayItemId != FieldItem.NONE && !FieldItemList.Items.ContainsKey(z.DisplayItemId));
 

@@ -28,8 +28,8 @@ namespace NHSE.Core
         {
             Terrain = new TerrainManager(sav.GetTerrainTiles());
             Buildings = sav.Buildings;
-            PlazaX = sav.PlazaX;
-            PlazaY = sav.PlazaY;
+            PlazaX = sav.EventPlazaLeftUpX;
+            PlazaY = sav.EventPlazaLeftUpZ;
         }
     }
 }

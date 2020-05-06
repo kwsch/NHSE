@@ -331,5 +331,19 @@ namespace NHSE.Core
             12625, // mysterious painting 
             12629, // scenic painting (forgery) 
         };
+
+        public static readonly HashSet<ushort> Shells = new HashSet<ushort>
+        {
+            1374, // sea snail
+            1375, // venus comb
+            1376, // conch
+            // 2 unused 1377, 1378
+            1379, // sand dollar
+            1380, // coral
+            1381, // giant clam
+            1382, // cowrie
+
+            5982, // summer shell
+        };
     }
 }
