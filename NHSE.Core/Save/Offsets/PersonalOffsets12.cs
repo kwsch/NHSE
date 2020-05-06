@@ -5,19 +5,30 @@
     /// </summary>
     public sealed class PersonalOffsets12 : PersonalOffsets
     {
-        public override int PersonalId => 0xB0B8;
-        public override int EventFlagsPlayer => PersonalId + 0x38;
-        public override int Activity => 0xCF84;
-        public override int NookMiles => 0x11588;
-        public override int Photo => 0x117C4; // +0x3FC from v1.1
+        private const int Player = 0x110;
 
-        public override int Pockets1 => 0x35E50; // +0x230 from v1.1
+        public override int PersonalId => Player + 0xAFA8;
+        public override int EventFlagsPlayer => Player + 0xAFE0;
+
+        private const int GSaveLifeSupport = Player + 0xBFE0;
+        public override int CountAchievement => GSaveLifeSupport + 0xE98; // CountAchievement
+
+        public override int NowPoint => GSaveLifeSupport + 0x5498; // Nook Miles
+        public override int TotalPoint => NowPoint + 8; // Total Nook Miles Earned
+
+        private const int GSaveNetPlayerProfile = Player + 0x11690;
+        public override int Photo => GSaveNetPlayerProfile + 0x24;
+
+        // end player
+
+        private const int PlayerOther = 0x35E40;
+
+        public override int Pockets1 => PlayerOther + 0x10;
         public override int Pockets2 => Pockets1 + (8 * Pockets1Count) + 0x18;
         public override int Wallet => Pockets2 + (8 * Pockets2Count) + 0x18;
-        public override int ItemChest => Wallet + 0xC;
-        public override int ReceivedItems => 0x3FE98; // +0x230 from v1.1
-
-        public override int Bank => 0x6A424; // +0x17F0 from v1.1
+        public override int ItemChest => PlayerOther + 0x18C;
+        public override int ItemCollectBit => PlayerOther + 0xA058;
+        public override int Bank => PlayerOther + 0x345E4;
         public override int Recipes => Bank + 0x10;
 
         public override int MaxRecipeID { get; } = 0x2CB;

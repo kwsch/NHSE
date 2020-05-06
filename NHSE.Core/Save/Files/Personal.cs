@@ -54,8 +54,14 @@ namespace NHSE.Core
 
         public EncryptedInt32 NookMiles
         {
-            get => EncryptedInt32.ReadVerify(Data, Offsets.NookMiles);
-            set => value.Write(Data, Offsets.NookMiles);
+            get => EncryptedInt32.ReadVerify(Data, Offsets.NowPoint);
+            set => value.Write(Data, Offsets.NowPoint);
+        }
+
+        public EncryptedInt32 TotalNookMiles
+        {
+            get => EncryptedInt32.ReadVerify(Data, Offsets.TotalPoint);
+            set => value.Write(Data, Offsets.TotalPoint);
         }
 
         public IReadOnlyList<Item> Bag // Slots 21-40
@@ -94,16 +100,16 @@ namespace NHSE.Core
             set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.ItemChest + (Offsets.ItemChestCount * Item.SIZE));
         }
 
-        public uint[] GetActivities()
+        public uint[] GetCountAchievement()
         {
-            var result = new uint[Offsets.MaxActivityID];
-            Buffer.BlockCopy(Data, Offsets.Activity, result, 0, sizeof(uint) * result.Length);
+            var result = new uint[Offsets.MaxAchievementID];
+            Buffer.BlockCopy(Data, Offsets.CountAchievement, result, 0, sizeof(uint) * result.Length);
             return result;
         }
 
-        public void SetActivities(uint[] activities)
+        public void SetCountAchievement(uint[] achievements)
         {
-            Buffer.BlockCopy(activities, 0, Data, Offsets.Activity, sizeof(uint) * Offsets.MaxActivityID);
+            Buffer.BlockCopy(achievements, 0, Data, Offsets.CountAchievement, sizeof(uint) * Offsets.MaxAchievementID);
         }
 
         public bool[] GetRecipeList() => ArrayUtil.GitBitFlagArray(Data, Offsets.Recipes, Offsets.MaxRecipeID + 1);

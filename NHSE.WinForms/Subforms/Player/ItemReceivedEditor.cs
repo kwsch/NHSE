@@ -30,7 +30,7 @@ namespace NHSE.WinForms
         {
             var items = GameInfo.Strings.itemlistdisplay;
 
-            var ofs = Player.Personal.Offsets.ReceivedItems;
+            var ofs = Player.Personal.Offsets.ItemCollectBit;
             var data = Player.Personal.Data;
             for (int i = 0; i < items.Length; i++)
             {
@@ -79,7 +79,7 @@ namespace NHSE.WinForms
 
         private void B_Save_Click(object sender, EventArgs e)
         {
-            var ofs = Player.Personal.Offsets.ReceivedItems;
+            var ofs = Player.Personal.Offsets.ItemCollectBit;
             var data = Player.Personal.Data;
             for (int i = 0; i < CLB_Items.Items.Count; i++)
                 FlagUtil.SetFlag(data, ofs, i, CLB_Items.GetItemChecked(i));

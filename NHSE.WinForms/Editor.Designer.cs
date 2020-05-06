@@ -51,6 +51,7 @@
             this.B_EditBuildings = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditAcres = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditFieldItems = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditBulletin = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditPRODesigns = new System.Windows.Forms.Button();
             this.B_EditPatterns = new System.Windows.Forms.Button();
             this.B_EditLandFlags = new System.Windows.Forms.Button();
@@ -58,6 +59,8 @@
             this.B_RecycleBin = new System.Windows.Forms.Button();
             this.Tab_Villagers = new System.Windows.Forms.TabPage();
             this.Tab_Players = new System.Windows.Forms.TabPage();
+            this.L_StorageCount = new System.Windows.Forms.Label();
+            this.NUD_StorageCount = new System.Windows.Forms.NumericUpDown();
             this.L_PocketCount2 = new System.Windows.Forms.Label();
             this.L_PocketCount1 = new System.Windows.Forms.Label();
             this.NUD_PocketCount2 = new System.Windows.Forms.NumericUpDown();
@@ -68,7 +71,6 @@
             this.B_EditPlayerReceivedItems = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditAchievements = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditPlayerRecipes = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_EditPlayerFlags = new System.Windows.Forms.Button();
             this.B_EditPlayerItems = new System.Windows.Forms.Button();
             this.L_Wallet = new System.Windows.Forms.Label();
             this.NUD_Wallet = new System.Windows.Forms.NumericUpDown();
@@ -83,14 +85,15 @@
             this.CB_Players = new System.Windows.Forms.ComboBox();
             this.PB_Player = new System.Windows.Forms.PictureBox();
             this.TC_Editors = new System.Windows.Forms.TabControl();
-            this.B_EditBulletin = new System.Windows.Forms.ToolStripMenuItem();
-            this.L_StorageCount = new System.Windows.Forms.Label();
-            this.NUD_StorageCount = new System.Windows.Forms.NumericUpDown();
+            this.B_EditPlayerFlags = new System.Windows.Forms.ToolStripMenuItem();
+            this.L_EarnedMiles = new System.Windows.Forms.Label();
+            this.NUD_TotalNookMiles = new System.Windows.Forms.NumericUpDown();
             this.Menu_Editor.SuspendLayout();
             this.CM_Picture.SuspendLayout();
             this.Tab_Map.SuspendLayout();
             this.CM_EditMap.SuspendLayout();
             this.Tab_Players.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_StorageCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_PocketCount2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_PocketCount1)).BeginInit();
             this.CM_EditPlayer.SuspendLayout();
@@ -99,7 +102,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).BeginInit();
             this.TC_Editors.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_StorageCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_TotalNookMiles)).BeginInit();
             this.SuspendLayout();
             // 
             // Menu_Editor
@@ -300,6 +303,13 @@
             this.B_EditFieldItems.Text = "Edit Field Items";
             this.B_EditFieldItems.Click += new System.EventHandler(this.B_EditFieldItems_Click);
             // 
+            // B_EditBulletin
+            // 
+            this.B_EditBulletin.Name = "B_EditBulletin";
+            this.B_EditBulletin.Size = new System.Drawing.Size(171, 22);
+            this.B_EditBulletin.Text = "Edit Bulletin Board";
+            this.B_EditBulletin.Click += new System.EventHandler(this.B_EditBulletin_Click);
+            // 
             // B_EditPRODesigns
             // 
             this.B_EditPRODesigns.Location = new System.Drawing.Point(104, 52);
@@ -362,6 +372,8 @@
             // 
             // Tab_Players
             // 
+            this.Tab_Players.Controls.Add(this.L_EarnedMiles);
+            this.Tab_Players.Controls.Add(this.NUD_TotalNookMiles);
             this.Tab_Players.Controls.Add(this.L_StorageCount);
             this.Tab_Players.Controls.Add(this.NUD_StorageCount);
             this.Tab_Players.Controls.Add(this.L_PocketCount2);
@@ -369,7 +381,6 @@
             this.Tab_Players.Controls.Add(this.NUD_PocketCount2);
             this.Tab_Players.Controls.Add(this.NUD_PocketCount1);
             this.Tab_Players.Controls.Add(this.B_EditPlayer);
-            this.Tab_Players.Controls.Add(this.B_EditPlayerFlags);
             this.Tab_Players.Controls.Add(this.B_EditPlayerItems);
             this.Tab_Players.Controls.Add(this.L_Wallet);
             this.Tab_Players.Controls.Add(this.NUD_Wallet);
@@ -390,6 +401,33 @@
             this.Tab_Players.TabIndex = 1;
             this.Tab_Players.Text = "Players";
             this.Tab_Players.UseVisualStyleBackColor = true;
+            // 
+            // L_StorageCount
+            // 
+            this.L_StorageCount.AutoSize = true;
+            this.L_StorageCount.Location = new System.Drawing.Point(200, 145);
+            this.L_StorageCount.Name = "L_StorageCount";
+            this.L_StorageCount.Size = new System.Drawing.Size(75, 13);
+            this.L_StorageCount.TabIndex = 24;
+            this.L_StorageCount.Text = "Storage Count";
+            this.L_StorageCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NUD_StorageCount
+            // 
+            this.NUD_StorageCount.Location = new System.Drawing.Point(151, 142);
+            this.NUD_StorageCount.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.NUD_StorageCount.Name = "NUD_StorageCount";
+            this.NUD_StorageCount.Size = new System.Drawing.Size(46, 20);
+            this.NUD_StorageCount.TabIndex = 23;
+            this.NUD_StorageCount.Value = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
             // 
             // L_PocketCount2
             // 
@@ -462,9 +500,10 @@
             this.B_EditPlayerStorage,
             this.B_EditPlayerReceivedItems,
             this.B_EditAchievements,
-            this.B_EditPlayerRecipes});
+            this.B_EditPlayerRecipes,
+            this.B_EditPlayerFlags});
             this.CM_EditPlayer.Name = "CM_EditPlayer";
-            this.CM_EditPlayer.Size = new System.Drawing.Size(177, 92);
+            this.CM_EditPlayer.Size = new System.Drawing.Size(177, 114);
             // 
             // B_EditPlayerStorage
             // 
@@ -493,16 +532,6 @@
             this.B_EditPlayerRecipes.Size = new System.Drawing.Size(176, 22);
             this.B_EditPlayerRecipes.Text = "Edit Recipes";
             this.B_EditPlayerRecipes.Click += new System.EventHandler(this.B_EditPlayerRecipes_Click);
-            // 
-            // B_EditPlayerFlags
-            // 
-            this.B_EditPlayerFlags.Location = new System.Drawing.Point(300, 122);
-            this.B_EditPlayerFlags.Name = "B_EditPlayerFlags";
-            this.B_EditPlayerFlags.Size = new System.Drawing.Size(92, 40);
-            this.B_EditPlayerFlags.TabIndex = 17;
-            this.B_EditPlayerFlags.Text = "Edit Flags";
-            this.B_EditPlayerFlags.UseVisualStyleBackColor = true;
-            this.B_EditPlayerFlags.Click += new System.EventHandler(this.B_EditPlayerFlags_Click);
             // 
             // B_EditPlayerItems
             // 
@@ -642,39 +671,33 @@
             this.TC_Editors.Size = new System.Drawing.Size(404, 237);
             this.TC_Editors.TabIndex = 1;
             // 
-            // B_EditBulletin
+            // B_EditPlayerFlags
             // 
-            this.B_EditBulletin.Name = "B_EditBulletin";
-            this.B_EditBulletin.Size = new System.Drawing.Size(171, 22);
-            this.B_EditBulletin.Text = "Edit Bulletin Board";
-            this.B_EditBulletin.Click += new System.EventHandler(this.B_EditBulletin_Click);
+            this.B_EditPlayerFlags.Name = "B_EditPlayerFlags";
+            this.B_EditPlayerFlags.Size = new System.Drawing.Size(176, 22);
+            this.B_EditPlayerFlags.Text = "Edit Flags";
+            this.B_EditPlayerFlags.Click += new System.EventHandler(this.B_EditPlayerFlags_Click);
             // 
-            // L_StorageCount
+            // L_EarnedMiles
             // 
-            this.L_StorageCount.AutoSize = true;
-            this.L_StorageCount.Location = new System.Drawing.Point(200, 145);
-            this.L_StorageCount.Name = "L_StorageCount";
-            this.L_StorageCount.Size = new System.Drawing.Size(75, 13);
-            this.L_StorageCount.TabIndex = 24;
-            this.L_StorageCount.Text = "Storage Count";
-            this.L_StorageCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.L_EarnedMiles.Location = new System.Drawing.Point(142, 117);
+            this.L_EarnedMiles.Name = "L_EarnedMiles";
+            this.L_EarnedMiles.Size = new System.Drawing.Size(84, 20);
+            this.L_EarnedMiles.TabIndex = 26;
+            this.L_EarnedMiles.Text = "Earned Miles:";
+            this.L_EarnedMiles.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // NUD_StorageCount
+            // NUD_TotalNookMiles
             // 
-            this.NUD_StorageCount.Location = new System.Drawing.Point(151, 142);
-            this.NUD_StorageCount.Maximum = new decimal(new int[] {
+            this.NUD_TotalNookMiles.Location = new System.Drawing.Point(232, 117);
+            this.NUD_TotalNookMiles.Maximum = new decimal(new int[] {
             2147483647,
             0,
             0,
             0});
-            this.NUD_StorageCount.Name = "NUD_StorageCount";
-            this.NUD_StorageCount.Size = new System.Drawing.Size(46, 20);
-            this.NUD_StorageCount.TabIndex = 23;
-            this.NUD_StorageCount.Value = new decimal(new int[] {
-            5000,
-            0,
-            0,
-            0});
+            this.NUD_TotalNookMiles.Name = "NUD_TotalNookMiles";
+            this.NUD_TotalNookMiles.Size = new System.Drawing.Size(100, 20);
+            this.NUD_TotalNookMiles.TabIndex = 25;
             // 
             // Editor
             // 
@@ -696,6 +719,7 @@
             this.CM_EditMap.ResumeLayout(false);
             this.Tab_Players.ResumeLayout(false);
             this.Tab_Players.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_StorageCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_PocketCount2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_PocketCount1)).EndInit();
             this.CM_EditPlayer.ResumeLayout(false);
@@ -704,7 +728,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).EndInit();
             this.TC_Editors.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_StorageCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_TotalNookMiles)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -731,7 +755,6 @@
         private System.Windows.Forms.Button B_RecycleBin;
         private System.Windows.Forms.TabPage Tab_Villagers;
         private System.Windows.Forms.TabPage Tab_Players;
-        private System.Windows.Forms.Button B_EditPlayerFlags;
         private System.Windows.Forms.Button B_EditPlayerItems;
         private System.Windows.Forms.Label L_Wallet;
         private System.Windows.Forms.NumericUpDown NUD_Wallet;
@@ -768,6 +791,9 @@
         private System.Windows.Forms.ToolStripMenuItem B_EditBulletin;
         private System.Windows.Forms.Label L_StorageCount;
         private System.Windows.Forms.NumericUpDown NUD_StorageCount;
+        private System.Windows.Forms.ToolStripMenuItem B_EditPlayerFlags;
+        private System.Windows.Forms.Label L_EarnedMiles;
+        private System.Windows.Forms.NumericUpDown NUD_TotalNookMiles;
     }
 }
 

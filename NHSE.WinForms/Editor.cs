@@ -244,6 +244,7 @@ namespace NHSE.WinForms
             TB_TownName.Text = pers.TownName;
             NUD_BankBells.Value = Math.Min(int.MaxValue, pers.Bank.Value);
             NUD_NookMiles.Value = Math.Min(int.MaxValue, pers.NookMiles.Value);
+            NUD_TotalNookMiles.Value = Math.Min(int.MaxValue, pers.TotalNookMiles.Value);
             NUD_Wallet.Value = Math.Min(int.MaxValue, pers.Wallet.Value);
 
             // swapped on purpose -- first count is the first two rows of items
@@ -297,6 +298,10 @@ namespace NHSE.WinForms
             nook.Value = (uint)NUD_NookMiles.Value;
             pers.NookMiles = nook;
 
+            var tnook = pers.TotalNookMiles;
+            tnook.Value = (uint)NUD_TotalNookMiles.Value;
+            pers.TotalNookMiles = tnook;
+
             var wallet = pers.Wallet;
             wallet.Value = (uint)NUD_Wallet.Value;
             pers.Wallet = wallet;
@@ -311,10 +316,10 @@ namespace NHSE.WinForms
         private void B_EditAchievements_Click(object sender, EventArgs e)
         {
             var pers = SAV.Players[PlayerIndex].Personal;
-            var records = pers.GetActivities();
+            var records = pers.GetCountAchievement();
             using var editor = new AchievementEditor(records);
             if (editor.ShowDialog() == DialogResult.OK)
-                pers.SetActivities(records);
+                pers.SetCountAchievement(records);
         }
 
         private void B_EditPlayerFlags_Click(object sender, EventArgs e)

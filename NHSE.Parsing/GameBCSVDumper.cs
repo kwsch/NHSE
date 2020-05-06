@@ -268,8 +268,6 @@ namespace NHSE.Parsing
                 var iid = bcsv.ReadValue(i, findex);
                 var ival = ushort.Parse(iid);
 
-                ival++; // offset by 1; index 0 is used for something else
-
                 var iv1 = bcsv.ReadValue(i, fv1).Substring(2);
                 var iv1a = int.Parse(iv1, NumberStyles.HexNumber);
 

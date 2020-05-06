@@ -9,24 +9,25 @@ namespace NHSE.Core
     {
         public abstract int PersonalId { get; }
         public abstract int EventFlagsPlayer { get; }
-        public abstract int Activity { get; }
+        public abstract int CountAchievement { get; }
         public abstract int Wallet { get; }
-        public abstract int NookMiles { get; }
+        public abstract int NowPoint { get; }
+        public abstract int TotalPoint { get; }
         public abstract int Photo { get; }
 
         public abstract int Pockets1 { get; }
         public abstract int Pockets2 { get; }
         public abstract int ItemChest { get; }
-        public abstract int ReceivedItems { get; }
+        public abstract int ItemCollectBit { get; }
 
         public abstract int Bank { get; }
         public abstract int Recipes { get; }
 
-        public int MaxActivityID { get; } = 100; // guess
+        public int MaxAchievementID { get; } = 512;
         public int Pockets1Count { get; } = 20;
         public int Pockets2Count { get; } = 20;
         public int ItemChestCount { get; } = 5000;
-        public virtual int MaxRecipeID { get; } = 0x2A0;
+        public abstract int MaxRecipeID { get; }
 
         public static PersonalOffsets GetOffsets(FileHeaderInfo Info)
         {
