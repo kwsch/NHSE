@@ -36,6 +36,24 @@ namespace NHSE.WinForms
             GB_Inject.Enabled = true;
         }
 
+        private void SysBotUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TurnOffAuto();
+            if (!Bot.Bot.Connected)
+                return;
+
+            try
+            {
+                Bot.Bot.Disconnect();
+            }
+#pragma warning disable CA1031 // Do not catch general exception types
+            catch (Exception ex)
+#pragma warning restore CA1031 // Do not catch general exception types
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
         private void B_WriteCurrent_Click(object sender, EventArgs e)
         {
             var offset = StringUtil.GetHexValue(RamOffset.Text);

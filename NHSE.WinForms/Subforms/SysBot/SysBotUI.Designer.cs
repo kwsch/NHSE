@@ -35,6 +35,7 @@
             this.L_IP = new System.Windows.Forms.Label();
             this.TB_IP = new System.Windows.Forms.TextBox();
             this.GB_Inject = new System.Windows.Forms.GroupBox();
+            this.CHK_Validate = new System.Windows.Forms.CheckBox();
             this.CHK_AutoRead = new System.Windows.Forms.CheckBox();
             this.CHK_AutoWrite = new System.Windows.Forms.CheckBox();
             this.RamOffset = new System.Windows.Forms.TextBox();
@@ -42,7 +43,6 @@
             this.B_ReadCurrent = new System.Windows.Forms.Button();
             this.B_WriteCurrent = new System.Windows.Forms.Button();
             this.TIM_Interval = new System.Windows.Forms.Timer(this.components);
-            this.CHK_Validate = new System.Windows.Forms.CheckBox();
             this.GB_Inject.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,6 +108,19 @@
             this.GB_Inject.TabIndex = 13;
             this.GB_Inject.TabStop = false;
             this.GB_Inject.Text = "Injector";
+            // 
+            // CHK_Validate
+            // 
+            this.CHK_Validate.AutoSize = true;
+            this.CHK_Validate.Checked = true;
+            this.CHK_Validate.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CHK_Validate.Location = new System.Drawing.Point(18, 100);
+            this.CHK_Validate.Name = "CHK_Validate";
+            this.CHK_Validate.Size = new System.Drawing.Size(90, 17);
+            this.CHK_Validate.TabIndex = 23;
+            this.CHK_Validate.Text = "Validate Data";
+            this.CHK_Validate.UseVisualStyleBackColor = true;
+            this.CHK_Validate.CheckedChanged += new System.EventHandler(this.CHK_Validate_CheckedChanged);
             // 
             // CHK_AutoRead
             // 
@@ -175,19 +188,6 @@
             // 
             this.TIM_Interval.Interval = 5000;
             // 
-            // CHK_Validate
-            // 
-            this.CHK_Validate.AutoSize = true;
-            this.CHK_Validate.Checked = true;
-            this.CHK_Validate.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_Validate.Location = new System.Drawing.Point(18, 100);
-            this.CHK_Validate.Name = "CHK_Validate";
-            this.CHK_Validate.Size = new System.Drawing.Size(90, 17);
-            this.CHK_Validate.TabIndex = 23;
-            this.CHK_Validate.Text = "Validate Data";
-            this.CHK_Validate.UseVisualStyleBackColor = true;
-            this.CHK_Validate.CheckedChanged += new System.EventHandler(this.CHK_Validate_CheckedChanged);
-            // 
             // SysBotUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,6 +206,7 @@
             this.Name = "SysBotUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SysBotUI";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SysBotUI_FormClosing);
             this.GB_Inject.ResumeLayout(false);
             this.GB_Inject.PerformLayout();
             this.ResumeLayout(false);
