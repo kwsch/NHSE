@@ -345,5 +345,43 @@ namespace NHSE.Core
 
             5982, // summer shell
         };
+
+        public static readonly HashSet<ushort> Terraforming = new HashSet<ushort>
+        {
+            3075, // path construction permit
+            3247, // waterscaping permit
+            8773, // stone path permit
+            8774, // brick path permit
+            8775, // dark dirt path permit
+            8776, // arched tile path permit
+            8777, // sand path permit
+            8778, // terra-cotta tile permit
+            8779, // wooden path permit
+            8780, // waterscaping permit
+            8781, // cliff construction permit
+            9771, // custom design path permit
+        };
+
+        public static readonly HashSet<ushort> NoCheckReceived = new HashSet<ushort>(Terraforming)
+        {
+            Item.DIYRecipe,
+
+            9046, // Vaulting Pole Recipe
+            9047, // Flimsy Shovel Recipe
+            9048, // Flimsy Watering Can Recipe
+            9049, // Top 8 Pop Hairstyles
+            9050, // Top 8 Cool Hairstyles
+            9051, // Top 8 Stylish Hair Colors
+
+            9221, // Pretty Good Tools Recipes
+
+            10309, // Slingshot Recipe
+
+            11140, // Ultimate Pocket Stuffing
+
+            12294, // Flimsy Axe Recipe
+
+            12327, // Ladder Recipe
+        };
     }
 }

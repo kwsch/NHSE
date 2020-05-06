@@ -50,11 +50,12 @@ namespace NHSE.WinForms
 
         private void GiveEverything(IReadOnlyList<string> items, bool value = true)
         {
-            for (int i = 1; i < CLB_Items.Items.Count; i++)
+            var skip = GameLists.NoCheckReceived;
+            for (ushort i = 1; i < CLB_Items.Items.Count; i++)
             {
                 if (string.IsNullOrEmpty(items[i]))
                     continue;
-                if (i == Item.DIYRecipe)
+                if (skip.Contains(i))
                     continue;
                 CLB_Items.SetItemChecked(i, value);
             }
