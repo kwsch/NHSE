@@ -2283,16 +2283,6 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap itemHover {
-            get {
-                object obj = ResourceManager.GetObject("itemHover", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap kal00 {
             get {
                 object obj = ResourceManager.GetObject("kal00", resourceCulture);
@@ -2456,6 +2446,16 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap kgr10 {
             get {
                 object obj = ResourceManager.GetObject("kgr10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap leaf {
+            get {
+                object obj = ResourceManager.GetObject("leaf", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

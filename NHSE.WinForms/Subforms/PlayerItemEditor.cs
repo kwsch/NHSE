@@ -21,7 +21,7 @@ namespace NHSE.WinForms
             ItemArray = new ItemArrayEditor<T>(array);
 
             var Editor = ItemGrid = new ItemGridEditor(ItemEditor, array) {Dock = DockStyle.Fill};
-            Editor.InitializeGrid(width, height);
+            Editor.InitializeGrid(width, height, 64, 64);
             PAN_Items.Controls.Add(Editor);
 
             ItemEditor.Initialize(GameInfo.Strings.ItemDataSource);

@@ -13,8 +13,10 @@ namespace NHSE.WinForms
     public partial class Main : Form
     {
         public const string BackupFolderName = "bak";
+        public const string ItemFolderName = "items";
         public static readonly string WorkingDirectory = Application.StartupPath;
         public static readonly string BackupPath = Path.Combine(WorkingDirectory, BackupFolderName);
+        public static readonly string ItemPath = Path.Combine(WorkingDirectory, ItemFolderName);
 
         public Main()
         {

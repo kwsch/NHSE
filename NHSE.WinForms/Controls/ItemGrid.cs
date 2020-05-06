@@ -64,7 +64,8 @@ namespace NHSE.WinForms
             return new PictureBox
             {
                 AutoSize = false,
-                SizeMode = PictureBoxSizeMode.CenterImage,
+                SizeMode = PictureBoxSizeMode.Zoom,
+                BackgroundImageLayout = ImageLayout.Zoom,
                 BackColor = Color.Transparent,
                 Width = width + (2 * 1),
                 Height = height + (2 * 1),

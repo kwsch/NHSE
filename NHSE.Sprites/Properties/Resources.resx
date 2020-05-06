@@ -784,9 +784,6 @@
   <data name="hrs16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\hrs16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="itemHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Misc\itemHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="kal00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\kal00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -837,6 +834,9 @@
   </data>
   <data name="kgr10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\kgr10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="leaf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Misc\leaf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lon00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\lon00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

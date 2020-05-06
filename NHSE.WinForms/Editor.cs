@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Injection;
+using NHSE.Sprites;
 using NHSE.WinForms.Properties;
 
 namespace NHSE.WinForms
@@ -53,6 +54,7 @@ namespace NHSE.WinForms
 
             Task.Run(() =>
             {
+                ItemSprite.Initialize(Main.ItemPath, GameInfo.GetStrings("en").itemlist);
                 TranslationUtil.SetLocalization(typeof(MessageStrings), lang);
                 TranslationUtil.SetLocalization(GameInfo.Strings.InternalNameTranslation, lang);
             });
