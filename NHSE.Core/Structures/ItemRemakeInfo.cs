@@ -93,7 +93,8 @@ namespace NHSE.Core
                 if (cd == Invalid)
                     continue;
 
-                sb.Append(i).Append('=').AppendLine(cd);
+                var shifted = (i << 5);
+                sb.Append(shifted.ToString("000")).Append('=').AppendLine(cd);
             }
             return sb.ToString();
         }
