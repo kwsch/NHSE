@@ -19,6 +19,7 @@ namespace NHSE.Core
         public abstract int Pockets2 { get; }
         public abstract int ItemChest { get; }
         public abstract int ItemCollectBit { get; }
+        public abstract int ItemRemakeCollectBit { get; }
 
         public abstract int Bank { get; }
         public abstract int Recipes { get; }
@@ -28,6 +29,7 @@ namespace NHSE.Core
         public int Pockets2Count { get; } = 20;
         public int ItemChestCount { get; } = 5000;
         public abstract int MaxRecipeID { get; }
+        public abstract int MaxRemakeBitFlag { get; }
 
         public static PersonalOffsets GetOffsets(FileHeaderInfo Info)
         {

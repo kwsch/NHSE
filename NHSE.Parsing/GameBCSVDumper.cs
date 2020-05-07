@@ -36,6 +36,7 @@ namespace NHSE.Parsing
                 Console.WriteLine($"Created {fn}");
             }
 
+            DumpS("bcsv_map.txt", BCSV.EnumLookup.Dump());
             DumpS("lifeSupportAchievement.txt", GetLifeSupportAchievementList(pathBCSV));
             DumpS("recipeDictionary.txt", GetRecipeList(pathBCSV));
             DumpS("outsideAcres.txt", GetAcreNames(pathBCSV));
@@ -62,6 +63,7 @@ namespace NHSE.Parsing
             DumpB("item_size.bin", GetItemSizeArray(pathBCSV));
             DumpS("plants.txt", GetPlantedNames(pathBCSV));
             DumpS("item_size_dictionary.txt", GetItemSizeDictionary(pathBCSV));
+            DumpS("item_remake.txt", GetItemRemakeDictionary(pathBCSV));
 
             if (csv)
                 BCSVConverter.DumpAll(pathBCSV, dest, delim);
@@ -495,6 +497,35 @@ namespace NHSE.Parsing
 
             result.Sort();
             return result;
+        }
+
+        public static IEnumerable<string> GetItemRemakeDictionary(string pathBCSV, string fn = "ItemParam.bcsv")
+        {
+            var path = Path.Combine(pathBCSV, fn);
+            var data = File.ReadAllBytes(path);
+            var bcsv = new BCSV(data);
+
+            var dict = bcsv.GetFieldDictionary();
+            var fID = dict[0x54706054];
+            var fRid = dict[0xCB5EB33F];
+
+            var result = new Dictionary<ushort, short>();
+            for (int i = 0; i < bcsv.EntryCount; i++)
+            {
+                var rid = bcsv.ReadValue(i, fRid);
+                var rival = short.Parse(rid);
+
+                if (rival < 0)
+                    continue;
+
+                var id = bcsv.ReadValue(i, fID);
+                var ival = ushort.Parse(id);
+
+                result.Add(ival, rival);
+            }
+
+            var str = GameInfo.Strings.itemlist;
+            return result.Select(z => $"{{{z.Key:00000}, {z.Value:0000}}}, // {str[z.Key]}");
         }
     }
 }

@@ -28,9 +28,11 @@
         public override int Wallet => Pockets2 + (8 * Pockets2Count) + 0x18;
         public override int ItemChest => PlayerOther + 0x18C;
         public override int ItemCollectBit => PlayerOther + 0xA058;
+        public override int ItemRemakeCollectBit => PlayerOther + 0xA7AC;
         public override int Bank => PlayerOther + 0x33024;
         public override int Recipes => Bank + 0x10;
 
-        public override int MaxRecipeID { get; } = 0x2C8;
+        public override int MaxRecipeID => 0x2C8;
+        public override int MaxRemakeBitFlag => 0x7D0 * 32;
     }
 }
