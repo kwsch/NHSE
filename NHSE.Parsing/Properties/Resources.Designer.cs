@@ -63,28 +63,32 @@ namespace NHSE.Parsing.Properties {
         /// <summary>
         ///   Looks up a localized string similar to from bcsv import *
         ///
-        ///enum_8c2aec6a = (
-        ///	(&apos;Before&apos;, &apos;前日&apos;),
-        ///	(&apos;Skip&apos;  , &apos;中止&apos;),
-        ///	(&apos;Same&apos;  , &apos;同時開催&apos;),
+        ///enum_009fa2d460ce_286d6aa2ee6b = (
+        ///	(&apos;EC&apos;, &apos;東進入禁止&apos;),
+        ///	(&apos;WC&apos;, &apos;西進入禁止&apos;),
+        ///	(&apos;3B&apos;, &apos;東西進入可&apos;),
         ///)
         ///
-        ///enum_GroundedItemType = (
-        ///	(&apos;All&apos;            , &apos;全部&apos;),
-        ///	(&apos;TreeOak&apos;        , &apos;植物：木：広葉樹&apos;),
-        ///	(&apos;TreeOakStump&apos;   , &apos;植物：木：広葉樹：切り株&apos;),
-        ///	(&apos;TreeCedar&apos;      , &apos;植物：木：針葉樹&apos;),
-        ///	(&apos;TreeCedarStump&apos; , &apos;植物：木：針葉樹：切り株&apos;),
-        ///	(&apos;TreePalm&apos;       , &apos;植物：木：ヤシの木&apos;),
-        ///	(&apos;TreePalmStump&apos;  , &apos;植物：木：ヤシの木：切り株&apos;),
-        ///	(&apos;TreeBamboo&apos;     , &apos;植物：木：竹&apos;),
-        ///	(&apos;TreeBambooStump&apos;, &apos;植物：木：竹：切り株&apos;),
-        ///	(&apos;TreeFruit&apos;      , &apos;植物：木：果物&apos;),
-        ///	(&apos;TreeEasterEgg&apos;  , [rest of string was truncated]&quot;;.
+        ///enum_01016811d685_37fe72043e75 = (
+        ///	(&apos;KeepSwimming&apos;  , &apos;回遊：通常&apos;),
+        ///	(&apos;Float&apos;         , &apos;待機&apos;),
+        ///	(&apos;RoundsSwimming&apos;, &apos;回遊：見回り&apos;),
+        ///	(&apos;ChasePlayer&apos;   , &apos;プレイヤーサーチ&apos;),
+        ///	(&apos;Legion&apos;        , &apos;大群&apos;),
+        ///	(&apos;Predator&apos;      , &apos;捕食者&apos;),
+        ///	(&apos;AntiStream&apos;    , &apos;抗水流&apos;),
+        ///	(&apos;SwimAndWait&apos;   , &apos;回遊＆待機&apos;),
+        ///)
+        ///
+        ///enum_017c76af34f4_35ed35a1a2a5 = (
+        ///	(&apos;Light&apos;     , &apos;軽い&apos;),
+        ///	(&apos;Normal&apos;    , &apos;通常&apos;),
+        ///	(&apos;Heavy&apos;     , &apos;重い&apos;),
+        ///	 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string specs_111 {
+        internal static string specs_120 {
             get {
-                return ResourceManager.GetString("specs_111", resourceCulture);
+                return ResourceManager.GetString("specs_120", resourceCulture);
             }
         }
     }

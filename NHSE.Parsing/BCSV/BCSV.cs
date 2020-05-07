@@ -8,7 +8,7 @@ namespace NHSE.Parsing
 {
     public class BCSV
     {
-        private static readonly BCSVEnumDictionary EnumLookup = new BCSVEnumDictionary(Resources.specs_111.Split('\n'));
+        public static readonly BCSVEnumDictionary EnumLookup = new BCSVEnumDictionary(Resources.specs_120.Split('\n'));
 
         public const int MAGIC = 0x42435356; // BCSV
 
@@ -91,7 +91,7 @@ namespace NHSE.Parsing
         public string[] ReadCSV(string delim = "\t")
         {
             var result = new string[EntryCount + 1];
-            result[0] = string.Join(delim, FieldOffsets.Select(z => $"0x{z.ColumnKey:X8}"));
+            result[0] = string.Join(delim, FieldOffsets.Select(z => EnumLookup[z.ColumnKey]));
 
             var start = GetFirstEntryOffset();
             for (int entry = 0; entry < EntryCount; entry++)
