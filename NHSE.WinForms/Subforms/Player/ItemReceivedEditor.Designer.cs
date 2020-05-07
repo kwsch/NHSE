@@ -40,7 +40,7 @@
             this.B_AllArt = new System.Windows.Forms.ToolStripMenuItem();
             this.B_GiveEverything = new System.Windows.Forms.ToolStripMenuItem();
             this.L_Received = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.L_VariantBody = new System.Windows.Forms.Label();
             this.CLB_Remake = new System.Windows.Forms.CheckedListBox();
             this.CM_Buttons.SuspendLayout();
             this.SuspendLayout();
@@ -151,14 +151,14 @@
             this.L_Received.TabIndex = 15;
             this.L_Received.Text = "Received";
             // 
-            // label1
+            // L_VariantBody
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(246, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Remake";
+            this.L_VariantBody.AutoSize = true;
+            this.L_VariantBody.Location = new System.Drawing.Point(246, 9);
+            this.L_VariantBody.Name = "L_VariantBody";
+            this.L_VariantBody.Size = new System.Drawing.Size(67, 13);
+            this.L_VariantBody.TabIndex = 16;
+            this.L_VariantBody.Text = "Variant Body";
             // 
             // CLB_Remake
             // 
@@ -178,7 +178,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(611, 384);
             this.Controls.Add(this.CLB_Remake);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.L_VariantBody);
             this.Controls.Add(this.L_Received);
             this.Controls.Add(this.B_GiveAll);
             this.Controls.Add(this.CB_Item);
@@ -210,7 +210,7 @@
         private System.Windows.Forms.ToolStripMenuItem B_AllBugs;
         private System.Windows.Forms.ToolStripMenuItem B_AllArt;
         private System.Windows.Forms.Label L_Received;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label L_VariantBody;
         private System.Windows.Forms.CheckedListBox CLB_Remake;
     }
 }

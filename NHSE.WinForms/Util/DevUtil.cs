@@ -86,6 +86,8 @@ namespace NHSE.WinForms
             "AcreEditor.L_Y",
             "L_Coordinates",
             "L_PatternName=",
+            "L_RemakeBody=",
+            "L_RemakeFabric=",
         };
 
         private static readonly string[] PurgeBanlist =
