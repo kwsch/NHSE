@@ -109,11 +109,25 @@ namespace NHSE.WinForms
 
         private void B_Save_Click(object sender, EventArgs e)
         {
+            SetCollect();
+            SetRemake();
+            Close();
+        }
+
+        private void SetCollect()
+        {
             var ofs = Player.Personal.Offsets.ItemCollectBit;
             var data = Player.Personal.Data;
             for (int i = 0; i < CLB_Items.Items.Count; i++)
                 FlagUtil.SetFlag(data, ofs, i, CLB_Items.GetItemChecked(i));
-            Close();
+        }
+
+        private void SetRemake()
+        {
+            var ofs = Player.Personal.Offsets.ItemRemakeCollectBit;
+            var data = Player.Personal.Data;
+            for (int i = 0; i < CLB_Remake.Items.Count; i++)
+                FlagUtil.SetFlag(data, ofs, i, CLB_Remake.GetItemChecked(i));
         }
 
         private void CB_Item_SelectedValueChanged(object sender, EventArgs e)
