@@ -64,6 +64,7 @@ namespace NHSE.Parsing
             DumpS("plants.txt", GetPlantedNames(pathBCSV));
             DumpS("item_size_dictionary.txt", GetItemSizeDictionary(pathBCSV));
             DumpS("item_remake.txt", GetItemRemakeDictionary(pathBCSV));
+            DumpS("itemRemakeInfo.txt", GetItemRemakeColors(pathBCSV));
 
             if (csv)
                 BCSVConverter.DumpAll(pathBCSV, dest, delim);
@@ -526,6 +527,92 @@ namespace NHSE.Parsing
 
             var str = GameInfo.Strings.itemlist;
             return result.Select(z => $"{{{z.Key:00000}, {z.Value:0000}}}, // {str[z.Key]}");
+        }
+
+        public static IEnumerable<string> GetItemRemakeColors(string pathBCSV, string fn = "ItemRemake.bcsv")
+        {
+            var path = Path.Combine(pathBCSV, fn);
+            var data = File.ReadAllBytes(path);
+            var bcsv = new BCSV(data);
+
+            var dict = bcsv.GetFieldDictionary();
+
+            var fid = dict[0xFD9AF1E1]; // ItemUniqueID
+            //var fct = dict[0x29ECB129]; // RemakeKitNum
+            var rid = dict[0x54706054]; // UniqueID
+            // var unk = dict[0xD4F43B0B]; // 
+            var b00 = dict[0x1B98FDF8]; // ReBodyPattern0Color0
+            var b01 = dict[0xA3249A9D]; // ReBodyPattern0Color1
+            var b10 = dict[0xF45A96C6]; // ReBodyPattern1Color0
+            var b11 = dict[0x4CE6F1A3]; // ReBodyPattern1Color1
+            var b20 = dict[0x1F6D2DC5]; // ReBodyPattern2Color0
+            var b21 = dict[0xA7D14AA0]; // ReBodyPattern2Color1
+            var b30 = dict[0xF0AF46FB]; // ReBodyPattern3Color0
+            var b31 = dict[0x4813219E]; // ReBodyPattern3Color1
+            var b40 = dict[0x12735D82]; // ReBodyPattern4Color0
+            var b41 = dict[0xAACF3AE7]; // ReBodyPattern4Color1
+            var b50 = dict[0xFDB136BC]; // ReBodyPattern5Color0
+            var b51 = dict[0x450D51D9]; // ReBodyPattern5Color1
+            var b60 = dict[0x16868DBF]; // ReBodyPattern6Color0
+            var b61 = dict[0xAE3AEADA]; // ReBodyPattern6Color1
+            var b70 = dict[0xF944E681]; // ReBodyPattern7Color0
+            var b71 = dict[0x41F881E4]; // ReBodyPattern7Color1
+            var bct = dict[0xB0304B0D]; // ReBodyPatternNum
+            var f00 = dict[0x545F8769]; // ReFabricPattern0Color0
+            var f01 = dict[0xECE3E00C]; // ReFabricPattern0Color1
+            var fvf = dict[0x62C23ED0]; // ReFabricPattern0VisibleOff
+            var f10 = dict[0xBB9DEC57]; // ReFabricPattern1Color0
+            var f11 = dict[0x03218B32]; // ReFabricPattern1Color1
+            var f20 = dict[0x50AA5754]; // ReFabricPattern2Color0
+            var f21 = dict[0xE8163031]; // ReFabricPattern2Color1
+            var f30 = dict[0xBF683C6A]; // ReFabricPattern3Color0
+            var f31 = dict[0x07D45B0F]; // ReFabricPattern3Color1
+            var f40 = dict[0x5DB42713]; // ReFabricPattern4Color0
+            var f41 = dict[0xE5084076]; // ReFabricPattern4Color1
+            var f50 = dict[0xB2764C2D]; // ReFabricPattern5Color0
+            var f51 = dict[0x0ACA2B48]; // ReFabricPattern5Color1
+            var f60 = dict[0x5941F72E]; // ReFabricPattern6Color0
+            var f61 = dict[0xE1FD904B]; // ReFabricPattern6Color1
+            var f70 = dict[0xB6839C10]; // ReFabricPattern7Color0
+            var f71 = dict[0x0E3FFB75]; // ReFabricPattern7Color1
+
+            var str = GameInfo.Strings.itemlist;
+            var bc0 = new[] { b00, b10, b20, b30, b40, b50, b60, b70 };
+            var bc1 = new[] { b01, b11, b21, b31, b41, b51, b61, b71 };
+            var fc0 = new[] { f00, f10, f20, f30, f40, f50, f60, f70 };
+            var fc1 = new[] { f01, f11, f21, f31, f41, f51, f61, f71 };
+
+            for (int i = 0; i < bcsv.EntryCount; i++)
+            {
+                var index = i;
+                int get(BCSVFieldParam f)
+                {
+                    var val = bcsv.ReadValue(index, f);
+                    return int.Parse(val);
+                }
+
+                string getArr(IEnumerable<BCSVFieldParam> arr)
+                {
+                    var entries = arr.Select(get).Select(z => z.ToString("00"));
+                    var bytes = string.Join(", ", entries);
+                    return $"new byte[] {{{bytes}}}";
+                }
+
+                var vbc0 = getArr(bc0);
+                var vbc1 = getArr(bc1);
+                var vfc0 = getArr(fc0);
+                var vfc1 = getArr(fc1);
+
+                var vfvf = get(fvf) == 1;
+                var ct = get(bct);
+
+                var vid = get(fid);
+                //var vct = get(fct);
+                var vrd = get(rid);
+
+                // (short index, ushort id, sbyte count, byte[] bc0, byte[] bc1, byte[] fc0, byte[] fc1, bool fp0)
+                yield return $"{{{vrd:0000}, new {nameof(ItemRemakeInfo)}({vrd:0000}, {vid:00000}, {(sbyte)ct,2}, {vbc0}, {vbc1}, {vfc0}, {vfc1}, {(vfvf ? " true": "false")})}}, // {str[vid]}";
+            }
         }
     }
 }

@@ -9,6 +9,7 @@ namespace NHSE.Parsing
     public class BCSV
     {
         public static readonly BCSVEnumDictionary EnumLookup = new BCSVEnumDictionary(Resources.specs_120.Split('\n'));
+        public static bool DecodeColumnNames { private get; set; } = true;
 
         public const int MAGIC = 0x42435356; // BCSV
 
@@ -91,7 +92,11 @@ namespace NHSE.Parsing
         public string[] ReadCSV(string delim = "\t")
         {
             var result = new string[EntryCount + 1];
-            result[0] = string.Join(delim, FieldOffsets.Select(z => EnumLookup[z.ColumnKey]));
+
+            if (DecodeColumnNames)
+                result[0] = string.Join(delim, FieldOffsets.Select(z => EnumLookup[z.ColumnKey]));
+            else
+                result[0] = string.Join(delim, FieldOffsets.Select(z => $"0x{z.ColumnKey:X8}"));
 
             var start = GetFirstEntryOffset();
             for (int entry = 0; entry < EntryCount; entry++)

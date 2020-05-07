@@ -2,9 +2,20 @@
 
 namespace NHSE.Core
 {
-    public static class ItemRemake
+    public static class ItemRemakeUtil
     {
-        public static short GetRemakeKitNum(ushort id) => List.TryGetValue(id, out var value) ? value : (short)-1;
+        public static short GetRemakeIndex(ushort id) => List.TryGetValue(id, out var value) ? value : (short)-1;
+
+        public static Dictionary<short, ushort> GetInvertedDictionary()
+        {
+            var dict = new Dictionary<short, ushort>();
+            foreach (var kvp in List)
+            {
+                if (!dict.ContainsKey(kvp.Value))
+                    dict.Add(kvp.Value, kvp.Key);
+            }
+            return dict;
+        }
 
         private static readonly IReadOnlyDictionary<ushort, short> List = new Dictionary<ushort, short>
         {
