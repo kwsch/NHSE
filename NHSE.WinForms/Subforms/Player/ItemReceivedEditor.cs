@@ -16,7 +16,8 @@ namespace NHSE.WinForms
             this.TranslateInterface(GameInfo.CurrentLanguage);
             FillCheckBoxes();
             Initialize(GameInfo.Strings.ItemDataSource);
-            CLB_Items.SelectedIndex = 0x50;
+            CLB_Remake.SelectedIndex = 0;
+            CLB_Items.SelectedIndex = 0x50; // clackercart
         }
 
         public void Initialize(List<ComboItem> items)
@@ -29,15 +30,44 @@ namespace NHSE.WinForms
         private void FillCheckBoxes()
         {
             var items = GameInfo.Strings.itemlistdisplay;
+            FillCollect(items);
+            FillRemake(items);
+        }
 
+        private void FillCollect(IReadOnlyList<string> items)
+        {
             var ofs = Player.Personal.Offsets.ItemCollectBit;
             var data = Player.Personal.Data;
-            for (int i = 0; i < items.Length; i++)
+            for (int i = 0; i < items.Count; i++)
             {
                 var flag = FlagUtil.GetFlag(data, ofs, i);
                 string value = items[i];
                 string name = $"0x{i:X3} - {value}";
                 CLB_Items.Items.Add(name, flag);
+            }
+        }
+
+        private void FillRemake(IReadOnlyList<string> items)
+        {
+            var invert = ItemRemakeUtil.GetInvertedDictionary();
+            var ofs = Player.Personal.Offsets.ItemRemakeCollectBit;
+            var max = Player.Personal.Offsets.MaxRemakeBitFlag;
+            var data = Player.Personal.Data;
+            for (int i = 0; i < max; i++)
+            {
+                var remakeIndex = i >> 3;
+                var variant = i & 7;
+
+                ushort itemId = invert.TryGetValue((short)remakeIndex, out var id) ? id : (ushort)0;
+                var itemName = remakeIndex == 0652 ? "photo" : items[itemId];
+
+                var flag = FlagUtil.GetFlag(data, ofs, i);
+                string name = $"{remakeIndex:0000} V{variant:0} - {itemName}";
+
+                if (ItemRemakeInfoData.List.TryGetValue((short) remakeIndex, out var info))
+                    name = $"{name} ({info.GetColorDescription(variant)})";
+
+                CLB_Remake.Items.Add(name, flag);
             }
         }
 
@@ -89,9 +119,13 @@ namespace NHSE.WinForms
         private void CB_Item_SelectedValueChanged(object sender, EventArgs e)
         {
             var index = WinFormsUtil.GetIndex(CB_Item);
-            if (index >= CLB_Items.Items.Count)
+            if ((uint)index >= CLB_Items.Items.Count)
                 index = 0;
             CLB_Items.SelectedIndex = index;
+
+            var remake = ItemRemakeUtil.GetRemakeIndex((ushort)index);
+            if (remake > 0)
+                CLB_Remake.SelectedIndex = remake * 8;
         }
 
         private void CLB_Items_SelectedIndexChanged(object sender, EventArgs e)
