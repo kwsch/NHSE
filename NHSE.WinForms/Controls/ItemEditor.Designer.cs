@@ -73,6 +73,7 @@
             this.CHK_WV9 = new System.Windows.Forms.CheckBox();
             this.CHK_Gold = new System.Windows.Forms.CheckBox();
             this.CB_Fossil = new System.Windows.Forms.ComboBox();
+            this.L_RemakeColors = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Count)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Uses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag0)).BeginInit();
@@ -241,6 +242,7 @@
             this.FLP_Controls.Controls.Add(this.CB_ItemID);
             this.FLP_Controls.Controls.Add(this.CB_Recipe);
             this.FLP_Controls.Controls.Add(this.FLP_Count);
+            this.FLP_Controls.Controls.Add(this.L_RemakeColors);
             this.FLP_Controls.Controls.Add(this.FLP_Uses);
             this.FLP_Controls.Controls.Add(this.FLP_Flag0);
             this.FLP_Controls.Controls.Add(this.FLP_Flag1);
@@ -640,6 +642,17 @@
             this.CB_Fossil.Visible = false;
             this.CB_Fossil.SelectedValueChanged += new System.EventHandler(this.CB_CountAlias_SelectedValueChanged);
             // 
+            // L_RemakeColors
+            // 
+            this.L_RemakeColors.AutoSize = true;
+            this.L_RemakeColors.Location = new System.Drawing.Point(150, 326);
+            this.L_RemakeColors.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.L_RemakeColors.Name = "L_RemakeColors";
+            this.L_RemakeColors.Size = new System.Drawing.Size(51, 13);
+            this.L_RemakeColors.TabIndex = 22;
+            this.L_RemakeColors.Text = "*Remake";
+            this.L_RemakeColors.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // ItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -653,6 +666,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag1)).EndInit();
             this.CM_Hand.ResumeLayout(false);
             this.FLP_Controls.ResumeLayout(false);
+            this.FLP_Controls.PerformLayout();
             this.FLP_Count.ResumeLayout(false);
             this.FLP_Count.PerformLayout();
             this.FLP_Uses.ResumeLayout(false);
@@ -714,5 +728,6 @@
         private System.Windows.Forms.CheckBox CHK_WV9;
         private System.Windows.Forms.CheckBox CHK_WV8;
         private System.Windows.Forms.ComboBox CB_Fossil;
+        private System.Windows.Forms.Label L_RemakeColors;
     }
 }

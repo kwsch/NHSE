@@ -106,6 +106,18 @@ namespace NHSE.WinForms
             ToggleEditorVisibility(kind);
             if (!Loading)
                 LoadItemTypeValues(kind);
+
+            var remake = ItemRemakeUtil.GetRemakeIndex(itemID);
+            if (remake < 0)
+            {
+                L_RemakeColors.Visible = false;
+            }
+            else
+            {
+                var summary = ItemRemakeInfoData.List[remake].GetColorSummary();
+                L_RemakeColors.Text = summary;
+                L_RemakeColors.Visible = summary.Length != 0;
+            }
         }
 
         private void LoadItemTypeValues(ItemKind k)
