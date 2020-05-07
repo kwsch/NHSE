@@ -1,6 +1,6 @@
 ﻿namespace NHSE.Core
 {
-    public enum ItemCustomColor
+    public enum ItemCustomColor : byte
     {
         Orange = 0,    // 'オレンジ
         Red = 1,       // 'レッド
