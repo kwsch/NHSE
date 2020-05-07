@@ -7,7 +7,7 @@ namespace NHSE.Core
     /// </summary>
     public static class ItemRemakeInfoData
     {
-        public static Dictionary<short, ItemRemakeInfo> List = new Dictionary<short, ItemRemakeInfo>
+        public static readonly IReadOnlyDictionary<short, ItemRemakeInfo> List = new Dictionary<short, ItemRemakeInfo>
         {
             {0072, new ItemRemakeInfo(0072, 01288,  5, new byte[] {10, 12, 08, 04, 06, 01, 14, 14}, new byte[] {06, 06, 06, 06, 06, 06, 14, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, false)}, // fan palm
             {0076, new ItemRemakeInfo(0076, 02605,  7, new byte[] {08, 12, 00, 09, 10, 06, 04, 02}, new byte[] {08, 12, 00, 09, 10, 06, 04, 02}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, new byte[] {00, 02, 05, 06, 14, 14, 14, 14}, false)}, // wooden simple bed

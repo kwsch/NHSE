@@ -65,7 +65,7 @@ namespace NHSE.WinForms
                 string name = $"{remakeIndex:0000} V{variant:0} - {itemName}";
 
                 if (ItemRemakeInfoData.List.TryGetValue((short) remakeIndex, out var info))
-                    name = $"{name} ({info.GetColorDescription(variant)})";
+                    name = $"{name} ({info.GetBodyDescription(variant)})";
 
                 CLB_Remake.Items.Add(name, flag);
             }

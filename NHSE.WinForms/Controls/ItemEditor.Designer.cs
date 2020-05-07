@@ -44,7 +44,10 @@
             this.Menu_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.CB_Recipe = new System.Windows.Forms.ComboBox();
             this.FLP_Controls = new System.Windows.Forms.FlowLayoutPanel();
+            this.CB_Fossil = new System.Windows.Forms.ComboBox();
             this.FLP_Count = new System.Windows.Forms.FlowLayoutPanel();
+            this.L_RemakeBody = new System.Windows.Forms.Label();
+            this.L_RemakeFabric = new System.Windows.Forms.Label();
             this.FLP_Uses = new System.Windows.Forms.FlowLayoutPanel();
             this.FLP_Flag0 = new System.Windows.Forms.FlowLayoutPanel();
             this.FLP_Flag1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -72,8 +75,6 @@
             this.CHK_WV6 = new System.Windows.Forms.CheckBox();
             this.CHK_WV9 = new System.Windows.Forms.CheckBox();
             this.CHK_Gold = new System.Windows.Forms.CheckBox();
-            this.CB_Fossil = new System.Windows.Forms.ComboBox();
-            this.L_RemakeColors = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Count)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Uses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag0)).BeginInit();
@@ -241,37 +242,77 @@
             // 
             this.FLP_Controls.Controls.Add(this.CB_ItemID);
             this.FLP_Controls.Controls.Add(this.CB_Recipe);
+            this.FLP_Controls.Controls.Add(this.CB_Fossil);
             this.FLP_Controls.Controls.Add(this.FLP_Count);
-            this.FLP_Controls.Controls.Add(this.L_RemakeColors);
+            this.FLP_Controls.Controls.Add(this.L_RemakeBody);
+            this.FLP_Controls.Controls.Add(this.L_RemakeFabric);
             this.FLP_Controls.Controls.Add(this.FLP_Uses);
             this.FLP_Controls.Controls.Add(this.FLP_Flag0);
             this.FLP_Controls.Controls.Add(this.FLP_Flag1);
             this.FLP_Controls.Controls.Add(this.FLP_Genetics);
             this.FLP_Controls.Controls.Add(this.FLP_FlowerFlags);
-            this.FLP_Controls.Controls.Add(this.CB_Fossil);
             this.FLP_Controls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FLP_Controls.Location = new System.Drawing.Point(0, 0);
             this.FLP_Controls.Name = "FLP_Controls";
-            this.FLP_Controls.Size = new System.Drawing.Size(211, 352);
+            this.FLP_Controls.Size = new System.Drawing.Size(211, 408);
             this.FLP_Controls.TabIndex = 15;
+            // 
+            // CB_Fossil
+            // 
+            this.CB_Fossil.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CB_Fossil.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CB_Fossil.DropDownWidth = 322;
+            this.CB_Fossil.FormattingEnabled = true;
+            this.CB_Fossil.Location = new System.Drawing.Point(3, 47);
+            this.CB_Fossil.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.CB_Fossil.Name = "CB_Fossil";
+            this.CB_Fossil.Size = new System.Drawing.Size(141, 21);
+            this.CB_Fossil.TabIndex = 21;
+            this.CB_Fossil.Visible = false;
+            this.CB_Fossil.SelectedValueChanged += new System.EventHandler(this.CB_CountAlias_SelectedValueChanged);
             // 
             // FLP_Count
             // 
             this.FLP_Count.Controls.Add(this.NUD_Count);
             this.FLP_Count.Controls.Add(this.L_Count);
+            this.FLP_Controls.SetFlowBreak(this.FLP_Count, true);
             this.FLP_Count.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.FLP_Count.Location = new System.Drawing.Point(0, 46);
+            this.FLP_Count.Location = new System.Drawing.Point(0, 69);
             this.FLP_Count.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Count.Name = "FLP_Count";
             this.FLP_Count.Size = new System.Drawing.Size(147, 26);
             this.FLP_Count.TabIndex = 16;
+            // 
+            // L_RemakeBody
+            // 
+            this.L_RemakeBody.AutoSize = true;
+            this.FLP_Controls.SetFlowBreak(this.L_RemakeBody, true);
+            this.L_RemakeBody.Location = new System.Drawing.Point(3, 101);
+            this.L_RemakeBody.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.L_RemakeBody.Name = "L_RemakeBody";
+            this.L_RemakeBody.Size = new System.Drawing.Size(75, 13);
+            this.L_RemakeBody.TabIndex = 22;
+            this.L_RemakeBody.Text = "*RemakeBody";
+            this.L_RemakeBody.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // L_RemakeFabric
+            // 
+            this.L_RemakeFabric.AutoSize = true;
+            this.FLP_Controls.SetFlowBreak(this.L_RemakeFabric, true);
+            this.L_RemakeFabric.Location = new System.Drawing.Point(3, 126);
+            this.L_RemakeFabric.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.L_RemakeFabric.Name = "L_RemakeFabric";
+            this.L_RemakeFabric.Size = new System.Drawing.Size(80, 13);
+            this.L_RemakeFabric.TabIndex = 23;
+            this.L_RemakeFabric.Text = "*RemakeFabric";
+            this.L_RemakeFabric.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FLP_Uses
             // 
             this.FLP_Uses.Controls.Add(this.NUD_Uses);
             this.FLP_Uses.Controls.Add(this.L_Uses);
             this.FLP_Uses.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.FLP_Uses.Location = new System.Drawing.Point(0, 72);
+            this.FLP_Uses.Location = new System.Drawing.Point(0, 145);
             this.FLP_Uses.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Uses.Name = "FLP_Uses";
             this.FLP_Uses.Size = new System.Drawing.Size(147, 26);
@@ -282,7 +323,7 @@
             this.FLP_Flag0.Controls.Add(this.NUD_Flag0);
             this.FLP_Flag0.Controls.Add(this.L_Flag0);
             this.FLP_Flag0.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.FLP_Flag0.Location = new System.Drawing.Point(0, 98);
+            this.FLP_Flag0.Location = new System.Drawing.Point(0, 171);
             this.FLP_Flag0.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Flag0.Name = "FLP_Flag0";
             this.FLP_Flag0.Size = new System.Drawing.Size(147, 26);
@@ -293,7 +334,7 @@
             this.FLP_Flag1.Controls.Add(this.NUD_Flag1);
             this.FLP_Flag1.Controls.Add(this.L_Flag1);
             this.FLP_Flag1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.FLP_Flag1.Location = new System.Drawing.Point(0, 124);
+            this.FLP_Flag1.Location = new System.Drawing.Point(0, 197);
             this.FLP_Flag1.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Flag1.Name = "FLP_Flag1";
             this.FLP_Flag1.Size = new System.Drawing.Size(147, 26);
@@ -310,7 +351,7 @@
             this.FLP_Genetics.Controls.Add(this.CHK_S2);
             this.FLP_Genetics.Controls.Add(this.CHK_S1);
             this.FLP_Genetics.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.FLP_Genetics.Location = new System.Drawing.Point(0, 150);
+            this.FLP_Genetics.Location = new System.Drawing.Point(0, 223);
             this.FLP_Genetics.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Genetics.Name = "FLP_Genetics";
             this.FLP_Genetics.Size = new System.Drawing.Size(106, 65);
@@ -437,7 +478,7 @@
             this.FLP_FlowerFlags.Controls.Add(this.CHK_WV9);
             this.FLP_FlowerFlags.Controls.Add(this.CHK_Gold);
             this.FLP_FlowerFlags.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.FLP_FlowerFlags.Location = new System.Drawing.Point(0, 215);
+            this.FLP_FlowerFlags.Location = new System.Drawing.Point(0, 288);
             this.FLP_FlowerFlags.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_FlowerFlags.Name = "FLP_FlowerFlags";
             this.FLP_FlowerFlags.Size = new System.Drawing.Size(147, 105);
@@ -628,38 +669,13 @@
             this.CHK_Gold.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_Gold.UseVisualStyleBackColor = true;
             // 
-            // CB_Fossil
-            // 
-            this.CB_Fossil.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.CB_Fossil.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.CB_Fossil.DropDownWidth = 322;
-            this.CB_Fossil.FormattingEnabled = true;
-            this.CB_Fossil.Location = new System.Drawing.Point(3, 321);
-            this.CB_Fossil.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.CB_Fossil.Name = "CB_Fossil";
-            this.CB_Fossil.Size = new System.Drawing.Size(141, 21);
-            this.CB_Fossil.TabIndex = 21;
-            this.CB_Fossil.Visible = false;
-            this.CB_Fossil.SelectedValueChanged += new System.EventHandler(this.CB_CountAlias_SelectedValueChanged);
-            // 
-            // L_RemakeColors
-            // 
-            this.L_RemakeColors.AutoSize = true;
-            this.L_RemakeColors.Location = new System.Drawing.Point(150, 326);
-            this.L_RemakeColors.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.L_RemakeColors.Name = "L_RemakeColors";
-            this.L_RemakeColors.Size = new System.Drawing.Size(51, 13);
-            this.L_RemakeColors.TabIndex = 22;
-            this.L_RemakeColors.Text = "*Remake";
-            this.L_RemakeColors.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // ItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.FLP_Controls);
             this.Name = "ItemEditor";
-            this.Size = new System.Drawing.Size(211, 352);
+            this.Size = new System.Drawing.Size(211, 408);
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Count)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Uses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag0)).EndInit();
@@ -728,6 +744,7 @@
         private System.Windows.Forms.CheckBox CHK_WV9;
         private System.Windows.Forms.CheckBox CHK_WV8;
         private System.Windows.Forms.ComboBox CB_Fossil;
-        private System.Windows.Forms.Label L_RemakeColors;
+        private System.Windows.Forms.Label L_RemakeBody;
+        private System.Windows.Forms.Label L_RemakeFabric;
     }
 }

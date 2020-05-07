@@ -110,13 +110,19 @@ namespace NHSE.WinForms
             var remake = ItemRemakeUtil.GetRemakeIndex(itemID);
             if (remake < 0)
             {
-                L_RemakeColors.Visible = false;
+                L_RemakeBody.Visible = false;
+                L_RemakeFabric.Visible = false;
             }
             else
             {
-                var summary = ItemRemakeInfoData.List[remake].GetColorSummary();
-                L_RemakeColors.Text = summary;
-                L_RemakeColors.Visible = summary.Length != 0;
+                var info = ItemRemakeInfoData.List[remake];
+                var body = info.GetBodySummary();
+                L_RemakeBody.Text = body;
+                L_RemakeBody.Visible = body.Length != 0;
+
+                var fabric = info.GetFabricSummary();
+                L_RemakeFabric.Text = fabric;
+                L_RemakeFabric.Visible = fabric.Length != 0;
             }
         }
 
