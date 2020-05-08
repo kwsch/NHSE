@@ -159,7 +159,7 @@ namespace NHSE.WinForms
             System.Media.SystemSounds.Asterisk.Play();
         }
 
-        private void SetItemSprite(IHeldItem item, PictureBox pb)
+        private void SetItemSprite(Item item, PictureBox pb)
         {
             var dw = Sprites.Width;
             var dh = Sprites.Height;

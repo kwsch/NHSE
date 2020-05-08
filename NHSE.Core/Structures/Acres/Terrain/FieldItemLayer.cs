@@ -6,19 +6,19 @@ namespace NHSE.Core
 {
     public class FieldItemLayer : MapGrid
     {
-        public readonly FieldItem[] Tiles;
+        public readonly Item[] Tiles;
 
-        public FieldItemLayer(FieldItem[] tiles) : base(32, 32)
+        public FieldItemLayer(Item[] tiles) : base(32, 32)
         {
             Tiles = tiles;
             Debug.Assert(MapTileCount == tiles.Length);
         }
 
-        public FieldItem GetTile(int x, int y) => this[GetTileIndex(x, y)];
-        public FieldItem GetTile(int acreX, int acreY, int gridX, int gridY) => this[GetTileIndex(acreX, acreY, gridX, gridY)];
-        public FieldItem GetAcreTile(int acreIndex, int tileIndex) => this[GetAcreTileIndex(acreIndex, tileIndex)];
+        public Item GetTile(int x, int y) => this[GetTileIndex(x, y)];
+        public Item GetTile(int acreX, int acreY, int gridX, int gridY) => this[GetTileIndex(acreX, acreY, gridX, gridY)];
+        public Item GetAcreTile(int acreIndex, int tileIndex) => this[GetAcreTileIndex(acreIndex, tileIndex)];
 
-        public FieldItem this[int index]
+        public Item this[int index]
         {
             get => Tiles[index];
             set => Tiles[index] = value;
@@ -27,27 +27,27 @@ namespace NHSE.Core
         public byte[] DumpAcre(int acre)
         {
             int count = AcreTileCount;
-            var result = new byte[FieldItem.SIZE * count];
+            var result = new byte[Item.SIZE * count];
             for (int i = 0; i < count; i++)
             {
                 var tile = GetAcreTile(acre, i);
                 var bytes = tile.ToBytesClass();
-                bytes.CopyTo(result, i * FieldItem.SIZE);
+                bytes.CopyTo(result, i * Item.SIZE);
             }
             return result;
         }
 
         public byte[] DumpAllAcres()
         {
-            var result = new byte[Tiles.Length * FieldItem.SIZE];
+            var result = new byte[Tiles.Length * Item.SIZE];
             for (int i = 0; i < Tiles.Length; i++)
-                Tiles[i].ToBytesClass().CopyTo(result, i * FieldItem.SIZE);
+                Tiles[i].ToBytesClass().CopyTo(result, i * Item.SIZE);
             return result;
         }
 
         public void ImportAllAcres(byte[] data)
         {
-            var tiles = FieldItem.GetArray(data);
+            var tiles = Item.GetArray(data);
             for (int i = 0; i < tiles.Length; i++)
                 Tiles[i].CopyFrom(tiles[i]);
         }
@@ -55,7 +55,7 @@ namespace NHSE.Core
         public void ImportAcre(int acre, byte[] data)
         {
             int count = AcreTileCount;
-            var tiles = FieldItem.GetArray(data);
+            var tiles = Item.GetArray(data);
             for (int i = 0; i < count; i++)
             {
                 var tile = GetAcreTile(acre, i);
@@ -64,7 +64,7 @@ namespace NHSE.Core
         }
 
         public int ClearFieldPlanted(Func<FieldItemKind, bool> criteria) => ClearFieldPlanted(0, 0, MapWidth, MapHeight, criteria);
-        public int RemoveAll(Func<FieldItem, bool> criteria) => RemoveAll(0, 0, MapWidth, MapHeight, criteria);
+        public int RemoveAll(Func<Item, bool> criteria) => RemoveAll(0, 0, MapWidth, MapHeight, criteria);
         public int RemoveAll(HashSet<ushort> items) => RemoveAll(0, 0, MapWidth, MapHeight, z => items.Contains(z.DisplayItemId));
         public int RemoveAll(ushort item) => RemoveAll(0, 0, MapWidth, MapHeight, z => z.DisplayItemId == item);
 
@@ -91,7 +91,7 @@ namespace NHSE.Core
             return count;
         }
 
-        public int RemoveAll(int xmin, int ymin, int width, int height, Func<FieldItem, bool> criteria)
+        public int RemoveAll(int xmin, int ymin, int width, int height, Func<Item, bool> criteria)
         {
             int count = 0;
             for (int x = xmin; x < xmin + width; x++)
@@ -126,9 +126,9 @@ namespace NHSE.Core
         public int RemoveAllShells(int xmin, int ymin, int width, int height) => RemoveAll(xmin, ymin, width, height, z => GameLists.Shells.Contains(z.DisplayItemId));
         public int RemoveAllBranches(int xmin, int ymin, int width, int height) => RemoveAll(xmin, ymin, width, height, z => z.DisplayItemId == 2500);
         public int RemoveAllPlacedItems(int xmin, int ymin, int width, int height) => RemoveAll(xmin, ymin, width,
-            height, z => z.DisplayItemId != FieldItem.NONE && !FieldItemList.Items.ContainsKey(z.DisplayItemId));
+            height, z => z.DisplayItemId != Item.NONE && !FieldItemList.Items.ContainsKey(z.DisplayItemId));
 
-        public void DeleteExtensionTiles(FieldItem tile, in int x, in int y)
+        public void DeleteExtensionTiles(Item tile, in int x, in int y)
         {
             GetTileWidthHeight(tile, x, y, out var w, out var h);
 
@@ -144,7 +144,7 @@ namespace NHSE.Core
             }
         }
 
-        public void SetExtensionTiles(FieldItem tile, in int x, in int y)
+        public void SetExtensionTiles(Item tile, in int x, in int y)
         {
             GetTileWidthHeight(tile, x, y, out var w, out var h);
 
@@ -160,7 +160,7 @@ namespace NHSE.Core
             }
         }
 
-        private void GetTileWidthHeight(FieldItem tile, int x, int y, out int w, out int h)
+        private void GetTileWidthHeight(Item tile, int x, int y, out int w, out int h)
         {
             var type = ItemInfo.GetItemSize(tile);
             w = type.GetWidth();
@@ -185,7 +185,7 @@ namespace NHSE.Core
         /// Checks if writing the <see cref="tile"/> at the specified <see cref="x"/> and <see cref="y"/> coordinates will overlap with any existing tiles.
         /// </summary>
         /// <returns>True if any tile will be overwritten, false if nothing is there.</returns>
-        public FieldItemPermission IsOccupied(FieldItem tile, in int x, in int y)
+        public FieldItemPermission IsOccupied(Item tile, in int x, in int y)
         {
             var type = ItemInfo.GetItemSize(tile);
             var w = type.GetWidth();

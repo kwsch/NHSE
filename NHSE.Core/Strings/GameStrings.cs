@@ -102,17 +102,19 @@ namespace NHSE.Core
             return items;
         }
 
-        public string GetItemName(IHeldItem item)
+        public string GetItemName(Item item)
         {
             var index = item.ItemId;
             if (index == Item.NONE)
                 return itemlist[0];
+            if (index == Item.EXTENSION)
+                return GetItemName(item.ExtensionItemId);
             var kind = ItemInfo.GetItemKind(index);
 
             if (kind == ItemKind.Kind_DIYRecipe || kind == ItemKind.Kind_MessageBottle)
             {
                 var display = itemlistdisplay[index];
-                var recipeID = item.Count;
+                var recipeID = (ushort)item.FreeParam;
                 var isKnown = RecipeList.Recipes.TryGetValue(recipeID, out var result);
                 var makes = isKnown ? GetItemName(result) : recipeID.ToString("000");
                 return $"{display} - {makes}";
@@ -121,7 +123,7 @@ namespace NHSE.Core
             if (kind == ItemKind.Kind_FossilUnknown)
             {
                 var display = itemlistdisplay[index];
-                var fossilID = item.Count;
+                var fossilID = (ushort)item.FreeParam;
                 var fossilName = GetItemName(fossilID);
                 return $"{display} - {fossilName}";
             }
@@ -129,30 +131,18 @@ namespace NHSE.Core
             return GetItemName(index);
         }
 
-        public string GetItemName(FieldItem item)
-        {
-            var index = item.DisplayItemId;
-            if (index == FieldItem.NONE)
-                return itemlist[0];
-
-            var items = itemlistdisplay;
-            if (index >= items.Length)
-            {
-                if (FieldItemList.Items.TryGetValue(index, out var val))
-                    return val.Name;
-                return "???";
-            }
-
-            if (item.IsRoot)
-                return GetItemName((IHeldItem)item);
-            return GetItemName(index);
-        }
-
         public string GetItemName(ushort index)
         {
             if (index >= itemlistdisplay.Length)
-                return "???";
+                return GetItemName60000(index);
             return itemlistdisplay[index];
+        }
+
+        private static string GetItemName60000(ushort index)
+        {
+            if (FieldItemList.Items.TryGetValue(index, out var val))
+                return val.Name;
+            return "???";
         }
     }
 }

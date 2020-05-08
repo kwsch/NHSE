@@ -17,7 +17,7 @@ namespace NHSE.Sprites
             return ImageUtil.GetBitmap(bmpData, width, height);
         }
 
-        private static void LoadBitmapLayer(FieldItem[] items, int[] bmpData, int width, int height)
+        private static void LoadBitmapLayer(Item[] items, int[] bmpData, int width, int height)
         {
             for (int x = 0; x < width; x++)
             {
@@ -59,7 +59,7 @@ namespace NHSE.Sprites
             ImageUtil.ScalePixelImage(acre1, acreScale, w, h, scale);
 
             if (transparency >> 24 != 0xFF)
-                ImageUtil.SetAllTransparencyTo(acreScale, transparency);
+                ImageUtil.ClampAllTransparencyTo(acreScale, transparency);
 
             // draw symbols over special items now?
             DrawDirectionals(acreScale, layer, w, x0, y0, scale);
@@ -109,7 +109,7 @@ namespace NHSE.Sprites
             }
         }
 
-        private static void DrawDirectional(int[] data, FieldItem tile, int x0, int y0, int scale, int w)
+        private static void DrawDirectional(int[] data, Item tile, int x0, int y0, int scale, int w)
         {
             var eX = tile.ExtensionX;
             var eY = tile.ExtensionY;
@@ -155,7 +155,7 @@ namespace NHSE.Sprites
         {
             LoadBitmapLayer(layer.Tiles, data, layer.MapWidth, layer.MapHeight);
             if (transparency >> 24 != 0xFF)
-                ImageUtil.SetAllTransparencyTo(data, transparency);
+                ImageUtil.ClampAllTransparencyTo(data, transparency);
             ImageUtil.SetBitmapData(dest, data);
             return DrawViewReticle(dest, layer, x, y);
         }

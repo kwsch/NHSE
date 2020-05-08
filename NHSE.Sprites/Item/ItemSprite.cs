@@ -23,16 +23,18 @@ namespace NHSE.Sprites
             foreach (var f in files)
             {
                 var fn = Path.GetFileNameWithoutExtension(f);
+                if (fn == null)
+                    continue;
                 FileLookup.Add(fn, f);
             }
         }
 
-        public static Bitmap GetItemMarkup(IHeldItem item, Font font, int width, int height, Bitmap backing)
+        public static Bitmap GetItemMarkup(Item item, Font font, int width, int height, Bitmap backing)
         {
             return CreateFake(item, font, width, height, backing);
         }
 
-        public static Image? GetItemSprite(IHeldItem item)
+        public static Image? GetItemSprite(Item item)
         {
             var id = item.ItemId;
 
@@ -66,7 +68,7 @@ namespace NHSE.Sprites
             return FileLookup.TryGetValue(name, out path);
         }
 
-        public static Bitmap? GetImage(IHeldItem item, Font font, int width, int height)
+        public static Bitmap? GetImage(Item item, Font font, int width, int height)
         {
             if (item.ItemId == Item.NONE)
                 return null;
@@ -77,25 +79,25 @@ namespace NHSE.Sprites
         private static readonly StringFormat Center = new StringFormat
         { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
 
-        public static Bitmap CreateFake(IHeldItem item, Font font, int width, int height)
+        public static Bitmap CreateFake(Item item, Font font, int width, int height)
         {
             var bmp = new Bitmap(width, height);
             return CreateFake(item, font, width, height, bmp);
         }
 
-        private static Bitmap CreateFake(IHeldItem item, Font font, int width, int height, Bitmap bmp)
+        private static Bitmap CreateFake(Item item, Font font, int width, int height, Bitmap bmp)
         {
             using var gfx = Graphics.FromImage(bmp);
             DrawItemAt(gfx, item, font, width, height);
             return bmp;
         }
 
-        public static void DrawItemAt(Graphics gfx, IHeldItem item, Font font, int width, int height)
+        public static void DrawItemAt(Graphics gfx, Item item, Font font, int width, int height)
         {
             DrawInfo(gfx, font, item, width, height, Brushes.Black);
         }
 
-        private static void DrawInfo(Graphics gfx, Font font, IHeldItem item, int width, int height, Brush brush)
+        private static void DrawInfo(Graphics gfx, Font font, Item item, int width, int height, Brush brush)
         {
             if (item.Count != 0)
                 gfx.DrawString(item.Count.ToString(), font, brush, 0, 0);

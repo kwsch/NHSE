@@ -10,7 +10,7 @@ namespace NHSE.Sprites
         private static readonly Color[] Colors = ((KnownColor[])Enum.GetValues(typeof(KnownColor)))
             .Select(Color.FromKnownColor).Select(z => ColorUtil.Blend(Color.White, z, 0.5d)).ToArray();
 
-        public static Color GetItemColor(IHeldItem item)
+        public static Color GetItemColor(Item item)
         {
             if (item.ItemId == Item.NONE)
                 return Color.Transparent;

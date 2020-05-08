@@ -5,14 +5,18 @@ using System.Runtime.InteropServices;
 namespace NHSE.Core
 {
     [StructLayout(LayoutKind.Explicit, Size = SIZE, Pack = 1)]
-    public class Item : IHeldItem, ICopyableItem<IHeldItem>
+    public class Item : ICopyableItem<Item>
     {
         public static readonly Item NO_ITEM = new Item {ItemId = NONE};
         public const ushort NONE = 0xFFFE;
+        public const ushort EXTENSION = 0xFFFD;
+
+        public const ushort MessageBottle = 0x16A1;
         public const ushort DIYRecipe = 0x16A2;
+        public const ushort MessageBottleEgg = 0x3100;
         public const int SIZE = 8;
 
-        private static readonly ushort[] resolvedItemIdArray =
+        private static readonly ushort[] WrappingRedirect =
         {
             0x1E13, 0x1E14, 0x1E15, 0x1E16, 0x1E17, 0x1E18, 0x1E19, 0x1E1A,
             0x1E1B, 0x1E1C, 0x1E1D, 0x1E1E, 0x1E1F, 0x1E20, 0x1E21, 0x1E22
@@ -22,6 +26,12 @@ namespace NHSE.Core
         [field: FieldOffset(2)] public byte SystemParam { get; set; }
         [field: FieldOffset(3)] public byte AdditionalParam { get; set; }
         [field: FieldOffset(4)] public int FreeParam { get; set; }
+
+        public int Rotation => SystemParam & 3;
+        public bool IsBuried => (SystemParam & 4) != 0;
+
+        public ItemWrapping WrappingType => (ItemWrapping)(AdditionalParam & 3);
+        public int WrappingIndex => (AdditionalParam >> 2) & 0xF;
 
         #region Stackable Items
         [field: FieldOffset(4)] public ushort Count { get; set; }
@@ -111,36 +121,48 @@ namespace NHSE.Core
 
         #endregion
 
-        public ItemType Type => (ItemType) (AdditionalParam & 3);
-        public int ReservedIndex => (AdditionalParam >> 2) & 0xF;
+        #region Item Extensions
+        public ushort DisplayItemId => IsExtension ? ExtensionItemId : ItemId;
+        public bool IsNone => ItemId == NONE;
+        public bool IsExtension => ItemId == EXTENSION;
+        public bool IsRoot => ItemId < EXTENSION;
+        [field: FieldOffset(4)] public ushort ExtensionItemId { get; set; }
+        [field: FieldOffset(6)] public byte ExtensionX { get; set; }
+        [field: FieldOffset(7)] public byte ExtensionY { get; set; }
+
+        public void SetAsExtension(Item tile, byte x, byte y)
+        {
+            ItemId = EXTENSION;
+            SystemParam = 0;
+            AdditionalParam = 0;
+            ExtensionX = x;
+            ExtensionY = y;
+            ExtensionItemId = tile.ItemId;
+        }
+        #endregion
 
         public Item() { } // marshalling
 
-        public Item(ushort itemId = NONE, byte systemParam = 0, byte additionalParam = 0, byte count = 0, ushort useCount = 0)
+        public Item(ushort itemId = NONE)
         {
             ItemId = itemId;
-            SystemParam = systemParam;
-            AdditionalParam = additionalParam;
-            Count = count;
-            UseCount = useCount;
         }
 
         public void Delete()
         {
             ItemId = NONE;
             SystemParam = AdditionalParam = 0;
-            Count = UseCount = 0;
+            FreeParam = 0;
         }
 
         public virtual int Size => SIZE;
 
-        public void CopyFrom(IHeldItem item)
+        public void CopyFrom(Item item)
         {
             ItemId = item.ItemId;
             SystemParam = item.SystemParam;
             AdditionalParam = item.AdditionalParam;
-            Count = item.Count;
-            UseCount = item.UseCount;
+            FreeParam = item.FreeParam;
         }
 
         public static Item[] GetArray(byte[] data) => data.GetArray<Item>(SIZE);
@@ -148,14 +170,14 @@ namespace NHSE.Core
 
         public ushort GetInventoryNameFromFlags()
         {
-            if (ItemId == 0x16A1 || ItemId == 0x3100)
+            if (ItemId == MessageBottle || ItemId == MessageBottleEgg)
                 return ItemId;
 
-            return Type switch
+            return WrappingType switch
             {
-                ItemType.Reserved => resolvedItemIdArray[ReservedIndex],
-                ItemType.Present => 0x1180,
-                ItemType.Delivery => 0x1225,
+                ItemWrapping.Reserved => WrappingRedirect[WrappingIndex],
+                ItemWrapping.Present => 0x1180,
+                ItemWrapping.Delivery => 0x1225,
                 _ => ItemId,
             };
         }

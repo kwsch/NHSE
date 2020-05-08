@@ -125,17 +125,5 @@ namespace NHSE.Sprites
             for (int i = 0; i < data.Length; i++)
                 data[i] &= trans;
         }
-
-        /// <summary>
-        /// Sets a bitwise and of the requested transparency; this is assuming the pixel value is 0xFF_xx_xx_xx. Single operation laziness!
-        /// </summary>
-        public static void SetAllTransparencyTo(int[] data, int color)
-        {
-            for (int i = 0; i < data.Length; i++)
-            {
-                if ((data[i] & 0xFF000000) == 0)
-                    data[i] = color;
-            }
-        }
     }
 }

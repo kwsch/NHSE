@@ -40,7 +40,7 @@ namespace NHSE.WinForms
                 LB_Items.Items.Add(obj.ToString());
 
             ReloadMapBackground();
-            PG_Tile.SelectedObject = new FieldItem();
+            PG_Tile.SelectedObject = new Item();
             PG_TerrainTile.SelectedObject = new TerrainTile();
             LB_Items.SelectedIndex = 0;
             CB_Acre.SelectedIndex = 0;
@@ -127,7 +127,7 @@ namespace NHSE.WinForms
             OmniTileTerrain(tile);
         }
 
-        private void OmniTile(FieldItem tile, int x, int y)
+        private void OmniTile(Item tile, int x, int y)
         {
             switch (ModifierKeys)
             {
@@ -159,7 +159,7 @@ namespace NHSE.WinForms
             }
         }
 
-        private FieldItem GetTile(FieldItemLayer layer, MouseEventArgs e, out int x, out int y)
+        private Item GetTile(FieldItemLayer layer, MouseEventArgs e, out int x, out int y)
         {
             SetHoveredItem(e);
             return layer.GetTile(x = View.X + HoverX, y = View.Y + HoverY);
@@ -185,9 +185,9 @@ namespace NHSE.WinForms
             SetCoordinateText(x, y);
         }
 
-        private void ViewTile(FieldItem tile)
+        private void ViewTile(Item tile)
         {
-            var pgt = (FieldItem)PG_Tile.SelectedObject;
+            var pgt = (Item)PG_Tile.SelectedObject;
             pgt.CopyFrom(tile);
             PG_Tile.SelectedObject = pgt;
             TC_Editor.SelectedTab = Tab_Item;
@@ -201,10 +201,10 @@ namespace NHSE.WinForms
             TC_Editor.SelectedTab = Tab_Terrain;
         }
 
-        private void SetTile(FieldItem tile, int x, int y)
+        private void SetTile(Item tile, int x, int y)
         {
             var l = Map.CurrentLayer;
-            var pgt = (FieldItem)PG_Tile.SelectedObject;
+            var pgt = (Item)PG_Tile.SelectedObject;
             var permission = l.IsOccupied(pgt, x, y);
             switch (permission)
             {
@@ -234,7 +234,7 @@ namespace NHSE.WinForms
             ReloadBuildingsTerrain();
         }
 
-        private void DeleteTile(FieldItem tile, int x, int y)
+        private void DeleteTile(Item tile, int x, int y)
         {
             if (tile.IsRoot && CHK_AutoExtension.Checked)
                 Map.CurrentLayer.DeleteExtensionTiles(tile, x, y);

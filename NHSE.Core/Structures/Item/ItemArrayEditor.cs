@@ -2,7 +2,7 @@
 
 namespace NHSE.Core
 {
-    public class ItemArrayEditor<T> where T : class, IHeldItem, ICopyableItem<T>
+    public class ItemArrayEditor<T> where T : Item, ICopyableItem<T>
     {
         public readonly IReadOnlyList<T> Items;
         public ItemArrayEditor(IReadOnlyList<T> items) => Items = items;

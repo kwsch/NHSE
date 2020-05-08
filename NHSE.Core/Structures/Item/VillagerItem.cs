@@ -24,7 +24,7 @@ namespace NHSE.Core
 
         public void CopyFrom(VillagerItem item)
         {
-            CopyFrom((IHeldItem) item);
+            CopyFrom((Item) item);
             U08 = item.U08;
             U0C = item.U0C;
             U10 = item.U10;

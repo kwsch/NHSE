@@ -1,6 +1,6 @@
 ﻿namespace NHSE.Core
 {
-    public enum ItemType
+    public enum ItemWrapping
     {
         Nothing = 0,
         Reserved = 1,

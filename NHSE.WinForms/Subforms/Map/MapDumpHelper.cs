@@ -20,7 +20,7 @@ namespace NHSE.WinForms
             var path = ofd.FileName;
             var fi = new FileInfo(path);
 
-            int expect = layer.AcreTileCount * FieldItem.SIZE;
+            int expect = layer.AcreTileCount * Item.SIZE;
             if (fi.Length != expect)
             {
                 WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expect));
@@ -45,7 +45,7 @@ namespace NHSE.WinForms
             var path = ofd.FileName;
             var fi = new FileInfo(path);
 
-            int expect = layer.MapTileCount * FieldItem.SIZE;
+            int expect = layer.MapTileCount * Item.SIZE;
             if (fi.Length != expect)
             {
                 WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expect));

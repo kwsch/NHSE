@@ -7,7 +7,7 @@ namespace NHSE.Sprites
 {
     public static class FieldItemColor
     {
-        public static Color GetItemColor(FieldItem item)
+        public static Color GetItemColor(Item item)
         {
             var kind = ItemInfo.GetItemKind(item);
             if (kind == ItemKind.Unknown)
@@ -15,10 +15,10 @@ namespace NHSE.Sprites
             return Colors[(int)kind];
         }
 
-        private static Color GetItemColor60000(FieldItem item)
+        private static Color GetItemColor60000(Item item)
         {
             var id = item.DisplayItemId;
-            if (id == FieldItem.NONE)
+            if (id == Item.NONE)
                 return Color.Transparent;
 
             if (!FieldItemList.Items.TryGetValue(id, out var def))
