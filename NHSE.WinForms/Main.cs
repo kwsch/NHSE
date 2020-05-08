@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Injection;
+using NHSE.Sprites;
 using NHSE.WinForms.Properties;
 
 namespace NHSE.WinForms
@@ -176,6 +177,7 @@ namespace NHSE.WinForms
                 }
                 case Keys.I:
                 {
+                    ItemSprite.Initialize(ItemPath, GameInfo.GetStrings("en").itemlist);
                     var items = new Item[40];
                     for (int i = 0; i < items.Length; i++)
                         items[i] = new Item(Item.NONE);
