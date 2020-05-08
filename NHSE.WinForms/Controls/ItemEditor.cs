@@ -12,6 +12,7 @@ namespace NHSE.WinForms
         private readonly CheckBox[] Watered;
 
         private bool Loading = true;
+        private bool CanExtend;
 
         public ItemEditor()
         {
@@ -27,8 +28,10 @@ namespace NHSE.WinForms
             };
         }
 
-        public void Initialize(List<ComboItem> items)
+        public void Initialize(IList<ComboItem> items, bool canExtend = false)
         {
+            CHK_IsExtension.Visible = CanExtend = canExtend;
+
             CB_ItemID.DisplayMember = nameof(ComboItem.Text);
             CB_ItemID.ValueMember = nameof(ComboItem.Value);
             CB_ItemID.DataSource = items;
@@ -47,8 +50,13 @@ namespace NHSE.WinForms
         public Item LoadItem(Item item)
         {
             Loading = true;
-            CB_ItemID.SelectedValue = (int)item.ItemId;
-            var kind = ItemInfo.GetItemKind(item.ItemId);
+            var id = item.ItemId;
+            if (CanExtend && id == Item.EXTENSION)
+                return LoadExtensionItem(item);
+
+            CHK_IsExtension.Checked = false;
+            CB_ItemID.SelectedValue = (int)id;
+            var kind = ItemInfo.GetItemKind(id);
 
             if (kind.IsFlower())
             {
@@ -73,8 +81,20 @@ namespace NHSE.WinForms
             return item;
         }
 
+        private Item LoadExtensionItem(Item item)
+        {
+            CB_ItemID.SelectedValue = (int) item.ExtensionItemId;
+            CHK_IsExtension.Checked = true;
+            NUD_ExtensionX.Value = item.ExtensionX;
+            NUD_ExtensionY.Value = item.ExtensionY;
+            return item;
+        }
+
         public Item SetItem(Item item)
         {
+            if (CHK_IsExtension.Checked)
+                return SetExtensionItem(item);
+
             var id = (ushort)WinFormsUtil.GetIndex(CB_ItemID);
             var kind = ItemInfo.GetItemKind(id);
 
@@ -95,6 +115,16 @@ namespace NHSE.WinForms
                 item.SystemParam = (byte)NUD_Flag0.Value;
                 item.AdditionalParam = (byte)NUD_Flag1.Value;
             }
+            return item;
+        }
+
+        private Item SetExtensionItem(Item item)
+        {
+            var id = (ushort)WinFormsUtil.GetIndex(CB_ItemID);
+            item.ItemId = Item.EXTENSION;
+            item.ExtensionItemId = id;
+            item.ExtensionX = (byte) NUD_ExtensionX.Value;
+            item.ExtensionY = (byte) NUD_ExtensionY.Value;
             return item;
         }
 
@@ -147,7 +177,7 @@ namespace NHSE.WinForms
             {
                 CB_Recipe.Visible = false;
                 FLP_Uses.Visible = FLP_Count.Visible = FLP_Flag0.Visible = FLP_Flag1.Visible = false;
-                FLP_FlowerFlags.Visible = FLP_Genetics.Visible = true;
+                FLP_Flower.Visible = true;
                 return;
             }
 
@@ -158,7 +188,7 @@ namespace NHSE.WinForms
 
                     CB_Recipe.Visible = false;
                     FLP_Uses.Visible = FLP_Count.Visible = FLP_Flag0.Visible = FLP_Flag1.Visible = false;
-                    FLP_FlowerFlags.Visible = FLP_Genetics.Visible = false;
+                    FLP_Flower.Visible = false;
                     break;
 
                 case ItemKind.Kind_DIYRecipe:
@@ -167,14 +197,14 @@ namespace NHSE.WinForms
 
                     CB_Fossil.Visible = false;
                     FLP_Uses.Visible = FLP_Count.Visible = FLP_Flag0.Visible = FLP_Flag1.Visible = false;
-                    FLP_FlowerFlags.Visible = FLP_Genetics.Visible = false;
+                    FLP_Flower.Visible = false;
                     break;
 
                 default:
                     CB_Fossil.Visible = false;
                     CB_Recipe.Visible = false;
                     FLP_Uses.Visible = FLP_Count.Visible = FLP_Flag0.Visible = FLP_Flag1.Visible = true;
-                    FLP_FlowerFlags.Visible = FLP_Genetics.Visible = false;
+                    FLP_Flower.Visible = false;
                     break;
             }
         }
@@ -222,5 +252,19 @@ namespace NHSE.WinForms
         }
 
         private void CB_KeyDown(object sender, KeyEventArgs e) => WinFormsUtil.RemoveDropCB(sender, e);
+
+        private void CHK_IsExtension_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CHK_IsExtension.Checked)
+            {
+                FLP_Item.Visible = false;
+                FLP_Extension.Visible = true;
+            }
+            else
+            {
+                FLP_Item.Visible = true;
+                FLP_Extension.Visible = false;
+            }
+        }
     }
 }
