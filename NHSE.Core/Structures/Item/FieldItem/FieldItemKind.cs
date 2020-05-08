@@ -76,6 +76,8 @@ namespace NHSE.Core
                 return ItemKind.Kind_Tree;
             if (type.IsFlower())
                 return ItemKind.Kind_Flower;
+            if (type.IsWeed())
+                return ItemKind.Kind_Weed;
             return ItemKind.Unknown;
         }
     }
