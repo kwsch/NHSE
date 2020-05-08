@@ -73,6 +73,7 @@ Editor.CHK_VillagerMovingOut=Moving Out
 Editor.L_BankBells=Bayas (Banco):
 Editor.L_Catchphrase=Catchphrase:
 Editor.L_EarnedMiles=Earned Miles:
+Editor.L_Hemisphere=Hemisphere
 Editor.L_NookMiles=Millas Nook:
 Editor.L_Personality=Personalidad:
 Editor.L_PlayerName=Nombre del Jugador:

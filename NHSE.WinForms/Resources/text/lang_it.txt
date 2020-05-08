@@ -73,6 +73,7 @@ Editor.CHK_VillagerMovingOut=Trasloco
 Editor.L_BankBells=Stelline banca:
 Editor.L_Catchphrase=Frase ad effetto:
 Editor.L_EarnedMiles=Earned Miles:
+Editor.L_Hemisphere=Hemisphere
 Editor.L_NookMiles=Miglia Nook:
 Editor.L_Personality=Personalità:
 Editor.L_PlayerName=Nome giocatore:

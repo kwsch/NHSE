@@ -19,6 +19,8 @@ namespace NHSE.Core
         public abstract int PatternsPRO { get; }
         public abstract int PatternFlag { get; }
 
+        public abstract int Hemisphere { get; }
+
         public abstract int MainFieldStructure { get; }
 
         public abstract int EventFlagLand { get; }

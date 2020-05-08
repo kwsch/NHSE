@@ -11,6 +11,8 @@ namespace NHSE.Core
         public readonly MainSaveOffsets Offsets;
         public MainSave(string folder) : base(folder, "main") => Offsets = MainSaveOffsets.GetOffsets(Info);
 
+        public Hemisphere Hemisphere { get => (Hemisphere)Data[Offsets.Hemisphere]; set => Data[Offsets.Hemisphere] = (byte)value; }
+
         public Villager GetVillager(int index) => Offsets.ReadVillager(Data, index);
         public void SetVillager(Villager value, int index) => Offsets.WriteVillager(value, Data, index);
 

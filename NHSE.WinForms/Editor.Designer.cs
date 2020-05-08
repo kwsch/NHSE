@@ -59,6 +59,8 @@
             this.B_RecycleBin = new System.Windows.Forms.Button();
             this.Tab_Villagers = new System.Windows.Forms.TabPage();
             this.Tab_Players = new System.Windows.Forms.TabPage();
+            this.L_EarnedMiles = new System.Windows.Forms.Label();
+            this.NUD_TotalNookMiles = new System.Windows.Forms.NumericUpDown();
             this.L_StorageCount = new System.Windows.Forms.Label();
             this.NUD_StorageCount = new System.Windows.Forms.NumericUpDown();
             this.L_PocketCount2 = new System.Windows.Forms.Label();
@@ -71,6 +73,7 @@
             this.B_EditPlayerReceivedItems = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditAchievements = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditPlayerRecipes = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditPlayerFlags = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditPlayerItems = new System.Windows.Forms.Button();
             this.L_Wallet = new System.Windows.Forms.Label();
             this.NUD_Wallet = new System.Windows.Forms.NumericUpDown();
@@ -85,14 +88,14 @@
             this.CB_Players = new System.Windows.Forms.ComboBox();
             this.PB_Player = new System.Windows.Forms.PictureBox();
             this.TC_Editors = new System.Windows.Forms.TabControl();
-            this.B_EditPlayerFlags = new System.Windows.Forms.ToolStripMenuItem();
-            this.L_EarnedMiles = new System.Windows.Forms.Label();
-            this.NUD_TotalNookMiles = new System.Windows.Forms.NumericUpDown();
+            this.CB_Hemisphere = new System.Windows.Forms.ComboBox();
+            this.L_Hemisphere = new System.Windows.Forms.Label();
             this.Menu_Editor.SuspendLayout();
             this.CM_Picture.SuspendLayout();
             this.Tab_Map.SuspendLayout();
             this.CM_EditMap.SuspendLayout();
             this.Tab_Players.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_TotalNookMiles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_StorageCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_PocketCount2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_PocketCount1)).BeginInit();
@@ -102,7 +105,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).BeginInit();
             this.TC_Editors.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_TotalNookMiles)).BeginInit();
             this.SuspendLayout();
             // 
             // Menu_Editor
@@ -228,6 +230,8 @@
             // 
             // Tab_Map
             // 
+            this.Tab_Map.Controls.Add(this.L_Hemisphere);
+            this.Tab_Map.Controls.Add(this.CB_Hemisphere);
             this.Tab_Map.Controls.Add(this.B_EditPlayerHouses);
             this.Tab_Map.Controls.Add(this.B_EditMap);
             this.Tab_Map.Controls.Add(this.B_EditPRODesigns);
@@ -402,6 +406,27 @@
             this.Tab_Players.Text = "Players";
             this.Tab_Players.UseVisualStyleBackColor = true;
             // 
+            // L_EarnedMiles
+            // 
+            this.L_EarnedMiles.Location = new System.Drawing.Point(142, 117);
+            this.L_EarnedMiles.Name = "L_EarnedMiles";
+            this.L_EarnedMiles.Size = new System.Drawing.Size(84, 20);
+            this.L_EarnedMiles.TabIndex = 26;
+            this.L_EarnedMiles.Text = "Earned Miles:";
+            this.L_EarnedMiles.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // NUD_TotalNookMiles
+            // 
+            this.NUD_TotalNookMiles.Location = new System.Drawing.Point(232, 117);
+            this.NUD_TotalNookMiles.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.NUD_TotalNookMiles.Name = "NUD_TotalNookMiles";
+            this.NUD_TotalNookMiles.Size = new System.Drawing.Size(100, 20);
+            this.NUD_TotalNookMiles.TabIndex = 25;
+            // 
             // L_StorageCount
             // 
             this.L_StorageCount.AutoSize = true;
@@ -532,6 +557,13 @@
             this.B_EditPlayerRecipes.Size = new System.Drawing.Size(176, 22);
             this.B_EditPlayerRecipes.Text = "Edit Recipes";
             this.B_EditPlayerRecipes.Click += new System.EventHandler(this.B_EditPlayerRecipes_Click);
+            // 
+            // B_EditPlayerFlags
+            // 
+            this.B_EditPlayerFlags.Name = "B_EditPlayerFlags";
+            this.B_EditPlayerFlags.Size = new System.Drawing.Size(176, 22);
+            this.B_EditPlayerFlags.Text = "Edit Flags";
+            this.B_EditPlayerFlags.Click += new System.EventHandler(this.B_EditPlayerFlags_Click);
             // 
             // B_EditPlayerItems
             // 
@@ -671,33 +703,23 @@
             this.TC_Editors.Size = new System.Drawing.Size(404, 237);
             this.TC_Editors.TabIndex = 1;
             // 
-            // B_EditPlayerFlags
+            // CB_Hemisphere
             // 
-            this.B_EditPlayerFlags.Name = "B_EditPlayerFlags";
-            this.B_EditPlayerFlags.Size = new System.Drawing.Size(176, 22);
-            this.B_EditPlayerFlags.Text = "Edit Flags";
-            this.B_EditPlayerFlags.Click += new System.EventHandler(this.B_EditPlayerFlags_Click);
+            this.CB_Hemisphere.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_Hemisphere.FormattingEnabled = true;
+            this.CB_Hemisphere.Location = new System.Drawing.Point(202, 6);
+            this.CB_Hemisphere.Name = "CB_Hemisphere";
+            this.CB_Hemisphere.Size = new System.Drawing.Size(92, 21);
+            this.CB_Hemisphere.TabIndex = 57;
             // 
-            // L_EarnedMiles
+            // L_Hemisphere
             // 
-            this.L_EarnedMiles.Location = new System.Drawing.Point(142, 117);
-            this.L_EarnedMiles.Name = "L_EarnedMiles";
-            this.L_EarnedMiles.Size = new System.Drawing.Size(84, 20);
-            this.L_EarnedMiles.TabIndex = 26;
-            this.L_EarnedMiles.Text = "Earned Miles:";
-            this.L_EarnedMiles.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // NUD_TotalNookMiles
-            // 
-            this.NUD_TotalNookMiles.Location = new System.Drawing.Point(232, 117);
-            this.NUD_TotalNookMiles.Maximum = new decimal(new int[] {
-            2147483647,
-            0,
-            0,
-            0});
-            this.NUD_TotalNookMiles.Name = "NUD_TotalNookMiles";
-            this.NUD_TotalNookMiles.Size = new System.Drawing.Size(100, 20);
-            this.NUD_TotalNookMiles.TabIndex = 25;
+            this.L_Hemisphere.AutoSize = true;
+            this.L_Hemisphere.Location = new System.Drawing.Point(300, 9);
+            this.L_Hemisphere.Name = "L_Hemisphere";
+            this.L_Hemisphere.Size = new System.Drawing.Size(63, 13);
+            this.L_Hemisphere.TabIndex = 58;
+            this.L_Hemisphere.Text = "Hemisphere";
             // 
             // Editor
             // 
@@ -716,9 +738,11 @@
             this.Menu_Editor.PerformLayout();
             this.CM_Picture.ResumeLayout(false);
             this.Tab_Map.ResumeLayout(false);
+            this.Tab_Map.PerformLayout();
             this.CM_EditMap.ResumeLayout(false);
             this.Tab_Players.ResumeLayout(false);
             this.Tab_Players.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_TotalNookMiles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_StorageCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_PocketCount2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_PocketCount1)).EndInit();
@@ -728,7 +752,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).EndInit();
             this.TC_Editors.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_TotalNookMiles)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -794,6 +817,8 @@
         private System.Windows.Forms.ToolStripMenuItem B_EditPlayerFlags;
         private System.Windows.Forms.Label L_EarnedMiles;
         private System.Windows.Forms.NumericUpDown NUD_TotalNookMiles;
+        private System.Windows.Forms.Label L_Hemisphere;
+        private System.Windows.Forms.ComboBox CB_Hemisphere;
     }
 }
 

@@ -73,6 +73,7 @@ Editor.CHK_VillagerMovingOut=Moving Out
 Editor.L_BankBells=Bank Bells:
 Editor.L_Catchphrase=Catchphrase:
 Editor.L_EarnedMiles=Earned Miles:
+Editor.L_Hemisphere=Hemisphere
 Editor.L_NookMiles=Nook Miles:
 Editor.L_Personality=Personality:
 Editor.L_PlayerName=Player Name:

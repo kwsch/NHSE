@@ -26,6 +26,8 @@ namespace NHSE.WinForms
             LoadPlayers();
             Villagers = LoadVillagers();
 
+            LoadMain();
+
             var lang = Settings.Default.Language;
             var index = GameLanguage.GetLanguageIndex(lang);
             Menu_Language.SelectedIndex = index; // triggers translation
@@ -163,6 +165,19 @@ namespace NHSE.WinForms
             SavePlayer(PlayerIndex);
             Villagers.Save();
             SAV.Main.SetVillagers(Villagers.Villagers);
+        }
+
+        private void LoadMain()
+        {
+            var names = Enum.GetNames(typeof(Hemisphere));
+            foreach (var n in names)
+                CB_Hemisphere.Items.Add(n);
+            CB_Hemisphere.SelectedIndex = (int)SAV.Main.Hemisphere;
+        }
+
+        private void SaveMain()
+        {
+            SAV.Main.Hemisphere = (Hemisphere)CB_Hemisphere.SelectedIndex;
         }
 
         #region Player Editing

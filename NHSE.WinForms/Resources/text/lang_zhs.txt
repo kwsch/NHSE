@@ -73,6 +73,7 @@ Editor.CHK_VillagerMovingOut=赶走岛民
 Editor.L_BankBells=银行存款:
 Editor.L_Catchphrase=口头禅:
 Editor.L_EarnedMiles=Earned Miles:
+Editor.L_Hemisphere=Hemisphere
 Editor.L_NookMiles=Nook 里程:
 Editor.L_Personality=个性:
 Editor.L_PlayerName=玩家名称:
