@@ -29,6 +29,7 @@
         public override int ItemChest => PlayerOther + 0x18C;
         public override int ItemCollectBit => PlayerOther + 0xA04C;
         public override int ItemRemakeCollectBit => PlayerOther + 0xA7A0;
+        public override int Manpu => PlayerOther + 0xAF70;
         public override int Bank => PlayerOther + 0x33014;
         public override int Recipes => Bank + 0x10;
 

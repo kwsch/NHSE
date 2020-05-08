@@ -20,6 +20,7 @@ namespace NHSE.Core
         public abstract int ItemChest { get; }
         public abstract int ItemCollectBit { get; }
         public abstract int ItemRemakeCollectBit { get; }
+        public abstract int Manpu { get; } // reactions
 
         public abstract int Bank { get; }
         public abstract int Recipes { get; }
