@@ -63,8 +63,8 @@ namespace NHSE.WinForms
             {
                 NUD_Count.Value = item.Count;
                 NUD_Uses.Value = item.UseCount;
-                NUD_Flag0.Value = item.Flags0;
-                NUD_Flag1.Value = item.Flags1;
+                NUD_Flag0.Value = item.SystemParam;
+                NUD_Flag1.Value = item.AdditionalParam;
 
                 LoadItemTypeValues(kind);
             }
@@ -92,8 +92,8 @@ namespace NHSE.WinForms
             {
                 item.Count = (ushort)NUD_Count.Value;
                 item.UseCount = (ushort)NUD_Uses.Value;
-                item.Flags0 = (byte)NUD_Flag0.Value;
-                item.Flags1 = (byte)NUD_Flag1.Value;
+                item.SystemParam = (byte)NUD_Flag0.Value;
+                item.AdditionalParam = (byte)NUD_Flag1.Value;
             }
             return item;
         }

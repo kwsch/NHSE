@@ -19,10 +19,34 @@ namespace NHSE.Core
         };
 
         [field: FieldOffset(0)] public ushort ItemId { get; set; }
-        [field: FieldOffset(2)] public byte Flags0 { get; set; }
-        [field: FieldOffset(3)] public byte Flags1 { get; set; }
+        [field: FieldOffset(2)] public byte SystemParam { get; set; }
+        [field: FieldOffset(3)] public byte AdditionalParam { get; set; }
+        [field: FieldOffset(4)] public int FreeParam { get; set; }
+
+        #region Stackable Items
         [field: FieldOffset(4)] public ushort Count { get; set; }
         [field: FieldOffset(6)] public ushort UseCount { get; set; }
+        #endregion
+
+        #region Customizable Items
+        public int BodyType
+        {
+            get => FreeParam & 7;
+            set => FreeParam = (FreeParam & ~7) | (value & 7);
+        }
+
+        public int PatternSource // see RemakeDesignSource
+        {
+            get => (FreeParam >> 3) & 3;
+            set => FreeParam = (FreeParam & ~0x18) | ((value & 3) << 3);
+        }
+
+        public int PatternChoice
+        {
+            get => FreeParam >> 5;
+            set => FreeParam = (FreeParam & 0x1F) | ((value & 0x7FF) << 5);
+        }
+        #endregion
 
         #region Flowers
 
@@ -87,16 +111,16 @@ namespace NHSE.Core
 
         #endregion
 
-        public ItemType Type => (ItemType) (Flags1 & 3);
-        public int ReservedIndex => (Flags1 >> 2) & 0xF;
+        public ItemType Type => (ItemType) (AdditionalParam & 3);
+        public int ReservedIndex => (AdditionalParam >> 2) & 0xF;
 
         public Item() { } // marshalling
 
-        public Item(ushort itemId = NONE, byte flags0 = 0, byte flags1 = 0, byte count = 0, ushort useCount = 0)
+        public Item(ushort itemId = NONE, byte systemParam = 0, byte additionalParam = 0, byte count = 0, ushort useCount = 0)
         {
             ItemId = itemId;
-            Flags0 = flags0;
-            Flags1 = flags1;
+            SystemParam = systemParam;
+            AdditionalParam = additionalParam;
             Count = count;
             UseCount = useCount;
         }
@@ -104,7 +128,7 @@ namespace NHSE.Core
         public void Delete()
         {
             ItemId = NONE;
-            Flags0 = Flags1 = 0;
+            SystemParam = AdditionalParam = 0;
             Count = UseCount = 0;
         }
 
@@ -113,8 +137,8 @@ namespace NHSE.Core
         public void CopyFrom(IHeldItem item)
         {
             ItemId = item.ItemId;
-            Flags0 = item.Flags0;
-            Flags1 = item.Flags1;
+            SystemParam = item.SystemParam;
+            AdditionalParam = item.AdditionalParam;
             Count = item.Count;
             UseCount = item.UseCount;
         }

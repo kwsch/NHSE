@@ -19,14 +19,17 @@ namespace NHSE.Core
         [Category(Derived)] public bool IsExtension => ItemType == EXTENSION;
         [Category(Derived)] public bool IsRoot => ItemType < EXTENSION;
         [Category(Derived)] public ushort DisplayItemId => IsExtension ? ExtensionItemId : ItemId;
-        [Category(Derived)] public bool IsBuried => (Flags0 & 4) != 0;
+        [Category(Derived)] public bool IsBuried => (SystemParam & 4) != 0;
 
         // Item Definition
         [field: FieldOffset(0)][Category(HeldItem)] public ushort ItemId { get; set; }
-        [field: FieldOffset(2)][Category(HeldItem)] public byte Flags0 { get; set; }
-        [field: FieldOffset(3)][Category(HeldItem)] public byte Flags1 { get; set; }
+        [field: FieldOffset(2)][Category(HeldItem)] public byte SystemParam { get; set; }
+        [field: FieldOffset(3)][Category(HeldItem)] public byte AdditionalParam { get; set; }
+        [field: FieldOffset(4)] public int FreeParam { get; set; }
+
         [field: FieldOffset(4)][Category(HeldItem)] public ushort Count { get; set; } // Tree Shake/Fossil Item ID
         [field: FieldOffset(6)][Category(HeldItem)] public ushort UseCount { get; set; }
+
         [field: FieldOffset(4)][Category(HeldItem)] public FlowerGene Genes { get; set; } // flowers only
 
         // Field Item Definition
@@ -54,8 +57,8 @@ namespace NHSE.Core
         public FieldItem(ushort itemId = NONE, byte flags0 = 0, byte flags1 = 0, byte count = 0, ushort useCount = 0)
         {
             ItemId = itemId;
-            Flags0 = flags0;
-            Flags1 = flags1;
+            SystemParam = flags0;
+            AdditionalParam = flags1;
             Count = count;
             UseCount = useCount;
         }
@@ -63,15 +66,15 @@ namespace NHSE.Core
         public void Delete()
         {
             ItemId = NONE;
-            Flags0 = Flags1 = 0;
+            SystemParam = AdditionalParam = 0;
             Count = UseCount = 0;
         }
 
         public void CopyFrom(Item item)
         {
             ItemId = item.ItemId;
-            Flags0 = item.Flags0;
-            Flags1 = item.Flags1;
+            SystemParam = item.SystemParam;
+            AdditionalParam = item.AdditionalParam;
             Count = item.Count;
             UseCount = item.UseCount;
         }

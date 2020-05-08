@@ -101,10 +101,10 @@ namespace NHSE.Sprites
                 gfx.DrawString(item.Count.ToString(), font, brush, 0, 0);
             if (item.UseCount != 0)
                 gfx.DrawString(item.UseCount.ToString(), font, brush, width >> 1, height >> 1, Center);
-            if (item.Flags0 != 0)
-                gfx.DrawString(item.Flags0.ToString(), font, brush, width - 12, 0);
-            if (item.Flags1 != 0)
-                gfx.DrawString(item.Flags1.ToString(), font, brush, 0, height - 12);
+            if (item.SystemParam != 0)
+                gfx.DrawString(item.SystemParam.ToString(), font, brush, width - 12, 0);
+            if (item.AdditionalParam != 0)
+                gfx.DrawString(item.AdditionalParam.ToString(), font, brush, 0, height - 12);
         }
     }
 }
