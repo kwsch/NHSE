@@ -220,5 +220,7 @@ namespace NHSE.WinForms
             foreach (var v in Watered)
                 v.Checked = value;
         }
+
+        private void CB_KeyDown(object sender, KeyEventArgs e) => WinFormsUtil.RemoveDropCB(sender, e);
     }
 }

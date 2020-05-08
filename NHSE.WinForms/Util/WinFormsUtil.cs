@@ -66,5 +66,7 @@ namespace NHSE.WinForms
         internal static int GetIndex(ListControl cb) => (int)(cb?.SelectedValue ?? 0);
 
         public static T? FirstFormOfType<T>() where T : Form => (T?)Application.OpenForms.Cast<Form>().FirstOrDefault(form => form is T);
+
+        public static void RemoveDropCB(object sender, KeyEventArgs e) => ((ComboBox)sender).DroppedDown = false;
     }
 }

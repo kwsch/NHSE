@@ -102,6 +102,7 @@
             this.CB_ItemID.Size = new System.Drawing.Size(141, 21);
             this.CB_ItemID.TabIndex = 1;
             this.CB_ItemID.SelectedValueChanged += new System.EventHandler(this.CB_ItemID_SelectedValueChanged);
+            this.CB_ItemID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CB_KeyDown);
             // 
             // NUD_Count
             // 
@@ -237,6 +238,7 @@
             this.CB_Recipe.TabIndex = 14;
             this.CB_Recipe.Visible = false;
             this.CB_Recipe.SelectedValueChanged += new System.EventHandler(this.CB_CountAlias_SelectedValueChanged);
+            this.CB_Recipe.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CB_KeyDown);
             // 
             // FLP_Controls
             // 
@@ -270,6 +272,7 @@
             this.CB_Fossil.TabIndex = 21;
             this.CB_Fossil.Visible = false;
             this.CB_Fossil.SelectedValueChanged += new System.EventHandler(this.CB_CountAlias_SelectedValueChanged);
+            this.CB_Fossil.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CB_KeyDown);
             // 
             // FLP_Count
             // 
