@@ -4,6 +4,14 @@ namespace NHSE.Core
 {
     public static class FieldItemList
     {
+        public static ItemKind GetFieldItemKind(ushort id)
+        {
+            if (!Items.TryGetValue(id, out var definition))
+                return ItemKind.Unknown;
+
+            return definition.Kind.ToItemKind();
+        }
+
         public static readonly IReadOnlyDictionary<ushort, FieldItemDefinition> Items = new Dictionary<ushort, FieldItemDefinition>
         {
             {0xEA60, new FieldItemDefinition(0xEA60, "PltTreeOak4", FieldItemKind.PltTreeOak)}, // 広葉樹（成木）

@@ -10,7 +10,7 @@
         public static ItemKind GetItemKind(ushort id)
         {
             if (id > ItemKinds.Length)
-                return ItemKind.Unknown;
+                return FieldItemList.GetFieldItemKind(id);
             return (ItemKind) ItemKinds[id];
         }
 

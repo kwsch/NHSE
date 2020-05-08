@@ -69,5 +69,14 @@ namespace NHSE.Core
         public static bool IsFlower(this FieldItemKind type) => PltFlwAnemone <= type && type <= PltFlwYuri;
         public static bool IsTree(this FieldItemKind type) => PltTreeBamboo <= type && type <= PltTreePalm;
         public static bool IsStone(this FieldItemKind type) => StoneA <= type && type <= StoneE;
+
+        public static ItemKind ToItemKind(this FieldItemKind type)
+        {
+            if (type.IsTree())
+                return ItemKind.Kind_Tree;
+            if (type.IsFlower())
+                return ItemKind.Kind_Flower;
+            return ItemKind.Unknown;
+        }
     }
 }
