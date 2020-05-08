@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Sprites;
@@ -40,7 +41,11 @@ namespace NHSE.WinForms
                 LB_Items.Items.Add(obj.ToString());
 
             ReloadMapBackground();
-            PG_Tile.SelectedObject = new Item();
+
+            var data = GameInfo.Strings.ItemDataSource.ToList();
+            var field = FieldItemList.Items.Select(z => z.Value).ToList();
+            data.Add(field, GameInfo.Strings.InternalNameTranslation);
+            ItemEdit.Initialize(data, true);
             PG_TerrainTile.SelectedObject = new TerrainTile();
             LB_Items.SelectedIndex = 0;
             CB_Acre.SelectedIndex = 0;
@@ -187,9 +192,7 @@ namespace NHSE.WinForms
 
         private void ViewTile(Item tile)
         {
-            var pgt = (Item)PG_Tile.SelectedObject;
-            pgt.CopyFrom(tile);
-            PG_Tile.SelectedObject = pgt;
+            ItemEdit.LoadItem(tile);
             TC_Editor.SelectedTab = Tab_Item;
         }
 
@@ -204,7 +207,8 @@ namespace NHSE.WinForms
         private void SetTile(Item tile, int x, int y)
         {
             var l = Map.CurrentLayer;
-            var pgt = (Item)PG_Tile.SelectedObject;
+            var pgt = new Item();
+            ItemEdit.SetItem(pgt);
             var permission = l.IsOccupied(pgt, x, y);
             switch (permission)
             {
@@ -520,8 +524,6 @@ namespace NHSE.WinForms
         private void B_RemoveShells_Click(object sender, EventArgs e) => Remove(B_RemoveShells, Map.CurrentLayer.RemoveAllShells);
         private void B_RemoveBranches_Click(object sender, EventArgs e) => Remove(B_RemoveBranches, Map.CurrentLayer.RemoveAllBranches);
         private void B_RemoveFlowers_Click(object sender, EventArgs e) => Remove(B_RemoveFlowers, Map.CurrentLayer.RemoveAllFlowers);
-
-        private void PG_Tile_PropertyValueChanged(object s, PropertyValueChangedEventArgs e) => PG_Tile.SelectedObject = PG_Tile.SelectedObject;
 
         private static void ShowContextMenuBelow(ToolStripDropDown c, Control n) => c.Show(n.PointToScreen(new Point(0, n.Height)));
         private void B_RemoveItemDropDown_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_Remove, B_RemoveItemDropDown);

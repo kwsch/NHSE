@@ -32,7 +32,6 @@
             this.components = new System.ComponentModel.Container();
             this.B_Cancel = new System.Windows.Forms.Button();
             this.B_Save = new System.Windows.Forms.Button();
-            this.PG_Tile = new System.Windows.Forms.PropertyGrid();
             this.CB_Acre = new System.Windows.Forms.ComboBox();
             this.L_Acre = new System.Windows.Forms.Label();
             this.CM_Click = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -62,11 +61,15 @@
             this.B_RemoveObjects = new System.Windows.Forms.ToolStripMenuItem();
             this.B_RemovePlacedItems = new System.Windows.Forms.ToolStripMenuItem();
             this.B_RemoveFences = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_RemoveBranches = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_RemoveShells = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_RemoveFlowers = new System.Windows.Forms.ToolStripMenuItem();
             this.B_FillHoles = new System.Windows.Forms.ToolStripMenuItem();
             this.B_RemoveAll = new System.Windows.Forms.ToolStripMenuItem();
             this.GB_Remove = new System.Windows.Forms.Label();
             this.TC_Editor = new System.Windows.Forms.TabControl();
             this.Tab_Item = new System.Windows.Forms.TabPage();
+            this.ItemEdit = new NHSE.WinForms.ItemEditor();
             this.B_DumpLoadField = new System.Windows.Forms.Button();
             this.CM_DLField = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.B_DumpAcre = new System.Windows.Forms.ToolStripMenuItem();
@@ -120,9 +123,6 @@
             this.RB_Item = new System.Windows.Forms.RadioButton();
             this.RB_Terrain = new System.Windows.Forms.RadioButton();
             this.L_TileMode = new System.Windows.Forms.Label();
-            this.B_RemoveBranches = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_RemoveShells = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_RemoveFlowers = new System.Windows.Forms.ToolStripMenuItem();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
@@ -173,18 +173,6 @@
             this.B_Save.Text = "Save";
             this.B_Save.UseVisualStyleBackColor = true;
             this.B_Save.Click += new System.EventHandler(this.B_Save_Click);
-            // 
-            // PG_Tile
-            // 
-            this.PG_Tile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PG_Tile.HelpVisible = false;
-            this.PG_Tile.Location = new System.Drawing.Point(3, 3);
-            this.PG_Tile.Name = "PG_Tile";
-            this.PG_Tile.PropertySort = System.Windows.Forms.PropertySort.Categorized;
-            this.PG_Tile.Size = new System.Drawing.Size(238, 379);
-            this.PG_Tile.TabIndex = 9;
-            this.PG_Tile.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.PG_Tile_PropertyValueChanged);
             // 
             // CB_Acre
             // 
@@ -435,54 +423,75 @@
             this.B_RemoveAll});
             this.CM_Remove.Name = "CM_Picture";
             this.CM_Remove.ShowImageMargin = false;
-            this.CM_Remove.Size = new System.Drawing.Size(156, 246);
+            this.CM_Remove.Size = new System.Drawing.Size(117, 224);
             // 
             // B_RemoveAllWeeds
             // 
             this.B_RemoveAllWeeds.Name = "B_RemoveAllWeeds";
-            this.B_RemoveAllWeeds.Size = new System.Drawing.Size(155, 22);
+            this.B_RemoveAllWeeds.Size = new System.Drawing.Size(116, 22);
             this.B_RemoveAllWeeds.Text = "Weeds";
             this.B_RemoveAllWeeds.Click += new System.EventHandler(this.B_RemoveAllWeeds_Click);
             // 
             // B_RemovePlants
             // 
             this.B_RemovePlants.Name = "B_RemovePlants";
-            this.B_RemovePlants.Size = new System.Drawing.Size(155, 22);
+            this.B_RemovePlants.Size = new System.Drawing.Size(116, 22);
             this.B_RemovePlants.Text = "Plants";
             this.B_RemovePlants.Click += new System.EventHandler(this.B_RemovePlants_Click);
             // 
             // B_RemoveObjects
             // 
             this.B_RemoveObjects.Name = "B_RemoveObjects";
-            this.B_RemoveObjects.Size = new System.Drawing.Size(155, 22);
+            this.B_RemoveObjects.Size = new System.Drawing.Size(116, 22);
             this.B_RemoveObjects.Text = "Objects";
             this.B_RemoveObjects.Click += new System.EventHandler(this.B_RemoveObjects_Click);
             // 
             // B_RemovePlacedItems
             // 
             this.B_RemovePlacedItems.Name = "B_RemovePlacedItems";
-            this.B_RemovePlacedItems.Size = new System.Drawing.Size(155, 22);
+            this.B_RemovePlacedItems.Size = new System.Drawing.Size(116, 22);
             this.B_RemovePlacedItems.Text = "Placed Items";
             this.B_RemovePlacedItems.Click += new System.EventHandler(this.B_RemovePlacedItems_Click);
             // 
             // B_RemoveFences
             // 
             this.B_RemoveFences.Name = "B_RemoveFences";
-            this.B_RemoveFences.Size = new System.Drawing.Size(155, 22);
+            this.B_RemoveFences.Size = new System.Drawing.Size(116, 22);
             this.B_RemoveFences.Text = "Fences";
             this.B_RemoveFences.Click += new System.EventHandler(this.B_RemoveFences_Click);
+            // 
+            // B_RemoveBranches
+            // 
+            this.B_RemoveBranches.Name = "B_RemoveBranches";
+            this.B_RemoveBranches.Size = new System.Drawing.Size(116, 22);
+            this.B_RemoveBranches.Text = "Branches";
+            this.B_RemoveBranches.Click += new System.EventHandler(this.B_RemoveBranches_Click);
+            // 
+            // B_RemoveShells
+            // 
+            this.B_RemoveShells.Name = "B_RemoveShells";
+            this.B_RemoveShells.Size = new System.Drawing.Size(116, 22);
+            this.B_RemoveShells.Text = "Shells";
+            this.B_RemoveShells.Click += new System.EventHandler(this.B_RemoveShells_Click);
+            // 
+            // B_RemoveFlowers
+            // 
+            this.B_RemoveFlowers.Name = "B_RemoveFlowers";
+            this.B_RemoveFlowers.Size = new System.Drawing.Size(116, 22);
+            this.B_RemoveFlowers.Text = "Flowers";
+            this.B_RemoveFlowers.Click += new System.EventHandler(this.B_RemoveFlowers_Click);
             // 
             // B_FillHoles
             // 
             this.B_FillHoles.Name = "B_FillHoles";
-            this.B_FillHoles.Size = new System.Drawing.Size(155, 22);
+            this.B_FillHoles.Size = new System.Drawing.Size(116, 22);
             this.B_FillHoles.Text = "Holes";
             this.B_FillHoles.Click += new System.EventHandler(this.B_FillHoles_Click);
             // 
             // B_RemoveAll
             // 
             this.B_RemoveAll.Name = "B_RemoveAll";
-            this.B_RemoveAll.Size = new System.Drawing.Size(155, 22);
+            this.B_RemoveAll.Size = new System.Drawing.Size(116, 22);
             this.B_RemoveAll.Text = "All";
             this.B_RemoveAll.Click += new System.EventHandler(this.B_RemoveAll_Click);
             // 
@@ -508,8 +517,8 @@
             // 
             // Tab_Item
             // 
+            this.Tab_Item.Controls.Add(this.ItemEdit);
             this.Tab_Item.Controls.Add(this.B_DumpLoadField);
-            this.Tab_Item.Controls.Add(this.PG_Tile);
             this.Tab_Item.Controls.Add(this.B_RemoveItemDropDown);
             this.Tab_Item.Controls.Add(this.GB_Remove);
             this.Tab_Item.Location = new System.Drawing.Point(4, 22);
@@ -519,6 +528,14 @@
             this.Tab_Item.TabIndex = 0;
             this.Tab_Item.Text = "Items";
             this.Tab_Item.UseVisualStyleBackColor = true;
+            // 
+            // ItemEdit
+            // 
+            this.ItemEdit.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ItemEdit.Location = new System.Drawing.Point(3, 3);
+            this.ItemEdit.Name = "ItemEdit";
+            this.ItemEdit.Size = new System.Drawing.Size(238, 390);
+            this.ItemEdit.TabIndex = 40;
             // 
             // B_DumpLoadField
             // 
@@ -1086,27 +1103,6 @@
             this.L_TileMode.Text = "Tile Editor Mode";
             this.L_TileMode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // B_RemoveBranches
-            // 
-            this.B_RemoveBranches.Name = "B_RemoveBranches";
-            this.B_RemoveBranches.Size = new System.Drawing.Size(155, 22);
-            this.B_RemoveBranches.Text = "Branches";
-            this.B_RemoveBranches.Click += new System.EventHandler(this.B_RemoveBranches_Click);
-            // 
-            // B_RemoveShells
-            // 
-            this.B_RemoveShells.Name = "B_RemoveShells";
-            this.B_RemoveShells.Size = new System.Drawing.Size(155, 22);
-            this.B_RemoveShells.Text = "Shells";
-            this.B_RemoveShells.Click += new System.EventHandler(this.B_RemoveShells_Click);
-            // 
-            // B_RemoveFlowers
-            // 
-            this.B_RemoveFlowers.Name = "B_RemoveFlowers";
-            this.B_RemoveFlowers.Size = new System.Drawing.Size(155, 22);
-            this.B_RemoveFlowers.Text = "Flowers";
-            this.B_RemoveFlowers.Click += new System.EventHandler(this.B_RemoveFlowers_Click);
-            // 
             // FieldItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1177,7 +1173,6 @@
 
         private System.Windows.Forms.Button B_Cancel;
         private System.Windows.Forms.Button B_Save;
-        private System.Windows.Forms.PropertyGrid PG_Tile;
         private System.Windows.Forms.ComboBox CB_Acre;
         private System.Windows.Forms.Label L_Acre;
         private System.Windows.Forms.ContextMenuStrip CM_Click;
@@ -1268,5 +1263,6 @@
         private System.Windows.Forms.ToolStripMenuItem B_RemoveBranches;
         private System.Windows.Forms.ToolStripMenuItem B_RemoveShells;
         private System.Windows.Forms.ToolStripMenuItem B_RemoveFlowers;
+        private ItemEditor ItemEdit;
     }
 }

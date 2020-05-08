@@ -42,6 +42,19 @@ namespace NHSE.Core
             return result;
         }
 
+        public static void Add(this List<ComboItem> storage, IReadOnlyList<INamedValue> tuples, Dictionary<string, string> translate)
+        {
+            int initial = storage.Count;
+            storage.Capacity = storage.Count + tuples.Count;
+            foreach (var kvp in tuples)
+            {
+                var translated = translate.TryGetValue(kvp.Name, out var t) ? t : kvp.Name;
+                var item = new ComboItem(translated, kvp.Index);
+                storage.Add(item);
+            }
+            storage.Sort(initial, storage.Count - initial, Comparer);
+        }
+
         public static void SortByText(this List<ComboItem> arr) => arr.Sort(Comparer);
 
         private static readonly FunctorComparer<ComboItem> Comparer =
