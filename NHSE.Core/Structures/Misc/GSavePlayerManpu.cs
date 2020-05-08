@@ -14,13 +14,13 @@ namespace NHSE.Core
         /// List of known Reaction IDs
         /// </summary>
         [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = MaxCount)]
-        public byte[] ManpuBit { get; set; }
+        public Reaction[] ManpuBit { get; set; }
 
         /// <summary>
         /// Emotions that are currently bound to the Reaction Wheel.
         /// </summary>
         [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = WheelCount)]
-        public byte[] UIList { get; set; }
+        public Reaction[] UIList { get; set; }
 
         /// <summary>
         /// Flags indicating if an Reaction (at the same index?) is newly learned or not.
