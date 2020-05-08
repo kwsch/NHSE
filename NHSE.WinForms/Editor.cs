@@ -165,6 +165,7 @@ namespace NHSE.WinForms
             SavePlayer(PlayerIndex);
             Villagers.Save();
             SAV.Main.SetVillagers(Villagers.Villagers);
+            SaveMain();
         }
 
         private void LoadMain()
