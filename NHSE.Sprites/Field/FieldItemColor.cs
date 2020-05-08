@@ -9,7 +9,7 @@ namespace NHSE.Sprites
     {
         public static Color GetItemColor(Item item)
         {
-            if (item.DisplayItemId > 60000)
+            if (item.DisplayItemId >= Item.FieldItemMin)
                 return GetItemColor60000(item);
             var kind = ItemInfo.GetItemKind(item);
             return Colors[(int)kind];

@@ -10,6 +10,7 @@ namespace NHSE.Core
         public static readonly Item NO_ITEM = new Item {ItemId = NONE};
         public const ushort NONE = 0xFFFE;
         public const ushort EXTENSION = 0xFFFD;
+        public const ushort FieldItemMin = 60_000;
 
         public const ushort MessageBottle = 0x16A1;
         public const ushort DIYRecipe = 0x16A2;
