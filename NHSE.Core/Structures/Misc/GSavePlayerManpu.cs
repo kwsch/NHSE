@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 
 #pragma warning disable CS8618, CA1815, CA1819, IDE1006
 namespace NHSE.Core
@@ -27,5 +28,31 @@ namespace NHSE.Core
         /// </summary>
         [field: MarshalAs(UnmanagedType.ByValArray, ArraySubType = UnmanagedType.I1, SizeConst = MaxCount)]
         public bool[] NewFlag { get; set; }
+
+        public void AddMissingReactions()
+        {
+            var all = (Reaction[])Enum.GetValues(typeof(Reaction));
+            foreach (var react in all)
+                AddReaction(react);
+        }
+
+        // returns true if failed
+        public bool AddReaction(Reaction react)
+        {
+            if (react.ToString().StartsWith("UNUSED"))
+                return true;
+
+            var index = Array.IndexOf(ManpuBit, react);
+            if (index >= 0)
+                return false;
+
+            var empty = EmptyIndex;
+            if (empty < 0)
+                return true;
+            ManpuBit[empty] = react;
+            return false;
+        }
+
+        private int EmptyIndex => Array.FindIndex(ManpuBit, z => z == 0);
     }
 }

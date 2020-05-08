@@ -58,6 +58,9 @@
     <Compile Update="Subforms\Map\VillagerHouseEditor.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Subforms\Player\ReactionEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Subforms\Player\FlagEditor.cs">
       <SubType>Form</SubType>
     </Compile>

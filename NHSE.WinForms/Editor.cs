@@ -245,6 +245,13 @@ namespace NHSE.WinForms
             editor.ShowDialog();
         }
 
+        private void B_EditPlayerReactions_Click(object sender, EventArgs e)
+        {
+            var player = SAV.Players[PlayerIndex].Personal;
+            using var editor = new ReactionEditor(player);
+            editor.ShowDialog();
+        }
+
         private void LoadPlayer(int index)
         {
             if (PlayerIndex >= 0)

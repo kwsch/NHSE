@@ -44,6 +44,8 @@
             this.CM_Picture = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Menu_SavePNG = new System.Windows.Forms.ToolStripMenuItem();
             this.Tab_Map = new System.Windows.Forms.TabPage();
+            this.L_Hemisphere = new System.Windows.Forms.Label();
+            this.CB_Hemisphere = new System.Windows.Forms.ComboBox();
             this.B_EditPlayerHouses = new System.Windows.Forms.Button();
             this.B_EditMap = new System.Windows.Forms.Button();
             this.CM_EditMap = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -88,8 +90,7 @@
             this.CB_Players = new System.Windows.Forms.ComboBox();
             this.PB_Player = new System.Windows.Forms.PictureBox();
             this.TC_Editors = new System.Windows.Forms.TabControl();
-            this.CB_Hemisphere = new System.Windows.Forms.ComboBox();
-            this.L_Hemisphere = new System.Windows.Forms.Label();
+            this.B_EditPlayerReactions = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Editor.SuspendLayout();
             this.CM_Picture.SuspendLayout();
             this.Tab_Map.SuspendLayout();
@@ -246,6 +247,24 @@
             this.Tab_Map.TabIndex = 2;
             this.Tab_Map.Text = "Map";
             this.Tab_Map.UseVisualStyleBackColor = true;
+            // 
+            // L_Hemisphere
+            // 
+            this.L_Hemisphere.AutoSize = true;
+            this.L_Hemisphere.Location = new System.Drawing.Point(300, 9);
+            this.L_Hemisphere.Name = "L_Hemisphere";
+            this.L_Hemisphere.Size = new System.Drawing.Size(63, 13);
+            this.L_Hemisphere.TabIndex = 58;
+            this.L_Hemisphere.Text = "Hemisphere";
+            // 
+            // CB_Hemisphere
+            // 
+            this.CB_Hemisphere.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_Hemisphere.FormattingEnabled = true;
+            this.CB_Hemisphere.Location = new System.Drawing.Point(202, 6);
+            this.CB_Hemisphere.Name = "CB_Hemisphere";
+            this.CB_Hemisphere.Size = new System.Drawing.Size(92, 21);
+            this.CB_Hemisphere.TabIndex = 57;
             // 
             // B_EditPlayerHouses
             // 
@@ -526,42 +545,43 @@
             this.B_EditPlayerReceivedItems,
             this.B_EditAchievements,
             this.B_EditPlayerRecipes,
-            this.B_EditPlayerFlags});
+            this.B_EditPlayerFlags,
+            this.B_EditPlayerReactions});
             this.CM_EditPlayer.Name = "CM_EditPlayer";
-            this.CM_EditPlayer.Size = new System.Drawing.Size(177, 114);
+            this.CM_EditPlayer.Size = new System.Drawing.Size(181, 158);
             // 
             // B_EditPlayerStorage
             // 
             this.B_EditPlayerStorage.Name = "B_EditPlayerStorage";
-            this.B_EditPlayerStorage.Size = new System.Drawing.Size(176, 22);
+            this.B_EditPlayerStorage.Size = new System.Drawing.Size(180, 22);
             this.B_EditPlayerStorage.Text = "Edit Storage";
             this.B_EditPlayerStorage.Click += new System.EventHandler(this.B_Storage_Click);
             // 
             // B_EditPlayerReceivedItems
             // 
             this.B_EditPlayerReceivedItems.Name = "B_EditPlayerReceivedItems";
-            this.B_EditPlayerReceivedItems.Size = new System.Drawing.Size(176, 22);
+            this.B_EditPlayerReceivedItems.Size = new System.Drawing.Size(180, 22);
             this.B_EditPlayerReceivedItems.Text = "Edit Received Items";
             this.B_EditPlayerReceivedItems.Click += new System.EventHandler(this.B_EditPlayerReceivedItems_Click);
             // 
             // B_EditAchievements
             // 
             this.B_EditAchievements.Name = "B_EditAchievements";
-            this.B_EditAchievements.Size = new System.Drawing.Size(176, 22);
+            this.B_EditAchievements.Size = new System.Drawing.Size(180, 22);
             this.B_EditAchievements.Text = "Edit Achievements";
             this.B_EditAchievements.Click += new System.EventHandler(this.B_EditAchievements_Click);
             // 
             // B_EditPlayerRecipes
             // 
             this.B_EditPlayerRecipes.Name = "B_EditPlayerRecipes";
-            this.B_EditPlayerRecipes.Size = new System.Drawing.Size(176, 22);
+            this.B_EditPlayerRecipes.Size = new System.Drawing.Size(180, 22);
             this.B_EditPlayerRecipes.Text = "Edit Recipes";
             this.B_EditPlayerRecipes.Click += new System.EventHandler(this.B_EditPlayerRecipes_Click);
             // 
             // B_EditPlayerFlags
             // 
             this.B_EditPlayerFlags.Name = "B_EditPlayerFlags";
-            this.B_EditPlayerFlags.Size = new System.Drawing.Size(176, 22);
+            this.B_EditPlayerFlags.Size = new System.Drawing.Size(180, 22);
             this.B_EditPlayerFlags.Text = "Edit Flags";
             this.B_EditPlayerFlags.Click += new System.EventHandler(this.B_EditPlayerFlags_Click);
             // 
@@ -703,23 +723,12 @@
             this.TC_Editors.Size = new System.Drawing.Size(404, 237);
             this.TC_Editors.TabIndex = 1;
             // 
-            // CB_Hemisphere
+            // B_EditPlayerReactions
             // 
-            this.CB_Hemisphere.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_Hemisphere.FormattingEnabled = true;
-            this.CB_Hemisphere.Location = new System.Drawing.Point(202, 6);
-            this.CB_Hemisphere.Name = "CB_Hemisphere";
-            this.CB_Hemisphere.Size = new System.Drawing.Size(92, 21);
-            this.CB_Hemisphere.TabIndex = 57;
-            // 
-            // L_Hemisphere
-            // 
-            this.L_Hemisphere.AutoSize = true;
-            this.L_Hemisphere.Location = new System.Drawing.Point(300, 9);
-            this.L_Hemisphere.Name = "L_Hemisphere";
-            this.L_Hemisphere.Size = new System.Drawing.Size(63, 13);
-            this.L_Hemisphere.TabIndex = 58;
-            this.L_Hemisphere.Text = "Hemisphere";
+            this.B_EditPlayerReactions.Name = "B_EditPlayerReactions";
+            this.B_EditPlayerReactions.Size = new System.Drawing.Size(180, 22);
+            this.B_EditPlayerReactions.Text = "Edit Reactions";
+            this.B_EditPlayerReactions.Click += new System.EventHandler(this.B_EditPlayerReactions_Click);
             // 
             // Editor
             // 
@@ -819,6 +828,7 @@
         private System.Windows.Forms.NumericUpDown NUD_TotalNookMiles;
         private System.Windows.Forms.Label L_Hemisphere;
         private System.Windows.Forms.ComboBox CB_Hemisphere;
+        private System.Windows.Forms.ToolStripMenuItem B_EditPlayerReactions;
     }
 }
 
