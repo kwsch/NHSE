@@ -252,6 +252,13 @@ namespace NHSE.WinForms
             editor.ShowDialog();
         }
 
+        private void B_EditPlayerMisc_Click(object sender, EventArgs e)
+        {
+            var player = SAV.Players[PlayerIndex];
+            using var editor = new MiscPlayerEditor(player);
+            editor.ShowDialog();
+        }
+
         private void LoadPlayer(int index)
         {
             if (PlayerIndex >= 0)
@@ -452,6 +459,14 @@ namespace NHSE.WinForms
             using var editor = new SingleObjectEditor<object>(boxed, PropertySort.NoSort, false);
             if (editor.ShowDialog() == DialogResult.OK)
                 SAV.Main.Bulletin = boxed;
+        }
+
+        private void B_EditFieldGoods_Click(object sender, EventArgs e)
+        {
+            var boxed = SAV.Main.SaveFg;
+            using var editor = new SingleObjectEditor<object>(boxed, PropertySort.NoSort, false);
+            if (editor.ShowDialog() == DialogResult.OK)
+                SAV.Main.SaveFg = boxed;
         }
     }
 }

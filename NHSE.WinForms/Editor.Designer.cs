@@ -56,7 +56,6 @@
             this.B_EditBulletin = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditPRODesigns = new System.Windows.Forms.Button();
             this.B_EditPatterns = new System.Windows.Forms.Button();
-            this.B_EditLandFlags = new System.Windows.Forms.Button();
             this.B_EditTurnipExchange = new System.Windows.Forms.Button();
             this.B_RecycleBin = new System.Windows.Forms.Button();
             this.Tab_Villagers = new System.Windows.Forms.TabPage();
@@ -76,6 +75,7 @@
             this.B_EditAchievements = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditPlayerRecipes = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditPlayerFlags = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditPlayerReactions = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditPlayerItems = new System.Windows.Forms.Button();
             this.L_Wallet = new System.Windows.Forms.Label();
             this.NUD_Wallet = new System.Windows.Forms.NumericUpDown();
@@ -90,7 +90,9 @@
             this.CB_Players = new System.Windows.Forms.ComboBox();
             this.PB_Player = new System.Windows.Forms.PictureBox();
             this.TC_Editors = new System.Windows.Forms.TabControl();
-            this.B_EditPlayerReactions = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditFieldGoods = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditLandFlags = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditPlayerMisc = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Editor.SuspendLayout();
             this.CM_Picture.SuspendLayout();
             this.Tab_Map.SuspendLayout();
@@ -237,7 +239,6 @@
             this.Tab_Map.Controls.Add(this.B_EditMap);
             this.Tab_Map.Controls.Add(this.B_EditPRODesigns);
             this.Tab_Map.Controls.Add(this.B_EditPatterns);
-            this.Tab_Map.Controls.Add(this.B_EditLandFlags);
             this.Tab_Map.Controls.Add(this.B_EditTurnipExchange);
             this.Tab_Map.Controls.Add(this.B_RecycleBin);
             this.Tab_Map.Location = new System.Drawing.Point(4, 22);
@@ -268,6 +269,7 @@
             // 
             // B_EditPlayerHouses
             // 
+            this.B_EditPlayerHouses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.B_EditPlayerHouses.Location = new System.Drawing.Point(6, 168);
             this.B_EditPlayerHouses.Name = "B_EditPlayerHouses";
             this.B_EditPlayerHouses.Size = new System.Drawing.Size(92, 40);
@@ -290,13 +292,15 @@
             // CM_EditMap
             // 
             this.CM_EditMap.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.B_EditLandFlags,
+            this.B_EditFieldItems,
             this.B_EditTerrain,
             this.B_EditBuildings,
             this.B_EditAcres,
-            this.B_EditFieldItems,
-            this.B_EditBulletin});
+            this.B_EditBulletin,
+            this.B_EditFieldGoods});
             this.CM_EditMap.Name = "CM_EditMap";
-            this.CM_EditMap.Size = new System.Drawing.Size(172, 114);
+            this.CM_EditMap.Size = new System.Drawing.Size(172, 158);
             // 
             // B_EditTerrain
             // 
@@ -352,16 +356,6 @@
             this.B_EditPatterns.Text = "Edit Patterns";
             this.B_EditPatterns.UseVisualStyleBackColor = true;
             this.B_EditPatterns.Click += new System.EventHandler(this.B_EditPatterns_Click);
-            // 
-            // B_EditLandFlags
-            // 
-            this.B_EditLandFlags.Location = new System.Drawing.Point(300, 122);
-            this.B_EditLandFlags.Name = "B_EditLandFlags";
-            this.B_EditLandFlags.Size = new System.Drawing.Size(92, 40);
-            this.B_EditLandFlags.TabIndex = 53;
-            this.B_EditLandFlags.Text = "Edit Flags";
-            this.B_EditLandFlags.UseVisualStyleBackColor = true;
-            this.B_EditLandFlags.Click += new System.EventHandler(this.B_EditLandFlags_Click);
             // 
             // B_EditTurnipExchange
             // 
@@ -546,9 +540,10 @@
             this.B_EditAchievements,
             this.B_EditPlayerRecipes,
             this.B_EditPlayerFlags,
-            this.B_EditPlayerReactions});
+            this.B_EditPlayerReactions,
+            this.B_EditPlayerMisc});
             this.CM_EditPlayer.Name = "CM_EditPlayer";
-            this.CM_EditPlayer.Size = new System.Drawing.Size(181, 158);
+            this.CM_EditPlayer.Size = new System.Drawing.Size(181, 180);
             // 
             // B_EditPlayerStorage
             // 
@@ -584,6 +579,13 @@
             this.B_EditPlayerFlags.Size = new System.Drawing.Size(180, 22);
             this.B_EditPlayerFlags.Text = "Edit Flags";
             this.B_EditPlayerFlags.Click += new System.EventHandler(this.B_EditPlayerFlags_Click);
+            // 
+            // B_EditPlayerReactions
+            // 
+            this.B_EditPlayerReactions.Name = "B_EditPlayerReactions";
+            this.B_EditPlayerReactions.Size = new System.Drawing.Size(180, 22);
+            this.B_EditPlayerReactions.Text = "Edit Reactions";
+            this.B_EditPlayerReactions.Click += new System.EventHandler(this.B_EditPlayerReactions_Click);
             // 
             // B_EditPlayerItems
             // 
@@ -723,12 +725,26 @@
             this.TC_Editors.Size = new System.Drawing.Size(404, 237);
             this.TC_Editors.TabIndex = 1;
             // 
-            // B_EditPlayerReactions
+            // B_EditFieldGoods
             // 
-            this.B_EditPlayerReactions.Name = "B_EditPlayerReactions";
-            this.B_EditPlayerReactions.Size = new System.Drawing.Size(180, 22);
-            this.B_EditPlayerReactions.Text = "Edit Reactions";
-            this.B_EditPlayerReactions.Click += new System.EventHandler(this.B_EditPlayerReactions_Click);
+            this.B_EditFieldGoods.Name = "B_EditFieldGoods";
+            this.B_EditFieldGoods.Size = new System.Drawing.Size(171, 22);
+            this.B_EditFieldGoods.Text = "Edit Field Goods";
+            this.B_EditFieldGoods.Click += new System.EventHandler(this.B_EditFieldGoods_Click);
+            // 
+            // B_EditLandFlags
+            // 
+            this.B_EditLandFlags.Name = "B_EditLandFlags";
+            this.B_EditLandFlags.Size = new System.Drawing.Size(171, 22);
+            this.B_EditLandFlags.Text = "Edit Flags";
+            this.B_EditLandFlags.Click += new System.EventHandler(this.B_EditLandFlags_Click);
+            // 
+            // B_EditPlayerMisc
+            // 
+            this.B_EditPlayerMisc.Name = "B_EditPlayerMisc";
+            this.B_EditPlayerMisc.Size = new System.Drawing.Size(180, 22);
+            this.B_EditPlayerMisc.Text = "Edit Misc";
+            this.B_EditPlayerMisc.Click += new System.EventHandler(this.B_EditPlayerMisc_Click);
             // 
             // Editor
             // 
@@ -782,7 +798,6 @@
         private System.Windows.Forms.ToolStripComboBox Menu_Language;
         private System.Windows.Forms.ToolStripMenuItem Menu_Settings;
         private System.Windows.Forms.TabPage Tab_Map;
-        private System.Windows.Forms.Button B_EditLandFlags;
         private System.Windows.Forms.Button B_EditTurnipExchange;
         private System.Windows.Forms.Button B_RecycleBin;
         private System.Windows.Forms.TabPage Tab_Villagers;
@@ -829,6 +844,9 @@
         private System.Windows.Forms.Label L_Hemisphere;
         private System.Windows.Forms.ComboBox CB_Hemisphere;
         private System.Windows.Forms.ToolStripMenuItem B_EditPlayerReactions;
+        private System.Windows.Forms.ToolStripMenuItem B_EditFieldGoods;
+        private System.Windows.Forms.ToolStripMenuItem B_EditLandFlags;
+        private System.Windows.Forms.ToolStripMenuItem B_EditPlayerMisc;
     }
 }
 
