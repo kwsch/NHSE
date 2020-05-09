@@ -29,7 +29,7 @@ namespace NHSE.WinForms
             this.TranslateInterface(GameInfo.CurrentLanguage);
 
             SAV = sav;
-            Terrain = new TerrainManager(SAV.GetTerrainTiles());
+            Terrain = new TerrainManager(SAV.GetTerrainTiles(), sav.GetAcreBytes());
             Grid = GenerateGrid(GridWidth, GridHeight);
 
             foreach (var acre in MapGrid.Acres)

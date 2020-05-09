@@ -5,9 +5,11 @@ namespace NHSE.Core
     public class TerrainManager : MapGrid
     {
         public readonly TerrainTile[] Tiles;
+        public readonly byte[] BaseAcres;
 
-        public TerrainManager(TerrainTile[] tiles) : base(16, 16)
+        public TerrainManager(TerrainTile[] tiles, byte[] acres) : base(16, 16)
         {
+            BaseAcres = acres;
             Tiles = tiles;
             Debug.Assert(MapTileCount == tiles.Length);
         }
@@ -108,6 +110,25 @@ namespace NHSE.Core
                 return false;
 
             return true;
+        }
+
+        public int GetTileColor(int x, in int y)
+        {
+            //var acre = GetTileAcre(x, y);
+            //if (acre != 0)
+            //    return AcreTileColor.GetAcreTileColor(acre, x % 16, y % 16);
+
+            var tile = GetTile(x, y);
+            return TerrainTileColor.GetTileColor(tile).ToArgb();
+        }
+
+        private byte GetTileAcre(int x, int y)
+        {
+            var acreX = 1 + (x / 16);
+            var acreY = 1 + (y / 16);
+
+            var acreIndex = ((AcreWidth + 2) * acreY) + acreX;
+            return BaseAcres[acreIndex * 2]; // u16 array, never > 255
         }
     }
 }

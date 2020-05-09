@@ -40,4 +40,12 @@ namespace NHSE.Core
             return name.Substring(0, num) + Environment.NewLine + name.Substring(num);
         }
     }
+
+    public static class AcreTileColor
+    {
+        public static int GetAcreTileColor(byte acre, int x, int y)
+        {
+            return Color.ForestGreen.ToArgb();
+        }
+    }
 }

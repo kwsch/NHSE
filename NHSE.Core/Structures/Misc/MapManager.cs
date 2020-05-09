@@ -26,7 +26,7 @@ namespace NHSE.Core
 
         public MapTerrainStructure(MainSave sav)
         {
-            Terrain = new TerrainManager(sav.GetTerrainTiles());
+            Terrain = new TerrainManager(sav.GetTerrainTiles(), sav.GetAcreBytes());
             Buildings = sav.Buildings;
             PlazaX = sav.EventPlazaLeftUpX;
             PlazaY = sav.EventPlazaLeftUpZ;

@@ -124,10 +124,7 @@ namespace NHSE.Sprites
             {
                 var yi = y + topY;
                 for (int x = 0; x < 16; x++, index++)
-                {
-                    var tile = t.GetTile(x + topX, yi);
-                    data[index] = TerrainTileColor.GetTileColor(tile).ToArgb();
-                }
+                    data[index] = t.GetTileColor(x + topX, yi);
             }
         }
 
