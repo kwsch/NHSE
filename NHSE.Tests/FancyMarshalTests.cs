@@ -19,6 +19,7 @@ namespace NHSE.Tests
         [Fact] public void MarshalGSaveRoomFloorWall() => MarshalBytesTestS<GSaveRoomFloorWall>(GSaveRoomFloorWall.SIZE);
 
         [Fact] public void MarshalGSaveManpu() => MarshalBytesTestS<GSavePlayerManpu>(GSavePlayerManpu.SIZE);
+        [Fact] public void MarshalGSavePlayerHandleName() => MarshalBytesTestS<GSavePlayerHandleName>(GSavePlayerHandleName.SIZE);
         [Fact] public void MarshalGSaveFg() => MarshalBytesTest<GSaveFg>(GSaveFg.SIZE);
 
         private static void MarshalBytesTestS<T>(int size) where T : struct

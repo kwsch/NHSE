@@ -14,4 +14,18 @@ namespace NHSE.Core
         public byte Month { get; set; }
         public byte Day { get; set; }
     }
+
+    [StructLayout(LayoutKind.Sequential, Pack = 2)]
+    public struct GSavePlayerHandleName
+    {
+        public const int SIZE = 0xA;
+
+        private ushort ModifierId { get; set; }
+        public byte ModifierLevel { get; set; }
+
+        public ushort NounId { get; set; }
+        public byte NounLevel { get; set; }
+        public byte NounGenderType { get; set; }
+        public byte _fa0a936b { get; set; }
+    };
 }

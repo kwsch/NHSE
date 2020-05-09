@@ -26,7 +26,9 @@ namespace NHSE.WinForms
             NUD_BirthDay.Value = bd.Day;
             NUD_BirthMonth.Value = bd.Month;
 
-            pers.Birthday = bd;
+            CHK_ProfileMadeVillage.Checked = pers.ProfileIsMakeVillage;
+            NUD_ProfileFruit.Value = pers.ProfileFruit;
+            CAL_ProfileTimestamp.Value = pers.ProfileTimestamp;
         }
 
         private void B_Cancel_Click(object sender, EventArgs e) => Close();
@@ -47,6 +49,10 @@ namespace NHSE.WinForms
             bd.Month = (byte) NUD_BirthMonth.Value;
 
             pers.Birthday = bd;
+            pers.ProfileBirthday = bd;
+            pers.ProfileIsMakeVillage = CHK_ProfileMadeVillage.Checked;
+            pers.ProfileFruit = (ushort)NUD_ProfileFruit.Value;
+            pers.ProfileTimestamp = CAL_ProfileTimestamp.Value;
         }
     }
 }

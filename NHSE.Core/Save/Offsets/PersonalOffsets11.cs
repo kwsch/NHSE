@@ -17,8 +17,12 @@
         public override int TotalPoint => NowPoint + 8; // Total Nook Miles Earned
         public override int Birthday => Player + 0x11488;
 
-        private const int GSaveNetPlayerProfile = Player + 0x11490;
-        public override int Photo => GSaveNetPlayerProfile + 0x24;
+        public override int ProfileMain => Player + 0x114A0;
+        public override int ProfilePhoto => ProfileMain + 0x14;
+        public override int ProfileBirthday => ProfileMain + 0x23058;
+        public override int ProfileFruit => ProfileMain + 0x2305C;
+        public override int ProfileTimestamp => ProfileMain + 0x230CC;
+        public override int ProfileIsMakeVillage => ProfileMain + 0x230D0;
 
         // end player
 

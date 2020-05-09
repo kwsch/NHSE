@@ -130,9 +130,11 @@ namespace NHSE.Core
             set => value.ToBytes().CopyTo(Data, Offsets.Birthday);
         }
 
+        #region Profile
+
         public byte[] GetPhotoData()
         {
-            var offset = Offsets.Photo;
+            var offset = Offsets.ProfilePhoto;
 
             // Expect jpeg marker
             if (BitConverter.ToUInt16(Data, offset) != 0xD8FF)
@@ -140,5 +142,31 @@ namespace NHSE.Core
             var len = BitConverter.ToInt32(Data, offset - 4);
             return Data.Slice(offset, len);
         }
+
+        public GSaveDateMD ProfileBirthday
+        {
+            get => Data.ToStructure<GSaveDateMD>(Offsets.ProfileBirthday, GSaveDateMD.SIZE);
+            set => value.ToBytes().CopyTo(Data, Offsets.ProfileBirthday);
+        }
+
+        public ushort ProfileFruit
+        {
+            get => BitConverter.ToUInt16(Data, Offsets.ProfileFruit);
+            set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.ProfileFruit);
+        }
+
+        public GSaveDate ProfileTimestamp
+        {
+            get => Data.ToStructure<GSaveDate>(Offsets.ProfileTimestamp, GSaveDate.SIZE);
+            set => value.ToBytes().CopyTo(Data, Offsets.ProfileTimestamp);
+        }
+
+        public bool ProfileIsMakeVillage
+        {
+            get => Data[Offsets.ProfileIsMakeVillage] != 0;
+            set => Data[Offsets.ProfileIsMakeVillage] = (byte)(value ? 1 : 0);
+        }
+
+        #endregion
     }
 }

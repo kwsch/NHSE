@@ -14,7 +14,13 @@ namespace NHSE.Core
         public abstract int NowPoint { get; }
         public abstract int TotalPoint { get; }
         public abstract int Birthday { get; }
-        public abstract int Photo { get; }
+
+        public abstract int ProfileMain { get; }
+        public abstract int ProfilePhoto { get; }
+        public abstract int ProfileBirthday { get; }
+        public abstract int ProfileFruit { get; }
+        public abstract int ProfileTimestamp { get; }
+        public abstract int ProfileIsMakeVillage { get; }
 
         public abstract int Pockets1 { get; }
         public abstract int Pockets2 { get; }

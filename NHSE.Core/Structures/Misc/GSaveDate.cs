@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Runtime.InteropServices;
 
 #pragma warning disable CS8618, CA1815, CA1819, IDE1006
@@ -14,5 +15,15 @@ namespace NHSE.Core
         public ushort Year { get; set; }
         public byte Month { get; set; }
         public byte Day { get; set; }
+
+        private GSaveDate(int year, int month, int day)
+        {
+            Year = (ushort) year;
+            Month = (byte) month;
+            Day = (byte) day;
+        }
+
+        public static implicit operator GSaveDate(DateTime dt) => new GSaveDate(dt.Year, dt.Month, dt.Day);
+        public static implicit operator DateTime(GSaveDate dt) => new DateTime(dt.Year, dt.Month, dt.Day);
     }
 }
