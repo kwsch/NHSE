@@ -10,6 +10,7 @@ namespace NHSE.Tests
         [Fact] public void MarshalBulletinBoard() => MarshalBytesTestS<BulletinBoardStock>(BulletinBoardStock.SIZE);
         [Fact] public void MarshalGSaveBBS() => MarshalBytesTestS<GSaveBBS>(GSaveBBS.SIZE);
         [Fact] public void MarshalGSaveDate() => MarshalBytesTestS<GSaveDate>(GSaveDate.SIZE);
+        [Fact] public void MarshalGSaveDateMD() => MarshalBytesTestS<GSaveDateMD>(GSaveDateMD.SIZE);
         [Fact] public void MarshalGSavePlayerId() => MarshalBytesTestS<GSavePlayerId>(GSavePlayerId.SIZE);
         [Fact] public void MarshalGSaveLandId() => MarshalBytesTestS<GSaveLandId>(GSaveLandId.SIZE);
         [Fact] public void MarshalGSavePlayerBaseId() => MarshalBytesTestS<GSavePlayerBaseId>(GSavePlayerBaseId.SIZE);
@@ -18,6 +19,7 @@ namespace NHSE.Tests
         [Fact] public void MarshalGSaveRoomFloorWall() => MarshalBytesTestS<GSaveRoomFloorWall>(GSaveRoomFloorWall.SIZE);
 
         [Fact] public void MarshalGSaveManpu() => MarshalBytesTestS<GSavePlayerManpu>(GSavePlayerManpu.SIZE);
+        [Fact] public void MarshalGSaveFg() => MarshalBytesTest<GSaveFg>(GSaveFg.SIZE);
 
         private static void MarshalBytesTestS<T>(int size) where T : struct
         {
@@ -25,6 +27,15 @@ namespace NHSE.Tests
             var obj = bytes.ToStructure<T>();
 
             var decomputed = obj.ToBytes();
+            decomputed.Length.Should().Be(size);
+        }
+
+        private static void MarshalBytesTest<T>(int size) where T : class
+        {
+            var bytes = new byte[size];
+            var obj = bytes.ToClass<T>();
+
+            var decomputed = obj.ToBytesClass();
             decomputed.Length.Should().Be(size);
         }
     }

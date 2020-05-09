@@ -23,6 +23,18 @@ namespace NHSE.Core
             finally { handle.Free(); }
         }
 
+        public static T ToStructure<T>(this byte[] bytes, int offset, int length) where T : struct
+        {
+            var slice = bytes.Slice(offset, length);
+            return slice.ToStructure<T>();
+        }
+
+        public static T ToClass<T>(this byte[] bytes, int offset, int length) where T : class
+        {
+            var slice = bytes.Slice(offset, length);
+            return slice.ToClass<T>();
+        }
+
         public static byte[] ToBytesClass<T>(this T obj) where T : class
         {
             int size = Marshal.SizeOf(obj);

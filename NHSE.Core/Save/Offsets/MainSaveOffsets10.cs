@@ -31,6 +31,7 @@
 
         public const int GSaveShop = GSaveLandStart + 0x40ECE8;
         public override int ShopKabu => GSaveShop + 0x2AD0; // part of shop
+        public override int SaveFg => GSaveLandStart + 0x4150B4;
         #endregion
 
         #region GSaveLandOther

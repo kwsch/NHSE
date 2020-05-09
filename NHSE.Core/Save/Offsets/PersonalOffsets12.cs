@@ -15,6 +15,7 @@
 
         public override int NowPoint => GSaveLifeSupport + 0x5498; // Nook Miles
         public override int TotalPoint => NowPoint + 8; // Total Nook Miles Earned
+        public override int Birthday => Player + 0x1168C;
 
         private const int GSaveNetPlayerProfile = Player + 0x11690;
         public override int Photo => GSaveNetPlayerProfile + 0x24;

@@ -222,6 +222,12 @@ namespace NHSE.Core
             set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.OutsideField + AcreSizeAll + 8);
         }
 
+        public GSaveFg SaveFg
+        {
+            get => Data.ToClass<GSaveFg>(Offsets.SaveFg, GSaveFg.SIZE);
+            set => value.ToBytesClass().CopyTo(Data, Offsets.SaveFg);
+        }
+
         public GSaveTime LastSaved => Data.Slice(Offsets.LastSavedTime, GSaveTime.SIZE).ToStructure<GSaveTime>();
 
         public GSaveBulletinBoard Bulletin

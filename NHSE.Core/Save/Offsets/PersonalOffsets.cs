@@ -13,6 +13,7 @@ namespace NHSE.Core
         public abstract int Wallet { get; }
         public abstract int NowPoint { get; }
         public abstract int TotalPoint { get; }
+        public abstract int Birthday { get; }
         public abstract int Photo { get; }
 
         public abstract int Pockets1 { get; }

@@ -124,6 +124,12 @@ namespace NHSE.Core
 
         public void SetEventFlagsPlayer(short[] value) => Buffer.BlockCopy(value, 0, Data, Offsets.EventFlagsPlayer, value.Length * sizeof(short));
 
+        public GSaveDateMD Birthday
+        {
+            get => Data.ToStructure<GSaveDateMD>(Offsets.Birthday, GSaveDateMD.SIZE);
+            set => value.ToBytes().CopyTo(Data, Offsets.Birthday);
+        }
+
         public byte[] GetPhotoData()
         {
             var offset = Offsets.Photo;

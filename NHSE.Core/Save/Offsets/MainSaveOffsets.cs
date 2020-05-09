@@ -29,16 +29,13 @@ namespace NHSE.Core
         public abstract int LandMakingMap { get; }
         public abstract int PlayerHouseList { get; }
         public abstract int NpcHouseList { get; }
-
-        public abstract int LastSavedTime { get; }
-        public abstract int BulletinBoard { get; }
-
-        /// <summary>
-        /// Turnip Stalk Market
-        /// </summary>
         public abstract int ShopKabu { get; }
 
+        public abstract int SaveFg { get; }
+        public abstract int BulletinBoard { get; }
+
         public abstract int LostItemBox { get; }
+        public abstract int LastSavedTime { get; }
 
         public static MainSaveOffsets GetOffsets(FileHeaderInfo Info)
         {
