@@ -27,11 +27,12 @@
 
         public override int PlayerHouseList => GSaveLandStart + 0x2DC238;
         public override int NpcHouseList => GSaveLandStart + 0x40E238;
-        public override int BulletinBoard => GSaveLandStart + 0x416440;
 
         public const int GSaveShop = GSaveLandStart + 0x40F480;
         public override int ShopKabu => GSaveShop + 0x2AD0; // part of shop
         public override int SaveFg => GSaveLandStart + 0x415AF8;
+        public override int BulletinBoard => GSaveLandStart + 0x416440;
+        public override int AirportThemeColor => GSaveLandStart + 0x4F7048;
         #endregion
 
         #region GSaveLandOther

@@ -33,6 +33,7 @@ namespace NHSE.Core
 
         public abstract int SaveFg { get; }
         public abstract int BulletinBoard { get; }
+        public abstract int AirportThemeColor { get; }
 
         public abstract int LostItemBox { get; }
         public abstract int LastSavedTime { get; }

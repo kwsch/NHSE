@@ -49,11 +49,13 @@
             this.B_EditPlayerHouses = new System.Windows.Forms.Button();
             this.B_EditMap = new System.Windows.Forms.Button();
             this.CM_EditMap = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.B_EditLandFlags = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditFieldItems = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditTerrain = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditBuildings = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditAcres = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_EditFieldItems = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditBulletin = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditFieldGoods = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditPRODesigns = new System.Windows.Forms.Button();
             this.B_EditPatterns = new System.Windows.Forms.Button();
             this.B_EditTurnipExchange = new System.Windows.Forms.Button();
@@ -76,6 +78,7 @@
             this.B_EditPlayerRecipes = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditPlayerFlags = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditPlayerReactions = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditPlayerMisc = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditPlayerItems = new System.Windows.Forms.Button();
             this.L_Wallet = new System.Windows.Forms.Label();
             this.NUD_Wallet = new System.Windows.Forms.NumericUpDown();
@@ -90,9 +93,8 @@
             this.CB_Players = new System.Windows.Forms.ComboBox();
             this.PB_Player = new System.Windows.Forms.PictureBox();
             this.TC_Editors = new System.Windows.Forms.TabControl();
-            this.B_EditFieldGoods = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_EditLandFlags = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_EditPlayerMisc = new System.Windows.Forms.ToolStripMenuItem();
+            this.NUD_AirportColor = new System.Windows.Forms.NumericUpDown();
+            this.L_AirportColor = new System.Windows.Forms.Label();
             this.Menu_Editor.SuspendLayout();
             this.CM_Picture.SuspendLayout();
             this.Tab_Map.SuspendLayout();
@@ -108,6 +110,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).BeginInit();
             this.TC_Editors.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_AirportColor)).BeginInit();
             this.SuspendLayout();
             // 
             // Menu_Editor
@@ -233,6 +236,8 @@
             // 
             // Tab_Map
             // 
+            this.Tab_Map.Controls.Add(this.L_AirportColor);
+            this.Tab_Map.Controls.Add(this.NUD_AirportColor);
             this.Tab_Map.Controls.Add(this.L_Hemisphere);
             this.Tab_Map.Controls.Add(this.CB_Hemisphere);
             this.Tab_Map.Controls.Add(this.B_EditPlayerHouses);
@@ -302,6 +307,20 @@
             this.CM_EditMap.Name = "CM_EditMap";
             this.CM_EditMap.Size = new System.Drawing.Size(172, 158);
             // 
+            // B_EditLandFlags
+            // 
+            this.B_EditLandFlags.Name = "B_EditLandFlags";
+            this.B_EditLandFlags.Size = new System.Drawing.Size(171, 22);
+            this.B_EditLandFlags.Text = "Edit Flags";
+            this.B_EditLandFlags.Click += new System.EventHandler(this.B_EditLandFlags_Click);
+            // 
+            // B_EditFieldItems
+            // 
+            this.B_EditFieldItems.Name = "B_EditFieldItems";
+            this.B_EditFieldItems.Size = new System.Drawing.Size(171, 22);
+            this.B_EditFieldItems.Text = "Edit Field Items";
+            this.B_EditFieldItems.Click += new System.EventHandler(this.B_EditFieldItems_Click);
+            // 
             // B_EditTerrain
             // 
             this.B_EditTerrain.Name = "B_EditTerrain";
@@ -323,19 +342,19 @@
             this.B_EditAcres.Text = "Edit Acres";
             this.B_EditAcres.Click += new System.EventHandler(this.B_EditAcres_Click);
             // 
-            // B_EditFieldItems
-            // 
-            this.B_EditFieldItems.Name = "B_EditFieldItems";
-            this.B_EditFieldItems.Size = new System.Drawing.Size(171, 22);
-            this.B_EditFieldItems.Text = "Edit Field Items";
-            this.B_EditFieldItems.Click += new System.EventHandler(this.B_EditFieldItems_Click);
-            // 
             // B_EditBulletin
             // 
             this.B_EditBulletin.Name = "B_EditBulletin";
             this.B_EditBulletin.Size = new System.Drawing.Size(171, 22);
             this.B_EditBulletin.Text = "Edit Bulletin Board";
             this.B_EditBulletin.Click += new System.EventHandler(this.B_EditBulletin_Click);
+            // 
+            // B_EditFieldGoods
+            // 
+            this.B_EditFieldGoods.Name = "B_EditFieldGoods";
+            this.B_EditFieldGoods.Size = new System.Drawing.Size(171, 22);
+            this.B_EditFieldGoods.Text = "Edit Field Goods";
+            this.B_EditFieldGoods.Click += new System.EventHandler(this.B_EditFieldGoods_Click);
             // 
             // B_EditPRODesigns
             // 
@@ -543,49 +562,56 @@
             this.B_EditPlayerReactions,
             this.B_EditPlayerMisc});
             this.CM_EditPlayer.Name = "CM_EditPlayer";
-            this.CM_EditPlayer.Size = new System.Drawing.Size(181, 180);
+            this.CM_EditPlayer.Size = new System.Drawing.Size(177, 158);
             // 
             // B_EditPlayerStorage
             // 
             this.B_EditPlayerStorage.Name = "B_EditPlayerStorage";
-            this.B_EditPlayerStorage.Size = new System.Drawing.Size(180, 22);
+            this.B_EditPlayerStorage.Size = new System.Drawing.Size(176, 22);
             this.B_EditPlayerStorage.Text = "Edit Storage";
             this.B_EditPlayerStorage.Click += new System.EventHandler(this.B_Storage_Click);
             // 
             // B_EditPlayerReceivedItems
             // 
             this.B_EditPlayerReceivedItems.Name = "B_EditPlayerReceivedItems";
-            this.B_EditPlayerReceivedItems.Size = new System.Drawing.Size(180, 22);
+            this.B_EditPlayerReceivedItems.Size = new System.Drawing.Size(176, 22);
             this.B_EditPlayerReceivedItems.Text = "Edit Received Items";
             this.B_EditPlayerReceivedItems.Click += new System.EventHandler(this.B_EditPlayerReceivedItems_Click);
             // 
             // B_EditAchievements
             // 
             this.B_EditAchievements.Name = "B_EditAchievements";
-            this.B_EditAchievements.Size = new System.Drawing.Size(180, 22);
+            this.B_EditAchievements.Size = new System.Drawing.Size(176, 22);
             this.B_EditAchievements.Text = "Edit Achievements";
             this.B_EditAchievements.Click += new System.EventHandler(this.B_EditAchievements_Click);
             // 
             // B_EditPlayerRecipes
             // 
             this.B_EditPlayerRecipes.Name = "B_EditPlayerRecipes";
-            this.B_EditPlayerRecipes.Size = new System.Drawing.Size(180, 22);
+            this.B_EditPlayerRecipes.Size = new System.Drawing.Size(176, 22);
             this.B_EditPlayerRecipes.Text = "Edit Recipes";
             this.B_EditPlayerRecipes.Click += new System.EventHandler(this.B_EditPlayerRecipes_Click);
             // 
             // B_EditPlayerFlags
             // 
             this.B_EditPlayerFlags.Name = "B_EditPlayerFlags";
-            this.B_EditPlayerFlags.Size = new System.Drawing.Size(180, 22);
+            this.B_EditPlayerFlags.Size = new System.Drawing.Size(176, 22);
             this.B_EditPlayerFlags.Text = "Edit Flags";
             this.B_EditPlayerFlags.Click += new System.EventHandler(this.B_EditPlayerFlags_Click);
             // 
             // B_EditPlayerReactions
             // 
             this.B_EditPlayerReactions.Name = "B_EditPlayerReactions";
-            this.B_EditPlayerReactions.Size = new System.Drawing.Size(180, 22);
+            this.B_EditPlayerReactions.Size = new System.Drawing.Size(176, 22);
             this.B_EditPlayerReactions.Text = "Edit Reactions";
             this.B_EditPlayerReactions.Click += new System.EventHandler(this.B_EditPlayerReactions_Click);
+            // 
+            // B_EditPlayerMisc
+            // 
+            this.B_EditPlayerMisc.Name = "B_EditPlayerMisc";
+            this.B_EditPlayerMisc.Size = new System.Drawing.Size(176, 22);
+            this.B_EditPlayerMisc.Text = "Edit Misc";
+            this.B_EditPlayerMisc.Click += new System.EventHandler(this.B_EditPlayerMisc_Click);
             // 
             // B_EditPlayerItems
             // 
@@ -725,26 +751,21 @@
             this.TC_Editors.Size = new System.Drawing.Size(404, 237);
             this.TC_Editors.TabIndex = 1;
             // 
-            // B_EditFieldGoods
+            // NUD_AirportColor
             // 
-            this.B_EditFieldGoods.Name = "B_EditFieldGoods";
-            this.B_EditFieldGoods.Size = new System.Drawing.Size(171, 22);
-            this.B_EditFieldGoods.Text = "Edit Field Goods";
-            this.B_EditFieldGoods.Click += new System.EventHandler(this.B_EditFieldGoods_Click);
+            this.NUD_AirportColor.Location = new System.Drawing.Point(202, 33);
+            this.NUD_AirportColor.Name = "NUD_AirportColor";
+            this.NUD_AirportColor.Size = new System.Drawing.Size(92, 20);
+            this.NUD_AirportColor.TabIndex = 59;
             // 
-            // B_EditLandFlags
+            // L_AirportColor
             // 
-            this.B_EditLandFlags.Name = "B_EditLandFlags";
-            this.B_EditLandFlags.Size = new System.Drawing.Size(171, 22);
-            this.B_EditLandFlags.Text = "Edit Flags";
-            this.B_EditLandFlags.Click += new System.EventHandler(this.B_EditLandFlags_Click);
-            // 
-            // B_EditPlayerMisc
-            // 
-            this.B_EditPlayerMisc.Name = "B_EditPlayerMisc";
-            this.B_EditPlayerMisc.Size = new System.Drawing.Size(180, 22);
-            this.B_EditPlayerMisc.Text = "Edit Misc";
-            this.B_EditPlayerMisc.Click += new System.EventHandler(this.B_EditPlayerMisc_Click);
+            this.L_AirportColor.AutoSize = true;
+            this.L_AirportColor.Location = new System.Drawing.Point(300, 35);
+            this.L_AirportColor.Name = "L_AirportColor";
+            this.L_AirportColor.Size = new System.Drawing.Size(64, 13);
+            this.L_AirportColor.TabIndex = 60;
+            this.L_AirportColor.Text = "Airport Color";
             // 
             // Editor
             // 
@@ -777,6 +798,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).EndInit();
             this.TC_Editors.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_AirportColor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -847,6 +869,8 @@
         private System.Windows.Forms.ToolStripMenuItem B_EditFieldGoods;
         private System.Windows.Forms.ToolStripMenuItem B_EditLandFlags;
         private System.Windows.Forms.ToolStripMenuItem B_EditPlayerMisc;
+        private System.Windows.Forms.Label L_AirportColor;
+        private System.Windows.Forms.NumericUpDown NUD_AirportColor;
     }
 }
 

@@ -170,15 +170,19 @@ namespace NHSE.WinForms
 
         private void LoadMain()
         {
+            var m = SAV.Main;
             var names = Enum.GetNames(typeof(Hemisphere));
             foreach (var n in names)
                 CB_Hemisphere.Items.Add(n);
-            CB_Hemisphere.SelectedIndex = (int)SAV.Main.Hemisphere;
+            CB_Hemisphere.SelectedIndex = (int)m.Hemisphere;
+            NUD_AirportColor.Value = m.AirportThemeColor;
         }
 
         private void SaveMain()
         {
-            SAV.Main.Hemisphere = (Hemisphere)CB_Hemisphere.SelectedIndex;
+            var m = SAV.Main;
+            m.Hemisphere = (Hemisphere)CB_Hemisphere.SelectedIndex;
+            m.AirportThemeColor = (byte) NUD_AirportColor.Value;
         }
 
         #region Player Editing
