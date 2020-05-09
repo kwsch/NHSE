@@ -1,9 +1,6 @@
-﻿using System;
-using System.Drawing;
-using System.Linq;
-using NHSE.Core;
+﻿using System.Drawing;
 
-namespace NHSE.Sprites
+namespace NHSE.Core
 {
     public static class FieldItemColor
     {
@@ -12,7 +9,7 @@ namespace NHSE.Sprites
             if (item.DisplayItemId >= Item.FieldItemMin)
                 return GetItemColor60000(item);
             var kind = ItemInfo.GetItemKind(item);
-            return Colors[(int)kind];
+            return ColorUtil.Colors[(int)kind];
         }
 
         private static Color GetItemColor60000(Item item)
@@ -78,8 +75,5 @@ namespace NHSE.Sprites
                 _ => Color.SandyBrown,
             };
         }
-
-        private static readonly Color[] Colors = ((KnownColor[])Enum.GetValues(typeof(KnownColor)))
-            .Select(Color.FromKnownColor).Select(z => ColorUtil.Blend(Color.White, z, 0.5d)).ToArray();
     }
 }
