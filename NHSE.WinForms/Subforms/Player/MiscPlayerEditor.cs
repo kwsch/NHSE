@@ -14,6 +14,9 @@ namespace NHSE.WinForms
             this.TranslateInterface(GameInfo.CurrentLanguage);
             Player = p;
 
+            var fruits = ComboItemUtil.GetArray(GameLists.Fruits, GameInfo.Strings.itemlistdisplay);
+            ProfileFruit.Initialize(fruits);
+
             LoadPlayer();
         }
 
@@ -27,7 +30,7 @@ namespace NHSE.WinForms
             NUD_BirthMonth.Value = bd.Month;
 
             CHK_ProfileMadeVillage.Checked = pers.ProfileIsMakeVillage;
-            NUD_ProfileFruit.Value = pers.ProfileFruit;
+            ProfileFruit.Value = pers.ProfileFruit;
             CAL_ProfileTimestamp.Value = pers.ProfileTimestamp;
         }
 
@@ -51,7 +54,7 @@ namespace NHSE.WinForms
             pers.Birthday = bd;
             pers.ProfileBirthday = bd;
             pers.ProfileIsMakeVillage = CHK_ProfileMadeVillage.Checked;
-            pers.ProfileFruit = (ushort)NUD_ProfileFruit.Value;
+            pers.ProfileFruit = ProfileFruit.Value;
             pers.ProfileTimestamp = CAL_ProfileTimestamp.Value;
         }
     }

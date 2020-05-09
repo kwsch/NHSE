@@ -4,6 +4,15 @@ namespace NHSE.Core
 {
     public static class GameLists
     {
+        public static readonly IReadOnlyList<ushort> Fruits = new ushort[]
+        {
+            2213, // apple
+            2287, // Cherry
+            2214, // Orange
+            2286, // Peach
+            2285, // Pear
+        };
+
         public static readonly IReadOnlyList<ushort> Bugs = new ushort[]
         {
             00582, // brown cicada

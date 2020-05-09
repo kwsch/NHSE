@@ -36,23 +36,22 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Tab_Misc = new System.Windows.Forms.TabPage();
             this.Tab_Profile = new System.Windows.Forms.TabPage();
+            this.ProfileFruit = new NHSE.WinForms.RestrictedItemSelect();
             this.CAL_ProfileTimestamp = new System.Windows.Forms.DateTimePicker();
             this.CHK_ProfileMadeVillage = new System.Windows.Forms.CheckBox();
             this.L_ProfileSpecialtyFruit = new System.Windows.Forms.Label();
-            this.NUD_ProfileFruit = new System.Windows.Forms.NumericUpDown();
             this.L_ProfileTimestamp = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BirthMonth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BirthDay)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.Tab_Misc.SuspendLayout();
             this.Tab_Profile.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_ProfileFruit)).BeginInit();
             this.SuspendLayout();
             // 
             // B_Cancel
             // 
             this.B_Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.B_Cancel.Location = new System.Drawing.Point(92, 156);
+            this.B_Cancel.Location = new System.Drawing.Point(133, 181);
             this.B_Cancel.Name = "B_Cancel";
             this.B_Cancel.Size = new System.Drawing.Size(72, 23);
             this.B_Cancel.TabIndex = 7;
@@ -63,7 +62,7 @@
             // B_Save
             // 
             this.B_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.B_Save.Location = new System.Drawing.Point(170, 156);
+            this.B_Save.Location = new System.Drawing.Point(211, 181);
             this.B_Save.Name = "B_Save";
             this.B_Save.Size = new System.Drawing.Size(72, 23);
             this.B_Save.TabIndex = 6;
@@ -116,7 +115,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(230, 138);
+            this.tabControl1.Size = new System.Drawing.Size(271, 163);
             this.tabControl1.TabIndex = 12;
             // 
             // Tab_Misc
@@ -134,18 +133,26 @@
             // 
             // Tab_Profile
             // 
+            this.Tab_Profile.Controls.Add(this.ProfileFruit);
             this.Tab_Profile.Controls.Add(this.CAL_ProfileTimestamp);
             this.Tab_Profile.Controls.Add(this.CHK_ProfileMadeVillage);
             this.Tab_Profile.Controls.Add(this.L_ProfileSpecialtyFruit);
-            this.Tab_Profile.Controls.Add(this.NUD_ProfileFruit);
             this.Tab_Profile.Controls.Add(this.L_ProfileTimestamp);
             this.Tab_Profile.Location = new System.Drawing.Point(4, 22);
             this.Tab_Profile.Name = "Tab_Profile";
             this.Tab_Profile.Padding = new System.Windows.Forms.Padding(3);
-            this.Tab_Profile.Size = new System.Drawing.Size(222, 112);
+            this.Tab_Profile.Size = new System.Drawing.Size(263, 137);
             this.Tab_Profile.TabIndex = 1;
             this.Tab_Profile.Text = "Profile";
             this.Tab_Profile.UseVisualStyleBackColor = true;
+            // 
+            // restrictedItemSelect1
+            // 
+            this.ProfileFruit.Location = new System.Drawing.Point(9, 61);
+            this.ProfileFruit.Name = "ProfileFruit";
+            this.ProfileFruit.Size = new System.Drawing.Size(143, 48);
+            this.ProfileFruit.TabIndex = 17;
+            this.ProfileFruit.Value = ((ushort)(0));
             // 
             // CAL_ProfileTimestamp
             // 
@@ -157,7 +164,7 @@
             // CHK_ProfileMadeVillage
             // 
             this.CHK_ProfileMadeVillage.AutoSize = true;
-            this.CHK_ProfileMadeVillage.Location = new System.Drawing.Point(9, 87);
+            this.CHK_ProfileMadeVillage.Location = new System.Drawing.Point(9, 115);
             this.CHK_ProfileMadeVillage.Name = "CHK_ProfileMadeVillage";
             this.CHK_ProfileMadeVillage.Size = new System.Drawing.Size(87, 17);
             this.CHK_ProfileMadeVillage.TabIndex = 15;
@@ -173,18 +180,6 @@
             this.L_ProfileSpecialtyFruit.TabIndex = 14;
             this.L_ProfileSpecialtyFruit.Text = "Fruit";
             // 
-            // NUD_ProfileFruit
-            // 
-            this.NUD_ProfileFruit.Location = new System.Drawing.Point(9, 61);
-            this.NUD_ProfileFruit.Maximum = new decimal(new int[] {
-            65534,
-            0,
-            0,
-            0});
-            this.NUD_ProfileFruit.Name = "NUD_ProfileFruit";
-            this.NUD_ProfileFruit.Size = new System.Drawing.Size(58, 20);
-            this.NUD_ProfileFruit.TabIndex = 13;
-            // 
             // L_ProfileTimestamp
             // 
             this.L_ProfileTimestamp.AutoSize = true;
@@ -198,7 +193,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(254, 191);
+            this.ClientSize = new System.Drawing.Size(295, 216);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.B_Cancel);
             this.Controls.Add(this.B_Save);
@@ -215,7 +210,6 @@
             this.Tab_Misc.ResumeLayout(false);
             this.Tab_Profile.ResumeLayout(false);
             this.Tab_Profile.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_ProfileFruit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -232,8 +226,8 @@
         private System.Windows.Forms.TabPage Tab_Profile;
         private System.Windows.Forms.Label L_ProfileTimestamp;
         private System.Windows.Forms.Label L_ProfileSpecialtyFruit;
-        private System.Windows.Forms.NumericUpDown NUD_ProfileFruit;
         private System.Windows.Forms.CheckBox CHK_ProfileMadeVillage;
         private System.Windows.Forms.DateTimePicker CAL_ProfileTimestamp;
+        private RestrictedItemSelect ProfileFruit;
     }
 }

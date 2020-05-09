@@ -42,6 +42,19 @@ namespace NHSE.Core
             return result;
         }
 
+        public static List<ComboItem> GetArray(IReadOnlyList<ushort> values, string[] names)
+        {
+            var result = new List<ComboItem>(values.Count);
+            foreach (var value in values)
+            {
+                var text = names[value];
+                var item = new ComboItem(text, value);
+                result.Add(item);
+            }
+
+            return result;
+        }
+
         public static void Add(this List<ComboItem> storage, IReadOnlyList<INamedValue> tuples, Dictionary<string, string> translate)
         {
             int initial = storage.Count;
