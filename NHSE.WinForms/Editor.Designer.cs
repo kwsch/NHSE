@@ -93,8 +93,8 @@
             this.CB_Players = new System.Windows.Forms.ComboBox();
             this.PB_Player = new System.Windows.Forms.PictureBox();
             this.TC_Editors = new System.Windows.Forms.TabControl();
-            this.NUD_AirportColor = new System.Windows.Forms.NumericUpDown();
             this.L_AirportColor = new System.Windows.Forms.Label();
+            this.CB_AirportColor = new System.Windows.Forms.ComboBox();
             this.Menu_Editor.SuspendLayout();
             this.CM_Picture.SuspendLayout();
             this.Tab_Map.SuspendLayout();
@@ -110,7 +110,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).BeginInit();
             this.TC_Editors.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_AirportColor)).BeginInit();
             this.SuspendLayout();
             // 
             // Menu_Editor
@@ -236,8 +235,8 @@
             // 
             // Tab_Map
             // 
+            this.Tab_Map.Controls.Add(this.CB_AirportColor);
             this.Tab_Map.Controls.Add(this.L_AirportColor);
-            this.Tab_Map.Controls.Add(this.NUD_AirportColor);
             this.Tab_Map.Controls.Add(this.L_Hemisphere);
             this.Tab_Map.Controls.Add(this.CB_Hemisphere);
             this.Tab_Map.Controls.Add(this.B_EditPlayerHouses);
@@ -751,13 +750,6 @@
             this.TC_Editors.Size = new System.Drawing.Size(404, 237);
             this.TC_Editors.TabIndex = 1;
             // 
-            // NUD_AirportColor
-            // 
-            this.NUD_AirportColor.Location = new System.Drawing.Point(202, 33);
-            this.NUD_AirportColor.Name = "NUD_AirportColor";
-            this.NUD_AirportColor.Size = new System.Drawing.Size(92, 20);
-            this.NUD_AirportColor.TabIndex = 59;
-            // 
             // L_AirportColor
             // 
             this.L_AirportColor.AutoSize = true;
@@ -766,6 +758,15 @@
             this.L_AirportColor.Size = new System.Drawing.Size(64, 13);
             this.L_AirportColor.TabIndex = 60;
             this.L_AirportColor.Text = "Airport Color";
+            // 
+            // CB_AirportColor
+            // 
+            this.CB_AirportColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_AirportColor.FormattingEnabled = true;
+            this.CB_AirportColor.Location = new System.Drawing.Point(202, 32);
+            this.CB_AirportColor.Name = "CB_AirportColor";
+            this.CB_AirportColor.Size = new System.Drawing.Size(92, 21);
+            this.CB_AirportColor.TabIndex = 61;
             // 
             // Editor
             // 
@@ -798,7 +799,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).EndInit();
             this.TC_Editors.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_AirportColor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -870,7 +870,7 @@
         private System.Windows.Forms.ToolStripMenuItem B_EditLandFlags;
         private System.Windows.Forms.ToolStripMenuItem B_EditPlayerMisc;
         private System.Windows.Forms.Label L_AirportColor;
-        private System.Windows.Forms.NumericUpDown NUD_AirportColor;
+        private System.Windows.Forms.ComboBox CB_AirportColor;
     }
 }
 
