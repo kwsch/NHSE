@@ -44,6 +44,8 @@
             this.CM_Picture = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Menu_SavePNG = new System.Windows.Forms.ToolStripMenuItem();
             this.Tab_Map = new System.Windows.Forms.TabPage();
+            this.CB_AirportColor = new System.Windows.Forms.ComboBox();
+            this.L_AirportColor = new System.Windows.Forms.Label();
             this.L_Hemisphere = new System.Windows.Forms.Label();
             this.CB_Hemisphere = new System.Windows.Forms.ComboBox();
             this.B_EditPlayerHouses = new System.Windows.Forms.Button();
@@ -93,8 +95,8 @@
             this.CB_Players = new System.Windows.Forms.ComboBox();
             this.PB_Player = new System.Windows.Forms.PictureBox();
             this.TC_Editors = new System.Windows.Forms.TabControl();
-            this.L_AirportColor = new System.Windows.Forms.Label();
-            this.CB_AirportColor = new System.Windows.Forms.ComboBox();
+            this.B_EditPatternFlag = new System.Windows.Forms.Button();
+            this.B_EditDesignsTailor = new System.Windows.Forms.Button();
             this.Menu_Editor.SuspendLayout();
             this.CM_Picture.SuspendLayout();
             this.Tab_Map.SuspendLayout();
@@ -235,6 +237,8 @@
             // 
             // Tab_Map
             // 
+            this.Tab_Map.Controls.Add(this.B_EditDesignsTailor);
+            this.Tab_Map.Controls.Add(this.B_EditPatternFlag);
             this.Tab_Map.Controls.Add(this.CB_AirportColor);
             this.Tab_Map.Controls.Add(this.L_AirportColor);
             this.Tab_Map.Controls.Add(this.L_Hemisphere);
@@ -252,6 +256,24 @@
             this.Tab_Map.TabIndex = 2;
             this.Tab_Map.Text = "Map";
             this.Tab_Map.UseVisualStyleBackColor = true;
+            // 
+            // CB_AirportColor
+            // 
+            this.CB_AirportColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_AirportColor.FormattingEnabled = true;
+            this.CB_AirportColor.Location = new System.Drawing.Point(202, 32);
+            this.CB_AirportColor.Name = "CB_AirportColor";
+            this.CB_AirportColor.Size = new System.Drawing.Size(92, 21);
+            this.CB_AirportColor.TabIndex = 61;
+            // 
+            // L_AirportColor
+            // 
+            this.L_AirportColor.AutoSize = true;
+            this.L_AirportColor.Location = new System.Drawing.Point(300, 35);
+            this.L_AirportColor.Name = "L_AirportColor";
+            this.L_AirportColor.Size = new System.Drawing.Size(64, 13);
+            this.L_AirportColor.TabIndex = 60;
+            this.L_AirportColor.Text = "Airport Color";
             // 
             // L_Hemisphere
             // 
@@ -357,7 +379,7 @@
             // 
             // B_EditPRODesigns
             // 
-            this.B_EditPRODesigns.Location = new System.Drawing.Point(104, 52);
+            this.B_EditPRODesigns.Location = new System.Drawing.Point(104, 98);
             this.B_EditPRODesigns.Name = "B_EditPRODesigns";
             this.B_EditPRODesigns.Size = new System.Drawing.Size(92, 40);
             this.B_EditPRODesigns.TabIndex = 55;
@@ -367,7 +389,7 @@
             // 
             // B_EditPatterns
             // 
-            this.B_EditPatterns.Location = new System.Drawing.Point(104, 6);
+            this.B_EditPatterns.Location = new System.Drawing.Point(6, 98);
             this.B_EditPatterns.Name = "B_EditPatterns";
             this.B_EditPatterns.Size = new System.Drawing.Size(92, 40);
             this.B_EditPatterns.TabIndex = 54;
@@ -750,23 +772,25 @@
             this.TC_Editors.Size = new System.Drawing.Size(404, 237);
             this.TC_Editors.TabIndex = 1;
             // 
-            // L_AirportColor
+            // B_EditPatternFlag
             // 
-            this.L_AirportColor.AutoSize = true;
-            this.L_AirportColor.Location = new System.Drawing.Point(300, 35);
-            this.L_AirportColor.Name = "L_AirportColor";
-            this.L_AirportColor.Size = new System.Drawing.Size(64, 13);
-            this.L_AirportColor.TabIndex = 60;
-            this.L_AirportColor.Text = "Airport Color";
+            this.B_EditPatternFlag.Location = new System.Drawing.Point(202, 98);
+            this.B_EditPatternFlag.Name = "B_EditPatternFlag";
+            this.B_EditPatternFlag.Size = new System.Drawing.Size(92, 40);
+            this.B_EditPatternFlag.TabIndex = 62;
+            this.B_EditPatternFlag.Text = "Edit Flag Design";
+            this.B_EditPatternFlag.UseVisualStyleBackColor = true;
+            this.B_EditPatternFlag.Click += new System.EventHandler(this.B_EditPatternFlag_Click);
             // 
-            // CB_AirportColor
+            // B_EditDesignsTailor
             // 
-            this.CB_AirportColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_AirportColor.FormattingEnabled = true;
-            this.CB_AirportColor.Location = new System.Drawing.Point(202, 32);
-            this.CB_AirportColor.Name = "CB_AirportColor";
-            this.CB_AirportColor.Size = new System.Drawing.Size(92, 21);
-            this.CB_AirportColor.TabIndex = 61;
+            this.B_EditDesignsTailor.Location = new System.Drawing.Point(300, 98);
+            this.B_EditDesignsTailor.Name = "B_EditDesignsTailor";
+            this.B_EditDesignsTailor.Size = new System.Drawing.Size(92, 40);
+            this.B_EditDesignsTailor.TabIndex = 63;
+            this.B_EditDesignsTailor.Text = "Edit Tailor Designs";
+            this.B_EditDesignsTailor.UseVisualStyleBackColor = true;
+            this.B_EditDesignsTailor.Click += new System.EventHandler(this.B_EditDesignsTailor_Click);
             // 
             // Editor
             // 
@@ -871,6 +895,8 @@
         private System.Windows.Forms.ToolStripMenuItem B_EditPlayerMisc;
         private System.Windows.Forms.Label L_AirportColor;
         private System.Windows.Forms.ComboBox CB_AirportColor;
+        private System.Windows.Forms.Button B_EditDesignsTailor;
+        private System.Windows.Forms.Button B_EditPatternFlag;
     }
 }
 

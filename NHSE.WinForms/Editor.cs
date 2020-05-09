@@ -449,6 +449,22 @@ namespace NHSE.WinForms
                 SAV.Main.SetDesignsPRO(patterns);
         }
 
+        private void B_EditPatternFlag_Click(object sender, EventArgs e)
+        {
+            var patterns = new[] {SAV.Main.FlagMyDesign};
+            using var editor = new PatternEditor(patterns);
+            if (editor.ShowDialog() == DialogResult.OK)
+                SAV.Main.FlagMyDesign = patterns[0];
+        }
+
+        private void B_EditDesignsTailor_Click(object sender, EventArgs e)
+        {
+            var patterns = SAV.Main.GetDesignsTailor();
+            using var editor = new PatternEditorPRO(patterns);
+            if (editor.ShowDialog() == DialogResult.OK)
+                SAV.Main.SetDesignsTailor(patterns);
+        }
+
         private static void ShowContextMenuBelow(ToolStripDropDown c, Control n) => c.Show(n.PointToScreen(new Point(0, n.Height)));
         private void B_EditPlayer_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_EditPlayer, B_EditPlayer);
         private void B_EditMap_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_EditMap, B_EditMap);

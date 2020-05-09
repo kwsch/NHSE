@@ -12,6 +12,7 @@
         public override int LandMyDesign => GSaveLandStart + 0x1D71E8;
         public override int PatternsPRO => LandMyDesign + (PatternCount * DesignPattern.SIZE);
         public override int PatternFlag => PatternsPRO + (PatternCount * DesignPatternPRO.SIZE);
+        public override int PatternTailor => PatternFlag + DesignPattern.SIZE;
 
         public const int GSaveWeather = GSaveLandStart + 0x1D6FB0;
         public override int Hemisphere => GSaveWeather + 0x14;

@@ -10,6 +10,7 @@ namespace NHSE.Core
         public const int PlayerCount = 8;
         public const int VillagerCount = 10;
         public const int PatternCount = 50;
+        public const int PatternTailorCount = 8;
         public const int BuildingCount = 46;
         public const int RecycleBinCount = 40;
 
@@ -18,6 +19,7 @@ namespace NHSE.Core
         public abstract int LandMyDesign { get; }
         public abstract int PatternsPRO { get; }
         public abstract int PatternFlag { get; }
+        public abstract int PatternTailor { get; }
 
         public abstract int Hemisphere { get; }
 
@@ -58,7 +60,12 @@ namespace NHSE.Core
         {
             if ((uint)index >= PatternCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
-            var v = data.Slice(LandMyDesign + (index * DesignPattern.SIZE), DesignPattern.SIZE);
+            return ReadPatternAtOffset(data, LandMyDesign + (index * DesignPattern.SIZE));
+        }
+
+        public static DesignPattern ReadPatternAtOffset(byte[] data, int offset)
+        {
+            var v = data.Slice(offset, DesignPattern.SIZE);
             return new DesignPattern(v);
         }
 
@@ -73,7 +80,13 @@ namespace NHSE.Core
         {
             if ((uint)index >= PatternCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
-            var v = data.Slice(PatternsPRO + (index * DesignPatternPRO.SIZE), DesignPatternPRO.SIZE);
+            var ofs = PatternsPRO + (index * DesignPatternPRO.SIZE);
+            return ReadPatternPROAtOffset(data, ofs);
+        }
+
+        public static DesignPatternPRO ReadPatternPROAtOffset(byte[] data, int ofs)
+        {
+            var v = data.Slice(ofs, DesignPatternPRO.SIZE);
             return new DesignPatternPRO(v);
         }
 

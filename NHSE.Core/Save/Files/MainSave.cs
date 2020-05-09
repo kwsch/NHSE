@@ -134,6 +134,27 @@ namespace NHSE.Core
                 SetDesignPRO(value[i], i);
         }
 
+        public DesignPattern FlagMyDesign
+        {
+            get => MainSaveOffsets.ReadPatternAtOffset(Data, Offsets.PatternFlag);
+            set => value.Data.CopyTo(Data, Offsets.PatternFlag);
+        }
+
+        public DesignPatternPRO[] GetDesignsTailor()
+        {
+            var result = new DesignPatternPRO[MainSaveOffsets.PatternTailorCount];
+            for (int i = 0; i < result.Length; i++)
+                result[i] = MainSaveOffsets.ReadPatternPROAtOffset(Data, Offsets.PatternTailor + (i * DesignPatternPRO.SIZE));
+            return result;
+        }
+
+        public void SetDesignsTailor(IReadOnlyList<DesignPatternPRO> value)
+        {
+            var count = Math.Min(MainSaveOffsets.PatternCount, value.Count);
+            for (int i = 0; i < count; i++)
+                value[i].Data.CopyTo(Data, Offsets.PatternTailor + (i * DesignPatternPRO.SIZE));
+        }
+
         private const int EventFlagsSaveCount = 0x400;
 
         public short[] GetEventFlagLand()
