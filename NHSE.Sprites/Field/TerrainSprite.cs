@@ -24,9 +24,7 @@ namespace NHSE.Sprites
             {
                 for (int x = 0; x < mgr.MapWidth; x++, i++)
                 {
-                    var tile = mgr.GetTile(x, y);
-                    var color = TerrainTileColor.GetTileColor(tile);
-                    pixels[i] = color.ToArgb();
+                    pixels[i] = mgr.GetTileColor(x, y);
                 }
             }
         }

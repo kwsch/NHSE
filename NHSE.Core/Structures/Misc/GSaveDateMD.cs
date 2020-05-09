@@ -20,7 +20,7 @@ namespace NHSE.Core
     {
         public const int SIZE = 0xA;
 
-        private ushort ModifierId { get; set; }
+        public ushort ModifierId { get; set; }
         public byte ModifierLevel { get; set; }
 
         public ushort NounId { get; set; }

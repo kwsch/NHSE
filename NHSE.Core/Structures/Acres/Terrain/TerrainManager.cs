@@ -114,9 +114,13 @@ namespace NHSE.Core
 
         public int GetTileColor(int x, in int y)
         {
-            //var acre = GetTileAcre(x, y);
-            //if (acre != 0)
-            //    return AcreTileColor.GetAcreTileColor(acre, x % 16, y % 16);
+            var acre = GetTileAcre(x, y);
+            if (acre != 0)
+            {
+                var c = AcreTileColor.GetAcreTileColor(acre, x % 16, y % 16);
+                if (c != -0x1000000) // transparent
+                    return c;
+            }
 
             var tile = GetTile(x, y);
             return TerrainTileColor.GetTileColor(tile).ToArgb();
@@ -128,7 +132,8 @@ namespace NHSE.Core
             var acreY = 1 + (y / 16);
 
             var acreIndex = ((AcreWidth + 2) * acreY) + acreX;
-            return BaseAcres[acreIndex * 2]; // u16 array, never > 255
+            var ofs = acreIndex * 2;
+            return BaseAcres[ofs]; // u16 array, never > 255
         }
     }
 }

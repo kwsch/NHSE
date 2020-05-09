@@ -5,6 +5,8 @@ namespace NHSE.Core
 {
     public static class TerrainTileColor
     {
+        private static readonly Color River = Color.FromArgb(128, 215, 195);
+
         public static Color GetTileColor(TerrainTile tile)
         {
             if (tile.UnitModelRoad.IsRoad())
@@ -13,7 +15,7 @@ namespace NHSE.Core
             if (tile.Elevation == 0)
                 return baseColor;
 
-            return ColorUtil.Blend(baseColor, Color.White, 1d / (tile.Elevation + 1));
+            return ColorUtil.Blend(baseColor, Color.White, 1.4d / (tile.Elevation + 1));
         }
 
         private static readonly Color CliffBase = ColorUtil.Blend(Color.ForestGreen, Color.Black, 0.6d);
@@ -21,9 +23,9 @@ namespace NHSE.Core
         private static Color GetTileDefaultColor(TerrainUnitModel mdl)
         {
             if (mdl.IsRiver())
-                return Color.DeepSkyBlue;
+                return River;
             if (mdl.IsFall())
-                return Color.DarkBlue;
+                return Color.DeepSkyBlue;
             if (mdl.IsCliff())
                 return CliffBase;
             return Color.ForestGreen;
@@ -38,14 +40,6 @@ namespace NHSE.Core
             if (num < 0)
                 return name;
             return name.Substring(0, num) + Environment.NewLine + name.Substring(num);
-        }
-    }
-
-    public static class AcreTileColor
-    {
-        public static int GetAcreTileColor(byte acre, int x, int y)
-        {
-            return Color.ForestGreen.ToArgb();
         }
     }
 }
