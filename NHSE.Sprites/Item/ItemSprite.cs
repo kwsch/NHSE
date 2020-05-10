@@ -37,7 +37,11 @@ namespace NHSE.Sprites
         public static Image? GetItemSprite(Item item)
         {
             var id = item.ItemId;
+            return GetItemSprite(id);
+        }
 
+        public static Image? GetItemSprite(ushort id)
+        {
             if (id == Item.NONE)
                 return null;
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using NHSE.Core;
+using NHSE.Sprites;
 
 namespace NHSE.WinForms
 {
@@ -131,6 +132,7 @@ namespace NHSE.WinForms
         private void CB_ItemID_SelectedValueChanged(object sender, EventArgs e)
         {
             var itemID = (ushort)WinFormsUtil.GetIndex(CB_ItemID);
+            ChangeItem(itemID);
             var kind = ItemInfo.GetItemKind(itemID);
 
             ToggleEditorVisibility(kind);
@@ -265,6 +267,13 @@ namespace NHSE.WinForms
                 FLP_Item.Visible = true;
                 FLP_Extension.Visible = false;
             }
+        }
+
+        private void ChangeItem(ushort item)
+        {
+            var pb = PB_Item;
+            pb.BackColor = ItemColor.GetItemColor(item);
+            pb.BackgroundImage = ItemSprite.GetItemSprite(item);
         }
     }
 }
