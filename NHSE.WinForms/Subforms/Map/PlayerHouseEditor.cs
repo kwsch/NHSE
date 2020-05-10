@@ -98,7 +98,7 @@ namespace NHSE.WinForms
 
             var file = ofd.FileName;
             var fi = new FileInfo(file);
-            const int expectLength = VillagerHouse.SIZE;
+            const int expectLength = PlayerHouse.SIZE;
             if (fi.Length != expectLength)
             {
                 WinFormsUtil.Error(MessageStrings.MsgCanceling, string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength));
