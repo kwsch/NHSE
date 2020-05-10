@@ -55,6 +55,9 @@ namespace NHSE.WinForms
             CB_MapAcreSelect.DisplayMember = nameof(ComboItem.Text);
             CB_MapAcreSelect.ValueMember = nameof(ComboItem.Value);
             CB_MapAcreSelect.DataSource = ComboItemUtil.GetArray<ushort>(typeof(OutsideAcre));
+
+            NUD_MapAcreTemplateOutside.Value = SAV.OutsideFieldTemplateUniqueId;
+            NUD_MapAcreTemplateField.Value = SAV.MainFieldParamUniqueID;
         }
 
         private void LoadBuildings(MainSave sav)
@@ -290,7 +293,11 @@ namespace NHSE.WinForms
 
             Map.Items.Save();
             SAV.SetTerrainTiles(Map.Terrain.Tiles);
+
             SAV.SetAcreBytes(Map.Terrain.BaseAcres);
+            SAV.OutsideFieldTemplateUniqueId = (ushort)NUD_MapAcreTemplateOutside.Value;
+            SAV.MainFieldParamUniqueID = (ushort)NUD_MapAcreTemplateField.Value;
+
             SAV.Buildings = Map.Buildings;
             SAV.EventPlazaLeftUpX = Map.PlazaX;
             SAV.EventPlazaLeftUpZ = Map.PlazaY;

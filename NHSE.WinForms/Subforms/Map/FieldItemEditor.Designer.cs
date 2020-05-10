@@ -69,6 +69,7 @@
             this.GB_Remove = new System.Windows.Forms.Label();
             this.TC_Editor = new System.Windows.Forms.TabControl();
             this.Tab_Item = new System.Windows.Forms.TabPage();
+            this.ItemEdit = new NHSE.WinForms.ItemEditor();
             this.B_DumpLoadField = new System.Windows.Forms.Button();
             this.CM_DLField = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.B_DumpAcre = new System.Windows.Forms.ToolStripMenuItem();
@@ -112,12 +113,16 @@
             this.B_DumpLoadTerrain = new System.Windows.Forms.Button();
             this.B_ModifyAllTerrain = new System.Windows.Forms.Button();
             this.Tab_Acres = new System.Windows.Forms.TabPage();
+            this.NUD_MapAcreTemplateField = new System.Windows.Forms.NumericUpDown();
+            this.L_MapAcreTemplateField = new System.Windows.Forms.Label();
+            this.L_MapAcreTemplateOutside = new System.Windows.Forms.Label();
+            this.NUD_MapAcreTemplateOutside = new System.Windows.Forms.NumericUpDown();
             this.CB_MapAcreSelect = new System.Windows.Forms.ComboBox();
             this.B_DumpLoadAcres = new System.Windows.Forms.Button();
             this.CM_DLMapAcres = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.B_DumpMapAcres = new System.Windows.Forms.ToolStripMenuItem();
             this.B_ImportMapAcres = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
+            this.L_MapAcre = new System.Windows.Forms.Label();
             this.CB_MapAcre = new System.Windows.Forms.ComboBox();
             this.CM_DLTerrain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.B_DumpTerrainAcre = new System.Windows.Forms.ToolStripMenuItem();
@@ -130,7 +135,6 @@
             this.RB_Item = new System.Windows.Forms.RadioButton();
             this.RB_Terrain = new System.Windows.Forms.RadioButton();
             this.L_TileMode = new System.Windows.Forms.Label();
-            this.ItemEdit = new NHSE.WinForms.ItemEditor();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
@@ -157,6 +161,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.TR_Terrain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TR_BuildingTransparency)).BeginInit();
             this.Tab_Acres.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_MapAcreTemplateField)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_MapAcreTemplateOutside)).BeginInit();
             this.CM_DLMapAcres.SuspendLayout();
             this.CM_DLTerrain.SuspendLayout();
             this.CM_Terrain.SuspendLayout();
@@ -539,6 +545,14 @@
             this.Tab_Item.TabIndex = 0;
             this.Tab_Item.Text = "Items";
             this.Tab_Item.UseVisualStyleBackColor = true;
+            // 
+            // ItemEdit
+            // 
+            this.ItemEdit.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ItemEdit.Location = new System.Drawing.Point(3, 3);
+            this.ItemEdit.Name = "ItemEdit";
+            this.ItemEdit.Size = new System.Drawing.Size(238, 390);
+            this.ItemEdit.TabIndex = 40;
             // 
             // B_DumpLoadField
             // 
@@ -1015,9 +1029,13 @@
             // 
             // Tab_Acres
             // 
+            this.Tab_Acres.Controls.Add(this.NUD_MapAcreTemplateField);
+            this.Tab_Acres.Controls.Add(this.L_MapAcreTemplateField);
+            this.Tab_Acres.Controls.Add(this.L_MapAcreTemplateOutside);
+            this.Tab_Acres.Controls.Add(this.NUD_MapAcreTemplateOutside);
             this.Tab_Acres.Controls.Add(this.CB_MapAcreSelect);
             this.Tab_Acres.Controls.Add(this.B_DumpLoadAcres);
-            this.Tab_Acres.Controls.Add(this.label1);
+            this.Tab_Acres.Controls.Add(this.L_MapAcre);
             this.Tab_Acres.Controls.Add(this.CB_MapAcre);
             this.Tab_Acres.Location = new System.Drawing.Point(4, 22);
             this.Tab_Acres.Name = "Tab_Acres";
@@ -1026,6 +1044,48 @@
             this.Tab_Acres.TabIndex = 3;
             this.Tab_Acres.Text = "Acres";
             this.Tab_Acres.UseVisualStyleBackColor = true;
+            // 
+            // NUD_MapAcreTemplateField
+            // 
+            this.NUD_MapAcreTemplateField.Location = new System.Drawing.Point(169, 352);
+            this.NUD_MapAcreTemplateField.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+            this.NUD_MapAcreTemplateField.Name = "NUD_MapAcreTemplateField";
+            this.NUD_MapAcreTemplateField.Size = new System.Drawing.Size(69, 20);
+            this.NUD_MapAcreTemplateField.TabIndex = 127;
+            // 
+            // L_MapAcreTemplateField
+            // 
+            this.L_MapAcreTemplateField.Location = new System.Drawing.Point(10, 351);
+            this.L_MapAcreTemplateField.Name = "L_MapAcreTemplateField";
+            this.L_MapAcreTemplateField.Size = new System.Drawing.Size(154, 19);
+            this.L_MapAcreTemplateField.TabIndex = 126;
+            this.L_MapAcreTemplateField.Text = "Field Acre Template:";
+            this.L_MapAcreTemplateField.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // L_MapAcreTemplateOutside
+            // 
+            this.L_MapAcreTemplateOutside.Location = new System.Drawing.Point(10, 325);
+            this.L_MapAcreTemplateOutside.Name = "L_MapAcreTemplateOutside";
+            this.L_MapAcreTemplateOutside.Size = new System.Drawing.Size(154, 19);
+            this.L_MapAcreTemplateOutside.TabIndex = 125;
+            this.L_MapAcreTemplateOutside.Text = "Outside Acre Template:";
+            this.L_MapAcreTemplateOutside.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // NUD_MapAcreTemplateOutside
+            // 
+            this.NUD_MapAcreTemplateOutside.Location = new System.Drawing.Point(169, 327);
+            this.NUD_MapAcreTemplateOutside.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+            this.NUD_MapAcreTemplateOutside.Name = "NUD_MapAcreTemplateOutside";
+            this.NUD_MapAcreTemplateOutside.Size = new System.Drawing.Size(69, 20);
+            this.NUD_MapAcreTemplateOutside.TabIndex = 124;
             // 
             // CB_MapAcreSelect
             // 
@@ -1055,30 +1115,30 @@
             this.B_ImportMapAcres});
             this.CM_DLMapAcres.Name = "CM_Picture";
             this.CM_DLMapAcres.ShowImageMargin = false;
-            this.CM_DLMapAcres.Size = new System.Drawing.Size(156, 70);
+            this.CM_DLMapAcres.Size = new System.Drawing.Size(145, 48);
             // 
             // B_DumpMapAcres
             // 
             this.B_DumpMapAcres.Name = "B_DumpMapAcres";
-            this.B_DumpMapAcres.Size = new System.Drawing.Size(155, 22);
+            this.B_DumpMapAcres.Size = new System.Drawing.Size(144, 22);
             this.B_DumpMapAcres.Text = "Dump Map Acres";
             this.B_DumpMapAcres.Click += new System.EventHandler(this.B_DumpMapAcres_Click);
             // 
             // B_ImportMapAcres
             // 
             this.B_ImportMapAcres.Name = "B_ImportMapAcres";
-            this.B_ImportMapAcres.Size = new System.Drawing.Size(155, 22);
+            this.B_ImportMapAcres.Size = new System.Drawing.Size(144, 22);
             this.B_ImportMapAcres.Text = "Import Map Acres";
             this.B_ImportMapAcres.Click += new System.EventHandler(this.B_ImportMapAcres_Click);
             // 
-            // label1
+            // L_MapAcre
             // 
-            this.label1.Location = new System.Drawing.Point(6, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 19);
-            this.label1.TabIndex = 99;
-            this.label1.Text = "Acre:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_MapAcre.Location = new System.Drawing.Point(6, 6);
+            this.L_MapAcre.Name = "L_MapAcre";
+            this.L_MapAcre.Size = new System.Drawing.Size(89, 19);
+            this.L_MapAcre.TabIndex = 99;
+            this.L_MapAcre.Text = "Acre:";
+            this.L_MapAcre.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // CB_MapAcre
             // 
@@ -1183,14 +1243,6 @@
             this.L_TileMode.Text = "Tile Editor Mode";
             this.L_TileMode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // ItemEdit
-            // 
-            this.ItemEdit.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ItemEdit.Location = new System.Drawing.Point(3, 3);
-            this.ItemEdit.Name = "ItemEdit";
-            this.ItemEdit.Size = new System.Drawing.Size(238, 390);
-            this.ItemEdit.TabIndex = 40;
-            // 
             // FieldItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1251,6 +1303,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.TR_Terrain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TR_BuildingTransparency)).EndInit();
             this.Tab_Acres.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_MapAcreTemplateField)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_MapAcreTemplateOutside)).EndInit();
             this.CM_DLMapAcres.ResumeLayout(false);
             this.CM_DLTerrain.ResumeLayout(false);
             this.CM_Terrain.ResumeLayout(false);
@@ -1355,12 +1409,16 @@
         private System.Windows.Forms.ToolStripMenuItem B_RemoveFlowers;
         private ItemEditor ItemEdit;
         private System.Windows.Forms.TabPage Tab_Acres;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label L_MapAcre;
         private System.Windows.Forms.ComboBox CB_MapAcre;
         private System.Windows.Forms.Button B_DumpLoadAcres;
         private System.Windows.Forms.ContextMenuStrip CM_DLMapAcres;
         private System.Windows.Forms.ToolStripMenuItem B_DumpMapAcres;
         private System.Windows.Forms.ToolStripMenuItem B_ImportMapAcres;
         private System.Windows.Forms.ComboBox CB_MapAcreSelect;
+        private System.Windows.Forms.Label L_MapAcreTemplateOutside;
+        private System.Windows.Forms.NumericUpDown NUD_MapAcreTemplateOutside;
+        private System.Windows.Forms.NumericUpDown NUD_MapAcreTemplateField;
+        private System.Windows.Forms.Label L_MapAcreTemplateField;
     }
 }
