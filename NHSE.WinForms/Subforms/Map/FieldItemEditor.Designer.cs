@@ -315,8 +315,6 @@
             // CHK_SnapToAcre
             // 
             this.CHK_SnapToAcre.AutoSize = true;
-            this.CHK_SnapToAcre.Checked = true;
-            this.CHK_SnapToAcre.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CHK_SnapToAcre.Location = new System.Drawing.Point(534, 12);
             this.CHK_SnapToAcre.Name = "CHK_SnapToAcre";
             this.CHK_SnapToAcre.Size = new System.Drawing.Size(167, 17);
