@@ -69,7 +69,6 @@
             this.GB_Remove = new System.Windows.Forms.Label();
             this.TC_Editor = new System.Windows.Forms.TabControl();
             this.Tab_Item = new System.Windows.Forms.TabPage();
-            this.ItemEdit = new NHSE.WinForms.ItemEditor();
             this.B_DumpLoadField = new System.Windows.Forms.Button();
             this.CM_DLField = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.B_DumpAcre = new System.Windows.Forms.ToolStripMenuItem();
@@ -112,6 +111,14 @@
             this.L_FieldItemTransparency = new System.Windows.Forms.Label();
             this.B_DumpLoadTerrain = new System.Windows.Forms.Button();
             this.B_ModifyAllTerrain = new System.Windows.Forms.Button();
+            this.Tab_Acres = new System.Windows.Forms.TabPage();
+            this.CB_MapAcreSelect = new System.Windows.Forms.ComboBox();
+            this.B_DumpLoadAcres = new System.Windows.Forms.Button();
+            this.CM_DLMapAcres = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.B_DumpMapAcres = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_ImportMapAcres = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CB_MapAcre = new System.Windows.Forms.ComboBox();
             this.CM_DLTerrain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.B_DumpTerrainAcre = new System.Windows.Forms.ToolStripMenuItem();
             this.B_DumpTerrainAll = new System.Windows.Forms.ToolStripMenuItem();
@@ -123,6 +130,7 @@
             this.RB_Item = new System.Windows.Forms.RadioButton();
             this.RB_Terrain = new System.Windows.Forms.RadioButton();
             this.L_TileMode = new System.Windows.Forms.Label();
+            this.ItemEdit = new NHSE.WinForms.ItemEditor();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
@@ -148,6 +156,8 @@
             this.Tab_Terrain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TR_Terrain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TR_BuildingTransparency)).BeginInit();
+            this.Tab_Acres.SuspendLayout();
+            this.CM_DLMapAcres.SuspendLayout();
             this.CM_DLTerrain.SuspendLayout();
             this.CM_Terrain.SuspendLayout();
             this.SuspendLayout();
@@ -509,6 +519,7 @@
             this.TC_Editor.Controls.Add(this.Tab_Item);
             this.TC_Editor.Controls.Add(this.Tab_Building);
             this.TC_Editor.Controls.Add(this.Tab_Terrain);
+            this.TC_Editor.Controls.Add(this.Tab_Acres);
             this.TC_Editor.Location = new System.Drawing.Point(767, 12);
             this.TC_Editor.Name = "TC_Editor";
             this.TC_Editor.SelectedIndex = 0;
@@ -528,14 +539,6 @@
             this.Tab_Item.TabIndex = 0;
             this.Tab_Item.Text = "Items";
             this.Tab_Item.UseVisualStyleBackColor = true;
-            // 
-            // ItemEdit
-            // 
-            this.ItemEdit.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ItemEdit.Location = new System.Drawing.Point(3, 3);
-            this.ItemEdit.Name = "ItemEdit";
-            this.ItemEdit.Size = new System.Drawing.Size(238, 390);
-            this.ItemEdit.TabIndex = 40;
             // 
             // B_DumpLoadField
             // 
@@ -1010,6 +1013,83 @@
             this.B_ModifyAllTerrain.UseVisualStyleBackColor = true;
             this.B_ModifyAllTerrain.Click += new System.EventHandler(this.B_ModifyAllTerrain_Click);
             // 
+            // Tab_Acres
+            // 
+            this.Tab_Acres.Controls.Add(this.CB_MapAcreSelect);
+            this.Tab_Acres.Controls.Add(this.B_DumpLoadAcres);
+            this.Tab_Acres.Controls.Add(this.label1);
+            this.Tab_Acres.Controls.Add(this.CB_MapAcre);
+            this.Tab_Acres.Location = new System.Drawing.Point(4, 22);
+            this.Tab_Acres.Name = "Tab_Acres";
+            this.Tab_Acres.Padding = new System.Windows.Forms.Padding(3);
+            this.Tab_Acres.Size = new System.Drawing.Size(244, 458);
+            this.Tab_Acres.TabIndex = 3;
+            this.Tab_Acres.Text = "Acres";
+            this.Tab_Acres.UseVisualStyleBackColor = true;
+            // 
+            // CB_MapAcreSelect
+            // 
+            this.CB_MapAcreSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_MapAcreSelect.FormattingEnabled = true;
+            this.CB_MapAcreSelect.Location = new System.Drawing.Point(9, 33);
+            this.CB_MapAcreSelect.Name = "CB_MapAcreSelect";
+            this.CB_MapAcreSelect.Size = new System.Drawing.Size(213, 21);
+            this.CB_MapAcreSelect.TabIndex = 102;
+            this.CB_MapAcreSelect.SelectedValueChanged += new System.EventHandler(this.CB_MapAcreSelect_SelectedValueChanged);
+            // 
+            // B_DumpLoadAcres
+            // 
+            this.B_DumpLoadAcres.ContextMenuStrip = this.CM_DLMapAcres;
+            this.B_DumpLoadAcres.Location = new System.Drawing.Point(6, 413);
+            this.B_DumpLoadAcres.Name = "B_DumpLoadAcres";
+            this.B_DumpLoadAcres.Size = new System.Drawing.Size(112, 40);
+            this.B_DumpLoadAcres.TabIndex = 101;
+            this.B_DumpLoadAcres.Text = "Dump/Import";
+            this.B_DumpLoadAcres.UseVisualStyleBackColor = true;
+            this.B_DumpLoadAcres.Click += new System.EventHandler(this.B_DumpLoadAcres_Click);
+            // 
+            // CM_DLMapAcres
+            // 
+            this.CM_DLMapAcres.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.B_DumpMapAcres,
+            this.B_ImportMapAcres});
+            this.CM_DLMapAcres.Name = "CM_Picture";
+            this.CM_DLMapAcres.ShowImageMargin = false;
+            this.CM_DLMapAcres.Size = new System.Drawing.Size(156, 70);
+            // 
+            // B_DumpMapAcres
+            // 
+            this.B_DumpMapAcres.Name = "B_DumpMapAcres";
+            this.B_DumpMapAcres.Size = new System.Drawing.Size(155, 22);
+            this.B_DumpMapAcres.Text = "Dump Map Acres";
+            this.B_DumpMapAcres.Click += new System.EventHandler(this.B_DumpMapAcres_Click);
+            // 
+            // B_ImportMapAcres
+            // 
+            this.B_ImportMapAcres.Name = "B_ImportMapAcres";
+            this.B_ImportMapAcres.Size = new System.Drawing.Size(155, 22);
+            this.B_ImportMapAcres.Text = "Import Map Acres";
+            this.B_ImportMapAcres.Click += new System.EventHandler(this.B_ImportMapAcres_Click);
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(6, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 19);
+            this.label1.TabIndex = 99;
+            this.label1.Text = "Acre:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // CB_MapAcre
+            // 
+            this.CB_MapAcre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_MapAcre.FormattingEnabled = true;
+            this.CB_MapAcre.Location = new System.Drawing.Point(101, 6);
+            this.CB_MapAcre.Name = "CB_MapAcre";
+            this.CB_MapAcre.Size = new System.Drawing.Size(49, 21);
+            this.CB_MapAcre.TabIndex = 98;
+            this.CB_MapAcre.SelectedIndexChanged += new System.EventHandler(this.CB_MapAcre_SelectedIndexChanged);
+            // 
             // CM_DLTerrain
             // 
             this.CM_DLTerrain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1103,6 +1183,14 @@
             this.L_TileMode.Text = "Tile Editor Mode";
             this.L_TileMode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // ItemEdit
+            // 
+            this.ItemEdit.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ItemEdit.Location = new System.Drawing.Point(3, 3);
+            this.ItemEdit.Name = "ItemEdit";
+            this.ItemEdit.Size = new System.Drawing.Size(238, 390);
+            this.ItemEdit.TabIndex = 40;
+            // 
             // FieldItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1162,6 +1250,8 @@
             this.Tab_Terrain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TR_Terrain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TR_BuildingTransparency)).EndInit();
+            this.Tab_Acres.ResumeLayout(false);
+            this.CM_DLMapAcres.ResumeLayout(false);
             this.CM_DLTerrain.ResumeLayout(false);
             this.CM_Terrain.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1264,5 +1354,13 @@
         private System.Windows.Forms.ToolStripMenuItem B_RemoveShells;
         private System.Windows.Forms.ToolStripMenuItem B_RemoveFlowers;
         private ItemEditor ItemEdit;
+        private System.Windows.Forms.TabPage Tab_Acres;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox CB_MapAcre;
+        private System.Windows.Forms.Button B_DumpLoadAcres;
+        private System.Windows.Forms.ContextMenuStrip CM_DLMapAcres;
+        private System.Windows.Forms.ToolStripMenuItem B_DumpMapAcres;
+        private System.Windows.Forms.ToolStripMenuItem B_ImportMapAcres;
+        private System.Windows.Forms.ComboBox CB_MapAcreSelect;
     }
 }

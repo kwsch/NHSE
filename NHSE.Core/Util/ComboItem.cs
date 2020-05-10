@@ -42,6 +42,18 @@ namespace NHSE.Core
             return result;
         }
 
+        public static List<ComboItem> GetArray<T>(Type t) where T : struct, IFormattable
+        {
+            var names = Enum.GetNames(t);
+            var values = (T[])Enum.GetValues(t);
+
+            var acres = new List<ComboItem>(names.Length);
+            for (int i = 0; i < names.Length; i++)
+                acres.Add(new ComboItem($"{names[i]} - {values[i]:X}", (ushort)(object)values[i]));
+            acres.SortByText();
+            return acres;
+        }
+
         public static List<ComboItem> GetArray(IReadOnlyList<ushort> values, string[] names)
         {
             var result = new List<ComboItem>(values.Count);

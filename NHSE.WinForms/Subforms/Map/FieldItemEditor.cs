@@ -31,26 +31,48 @@ namespace NHSE.WinForms
             View = new MapViewer(Map);
 
             Loading = true;
+
+            LoadComboBoxes();
+            LoadBuildings(sav);
+            ReloadMapBackground();
+            LoadEditors();
+            LB_Items.SelectedIndex = 0;
+            CB_Acre.SelectedIndex = 0;
+            CB_MapAcre.SelectedIndex = 0;
+            Loading = false;
+            LoadItemGridAcre();
+        }
+
+        private void LoadComboBoxes()
+        {
             foreach (var acre in MapGrid.Acres)
                 CB_Acre.Items.Add(acre.Name);
 
+            var exterior = AcreCoordinate.GetGridWithExterior(9, 7);
+            foreach (var acre in exterior)
+                CB_MapAcre.Items.Add(acre.Name);
+
+            CB_MapAcreSelect.DisplayMember = nameof(ComboItem.Text);
+            CB_MapAcreSelect.ValueMember = nameof(ComboItem.Value);
+            CB_MapAcreSelect.DataSource = ComboItemUtil.GetArray<ushort>(typeof(OutsideAcre));
+        }
+
+        private void LoadBuildings(MainSave sav)
+        {
             NUD_PlazaX.Value = sav.EventPlazaLeftUpX;
             NUD_PlazaY.Value = sav.EventPlazaLeftUpZ;
 
             foreach (var obj in Map.Buildings)
                 LB_Items.Items.Add(obj.ToString());
+        }
 
-            ReloadMapBackground();
-
+        private void LoadEditors()
+        {
             var data = GameInfo.Strings.ItemDataSource.ToList();
             var field = FieldItemList.Items.Select(z => z.Value).ToList();
             data.Add(field, GameInfo.Strings.InternalNameTranslation);
             ItemEdit.Initialize(data, true);
             PG_TerrainTile.SelectedObject = new TerrainTile();
-            LB_Items.SelectedIndex = 0;
-            CB_Acre.SelectedIndex = 0;
-            Loading = false;
-            LoadItemGridAcre();
         }
 
         private int AcreIndex => CB_Acre.SelectedIndex;
@@ -268,6 +290,7 @@ namespace NHSE.WinForms
 
             Map.Items.Save();
             SAV.SetTerrainTiles(Map.Terrain.Tiles);
+            SAV.SetAcreBytes(Map.Terrain.BaseAcres);
             SAV.Buildings = Map.Buildings;
             SAV.EventPlazaLeftUpX = Map.PlazaX;
             SAV.EventPlazaLeftUpZ = Map.PlazaY;
@@ -531,6 +554,7 @@ namespace NHSE.WinForms
         private void B_DumpLoadTerrain_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_DLTerrain, B_DumpLoadTerrain);
         private void B_DumpLoadBuildings_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_DLBuilding, B_DumpLoadBuildings);
         private void B_ModifyAllTerrain_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_Terrain, B_ModifyAllTerrain);
+        private void B_DumpLoadAcres_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_DLMapAcres, B_DumpLoadAcres);
         private void TR_Transparency_Scroll(object sender, EventArgs e) => ReloadItems();
         private void TR_BuildingTransparency_Scroll(object sender, EventArgs e) => ReloadBuildingsTerrain();
         private void TR_Terrain_Scroll(object sender, EventArgs e) => ReloadBuildingsTerrain();
@@ -609,6 +633,47 @@ namespace NHSE.WinForms
             LB_Items.Items[SelectedBuildingIndex] = Map.Buildings[SelectedBuildingIndex].ToString();
             ReloadBuildingsTerrain();
         }
+        #endregion
+
+        #region Acres
+
+        private void CB_MapAcre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var acre = Map.Terrain.BaseAcres[CB_MapAcre.SelectedIndex * 2];
+            CB_MapAcreSelect.SelectedValue = (int)acre;
+        }
+
+        private void CB_MapAcreSelect_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (Loading)
+                return;
+
+            var index = CB_MapAcre.SelectedIndex;
+            var value = WinFormsUtil.GetIndex(CB_MapAcreSelect);
+
+            var oldValue = Map.Terrain.BaseAcres[index * 2];
+            if (value == oldValue)
+                return;
+            Map.Terrain.BaseAcres[index * 2] = (byte)value;
+            ReloadBuildingsTerrain();
+        }
+
+        private void B_DumpMapAcres_Click(object sender, EventArgs e)
+        {
+            if (!MapDumpHelper.DumpMapAcresAll(Map.Terrain.BaseAcres))
+                return;
+            ReloadBuildingsTerrain();
+            System.Media.SystemSounds.Asterisk.Play();
+        }
+
+        private void B_ImportMapAcres_Click(object sender, EventArgs e)
+        {
+            if (!MapDumpHelper.ImportMapAcresAll(Map.Terrain.BaseAcres))
+                return;
+            ReloadBuildingsTerrain();
+            System.Media.SystemSounds.Asterisk.Play();
+        }
+
         #endregion
     }
 }

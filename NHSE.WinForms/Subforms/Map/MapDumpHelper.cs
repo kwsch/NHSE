@@ -209,5 +209,44 @@ namespace NHSE.WinForms
                 buildings[i].CopyFrom(arr[i]);
             return true;
         }
+
+        public static bool DumpMapAcresAll(byte[] data)
+        {
+            using var sfd = new SaveFileDialog
+            {
+                Filter = "New Horizons Acres (*.nha)|*.nha|All files (*.*)|*.*",
+                FileName = "acres.nha",
+            };
+
+            if (sfd.ShowDialog() != DialogResult.OK)
+                return false;
+
+            File.WriteAllBytes(sfd.FileName, data);
+            return true;
+        }
+
+        public static bool ImportMapAcresAll(byte[] data)
+        {
+            using var ofd = new OpenFileDialog
+            {
+                Filter = "New Horizons Acres (*.nha)|*.nha|All files (*.*)|*.*",
+                FileName = "acres.nha",
+            };
+
+            if (ofd.ShowDialog() != DialogResult.OK)
+                return false;
+
+            var path = ofd.FileName;
+            var original = data;
+            var modified = File.ReadAllBytes(path);
+            if (original.Length != modified.Length)
+            {
+                WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, modified.Length, original.Length), path);
+                return false;
+            }
+
+            modified.CopyTo(data, modified.Length);
+            return true;
+        }
     }
 }

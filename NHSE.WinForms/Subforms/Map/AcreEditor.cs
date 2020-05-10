@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using NHSE.Core;
@@ -51,17 +50,9 @@ namespace NHSE.WinForms
 
         private void LoadHintComboBox()
         {
-            var names = Enum.GetNames(typeof(OutsideAcre));
-            var values = (OutsideAcre[])Enum.GetValues(typeof(OutsideAcre));
-
-            var acres = new List<ComboItem>(names.Length);
-            for (int i = 0; i < names.Length; i++)
-                acres.Add(new ComboItem($"{names[i]} - {values[i]:X}", (ushort) values[i]));
-            acres.SortByText();
-
             CB_AcreNames.DisplayMember = nameof(ComboItem.Text);
             CB_AcreNames.ValueMember = nameof(ComboItem.Value);
-            CB_AcreNames.DataSource = acres;
+            CB_AcreNames.DataSource = ComboItemUtil.GetArray<ushort>(typeof(OutsideAcre));
 
             CB_AcreNames.SelectedIndex = 0;
         }
