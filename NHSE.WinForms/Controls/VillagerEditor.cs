@@ -199,5 +199,14 @@ namespace NHSE.WinForms
             if (editor.ShowDialog() == DialogResult.OK)
                 v.Room = editor.Entity;
         }
+
+        private void B_EditVillagerDesign_Click(object sender, EventArgs e)
+        {
+            var v = Villagers[VillagerIndex];
+            var tmp = new[] {v.Design};
+            using var editor = new PatternEditorPRO(tmp);
+            if (editor.ShowDialog() == DialogResult.OK)
+                v.Design = tmp[0];
+        }
     }
 }

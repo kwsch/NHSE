@@ -51,6 +51,7 @@
             this.CM_EditVillager = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.B_EditFurniture = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditVillagerRoom = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditVillagerDesign = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Variant)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Species)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Villager)).BeginInit();
@@ -253,9 +254,10 @@
             // 
             this.CM_EditVillager.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.B_EditFurniture,
-            this.B_EditVillagerRoom});
+            this.B_EditVillagerRoom,
+            this.B_EditVillagerDesign});
             this.CM_EditVillager.Name = "CM_EditPlayer";
-            this.CM_EditVillager.Size = new System.Drawing.Size(146, 48);
+            this.CM_EditVillager.Size = new System.Drawing.Size(175, 70);
             // 
             // B_EditFurniture
             // 
@@ -270,6 +272,13 @@
             this.B_EditVillagerRoom.Size = new System.Drawing.Size(180, 22);
             this.B_EditVillagerRoom.Text = "Edit Room";
             this.B_EditVillagerRoom.Click += new System.EventHandler(this.B_EditVillagerRoom_Click);
+            // 
+            // B_EditVillagerDesign
+            // 
+            this.B_EditVillagerDesign.Name = "B_EditVillagerDesign";
+            this.B_EditVillagerDesign.Size = new System.Drawing.Size(180, 22);
+            this.B_EditVillagerDesign.Text = "Edit Design Pattern";
+            this.B_EditVillagerDesign.Click += new System.EventHandler(this.B_EditVillagerDesign_Click);
             // 
             // VillagerEditor
             // 
@@ -330,5 +339,6 @@
         private System.Windows.Forms.ContextMenuStrip CM_EditVillager;
         private System.Windows.Forms.ToolStripMenuItem B_EditFurniture;
         private System.Windows.Forms.ToolStripMenuItem B_EditVillagerRoom;
+        private System.Windows.Forms.ToolStripMenuItem B_EditVillagerDesign;
     }
 }

@@ -103,5 +103,11 @@ namespace NHSE.Core
             get => Data.Slice(0x12100, GSaveRoomFloorWall.SIZE).ToStructure<GSaveRoomFloorWall>();
             set => value.ToBytes().CopyTo(Data, 0x12100);
         }
+
+        public DesignPatternPRO Design
+        {
+            get => new DesignPatternPRO(Data.Slice(0x12128, DesignPatternPRO.SIZE));
+            set => value.Data.CopyTo(Data, 0x12128);
+        }
     }
 }
