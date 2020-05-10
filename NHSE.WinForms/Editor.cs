@@ -393,30 +393,12 @@ namespace NHSE.WinForms
             bmp.Save(sfd.FileName, ImageFormat.Png);
         }
 
-        private void B_EditBuildings_Click(object sender, EventArgs e)
-        {
-            using var editor = new BuildingEditor(SAV.Main);
-            editor.ShowDialog();
-        }
-
         private void B_EditTurnipExchange_Click(object sender, EventArgs e)
         {
             var turnips = SAV.Main.Turnips;
             using var editor = new SingleObjectEditor<TurnipStonk>(turnips, PropertySort.Categorized, false);
             if (editor.ShowDialog() == DialogResult.OK)
                 SAV.Main.Turnips = turnips;
-        }
-
-        private void B_EditAcres_Click(object sender, EventArgs e)
-        {
-            using var editor = new AcreEditor(SAV.Main);
-            editor.ShowDialog();
-        }
-
-        private void B_EditTerrain_Click(object sender, EventArgs e)
-        {
-            using var editor = new TerrainEditor(SAV.Main);
-            editor.ShowDialog();
         }
 
         private void B_EditFieldItems_Click(object sender, EventArgs e)

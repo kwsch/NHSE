@@ -44,6 +44,8 @@
             this.CM_Picture = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Menu_SavePNG = new System.Windows.Forms.ToolStripMenuItem();
             this.Tab_Map = new System.Windows.Forms.TabPage();
+            this.B_EditDesignsTailor = new System.Windows.Forms.Button();
+            this.B_EditPatternFlag = new System.Windows.Forms.Button();
             this.CB_AirportColor = new System.Windows.Forms.ComboBox();
             this.L_AirportColor = new System.Windows.Forms.Label();
             this.L_Hemisphere = new System.Windows.Forms.Label();
@@ -53,9 +55,6 @@
             this.CM_EditMap = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.B_EditLandFlags = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditFieldItems = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_EditTerrain = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_EditBuildings = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_EditAcres = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditBulletin = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditFieldGoods = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditPRODesigns = new System.Windows.Forms.Button();
@@ -95,8 +94,6 @@
             this.CB_Players = new System.Windows.Forms.ComboBox();
             this.PB_Player = new System.Windows.Forms.PictureBox();
             this.TC_Editors = new System.Windows.Forms.TabControl();
-            this.B_EditPatternFlag = new System.Windows.Forms.Button();
-            this.B_EditDesignsTailor = new System.Windows.Forms.Button();
             this.Menu_Editor.SuspendLayout();
             this.CM_Picture.SuspendLayout();
             this.Tab_Map.SuspendLayout();
@@ -257,6 +254,26 @@
             this.Tab_Map.Text = "Map";
             this.Tab_Map.UseVisualStyleBackColor = true;
             // 
+            // B_EditDesignsTailor
+            // 
+            this.B_EditDesignsTailor.Location = new System.Drawing.Point(300, 98);
+            this.B_EditDesignsTailor.Name = "B_EditDesignsTailor";
+            this.B_EditDesignsTailor.Size = new System.Drawing.Size(92, 40);
+            this.B_EditDesignsTailor.TabIndex = 63;
+            this.B_EditDesignsTailor.Text = "Edit Tailor Designs";
+            this.B_EditDesignsTailor.UseVisualStyleBackColor = true;
+            this.B_EditDesignsTailor.Click += new System.EventHandler(this.B_EditDesignsTailor_Click);
+            // 
+            // B_EditPatternFlag
+            // 
+            this.B_EditPatternFlag.Location = new System.Drawing.Point(202, 98);
+            this.B_EditPatternFlag.Name = "B_EditPatternFlag";
+            this.B_EditPatternFlag.Size = new System.Drawing.Size(92, 40);
+            this.B_EditPatternFlag.TabIndex = 62;
+            this.B_EditPatternFlag.Text = "Edit Flag Design";
+            this.B_EditPatternFlag.UseVisualStyleBackColor = true;
+            this.B_EditPatternFlag.Click += new System.EventHandler(this.B_EditPatternFlag_Click);
+            // 
             // CB_AirportColor
             // 
             this.CB_AirportColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -320,60 +337,36 @@
             this.CM_EditMap.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.B_EditLandFlags,
             this.B_EditFieldItems,
-            this.B_EditTerrain,
-            this.B_EditBuildings,
-            this.B_EditAcres,
             this.B_EditBulletin,
             this.B_EditFieldGoods});
             this.CM_EditMap.Name = "CM_EditMap";
-            this.CM_EditMap.Size = new System.Drawing.Size(172, 158);
+            this.CM_EditMap.Size = new System.Drawing.Size(181, 114);
             // 
             // B_EditLandFlags
             // 
             this.B_EditLandFlags.Name = "B_EditLandFlags";
-            this.B_EditLandFlags.Size = new System.Drawing.Size(171, 22);
+            this.B_EditLandFlags.Size = new System.Drawing.Size(180, 22);
             this.B_EditLandFlags.Text = "Edit Flags";
             this.B_EditLandFlags.Click += new System.EventHandler(this.B_EditLandFlags_Click);
             // 
             // B_EditFieldItems
             // 
             this.B_EditFieldItems.Name = "B_EditFieldItems";
-            this.B_EditFieldItems.Size = new System.Drawing.Size(171, 22);
+            this.B_EditFieldItems.Size = new System.Drawing.Size(180, 22);
             this.B_EditFieldItems.Text = "Edit Field Items";
             this.B_EditFieldItems.Click += new System.EventHandler(this.B_EditFieldItems_Click);
-            // 
-            // B_EditTerrain
-            // 
-            this.B_EditTerrain.Name = "B_EditTerrain";
-            this.B_EditTerrain.Size = new System.Drawing.Size(171, 22);
-            this.B_EditTerrain.Text = "Edit Terrain";
-            this.B_EditTerrain.Click += new System.EventHandler(this.B_EditTerrain_Click);
-            // 
-            // B_EditBuildings
-            // 
-            this.B_EditBuildings.Name = "B_EditBuildings";
-            this.B_EditBuildings.Size = new System.Drawing.Size(171, 22);
-            this.B_EditBuildings.Text = "Edit Buildings";
-            this.B_EditBuildings.Click += new System.EventHandler(this.B_EditBuildings_Click);
-            // 
-            // B_EditAcres
-            // 
-            this.B_EditAcres.Name = "B_EditAcres";
-            this.B_EditAcres.Size = new System.Drawing.Size(171, 22);
-            this.B_EditAcres.Text = "Edit Acres";
-            this.B_EditAcres.Click += new System.EventHandler(this.B_EditAcres_Click);
             // 
             // B_EditBulletin
             // 
             this.B_EditBulletin.Name = "B_EditBulletin";
-            this.B_EditBulletin.Size = new System.Drawing.Size(171, 22);
+            this.B_EditBulletin.Size = new System.Drawing.Size(180, 22);
             this.B_EditBulletin.Text = "Edit Bulletin Board";
             this.B_EditBulletin.Click += new System.EventHandler(this.B_EditBulletin_Click);
             // 
             // B_EditFieldGoods
             // 
             this.B_EditFieldGoods.Name = "B_EditFieldGoods";
-            this.B_EditFieldGoods.Size = new System.Drawing.Size(171, 22);
+            this.B_EditFieldGoods.Size = new System.Drawing.Size(180, 22);
             this.B_EditFieldGoods.Text = "Edit Field Goods";
             this.B_EditFieldGoods.Click += new System.EventHandler(this.B_EditFieldGoods_Click);
             // 
@@ -772,26 +765,6 @@
             this.TC_Editors.Size = new System.Drawing.Size(404, 237);
             this.TC_Editors.TabIndex = 1;
             // 
-            // B_EditPatternFlag
-            // 
-            this.B_EditPatternFlag.Location = new System.Drawing.Point(202, 98);
-            this.B_EditPatternFlag.Name = "B_EditPatternFlag";
-            this.B_EditPatternFlag.Size = new System.Drawing.Size(92, 40);
-            this.B_EditPatternFlag.TabIndex = 62;
-            this.B_EditPatternFlag.Text = "Edit Flag Design";
-            this.B_EditPatternFlag.UseVisualStyleBackColor = true;
-            this.B_EditPatternFlag.Click += new System.EventHandler(this.B_EditPatternFlag_Click);
-            // 
-            // B_EditDesignsTailor
-            // 
-            this.B_EditDesignsTailor.Location = new System.Drawing.Point(300, 98);
-            this.B_EditDesignsTailor.Name = "B_EditDesignsTailor";
-            this.B_EditDesignsTailor.Size = new System.Drawing.Size(92, 40);
-            this.B_EditDesignsTailor.TabIndex = 63;
-            this.B_EditDesignsTailor.Text = "Edit Tailor Designs";
-            this.B_EditDesignsTailor.UseVisualStyleBackColor = true;
-            this.B_EditDesignsTailor.Click += new System.EventHandler(this.B_EditDesignsTailor_Click);
-            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -866,9 +839,6 @@
         private System.Windows.Forms.Button B_EditPRODesigns;
         private System.Windows.Forms.Button B_EditMap;
         private System.Windows.Forms.ContextMenuStrip CM_EditMap;
-        private System.Windows.Forms.ToolStripMenuItem B_EditTerrain;
-        private System.Windows.Forms.ToolStripMenuItem B_EditBuildings;
-        private System.Windows.Forms.ToolStripMenuItem B_EditAcres;
         private System.Windows.Forms.ToolStripMenuItem B_EditFieldItems;
         private System.Windows.Forms.ContextMenuStrip CM_EditPlayer;
         private System.Windows.Forms.ToolStripMenuItem B_EditPlayerStorage;

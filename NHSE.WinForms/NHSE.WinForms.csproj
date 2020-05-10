@@ -71,9 +71,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Subforms\Map\FieldItemEditor.cs" />
-    <Compile Update="Subforms\Map\TerrainEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Subforms\SingleObjectEditor.cs">
       <SubType>Form</SubType>
     </Compile>
