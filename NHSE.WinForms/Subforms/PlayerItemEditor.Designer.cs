@@ -41,7 +41,7 @@
             // B_Cancel
             // 
             this.B_Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.B_Cancel.Location = new System.Drawing.Point(742, 378);
+            this.B_Cancel.Location = new System.Drawing.Point(772, 398);
             this.B_Cancel.Name = "B_Cancel";
             this.B_Cancel.Size = new System.Drawing.Size(72, 23);
             this.B_Cancel.TabIndex = 5;
@@ -52,7 +52,7 @@
             // B_Save
             // 
             this.B_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.B_Save.Location = new System.Drawing.Point(820, 378);
+            this.B_Save.Location = new System.Drawing.Point(850, 398);
             this.B_Save.Name = "B_Save";
             this.B_Save.Size = new System.Drawing.Size(72, 23);
             this.B_Save.TabIndex = 4;
@@ -63,7 +63,7 @@
             // B_Dump
             // 
             this.B_Dump.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.B_Dump.Location = new System.Drawing.Point(9, 378);
+            this.B_Dump.Location = new System.Drawing.Point(9, 398);
             this.B_Dump.Name = "B_Dump";
             this.B_Dump.Size = new System.Drawing.Size(90, 23);
             this.B_Dump.TabIndex = 7;
@@ -74,7 +74,7 @@
             // B_Load
             // 
             this.B_Load.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.B_Load.Location = new System.Drawing.Point(105, 378);
+            this.B_Load.Location = new System.Drawing.Point(105, 398);
             this.B_Load.Name = "B_Load";
             this.B_Load.Size = new System.Drawing.Size(90, 23);
             this.B_Load.TabIndex = 8;
@@ -84,18 +84,17 @@
             // 
             // PAN_Items
             // 
-            this.PAN_Items.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PAN_Items.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.PAN_Items.Location = new System.Drawing.Point(9, 12);
             this.PAN_Items.Name = "PAN_Items";
-            this.PAN_Items.Size = new System.Drawing.Size(727, 360);
+            this.PAN_Items.Size = new System.Drawing.Size(727, 380);
             this.PAN_Items.TabIndex = 9;
             // 
             // B_Inject
             // 
             this.B_Inject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.B_Inject.Location = new System.Drawing.Point(273, 378);
+            this.B_Inject.Location = new System.Drawing.Point(420, 398);
             this.B_Inject.Name = "B_Inject";
             this.B_Inject.Size = new System.Drawing.Size(90, 23);
             this.B_Inject.TabIndex = 10;
@@ -105,19 +104,20 @@
             // 
             // ItemEditor
             // 
-            this.ItemEditor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ItemEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ItemEditor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ItemEditor.Location = new System.Drawing.Point(742, 12);
             this.ItemEditor.Name = "ItemEditor";
-            this.ItemEditor.Size = new System.Drawing.Size(150, 360);
+            this.ItemEditor.Size = new System.Drawing.Size(180, 380);
             this.ItemEditor.TabIndex = 6;
             // 
             // PlayerItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 411);
+            this.ClientSize = new System.Drawing.Size(934, 431);
             this.Controls.Add(this.B_Inject);
             this.Controls.Add(this.PAN_Items);
             this.Controls.Add(this.B_Load);
