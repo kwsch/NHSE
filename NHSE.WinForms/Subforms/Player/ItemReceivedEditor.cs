@@ -55,7 +55,7 @@ namespace NHSE.WinForms
             var data = Player.Personal.Data;
             for (int i = 0; i < max; i++)
             {
-                var remakeIndex = i >> 3;
+                var remakeIndex = i >> 3; // ItemRemakeInfo.BodyColorCountMax
                 var variant = i & 7;
 
                 ushort itemId = invert.TryGetValue((short)remakeIndex, out var id) ? id : (ushort)0;
@@ -74,7 +74,7 @@ namespace NHSE.WinForms
         public void GiveAll(IReadOnlyList<ushort> indexes, bool value = true)
         {
             foreach (var item in indexes)
-                CLB_Items.SetItemChecked(item, value);
+                GiveItem(item, value);
             System.Media.SystemSounds.Asterisk.Play();
         }
 
@@ -83,7 +83,7 @@ namespace NHSE.WinForms
             if (!value)
             {
                 for (ushort i = 0; i < CLB_Items.Items.Count; i++)
-                    CLB_Items.SetItemChecked(i, false);
+                    GiveItem(i, false);
                 return;
             }
 
@@ -94,9 +94,26 @@ namespace NHSE.WinForms
                     continue;
                 if (skip.Contains(i))
                     continue;
-                CLB_Items.SetItemChecked(i, true);
+                GiveItem(i);
             }
             System.Media.SystemSounds.Asterisk.Play();
+        }
+
+        private void GiveItem(ushort item, bool value = true)
+        {
+            CLB_Items.SetItemChecked(item, value);
+
+            var remakeIndex = ItemRemakeUtil.GetRemakeIndex(item);
+            if (!ItemRemakeInfoData.List.TryGetValue(remakeIndex, out var info))
+                return;
+
+            for (int i = 0; i < ItemRemakeInfo.BodyColorCountMax; i++)
+            {
+                if (!info.HasBodyColor(i))
+                    continue;
+                int rIndex = (remakeIndex * ItemRemakeInfo.BodyColorCountMax) + i;
+                CLB_Remake.SetItemChecked(rIndex, value);
+            }
         }
 
         private static void ShowContextMenuBelow(ToolStripDropDown c, Control n) => c.Show(n.PointToScreen(new System.Drawing.Point(0, n.Height)));
@@ -139,7 +156,7 @@ namespace NHSE.WinForms
 
             var remake = ItemRemakeUtil.GetRemakeIndex((ushort)index);
             if (remake > 0)
-                CLB_Remake.SelectedIndex = remake * 8;
+                CLB_Remake.SelectedIndex = remake * ItemRemakeInfo.BodyColorCountMax;
         }
 
         private void CLB_Items_SelectedIndexChanged(object sender, EventArgs e)

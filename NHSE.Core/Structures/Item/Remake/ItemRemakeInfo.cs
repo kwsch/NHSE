@@ -4,6 +4,8 @@ namespace NHSE.Core
 {
     public class ItemRemakeInfo
     {
+        public const int BodyColorCountMax = 8;
+
         public readonly short Index;
         public readonly ushort ItemUniqueID;
         public readonly sbyte ReBodyPatternNum; // count of body colors
