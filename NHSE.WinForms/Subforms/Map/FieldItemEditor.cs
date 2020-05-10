@@ -456,10 +456,21 @@ namespace NHSE.WinForms
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
-            var img = (Bitmap)PB_Map.BackgroundImage.Clone();
-            using var gfx = Graphics.FromImage(img);
-            gfx.DrawImage(PB_Map.Image, new Point(0, 0));
-            img.Save(sfd.FileName, ImageFormat.Png);
+            if (!Menu_SavePNGTerrain.Checked)
+            {
+                PB_Map.Image.Save(sfd.FileName, ImageFormat.Png);
+            }
+            else if (!Menu_SavePNGItems.Checked)
+            {
+                PB_Map.BackgroundImage.Save(sfd.FileName, ImageFormat.Png);
+            }
+            else
+            {
+                var img = (Bitmap)PB_Map.BackgroundImage.Clone();
+                using var gfx = Graphics.FromImage(img);
+                gfx.DrawImage(PB_Map.Image, new Point(0, 0));
+                img.Save(sfd.FileName, ImageFormat.Png);
+            }
         }
 
         private void PB_Map_MouseDown(object sender, MouseEventArgs e) => ClickMapAt(e, true);

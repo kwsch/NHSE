@@ -69,7 +69,6 @@
             this.GB_Remove = new System.Windows.Forms.Label();
             this.TC_Editor = new System.Windows.Forms.TabControl();
             this.Tab_Item = new System.Windows.Forms.TabPage();
-            this.ItemEdit = new NHSE.WinForms.ItemEditor();
             this.B_DumpLoadField = new System.Windows.Forms.Button();
             this.CM_DLField = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.B_DumpAcre = new System.Windows.Forms.ToolStripMenuItem();
@@ -135,6 +134,9 @@
             this.RB_Item = new System.Windows.Forms.RadioButton();
             this.RB_Terrain = new System.Windows.Forms.RadioButton();
             this.L_TileMode = new System.Windows.Forms.Label();
+            this.ItemEdit = new NHSE.WinForms.ItemEditor();
+            this.Menu_SavePNGItems = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menu_SavePNGTerrain = new System.Windows.Forms.ToolStripMenuItem();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
@@ -295,15 +297,16 @@
             // CM_Picture
             // 
             this.CM_Picture.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Menu_SavePNG});
+            this.Menu_SavePNG,
+            this.Menu_SavePNGItems,
+            this.Menu_SavePNGTerrain});
             this.CM_Picture.Name = "CM_Picture";
-            this.CM_Picture.ShowImageMargin = false;
-            this.CM_Picture.Size = new System.Drawing.Size(101, 26);
+            this.CM_Picture.Size = new System.Drawing.Size(152, 70);
             // 
             // Menu_SavePNG
             // 
             this.Menu_SavePNG.Name = "Menu_SavePNG";
-            this.Menu_SavePNG.Size = new System.Drawing.Size(100, 22);
+            this.Menu_SavePNG.Size = new System.Drawing.Size(180, 22);
             this.Menu_SavePNG.Text = "Save .png";
             this.Menu_SavePNG.Click += new System.EventHandler(this.Menu_SavePNG_Click);
             // 
@@ -545,14 +548,6 @@
             this.Tab_Item.TabIndex = 0;
             this.Tab_Item.Text = "Items";
             this.Tab_Item.UseVisualStyleBackColor = true;
-            // 
-            // ItemEdit
-            // 
-            this.ItemEdit.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ItemEdit.Location = new System.Drawing.Point(3, 3);
-            this.ItemEdit.Name = "ItemEdit";
-            this.ItemEdit.Size = new System.Drawing.Size(238, 390);
-            this.ItemEdit.TabIndex = 40;
             // 
             // B_DumpLoadField
             // 
@@ -1243,6 +1238,32 @@
             this.L_TileMode.Text = "Tile Editor Mode";
             this.L_TileMode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // ItemEdit
+            // 
+            this.ItemEdit.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ItemEdit.Location = new System.Drawing.Point(3, 3);
+            this.ItemEdit.Name = "ItemEdit";
+            this.ItemEdit.Size = new System.Drawing.Size(238, 390);
+            this.ItemEdit.TabIndex = 40;
+            // 
+            // Menu_SavePNGItems
+            // 
+            this.Menu_SavePNGItems.Checked = true;
+            this.Menu_SavePNGItems.CheckOnClick = true;
+            this.Menu_SavePNGItems.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Menu_SavePNGItems.Name = "Menu_SavePNGItems";
+            this.Menu_SavePNGItems.Size = new System.Drawing.Size(180, 22);
+            this.Menu_SavePNGItems.Text = "Include Items";
+            // 
+            // Menu_SavePNGTerrain
+            // 
+            this.Menu_SavePNGTerrain.Checked = true;
+            this.Menu_SavePNGTerrain.CheckOnClick = true;
+            this.Menu_SavePNGTerrain.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Menu_SavePNGTerrain.Name = "Menu_SavePNGTerrain";
+            this.Menu_SavePNGTerrain.Size = new System.Drawing.Size(151, 22);
+            this.Menu_SavePNGTerrain.Text = "Include Terrain";
+            // 
             // FieldItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1420,5 +1441,7 @@
         private System.Windows.Forms.NumericUpDown NUD_MapAcreTemplateOutside;
         private System.Windows.Forms.NumericUpDown NUD_MapAcreTemplateField;
         private System.Windows.Forms.Label L_MapAcreTemplateField;
+        private System.Windows.Forms.ToolStripMenuItem Menu_SavePNGItems;
+        private System.Windows.Forms.ToolStripMenuItem Menu_SavePNGTerrain;
     }
 }
