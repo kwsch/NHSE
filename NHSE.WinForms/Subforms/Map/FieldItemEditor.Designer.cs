@@ -45,6 +45,8 @@
             this.PB_Map = new System.Windows.Forms.PictureBox();
             this.CM_Picture = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Menu_SavePNG = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menu_SavePNGItems = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menu_SavePNGTerrain = new System.Windows.Forms.ToolStripMenuItem();
             this.CHK_SnapToAcre = new System.Windows.Forms.CheckBox();
             this.L_Coordinates = new System.Windows.Forms.Label();
             this.NUD_Layer = new System.Windows.Forms.NumericUpDown();
@@ -69,6 +71,7 @@
             this.GB_Remove = new System.Windows.Forms.Label();
             this.TC_Editor = new System.Windows.Forms.TabControl();
             this.Tab_Item = new System.Windows.Forms.TabPage();
+            this.ItemEdit = new NHSE.WinForms.ItemEditor();
             this.B_DumpLoadField = new System.Windows.Forms.Button();
             this.CM_DLField = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.B_DumpAcre = new System.Windows.Forms.ToolStripMenuItem();
@@ -134,9 +137,6 @@
             this.RB_Item = new System.Windows.Forms.RadioButton();
             this.RB_Terrain = new System.Windows.Forms.RadioButton();
             this.L_TileMode = new System.Windows.Forms.Label();
-            this.Menu_SavePNGItems = new System.Windows.Forms.ToolStripMenuItem();
-            this.Menu_SavePNGTerrain = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemEdit = new NHSE.WinForms.ItemEditor();
             this.CHK_RedirectExtensionLoad = new System.Windows.Forms.CheckBox();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
@@ -312,6 +312,24 @@
             this.Menu_SavePNG.Text = "Save .png";
             this.Menu_SavePNG.Click += new System.EventHandler(this.Menu_SavePNG_Click);
             // 
+            // Menu_SavePNGItems
+            // 
+            this.Menu_SavePNGItems.Checked = true;
+            this.Menu_SavePNGItems.CheckOnClick = true;
+            this.Menu_SavePNGItems.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Menu_SavePNGItems.Name = "Menu_SavePNGItems";
+            this.Menu_SavePNGItems.Size = new System.Drawing.Size(151, 22);
+            this.Menu_SavePNGItems.Text = "Include Items";
+            // 
+            // Menu_SavePNGTerrain
+            // 
+            this.Menu_SavePNGTerrain.Checked = true;
+            this.Menu_SavePNGTerrain.CheckOnClick = true;
+            this.Menu_SavePNGTerrain.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Menu_SavePNGTerrain.Name = "Menu_SavePNGTerrain";
+            this.Menu_SavePNGTerrain.Size = new System.Drawing.Size(151, 22);
+            this.Menu_SavePNGTerrain.Text = "Include Terrain";
+            // 
             // CHK_SnapToAcre
             // 
             this.CHK_SnapToAcre.AutoSize = true;
@@ -378,6 +396,7 @@
             this.PB_Acre.TabIndex = 28;
             this.PB_Acre.TabStop = false;
             this.PB_Acre.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PB_Acre_MouseClick);
+            this.PB_Acre.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PB_Acre_MouseDown);
             this.PB_Acre.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PB_Acre_MouseMove);
             // 
             // TR_Transparency
@@ -548,6 +567,14 @@
             this.Tab_Item.TabIndex = 0;
             this.Tab_Item.Text = "Items";
             this.Tab_Item.UseVisualStyleBackColor = true;
+            // 
+            // ItemEdit
+            // 
+            this.ItemEdit.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ItemEdit.Location = new System.Drawing.Point(3, 3);
+            this.ItemEdit.Name = "ItemEdit";
+            this.ItemEdit.Size = new System.Drawing.Size(238, 390);
+            this.ItemEdit.TabIndex = 40;
             // 
             // B_DumpLoadField
             // 
@@ -1237,32 +1264,6 @@
             this.L_TileMode.TabIndex = 45;
             this.L_TileMode.Text = "Tile Editor Mode";
             this.L_TileMode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // Menu_SavePNGItems
-            // 
-            this.Menu_SavePNGItems.Checked = true;
-            this.Menu_SavePNGItems.CheckOnClick = true;
-            this.Menu_SavePNGItems.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Menu_SavePNGItems.Name = "Menu_SavePNGItems";
-            this.Menu_SavePNGItems.Size = new System.Drawing.Size(151, 22);
-            this.Menu_SavePNGItems.Text = "Include Items";
-            // 
-            // Menu_SavePNGTerrain
-            // 
-            this.Menu_SavePNGTerrain.Checked = true;
-            this.Menu_SavePNGTerrain.CheckOnClick = true;
-            this.Menu_SavePNGTerrain.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Menu_SavePNGTerrain.Name = "Menu_SavePNGTerrain";
-            this.Menu_SavePNGTerrain.Size = new System.Drawing.Size(151, 22);
-            this.Menu_SavePNGTerrain.Text = "Include Terrain";
-            // 
-            // ItemEdit
-            // 
-            this.ItemEdit.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ItemEdit.Location = new System.Drawing.Point(3, 3);
-            this.ItemEdit.Name = "ItemEdit";
-            this.ItemEdit.Size = new System.Drawing.Size(238, 390);
-            this.ItemEdit.TabIndex = 40;
             // 
             // CHK_RedirectExtensionLoad
             // 

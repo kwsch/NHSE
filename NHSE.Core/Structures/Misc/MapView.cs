@@ -54,10 +54,15 @@ namespace NHSE.Core
             return true;
         }
 
-        public void SetViewTo(in int x, in int y)
+        public bool SetViewTo(in int x, in int y)
         {
-            X = x;
-            Y = y;
+            var info = Map.CurrentLayer;
+            var newX = Math.Max(0, Math.Min(x, info.MapWidth - info.GridWidth));
+            var newY = Math.Max(0, Math.Min(y, info.MapHeight - info.GridHeight));
+            bool diff = X != newX || Y != newY;
+            X = newX;
+            Y = newY;
+            return diff;
         }
 
         public void SetViewToAcre(in int acre)

@@ -19,6 +19,9 @@ namespace NHSE.WinForms
 
         private int HoverX;
         private int HoverY;
+        private int DragX = -1;
+        private int DragY = -1;
+        private bool Dragging;
 
         public FieldItemEditor(MainSave sav)
         {
@@ -135,10 +138,23 @@ namespace NHSE.WinForms
 
         private void PB_Acre_MouseClick(object sender, MouseEventArgs e)
         {
+            if (Dragging)
+            {
+                ResetDrag();
+                return;
+            }
+
             if (RB_Item.Checked)
                 OmniTile(e);
             else if (RB_Terrain.Checked)
                 OmniTileTerrain(e);
+        }
+
+        private void ResetDrag()
+        {
+            DragX = -1;
+            DragY = -1;
+            Dragging = false;
         }
 
         private void OmniTile(MouseEventArgs e)
@@ -196,14 +212,30 @@ namespace NHSE.WinForms
 
         private void SetHoveredItem(MouseEventArgs e)
         {
+            GetAcreCoordinates(e, out HoverX, out HoverY);
+
             // Mouse event may fire with a slightly too large x/y; clamp just in case.
-            HoverX = (e.X / View.AcreScale) & 0x1F;
-            HoverY = (e.Y / View.AcreScale) & 0x1F;
+            HoverX &= 0x1F;
+            HoverY &= 0x1F;
         }
+
+        private void GetAcreCoordinates(MouseEventArgs e, out int x, out int y)
+        {
+            x = e.X / View.AcreScale;
+            y = e.Y / View.AcreScale;
+        }
+
+        private void PB_Acre_MouseDown(object sender, MouseEventArgs e) => ResetDrag();
 
         private void PB_Acre_MouseMove(object sender, MouseEventArgs e)
         {
             var l = Map.CurrentLayer;
+            if (e.Button == MouseButtons.Left)
+            {
+                MoveDrag(e);
+                return;
+            }
+
             var oldTile = l.GetTile(View.X + HoverX, View.Y + HoverY);
             var tile = GetTile(l, e, out var x, out var y);
             if (tile == oldTile)
@@ -212,6 +244,45 @@ namespace NHSE.WinForms
             var name = str.GetItemName(tile);
             TT_Hover.SetToolTip(PB_Acre, name);
             SetCoordinateText(x, y);
+        }
+
+        private void MoveDrag(MouseEventArgs e)
+        {
+            GetAcreCoordinates(e, out var nhX, out var nhY);
+
+            if (DragX == -1)
+            {
+                DragX = nhX;
+                DragY = nhY;
+                return;
+            }
+
+            var dX = DragX - nhX;
+            var dY = DragY - nhY;
+
+            if (ModifierKeys == Keys.Control)
+            {
+                dX *= 2;
+                dY *= 2;
+            }
+
+            if ((dX & 1) == 1)
+                dX ^= 1;
+            if ((dY & 1) == 1)
+                dY ^= 1;
+
+            var aX = Math.Abs(dX);
+            var aY = Math.Abs(dY);
+            if (aX < 2 && aY < 2)
+                return;
+
+            DragX = nhX;
+            DragY = nhY;
+            if (!View.SetViewTo(View.X + dX, View.Y + dY))
+                return;
+
+            Dragging = true;
+            LoadItemGridAcre();
         }
 
         private void ViewTile(Item tile, int x, int y)
@@ -534,8 +605,8 @@ namespace NHSE.WinForms
 
             if (!CHK_SnapToAcre.Checked)
             {
-                View.SetViewTo(x, y);
-                LoadItemGridAcre();
+                if (View.SetViewTo(x, y))
+                    LoadItemGridAcre();
                 return;
             }
 
