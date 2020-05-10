@@ -4,7 +4,6 @@ using System.Drawing.Imaging;
 using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
-using NHSE.Sprites;
 
 namespace NHSE.WinForms
 {
@@ -449,7 +448,6 @@ namespace NHSE.WinForms
             }
 
             const string name = "map";
-            var bmp = FieldItemSpriteDrawer.GetBitmapItemLayer(Map.Items.Layer1);
             using var sfd = new SaveFileDialog
             {
                 Filter = "png file (*.png)|*.png|All files (*.*)|*.*",
@@ -458,7 +456,10 @@ namespace NHSE.WinForms
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
-            bmp.Save(sfd.FileName, ImageFormat.Png);
+            var img = (Bitmap)PB_Map.BackgroundImage.Clone();
+            using var gfx = Graphics.FromImage(img);
+            gfx.DrawImage(PB_Map.Image, new Point(0, 0));
+            img.Save(sfd.FileName, ImageFormat.Png);
         }
 
         private void PB_Map_MouseDown(object sender, MouseEventArgs e) => ClickMapAt(e, true);
