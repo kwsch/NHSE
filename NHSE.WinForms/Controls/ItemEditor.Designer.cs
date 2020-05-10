@@ -86,7 +86,7 @@
             this.CHK_WV6 = new System.Windows.Forms.CheckBox();
             this.CHK_WV9 = new System.Windows.Forms.CheckBox();
             this.CHK_Gold = new System.Windows.Forms.CheckBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.FLP_Meta = new System.Windows.Forms.FlowLayoutPanel();
             this.PAN_DummyFlower = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Count)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Uses)).BeginInit();
@@ -107,7 +107,7 @@
             this.FLP_Genetics.SuspendLayout();
             this.FLP_FlowerFlags.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_WaterDays)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.FLP_Meta.SuspendLayout();
             this.SuspendLayout();
             // 
             // CB_ItemID
@@ -115,7 +115,7 @@
             this.CB_ItemID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.CB_ItemID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CB_ItemID.DropDownWidth = 322;
-            this.flowLayoutPanel1.SetFlowBreak(this.CB_ItemID, true);
+            this.FLP_Meta.SetFlowBreak(this.CB_ItemID, true);
             this.CB_ItemID.FormattingEnabled = true;
             this.CB_ItemID.Location = new System.Drawing.Point(3, 1);
             this.CB_ItemID.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
@@ -248,7 +248,7 @@
             this.CB_Recipe.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.CB_Recipe.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CB_Recipe.DropDownWidth = 322;
-            this.flowLayoutPanel1.SetFlowBreak(this.CB_Recipe, true);
+            this.FLP_Meta.SetFlowBreak(this.CB_Recipe, true);
             this.CB_Recipe.FormattingEnabled = true;
             this.CB_Recipe.Location = new System.Drawing.Point(3, 87);
             this.CB_Recipe.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
@@ -264,7 +264,7 @@
             this.FLP_Controls.AutoScroll = true;
             this.FLP_Controls.AutoSize = true;
             this.FLP_Controls.Controls.Add(this.PB_Item);
-            this.FLP_Controls.Controls.Add(this.flowLayoutPanel1);
+            this.FLP_Controls.Controls.Add(this.FLP_Meta);
             this.FLP_Controls.Controls.Add(this.FLP_Item);
             this.FLP_Controls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FLP_Controls.Location = new System.Drawing.Point(0, 0);
@@ -287,7 +287,7 @@
             // CHK_IsExtension
             // 
             this.CHK_IsExtension.AutoSize = true;
-            this.flowLayoutPanel1.SetFlowBreak(this.CHK_IsExtension, true);
+            this.FLP_Meta.SetFlowBreak(this.CHK_IsExtension, true);
             this.CHK_IsExtension.Location = new System.Drawing.Point(17, 26);
             this.CHK_IsExtension.Margin = new System.Windows.Forms.Padding(17, 3, 3, 3);
             this.CHK_IsExtension.Name = "CHK_IsExtension";
@@ -299,7 +299,8 @@
             // 
             // PAN_DummyExtension
             // 
-            this.PAN_DummyExtension.Location = new System.Drawing.Point(3, 49);
+            this.PAN_DummyExtension.Location = new System.Drawing.Point(0, 46);
+            this.PAN_DummyExtension.Margin = new System.Windows.Forms.Padding(0);
             this.PAN_DummyExtension.Name = "PAN_DummyExtension";
             this.PAN_DummyExtension.Size = new System.Drawing.Size(0, 0);
             this.PAN_DummyExtension.TabIndex = 29;
@@ -311,8 +312,8 @@
             this.FLP_Extension.Controls.Add(this.NUD_ExtensionX);
             this.FLP_Extension.Controls.Add(this.L_ExtensionY);
             this.FLP_Extension.Controls.Add(this.NUD_ExtensionY);
-            this.flowLayoutPanel1.SetFlowBreak(this.FLP_Extension, true);
-            this.FLP_Extension.Location = new System.Drawing.Point(6, 46);
+            this.FLP_Meta.SetFlowBreak(this.FLP_Extension, true);
+            this.FLP_Extension.Location = new System.Drawing.Point(0, 46);
             this.FLP_Extension.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Extension.Name = "FLP_Extension";
             this.FLP_Extension.Size = new System.Drawing.Size(88, 40);
@@ -376,10 +377,10 @@
             this.FLP_Item.Controls.Add(this.FLP_Flag0);
             this.FLP_Item.Controls.Add(this.FLP_Flag1);
             this.FLP_Item.Controls.Add(this.FLP_Flower);
-            this.FLP_Item.Location = new System.Drawing.Point(0, 210);
+            this.FLP_Item.Location = new System.Drawing.Point(0, 204);
             this.FLP_Item.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Item.Name = "FLP_Item";
-            this.FLP_Item.Size = new System.Drawing.Size(153, 324);
+            this.FLP_Item.Size = new System.Drawing.Size(147, 324);
             this.FLP_Item.TabIndex = 25;
             // 
             // CB_Fossil
@@ -387,7 +388,7 @@
             this.CB_Fossil.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.CB_Fossil.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CB_Fossil.DropDownWidth = 322;
-            this.flowLayoutPanel1.SetFlowBreak(this.CB_Fossil, true);
+            this.FLP_Meta.SetFlowBreak(this.CB_Fossil, true);
             this.CB_Fossil.FormattingEnabled = true;
             this.CB_Fossil.Location = new System.Drawing.Point(3, 110);
             this.CB_Fossil.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
@@ -415,7 +416,8 @@
             // 
             // PAN_DummyCount
             // 
-            this.PAN_DummyCount.Location = new System.Drawing.Point(3, 29);
+            this.PAN_DummyCount.Location = new System.Drawing.Point(0, 26);
+            this.PAN_DummyCount.Margin = new System.Windows.Forms.Padding(0);
             this.PAN_DummyCount.Name = "PAN_DummyCount";
             this.PAN_DummyCount.Size = new System.Drawing.Size(0, 0);
             this.PAN_DummyCount.TabIndex = 24;
@@ -424,7 +426,7 @@
             // 
             this.L_RemakeBody.AutoSize = true;
             this.FLP_Count.SetFlowBreak(this.L_RemakeBody, true);
-            this.L_RemakeBody.Location = new System.Drawing.Point(9, 32);
+            this.L_RemakeBody.Location = new System.Drawing.Point(3, 32);
             this.L_RemakeBody.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.L_RemakeBody.Name = "L_RemakeBody";
             this.L_RemakeBody.Size = new System.Drawing.Size(75, 13);
@@ -483,7 +485,7 @@
             this.FLP_Flower.Location = new System.Drawing.Point(0, 154);
             this.FLP_Flower.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Flower.Name = "FLP_Flower";
-            this.FLP_Flower.Size = new System.Drawing.Size(153, 170);
+            this.FLP_Flower.Size = new System.Drawing.Size(147, 170);
             this.FLP_Flower.TabIndex = 24;
             this.FLP_Flower.Visible = false;
             // 
@@ -626,7 +628,7 @@
             this.FLP_FlowerFlags.Controls.Add(this.CHK_WV9);
             this.FLP_FlowerFlags.Controls.Add(this.CHK_Gold);
             this.FLP_FlowerFlags.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.FLP_FlowerFlags.Location = new System.Drawing.Point(6, 65);
+            this.FLP_FlowerFlags.Location = new System.Drawing.Point(0, 65);
             this.FLP_FlowerFlags.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_FlowerFlags.Name = "FLP_FlowerFlags";
             this.FLP_FlowerFlags.Size = new System.Drawing.Size(147, 105);
@@ -817,24 +819,26 @@
             this.CHK_Gold.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_Gold.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutPanel1
+            // FLP_Meta
             // 
-            this.flowLayoutPanel1.AutoSize = true;
-            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel1.Controls.Add(this.CB_ItemID);
-            this.flowLayoutPanel1.Controls.Add(this.CHK_IsExtension);
-            this.flowLayoutPanel1.Controls.Add(this.PAN_DummyExtension);
-            this.flowLayoutPanel1.Controls.Add(this.FLP_Extension);
-            this.flowLayoutPanel1.Controls.Add(this.CB_Recipe);
-            this.flowLayoutPanel1.Controls.Add(this.CB_Fossil);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 75);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(147, 132);
-            this.flowLayoutPanel1.TabIndex = 30;
+            this.FLP_Meta.AutoSize = true;
+            this.FLP_Meta.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.FLP_Meta.Controls.Add(this.CB_ItemID);
+            this.FLP_Meta.Controls.Add(this.CHK_IsExtension);
+            this.FLP_Meta.Controls.Add(this.PAN_DummyExtension);
+            this.FLP_Meta.Controls.Add(this.FLP_Extension);
+            this.FLP_Meta.Controls.Add(this.CB_Recipe);
+            this.FLP_Meta.Controls.Add(this.CB_Fossil);
+            this.FLP_Meta.Location = new System.Drawing.Point(0, 72);
+            this.FLP_Meta.Margin = new System.Windows.Forms.Padding(0);
+            this.FLP_Meta.Name = "FLP_Meta";
+            this.FLP_Meta.Size = new System.Drawing.Size(147, 132);
+            this.FLP_Meta.TabIndex = 30;
             // 
             // PAN_DummyFlower
             // 
-            this.PAN_DummyFlower.Location = new System.Drawing.Point(3, 68);
+            this.PAN_DummyFlower.Location = new System.Drawing.Point(0, 65);
+            this.PAN_DummyFlower.Margin = new System.Windows.Forms.Padding(0);
             this.PAN_DummyFlower.Name = "PAN_DummyFlower";
             this.PAN_DummyFlower.Size = new System.Drawing.Size(0, 0);
             this.PAN_DummyFlower.TabIndex = 21;
@@ -870,8 +874,8 @@
             this.FLP_FlowerFlags.ResumeLayout(false);
             this.FLP_FlowerFlags.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_WaterDays)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
+            this.FLP_Meta.ResumeLayout(false);
+            this.FLP_Meta.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -935,7 +939,7 @@
         private System.Windows.Forms.CheckBox CHK_IsExtension;
         private System.Windows.Forms.Panel PAN_DummyCount;
         private System.Windows.Forms.Panel PAN_DummyExtension;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel FLP_Meta;
         private System.Windows.Forms.Panel PAN_DummyFlower;
     }
 }

@@ -194,11 +194,19 @@ namespace NHSE.WinForms
                     break;
 
                 case ItemKind.Kind_DIYRecipe:
-                case ItemKind.Kind_MessageBottle:
                     CB_Recipe.Visible = true;
 
                     CB_Fossil.Visible = false;
                     FLP_Uses.Visible = FLP_Count.Visible = FLP_Flag0.Visible = FLP_Flag1.Visible = false;
+                    FLP_Flower.Visible = false;
+                    break;
+
+                case ItemKind.Kind_MessageBottle:
+                    CB_Recipe.Visible = true;
+
+                    CB_Fossil.Visible = false;
+                    FLP_Uses.Visible = FLP_Flag0.Visible = FLP_Flag1.Visible = true;
+                    FLP_Count.Visible = false;
                     FLP_Flower.Visible = false;
                     break;
 
