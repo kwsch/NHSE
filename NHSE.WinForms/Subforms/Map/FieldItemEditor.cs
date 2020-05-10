@@ -47,7 +47,7 @@ namespace NHSE.WinForms
             foreach (var acre in MapGrid.Acres)
                 CB_Acre.Items.Add(acre.Name);
 
-            var exterior = AcreCoordinate.GetGridWithExterior(9, 7);
+            var exterior = AcreCoordinate.GetGridWithExterior(9, 8);
             foreach (var acre in exterior)
                 CB_MapAcre.Items.Add(acre.Name);
 
@@ -447,6 +447,8 @@ namespace NHSE.WinForms
                 return;
             }
 
+            CM_Picture.Close(ToolStripDropDownCloseReason.CloseCalled);
+
             const string name = "map";
             using var sfd = new SaveFileDialog
             {
@@ -473,7 +475,18 @@ namespace NHSE.WinForms
             }
         }
 
-        private void PB_Map_MouseDown(object sender, MouseEventArgs e) => ClickMapAt(e, true);
+        private void CM_Picture_Closing(object sender, ToolStripDropDownClosingEventArgs e)
+        {
+            if (e.CloseReason == ToolStripDropDownCloseReason.ItemClicked && sender != Menu_SavePNG)
+                e.Cancel = true;
+        }
+
+        private void PB_Map_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+                return;
+            ClickMapAt(e, true);
+        }
 
         private void ClickMapAt(MouseEventArgs e, bool skipLagCheck)
         {
