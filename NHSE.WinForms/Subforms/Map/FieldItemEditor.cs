@@ -222,7 +222,7 @@ namespace NHSE.WinForms
                 var rx = Math.Max(0, Math.Min(l.MapWidth - 1, x - tile.ExtensionX));
                 var ry = Math.Max(0, Math.Min(l.MapHeight - 1, y - tile.ExtensionY));
                 var redir = l.GetTile(rx, ry);
-                if (redir.IsRoot && redir.ItemId == tile.ItemId)
+                if (redir.IsRoot && redir.ItemId == tile.ExtensionItemId)
                     tile = redir;
             }
 
