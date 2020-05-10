@@ -84,9 +84,29 @@ namespace NHSE.Sprites
                         continue;
                     if (tile.IsBuried)
                         DrawX(data, (x - x0) * scale, (y - y0) * scale, scale, w);
+                    else if (tile.IsDropped)
+                        DrawPlus(data, (x - x0) * scale, (y - y0) * scale, scale, w);
                     else if (tile.IsExtension)
                         DrawDirectional(data, tile, (x - x0) * scale, (y - y0) * scale, scale, w);
                 }
+            }
+        }
+
+        private static void DrawPlus(int[] data, int x0, int y0, int scale, int w)
+        {
+            var x0y0 = (w * y0) + x0;
+            var s2 = scale / 2;
+            var ws2 = w * s2;
+
+            var v0 = x0y0 + s2;
+            var h0 = x0y0 + ws2;
+
+            for (int x = scale / 4; x <= 3 * (scale / 4); x++)
+            {
+                var vert = v0 + (w * x);
+                data[vert] ^= 0x808080;
+                var hori = h0 + x;
+                data[hori] ^= 0x808080;
             }
         }
 
