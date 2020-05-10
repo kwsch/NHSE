@@ -11,6 +11,7 @@ namespace NHSE.Core
         public const ushort NONE = 0xFFFE;
         public const ushort EXTENSION = 0xFFFD;
         public const ushort FieldItemMin = 60_000;
+        public const ushort LLOYD = 63_005;
 
         public const ushort MessageBottle = 0x16A1;
         public const ushort DIYRecipe = 0x16A2;
@@ -30,6 +31,9 @@ namespace NHSE.Core
 
         public int Rotation => SystemParam & 3;
         public bool IsBuried => (SystemParam & 4) != 0;
+        public bool Is_08 => (SystemParam & 0x08) != 0;
+        public bool Is_10 => (SystemParam & 0x10) != 0;
+        public bool IsDropped => (SystemParam & 0x20) != 0;
 
         public ItemWrapping WrappingType => (ItemWrapping)(AdditionalParam & 3);
         public int WrappingIndex => (AdditionalParam >> 2) & 0xF;

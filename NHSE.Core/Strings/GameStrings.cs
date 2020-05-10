@@ -109,6 +109,7 @@ namespace NHSE.Core
                 return itemlist[0];
             if (index == Item.EXTENSION)
                 return GetItemName(item.ExtensionItemId);
+
             var kind = ItemInfo.GetItemKind(index);
 
             if (kind == ItemKind.Kind_DIYRecipe || kind == ItemKind.Kind_MessageBottle)
@@ -142,6 +143,11 @@ namespace NHSE.Core
         {
             if (FieldItemList.Items.TryGetValue(index, out var val))
                 return val.Name;
+
+            // 63,000 ???
+            if (index == Item.LLOYD)
+                return "Lloyd";
+
             return "???";
         }
     }

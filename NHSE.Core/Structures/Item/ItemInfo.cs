@@ -14,7 +14,13 @@
             return (ItemKind) ItemKinds[id];
         }
 
-        public static ItemSizeType GetItemSize(Item item) => GetItemSize(item.DisplayItemId);
+        public static ItemSizeType GetItemSize(Item item)
+        {
+            if (item.IsBuried || item.IsDropped)
+                return ItemSizeType.S_1_0x1_0;
+
+            return GetItemSize(item.DisplayItemId);
+        }
 
         public static ItemSizeType GetItemSize(ushort id)
         {
