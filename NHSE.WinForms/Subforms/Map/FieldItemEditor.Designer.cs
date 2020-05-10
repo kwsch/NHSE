@@ -137,6 +137,7 @@
             this.Menu_SavePNGItems = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_SavePNGTerrain = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemEdit = new NHSE.WinForms.ItemEditor();
+            this.CHK_RedirectExtensionLoad = new System.Windows.Forms.CheckBox();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
@@ -301,7 +302,7 @@
             this.Menu_SavePNGItems,
             this.Menu_SavePNGTerrain});
             this.CM_Picture.Name = "CM_Picture";
-            this.CM_Picture.Size = new System.Drawing.Size(181, 92);
+            this.CM_Picture.Size = new System.Drawing.Size(152, 70);
             this.CM_Picture.Closing += new System.Windows.Forms.ToolStripDropDownClosingEventHandler(this.CM_Picture_Closing);
             // 
             // Menu_SavePNG
@@ -1265,11 +1266,24 @@
             this.ItemEdit.Size = new System.Drawing.Size(238, 390);
             this.ItemEdit.TabIndex = 40;
             // 
+            // CHK_RedirectExtensionLoad
+            // 
+            this.CHK_RedirectExtensionLoad.AutoSize = true;
+            this.CHK_RedirectExtensionLoad.Checked = true;
+            this.CHK_RedirectExtensionLoad.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CHK_RedirectExtensionLoad.Location = new System.Drawing.Point(535, 441);
+            this.CHK_RedirectExtensionLoad.Name = "CHK_RedirectExtensionLoad";
+            this.CHK_RedirectExtensionLoad.Size = new System.Drawing.Size(173, 17);
+            this.CHK_RedirectExtensionLoad.TabIndex = 46;
+            this.CHK_RedirectExtensionLoad.Text = "View Root instead of Extension";
+            this.CHK_RedirectExtensionLoad.UseVisualStyleBackColor = true;
+            // 
             // FieldItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1027, 537);
+            this.Controls.Add(this.CHK_RedirectExtensionLoad);
             this.Controls.Add(this.L_TileMode);
             this.Controls.Add(this.RB_Terrain);
             this.Controls.Add(this.RB_Item);
@@ -1444,5 +1458,6 @@
         private System.Windows.Forms.Label L_MapAcreTemplateField;
         private System.Windows.Forms.ToolStripMenuItem Menu_SavePNGItems;
         private System.Windows.Forms.ToolStripMenuItem Menu_SavePNGTerrain;
+        private System.Windows.Forms.CheckBox CHK_RedirectExtensionLoad;
     }
 }

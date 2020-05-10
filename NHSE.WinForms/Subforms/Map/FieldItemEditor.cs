@@ -161,7 +161,7 @@ namespace NHSE.WinForms
             switch (ModifierKeys)
             {
                 default:
-                    ViewTile(tile);
+                    ViewTile(tile, x, y);
                     return;
                 case Keys.Shift:
                     SetTile(tile, x, y);
@@ -212,6 +212,21 @@ namespace NHSE.WinForms
             var name = str.GetItemName(tile);
             TT_Hover.SetToolTip(PB_Acre, name);
             SetCoordinateText(x, y);
+        }
+
+        private void ViewTile(Item tile, int x, int y)
+        {
+            if (CHK_RedirectExtensionLoad.Checked && tile.IsExtension)
+            {
+                var l = Map.CurrentLayer;
+                var rx = Math.Max(0, Math.Min(l.MapWidth - 1, x - tile.ExtensionX));
+                var ry = Math.Max(0, Math.Min(l.MapHeight - 1, y - tile.ExtensionY));
+                var redir = l.GetTile(rx, ry);
+                if (redir.IsRoot && redir.ItemId == tile.ItemId)
+                    tile = redir;
+            }
+
+            ViewTile(tile);
         }
 
         private void ViewTile(Item tile)
@@ -311,7 +326,7 @@ namespace NHSE.WinForms
             if (RB_Item.Checked)
             {
                 var tile = Map.CurrentLayer.GetTile(x, y);
-                ViewTile(tile);
+                ViewTile(tile, x, y);
             }
             else if (RB_Terrain.Checked)
             {
