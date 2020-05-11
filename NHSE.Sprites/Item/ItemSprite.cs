@@ -66,7 +66,16 @@ namespace NHSE.Sprites
             path = string.Empty;
             var str = ItemNames;
             if (id >= str.Length)
-                return false;
+            {
+                if (!FieldItemList.Items.TryGetValue(id, out var definition))
+                    return false;
+
+                var remap = definition.HeldItemId;
+                if (remap >= str.Length)
+                    return false;
+
+                id = remap;
+            }
 
             var name = str[id];
             return FileLookup.TryGetValue(name, out path);

@@ -19,20 +19,31 @@ namespace NHSE.Parsing
         /// <param name="pathBCSV">Source of <see cref="BCSV"/> files.</param>
         /// <param name="dest">Destination folder where the dumps will be saved.</param>
         /// <param name="csv">Convert all <see cref="BCSV"/> files to CSV for easy viewing.</param>
+        /// <param name="remapBCSV">Change BCSV magic numbers to string if available</param>
         /// <param name="delim">Delimiter when exporting the <see cref="csv"/> files</param>
-        public static void UpdateDumps(string pathBCSV, string dest, bool csv = false, string delim = "\t")
+        public static void UpdateDumps(string pathBCSV, string dest, bool csv = false, bool remapBCSV = true, string delim = "\t")
+        {
+            ExtractInfo(pathBCSV, dest);
+
+            if (csv)
+                UpdateCSV(pathBCSV, Path.Combine(dest, "csv"), remapBCSV, delim);
+        }
+
+        private static void ExtractInfo(string pathBCSV, string dest)
         {
             var itemNames = GameInfo.Strings.itemlist;
 
-            void DumpS(string fn, IEnumerable<string> lines)
+            void DumpS(string fn, IEnumerable<string> lines, string dir = "text")
             {
-                File.WriteAllLines(Path.Combine(dest, fn), lines);
+                Directory.CreateDirectory(Path.Combine(dest, dir));
+                File.WriteAllLines(Path.Combine(dest, dir, fn), lines);
                 Console.WriteLine($"Created {fn}");
             }
 
-            void DumpB(string fn, byte[] bytes)
+            void DumpB(string fn, byte[] bytes, string dir = "bin")
             {
-                File.WriteAllBytes(Path.Combine(dest, fn), bytes);
+                Directory.CreateDirectory(Path.Combine(dest, dir));
+                File.WriteAllBytes(Path.Combine(dest, dir, fn), bytes);
                 Console.WriteLine($"Created {fn}");
             }
 
@@ -65,9 +76,13 @@ namespace NHSE.Parsing
             DumpS("item_size_dictionary.txt", GetItemSizeDictionary(pathBCSV));
             DumpS("item_remake.txt", GetItemRemakeDictionary(pathBCSV));
             DumpS("itemRemakeInfo.txt", GetItemRemakeColors(pathBCSV));
+        }
 
-            if (csv)
-                BCSVConverter.DumpAll(pathBCSV, dest, delim);
+        public static void UpdateCSV(string pathBCSV, string dest, bool remapColumns = false, string delim = "\t")
+        {
+            BCSV.DecodeColumnNames = remapColumns;
+            Directory.CreateDirectory(dest);
+            BCSVConverter.DumpAll(pathBCSV, dest, delim);
         }
 
         private static IEnumerable<string> GetPossibleEnumValues(string pathBCSV, string fn, uint key)
@@ -373,6 +388,9 @@ namespace NHSE.Parsing
             var findex = dict[0x54706054];
             var fcomment = dict[0x3F45F2BF];
 
+            var fdig = dict[0xF4678F13];
+            var fpic = dict[0xB7A46956];
+
             var result = new List<string>();
             for (int i = 0; i < bcsv.EntryCount; i++)
             {
@@ -383,10 +401,17 @@ namespace NHSE.Parsing
                 var comment = bcsv.ReadValue(i, fcomment).TrimEnd('\0');
                 var type = bcsv.ReadValue(i, fType).TrimEnd('\0');
 
+                var did = bcsv.ReadValue(i, fdig);
+                var dval = (ushort)short.Parse(did);
+
+                var pid = bcsv.ReadValue(i, fpic);
+                var pval = (ushort)short.Parse(pid);
+
                 if (!Enum.TryParse<FieldItemKind>(type, out var k))
                     throw new InvalidEnumArgumentException($"{type} is not a known enum value @ index {i}. Update the enum index first.");
 
-                var v = $"new {nameof(FieldItemDefinition)}(0x{ival:X}, \"{name}\", {nameof(FieldItemKind)}.{k})";
+                var strname = $"\"{name}\"";
+                var v = $"new {nameof(FieldItemDefinition)}({ival,-5}, {dval,-5}, {pval,-5}, {strname,-24}, {nameof(FieldItemKind)}.{k,-20})";
                 var kvp = $"{{0x{ival:X}, {v}}}, // {comment}";
                 result.Add(kvp);
             }

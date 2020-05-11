@@ -129,6 +129,17 @@ namespace NHSE.Core
                 return $"{display} - {fossilName}";
             }
 
+            if (kind == ItemKind.Kind_Tree)
+            {
+                var display = GetItemName(index);
+                var willDrop = item.Count;
+                if (willDrop != 0)
+                {
+                    var dropName = GetItemName(willDrop);
+                    return $"{display} - {dropName}";
+                }
+            }
+
             return GetItemName(index);
         }
 
