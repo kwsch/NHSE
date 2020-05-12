@@ -621,7 +621,7 @@ namespace NHSE.WinForms
             {
                 ClickMapAt(e, false);
             }
-            else
+            else if (e.Button == MouseButtons.None)
             {
                 View.GetCursorCoordinates(e.X, e.Y, out var x, out var y);
                 SetCoordinateText(x, y);
