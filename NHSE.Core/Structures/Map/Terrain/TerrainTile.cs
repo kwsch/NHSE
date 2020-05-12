@@ -57,5 +57,19 @@ namespace NHSE.Core
             LandMakingAngleRoad = source.LandMakingAngleRoad;
             Elevation = source.Elevation;
         }
+
+        public void CopyGroundFrom(TerrainTile tile)
+        {
+            UnitModel = tile.UnitModel;
+            Variation = tile.Variation;
+            LandMakingAngle = tile.LandMakingAngle;
+        }
+
+        public void CopyRoadFrom(TerrainTile tile)
+        {
+            UnitModelRoad = tile.UnitModelRoad;
+            VariationRoad = tile.VariationRoad;
+            LandMakingAngleRoad = tile.LandMakingAngleRoad;
+        }
     }
 }

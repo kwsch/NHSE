@@ -85,6 +85,28 @@ namespace NHSE.Core
             }
         }
 
+        public void SetAllRoad(TerrainTile tile, in bool interiorOnly)
+        {
+            if (interiorOnly)
+            {
+                // skip outermost ring of tiles
+                int xmin = GridWidth;
+                int ymin = GridHeight;
+                int xmax = MaxWidth - GridWidth;
+                int ymax = MaxHeight - GridHeight;
+                for (int x = xmin; x < xmax; x++)
+                {
+                    for (int y = ymin; y < ymax; y++)
+                        GetTile(x, y).CopyRoadFrom(tile);
+                }
+            }
+            else
+            {
+                foreach (var t in Tiles)
+                    t.CopyRoadFrom(tile);
+            }
+        }
+
         public void GetBuildingCoordinate(ushort bx, ushort by, int scale, out int x, out int y)
         {
             // Although there is terrain in the Top Row and Left Column, no buildings can be placed there.

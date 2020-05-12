@@ -134,6 +134,7 @@
             this.CM_Terrain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.B_ZeroElevation = new System.Windows.Forms.ToolStripMenuItem();
             this.B_SetAllTerrain = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_SetAllRoadTiles = new System.Windows.Forms.ToolStripMenuItem();
             this.RB_Item = new System.Windows.Forms.RadioButton();
             this.RB_Terrain = new System.Windows.Forms.RadioButton();
             this.L_TileMode = new System.Windows.Forms.Label();
@@ -1215,10 +1216,11 @@
             // 
             this.CM_Terrain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.B_ZeroElevation,
-            this.B_SetAllTerrain});
+            this.B_SetAllTerrain,
+            this.B_SetAllRoadTiles});
             this.CM_Terrain.Name = "CM_Picture";
             this.CM_Terrain.ShowImageMargin = false;
-            this.CM_Terrain.Size = new System.Drawing.Size(225, 70);
+            this.CM_Terrain.Size = new System.Drawing.Size(225, 92);
             // 
             // B_ZeroElevation
             // 
@@ -1233,6 +1235,13 @@
             this.B_SetAllTerrain.Size = new System.Drawing.Size(224, 22);
             this.B_SetAllTerrain.Text = "Set All Tiles using Tile from Editor";
             this.B_SetAllTerrain.Click += new System.EventHandler(this.B_SetAllTerrain_Click);
+            // 
+            // B_SetAllRoadTiles
+            // 
+            this.B_SetAllRoadTiles.Name = "B_SetAllRoadTiles";
+            this.B_SetAllRoadTiles.Size = new System.Drawing.Size(224, 22);
+            this.B_SetAllRoadTiles.Text = "Set All Road Tiles from Editor";
+            this.B_SetAllRoadTiles.Click += new System.EventHandler(this.B_SetAllRoadTiles_Click);
             // 
             // RB_Item
             // 
@@ -1460,5 +1469,6 @@
         private System.Windows.Forms.ToolStripMenuItem Menu_SavePNGItems;
         private System.Windows.Forms.ToolStripMenuItem Menu_SavePNGTerrain;
         private System.Windows.Forms.CheckBox CHK_RedirectExtensionLoad;
+        private System.Windows.Forms.ToolStripMenuItem B_SetAllRoadTiles;
     }
 }

@@ -817,5 +817,18 @@ namespace NHSE.WinForms
             ReloadBuildingsTerrain();
             System.Media.SystemSounds.Asterisk.Play();
         }
+
+        private void B_SetAllRoadTiles_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.Yes != WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgTerrainSetAll))
+                return;
+
+            var pgt = (TerrainTile)PG_TerrainTile.SelectedObject;
+            bool interiorOnly = DialogResult.Yes == WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgTerrainSetAllSkipExterior);
+            Map.Terrain.SetAll(pgt, interiorOnly);
+
+            ReloadBuildingsTerrain();
+            System.Media.SystemSounds.Asterisk.Play();
+        }
     }
 }
