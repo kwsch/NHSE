@@ -825,7 +825,7 @@ namespace NHSE.WinForms
 
             var pgt = (TerrainTile)PG_TerrainTile.SelectedObject;
             bool interiorOnly = DialogResult.Yes == WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgTerrainSetAllSkipExterior);
-            Map.Terrain.SetAll(pgt, interiorOnly);
+            Map.Terrain.SetAllRoad(pgt, interiorOnly);
 
             ReloadBuildingsTerrain();
             System.Media.SystemSounds.Asterisk.Play();
