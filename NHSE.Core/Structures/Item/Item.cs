@@ -18,12 +18,6 @@ namespace NHSE.Core
         public const ushort MessageBottleEgg = 0x3100;
         public const int SIZE = 8;
 
-        private static readonly ushort[] WrappingRedirect =
-        {
-            0x1E13, 0x1E14, 0x1E15, 0x1E16, 0x1E17, 0x1E18, 0x1E19, 0x1E1A,
-            0x1E1B, 0x1E1C, 0x1E1D, 0x1E1E, 0x1E1F, 0x1E20, 0x1E21, 0x1E22
-        };
-
         [field: FieldOffset(0)] public ushort ItemId { get; set; }
         [field: FieldOffset(2)] public byte SystemParam { get; set; }
         [field: FieldOffset(3)] public byte AdditionalParam { get; set; }
@@ -34,9 +28,12 @@ namespace NHSE.Core
         public bool Is_08 => (SystemParam & 0x08) != 0;
         public bool Is_10 => (SystemParam & 0x10) != 0;
         public bool IsDropped => (SystemParam & 0x20) != 0;
+        public bool Is_40 => (SystemParam & 0x40) != 0;
+        public bool Is_80 => (SystemParam & 0x80) != 0;
 
         public ItemWrapping WrappingType => (ItemWrapping)(AdditionalParam & 3);
-        public int WrappingIndex => (AdditionalParam >> 2) & 0xF;
+        public int WrappingPaper => (AdditionalParam >> 2) & 0xF;
+        // 2 bits ???
 
         #region Stackable Items
         [field: FieldOffset(4)] public ushort Count { get; set; }
@@ -173,14 +170,11 @@ namespace NHSE.Core
         public static Item[] GetArray(byte[] data) => data.GetArray<Item>(SIZE);
         public static byte[] SetArray(IReadOnlyList<Item> data) => data.SetArray(SIZE);
 
-        public ushort GetInventoryNameFromFlags()
+        public ushort GetWrappedItemName()
         {
-            if (ItemId == MessageBottle || ItemId == MessageBottleEgg)
-                return ItemId;
-
             return WrappingType switch
             {
-                ItemWrapping.Reserved => WrappingRedirect[WrappingIndex],
+                ItemWrapping.WrappingPaper => (ushort) (0x1E13 + WrappingPaper),
                 ItemWrapping.Present => 0x1180,
                 ItemWrapping.Delivery => 0x1225,
                 _ => ItemId,
