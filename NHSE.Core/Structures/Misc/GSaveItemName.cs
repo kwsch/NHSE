@@ -14,6 +14,16 @@ namespace NHSE.Core
         [field: FieldOffset(0x00)] public ushort UniqueID { get; set; }
         [field: FieldOffset(0x02)] public byte SystemParam { get; set; }
         [field: FieldOffset(0x03)] public byte AdditionalParam { get; set; }
-        [field: FieldOffset(0x04)] public uint FreeParam { get; set; }
+        [field: FieldOffset(0x04)] public int FreeParam { get; set; }
+
+        public Item ToItem() => this.ToBytes().ToClass<Item>();
+
+        public void CopyFrom(Item item)
+        {
+            UniqueID = item.ItemId;
+            SystemParam = item.SystemParam;
+            AdditionalParam = item.AdditionalParam;
+            FreeParam = item.FreeParam;
+        }
     }
 }

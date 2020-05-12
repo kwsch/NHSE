@@ -52,28 +52,28 @@ namespace NHSE.Core
         {
             if ((uint)index >= MainSaveOffsets.PlayerCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
-            return Data.Slice(Offsets.PlayerHouseList + (index * PlayerHouse.SIZE), PlayerHouse.SIZE).ToClass<PlayerHouse>();
+            return new PlayerHouse(Data.Slice(Offsets.PlayerHouseList + (index * PlayerHouse.SIZE), PlayerHouse.SIZE));
         }
 
         public void SetPlayerHouse(PlayerHouse h, int index)
         {
             if ((uint)index >= MainSaveOffsets.PlayerCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
-            h.ToBytesClass().CopyTo(Data, Offsets.PlayerHouseList + (index * PlayerHouse.SIZE));
+            h.Data.CopyTo(Data, Offsets.PlayerHouseList + (index * PlayerHouse.SIZE));
         }
 
         public VillagerHouse GetVillagerHouse(int index)
         {
             if ((uint)index >= MainSaveOffsets.VillagerCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
-            return Data.Slice(Offsets.NpcHouseList + (index * VillagerHouse.SIZE), VillagerHouse.SIZE).ToClass<VillagerHouse>();
+            return new VillagerHouse(Data.Slice(Offsets.NpcHouseList + (index * VillagerHouse.SIZE), VillagerHouse.SIZE));
         }
 
         public void SetVillagerHouse(VillagerHouse h, int index)
         {
             if ((uint)index >= MainSaveOffsets.VillagerCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
-            h.ToBytesClass().CopyTo(Data, Offsets.NpcHouseList + (index * VillagerHouse.SIZE));
+            h.Data.CopyTo(Data, Offsets.NpcHouseList + (index * VillagerHouse.SIZE));
         }
 
         public VillagerHouse[] GetVillagerHouses()

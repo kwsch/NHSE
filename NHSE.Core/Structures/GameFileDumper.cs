@@ -89,7 +89,7 @@ namespace NHSE.Core
         private static void Dump(this PlayerHouse h, string player, string path)
         {
             var dest = Path.Combine(path, $"{player}.nhph");
-            var data = h.ToBytesClass();
+            var data = h.Data;
             File.WriteAllBytes(dest, data);
         }
 
@@ -112,7 +112,7 @@ namespace NHSE.Core
         {
             var name = GameInfo.Strings.GetVillager(v.InternalName);
             var dest = Path.Combine(path, $"{name}.nhvh");
-            var data = h.ToBytesClass();
+            var data = h.Data;
             File.WriteAllBytes(dest, data);
         }
 

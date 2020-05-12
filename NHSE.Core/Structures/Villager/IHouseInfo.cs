@@ -9,7 +9,7 @@
         WallType OrderWallUniqueID { get; set; }
         RoofType OrderRoofUniqueID { get; set; }
         DoorKind OrderDoorUniqueID { get; set; }
-        GSaveItemName DoorDecoItemName { get; set; }
+        Item DoorDecoItemName { get; set; }
     }
 
     public static class HouseInfoExtensions

@@ -11,8 +11,6 @@ namespace NHSE.Tests
         [Fact] public void MarshalTerrainTile() => MarshalTest<TerrainTile>(TerrainTile.SIZE);
         [Fact] public void MarshalTurnip() => MarshalTest<TurnipStonk>(TurnipStonk.SIZE);
         [Fact] public void MarshalBuilding() => MarshalTest<Building>(Building.SIZE);
-        [Fact] public void MarshalVillagerHouse() => MarshalTest<VillagerHouse>(VillagerHouse.SIZE);
-        [Fact] public void MarshalPlayerHouse() => MarshalTest<PlayerHouse>(PlayerHouse.SIZE);
 
         [Fact] public void MarshalVillagerHouseItem() => MarshalTestS<VillagerHouseItem>(VillagerHouseItem.SIZE);
         [Fact] public void MarshalGSaveItemName() => MarshalTestS<GSaveItemName>(GSaveItemName.SIZE);
