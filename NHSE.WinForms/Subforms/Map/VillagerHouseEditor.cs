@@ -87,7 +87,7 @@ namespace NHSE.WinForms
                 return;
 
             var h = Houses[Index];
-            var data = h.ToBytesClass();
+            var data = h.Data;
             File.WriteAllBytes(sfd.FileName, data);
         }
 
@@ -112,7 +112,7 @@ namespace NHSE.WinForms
             }
 
             var data = File.ReadAllBytes(file);
-            var h = data.ToClass<VillagerHouse>();
+            var h = new VillagerHouse(data);
             var current = Houses[Index];
             h.NPC1 = current.NPC1;
             Houses[Index] = h;

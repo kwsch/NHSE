@@ -64,7 +64,10 @@ namespace NHSE.WinForms
             }
 
             var data = File.ReadAllBytes(file);
-            houses[index] = new PlayerHouse(data);
+            var h = new PlayerHouse(data);
+            var current = houses[index];
+            h.NPC1 = current.NPC1;
+            houses[index] = h;
             return true;
         }
 
