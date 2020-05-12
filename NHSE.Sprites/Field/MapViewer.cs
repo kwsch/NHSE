@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using NHSE.Core;
-using NHSE.Sprites;
 
-namespace NHSE.WinForms
+namespace NHSE.Sprites
 {
     public sealed class MapViewer : MapView, IDisposable
     {
@@ -59,7 +58,7 @@ namespace NHSE.WinForms
         private Bitmap GetLayerAcre(int topX, int topY, int t)
         {
             var layer = Map.CurrentLayer;
-            return FieldItemSpriteDrawer.GetBitmapItemLayerAcre(layer, topX, topY, AcreScale, PixelsItemAcre1, PixelsItemAcreX, ScaleAcre, t);
+            return ItemLayerSprite.GetBitmapItemLayerViewGrid(layer, topX, topY, AcreScale, PixelsItemAcre1, PixelsItemAcreX, ScaleAcre, t);
         }
 
         public Bitmap GetBackgroundAcre(Font f, byte tbuild, byte tterrain, int index = -1)
@@ -69,7 +68,7 @@ namespace NHSE.WinForms
 
         private Bitmap GetMapWithReticle(int topX, int topY, int t, FieldItemLayer layer)
         {
-            return FieldItemSpriteDrawer.GetBitmapItemLayer(layer, topX, topY, PixelsItemMap, MapReticle, t);
+            return ItemLayerSprite.GetBitmapItemLayer(layer, topX, topY, PixelsItemMap, MapReticle, t);
         }
     }
 }

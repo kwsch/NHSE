@@ -3,12 +3,12 @@ using NHSE.Core;
 
 namespace NHSE.Sprites
 {
-    public static class FieldItemSpriteDrawer
+    public static class ItemLayerSprite
     {
-        public static Bitmap GetBitmapItemLayer(FieldItemLayer layer)
+        public static Bitmap GetBitmapItemLayer(ItemLayer layer)
         {
             var items = layer.Tiles;
-            var height = layer.MapHeight;
+            var height = layer.MaxHeight;
             var width = items.Length / height;
 
             var bmpData = new int[width * height];
@@ -31,7 +31,7 @@ namespace NHSE.Sprites
             }
         }
 
-        private static void LoadPixelsFromLayer(FieldItemLayer layer, int x0, int y0, int width, int[] bmpData)
+        private static void LoadPixelsFromLayer(ItemLayer layer, int x0, int y0, int width, int[] bmpData)
         {
             var stride = layer.GridWidth;
 
@@ -49,7 +49,7 @@ namespace NHSE.Sprites
         }
 
         // non-allocation image generator
-        public static Bitmap GetBitmapItemLayerAcre(FieldItemLayer layer, int x0, int y0, int scale, int[] acre1, int[] acreScale, Bitmap dest, int transparency = -1)
+        public static Bitmap GetBitmapItemLayerViewGrid(ItemLayer layer, int x0, int y0, int scale, int[] acre1, int[] acreScale, Bitmap dest, int transparency = -1, int gridlineColor = 0)
         {
             var w = layer.GridWidth;
             var h = layer.GridHeight;
@@ -65,7 +65,6 @@ namespace NHSE.Sprites
             DrawDirectionals(acreScale, layer, w, x0, y0, scale);
 
             // Slap on a grid
-            const int gridlineColor = 0; // let the underlying image grid show instead
             DrawGrid(acreScale, w, h, scale, gridlineColor);
 
             // Return final data
@@ -73,7 +72,7 @@ namespace NHSE.Sprites
             return dest;
         }
 
-        private static void DrawDirectionals(int[] data, FieldItemLayer layer, int w, int x0, int y0, int scale)
+        private static void DrawDirectionals(int[] data, ItemLayer layer, int w, int x0, int y0, int scale)
         {
             for (int x = x0; x < x0 + layer.GridWidth; x++)
             {
@@ -171,9 +170,9 @@ namespace NHSE.Sprites
             }
         }
 
-        public static Bitmap GetBitmapItemLayer(FieldItemLayer layer, int x, int y, int[] data, Bitmap dest, int transparency = -1)
+        public static Bitmap GetBitmapItemLayer(ItemLayer layer, int x, int y, int[] data, Bitmap dest, int transparency = -1)
         {
-            LoadBitmapLayer(layer.Tiles, data, layer.MapWidth, layer.MapHeight);
+            LoadBitmapLayer(layer.Tiles, data, layer.MaxWidth, layer.MaxHeight);
             if (transparency >> 24 != 0xFF)
                 ImageUtil.ClampAllTransparencyTo(data, transparency);
             ImageUtil.SetBitmapData(dest, data);

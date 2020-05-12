@@ -53,7 +53,7 @@ namespace NHSE.WinForms
             }
 
             var data = File.ReadAllBytes(path);
-            layer.ImportAllAcres(data);
+            layer.ImportAll(data);
             return true;
         }
 
@@ -83,11 +83,11 @@ namespace NHSE.WinForms
                 return;
 
             var path = sfd.FileName;
-            var data = layer.DumpAllAcres();
+            var data = layer.DumpAll();
             File.WriteAllBytes(path, data);
         }
 
-        public static bool ImportTerrainAcre(TerrainManager m, int acreIndex, string acre)
+        public static bool ImportTerrainAcre(TerrainLayer m, int acreIndex, string acre)
         {
             using var ofd = new OpenFileDialog
             {
@@ -112,7 +112,7 @@ namespace NHSE.WinForms
             return true;
         }
 
-        public static bool ImportTerrainAll(TerrainManager m)
+        public static bool ImportTerrainAll(TerrainLayer m)
         {
             using var ofd = new OpenFileDialog
             {
@@ -133,11 +133,11 @@ namespace NHSE.WinForms
             }
 
             var data = File.ReadAllBytes(path);
-            m.ImportAllAcres(data);
+            m.ImportAll(data);
             return true;
         }
 
-        public static void DumpTerrainAcre(TerrainManager m, int acreIndex, string acre)
+        public static void DumpTerrainAcre(TerrainLayer m, int acreIndex, string acre)
         {
             using var sfd = new SaveFileDialog
             {
@@ -152,7 +152,7 @@ namespace NHSE.WinForms
             File.WriteAllBytes(path, data);
         }
 
-        public static void DumpTerrainAll(TerrainManager m)
+        public static void DumpTerrainAll(TerrainLayer m)
         {
             using var sfd = new SaveFileDialog
             {
@@ -163,7 +163,7 @@ namespace NHSE.WinForms
                 return;
 
             var path = sfd.FileName;
-            var data = m.DumpAllAcres();
+            var data = m.DumpAll();
             File.WriteAllBytes(path, data);
         }
 

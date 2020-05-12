@@ -4,6 +4,7 @@ using System.Drawing.Imaging;
 using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
+using NHSE.Sprites;
 
 namespace NHSE.WinForms
 {
@@ -290,8 +291,8 @@ namespace NHSE.WinForms
             if (CHK_RedirectExtensionLoad.Checked && tile.IsExtension)
             {
                 var l = Map.CurrentLayer;
-                var rx = Math.Max(0, Math.Min(l.MapWidth - 1, x - tile.ExtensionX));
-                var ry = Math.Max(0, Math.Min(l.MapHeight - 1, y - tile.ExtensionY));
+                var rx = Math.Max(0, Math.Min(l.MaxWidth - 1, x - tile.ExtensionX));
+                var ry = Math.Max(0, Math.Min(l.MaxHeight - 1, y - tile.ExtensionY));
                 var redir = l.GetTile(rx, ry);
                 if (redir.IsRoot && redir.ItemId == tile.ExtensionItemId)
                     tile = redir;
@@ -322,8 +323,8 @@ namespace NHSE.WinForms
             var permission = l.IsOccupied(pgt, x, y);
             switch (permission)
             {
-                case FieldItemPermission.OutOfBounds:
-                case FieldItemPermission.Collision when CHK_NoOverwrite.Checked:
+                case PlacedItemPermission.OutOfBounds:
+                case PlacedItemPermission.Collision when CHK_NoOverwrite.Checked:
                     System.Media.SystemSounds.Asterisk.Play();
                     return;
             }

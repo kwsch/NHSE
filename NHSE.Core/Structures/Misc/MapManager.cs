@@ -18,7 +18,7 @@ namespace NHSE.Core
 
     public class MapTerrainStructure
     {
-        public readonly TerrainManager Terrain;
+        public readonly TerrainLayer Terrain;
         public readonly IReadOnlyList<Building> Buildings;
 
         public uint PlazaX { get; set; }
@@ -26,7 +26,7 @@ namespace NHSE.Core
 
         public MapTerrainStructure(MainSave sav)
         {
-            Terrain = new TerrainManager(sav.GetTerrainTiles(), sav.GetAcreBytes());
+            Terrain = new TerrainLayer(sav.GetTerrainTiles(), sav.GetAcreBytes());
             Buildings = sav.Buildings;
             PlazaX = sav.EventPlazaLeftUpX;
             PlazaY = sav.EventPlazaLeftUpZ;

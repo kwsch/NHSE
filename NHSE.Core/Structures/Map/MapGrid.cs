@@ -9,14 +9,18 @@ namespace NHSE.Core
     {
         public static readonly AcreCoordinate[] Acres = AcreCoordinate.GetGrid(AcreWidth, AcreHeight);
 
-        protected MapGrid(int gw, int gh)
+        protected MapGrid(int gw, int gh, int mw, int mh)
         {
             GridWidth = gw;
             GridHeight = gh;
+            MaxWidth = mw;
+            MaxHeight = mh;
         }
 
         public readonly int GridWidth;
         public readonly int GridHeight;
+        public readonly int MaxWidth;
+        public readonly int MaxHeight;
 
         public const int AcreWidth = 7;
         public const int AcreHeight = 6;
@@ -30,7 +34,7 @@ namespace NHSE.Core
         public const int MapTileCount16x16 = 16 * 16 * AcreCount;
         public const int MapTileCount32x32 = 32 * 32 * AcreCount;
 
-        protected int GetTileIndex(int x, int y) => (MapHeight * x) + y;
+        protected int GetTileIndex(int x, int y) => (MaxHeight * x) + y;
 
         protected int GetTileIndex(int acreX, int acreY, int gridX, int gridY)
         {
@@ -73,6 +77,12 @@ namespace NHSE.Core
         {
             x = (acre % AcreWidth) * GridWidth;
             y = (acre / AcreWidth) * GridHeight;
+        }
+
+        public void ClampCoordinates(ref int x, ref int y)
+        {
+            x = Math.Max(0, Math.Min(x, MapWidth - 1));
+            y = Math.Max(0, Math.Min(y, MapHeight - 1));
         }
     }
 }

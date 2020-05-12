@@ -17,7 +17,7 @@ namespace NHSE.Sprites
         private const int PlazaWidth = 6 * 2;
         private const int PlazaHeight = 5 * 2;
 
-        public static void CreateMap(TerrainManager mgr, int[] pixels)
+        public static void CreateMap(TerrainLayer mgr, int[] pixels)
         {
             int i = 0;
             for (int y = 0; y < mgr.MapHeight; y++)
@@ -29,7 +29,7 @@ namespace NHSE.Sprites
             }
         }
 
-        public static Bitmap CreateMap(TerrainManager mgr, int scale, int x, int y, int[] scale1, int[] scaleX, Bitmap map)
+        public static Bitmap CreateMap(TerrainLayer mgr, int scale, int x, int y, int[] scale1, int[] scaleX, Bitmap map)
         {
             CreateMap(mgr, scale1);
             ImageUtil.ScalePixelImage(scale1, scaleX, map.Width, map.Height, scale);
@@ -37,7 +37,7 @@ namespace NHSE.Sprites
             return DrawReticle(map, mgr, x, y, scale);
         }
 
-        public static Bitmap CreateMap(TerrainManager mgr, int[] scale1, int[] scaleX, Bitmap map, int scale, int acreIndex = -1)
+        public static Bitmap CreateMap(TerrainLayer mgr, int[] scale1, int[] scaleX, Bitmap map, int scale, int acreIndex = -1)
         {
             CreateMap(mgr, scale1);
             ImageUtil.ScalePixelImage(scale1, scaleX, map.Width, map.Height, scale);
@@ -74,7 +74,7 @@ namespace NHSE.Sprites
             return map;
         }
 
-        private static void DrawPlaza(this Graphics gfx, TerrainManager g, ushort px, ushort py, int scale)
+        private static void DrawPlaza(this Graphics gfx, TerrainLayer g, ushort px, ushort py, int scale)
         {
             g.GetBuildingCoordinate(px, py, scale, out var x, out var y);
 
@@ -84,7 +84,7 @@ namespace NHSE.Sprites
             gfx.FillRectangle(Plaza, x, y, width, height);
         }
 
-        private static void DrawBuildings(this Graphics gfx, TerrainManager g, IReadOnlyList<Building> buildings, Font? f, int scale, int index = -1)
+        private static void DrawBuildings(this Graphics gfx, TerrainLayer g, IReadOnlyList<Building> buildings, Font? f, int scale, int index = -1)
         {
             for (int i = 0; i < buildings.Count; i++)
             {
@@ -109,13 +109,13 @@ namespace NHSE.Sprites
             }
         }
 
-        private static void SetAcreTerrainPixels(int x, int y, TerrainManager t, int[] data, int[] scaleX, int scale)
+        private static void SetAcreTerrainPixels(int x, int y, TerrainLayer t, int[] data, int[] scaleX, int scale)
         {
             GetAcre1(x, y, t, data);
             ImageUtil.ScalePixelImage(data, scaleX, 16 * scale, 16 * scale, scale);
         }
 
-        private static void GetAcre1(int topX, int topY, TerrainManager t, int[] data)
+        private static void GetAcre1(int topX, int topY, TerrainLayer t, int[] data)
         {
             int index = 0;
             for (int y = 0; y < 16; y++)
@@ -157,8 +157,8 @@ namespace NHSE.Sprites
             }
 
             ImageUtil.GetBitmapData(acre, scaleX);
-            FieldItemSpriteDrawer.DrawGrid(scaleX, acre.Width, acre.Height, m.AcreScale, grid1);
-            FieldItemSpriteDrawer.DrawGrid(scaleX, acre.Width, acre.Height, m.TerrainScale, grid2);
+            ItemLayerSprite.DrawGrid(scaleX, acre.Width, acre.Height, m.AcreScale, grid1);
+            ItemLayerSprite.DrawGrid(scaleX, acre.Width, acre.Height, m.TerrainScale, grid2);
             ImageUtil.SetBitmapData(acre, scaleX);
 
             foreach (var b in buildings)
@@ -176,7 +176,7 @@ namespace NHSE.Sprites
             return acre;
         }
 
-        private static void DrawTerrainTileNames(int topX, int topY, Graphics gfx, TerrainManager t, Font f, int scale, byte transparency)
+        private static void DrawTerrainTileNames(int topX, int topY, Graphics gfx, TerrainLayer t, Font f, int scale, byte transparency)
         {
             var pen= transparency != byte.MaxValue ? new SolidBrush(Color.FromArgb(transparency, Color.Black)) : Tile;
 
@@ -196,7 +196,7 @@ namespace NHSE.Sprites
             }
         }
 
-        private static void DrawAcrePlaza(this Graphics gfx, TerrainManager g, int topX, int topY, ushort px, ushort py, int scale, byte transparency)
+        private static void DrawAcrePlaza(this Graphics gfx, TerrainLayer g, int topX, int topY, ushort px, ushort py, int scale, byte transparency)
         {
             g.GetBuildingRelativeCoordinates(topX, topY, scale, px, py, out var x, out var y);
 

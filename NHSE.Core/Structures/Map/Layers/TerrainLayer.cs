@@ -2,12 +2,12 @@
 
 namespace NHSE.Core
 {
-    public class TerrainManager : MapGrid
+    public class TerrainLayer : MapGrid
     {
         public readonly TerrainTile[] Tiles;
         public readonly byte[] BaseAcres;
 
-        public TerrainManager(TerrainTile[] tiles, byte[] acres) : base(16, 16)
+        public TerrainLayer(TerrainTile[] tiles, byte[] acres) : base(16, 16, AcreWidth * 16, AcreHeight * 16)
         {
             BaseAcres = acres;
             Tiles = tiles;
@@ -24,7 +24,7 @@ namespace NHSE.Core
             set => Tiles[index] = value;
         }
 
-        public byte[] DumpAllAcres()
+        public byte[] DumpAll()
         {
             var result = new byte[Tiles.Length * TerrainTile.SIZE];
             for (int i = 0; i < Tiles.Length; i++)
@@ -45,7 +45,7 @@ namespace NHSE.Core
             return result;
         }
 
-        public void ImportAllAcres(byte[] data)
+        public void ImportAll(byte[] data)
         {
             var tiles = TerrainTile.GetArray(data);
             for (int i = 0; i < tiles.Length; i++)
