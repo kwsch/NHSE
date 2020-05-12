@@ -56,6 +56,7 @@ namespace NHSE.Parsing
             DumpS("bugs.txt", GetInsectList(pathBCSV, itemNames));
             DumpS("fossils.txt", GetFossilList(pathBCSV, itemNames));
             DumpS("eventFlagPlayer.txt", GetEventFlagNames(pathBCSV));
+            DumpS("eventFlagHouse.txt", GetEventFlagHouse(pathBCSV));
             DumpS("eventFlagVillager.txt", GetVillagerEventFlagNames(pathBCSV));
             DumpS("eventFlagLand.txt", GetLandEventFlagNames(pathBCSV));
 
@@ -447,6 +448,42 @@ namespace NHSE.Parsing
 
                 var paddedName = $"\"{name}\"".PadRight(45, ' ');
                 var v = $"new {nameof(EventFlagPlayer)}({iv1a,-2}, {iv2a,-4}, {ival:0000}, {paddedName})";
+                var kvp = $"{{0x{ival:X3}, {v}}}, // {comment}";
+                result.Add(kvp);
+            }
+
+            result.Sort();
+            return result;
+        }
+
+        private static IEnumerable<string> GetEventFlagHouse(string pathBCSV, string fn = "EventFlagsHouseParam.bcsv")
+        {
+            var bcsv = BCSVConverter.GetBCSV(pathBCSV, fn);
+            var dict = bcsv.GetFieldDictionary();
+            var findex = dict[0x54706054];
+
+            var fdefault = dict[0x4C24F1CF];
+            var fmax = dict[0x344B17D7];
+            var fname = dict[0x45F320F2];
+            var fcomment = dict[0x85CF1615];
+
+            var result = new List<string>();
+            for (int i = 0; i < bcsv.EntryCount; i++)
+            {
+                var ivd = bcsv.ReadValue(i, fdefault).Substring(2);
+                var vd = short.Parse(ivd, NumberStyles.HexNumber);
+
+                var ivm = bcsv.ReadValue(i, fmax).Substring(2);
+                var vm = short.Parse(ivm, NumberStyles.HexNumber);
+
+                var iid = bcsv.ReadValue(i, findex);
+                var ival = (ushort)short.Parse(iid);
+
+                var name = bcsv.ReadValue(i, fname).TrimEnd('\0');
+                var comment = bcsv.ReadValue(i, fcomment).TrimEnd('\0');
+
+                var paddedName = $"\"{name}\"".PadRight(45, ' ');
+                var v = $"new {nameof(EventFlagHouse)}({vd}, {vm,-5}, {ival:0000}, {paddedName})";
                 var kvp = $"{{0x{ival:X3}, {v}}}, // {comment}";
                 result.Add(kvp);
             }
