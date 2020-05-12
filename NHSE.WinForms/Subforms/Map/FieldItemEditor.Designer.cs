@@ -1218,19 +1218,21 @@
             this.B_SetAllTerrain});
             this.CM_Terrain.Name = "CM_Picture";
             this.CM_Terrain.ShowImageMargin = false;
-            this.CM_Terrain.Size = new System.Drawing.Size(225, 48);
+            this.CM_Terrain.Size = new System.Drawing.Size(225, 70);
             // 
             // B_ZeroElevation
             // 
             this.B_ZeroElevation.Name = "B_ZeroElevation";
             this.B_ZeroElevation.Size = new System.Drawing.Size(224, 22);
             this.B_ZeroElevation.Text = "Zero Elevation";
+            this.B_ZeroElevation.Click += new System.EventHandler(this.B_ZeroElevation_Click);
             // 
             // B_SetAllTerrain
             // 
             this.B_SetAllTerrain.Name = "B_SetAllTerrain";
             this.B_SetAllTerrain.Size = new System.Drawing.Size(224, 22);
             this.B_SetAllTerrain.Text = "Set All Tiles using Tile from Editor";
+            this.B_SetAllTerrain.Click += new System.EventHandler(this.B_SetAllTerrain_Click);
             // 
             // RB_Item
             // 

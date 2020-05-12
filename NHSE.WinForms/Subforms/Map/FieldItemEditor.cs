@@ -794,5 +794,28 @@ namespace NHSE.WinForms
         }
 
         #endregion
+
+        private void B_ZeroElevation_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.Yes != WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgTerrainSetElevation0))
+                return;
+            foreach (var t in Map.Terrain.Tiles)
+                t.Elevation = 0;
+            ReloadBuildingsTerrain();
+            System.Media.SystemSounds.Asterisk.Play();
+        }
+
+        private void B_SetAllTerrain_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.Yes != WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgTerrainSetAll))
+                return;
+
+            var pgt = (TerrainTile)PG_TerrainTile.SelectedObject;
+            bool interiorOnly = DialogResult.Yes == WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgTerrainSetAllSkipExterior);
+            Map.Terrain.SetAll(pgt, interiorOnly);
+
+            ReloadBuildingsTerrain();
+            System.Media.SystemSounds.Asterisk.Play();
+        }
     }
 }
