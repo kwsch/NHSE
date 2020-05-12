@@ -18,9 +18,9 @@ namespace NHSE.Core
         protected MapView(MapManager m) => Map = m;
 
         public bool CanUp => Y != 0;
-        public bool CanDown => Y < Map.CurrentLayer.MapHeight - Map.CurrentLayer.GridHeight;
+        public bool CanDown => Y < Map.CurrentLayer.MaxHeight - Map.CurrentLayer.GridHeight;
         public bool CanLeft => X != 0;
-        public bool CanRight => X < Map.CurrentLayer.MapWidth - Map.CurrentLayer.GridWidth;
+        public bool CanRight => X < Map.CurrentLayer.MaxWidth - Map.CurrentLayer.GridWidth;
 
         public bool ArrowUp()
         {
@@ -40,7 +40,7 @@ namespace NHSE.Core
 
         public bool ArrowRight()
         {
-            if (X >= Map.CurrentLayer.MapWidth - 2)
+            if (X >= Map.CurrentLayer.MaxWidth - 2)
                 return false;
             X += ViewInterval;
             return true;
@@ -48,7 +48,7 @@ namespace NHSE.Core
 
         public bool ArrowDown()
         {
-            if (Y >= Map.CurrentLayer.MapHeight - ViewInterval)
+            if (Y >= Map.CurrentLayer.MaxHeight - ViewInterval)
                 return false;
             Y += ViewInterval;
             return true;
@@ -57,8 +57,8 @@ namespace NHSE.Core
         public bool SetViewTo(in int x, in int y)
         {
             var info = Map.CurrentLayer;
-            var newX = Math.Max(0, Math.Min(x, info.MapWidth - info.GridWidth));
-            var newY = Math.Max(0, Math.Min(y, info.MapHeight - info.GridHeight));
+            var newX = Math.Max(0, Math.Min(x, info.MaxWidth - info.GridWidth));
+            var newY = Math.Max(0, Math.Min(y, info.MaxHeight - info.GridHeight));
             bool diff = X != newX || Y != newY;
             X = newX;
             Y = newY;
@@ -76,7 +76,7 @@ namespace NHSE.Core
         {
             var layer = Map.CurrentLayer;
             return wholeMap
-                ? removal(0, 0, layer.MapWidth, layer.MapHeight)
+                ? removal(0, 0, layer.MaxWidth, layer.MaxHeight)
                 : removal(X, Y, layer.GridWidth, layer.GridHeight);
         }
 

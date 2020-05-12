@@ -20,9 +20,9 @@ namespace NHSE.Sprites
         public static void CreateMap(TerrainLayer mgr, int[] pixels)
         {
             int i = 0;
-            for (int y = 0; y < mgr.MapHeight; y++)
+            for (int y = 0; y < mgr.MaxHeight; y++)
             {
-                for (int x = 0; x < mgr.MapWidth; x++, i++)
+                for (int x = 0; x < mgr.MaxWidth; x++, i++)
                 {
                     pixels[i] = mgr.GetTileColor(x, y);
                 }

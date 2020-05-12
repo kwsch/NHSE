@@ -11,7 +11,7 @@ namespace NHSE.Core
         {
             BaseAcres = acres;
             Tiles = tiles;
-            Debug.Assert(MapTileCount == tiles.Length);
+            Debug.Assert(MaxTileCount == tiles.Length);
         }
 
         public TerrainTile GetTile(int x, int y) => this[GetTileIndex(x, y)];
@@ -34,7 +34,7 @@ namespace NHSE.Core
 
         public byte[] DumpAcre(int acre)
         {
-            int count = AcreTileCount;
+            int count = GridTileCount;
             var result = new byte[TerrainTile.SIZE * count];
             for (int i = 0; i < count; i++)
             {
@@ -54,7 +54,7 @@ namespace NHSE.Core
 
         public void ImportAcre(int acre, byte[] data)
         {
-            int count = AcreTileCount;
+            int count = GridTileCount;
             var tiles = TerrainTile.GetArray(data);
             for (int i = 0; i < count; i++)
             {
@@ -70,8 +70,8 @@ namespace NHSE.Core
                 // skip outermost ring of tiles
                 int xmin = GridWidth;
                 int ymin = GridHeight;
-                int xmax = MapWidth - GridWidth;
-                int ymax = MapHeight - GridHeight;
+                int xmax = MaxWidth - GridWidth;
+                int ymax = MaxHeight - GridHeight;
                 for (int x = xmin; x < xmax; x++)
                 {
                     for (int y = ymin; y < ymax; y++)

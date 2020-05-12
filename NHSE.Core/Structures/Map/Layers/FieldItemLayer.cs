@@ -14,7 +14,7 @@ namespace NHSE.Core
 
         public byte[] DumpAcre(int acre)
         {
-            int count = AcreTileCount;
+            int count = GridTileCount;
             var result = new byte[Item.SIZE * count];
             for (int i = 0; i < count; i++)
             {
@@ -27,7 +27,7 @@ namespace NHSE.Core
 
         public void ImportAcre(int acre, byte[] data)
         {
-            int count = AcreTileCount;
+            int count = GridTileCount;
             var tiles = Item.GetArray(data);
             for (int i = 0; i < count; i++)
             {
@@ -36,10 +36,10 @@ namespace NHSE.Core
             }
         }
 
-        public int ClearFieldPlanted(Func<FieldItemKind, bool> criteria) => ClearFieldPlanted(0, 0, MapWidth, MapHeight, criteria);
-        public int RemoveAll(Func<Item, bool> criteria) => RemoveAll(0, 0, MapWidth, MapHeight, criteria);
-        public int RemoveAll(HashSet<ushort> items) => RemoveAll(0, 0, MapWidth, MapHeight, z => items.Contains(z.DisplayItemId));
-        public int RemoveAll(ushort item) => RemoveAll(0, 0, MapWidth, MapHeight, z => z.DisplayItemId == item);
+        public int ClearFieldPlanted(Func<FieldItemKind, bool> criteria) => ClearFieldPlanted(0, 0, MaxWidth, MaxHeight, criteria);
+        public int RemoveAll(Func<Item, bool> criteria) => RemoveAll(0, 0, MaxWidth, MaxHeight, criteria);
+        public int RemoveAll(HashSet<ushort> items) => RemoveAll(0, 0, MaxWidth, MaxHeight, z => items.Contains(z.DisplayItemId));
+        public int RemoveAll(ushort item) => RemoveAll(0, 0, MaxWidth, MaxHeight, z => z.DisplayItemId == item);
 
         public int ClearFieldPlanted(int xmin, int ymin, int width, int height, Func<FieldItemKind, bool> criteria)
         {

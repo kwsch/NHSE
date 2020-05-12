@@ -26,10 +26,8 @@ namespace NHSE.Core
         public const int AcreHeight = 6;
         public const int AcreCount = AcreWidth * AcreHeight;
 
-        public int AcreTileCount => GridWidth * GridHeight;
-        public int MapHeight => AcreHeight * GridHeight; // 96 (when 16x16)
-        public int MapWidth => AcreWidth * GridWidth; // 112 (when 16x16)
-        public int MapTileCount => MapWidth * MapHeight; // 0x2A00 bytes (when 16x16)
+        public int GridTileCount => GridWidth * GridHeight;
+        public int MaxTileCount => MaxWidth * MaxHeight;
 
         public const int MapTileCount16x16 = 16 * 16 * AcreCount;
         public const int MapTileCount32x32 = 32 * 32 * AcreCount;
@@ -81,8 +79,8 @@ namespace NHSE.Core
 
         public void ClampCoordinates(ref int x, ref int y)
         {
-            x = Math.Max(0, Math.Min(x, MapWidth - 1));
-            y = Math.Max(0, Math.Min(y, MapHeight - 1));
+            x = Math.Max(0, Math.Min(x, MaxWidth - 1));
+            y = Math.Max(0, Math.Min(y, MaxHeight - 1));
         }
     }
 }

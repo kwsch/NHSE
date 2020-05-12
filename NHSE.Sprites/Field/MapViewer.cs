@@ -27,8 +27,8 @@ namespace NHSE.Sprites
             PixelsItemAcreX = new int[PixelsItemAcre1.Length * AcreScale * AcreScale];
             ScaleAcre = new Bitmap(l1.GridWidth * AcreScale, l1.GridHeight * AcreScale);
 
-            PixelsItemMap = new int[l1.MapWidth * l1.MapHeight * MapScale * MapScale];
-            MapReticle = new Bitmap(l1.MapWidth * MapScale, l1.MapHeight * MapScale);
+            PixelsItemMap = new int[l1.MaxWidth * l1.MaxHeight * MapScale * MapScale];
+            MapReticle = new Bitmap(l1.MaxWidth * MapScale, l1.MaxHeight * MapScale);
 
             PixelsBackgroundAcre1 = new int[16 * 16];
             PixelsBackgroundAcreX = new int[PixelsItemAcreX.Length];
