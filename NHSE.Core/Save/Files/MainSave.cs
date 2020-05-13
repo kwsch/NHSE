@@ -175,6 +175,12 @@ namespace NHSE.Core
             set => value.ToBytesClass().CopyTo(Data, Offsets.ShopKabu);
         }
 
+        public Museum Museum
+        {
+            get => new Museum(Data.Slice(Offsets.Museum, Museum.SIZE));
+            set => value.Data.CopyTo(Data, Offsets.Museum);
+        }
+
         public const int AcreWidth = 7 + (2 * 1); // 1 on each side cannot be traversed
         private const int AcreHeight = 6 + (2 * 1); // 1 on each side cannot be traversed
         private const int AcreMax = AcreWidth * AcreHeight;

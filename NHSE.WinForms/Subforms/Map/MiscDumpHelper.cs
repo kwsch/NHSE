@@ -7,6 +7,44 @@ namespace NHSE.WinForms
 {
     public static class MiscDumpHelper
     {
+        public static void DumpMuseum(Museum museum)
+        {
+            using var sfd = new SaveFileDialog
+            {
+                Filter = "New Horizons Museum (*.nhm)|*.nhm|All files (*.*)|*.*",
+                FileName = "museum.nhm",
+            };
+            if (sfd.ShowDialog() != DialogResult.OK)
+                return;
+
+            var data = museum.Data;
+            File.WriteAllBytes(sfd.FileName, data);
+        }
+
+        public static bool LoadMuseum(Museum museum)
+        {
+            using var ofd = new OpenFileDialog
+            {
+                Filter = "New Horizons Museum (*.nhm)|*.nhm|All files (*.*)|*.*",
+                FileName = "museum.nhm",
+            };
+            if (ofd.ShowDialog() != DialogResult.OK)
+                return false;
+
+            var file = ofd.FileName;
+            var fi = new FileInfo(file);
+            const int expectLength = Museum.SIZE;
+            if (fi.Length != expectLength)
+            {
+                WinFormsUtil.Error(MessageStrings.MsgCanceling, string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength));
+                return false;
+            }
+
+            var data = File.ReadAllBytes(file);
+            data.CopyTo(museum.Data);
+            return true;
+        }
+
         public static void DumpHouse(IReadOnlyList<Player> players, IReadOnlyList<PlayerHouse> houses, int index, bool dumpAll)
         {
             if (dumpAll)

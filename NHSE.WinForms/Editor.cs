@@ -474,5 +474,13 @@ namespace NHSE.WinForms
             if (editor.ShowDialog() == DialogResult.OK)
                 SAV.Main.SaveFg = boxed;
         }
+
+        private void B_EditMuseum_Click_Click(object sender, EventArgs e)
+        {
+            var museum = SAV.Main.Museum;
+            using var editor = new MuseumEditor(museum);
+            if (editor.ShowDialog() == DialogResult.OK)
+                SAV.Main.Museum = museum;
+        }
     }
 }

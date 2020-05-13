@@ -74,5 +74,21 @@ namespace NHSE.Core
                 data[i].ToBytesClass().CopyTo(result, i * size);
             return result;
         }
+
+        public static T[] GetArrayStructure<T>(this byte[] data, int size) where T : struct
+        {
+            var result = new T[data.Length / size];
+            for (int i = 0; i < result.Length; i++)
+                result[i] = data.Slice(i * size, size).ToStructure<T>();
+            return result;
+        }
+
+        public static byte[] SetArrayStructure<T>(this IReadOnlyList<T> data, int size) where T : struct
+        {
+            var result = new byte[data.Count * size];
+            for (int i = 0; i < data.Count; i++)
+                data[i].ToBytes().CopyTo(result, i * size);
+            return result;
+        }
     }
 }

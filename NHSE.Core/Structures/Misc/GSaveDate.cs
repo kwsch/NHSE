@@ -23,7 +23,9 @@ namespace NHSE.Core
             Day = (byte) day;
         }
 
-        public static implicit operator GSaveDate(DateTime dt) => new GSaveDate(dt.Year, dt.Month, dt.Day);
-        public static implicit operator DateTime(GSaveDate dt) => new DateTime(dt.Year, dt.Month, dt.Day);
+        public bool IsEmpty => Year == 0 && Month == 0 && Day == 0;
+
+        public static implicit operator GSaveDate(DateTime dt) => dt == DateTime.MinValue ? new GSaveDate() : new GSaveDate(dt.Year, dt.Month, dt.Day);
+        public static implicit operator DateTime(GSaveDate dt) => dt.IsEmpty ? DateTime.MinValue : new DateTime(dt.Year, dt.Month, dt.Day);
     }
 }

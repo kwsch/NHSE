@@ -31,6 +31,7 @@
 
         public const int GSaveShop = GSaveLandStart + 0x40F480;
         public override int ShopKabu => GSaveShop + 0x2AD0; // part of shop
+        public override int Museum => GSaveLandStart + 0x412218;
         public override int SaveFg => GSaveLandStart + 0x41584C;
         public override int BulletinBoard => GSaveLandStart + 0x416190;
         public override int AirportThemeColor => GSaveLandStart + 0x4F6D98;

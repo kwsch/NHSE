@@ -43,6 +43,9 @@
     <Compile Update="Subforms\Map\BuildingHelp.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Subforms\Map\MuseumEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Subforms\Map\LandFlagEditor.cs">
       <SubType>Form</SubType>
     </Compile>
