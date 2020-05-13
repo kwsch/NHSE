@@ -178,7 +178,7 @@ namespace NHSE.WinForms
             if (k.IsFlower())
             {
                 CB_Recipe.Visible = false;
-                FLP_Uses.Visible = FLP_Count.Visible = FLP_Flag0.Visible = FLP_Flag1.Visible = false;
+                FLP_Uses.Visible = FLP_Count.Visible = false;
                 FLP_Flower.Visible = true;
                 return;
             }
@@ -189,7 +189,7 @@ namespace NHSE.WinForms
                     CB_Fossil.Visible = true;
 
                     CB_Recipe.Visible = false;
-                    FLP_Uses.Visible = FLP_Count.Visible = FLP_Flag0.Visible = FLP_Flag1.Visible = false;
+                    FLP_Uses.Visible = FLP_Count.Visible = false;
                     FLP_Flower.Visible = false;
                     break;
 
@@ -197,7 +197,7 @@ namespace NHSE.WinForms
                     CB_Recipe.Visible = true;
 
                     CB_Fossil.Visible = false;
-                    FLP_Uses.Visible = FLP_Count.Visible = FLP_Flag0.Visible = FLP_Flag1.Visible = false;
+                    FLP_Uses.Visible = FLP_Count.Visible = false;
                     FLP_Flower.Visible = false;
                     break;
 
@@ -205,7 +205,7 @@ namespace NHSE.WinForms
                     CB_Recipe.Visible = true;
 
                     CB_Fossil.Visible = false;
-                    FLP_Uses.Visible = FLP_Flag0.Visible = FLP_Flag1.Visible = true;
+                    FLP_Uses.Visible = true;
                     FLP_Count.Visible = false;
                     FLP_Flower.Visible = false;
                     break;
@@ -213,7 +213,7 @@ namespace NHSE.WinForms
                 default:
                     CB_Fossil.Visible = false;
                     CB_Recipe.Visible = false;
-                    FLP_Uses.Visible = FLP_Count.Visible = FLP_Flag0.Visible = FLP_Flag1.Visible = true;
+                    FLP_Uses.Visible = FLP_Count.Visible = true;
                     FLP_Flower.Visible = false;
                     break;
             }
