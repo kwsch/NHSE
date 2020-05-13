@@ -150,6 +150,9 @@ namespace NHSE.WinForms
 
         private void ReloadManager(PlayerHouse house)
         {
+            var unsupported = Manager.GetUnsupportedTiles();
+            if (unsupported.Count != 0)
+                WinFormsUtil.Alert(MessageStrings.MsgFieldItemUnsupportedLayer2Tile);
             var room = house.GetRoom(RoomIndex);
             Manager = new RoomItemManager(room);
         }
