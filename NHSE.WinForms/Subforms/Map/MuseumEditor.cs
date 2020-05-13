@@ -37,7 +37,7 @@ namespace NHSE.WinForms
 
         private void LB_Counts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (LB_Donations.SelectedIndex < 0)
+            if (LB_Donations.SelectedIndex < 0 || Changing)
                 return;
 
             SaveIndex(Index);
@@ -73,7 +73,14 @@ namespace NHSE.WinForms
             SetNameForIndex(index);
         }
 
-        private void SetNameForIndex(in int index) => LB_Donations.Items[index] = Editor.GetDonationText(GameInfo.Strings, index);
+        private bool Changing;
+
+        private void SetNameForIndex(in int index)
+        {
+            Changing = true;
+            LB_Donations.Items[index] = Editor.GetDonationText(GameInfo.Strings, index);
+            Changing = false;
+        }
 
         private void B_Dump_Click(object sender, EventArgs e)
         {
@@ -94,7 +101,7 @@ namespace NHSE.WinForms
         private void B_GiveAll_Click(object sender, EventArgs e)
         {
             SaveIndex(Index);
-            Editor.GiveAll(GameInfo.GetStrings("en").itemlist);
+            Editor.GiveAll(GameInfo.GetStrings("en").itemlist, 1000);
             Editor.Save();
             System.Media.SystemSounds.Asterisk.Play();
             DialogResult = DialogResult.OK;
