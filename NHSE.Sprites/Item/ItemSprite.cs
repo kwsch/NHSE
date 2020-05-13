@@ -25,7 +25,7 @@ namespace NHSE.Sprites
                 var fn = Path.GetFileNameWithoutExtension(f);
                 if (fn == null)
                     continue;
-                FileLookup.Add(fn, f);
+                FileLookup.Add(fn.ToLower(), f);
             }
         }
 
@@ -77,7 +77,7 @@ namespace NHSE.Sprites
                 id = remap;
             }
 
-            var name = str[id];
+            var name = str[id].ToLower();
             return FileLookup.TryGetValue(name, out path);
         }
 
