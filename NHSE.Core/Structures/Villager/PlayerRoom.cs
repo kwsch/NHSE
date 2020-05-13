@@ -19,5 +19,20 @@ namespace NHSE.Core
         public const int LayerCount = 8;
         public RoomItemLayer[] GetItemLayers() => RoomItemLayer.GetArray(Data.Slice(0, LayerCount * RoomItemLayer.SIZE));
         public void SetItemLayers(IReadOnlyList<RoomItemLayer> value) => RoomItemLayer.SetArray(value).CopyTo(Data, 0);
+
+        public bool GetIsActive(int layer, int x, int y) => FlagUtil.GetFlag(Data, 0x6400 + (layer * 0x34), (y * 20) + x);
+        public void SetIsActive(int layer, int x, int y, bool value = true) => FlagUtil.SetFlag(Data, 0x6400 + (layer * 0x34), (y * 20) + x, value);
+
+        public GSaveAudioInfo AudioInfo
+        {
+            get => Data.Slice(0x65A0, GSaveAudioInfo.SIZE).ToStructure<GSaveAudioInfo>();
+            set => value.ToBytes().CopyTo(Data, 0x65A0);
+        }
+
+        public GSaveRoomFloorWall RoomFloorWall
+        {
+            get => Data.Slice(0x65A4, GSaveRoomFloorWall.SIZE).ToStructure<GSaveRoomFloorWall>();
+            set => value.ToBytes().CopyTo(Data, 0x65A4);
+        }
     }
 }

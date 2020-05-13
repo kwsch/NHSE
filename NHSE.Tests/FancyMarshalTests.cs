@@ -17,6 +17,7 @@ namespace NHSE.Tests
         [Fact] public void MarshalHandwriting() => MarshalBytesTestS<Handwriting>(Handwriting.SIZE);
 
         [Fact] public void MarshalGSaveRoomFloorWall() => MarshalBytesTestS<GSaveRoomFloorWall>(GSaveRoomFloorWall.SIZE);
+        [Fact] public void MarshalGSaveAudioInfo() => MarshalBytesTestS<GSaveAudioInfo>(GSaveAudioInfo.SIZE);
 
         [Fact] public void MarshalGSaveManpu() => MarshalBytesTestS<GSavePlayerManpu>(GSavePlayerManpu.SIZE);
         [Fact] public void MarshalGSavePlayerHandleName() => MarshalBytesTestS<GSavePlayerHandleName>(GSavePlayerHandleName.SIZE);
