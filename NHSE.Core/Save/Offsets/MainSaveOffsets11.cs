@@ -25,6 +25,7 @@
         public override int LandMakingMap => GSaveMainFieldStart + 0xAAA00;
         public override int MainFieldStructure => GSaveMainFieldStart + 0xCF600;
         public override int OutsideField => GSaveMainFieldStart + 0xCF998;
+        public override int MyDesignMap => GSaveMainFieldStart + 0xCFA34;
 
         public override int PlayerHouseList => GSaveLandStart + 0x2DC238;
         public override int NpcHouseList => GSaveLandStart + 0x40E238;

@@ -27,8 +27,9 @@ namespace NHSE.Core
 
         public abstract int EventFlagLand { get; }
         public abstract int FieldItem { get; }
-        public abstract int OutsideField { get; }
         public abstract int LandMakingMap { get; }
+        public abstract int OutsideField { get; }
+        public abstract int MyDesignMap { get; }
         public abstract int PlayerHouseList { get; }
         public abstract int NpcHouseList { get; }
         public abstract int ShopKabu { get; }

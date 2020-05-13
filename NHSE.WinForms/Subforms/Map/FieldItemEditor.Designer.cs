@@ -139,6 +139,7 @@
             this.RB_Terrain = new System.Windows.Forms.RadioButton();
             this.L_TileMode = new System.Windows.Forms.Label();
             this.CHK_RedirectExtensionLoad = new System.Windows.Forms.CheckBox();
+            this.B_ClearPlacedDesigns = new System.Windows.Forms.ToolStripMenuItem();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
@@ -1217,10 +1218,11 @@
             this.CM_Terrain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.B_ZeroElevation,
             this.B_SetAllTerrain,
-            this.B_SetAllRoadTiles});
+            this.B_SetAllRoadTiles,
+            this.B_ClearPlacedDesigns});
             this.CM_Terrain.Name = "CM_Picture";
             this.CM_Terrain.ShowImageMargin = false;
-            this.CM_Terrain.Size = new System.Drawing.Size(225, 92);
+            this.CM_Terrain.Size = new System.Drawing.Size(225, 114);
             // 
             // B_ZeroElevation
             // 
@@ -1287,6 +1289,13 @@
             this.CHK_RedirectExtensionLoad.TabIndex = 46;
             this.CHK_RedirectExtensionLoad.Text = "View Root instead of Extension";
             this.CHK_RedirectExtensionLoad.UseVisualStyleBackColor = true;
+            // 
+            // B_ClearPlacedDesigns
+            // 
+            this.B_ClearPlacedDesigns.Name = "B_ClearPlacedDesigns";
+            this.B_ClearPlacedDesigns.Size = new System.Drawing.Size(224, 22);
+            this.B_ClearPlacedDesigns.Text = "Clear all Placed Designs";
+            this.B_ClearPlacedDesigns.Click += new System.EventHandler(this.B_ClearPlacedDesigns_Click);
             // 
             // FieldItemEditor
             // 
@@ -1470,5 +1479,6 @@
         private System.Windows.Forms.ToolStripMenuItem Menu_SavePNGTerrain;
         private System.Windows.Forms.CheckBox CHK_RedirectExtensionLoad;
         private System.Windows.Forms.ToolStripMenuItem B_SetAllRoadTiles;
+        private System.Windows.Forms.ToolStripMenuItem B_ClearPlacedDesigns;
     }
 }

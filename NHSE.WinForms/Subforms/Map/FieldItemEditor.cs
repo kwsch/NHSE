@@ -830,5 +830,11 @@ namespace NHSE.WinForms
             ReloadBuildingsTerrain();
             System.Media.SystemSounds.Asterisk.Play();
         }
+
+        private void B_ClearPlacedDesigns_Click(object sender, EventArgs e)
+        {
+            Map.ClearDesignTiles(SAV);
+            System.Media.SystemSounds.Asterisk.Play();
+        }
     }
 }

@@ -212,6 +212,20 @@ namespace NHSE.Core
         public TerrainTile[] GetTerrainTiles() => TerrainTile.GetArray(Data.Slice(Offsets.LandMakingMap, MapGrid.MapTileCount16x16 * TerrainTile.SIZE));
         public void SetTerrainTiles(IReadOnlyList<TerrainTile> array) => TerrainTile.SetArray(array).CopyTo(Data, Offsets.LandMakingMap);
 
+        public const int MapDesignNone = 0xF800;
+
+        public ushort[] GetMapDesignTiles()
+        {
+            var value = new ushort[112*96];
+            Buffer.BlockCopy(Data, Offsets.MyDesignMap, value, 0, sizeof(ushort) * value.Length);
+            return value;
+        }
+
+        public void SetMapDesignTiles(ushort[] value)
+        {
+            Buffer.BlockCopy(value, 0, Data, Offsets.MyDesignMap, sizeof(ushort) * value.Length);
+        }
+
         private const int FieldItemLayerSize = MapGrid.MapTileCount32x32 * Item.SIZE;
         private const int FieldItemFlagSize = MapGrid.MapTileCount32x32 / 8; // bitflags
 
