@@ -14,7 +14,8 @@ namespace NHSE.Sprites
 
         public static void Initialize(string path, string[] itemNames)
         {
-            if (FileLookup.Count > 0)
+            var lookup = FileLookup;
+            if (lookup.Count > 0)
                 return;
 
             ItemNames = itemNames;
@@ -25,7 +26,14 @@ namespace NHSE.Sprites
                 var fn = Path.GetFileNameWithoutExtension(f);
                 if (fn == null)
                     continue;
-                FileLookup.Add(fn.ToLower(), f);
+                lookup[fn.ToLower()] = f;
+                var index = fn.IndexOf('(');
+                if (index < 0)
+                    continue;
+
+                var simplerName = fn.Substring(0, index - 1);
+                if (!lookup.ContainsKey(simplerName))
+                    lookup.Add(simplerName, f);
             }
         }
 
@@ -78,7 +86,15 @@ namespace NHSE.Sprites
             }
 
             var name = str[id].ToLower();
-            return FileLookup.TryGetValue(name, out path);
+            if (FileLookup.TryGetValue(name, out path))
+                return true;
+
+            var index = name.IndexOf('(');
+            if (index <= 0)
+                return false;
+
+            var simple = name.Substring(0, index - 1);
+            return FileLookup.TryGetValue(simple, out path);
         }
 
         public static Bitmap? GetImage(Item item, Font font, int width, int height)
