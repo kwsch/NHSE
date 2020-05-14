@@ -13,7 +13,7 @@ namespace NHSE.WinForms
         private readonly DesignPattern[] Patterns;
 
         private int Index;
-        private const int scale = 2;
+        private const int scale = 8;
 
         public PatternEditor(DesignPattern[] patterns)
         {
