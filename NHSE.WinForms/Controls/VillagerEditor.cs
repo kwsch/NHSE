@@ -208,5 +208,24 @@ namespace NHSE.WinForms
             if (editor.ShowDialog() == DialogResult.OK)
                 v.Design = tmp[0];
         }
+
+        private void B_EditVillagerPlayerMemories_Click(object sender, EventArgs e)
+        {
+            if (ModifierKeys == Keys.Shift)
+            {
+                var prompt = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgVillagerFriendshipMax);
+                if (prompt != DialogResult.Yes)
+                    return;
+                foreach (var villager in Villagers)
+                    villager.SetFriendshipAll();
+                System.Media.SystemSounds.Asterisk.Play();
+                return;
+            }
+
+            var v = Villagers[VillagerIndex];
+            using var editor = new VillagerMemoryEditor(v);
+            if (editor.ShowDialog() == DialogResult.OK)
+            { } // editor saves our changes
+        }
     }
 }

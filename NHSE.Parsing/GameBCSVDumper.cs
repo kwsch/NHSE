@@ -58,6 +58,7 @@ namespace NHSE.Parsing
             DumpS("eventFlagPlayer.txt", GetEventFlagNames(pathBCSV));
             DumpS("eventFlagHouse.txt", GetEventFlagHouse(pathBCSV));
             DumpS("eventFlagVillager.txt", GetVillagerEventFlagNames(pathBCSV));
+            DumpS("eventFlagVillagerMemoryPlayer.txt", GetVillagerEventFlagNamesMemoryPlayer(pathBCSV));
             DumpS("eventFlagLand.txt", GetLandEventFlagNames(pathBCSV));
 
             DumpS("ItemKind.txt", GetPossibleEnum(pathBCSV, "ItemParam.bcsv", 0xFC275E86));
@@ -520,6 +521,41 @@ namespace NHSE.Parsing
                 var paddedName = $"\"{name}\"".PadRight(45, ' ');
                 var v = $"new {nameof(EventFlagVillager)}({iv1a,-2}, {iv2a,-4}, {ival:0000}, {paddedName})";
                 var kvp = $"{{0x{ival:X3}, {v}}}, // {comment}";
+                result.Add(kvp);
+            }
+
+            result.Sort();
+            return result;
+        }
+
+        private static IEnumerable<string> GetVillagerEventFlagNamesMemoryPlayer(string pathBCSV, string fn = "EventFlagsNpcMemoryParam.bcsv")
+        {
+            var bcsv = BCSVConverter.GetBCSV(pathBCSV, fn);
+            var dict = bcsv.GetFieldDictionary();
+            var finit = dict[0xD55938BD];
+            var fmax = dict[0xBD7682F5];
+            var fname = dict[0x45F320F2];
+            var findex = dict[0x54706054];
+            var fcomment = dict[0x85CF1615];
+
+            var result = new List<string>();
+            for (int i = 0; i < bcsv.EntryCount; i++)
+            {
+                var isinit = bcsv.ReadValue(i, finit);
+                var iinit = short.Parse(isinit);
+
+                var ismax = bcsv.ReadValue(i, fmax);
+                var imax = short.Parse(ismax);
+
+                var iid = bcsv.ReadValue(i, findex);
+                var index = (ushort)short.Parse(iid);
+
+                var name = bcsv.ReadValue(i, fname).TrimEnd('\0');
+                var comment = bcsv.ReadValue(i, fcomment).TrimEnd('\0');
+
+                var paddedName = $"\"{name}\"".PadRight(45, ' ');
+                var v = $"new {nameof(EventFlagVillagerMemoryPlayer)}({iinit,-2}, {imax,-3}, {index:000}, {paddedName})";
+                var kvp = $"{{0x{index:X2}, {v}}}, // {comment}";
                 result.Add(kvp);
             }
 

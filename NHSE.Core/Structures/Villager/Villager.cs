@@ -28,37 +28,42 @@ namespace NHSE.Core
             set => Data[2] = (byte)value;
         }
 
-        public uint TownID
+        public string TownName => GetMemory(0).TownName;
+        public byte[] GetTownIdentity() => GetMemory(0).GetTownIdentity();
+        public string PlayerName => GetMemory(0).PlayerName;
+        public byte[] GetPlayerIdentity() => GetMemory(0).GetPlayerIdentity();
+
+        public const int PlayerMemoryCount = 8;
+
+        public GSaveMemory GetMemory(int index)
         {
-            get => BitConverter.ToUInt32(Data, 0x04);
-            set => BitConverter.GetBytes(value).CopyTo(Data, 0x04);
+            if ((uint) index >= PlayerMemoryCount)
+                throw new ArgumentOutOfRangeException(nameof(index));
+
+            var bytes = Data.Slice(0x4 + (index * GSaveMemory.SIZE), GSaveMemory.SIZE);
+            return new GSaveMemory(bytes);
         }
 
-        public string TownName
+        public GSaveMemory[] GetMemories()
         {
-            get => StringUtil.GetString(Data, 0x08, 10);
-            set => StringUtil.GetBytes(value, 10).CopyTo(Data, 0x08);
-        }
-        public byte[] GetTownIdentity() => Data.Slice(0x04, 4 + 20);
-
-        public uint PlayerID
-        {
-            get => BitConverter.ToUInt32(Data, 0x20);
-            set => BitConverter.GetBytes(value).CopyTo(Data, 0x20);
+            var memories = new GSaveMemory[PlayerMemoryCount];
+            for (int i = 0; i < memories.Length; i++)
+                memories[i] = GetMemory(i);
+            return memories;
         }
 
-        public string PlayerName
+        public void SetMemory(GSaveMemory memory, int index)
         {
-            get => StringUtil.GetString(Data, 0x24, 10);
-            set => StringUtil.GetBytes(value, 10).CopyTo(Data, 0x24);
+            if ((uint)index >= PlayerMemoryCount)
+                throw new ArgumentOutOfRangeException(nameof(index));
+
+            memory.Data.CopyTo(Data, 0x4 + (index * GSaveMemory.SIZE));
         }
 
-        public byte[] GetPlayerIdentity() => Data.Slice(0x20, 4 + 20);
-
-        public string TownName2
+        public void SetMemories(IReadOnlyList<GSaveMemory> memories)
         {
-            get => StringUtil.GetString(Data, 0x5CC, 10);
-            set => StringUtil.GetBytes(value, 10).CopyTo(Data, 0x5CC);
+            for (int i = 0; i < memories.Count; i++)
+                SetMemory(memories[i], i);
         }
 
         public string CatchPhrase
@@ -108,6 +113,18 @@ namespace NHSE.Core
         {
             get => new DesignPatternPRO(Data.Slice(0x12128, DesignPatternPRO.SIZE));
             set => value.Data.CopyTo(Data, 0x12128);
+        }
+
+        public void SetFriendshipAll(byte value = byte.MaxValue)
+        {
+            for (int i = 0; i < PlayerMemoryCount; i++)
+            {
+                var m = GetMemory(i);
+                if (string.IsNullOrEmpty(m.PlayerName))
+                    continue;
+                m.Friendship = value;
+                SetMemory(m, i);
+            }
         }
     }
 }

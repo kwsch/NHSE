@@ -52,6 +52,7 @@
             this.B_EditFurniture = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditVillagerRoom = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditVillagerDesign = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditVillagerPlayerMemories = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Variant)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Species)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Villager)).BeginInit();
@@ -255,30 +256,38 @@
             this.CM_EditVillager.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.B_EditFurniture,
             this.B_EditVillagerRoom,
-            this.B_EditVillagerDesign});
+            this.B_EditVillagerDesign,
+            this.B_EditVillagerPlayerMemories});
             this.CM_EditVillager.Name = "CM_EditPlayer";
-            this.CM_EditVillager.Size = new System.Drawing.Size(175, 70);
+            this.CM_EditVillager.Size = new System.Drawing.Size(186, 114);
             // 
             // B_EditFurniture
             // 
             this.B_EditFurniture.Name = "B_EditFurniture";
-            this.B_EditFurniture.Size = new System.Drawing.Size(180, 22);
+            this.B_EditFurniture.Size = new System.Drawing.Size(185, 22);
             this.B_EditFurniture.Text = "Edit Furniture";
             this.B_EditFurniture.Click += new System.EventHandler(this.B_EditFurniture_Click);
             // 
             // B_EditVillagerRoom
             // 
             this.B_EditVillagerRoom.Name = "B_EditVillagerRoom";
-            this.B_EditVillagerRoom.Size = new System.Drawing.Size(180, 22);
+            this.B_EditVillagerRoom.Size = new System.Drawing.Size(185, 22);
             this.B_EditVillagerRoom.Text = "Edit Room";
             this.B_EditVillagerRoom.Click += new System.EventHandler(this.B_EditVillagerRoom_Click);
             // 
             // B_EditVillagerDesign
             // 
             this.B_EditVillagerDesign.Name = "B_EditVillagerDesign";
-            this.B_EditVillagerDesign.Size = new System.Drawing.Size(180, 22);
+            this.B_EditVillagerDesign.Size = new System.Drawing.Size(185, 22);
             this.B_EditVillagerDesign.Text = "Edit Design Pattern";
             this.B_EditVillagerDesign.Click += new System.EventHandler(this.B_EditVillagerDesign_Click);
+            // 
+            // B_EditVillagerPlayerMemories
+            // 
+            this.B_EditVillagerPlayerMemories.Name = "B_EditVillagerPlayerMemories";
+            this.B_EditVillagerPlayerMemories.Size = new System.Drawing.Size(185, 22);
+            this.B_EditVillagerPlayerMemories.Text = "Edit Player Memories";
+            this.B_EditVillagerPlayerMemories.Click += new System.EventHandler(this.B_EditVillagerPlayerMemories_Click);
             // 
             // VillagerEditor
             // 
@@ -340,5 +349,6 @@
         private System.Windows.Forms.ToolStripMenuItem B_EditFurniture;
         private System.Windows.Forms.ToolStripMenuItem B_EditVillagerRoom;
         private System.Windows.Forms.ToolStripMenuItem B_EditVillagerDesign;
+        private System.Windows.Forms.ToolStripMenuItem B_EditVillagerPlayerMemories;
     }
 }

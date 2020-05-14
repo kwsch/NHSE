@@ -7,6 +7,57 @@ namespace NHSE.WinForms
 {
     public static class MiscDumpHelper
     {
+        public static void DumpVillagerMemoryPlayer(Villager v, GSaveMemory memory)
+        {
+            using var sfd = new SaveFileDialog
+            {
+                Filter = "New Horizons Villager Player Memory (*.nhvpm)|*.nhvpm|All files (*.*)|*.*",
+                FileName = $"{v.InternalName}.nhvpm",
+            };
+            if (sfd.ShowDialog() != DialogResult.OK)
+                return;
+
+            var data = memory.Data;
+            File.WriteAllBytes(sfd.FileName, data);
+        }
+
+        public static bool LoadVillagerMemoryPlayer(Villager v, GSaveMemory[] memories, int index)
+        {
+            using var ofd = new OpenFileDialog
+            {
+                Filter = "New Horizons Villager Player Memory (*.nhvpm)|*.nhvpm|All files (*.*)|*.*",
+                FileName = $"{v.InternalName}.nhvpm",
+            };
+            if (ofd.ShowDialog() != DialogResult.OK)
+                return false;
+
+            var file = ofd.FileName;
+            var fi = new FileInfo(file);
+            const int expectLength = GSaveMemory.SIZE;
+            if (fi.Length != expectLength)
+            {
+                WinFormsUtil.Error(MessageStrings.MsgCanceling, string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength));
+                return false;
+            }
+
+            var data = File.ReadAllBytes(file);
+            var memory = new GSaveMemory(data);
+            var old = memories[index];
+
+            if (!memory.IsOriginatedFrom(old))
+            {
+                string msg = string.Format(MessageStrings.MsgDataDidNotOriginateFromHost_0, old.PlayerName);
+                var result = WinFormsUtil.Prompt(MessageBoxButtons.YesNoCancel, msg, MessageStrings.MsgAskUpdateValues);
+                if (result == DialogResult.Cancel)
+                    return false;
+                if (result == DialogResult.Yes)
+                    memory.ChangeOrigins(old, memory.Data);
+            }
+
+            memories[index] = memory;
+            return true;
+        }
+
         public static void DumpMuseum(Museum museum)
         {
             using var sfd = new SaveFileDialog
