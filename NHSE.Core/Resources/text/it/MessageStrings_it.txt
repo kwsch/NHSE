@@ -28,3 +28,4 @@ MsgSysBotRequired=Usare questa funzionalit� richiede i moduli: sys-botbase e s
 MsgTerrainSetElevation0=Impostare l'altezza di tutti i tile della mappa a 0?
 MsgTerrainSetAll=Impostare tutti i tile della mappa al valore del Tile Editor?
 MsgTerrainSetAllSkipExterior=Do you want to skip the tiles in exterior acres (beach/rocks)?
+MsgVillagerFriendshipMax=Do you want to set all Villager Friendship memories to 255?

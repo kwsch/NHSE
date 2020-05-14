@@ -28,3 +28,4 @@ MsgSysBotRequired=使用此功能需要在Switch上运行sys-botbase系统模块
 MsgTerrainSetElevation0=将地图上所有方格的海拔设置为 0？
 MsgTerrainSetAll=将地图上所有方格设置为当前方格编辑器中的方格？
 MsgTerrainSetAllSkipExterior=要跳过耕地之外的方格吗(沙滩/岩石)？
+MsgVillagerFriendshipMax=Do you want to set all Villager Friendship memories to 255?
