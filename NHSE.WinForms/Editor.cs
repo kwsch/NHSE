@@ -482,5 +482,13 @@ namespace NHSE.WinForms
             if (editor.ShowDialog() == DialogResult.OK)
                 SAV.Main.Museum = museum;
         }
+
+        private void B_EditVisitors_Click(object sender, EventArgs e)
+        {
+            var boxed = SAV.Main.Visitor;
+            using var editor = new SingleObjectEditor<object>(boxed, PropertySort.NoSort, false);
+            if (editor.ShowDialog() == DialogResult.OK)
+                SAV.Main.Visitor = boxed;
+        }
     }
 }

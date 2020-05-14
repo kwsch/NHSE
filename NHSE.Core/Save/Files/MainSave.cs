@@ -264,6 +264,13 @@ namespace NHSE.Core
             set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.OutsideField + AcreSizeAll + 8);
         }
 
+
+        public GSaveVisitorNpc Visitor
+        {
+            get => Data.ToClass<GSaveVisitorNpc>(Offsets.Visitor, GSaveVisitorNpc.SIZE);
+            set => value.ToBytesClass().CopyTo(Data, Offsets.Visitor);
+        }
+
         public GSaveFg SaveFg
         {
             get => Data.ToClass<GSaveFg>(Offsets.SaveFg, GSaveFg.SIZE);

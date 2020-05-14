@@ -34,6 +34,7 @@ namespace NHSE.Core
         public abstract int NpcHouseList { get; }
         public abstract int ShopKabu { get; }
         public abstract int Museum { get; }
+        public abstract int Visitor { get; }
 
         public abstract int SaveFg { get; }
         public abstract int BulletinBoard { get; }

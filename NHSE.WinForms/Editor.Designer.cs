@@ -95,6 +95,7 @@
             this.PB_Player = new System.Windows.Forms.PictureBox();
             this.TC_Editors = new System.Windows.Forms.TabControl();
             this.B_EditMuseum_Click = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditVisitors = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Editor.SuspendLayout();
             this.CM_Picture.SuspendLayout();
             this.Tab_Map.SuspendLayout();
@@ -340,9 +341,10 @@
             this.B_EditFieldItems,
             this.B_EditBulletin,
             this.B_EditFieldGoods,
-            this.B_EditMuseum_Click});
+            this.B_EditMuseum_Click,
+            this.B_EditVisitors});
             this.CM_EditMap.Name = "CM_EditMap";
-            this.CM_EditMap.Size = new System.Drawing.Size(181, 136);
+            this.CM_EditMap.Size = new System.Drawing.Size(181, 158);
             // 
             // B_EditLandFlags
             // 
@@ -774,6 +776,13 @@
             this.B_EditMuseum_Click.Text = "Edit Museum";
             this.B_EditMuseum_Click.Click += new System.EventHandler(this.B_EditMuseum_Click_Click);
             // 
+            // B_EditVisitors
+            // 
+            this.B_EditVisitors.Name = "B_EditVisitors";
+            this.B_EditVisitors.Size = new System.Drawing.Size(180, 22);
+            this.B_EditVisitors.Text = "Edit Visitors";
+            this.B_EditVisitors.Click += new System.EventHandler(this.B_EditVisitors_Click);
+            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -877,6 +886,7 @@
         private System.Windows.Forms.Button B_EditDesignsTailor;
         private System.Windows.Forms.Button B_EditPatternFlag;
         private System.Windows.Forms.ToolStripMenuItem B_EditMuseum_Click;
+        private System.Windows.Forms.ToolStripMenuItem B_EditVisitors;
     }
 }
 
