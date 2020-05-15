@@ -11,7 +11,7 @@ namespace NHSE.Core
         private const int Days = 7;
 
         [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = Days)]
-        public int[] VisitorNPC { get; set; }
+        public VisitorNPC[] VisitorNPC { get; set; }
 
         public V3f CreatePos { get; set; }
         public V3f _61e631dc { get; set; }
@@ -26,7 +26,7 @@ namespace NHSE.Core
         public byte[] gap_42;
 
         [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = Days)]
-        public int[] InitSchedule { get; set; }
+        public VisitorNPC[] InitSchedule { get; set; }
 
         [field: MarshalAs(UnmanagedType.ByValArray, ArraySubType = UnmanagedType.I1, SizeConst = Days * 2)]
         public bool[] _437619d8 { get; set; }
@@ -47,5 +47,20 @@ namespace NHSE.Core
         public float Z { get; set; }
 
         public override string ToString() => $"({X},{Y},{Z})";
+    }
+
+    public enum VisitorNPC
+    {
+        None = 0,
+        Gulliver = 1,
+        Label = 2,
+        Saharah = 3,
+        Wisp = 4,
+        Mabel = 5,
+        CJ = 6,
+        Flick = 7,
+        Kicks = 8,
+        Leif = 9,
+        Redd = 10,
     }
 }
