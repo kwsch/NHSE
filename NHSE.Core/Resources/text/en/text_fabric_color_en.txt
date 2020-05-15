@@ -1,0 +1,456 @@
+00725_0	Plain
+00725_1	Spring
+00725_2	Summer
+00725_3	Fall
+00725_4	Winter
+00833_0	None
+00833_1	Cool
+00833_2	Cute
+00833_3	Pop
+00833_4	Notes
+00941_0	None
+00941_1	Familiar logo
+00941_2	Chic logo
+00941_3	Rock logo
+00941_4	Emblem logo
+00941_5	Handwritten logo
+00941_6	Pop logo
+00941_7	Cute logo
+00950_0	None
+00950_1	Familiar logo
+00950_2	Chic logo
+00950_3	Rock logo
+00950_4	Emblem logo
+00950_5	Handwritten logo
+00950_6	Pop logo
+00950_7	Cute logo
+01029_0	Plain
+01029_1	Spring
+01029_2	Summer
+01029_3	Fall
+01029_4	Winter
+01032_0	Café
+01032_1	Travel
+01032_2	Fashion
+01032_3	Sports
+01032_4	Comics
+01032_5	Kids
+01032_6	Weekly news
+01499_0	None
+01499_1	Red
+01499_2	Blue
+01499_3	Yellow
+01500_0	None
+01500_1	Red stripes
+01500_2	Blue stripes
+01500_3	Yellow stripes
+01501_0	None
+01501_1	Heart
+01501_2	Fish
+01501_3	Star
+01504_0	None
+01504_1	White
+01504_2	Giant dots
+01504_3	Giant stripes
+01620_0	Colorful
+01620_1	Camouflage
+01620_2	Hibiscus flowers
+01620_3	White
+01644_0	None
+01644_1	Familiar logo
+01644_2	Chic logo
+01644_3	Rock logo
+01644_4	Emblem logo
+01644_5	Handwritten logo
+01644_6	Pop logo
+01644_7	Cute logo
+01645_0	None
+01645_1	Familiar logo
+01645_2	Chic logo
+01645_3	Rock logo
+01645_4	Emblem logo
+01645_5	Handwritten logo
+01645_6	Pop logo
+01645_7	Cute logo
+01750_0	Resource documents
+01750_1	Text documents
+01750_2	Exam papers
+01750_3	Storyboards
+01778_0	Plain
+01778_1	PE shirt
+01778_2	Fish
+01778_3	Carrot
+01779_0	White
+01779_1	Brown
+01779_2	Green
+01779_3	Red
+01779_4	Pink
+01779_5	Yellow
+01779_6	Light green
+01779_7	Light blue
+01783_0	Apple
+01783_1	Fish
+01783_2	Flower
+01792_0	White
+01792_1	Floral
+01792_2	Alphabet
+01792_3	Paisley
+01792_4	Rainbow colors
+01792_5	Pop
+01802_0	Orange juice
+01802_1	Sports drink
+01802_2	Sale
+01802_3	Cute
+01803_0	Smooth white
+01803_1	Glossy black
+01803_2	Black with logo
+01803_3	White with logo
+01803_4	Rock logo
+01803_5	Vintage logo
+01816_0	White
+01816_1	Purple
+01816_2	Black
+01816_3	Yellow
+01816_4	Pink
+01816_5	Red
+01816_6	Green
+01816_7	Blue
+01838_0	White
+01838_1	Yellow
+01838_2	Pink
+01838_3	Blue
+01849_0	Tic-tac-toe pattern
+01849_1	Flowers
+01849_2	Checkered
+01849_3	Stripes
+01850_0	Desktop
+01850_1	Search engine
+01850_2	Calculations
+01850_3	Web browsing
+01850_4	Online shopping
+01850_5	Chat tool
+01861_0	Gardening
+01861_1	Travel
+01861_2	Fashion
+01861_3	Sports
+01861_4	Comics
+01861_5	Kids
+01861_6	Weekly news
+01870_0	Plain
+01870_1	Square logo
+01870_2	Round logo
+01870_3	Fish
+01870_4	Carrot
+01870_5	Cheese
+01899_0	Musician's signature
+01899_1	Comedian's signature
+02020_0	Natural white
+02020_1	Director black
+02020_2	Chic pleather
+02561_0	White
+02561_1	Gray
+02561_2	Pink
+02561_3	Light blue
+02561_4	Yellow design
+02561_5	Green design
+02561_6	Orange design
+02561_7	Navy design
+02605_0	Orange
+02605_1	Pink
+02605_2	Blue
+02605_3	Green
+02713_0	None
+02713_1	Cute
+02713_2	Rock
+02713_3	Fruits
+02713_4	Notices
+03200_0	Navy
+03200_1	Blue-gray
+03200_2	Brown
+03229_0	White
+03229_1	Well-used
+03229_2	Blue stripes
+03229_3	Red plaid
+03229_4	Green plaid
+03230_0	Red
+03230_1	Blue
+03230_2	Orange
+03230_3	Green
+03305_0	Bear
+03305_1	Strawberry
+03305_2	Butterfly
+03305_3	Train
+03305_4	Paw print
+03307_0	White
+03307_1	Floral
+03307_2	Polka dots
+03307_3	Black stripes
+03307_4	Wood
+03439_0	None
+03439_1	Orange
+03439_2	Pink
+03439_3	Blue
+03439_4	Green
+03444_0	Blue
+03444_1	Red plaid
+03444_2	Green plaid
+03444_3	Beige
+03444_4	Colorful
+03445_0	Stripes
+03445_1	Dots
+03445_2	Navy
+03445_3	Red, white, and blue
+03449_0	None
+03449_1	Orange
+03449_2	Pink
+03449_3	Blue
+03449_4	Green
+03467_0	Yellow
+03467_1	Blue
+03467_2	Red
+03467_3	Gray
+03468_0	Cyan zigzags
+03468_1	Red stripes
+03468_2	Colorful
+03468_3	Shells
+03468_4	Blue
+03468_5	Yellow
+03468_6	White
+03502_0	Brown
+03502_1	White
+03502_2	Gray
+03502_3	Dark brown
+03561_0	Navy
+03561_1	Shell pink
+03586_0	Food
+03586_1	Cars
+03586_2	Fashion
+03586_3	Outdoors
+03586_4	Resorts
+03586_5	Music
+03586_6	Pop stars
+03590_0	Desktop
+03590_1	Search engine
+03590_2	Calculations
+03590_3	Web browsing
+03590_4	Programming
+03590_5	Art program
+03590_6	Digital audio workstation
+03617_0	None
+03617_1	Green stripes
+03617_2	Red stripes
+03617_3	Colorful
+03617_4	Waves
+03618_0	Red
+03618_1	Blue
+03618_2	Yellow
+03621_0	White
+03621_1	Black
+03621_2	Light blue
+03621_3	Orange
+03621_4	Yellow
+03621_5	Pink
+03621_6	Green stripes
+03621_7	Red stripes
+03622_0	Pale grass green
+03622_1	Mustard yellow
+03622_2	Peach
+03622_3	Deep blue
+03692_0	Pet
+03692_1	Wanted
+03692_2	Ad
+03692_3	Warning
+03702_0	Yellow
+03702_1	Blue
+03702_2	Pink
+03946_0	White
+03946_1	Black
+03946_2	Green
+03946_3	Blue
+03946_4	Orange
+03946_5	Light wood
+03946_6	Dark wood
+03947_0	White
+03947_1	Black
+03947_2	Green
+03947_3	Blue
+03947_4	Orange
+03947_5	Light wood
+03947_6	Dark wood
+03965_0	Blank
+03965_1	Smile
+03965_2	Bug
+03965_3	Still life
+04034_0	Essays
+04034_1	Manuscript paper
+04034_2	Illustrations
+04034_3	Plans
+04035_0	None
+04035_1	Southwestern flair
+04035_2	Geometric print
+04035_3	Bears
+04035_4	Quilted
+04036_0	None
+04036_1	Southwestern flair
+04036_2	Geometric print
+04036_3	Bears
+04036_4	Quilted
+04039_0	None
+04039_1	Southwestern flair
+04039_2	Geometric print
+04039_3	Bears
+04039_4	Quilted
+04040_0	None
+04040_1	Southwestern flair
+04040_2	Geometric print
+04040_3	Bears
+04040_4	Quilted
+04041_0	Southwestern flair
+04041_1	Geometric print
+04041_2	Bears
+04041_3	Quilted
+04043_0	None
+04043_1	Southwestern flair
+04043_2	Geometric print
+04043_3	Bears
+04043_4	Quilted
+04044_0	None
+04044_1	Southwestern flair
+04044_2	Geometric print
+04044_3	Bears
+04044_4	Quilted
+04068_0	White
+04068_1	Navy blue
+04068_2	Pink
+04068_3	Orange
+04068_4	Green
+04069_0	White
+04069_1	Black
+04069_2	Red flowers
+04069_3	Blue flowers
+04069_4	Green flowers
+04069_5	Yellow flowers
+04069_6	Pink flowers
+04101_0	Document
+04101_1	Graph
+04101_2	Illustration
+04101_3	Written note
+04102_0	White
+04102_1	Black
+04102_2	Blue
+04102_3	Red
+04102_4	Yellow
+04122_0	Blank
+04122_1	Comic plan
+04122_2	Gag comic
+04140_0	Yellow oil
+04140_1	Green with animal
+04140_2	Black retro
+04144_0	Red lines
+04144_1	Blue bee
+04144_2	B & W numeral
+04308_0	Sunset
+04308_1	Light Through the Trees
+04308_2	Snow
+04308_3	Sepia art
+04308_4	Castle
+04445_0	Green
+04445_1	Black
+04445_2	White
+04445_3	Natural wood
+05338_0	Plain panel
+05338_1	Lined panel
+05338_2	Pegboard
+05338_3	Horizontal planks
+05338_4	Lattice
+05338_5	Mud wall
+05338_6	Concrete
+05338_7	Gold
+05397_0	Green
+05397_1	Red
+05397_2	Pink
+05397_3	Black
+05397_4	White
+05397_5	Blue
+05397_6	Yellow
+05397_7	Beige
+07047_0	Deep blue
+07047_1	Indigo
+07047_2	Azuki red
+07047_3	Deep green
+07047_4	Goldfish
+07047_5	Crane
+07047_6	Gold
+07048_0	Deep blue
+07048_1	Indigo
+07048_2	Azuki red
+07048_3	Deep green
+07048_4	Goldfish
+07048_5	Crane
+07048_6	Gold
+07132_0	Orange
+07132_1	Pink
+07132_2	Blue
+07132_3	Green
+07133_0	None
+07133_1	Orange
+07133_2	Pink
+07133_3	Blue
+07133_4	Green
+07150_0	Green
+07150_1	Red
+07150_2	Blue
+07150_3	Black
+07150_4	Yellow
+07151_0	Green
+07151_1	Red
+07151_2	Blue
+07151_3	Black
+07151_4	Yellow
+07152_0	Green
+07152_1	Red
+07152_2	Blue
+07152_3	Black
+07152_4	Yellow
+07282_0	Calligraphy
+07282_1	Mountains
+07282_2	Fish
+07282_3	Bird
+07282_4	Flower
+07531_0	Stripes
+07531_1	Checkered
+07531_2	Dots
+07531_3	Leaves
+07531_4	Triangles
+07681_0	Checkered
+07681_1	Goldfish
+07681_2	Camellia
+07681_3	Chain print
+07682_0	Checkered
+07682_1	Goldfish
+07682_2	Camellia
+07682_3	Chain print
+07802_0	White
+07802_1	Moss green
+07802_2	Polka dots
+07802_3	Checkered
+07802_4	Floral
+08096_0	None
+08096_1	Logo
+08096_2	Sunset
+08096_3	Various
+08298_0	White
+08298_1	Striped
+08298_2	Checkered
+08298_3	Space
+08298_4	Colorful lines
+08760_0	Green
+08760_1	Red
+08760_2	Pink
+08760_3	Black
+08760_4	White
+08760_5	Blue
+08760_6	Yellow
+08760_7	Beige
+12410_0	Message
+12410_1	Reese & Cyrus

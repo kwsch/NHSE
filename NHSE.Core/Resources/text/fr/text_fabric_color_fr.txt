@@ -1,0 +1,456 @@
+00725_0	Uni
+00725_1	Printemps
+00725_2	Été
+00725_3	Automne
+00725_4	Hiver
+00833_0	Sans
+00833_1	Cool
+00833_2	Mignons
+00833_3	Pop
+00833_4	Pense-bêtes
+00941_0	Sans
+00941_1	Marque
+00941_2	Chic
+00941_3	Hard rock
+00941_4	Emblème
+00941_5	Signature
+00941_6	Pop
+00941_7	Mignon
+00950_0	Sans
+00950_1	Marque
+00950_2	Chic
+00950_3	Hard rock
+00950_4	Emblème
+00950_5	Signature
+00950_6	Pop
+00950_7	Mignon
+01029_0	Uni
+01029_1	Printemps
+01029_2	Été
+01029_3	Automne
+01029_4	Hiver
+01032_0	Café
+01032_1	Voyage
+01032_2	Mode
+01032_3	Sport
+01032_4	People
+01032_5	Enfants
+01032_6	Actualité
+01499_0	Sans
+01499_1	Rouge
+01499_2	Bleu
+01499_3	Jaune
+01500_0	Sans
+01500_1	Rayures rouges
+01500_2	Rayures bleues
+01500_3	Rayures jaunes
+01501_0	Sans
+01501_1	Cœur
+01501_2	Poisson
+01501_3	Étoile
+01504_0	Sans
+01504_1	Blanc
+01504_2	Gros pois
+01504_3	Rayures
+01620_0	Coloré
+01620_1	Camouflage
+01620_2	Fleurs d'hibiscus
+01620_3	Blanc
+01644_0	Sans
+01644_1	Marque
+01644_2	Chic
+01644_3	Hard rock
+01644_4	Emblème
+01644_5	Signature
+01644_6	Pop
+01644_7	Mignon
+01645_0	Sans
+01645_1	Marque
+01645_2	Chic
+01645_3	Hard rock
+01645_4	Emblème
+01645_5	Signature
+01645_6	Pop
+01645_7	Mignon
+01750_0	Ressources
+01750_1	Textes
+01750_2	Copies d'examen
+01750_3	Storyboards
+01778_0	Blanc
+01778_1	Sport
+01778_2	Motif poisson
+01778_3	Motif carotte
+01779_0	Blanc
+01779_1	Brun
+01779_2	Vert
+01779_3	Rouge
+01779_4	Rose
+01779_5	Jaune
+01779_6	Vert clair
+01779_7	Bleu clair
+01783_0	Pomme
+01783_1	Poisson
+01783_2	Fleur
+01792_0	Blanche
+01792_1	Fleurie
+01792_2	Alphabet
+01792_3	Paisley
+01792_4	Arc-en-ciel
+01792_5	Pop
+01802_0	Jus d'orange
+01802_1	Boisson énergétique
+01802_2	Promo
+01802_3	Produit mignon
+01803_0	Blanc crémeux
+01803_1	Noir lustré
+01803_2	Noir à logo
+01803_3	Blanc à logo
+01803_4	Logo hard rock
+01803_5	Logo vintage
+01816_0	Blanc
+01816_1	Violet
+01816_2	Noir
+01816_3	Jaune
+01816_4	Rose
+01816_5	Rouge
+01816_6	Vert
+01816_7	Bleu
+01838_0	Blanc
+01838_1	Jaune
+01838_2	Rose
+01838_3	Bleu
+01849_0	Croisillons
+01849_1	Fleuri
+01849_2	Pied-de-poule
+01849_3	Rayures
+01850_0	Fond d'écran
+01850_1	Moteur de recherche
+01850_2	Statistiques
+01850_3	Navigateur internet
+01850_4	Shopping en ligne
+01850_5	Messagerie instantanée
+01861_0	Jardinage
+01861_1	Voyage
+01861_2	Mode
+01861_3	Sport
+01861_4	People
+01861_5	Enfants
+01861_6	Actualité
+01870_0	Uni
+01870_1	Logo carré
+01870_2	Logo rond
+01870_3	Poisson
+01870_4	Carotte
+01870_5	Fromage
+01899_0	Musicien
+01899_1	Comédien
+02020_0	Blanc naturel
+02020_1	Noir
+02020_2	Similicuir luxueux
+02561_0	Blanc
+02561_1	Gris
+02561_2	Rose
+02561_3	Bleu clair
+02561_4	Jaune
+02561_5	Vert
+02561_6	Orange
+02561_7	Bleu foncé
+02605_0	Orange
+02605_1	Rose
+02605_2	Bleu
+02605_3	Vert
+02713_0	Sans
+02713_1	Mignons
+02713_2	Rock
+02713_3	Fruits
+02713_4	Pense-bête
+03200_0	Bleu marine
+03200_1	Bleu-gris
+03200_2	Marron
+03229_0	Blanche
+03229_1	Élimée
+03229_2	Rayures bleues
+03229_3	Carreaux rouges
+03229_4	Carreaux verts
+03230_0	Rouge
+03230_1	Bleu
+03230_2	Orange
+03230_3	Vert
+03305_0	Ourson
+03305_1	Fraise
+03305_2	Papillon
+03305_3	Train
+03305_4	Empreinte
+03307_0	Blanc
+03307_1	Fleuri
+03307_2	À pois
+03307_3	Rayures noires
+03307_4	Bois
+03439_0	Sans
+03439_1	Orange
+03439_2	Rose
+03439_3	Bleu
+03439_4	Vert
+03444_0	Bleu
+03444_1	Écossais rouge
+03444_2	Écossais vert
+03444_3	Écossais beige
+03444_4	Étoiles colorées
+03445_0	À rayures
+03445_1	À pois
+03445_2	Bleu marine
+03445_3	Tricolore
+03449_0	Sans
+03449_1	Orange
+03449_2	Rose
+03449_3	Bleu
+03449_4	Vert
+03467_0	Jaune
+03467_1	Bleu
+03467_2	Rouge
+03467_3	Gris
+03468_0	Bleue à zigzags
+03468_1	Rouge à rayures
+03468_2	Multicolore
+03468_3	Coquillages
+03468_4	Bleue
+03468_5	Jaune
+03468_6	Blanche
+03502_0	Brun
+03502_1	Blanche
+03502_2	Gris
+03502_3	Brun foncé
+03561_0	Bleue
+03561_1	Rose nacre
+03586_0	Culinaire
+03586_1	Automobile
+03586_2	Mode
+03586_3	Randonnée
+03586_4	Hôtels
+03586_5	Musique
+03586_6	Pop-stars
+03590_0	Fond d'écran
+03590_1	Moteur de recherche
+03590_2	Statistiques
+03590_3	Navigateur internet
+03590_4	Programmation
+03590_5	Logiciel de dessin
+03590_6	Logiciel de mixage
+03617_0	Sans
+03617_1	Rayures vertes
+03617_2	Rayures rouges
+03617_3	Coloré
+03617_4	Vagues
+03618_0	Rouge
+03618_1	Bleu
+03618_2	Jaune
+03621_0	Blanc
+03621_1	Noir
+03621_2	Bleu clair
+03621_3	Orange
+03621_4	Jaune
+03621_5	Rose
+03621_6	Rayures vertes
+03621_7	Rayures rouges
+03622_0	Vert
+03622_1	Ocre
+03622_2	Rose
+03622_3	Bleu
+03692_0	Animal de compagnie
+03692_1	Avis de recherche
+03692_2	Publicité
+03692_3	Interdiction
+03702_0	Jaune
+03702_1	Bleu
+03702_2	Rose
+03946_0	Blanc
+03946_1	Noir
+03946_2	Vert
+03946_3	Bleu
+03946_4	Orange
+03946_5	Bois clair
+03946_6	Bois foncé
+03947_0	Blanc
+03947_1	Noir
+03947_2	Vert
+03947_3	Bleu
+03947_4	Orange
+03947_5	Bois clair
+03947_6	Bois foncé
+03965_0	Blanc
+03965_1	Sourire
+03965_2	Insecte
+03965_3	Nature morte
+04034_0	Rapport
+04034_1	Feuilles à carreaux
+04034_2	Dessins
+04034_3	Plans
+04035_0	Sans
+04035_1	Kilim
+04035_2	Chimayo
+04035_3	Ours
+04035_4	Patchwork
+04036_0	Sans
+04036_1	Kilim
+04036_2	Chimayo
+04036_3	Ours
+04036_4	Patchwork
+04039_0	Sans
+04039_1	Kilim
+04039_2	Chimayo
+04039_3	Ours
+04039_4	Patchwork
+04040_0	Sans
+04040_1	Kilim
+04040_2	Chimayo
+04040_3	Ours
+04040_4	Patchwork
+04041_0	Kilim
+04041_1	Chimayo
+04041_2	Ours
+04041_3	Patchwork
+04043_0	Sans
+04043_1	Kilim
+04043_2	Chimayo
+04043_3	Ours
+04043_4	Patchwork
+04044_0	Sans
+04044_1	Kilim
+04044_2	Chimayo
+04044_3	Ours
+04044_4	Patchwork
+04068_0	Blanc
+04068_1	Bleu marine
+04068_2	Rose
+04068_3	Orange
+04068_4	Vert
+04069_0	Blanc
+04069_1	Noir
+04069_2	Fleurs rouges
+04069_3	Fleurs bleues
+04069_4	Fleurs vertes
+04069_5	Fleurs jaunes
+04069_6	Fleurs roses
+04101_0	Lettre
+04101_1	Graphique
+04101_2	Illustration
+04101_3	Note manuscrite
+04102_0	Blanc
+04102_1	Noir
+04102_2	Bleu
+04102_3	Rouge
+04102_4	Jaune
+04122_0	Vierge
+04122_1	Ébauche de bédé
+04122_2	Gags en 4 cases
+04140_0	Goutte d'huile jaune
+04140_1	Animal sur fond vert
+04140_2	Rétro noire
+04144_0	Lignes rouges et vertes
+04144_1	Abeille bleue
+04144_2	Numéro sur fond noir
+04308_0	Coucher de soleil
+04308_1	Lumière dans les arbres
+04308_2	Paysage enneigé
+04308_3	Photo sépia
+04308_4	Château
+04445_0	Vert
+04445_1	Noir
+04445_2	Blanc
+04445_3	Bois naturel
+05338_0	Panneau standard
+05338_1	Panneau renforcé
+05338_2	Panneau perforé
+05338_3	Lattes horizontales
+05338_4	Treillis
+05338_5	Terre crue
+05338_6	Béton
+05338_7	Or
+05397_0	Vert
+05397_1	Rouge
+05397_2	Rose
+05397_3	Noir
+05397_4	Blanc
+05397_5	Bleu
+05397_6	Jaune
+05397_7	Beige
+07047_0	Bleu roi
+07047_1	Indigo
+07047_2	Rouge bordeaux
+07047_3	Vert bouteille
+07047_4	Poissons rouges
+07047_5	Grues
+07047_6	Doré
+07048_0	Bleu roi
+07048_1	Indigo
+07048_2	Rouge bordeaux
+07048_3	Vert bouteille
+07048_4	Poissons rouges
+07048_5	Grues
+07048_6	Doré
+07132_0	Orange
+07132_1	Rose
+07132_2	Bleu
+07132_3	Vert
+07133_0	Sans
+07133_1	Orange
+07133_2	Rose
+07133_3	Bleu
+07133_4	Vert
+07150_0	Vert
+07150_1	Rouge
+07150_2	Bleu
+07150_3	Noir
+07150_4	Jaune
+07151_0	Vert
+07151_1	Rouge
+07151_2	Bleu
+07151_3	Noir
+07151_4	Jaune
+07152_0	Vert
+07152_1	Rouge
+07152_2	Bleu
+07152_3	Noir
+07152_4	Jaune
+07282_0	Calligraphie
+07282_1	Montagnes
+07282_2	Poisson
+07282_3	Coq
+07282_4	Fleurs
+07531_0	Rayures
+07531_1	Carreaux
+07531_2	Pois
+07531_3	Feuilles
+07531_4	Triangles
+07681_0	À carreaux
+07681_1	Poissons
+07681_2	Camélias
+07681_3	Motif chaînes
+07682_0	À carreaux
+07682_1	Poissons
+07682_2	Camélias
+07682_3	Motif chaînes
+07802_0	Blanc
+07802_1	Vert mousse
+07802_2	À pois
+07802_3	Carreaux
+07802_4	Floral
+08096_0	Sans
+08096_1	Logo
+08096_2	Coucher de soleil
+08096_3	Divers
+08298_0	Blanche
+08298_1	Rayures
+08298_2	Carreaux
+08298_3	Cosmos
+08298_4	Rayures multicolores
+08760_0	Vert
+08760_1	Rouge
+08760_2	Rose
+08760_3	Noir
+08760_4	Blanc
+08760_5	Bleu
+08760_6	Jaune
+08760_7	Beige
+12410_0	Message
+12410_1	Risette & Serge

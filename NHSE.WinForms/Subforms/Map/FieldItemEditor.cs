@@ -833,7 +833,7 @@ namespace NHSE.WinForms
 
         private void B_ClearPlacedDesigns_Click(object sender, EventArgs e)
         {
-            Map.ClearDesignTiles(SAV);
+            MapManager.ClearDesignTiles(SAV);
             System.Media.SystemSounds.Asterisk.Play();
         }
     }

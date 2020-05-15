@@ -1,0 +1,294 @@
+00080	Paint color
+00083	Paint color
+00088	Paint color
+00131	Variation
+00144	Cover design
+00331	Body color
+00333	Paint color
+00383	Body
+00530	Season
+00531	Season
+00532	Season
+00533	Season
+00669	Body
+00676	Stone
+00677	Bamboo
+00682	Design
+00685	Variation
+00688	Variation
+00690	Variation
+00710	Bamboo
+00739	Body color
+00805	Mushroom type
+00808	Mushroom type
+00865	Paint color
+00891	Color
+01032	Body color
+01058	Body
+01103	Lumber type
+01111	Stone
+01157	Brick color
+01170	Lumber type
+01189	Tire color
+01241	Paint color
+01263	Fruit type
+01504	Fabric
+01509	Coating
+01557	Block color
+01558	Block color
+01559	Block color
+01561	Block color
+01565	Block color
+01625	Body color
+01626	Body color
+01627	Body color
+01652	Variation
+01753	Variation
+01759	Genre
+01797	Design
+01799	Paint color
+01823	Bag color
+01913	Paint color
+02099	Color
+02319	Color
+02326	Body color
+02329	Tire color
+02377	Color
+02379	Color
+02553	Coating
+02558	Block color
+02559	Design
+02560	Paint color
+02586	Chair back and seat
+02596	Fruit type
+02605	Paint color
+02822	Color
+03122	Paint color
+03191	Lumber type
+03193	Lumber type
+03194	Lumber type
+03195	Lumber type
+03196	Lumber type
+03200	Lumber type
+03205	Block color
+03206	Block color
+03208	Block color
+03270	Lumber type
+03271	Lumber type
+03275	Lumber type
+03340	Paint color
+03396	Tabletop
+03406	Paint color
+03407	Variation
+03436	Paint color
+03438	Paint color
+03439	Paint color
+03445	Body color
+03446	Stone
+03449	Paint color
+03490	Paint color
+03497	Illumination
+03498	Illumination
+03499	Illumination
+03500	Illumination
+03501	Illumination
+03502	Illumination
+03503	Illumination
+03504	Illumination
+03505	Illumination
+03509	Variation
+03551	Bamboo
+03553	Bamboo
+03554	Bamboo
+03556	Bamboo
+03557	Bamboo
+03558	Bamboo
+03559	Body color
+03560	Body color
+03561	Body color
+03562	Body color
+03563	Body color
+03581	Variation
+03587	Variation
+03588	Navigation
+03591	Variation
+03592	Variation
+03593	Variation
+03594	Variation
+03617	Variation
+03618	Finish
+03658	Bamboo
+03675	Hay condition
+03683	Design
+03692	Sign
+03699	Variation
+03773	Frame
+03775	Frame
+03776	Brick color
+03785	Color
+03805	Mushroom type
+03806	Mushroom type
+03808	Mushroom type
+03819	Barrel color
+03943	Lumber type
+03966	Design
+03975	Fruit type
+03976	Fruit type
+03977	Shell color
+03978	Shell color
+03979	Shell color
+03980	Shell color
+03982	Shell color
+03983	Shell color
+03984	Shell color
+03991	Design
+03992	Body color
+04011	Fruit type
+04012	Fruit type
+04025	Design
+04027	Color
+04035	Lumber type
+04036	Lumber type
+04037	Lumber type
+04038	Lumber type
+04039	Lumber type
+04040	Lumber type
+04041	Lumber type
+04042	Lumber type
+04043	Lumber type
+04044	Lumber type
+04066	Light color
+04067	Design
+04073	Design
+04074	Light color
+04075	Frame
+04078	Plate color
+04093	Bamboo
+04104	Dish
+04108	Light color
+04124	Lumber type
+04125	Paint color
+04127	Fruit type
+04128	Fruit type
+04131	Light color
+04134	Fruit type
+04279	Flavor
+04309	Color
+04377	Color
+04546	Fruit type
+04708	Mushroom type
+04751	Color
+04752	Color
+04764	Color
+05150	Shell color
+05310	Color
+05337	Knit-cap color
+05543	Block color
+05635	Paint color
+05636	Body color
+05716	Color
+05717	Color
+05718	Color
+05719	Color
+05784	Color
+05931	Body color
+05972	Lumber type
+05973	Lumber type
+05976	Bamboo
+05978	Bamboo
+06075	Nut color
+06078	Nut color
+06079	Nut color
+06080	Nut color
+06081	Nut color
+06426	Frame
+06818	Color
+06826	Color
+06827	Color
+06829	Color
+06831	Body color
+06832	Color
+07045	Can
+07132	Paint color
+07133	Paint color
+07134	Paint color
+07137	Paint color
+07138	Design
+07139	Art
+07140	Cover pattern
+07141	Design
+07143	Design
+07144	Cover pattern
+07145	Design
+07146	Decorations
+07147	Name
+07159	Cardboard
+07160	Cardboard
+07161	Cardboard
+07163	Cardboard
+07230	Flower color
+07231	Flower color
+07232	Flower color
+07233	Flower color
+07234	Flower color
+07235	Flower color
+07236	Flower color
+07237	Flower color
+07238	Color
+07247	Roof color
+07253	Color
+07258	Creation
+07259	Variation
+07281	Body color
+07284	Variation
+07317	Stone
+07390	Color
+07393	Stone
+07454	Color
+07527	Variation
+07535	Body color
+07588	Mushroom type
+07788	Food
+07795	Color
+07805	Lumber type
+07867	Navigation
+08031	Color
+08176	Color
+08177	Color
+08178	Color
+08419	Paint color
+08471	Color
+08472	Color
+08473	Color
+08534	Color
+08535	Color
+08536	Color
+08575	Color
+08576	Color
+08577	Color
+08579	Color
+08580	Color
+08826	Paint color
+09642	Body color
+10742	Bamboo
+10743	Bamboo
+11941	Color
+11942	Paint color
+11943	Color
+12140	Color
+12332	Tabletop
+12372	Paint
+12373	Paint
+12401	Design
+12402	Design
+12403	Design
+12404	Design
+12405	Design
+12406	Design
+12407	Design
+12408	Design
+12409	Body color
+12410	Easel
+12411	Design
+12543	Joy-Con
+12741	Map center

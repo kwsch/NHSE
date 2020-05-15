@@ -1,0 +1,456 @@
+00725_0	Semplice
+00725_1	Primavera
+00725_2	Estate
+00725_3	Autunno
+00725_4	Inverno
+00833_0	Nessun adesivo
+00833_1	Spavaldo
+00833_2	Grazioso
+00833_3	Pop
+00833_4	Messaggi
+00941_0	Senza
+00941_1	Familiare
+00941_2	Chic
+00941_3	Hard rock
+00941_4	Emblema
+00941_5	Foglietto di carta
+00941_6	Pop
+00941_7	Grazioso
+00950_0	Senza
+00950_1	Familiare
+00950_2	Chic
+00950_3	Hard rock
+00950_4	Emblema
+00950_5	Foglietto di carta
+00950_6	Pop
+00950_7	Grazioso
+01029_0	Semplice
+01029_1	Primavera
+01029_2	Estate
+01029_3	Autunno
+01029_4	Inverno
+01032_0	Intrattenimento
+01032_1	Viaggi
+01032_2	Moda
+01032_3	Sport
+01032_4	Fumetti
+01032_5	Per bambini
+01032_6	Settimanale
+01499_0	Senza
+01499_1	Rosso
+01499_2	Blu
+01499_3	Giallo
+01500_0	Senza
+01500_1	Righe rosse
+01500_2	Righe blu
+01500_3	Righe gialle
+01501_0	Senza
+01501_1	Cuore
+01501_2	Pesce
+01501_3	Stella
+01504_0	Senza
+01504_1	Bianco
+01504_2	Pois
+01504_3	Righe
+01620_0	Multicolore
+01620_1	Mimetico
+01620_2	Fiori di ibisco
+01620_3	Bianco
+01644_0	Senza
+01644_1	Familiare
+01644_2	Chic
+01644_3	Hard rock
+01644_4	Emblema
+01644_5	Foglietto di carta
+01644_6	Pop
+01644_7	Grazioso
+01645_0	Senza
+01645_1	Familiare
+01645_2	Chic
+01645_3	Hard rock
+01645_4	Emblema
+01645_5	Foglietto di carta
+01645_6	Pop
+01645_7	Grazioso
+01750_0	Risorse
+01750_1	Testo
+01750_2	Prove d'esame
+01750_3	Storyboard
+01778_0	Senza niente
+01778_1	Sport
+01778_2	Pesce
+01778_3	Carota
+01779_0	Bianco
+01779_1	Marrone
+01779_2	Verde
+01779_3	Rosso
+01779_4	Rosa
+01779_5	Giallo
+01779_6	Verde chiaro
+01779_7	Blu chiaro
+01783_0	Mela
+01783_1	Pesce
+01783_2	Fiore
+01792_0	Bianco
+01792_1	Floreale
+01792_2	Alfabeto
+01792_3	Paisley
+01792_4	Arcobaleno
+01792_5	Pop
+01802_0	Succo d'arancia
+01802_1	Bevanda energetica
+01802_2	Offerta
+01802_3	Adorabile
+01803_0	Bianco semplice
+01803_1	Nero lucido
+01803_2	Nero con logo
+01803_3	Bianco con logo
+01803_4	Hard rock
+01803_5	Logo vintage
+01816_0	Bianco
+01816_1	Viola
+01816_2	Nero
+01816_3	Giallo
+01816_4	Rosa
+01816_5	Rosso
+01816_6	Verde
+01816_7	Blu
+01838_0	Bianco
+01838_1	Giallo
+01838_2	Rosa
+01838_3	Blu
+01849_0	Tris
+01849_1	Fiori
+01849_2	Pied-de-poule
+01849_3	Righe
+01850_0	Desktop
+01850_1	Motore di ricerca
+01850_2	Statistiche
+01850_3	Internet
+01850_4	Shopping online
+01850_5	Chat
+01861_0	Giardinaggio
+01861_1	Viaggi
+01861_2	Moda
+01861_3	Sport
+01861_4	Fumetti
+01861_5	Per bambini
+01861_6	Settimanale
+01870_0	Senza niente
+01870_1	Logo quadrato
+01870_2	Logo rotondo
+01870_3	Pesce
+01870_4	Carota
+01870_5	Formaggio
+01899_0	Autografo di musicista
+01899_1	Autografo d'attore
+02020_0	Bianco naturale
+02020_1	Nero
+02020_2	Ecopelle chic
+02561_0	Bianco
+02561_1	Grigio
+02561_2	Rosa
+02561_3	Blu chiaro
+02561_4	Design giallo
+02561_5	Design verde
+02561_6	Design arancione
+02561_7	Design blu marino
+02605_0	Arancio
+02605_1	Rosa
+02605_2	Blu
+02605_3	Verde
+02713_0	Senza
+02713_1	Graziosi
+02713_2	Rock
+02713_3	Frutta
+02713_4	Promemoria
+03200_0	Blu marino
+03200_1	Grigio-blu
+03200_2	Marrone
+03229_0	Bianco
+03229_1	Da lavoro
+03229_2	Righe blu
+03229_3	Rosso scozzese
+03229_4	Verde scozzese
+03230_0	Rosso
+03230_1	Blu
+03230_2	Arancione
+03230_3	Verde
+03305_0	Orso
+03305_1	Fragola
+03305_2	Farfalla
+03305_3	Treno
+03305_4	Orma di zampa
+03307_0	Bianco
+03307_1	Floreale
+03307_2	Pois
+03307_3	Righe nere
+03307_4	Legno
+03439_0	Nessuno
+03439_1	Arancio
+03439_2	Rosa
+03439_3	Blu
+03439_4	Verde
+03444_0	Blu
+03444_1	Rosso scozzese
+03444_2	Verde scozzese
+03444_3	Beige scozzese
+03444_4	Stelle colorate
+03445_0	Righe
+03445_1	Pois
+03445_2	Blu marino
+03445_3	Tre colori
+03449_0	Nessuno
+03449_1	Arancio
+03449_2	Rosa
+03449_3	Blu
+03449_4	Verde
+03467_0	Giallo
+03467_1	Blu
+03467_2	Rosso
+03467_3	Grigio
+03468_0	Righe a zig-zag ciano
+03468_1	Righe rosse
+03468_2	Multicolore
+03468_3	Conchiglie
+03468_4	Blu
+03468_5	Giallo
+03468_6	Bianco
+03502_0	Marrone
+03502_1	Bianco
+03502_2	Grigio
+03502_3	Marrone scuro
+03561_0	Blu marino
+03561_1	Rosa conchiglia
+03586_0	Cucina
+03586_1	Automobili
+03586_2	Moda
+03586_3	Aria aperta
+03586_4	Villaggi vacanze
+03586_5	Musica
+03586_6	Cantanti
+03590_0	Desktop
+03590_1	Motore di ricerca
+03590_2	Statistiche
+03590_3	Internet
+03590_4	Programmazione
+03590_5	Programma di grafica
+03590_6	Programma audio
+03617_0	Senza
+03617_1	Righe verdi
+03617_2	Righe rosse
+03617_3	Multicolore
+03617_4	Onde
+03618_0	Rosso
+03618_1	Blu
+03618_2	Giallo
+03621_0	Bianco
+03621_1	Nero
+03621_2	Blu chiaro
+03621_3	Arancio
+03621_4	Giallo
+03621_5	Rosa
+03621_6	Righe verdi
+03621_7	Righe rosse
+03622_0	Verde chiaro
+03622_1	Giallo mostarda
+03622_2	Pesca
+03622_3	Blu scuro
+03692_0	Animale smarrito
+03692_1	Ricercato
+03692_2	Pubblicità
+03692_3	Divieto
+03702_0	Giallo
+03702_1	Blu
+03702_2	Rosa
+03946_0	Bianco
+03946_1	Nero
+03946_2	Verde
+03946_3	Blu
+03946_4	Arancio
+03946_5	Legno chiaro
+03946_6	Legno scuro
+03947_0	Bianco
+03947_1	Nero
+03947_2	Verde
+03947_3	Blu
+03947_4	Arancio
+03947_5	Legno chiaro
+03947_6	Legno scuro
+03965_0	Niente
+03965_1	Sorriso
+03965_2	Insetto
+03965_3	Natura morta
+04034_0	Rapporti
+04034_1	Carta quadrettata
+04034_2	Illustrazioni
+04034_3	Progetti
+04035_0	Senza
+04035_1	Kilim
+04035_2	Stampa geometrica
+04035_3	Orsi
+04035_4	Patchwork
+04036_0	Senza
+04036_1	Kilim
+04036_2	Stampa geometrica
+04036_3	Orsi
+04036_4	Patchwork
+04039_0	Senza
+04039_1	Kilim
+04039_2	Stampa geometrica
+04039_3	Orsi
+04039_4	Patchwork
+04040_0	Senza
+04040_1	Kilim
+04040_2	Stampa geometrica
+04040_3	Orsi
+04040_4	Patchwork
+04041_0	Kilim
+04041_1	Stampa geometrica
+04041_2	Orsi
+04041_3	Patchwork
+04043_0	Senza
+04043_1	Kilim
+04043_2	Stampa geometrica
+04043_3	Orsi
+04043_4	Patchwork
+04044_0	Senza
+04044_1	Kilim
+04044_2	Stampa geometrica
+04044_3	Orsi
+04044_4	Patchwork
+04068_0	Bianco
+04068_1	Blu marino
+04068_2	Rosa
+04068_3	Arancio
+04068_4	Verde
+04069_0	Bianco
+04069_1	Nero
+04069_2	Fiori rossi
+04069_3	Fiori blu
+04069_4	Fiori verdi
+04069_5	Fiori gialli
+04069_6	Fiori rosa
+04101_0	Documento
+04101_1	Grafico
+04101_2	Illustrazione
+04101_3	Messaggio
+04102_0	Bianco
+04102_1	Nero
+04102_2	Blu
+04102_3	Rosso
+04102_4	Giallo
+04122_0	Senza niente
+04122_1	Bozza di fumetto
+04122_2	Striscia a fumetti
+04140_0	Giallo olio
+04140_1	Verde con animale
+04140_2	Vintage
+04144_0	Linee rosse
+04144_1	Ape blu
+04144_2	Numero su sfondo nero
+04308_0	Tramonto
+04308_1	Raggi tra gli alberi
+04308_2	Neve
+04308_3	Disegno in seppia
+04308_4	Castello
+04445_0	Verde
+04445_1	Nero
+04445_2	Bianco
+04445_3	Legno naturale
+05338_0	Pannello semplice
+05338_1	Pannello rinforzato
+05338_2	Pannello forato
+05338_3	Assi orizzontali
+05338_4	Reticolato
+05338_5	Muro di fango
+05338_6	Cemento
+05338_7	Oro
+05397_0	Verde
+05397_1	Rosso
+05397_2	Rosa
+05397_3	Nero
+05397_4	Bianco
+05397_5	Blu
+05397_6	Giallo
+05397_7	Beige
+07047_0	Blu scuro
+07047_1	Indaco
+07047_2	Rosso bordeaux
+07047_3	Verde scuro
+07047_4	Pesci rossi
+07047_5	Gru
+07047_6	Oro
+07048_0	Blu scuro
+07048_1	Indaco
+07048_2	Rosso bordeaux
+07048_3	Verde scuro
+07048_4	Pesci rossi
+07048_5	Gru
+07048_6	Oro
+07132_0	Arancio
+07132_1	Rosa
+07132_2	Blu
+07132_3	Verde
+07133_0	Nessuno
+07133_1	Arancio
+07133_2	Rosa
+07133_3	Blu
+07133_4	Verde
+07150_0	Verde
+07150_1	Rosso
+07150_2	Blu
+07150_3	Nero
+07150_4	Giallo
+07151_0	Verde
+07151_1	Rosso
+07151_2	Blu
+07151_3	Nero
+07151_4	Giallo
+07152_0	Verde
+07152_1	Rosso
+07152_2	Blu
+07152_3	Nero
+07152_4	Giallo
+07282_0	Calligrafia
+07282_1	Montagne
+07282_2	Pesce
+07282_3	Uccello
+07282_4	Fiore
+07531_0	Righe
+07531_1	Scacchi
+07531_2	Pois
+07531_3	Foglie
+07531_4	Triangoli
+07681_0	Quadri
+07681_1	Pesci rossi
+07681_2	Camelie
+07681_3	Catene
+07682_0	Quadri
+07682_1	Pesci rossi
+07682_2	Camelie
+07682_3	Catene
+07802_0	Bianco
+07802_1	Verde muschio
+07802_2	Pois
+07802_3	Quadri
+07802_4	Floreale
+08096_0	Nessun adesivo
+08096_1	Logo
+08096_2	Tramonto
+08096_3	Adesivi vari
+08298_0	Bianco
+08298_1	Righe
+08298_2	Scacchi
+08298_3	Spazio
+08298_4	Righe multicolore
+08760_0	Verde
+08760_1	Rosso
+08760_2	Rosa
+08760_3	Nero
+08760_4	Bianco
+08760_5	Blu
+08760_6	Giallo
+08760_7	Beige
+12410_0	Messaggio
+12410_1	Alpaca e Merino

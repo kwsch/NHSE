@@ -2,7 +2,7 @@
 
 namespace NHSE.Core
 {
-    public sealed class GameStrings
+    public sealed class GameStrings : IRemakeString
     {
         private readonly string lang;
 
@@ -12,6 +12,11 @@ namespace NHSE.Core
         public readonly Dictionary<string, string> VillagerMap;
         public readonly List<ComboItem> ItemDataSource;
         public readonly Dictionary<string, string> InternalNameTranslation = new Dictionary<string, string>();
+
+        public IReadOnlyDictionary<string, string> BodyParts { get; }
+        public IReadOnlyDictionary<string, string> BodyColor { get; }
+        public IReadOnlyDictionary<string, string> FabricParts { get; }
+        public IReadOnlyDictionary<string, string> FabricColor { get; }
 
         private string[] Get(string ident) => GameLanguage.GetStrings(ident, lang);
 
@@ -23,6 +28,26 @@ namespace NHSE.Core
             itemlist = Get("item");
             itemlistdisplay = GetItemDisplayList(itemlist);
             ItemDataSource = CreateItemDataSource(itemlistdisplay);
+
+            BodyParts = GetDictionary(Get("body_parts"));
+            BodyColor = GetDictionary(Get("body_color"));
+            FabricParts = GetDictionary(Get("fabric_parts"));
+            FabricColor = GetDictionary(Get("fabric_color"));
+        }
+
+        private static IReadOnlyDictionary<string, string> GetDictionary(IEnumerable<string> lines, char split = '\t')
+        {
+            var result = new Dictionary<string, string>();
+            foreach (var s in lines)
+            {
+                if (s.Length == 0)
+                    continue;
+                var index = s.IndexOf(split);
+                var key = s.Substring(0, index);
+                var value = s.Substring(index + 1);
+                result.Add(key, value);
+            }
+            return result;
         }
 
         private List<ComboItem> CreateItemDataSource(string[] strings)
@@ -161,5 +186,13 @@ namespace NHSE.Core
 
             return "???";
         }
+    }
+
+    public interface IRemakeString
+    {
+        IReadOnlyDictionary<string, string> BodyParts { get; }
+        IReadOnlyDictionary<string, string> BodyColor { get; }
+        IReadOnlyDictionary<string, string> FabricParts { get; }
+        IReadOnlyDictionary<string, string> FabricColor { get; }
     }
 }

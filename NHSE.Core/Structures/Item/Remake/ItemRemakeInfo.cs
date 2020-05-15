@@ -38,6 +38,24 @@ namespace NHSE.Core
         public bool HasBodyColor(int variant) => ReBodyPatternColors0[variant] != 14 || ReBodyPatternColors1[variant] != 14;
         public bool HasFabricColor(int variant) => ReFabricPatternColors0[variant] != 14 || ReFabricPatternColors1[variant] != 14;
 
+        public string GetBodyDescription(int colorIndex, IRemakeString str)
+        {
+            if (str.BodyColor.TryGetValue($"{ItemUniqueID:00000}_{colorIndex}", out var color))
+                return $"{color} ({GetBodyDescription(colorIndex)})";
+            var c0 = ReBodyPatternColors0[colorIndex];
+            var c1 = ReBodyPatternColors1[colorIndex];
+            return GetColorText(c0, c1);
+        }
+
+        public string GetFabricDescription(int colorIndex, IRemakeString str)
+        {
+            if (str.FabricColor.TryGetValue($"{ItemUniqueID:00000}_{colorIndex}", out var color))
+                return $"{color} ({GetBodyDescription(colorIndex)})";
+            var c0 = ReFabricPatternColors0[colorIndex];
+            var c1 = ReFabricPatternColors1[colorIndex];
+            return GetColorText(c0, c1);
+        }
+
         public string GetBodyDescription(int colorIndex)
         {
             var c0 = ReBodyPatternColors0[colorIndex];
@@ -72,23 +90,37 @@ namespace NHSE.Core
 
         private static string GetColorText(byte value) => ((ItemCustomColor)value).ToString();
 
-        public string GetBodySummary()
+        public string GetBodySummary(IRemakeString str)
         {
             var sb = new StringBuilder();
+            var item = $"{ItemUniqueID:00000}";
+            if (str.BodyParts.TryGetValue(item, out var parts))
+                sb.Append(parts).AppendLine(":");
+
             for (int i = 0; i < 8; i++)
             {
                 var cd = GetBodyDescription(i);
                 if (cd == Invalid)
                     continue;
 
-                sb.Append(i).Append('=').AppendLine(cd);
+                sb.Append(i).Append('=');
+
+                var name = $"{ItemUniqueID:00000}_{i}";
+                if (str.BodyColor.TryGetValue(name, out var desc))
+                    sb.Append(desc).Append(" (").Append(cd).AppendLine(")");
+                else
+                    sb.AppendLine(cd);
             }
             return sb.ToString();
         }
 
-        public string GetFabricSummary()
+        public string GetFabricSummary(IRemakeString str)
         {
             var sb = new StringBuilder();
+            var item = $"{ItemUniqueID:00000}";
+            if (str.FabricParts.TryGetValue(item, out var parts))
+                sb.Append(parts).AppendLine(":");
+
             for (int i = 0; i < 8; i++)
             {
                 var cd = GetFabricDescription(i);
@@ -96,7 +128,12 @@ namespace NHSE.Core
                     continue;
 
                 var shifted = (i << 5);
-                sb.Append(shifted.ToString("000")).Append('=').AppendLine(cd);
+                sb.Append(shifted.ToString("000")).Append('=');
+                var name = $"{ItemUniqueID:00000}_{i}";
+                if (str.FabricColor.TryGetValue(name, out var desc))
+                    sb.Append(desc).Append(" (").Append(cd).AppendLine(")");
+                else
+                    sb.AppendLine(cd);
             }
             return sb.ToString();
         }

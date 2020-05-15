@@ -1,0 +1,90 @@
+00725	Paper
+00833	Sticker area
+00941	Flag
+00950	Sticker area
+01029	Screen
+01032	Magazine
+01499	Ribbon
+01500	Shirt
+01501	Shirt
+01504	Ribbon
+01620	Cloth
+01644	Sticker area
+01645	Sticker area
+01750	Writing
+01778	Drying shirt
+01779	Tablecloth
+01783	Favorite card
+01792	Cover
+01802	Advertisement panel
+01803	Bass drum head
+01816	Curtain
+01838	Handkerchief design
+01849	Blanket
+01850	Screen
+01861	Covers
+01870	Design
+01899	Signature
+02020	Fabric
+02561	Lampshade
+02605	Bedding
+02713	Sticker area
+03200	Bedding
+03229	Drying shirt
+03230	Bedding
+03305	Cushion
+03307	Design
+03439	Tablecloth
+03444	Seat
+03445	Favorite umbrella
+03449	Seat
+03467	Mat
+03468	Towel
+03502	Bedding
+03561	Shawl
+03586	Feature
+03590	Screen
+03617	Curtain
+03618	Towel
+03621	Bedding
+03622	Cushion
+03692	Flier
+03702	Seat
+03946	Table
+03947	Seat
+03965	Drawing paper
+04034	Writing
+04035	Pillow
+04036	Mat
+04039	Cushion
+04040	Placemats
+04041	Bedding
+04043	Tablecloth
+04044	Cushions
+04068	Placemat
+04069	Lampshade
+04101	Printout
+04102	Bed mat
+04122	Manuscript paper
+04140	Lamp
+04144	Clock face
+04308	Puzzle image
+04445	Tray
+05338	Panel design
+05397	Case
+07047	Upholstery
+07048	Upholstery
+07132	Bedding
+07133	Tablecloth
+07150	Ring curtain
+07151	Ring curtain
+07152	Ring curtain
+07282	Design
+07531	Ironing board
+07681	Knitting
+07682	Kimono
+07802	Cushion
+08096	Sticker
+08298	Bedding
+08760	Color
+12410	Board

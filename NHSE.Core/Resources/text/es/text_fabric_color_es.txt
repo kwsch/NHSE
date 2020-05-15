@@ -1,0 +1,456 @@
+00725_0	Sencillo
+00725_1	Primavera
+00725_2	Verano
+00725_3	Otoño
+00725_4	Invierno
+00833_0	Ninguna
+00833_1	Moderna
+00833_2	Adorable
+00833_3	Pop
+00833_4	Notas
+00941_0	Ninguna
+00941_1	Marca
+00941_2	Chic
+00941_3	Rock duro
+00941_4	Emblema
+00941_5	Firma
+00941_6	Pop
+00941_7	Adorable
+00950_0	Ninguna
+00950_1	Marca
+00950_2	Chic
+00950_3	Rock duro
+00950_4	Emblema
+00950_5	Firma
+00950_6	Pop
+00950_7	Adorable
+01029_0	Sencillo
+01029_1	Primavera
+01029_2	Verano
+01029_3	Otoño
+01029_4	Invierno
+01032_0	De pasatiempos
+01032_1	De viaje
+01032_2	De moda
+01032_3	Deportes
+01032_4	Cómics
+01032_5	Infantiles
+01032_6	Actualidad
+01499_0	No tiene
+01499_1	Rojo
+01499_2	Azul
+01499_3	Amarillo
+01500_0	No tiene
+01500_1	Rayas rojas
+01500_2	Rayas azules
+01500_3	Rayas amarillas
+01501_0	No tiene
+01501_1	Corazón
+01501_2	Pez
+01501_3	Estrella
+01504_0	No tiene
+01504_1	Blanco
+01504_2	Lunares
+01504_3	Rayas
+01620_0	Multicolor
+01620_1	Camuflaje
+01620_2	Hibiscos
+01620_3	Blanco
+01644_0	Ninguna
+01644_1	Marca
+01644_2	Chic
+01644_3	Rock duro
+01644_4	Emblema
+01644_5	Firma
+01644_6	Pop
+01644_7	Adorable
+01645_0	Ninguna
+01645_1	Marca
+01645_2	Chic
+01645_3	Rock duro
+01645_4	Emblema
+01645_5	Firma
+01645_6	Pop
+01645_7	Adorable
+01750_0	Informes
+01750_1	Textos
+01750_2	Exámenes
+01750_3	Guiones gráficos
+01778_0	Sencilla
+01778_1	Educación física
+01778_2	Pez
+01778_3	Zanahoria
+01779_0	Blanco
+01779_1	Marrón
+01779_2	Verde
+01779_3	Rojo
+01779_4	Rosa
+01779_5	Amarillo
+01779_6	Verde claro
+01779_7	Celeste
+01783_0	Manzana
+01783_1	Pez
+01783_2	Flor
+01792_0	Blanca
+01792_1	Floral
+01792_2	Alfabeto
+01792_3	Cachemira
+01792_4	Arcoíris
+01792_5	Pop
+01802_0	Zumo de naranja
+01802_1	Bebida isotónica
+01802_2	Ofertas
+01802_3	Adorable
+01803_0	Blanco
+01803_1	Negro
+01803_2	Negro con logo
+01803_3	Blanco con logo
+01803_4	Logo grupo de rock
+01803_5	Logo antiguo
+01816_0	Blanco
+01816_1	Púrpura
+01816_2	Negro
+01816_3	Amarillo
+01816_4	Rosa
+01816_5	Rojo
+01816_6	Verde
+01816_7	Azul
+01838_0	Blanco
+01838_1	Amarillo
+01838_2	Rosa
+01838_3	Azul
+01849_0	Almohadillas
+01849_1	Flores
+01849_2	Pata de gallo
+01849_3	Rayas
+01850_0	Fondo de escritorio
+01850_1	Buscador
+01850_2	Hojas de cálculo
+01850_3	Navegador de internet
+01850_4	Tienda en línea
+01850_5	Chat
+01861_0	De jardinería
+01861_1	De viaje
+01861_2	De moda
+01861_3	Deportes
+01861_4	Cómics
+01861_5	Infantiles
+01861_6	Actualidad
+01870_0	Sencillo
+01870_1	Logo cuadrado
+01870_2	Logo redondo
+01870_3	Pez
+01870_4	Zanahoria
+01870_5	Queso
+01899_0	Músico
+01899_1	Humorista
+02020_0	Blanco
+02020_1	Negro
+02020_2	Polipiel
+02561_0	Blanco
+02561_1	Gris
+02561_2	Rosa
+02561_3	Celeste
+02561_4	Amarillo
+02561_5	Verde
+02561_6	Naranja
+02561_7	Azul marino
+02605_0	Naranja
+02605_1	Rosa
+02605_2	Azul
+02605_3	Verde
+02713_0	Ninguna
+02713_1	Adorables
+02713_2	Rock
+02713_3	Frutas
+02713_4	Avisos
+03200_0	Azul marino
+03200_1	Azul grisáceo
+03200_2	Marrón
+03229_0	Blanca
+03229_1	Vieja
+03229_2	Con rayas azules
+03229_3	Roja a cuadros
+03229_4	Verde a cuadros
+03230_0	Rojo
+03230_1	Azul
+03230_2	Naranja
+03230_3	Verde
+03305_0	Osito
+03305_1	Fresa
+03305_2	Mariposa
+03305_3	Tren
+03305_4	Huella animal
+03307_0	Blanco
+03307_1	Floral
+03307_2	Lunares
+03307_3	Rayas negras
+03307_4	Madera
+03439_0	Ninguno
+03439_1	Naranja
+03439_2	Rosa
+03439_3	Azul
+03439_4	Verde
+03444_0	Azul
+03444_1	Rojo a cuadros
+03444_2	Verde a cuadros
+03444_3	Beis a cuadros
+03444_4	Estrellas multicolor
+03445_0	Rayas
+03445_1	Lunares
+03445_2	Azul oscuro
+03445_3	Rojo, blanco y azul
+03449_0	Ninguno
+03449_1	Naranja
+03449_2	Rosa
+03449_3	Azul
+03449_4	Verde
+03467_0	Amarillo
+03467_1	Azul
+03467_2	Rojo
+03467_3	Gris
+03468_0	Líneas en zigzag
+03468_1	Rayas rojas
+03468_2	Colorido
+03468_3	Conchas
+03468_4	Azul
+03468_5	Amarillo
+03468_6	Blanco
+03502_0	Marrón
+03502_1	Blanco
+03502_2	Gris
+03502_3	Marrón oscuro
+03561_0	Azul marino
+03561_1	Rosa
+03586_0	De gastronomía
+03586_1	De coches
+03586_2	De moda
+03586_3	De pasatiempos
+03586_4	De viajes
+03586_5	De música
+03586_6	Juvenil
+03590_0	Fondo de escritorio
+03590_1	Buscador
+03590_2	Hojas de cálculo
+03590_3	Navegador de internet
+03590_4	Programación
+03590_5	Programa de arte
+03590_6	Editor de música
+03617_0	Ninguno
+03617_1	Rayas verdes
+03617_2	Rayas rojas
+03617_3	Colorido
+03617_4	Olas
+03618_0	Rojo
+03618_1	Azul
+03618_2	Amarillo
+03621_0	Blanco
+03621_1	Negro
+03621_2	Celeste
+03621_3	Naranja
+03621_4	Amarillo
+03621_5	Rosa
+03621_6	Rayas verdes
+03621_7	Rayas rojas
+03622_0	Verde
+03622_1	Amarillo
+03622_2	Rosa
+03622_3	Azul
+03692_0	Mascota perdida
+03692_1	Se busca
+03692_2	Publicidad
+03692_3	Aviso
+03702_0	Amarillo
+03702_1	Azul
+03702_2	Rosa
+03946_0	Blanco
+03946_1	Negro
+03946_2	Verde
+03946_3	Azul
+03946_4	Naranja
+03946_5	Madera clara
+03946_6	Madera oscura
+03947_0	Blanco
+03947_1	Negro
+03947_2	Verde
+03947_3	Azul
+03947_4	Naranja
+03947_5	Madera clara
+03947_6	Madera oscura
+03965_0	En blanco
+03965_1	Sonrisa
+03965_2	Escarabajo
+03965_3	Bodegón
+04034_0	Informes
+04034_1	Manuscritos
+04034_2	Ilustraciones
+04034_3	Planos
+04035_0	No tiene
+04035_1	Diseño exótico
+04035_2	Diseño étnico
+04035_3	Osos
+04035_4	Patchwork
+04036_0	No tiene
+04036_1	Diseño exótico
+04036_2	Diseño étnico
+04036_3	Osos
+04036_4	Patchwork
+04039_0	No tiene
+04039_1	Diseño exótico
+04039_2	Diseño étnico
+04039_3	Osos
+04039_4	Patchwork
+04040_0	No tiene
+04040_1	Diseño exótico
+04040_2	Diseño étnico
+04040_3	Osos
+04040_4	Patchwork
+04041_0	Diseño exótico
+04041_1	Diseño étnico
+04041_2	Osos
+04041_3	Patchwork
+04043_0	No tiene
+04043_1	Diseño exótico
+04043_2	Diseño étnico
+04043_3	Osos
+04043_4	Patchwork
+04044_0	No tiene
+04044_1	Diseño exótico
+04044_2	Diseño étnico
+04044_3	Osos
+04044_4	Patchwork
+04068_0	Blanco
+04068_1	Azul marino
+04068_2	Rosa
+04068_3	Naranja
+04068_4	Verde
+04069_0	Blanca
+04069_1	Negra
+04069_2	Flores rojas
+04069_3	Flores azules
+04069_4	Flores verdes
+04069_5	Flores amarillas
+04069_6	Flores rosas
+04101_0	Documento
+04101_1	Gráfico
+04101_2	Dibujo
+04101_3	Kanji
+04102_0	Blanco
+04102_1	Negro
+04102_2	Azul
+04102_3	Rojo
+04102_4	Amarillo
+04122_0	En blanco
+04122_1	Guion gráfico
+04122_2	Viñetas humorísticas
+04140_0	Gota amarilla
+04140_1	Animal en fondo verde
+04140_2	Antiguo
+04144_0	Rayas rojas
+04144_1	Abeja azul
+04144_2	Números en fondo negro
+04308_0	Puesta de sol
+04308_1	Luz entre los árboles
+04308_2	Nieve
+04308_3	Foto en tonos sepia
+04308_4	Castillo
+04445_0	Verde
+04445_1	Negro
+04445_2	Blanco
+04445_3	Madera natural
+05338_0	Sencillo
+05338_1	Paneles
+05338_2	Perforado
+05338_3	Tablones
+05338_4	Celosía
+05338_5	Barro
+05338_6	Cemento
+05338_7	Oro
+05397_0	Verde
+05397_1	Rojo
+05397_2	Rosa
+05397_3	Negro
+05397_4	Blanco
+05397_5	Azul
+05397_6	Amarillo
+05397_7	Beis
+07047_0	Azul oscuro
+07047_1	Índigo
+07047_2	Rojo
+07047_3	Verde oscuro
+07047_4	Carpas
+07047_5	Grulla
+07047_6	Dorado
+07048_0	Azul oscuro
+07048_1	Índigo
+07048_2	Rojo
+07048_3	Verde oscuro
+07048_4	Carpas
+07048_5	Grulla
+07048_6	Dorado
+07132_0	Naranja
+07132_1	Rosa
+07132_2	Azul
+07132_3	Verde
+07133_0	Ninguno
+07133_1	Naranja
+07133_2	Rosa
+07133_3	Azul
+07133_4	Verde
+07150_0	Verde
+07150_1	Rojo
+07150_2	Azul
+07150_3	Negro
+07150_4	Amarillo
+07151_0	Verde
+07151_1	Rojo
+07151_2	Azul
+07151_3	Negro
+07151_4	Amarillo
+07152_0	Verde
+07152_1	Rojo
+07152_2	Azul
+07152_3	Negro
+07152_4	Amarillo
+07282_0	Caligrafía
+07282_1	Montañas
+07282_2	Pez
+07282_3	Gallo
+07282_4	Flor
+07531_0	Rayas
+07531_1	Cuadros
+07531_2	Lunares
+07531_3	Hojas
+07531_4	Triángulos
+07681_0	Cuadros
+07681_1	Carpas
+07681_2	Camelia
+07681_3	Cadenas
+07682_0	Cuadros
+07682_1	Carpas
+07682_2	Camelia
+07682_3	Cadenas
+07802_0	Blanco
+07802_1	Verde musgo
+07802_2	Lunares
+07802_3	Cuadros
+07802_4	Floral
+08096_0	Ninguna
+08096_1	Logo
+08096_2	Puesta de sol
+08096_3	Varias
+08298_0	Blanco
+08298_1	Rayas
+08298_2	Cuadros
+08298_3	Espacio
+08298_4	Líneas de colores
+08760_0	Verde
+08760_1	Rojo
+08760_2	Rosa
+08760_3	Negro
+08760_4	Blanco
+08760_5	Azul
+08760_6	Amarillo
+08760_7	Beis
+12410_0	Texto
+12410_1	Al y Paca

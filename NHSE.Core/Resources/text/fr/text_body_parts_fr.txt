@@ -1,0 +1,294 @@
+00080	Coloris
+00083	Coloris
+00088	Coloris
+00131	Variation
+00144	Type de plaque
+00331	Couleur principale
+00333	Coloris
+00383	Modèle
+00530	Saison
+00531	Saison
+00532	Saison
+00533	Saison
+00669	Modèle
+00676	Type de pierre
+00677	Type de bambou
+00682	Modèle
+00685	Variation
+00688	Variation
+00690	Variation
+00710	Type de bambou
+00739	Couleur principale
+00805	Type de champignon
+00808	Type de champignon
+00865	Coloris
+00891	Couleur
+01032	Couleur principale
+01058	Modèle
+01103	Type de bois
+01111	Type de pierre
+01157	Couleur de la brique
+01170	Type de bois
+01189	Couleur des pneus
+01241	Coloris
+01263	Type de fruit
+01504	Type de fourrure
+01509	Laquage
+01557	Couleur des blocs
+01558	Couleur des blocs
+01559	Couleur des blocs
+01561	Couleur des blocs
+01565	Couleur des blocs
+01625	Couleur principale
+01626	Couleur principale
+01627	Couleur principale
+01652	Variation
+01753	Variation
+01759	Genre
+01797	Modèle
+01799	Coloris
+01823	Couleur des sacs
+01913	Coloris
+02099	Couleur
+02319	Couleur
+02326	Couleur principale
+02329	Couleur des pneus
+02377	Couleur
+02379	Couleur
+02553	Laquage
+02558	Couleur des blocs
+02559	Style
+02560	Coloris
+02586	Siège et dossier
+02596	Type de fruit
+02605	Coloris
+02822	Couleur
+03122	Coloris
+03191	Type de bois
+03193	Type de bois
+03194	Type de bois
+03195	Type de bois
+03196	Type de bois
+03200	Type de bois
+03205	Couleur des blocs
+03206	Couleur des blocs
+03208	Couleur des blocs
+03270	Type de bois
+03271	Type de bois
+03275	Type de bois
+03340	Coloris
+03396	Plateau de table
+03406	Coloris
+03407	Variation
+03436	Coloris
+03438	Coloris
+03439	Coloris
+03445	Couleur principale
+03446	Type de pierre
+03449	Coloris
+03490	Coloris
+03497	Illumination
+03498	Illumination
+03499	Illumination
+03500	Illumination
+03501	Illumination
+03502	Illumination
+03503	Illumination
+03504	Illumination
+03505	Illumination
+03509	Variation
+03551	Type de bambou
+03553	Type de bambou
+03554	Type de bambou
+03556	Type de bambou
+03557	Type de bambou
+03558	Type de bambou
+03559	Couleur principale
+03560	Couleur principale
+03561	Couleur principale
+03562	Couleur principale
+03563	Couleur principale
+03581	Variation
+03587	Variation
+03588	Lieu indiqué
+03591	Variation
+03592	Variation
+03593	Variation
+03594	Variation
+03617	Variation
+03618	Couleur du bois
+03658	Type de bambou
+03675	État de la paille
+03683	Modèle
+03692	Type
+03699	Variation
+03773	Cadre
+03775	Cadre
+03776	Couleur de la brique
+03785	Couleur
+03805	Type de champignon
+03806	Type de champignon
+03808	Type de champignon
+03819	Couleur du baril
+03943	Type de bois
+03966	Modèle
+03975	Type de fruit
+03976	Type de fruit
+03977	Couleur des coquillages
+03978	Couleur des coquillages
+03979	Couleur des coquillages
+03980	Couleur des coquillages
+03982	Couleur des coquillages
+03983	Couleur des coquillages
+03984	Couleur des coquillages
+03991	Modèle
+03992	Couleur principale
+04011	Type de fruit
+04012	Type de fruit
+04025	Modèle
+04027	Couleur
+04035	Type de bois
+04036	Type de bois
+04037	Type de bois
+04038	Type de bois
+04039	Type de bois
+04040	Type de bois
+04041	Type de bois
+04042	Type de bois
+04043	Type de bois
+04044	Type de bois
+04066	Lumière
+04067	Modèle
+04073	Style
+04074	Lumière
+04075	Cadre
+04078	Couleur des poids
+04093	Type de bambou
+04104	Contenu
+04108	Lumière
+04124	Type de bois
+04125	Coloris
+04127	Type de fruit
+04128	Type de fruit
+04131	Lumière
+04134	Type de fruit
+04279	Goût
+04309	Couleur
+04377	Couleur
+04546	Type de fruit
+04708	Type de champignon
+04751	Couleur
+04752	Couleur
+04764	Couleur
+05150	Couleur des coquillages
+05310	Couleur
+05337	Couleur du bonnet
+05543	Couleur des blocs
+05635	Coloris
+05636	Couleur principale
+05716	Couleur
+05717	Couleur
+05718	Couleur
+05719	Couleur
+05784	Couleur
+05931	Couleur principale
+05972	Type de bois
+05973	Type de bois
+05976	Type de bambou
+05978	Type de bambou
+06075	Couleur des fruits
+06078	Couleur des fruits
+06079	Couleur des fruits
+06080	Couleur des fruits
+06081	Couleur des fruits
+06426	Cadre
+06818	Couleur
+06826	Couleur
+06827	Couleur
+06829	Couleur
+06831	Couleur principale
+06832	Couleur
+07045	Type de conserve
+07132	Coloris
+07133	Coloris
+07134	Coloris
+07137	Coloris
+07138	Modèle
+07139	Titre
+07140	Motif
+07141	Modèle
+07143	Modèle
+07144	Motif
+07145	Modèle
+07146	Déco
+07147	Nom
+07159	Carton
+07160	Carton
+07161	Carton
+07163	Carton
+07230	Couleur de la fleur
+07231	Couleur de la fleur
+07232	Couleur de la fleur
+07233	Couleur de la fleur
+07234	Couleur de la fleur
+07235	Couleur de la fleur
+07236	Couleur de la fleur
+07237	Couleur de la fleur
+07238	Couleur
+07247	Couleur du toit
+07253	Couleur
+07258	Création
+07259	Variation
+07281	Couleur principale
+07284	Variation
+07317	Type de pierre
+07390	Couleur
+07393	Type de pierre
+07454	Couleur
+07527	Variation
+07535	Couleur principale
+07588	Type de champignon
+07788	Nourriture
+07795	Couleur
+07805	Type de bois
+07867	Lieu indiqué
+08031	Couleur
+08176	Couleur
+08177	Couleur
+08178	Couleur
+08419	Coloris
+08471	Couleur
+08472	Couleur
+08473	Couleur
+08534	Couleur
+08535	Couleur
+08536	Couleur
+08575	Couleur
+08576	Couleur
+08577	Couleur
+08579	Couleur
+08580	Couleur
+08826	Coloris
+09642	Couleur principale
+10742	Type de bambou
+10743	Type de bambou
+11941	Couleur
+11942	Coloris
+11943	Couleur
+12140	Couleur
+12332	Plateau de table
+12372	Motif
+12373	Motif
+12401	Modèle
+12402	Modèle
+12403	Modèle
+12404	Modèle
+12405	Modèle
+12406	Modèle
+12407	Modèle
+12408	Modèle
+12409	Couleur principale
+12410	Chevalet
+12411	Modèle
+12543	Joy-Con
+12741	Centre de la carte

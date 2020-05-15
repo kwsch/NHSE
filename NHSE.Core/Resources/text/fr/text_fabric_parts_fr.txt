@@ -1,0 +1,90 @@
+00725	Papier
+00833	Autocollants
+00941	Drapeau
+00950	Autocollants
+01029	Écran
+01032	Revues
+01499	Ruban
+01500	Habit
+01501	Habit
+01504	Ruban
+01620	Tissu
+01644	Autocollant
+01645	Autocollant
+01750	Type
+01778	Type de t-⁠shirt
+01779	Nappe
+01783	Carte
+01792	Housse
+01802	Publicité
+01803	Peau de grosse caisse
+01816	Rideau
+01838	Mouchoir
+01849	Modèle
+01850	Écran
+01861	Thème
+01870	Modèle
+01899	Type
+02020	Tissu
+02561	Abat-jour
+02605	Literie
+02713	Autocollants
+03200	Literie
+03229	Chemise
+03230	Literie
+03305	Siège
+03307	Modèle
+03439	Nappe
+03444	Siège
+03445	Parapluie préféré
+03449	Siège
+03467	Napperon
+03468	Modèle
+03502	Literie
+03561	Écharpe
+03586	Article
+03590	Affichage
+03617	Rideau
+03618	Torchon
+03621	Literie
+03622	Coussin
+03692	Affiche
+03702	Modèle
+03946	Coloris
+03947	Assise
+03965	Dessin
+04034	Type
+04035	Oreiller
+04036	Napperon
+04039	Coussin
+04040	Sets de table
+04041	Couette
+04043	Couleur du napperon
+04044	Couleur des coussins
+04068	Set de table
+04069	Abat-jour
+04101	Document
+04102	Matelas
+04122	Papier
+04140	Balise
+04144	Cadran
+04308	Image
+04445	Plateau
+05338	Modèle
+05397	Modèle
+07047	Housse
+07048	Housse
+07132	Literie
+07133	Nappe
+07150	Jupe du ring
+07151	Jupe du ring
+07152	Jupe du ring
+07282	Illustration
+07531	Planche
+07681	Tissu
+07682	Kimono
+07802	Coussin
+08096	Autocollant
+08298	Literie
+08760	Coloris
+12410	Écriteau

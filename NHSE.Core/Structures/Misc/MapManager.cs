@@ -15,7 +15,7 @@ namespace NHSE.Core
 
         public FieldItemLayer CurrentLayer => MapLayer == 0 ? Items.Layer1 : Items.Layer2;
 
-        public void ClearDesignTiles(MainSave sav)
+        public static void ClearDesignTiles(MainSave sav)
         {
             var tiles = sav.GetMapDesignTiles();
             for (int i = 0; i < tiles.Length; i++)

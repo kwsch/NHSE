@@ -49,6 +49,7 @@ namespace NHSE.WinForms
 
         private void FillRemake(IReadOnlyList<string> items)
         {
+            var str = GameInfo.Strings;
             var invert = ItemRemakeUtil.GetInvertedDictionary();
             var ofs = Player.Personal.Offsets.ItemRemakeCollectBit;
             var max = Player.Personal.Offsets.MaxRemakeBitFlag;
@@ -65,7 +66,7 @@ namespace NHSE.WinForms
                 string name = $"{remakeIndex:0000} V{variant:0} - {itemName}";
 
                 if (ItemRemakeInfoData.List.TryGetValue((short) remakeIndex, out var info))
-                    name = $"{name} ({info.GetBodyDescription(variant)})";
+                    name = $"{name} ({info.GetBodyDescription(variant, str)})";
 
                 CLB_Remake.Items.Add(name, flag);
             }

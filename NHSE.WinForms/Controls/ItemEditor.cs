@@ -148,11 +148,11 @@ namespace NHSE.WinForms
             else
             {
                 var info = ItemRemakeInfoData.List[remake];
-                var body = info.GetBodySummary();
+                var body = info.GetBodySummary(GameInfo.Strings);
                 L_RemakeBody.Text = body;
                 L_RemakeBody.Visible = body.Length != 0;
 
-                var fabric = info.GetFabricSummary();
+                var fabric = info.GetFabricSummary(GameInfo.Strings);
                 L_RemakeFabric.Text = fabric;
                 L_RemakeFabric.Visible = fabric.Length != 0;
             }

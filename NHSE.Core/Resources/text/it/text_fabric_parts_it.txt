@@ -1,0 +1,90 @@
+00725	Carta
+00833	Adesivi
+00941	Logo
+00950	Adesivi
+01029	Pannello
+01032	Riviste
+01499	Fiocco
+01500	Maglia
+01501	Maglia
+01504	Fiocco
+01620	Tessuto
+01644	Adesivo
+01645	Adesivo
+01750	Facciata dei fogli
+01778	Maglietta appesa
+01779	Colore tovaglia
+01783	Cartolina preferita
+01792	Federa
+01802	Pubblicità
+01803	Grancassa
+01816	Tendina
+01838	Fazzoletto
+01849	Coperta
+01850	Schermo
+01861	Copertine
+01870	Motivo
+01899	Firma
+02020	Stoffa
+02561	Paralume
+02605	Colore trapunta
+02713	Adesivi
+03200	Coperta
+03229	Camicia
+03230	Colore trapunta
+03305	Cuscino
+03307	Modello
+03439	Colore tovaglia
+03444	Sedile
+03445	Ombrello preferito
+03449	Sedile
+03467	Tovaglietta
+03468	Motivo
+03502	Biancheria
+03561	Scialle
+03586	Tipo
+03590	Schermo
+03617	Tenda
+03618	Strofinaccio
+03621	Coperta
+03622	Cuscino
+03692	Annuncio
+03702	Sedile
+03946	Piano del tavolo
+03947	Sedile
+03965	Disegno
+04034	Facciata dei fogli
+04035	Cuscino
+04036	Tappetino
+04039	Cuscino
+04040	Tovagliette
+04041	Coperta
+04043	Tovaglietta
+04044	Motivo
+04068	Colore tovaglietta
+04069	Paralume
+04101	Foglio
+04102	Materassino
+04122	Carta da disegno
+04140	Neon
+04144	Quadrante
+04308	Immagine
+04445	Piano
+05338	Modello
+05397	Custodia
+07047	Federa
+07048	Federa
+07132	Colore trapunta
+07133	Colore tovaglia
+07150	Telone
+07151	Telone
+07152	Telone
+07282	Illustrazione
+07531	Asse
+07681	Tessuto
+07682	Kimono
+07802	Cuscino
+08096	Adesivo
+08298	Biancheria
+08760	Colore
+12410	Tableau

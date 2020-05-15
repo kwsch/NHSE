@@ -1,0 +1,294 @@
+00080	Color de la pintura
+00083	Color de la pintura
+00088	Color de la pintura
+00131	Variación
+00144	Diseño de la tapa
+00331	Color principal
+00333	Color de la pintura
+00383	Color
+00530	Diseño
+00531	Diseño
+00532	Diseño
+00533	Diseño
+00669	Color
+00676	Piedra
+00677	Bambú
+00682	Diseño
+00685	Variación
+00688	Variación
+00690	Variación
+00710	Bambú
+00739	Color principal
+00805	Hongo
+00808	Hongo
+00865	Color de la pintura
+00891	Color
+01032	Color principal
+01058	Color
+01103	Madera
+01111	Piedra
+01157	Ladrillo
+01170	Madera
+01189	Neumático
+01241	Color de la pintura
+01263	Fruta
+01504	Tela
+01509	Color
+01557	Color de los bloques
+01558	Color de los bloques
+01559	Color de los bloques
+01561	Color de los bloques
+01565	Color de los bloques
+01625	Color principal
+01626	Color principal
+01627	Color principal
+01652	Variación
+01753	Variación
+01759	Género
+01797	Diseño
+01799	Color de la pintura
+01823	Color de las bolsas
+01913	Color de la pintura
+02099	Color
+02319	Color
+02326	Color principal
+02329	Neumático
+02377	Color
+02379	Color
+02553	Color
+02558	Color de los bloques
+02559	Diseño
+02560	Color de la pintura
+02586	Asiento y respaldo
+02596	Fruta
+02605	Color de la pintura
+02822	Color
+03122	Color de la pintura
+03191	Madera
+03193	Madera
+03194	Madera
+03195	Madera
+03196	Madera
+03200	Madera
+03205	Color de los bloques
+03206	Color de los bloques
+03208	Color de los bloques
+03270	Madera
+03271	Madera
+03275	Madera
+03340	Color de la pintura
+03396	Tablero
+03406	Color de la pintura
+03407	Variación
+03436	Color de la pintura
+03438	Color de la pintura
+03439	Color de la pintura
+03445	Color principal
+03446	Piedra
+03449	Color de la pintura
+03490	Color de la pintura
+03497	Iluminación
+03498	Iluminación
+03499	Iluminación
+03500	Iluminación
+03501	Iluminación
+03502	Iluminación
+03503	Iluminación
+03504	Iluminación
+03505	Iluminación
+03509	Variación
+03551	Bambú
+03553	Bambú
+03554	Bambú
+03556	Bambú
+03557	Bambú
+03558	Bambú
+03559	Color principal
+03560	Color principal
+03561	Color principal
+03562	Color principal
+03563	Color principal
+03581	Variación
+03587	Variación
+03588	Lugar indicado
+03591	Variación
+03592	Variación
+03593	Variación
+03594	Variación
+03617	Variación
+03618	Barniz
+03658	Bambú
+03675	Heno
+03683	Diseño
+03692	Tablón
+03699	Variación
+03773	Marco
+03775	Marco
+03776	Ladrillo
+03785	Color
+03805	Hongo
+03806	Hongo
+03808	Hongo
+03819	Barril
+03943	Madera
+03966	Diseño
+03975	Fruta
+03976	Fruta
+03977	Color
+03978	Color
+03979	Color
+03980	Color
+03982	Color
+03983	Color
+03984	Color
+03991	Diseño
+03992	Color principal
+04011	Fruta
+04012	Fruta
+04025	Diseño
+04027	Color
+04035	Madera
+04036	Madera
+04037	Madera
+04038	Madera
+04039	Madera
+04040	Madera
+04041	Madera
+04042	Madera
+04043	Madera
+04044	Madera
+04066	Color de las luces
+04067	Diseño
+04073	Diseño
+04074	Color de las luces
+04075	Marco
+04078	Color de las pesas
+04093	Bambú
+04104	Contenido
+04108	Color de las luces
+04124	Madera
+04125	Color de la pintura
+04127	Fruta
+04128	Fruta
+04131	Color de las luces
+04134	Fruta
+04279	Sabor
+04309	Color
+04377	Color
+04546	Fruta
+04708	Hongo
+04751	Color
+04752	Color
+04764	Color
+05150	Color
+05310	Color
+05337	Gorro
+05543	Color de los bloques
+05635	Color de la pintura
+05636	Color principal
+05716	Color
+05717	Color
+05718	Color
+05719	Color
+05784	Color
+05931	Color principal
+05972	Madera
+05973	Madera
+05976	Bambú
+05978	Bambú
+06075	Color
+06078	Color
+06079	Color
+06080	Color
+06081	Color
+06426	Marco
+06818	Color
+06826	Color
+06827	Color
+06829	Color
+06831	Color principal
+06832	Color
+07045	Lata
+07132	Color de la pintura
+07133	Color de la pintura
+07134	Color de la pintura
+07137	Color de la pintura
+07138	Diseño
+07139	Motivo
+07140	Diseño
+07141	Diseño
+07143	Diseño
+07144	Diseño
+07145	Diseño
+07146	Decoración
+07147	Nombre
+07159	Cartón
+07160	Cartón
+07161	Cartón
+07163	Cartón
+07230	Color
+07231	Color
+07232	Color
+07233	Color
+07234	Color
+07235	Color
+07236	Color
+07237	Color
+07238	Color
+07247	Tejado
+07253	Color
+07258	Diseño
+07259	Variación
+07281	Color principal
+07284	Variación
+07317	Piedra
+07390	Color
+07393	Piedra
+07454	Color
+07527	Variación
+07535	Color principal
+07588	Hongo
+07788	Comida
+07795	Color
+07805	Madera
+07867	Lugar indicado
+08031	Color
+08176	Color
+08177	Color
+08178	Color
+08419	Color de la pintura
+08471	Color
+08472	Color
+08473	Color
+08534	Color
+08535	Color
+08536	Color
+08575	Color
+08576	Color
+08577	Color
+08579	Color
+08580	Color
+08826	Color de la pintura
+09642	Color principal
+10742	Bambú
+10743	Bambú
+11941	Color
+11942	Color de la pintura
+11943	Color
+12140	Color
+12332	Tablero
+12372	Lacado
+12373	Lacado
+12401	Diseño
+12402	Diseño
+12403	Diseño
+12404	Diseño
+12405	Diseño
+12406	Diseño
+12407	Diseño
+12408	Diseño
+12409	Color principal
+12410	Caballete
+12411	Diseño
+12543	Joy-Con
+12741	Centro del mapa

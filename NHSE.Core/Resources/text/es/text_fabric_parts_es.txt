@@ -1,0 +1,90 @@
+00725	Diseño
+00833	Pegatina
+00941	Frontal
+00950	Pegatina
+01029	Lateral
+01032	Revistas
+01499	Lazo
+01500	Camiseta
+01501	Camiseta
+01504	Lazo
+01620	Lona
+01644	Pegatina
+01645	Pegatina
+01750	Tipo de papeles
+01778	Camiseta
+01779	Mantel
+01783	Postal favorita
+01792	Funda
+01802	Publicidad
+01803	Bombo
+01816	Cortina
+01838	Pañuelo
+01849	Diseño de la manta
+01850	Pantalla
+01861	Revistas
+01870	Diseño
+01899	Firma favorita
+02020	Color de la tela
+02561	Color de la pantalla
+02605	Edredón
+02713	Pegatinas
+03200	Edredón
+03229	Camisa
+03230	Edredón
+03305	Asiento
+03307	Diseño
+03439	Mantel
+03444	Asiento
+03445	Paraguas favorito
+03449	Color del asiento
+03467	Tapete
+03468	Diseño
+03502	Edredón
+03561	Chal
+03586	Tipo de revista
+03590	Pantalla
+03617	Toldo
+03618	Paño
+03621	Edredón
+03622	Cojín
+03692	Anuncio
+03702	Asiento
+03946	Tablero
+03947	Asiento
+03965	Dibujo
+04034	Tipo de papeles
+04035	Cojín
+04036	Tapete
+04039	Cojín
+04040	Salvamanteles
+04041	Edredón
+04043	Mantel
+04044	Cojines
+04068	Salvamantel
+04069	Color de la pantalla
+04101	Papel
+04102	Cojín
+04122	Dibujo
+04140	Rótulo luminoso
+04144	Esfera del reloj
+04308	Imagen
+04445	Bandeja
+05338	Diseño
+05397	Funda
+07047	Tapizado
+07048	Tapizado
+07132	Edredón
+07133	Mantel
+07150	Color de la lona
+07151	Color de la lona
+07152	Color de la lona
+07282	Imagen
+07531	Tabla
+07681	Tejido
+07682	Kimono
+07802	Cojín
+08096	Pegatina
+08298	Edredones
+08760	Color
+12410	Cartel

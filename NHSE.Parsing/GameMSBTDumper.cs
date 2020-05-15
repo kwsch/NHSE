@@ -121,7 +121,7 @@ namespace NHSE.Parsing
             }
         }
 
-        private static IEnumerable<(string Label, string Text)> GetLabelList(string path)
+        public static IEnumerable<(string Label, string Text)> GetLabelList(string path)
         {
             var msbt = new MSBT(File.ReadAllBytes(path));
             foreach (var e in msbt.LBL1.Labels)

@@ -1,0 +1,294 @@
+00080	Modello
+00083	Modello
+00088	Modello
+00131	Colore
+00144	Design del tombino
+00331	Colore
+00333	Modello
+00383	Modello
+00530	Stagione
+00531	Stagione
+00532	Stagione
+00533	Stagione
+00669	Modello
+00676	Pietra
+00677	Tipo di bambù
+00682	Design
+00685	Colore
+00688	Colore
+00690	Colore
+00710	Tipo di bambù
+00739	Colore
+00805	Tipo di fungo
+00808	Tipo di fungo
+00865	Modello
+00891	Colore
+01032	Colore
+01058	Modello
+01103	Tipo di legno
+01111	Pietra
+01157	Colore dei mattoni
+01170	Tipo di legno
+01189	Tipo pneumatico
+01241	Modello
+01263	Tipo di frutta
+01504	Tessuto
+01509	Laccatura
+01557	Colore dei blocchi
+01558	Colore dei blocchi
+01559	Colore dei blocchi
+01561	Colore dei blocchi
+01565	Colore dei blocchi
+01625	Colore
+01626	Colore
+01627	Colore
+01652	Colore
+01753	Colore
+01759	Genere
+01797	Design
+01799	Modello
+01823	Colore dei sacchi
+01913	Modello
+02099	Colore
+02319	Colore
+02326	Colore principale
+02329	Tipo pneumatico
+02377	Colore
+02379	Colore
+02553	Laccatura
+02558	Colore dei blocchi
+02559	Modello
+02560	Modello
+02586	Modello
+02596	Tipo di frutta
+02605	Modello
+02822	Colore
+03122	Modello
+03191	Tipo di legno
+03193	Tipo di legno
+03194	Tipo di legno
+03195	Tipo di legno
+03196	Tipo di legno
+03200	Tipo di legno
+03205	Colore dei blocchi
+03206	Colore dei blocchi
+03208	Colore dei blocchi
+03270	Tipo di legno
+03271	Tipo di legno
+03275	Tipo di legno
+03340	Modello
+03396	Piano del tavolo
+03406	Modello
+03407	Colore
+03436	Modello
+03438	Modello
+03439	Modello
+03445	Colore
+03446	Pietra
+03449	Modello
+03490	Modello
+03497	Illuminazione
+03498	Illuminazione
+03499	Illuminazione
+03500	Illuminazione
+03501	Illuminazione
+03502	Illuminazione
+03503	Illuminazione
+03504	Illuminazione
+03505	Illuminazione
+03509	Colore
+03551	Tipo di bambù
+03553	Tipo di bambù
+03554	Tipo di bambù
+03556	Tipo di bambù
+03557	Tipo di bambù
+03558	Tipo di bambù
+03559	Colore
+03560	Colore
+03561	Colore
+03562	Colore
+03563	Colore
+03581	Colore
+03587	Colore
+03588	Indicazione
+03591	Colore
+03592	Colore
+03593	Colore
+03594	Colore
+03617	Colore
+03618	Rifinitura
+03658	Tipo di bambù
+03675	Paglia
+03683	Design
+03692	Tipo di cartello
+03699	Colore
+03773	Tipo
+03775	Tipo
+03776	Colore dei mattoni
+03785	Colore
+03805	Tipo di fungo
+03806	Tipo di fungo
+03808	Tipo di fungo
+03819	Colore del fusto
+03943	Tipo di legno
+03966	Design
+03975	Tipo di frutta
+03976	Tipo di frutta
+03977	Colore della conchiglia
+03978	Colore della conchiglia
+03979	Colore della conchiglia
+03980	Colore della conchiglia
+03982	Colore della conchiglia
+03983	Colore della conchiglia
+03984	Colore della conchiglia
+03991	Design
+03992	Colore
+04011	Tipo di frutta
+04012	Tipo di frutta
+04025	Design
+04027	Colore
+04035	Tipo di legno
+04036	Tipo di legno
+04037	Tipo di legno
+04038	Tipo di legno
+04039	Tipo di legno
+04040	Tipo di legno
+04041	Tipo di legno
+04042	Tipo di legno
+04043	Tipo di legno
+04044	Tipo di legno
+04066	Colore della luce
+04067	Design
+04073	Modello
+04074	Colore della luce
+04075	Tipo
+04078	Colore dei pesi
+04093	Tipo di bambù
+04104	Contenuto
+04108	Colore della luce
+04124	Tipo di legno
+04125	Modello
+04127	Tipo di frutta
+04128	Tipo di frutta
+04131	Colore della luce
+04134	Tipo di frutta
+04279	Gusto
+04309	Colore
+04377	Colore
+04546	Tipo di frutta
+04708	Tipo di fungo
+04751	Colore
+04752	Colore
+04764	Colore
+05150	Colore della conchiglia
+05310	Colore
+05337	Colore del berretto
+05543	Colore dei blocchi
+05635	Modello
+05636	Colore
+05716	Colore
+05717	Colore
+05718	Colore
+05719	Colore
+05784	Colore
+05931	Colore
+05972	Tipo di legno
+05973	Tipo di legno
+05976	Tipo di bambù
+05978	Tipo di bambù
+06075	Colore
+06078	Colore
+06079	Colore
+06080	Colore
+06081	Colore
+06426	Tipo
+06818	Colore
+06826	Colore
+06827	Colore
+06829	Colore
+06831	Colore
+06832	Colore
+07045	Latta
+07132	Modello
+07133	Modello
+07134	Modello
+07137	Modello
+07138	Design
+07139	Soggetto
+07140	Motivo
+07141	Design
+07143	Design
+07144	Motivo
+07145	Design
+07146	Decorazioni
+07147	Nome
+07159	Tipo di cartone
+07160	Tipo di cartone
+07161	Tipo di cartone
+07163	Tipo di cartone
+07230	Colore del fiore
+07231	Colore del fiore
+07232	Colore del fiore
+07233	Colore del fiore
+07234	Colore del fiore
+07235	Colore del fiore
+07236	Colore del fiore
+07237	Colore del fiore
+07238	Colore
+07247	Colore del tetto
+07253	Colore
+07258	Creazione
+07259	Colore
+07281	Colore
+07284	Colore
+07317	Pietra
+07390	Colore
+07393	Pietra
+07454	Colore
+07527	Colore
+07535	Colore
+07588	Tipo di fungo
+07788	Cibo
+07795	Colore
+07805	Tipo di legno
+07867	Indicazione
+08031	Colore
+08176	Colore
+08177	Colore
+08178	Colore
+08419	Modello
+08471	Colore
+08472	Colore
+08473	Colore
+08534	Colore
+08535	Colore
+08536	Colore
+08575	Colore
+08576	Colore
+08577	Colore
+08579	Colore
+08580	Colore
+08826	Modello
+09642	Colore
+10742	Tipo di bambù
+10743	Tipo di bambù
+11941	Colore
+11942	Modello
+11943	Colore
+12140	Colore
+12332	Piano del tavolo
+12372	Verniciatura
+12373	Verniciatura
+12401	Design
+12402	Design
+12403	Design
+12404	Design
+12405	Design
+12406	Design
+12407	Design
+12408	Design
+12409	Colore
+12410	Cavalletto
+12411	Design
+12543	Joy-Con
+12741	Centro del planisfero
