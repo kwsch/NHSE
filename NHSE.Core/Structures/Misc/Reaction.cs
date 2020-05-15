@@ -8,9 +8,9 @@
         Joy, // HappyFlower
         Love, // Love
         Glee, // HappyDance
-        UNUSED_6,
+        UNUSED_6, // Anger (Unused)
         Aggravation, // Outraged
-        UNUSED_8,
+        UNUSED_8, // Outrage (Unused)
         Worry, // Worried
         Sighing, // Sighing
         Thought, // Thinking
@@ -19,7 +19,7 @@
         Sorrow, // Crying
         Amazed, // Shocked
         Surprise, // Aha
-        UNUSED_17,
+        UNUSED_17, // Disbelief (Unused)
         Shocked, // Surprised
         Cold_Chill, // ColdChill
         Fearful, // Shaking
@@ -36,11 +36,11 @@
         Encouraging, // Cheering
         Greetings, // Greeting
         Pride, // SmugFace
-        UNUSED_34,
+        UNUSED_34, // Sweating (Unused)
         Smirking, // Grin
         Sheepishness, // WrySmile
-        UNUSED_37,
-        UNUSED_38,
+        UNUSED_37, // Smile (Unused)
+        UNUSED_38, // Sunniness (Unused)
         Shyness, // Hesitate
         Disagreement, // Negative
         Mistaken, // Oops
@@ -48,18 +48,27 @@
         Daydreaming, // AbsentMindedness
         Showmanship, // Shaki
         Dozing, // Sleep
-        UNUSED_46,
+        UNUSED_46, // Shrunk Funk Shuffle (Unused)
         Intense, // Silent
         Pleased, // Hello
-        UNUSED_49,
-        UNUSED_50,
-        UNUSED_51,
-        UNUSED_52,
-        UNUSED_53,
+        UNUSED_49, // Distress without the hand movements? (Unused)
+        UNUSED_50, // Smiling and rubbing cheek (Unused)
+        UNUSED_51, // Poking hands together (Unused)
+        UNUSED_52, // Intense but frowning (Unused)
+        UNUSED_53, // Amazed with smaller particles (Unused)
         Apologetic, // Apologize
         Confident, // Assent
-        UNUSED_56,
-        UNUSED_57,
+        UNUSED_56, // Talking (Unused)
+        UNUSED_57, // Clapping with no expression (Makes you stand up if sitting down) (Unused)
         Bewilderment, // Pardon
+
+        UNUSED_59, // Greetings with no sound or expression (Unused)
+        UNUSED_60, // Fainting (Unused)
+        UNUSED_61, // Genuinely no clue. Could be bee sting? If anyone knows please tell me. (Unused)
+        UNUSED_62, // Scratching Forehead (Unused)
+        UNUSED_63, // Orville's thing idk what it's called (Unused)
+        UNUSED_64, // K.K. Slider Sitting (Unused)
+        UNUSED_65, // K.K. nodding while sitting (Unused)
+        UNUSED_66, // K.K. thinking while sitting (Unused)
     }
 }
