@@ -10,12 +10,31 @@ namespace NHSE.Core
         public static Color GetTileColor(TerrainTile tile)
         {
             if (tile.UnitModelRoad.IsRoad())
-                return Color.RosyBrown;
+                return GetRoadColor(tile.UnitModelRoad);
             var baseColor = GetTileDefaultColor(tile.UnitModel);
             if (tile.Elevation == 0)
                 return baseColor;
 
             return ColorUtil.Blend(baseColor, Color.White, 1.4d / (tile.Elevation + 1));
+        }
+
+        private static Color GetRoadColor(TerrainUnitModel mdl)
+        {
+            if (mdl.IsRoadBrick())
+                return Color.Firebrick;
+            if (mdl.IsRoadDarkSoil())
+                return Color.SaddleBrown;
+            if (mdl.IsRoadSoil())
+                return Color.Peru;
+            if (mdl.IsRoadStone())
+                return Color.DarkGray;
+            if (mdl.IsRoadPattern())
+                return Color.Ivory;
+            if (mdl.IsRoadTile())
+                return Color.SteelBlue;
+            if (mdl.IsRoadSand())
+                return Color.SandyBrown;
+            return Color.BurlyWood;
         }
 
         private static readonly Color CliffBase = ColorUtil.Blend(Color.ForestGreen, Color.Black, 0.6d);

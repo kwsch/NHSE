@@ -255,6 +255,15 @@ namespace NHSE.Core
     public static class TerrainUnitModelExtensions
     {
         public static bool IsRoad(this TerrainUnitModel t) => t >= RoadBrick0A || (RoadSoil0A <= t && t <= RoadStone8A);
+        public static bool IsRoadWood(this TerrainUnitModel t) => RoadWood0A <= t && t <= RoadWood8A;
+        public static bool IsRoadTile(this TerrainUnitModel t) => RoadTile0A <= t && t <= RoadTile8A;
+        public static bool IsRoadSand(this TerrainUnitModel t) => RoadSand0A <= t && t <= RoadSand8A;
+        public static bool IsRoadPattern(this TerrainUnitModel t) => RoadFanPattern0A <= t && t <= RoadFanPattern8A;
+        public static bool IsRoadDarkSoil(this TerrainUnitModel t) => RoadDarkSoil0A <= t && t <= RoadDarkSoil8A;
+        public static bool IsRoadBrick(this TerrainUnitModel t) => RoadBrick0A <= t && t <= RoadBrick8A;
+        public static bool IsRoadStone(this TerrainUnitModel t) => RoadStone0A <= t && t <= RoadStone8A;
+        public static bool IsRoadSoil(this TerrainUnitModel t) => RoadSoil0A <= t && t <= RoadSoil8A;
+
         public static bool IsFall(this TerrainUnitModel t) => (Fall101 <= t && t <= Fall404) || (Fall103 <= t && t <= Fall424);
         public static bool IsCliff(this TerrainUnitModel t) => (Cliff0A <= t && t <= Cliff8) || (t == Cliff2B);
         public static bool IsRiver(this TerrainUnitModel t) => River0A <= t && t <= River8A;
