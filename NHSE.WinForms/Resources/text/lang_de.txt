@@ -112,6 +112,7 @@ FieldItemEditor.B_RemoveShells=Shells
 FieldItemEditor.B_Right=→
 FieldItemEditor.B_Save=Save
 FieldItemEditor.B_Up=↑
+FieldItemEditor.B_WaterFlowers=Water Flowers
 FieldItemEditor.CHK_AutoExtension=Handle Item Extensions Automatically
 FieldItemEditor.CHK_Gold=Gold
 FieldItemEditor.CHK_IsExtension=Extension
