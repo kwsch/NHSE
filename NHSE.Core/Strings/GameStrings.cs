@@ -137,6 +137,14 @@ namespace NHSE.Core
 
             var kind = ItemInfo.GetItemKind(index);
 
+
+            if (kind.IsFlower())
+            {
+                var display = GetItemName(index);
+                if (item.Genes != 0)
+                    return $"{display} - {item.Genes}";
+            }
+
             if (kind == ItemKind.Kind_DIYRecipe || kind == ItemKind.Kind_MessageBottle)
             {
                 var display = itemlistdisplay[index];
