@@ -320,6 +320,15 @@ namespace NHSE.WinForms
             var l = Map.CurrentLayer;
             var pgt = new Item();
             ItemEdit.SetItem(pgt);
+
+            if (pgt.IsFieldItem && CHK_FieldItemSnap.Checked)
+            {
+                // coordinates must be even (not odd-half)
+                x &= 0xFFFE;
+                y &= 0xFFFE;
+                tile = l.GetTile(x, y);
+            }
+
             var permission = l.IsOccupied(pgt, x, y);
             switch (permission)
             {
@@ -351,8 +360,17 @@ namespace NHSE.WinForms
 
         private void DeleteTile(Item tile, int x, int y)
         {
-            if (tile.IsRoot && CHK_AutoExtension.Checked)
+            if (CHK_AutoExtension.Checked)
+            {
+                if (!tile.IsRoot)
+                {
+                    x -= tile.ExtensionX;
+                    y -= tile.ExtensionY;
+                    tile = Map.CurrentLayer.GetTile(x, y);
+                }
                 Map.CurrentLayer.DeleteExtensionTiles(tile, x, y);
+            }
+
             tile.Delete();
             ReloadItems();
         }

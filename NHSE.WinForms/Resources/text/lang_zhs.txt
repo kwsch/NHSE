@@ -114,6 +114,7 @@ FieldItemEditor.B_Save=保存
 FieldItemEditor.B_Up=↑
 FieldItemEditor.B_WaterFlowers=Water Flowers
 FieldItemEditor.CHK_AutoExtension=Handle Item Extensions Automatically
+FieldItemEditor.CHK_FieldItemSnap=Snap Field Items to Grid on Set
 FieldItemEditor.CHK_Gold=Gold
 FieldItemEditor.CHK_IsExtension=扩展选项
 FieldItemEditor.CHK_IsWatered=Watered

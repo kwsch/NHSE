@@ -68,6 +68,8 @@
             this.B_RemoveFlowers = new System.Windows.Forms.ToolStripMenuItem();
             this.B_FillHoles = new System.Windows.Forms.ToolStripMenuItem();
             this.B_RemoveAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.B_WaterFlowers = new System.Windows.Forms.ToolStripMenuItem();
             this.GB_Remove = new System.Windows.Forms.Label();
             this.TC_Editor = new System.Windows.Forms.TabControl();
             this.Tab_Item = new System.Windows.Forms.TabPage();
@@ -140,8 +142,7 @@
             this.RB_Terrain = new System.Windows.Forms.RadioButton();
             this.L_TileMode = new System.Windows.Forms.Label();
             this.CHK_RedirectExtensionLoad = new System.Windows.Forms.CheckBox();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.B_WaterFlowers = new System.Windows.Forms.ToolStripMenuItem();
+            this.CHK_FieldItemSnap = new System.Windows.Forms.CheckBox();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
@@ -467,77 +468,89 @@
             this.B_WaterFlowers});
             this.CM_Remove.Name = "CM_Picture";
             this.CM_Remove.ShowImageMargin = false;
-            this.CM_Remove.Size = new System.Drawing.Size(156, 274);
+            this.CM_Remove.Size = new System.Drawing.Size(124, 252);
             // 
             // B_RemoveAllWeeds
             // 
             this.B_RemoveAllWeeds.Name = "B_RemoveAllWeeds";
-            this.B_RemoveAllWeeds.Size = new System.Drawing.Size(155, 22);
+            this.B_RemoveAllWeeds.Size = new System.Drawing.Size(123, 22);
             this.B_RemoveAllWeeds.Text = "Weeds";
             this.B_RemoveAllWeeds.Click += new System.EventHandler(this.B_RemoveAllWeeds_Click);
             // 
             // B_RemovePlants
             // 
             this.B_RemovePlants.Name = "B_RemovePlants";
-            this.B_RemovePlants.Size = new System.Drawing.Size(155, 22);
+            this.B_RemovePlants.Size = new System.Drawing.Size(123, 22);
             this.B_RemovePlants.Text = "Plants";
             this.B_RemovePlants.Click += new System.EventHandler(this.B_RemovePlants_Click);
             // 
             // B_RemoveObjects
             // 
             this.B_RemoveObjects.Name = "B_RemoveObjects";
-            this.B_RemoveObjects.Size = new System.Drawing.Size(155, 22);
+            this.B_RemoveObjects.Size = new System.Drawing.Size(123, 22);
             this.B_RemoveObjects.Text = "Objects";
             this.B_RemoveObjects.Click += new System.EventHandler(this.B_RemoveObjects_Click);
             // 
             // B_RemovePlacedItems
             // 
             this.B_RemovePlacedItems.Name = "B_RemovePlacedItems";
-            this.B_RemovePlacedItems.Size = new System.Drawing.Size(155, 22);
+            this.B_RemovePlacedItems.Size = new System.Drawing.Size(123, 22);
             this.B_RemovePlacedItems.Text = "Placed Items";
             this.B_RemovePlacedItems.Click += new System.EventHandler(this.B_RemovePlacedItems_Click);
             // 
             // B_RemoveFences
             // 
             this.B_RemoveFences.Name = "B_RemoveFences";
-            this.B_RemoveFences.Size = new System.Drawing.Size(155, 22);
+            this.B_RemoveFences.Size = new System.Drawing.Size(123, 22);
             this.B_RemoveFences.Text = "Fences";
             this.B_RemoveFences.Click += new System.EventHandler(this.B_RemoveFences_Click);
             // 
             // B_RemoveBranches
             // 
             this.B_RemoveBranches.Name = "B_RemoveBranches";
-            this.B_RemoveBranches.Size = new System.Drawing.Size(155, 22);
+            this.B_RemoveBranches.Size = new System.Drawing.Size(123, 22);
             this.B_RemoveBranches.Text = "Branches";
             this.B_RemoveBranches.Click += new System.EventHandler(this.B_RemoveBranches_Click);
             // 
             // B_RemoveShells
             // 
             this.B_RemoveShells.Name = "B_RemoveShells";
-            this.B_RemoveShells.Size = new System.Drawing.Size(155, 22);
+            this.B_RemoveShells.Size = new System.Drawing.Size(123, 22);
             this.B_RemoveShells.Text = "Shells";
             this.B_RemoveShells.Click += new System.EventHandler(this.B_RemoveShells_Click);
             // 
             // B_RemoveFlowers
             // 
             this.B_RemoveFlowers.Name = "B_RemoveFlowers";
-            this.B_RemoveFlowers.Size = new System.Drawing.Size(155, 22);
+            this.B_RemoveFlowers.Size = new System.Drawing.Size(123, 22);
             this.B_RemoveFlowers.Text = "Flowers";
             this.B_RemoveFlowers.Click += new System.EventHandler(this.B_RemoveFlowers_Click);
             // 
             // B_FillHoles
             // 
             this.B_FillHoles.Name = "B_FillHoles";
-            this.B_FillHoles.Size = new System.Drawing.Size(155, 22);
+            this.B_FillHoles.Size = new System.Drawing.Size(123, 22);
             this.B_FillHoles.Text = "Holes";
             this.B_FillHoles.Click += new System.EventHandler(this.B_FillHoles_Click);
             // 
             // B_RemoveAll
             // 
             this.B_RemoveAll.Name = "B_RemoveAll";
-            this.B_RemoveAll.Size = new System.Drawing.Size(155, 22);
+            this.B_RemoveAll.Size = new System.Drawing.Size(123, 22);
             this.B_RemoveAll.Text = "All";
             this.B_RemoveAll.Click += new System.EventHandler(this.B_RemoveAll_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(120, 6);
+            // 
+            // B_WaterFlowers
+            // 
+            this.B_WaterFlowers.Name = "B_WaterFlowers";
+            this.B_WaterFlowers.Size = new System.Drawing.Size(123, 22);
+            this.B_WaterFlowers.Text = "Water Flowers";
+            this.B_WaterFlowers.Click += new System.EventHandler(this.B_WaterFlowers_Click);
             // 
             // GB_Remove
             // 
@@ -1301,23 +1314,24 @@
             this.CHK_RedirectExtensionLoad.Text = "View Root instead of Extension";
             this.CHK_RedirectExtensionLoad.UseVisualStyleBackColor = true;
             // 
-            // toolStripSeparator1
+            // CHK_FieldItemSnap
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(152, 6);
-            // 
-            // B_WaterFlowers
-            // 
-            this.B_WaterFlowers.Name = "B_WaterFlowers";
-            this.B_WaterFlowers.Size = new System.Drawing.Size(155, 22);
-            this.B_WaterFlowers.Text = "Water Flowers";
-            this.B_WaterFlowers.Click += new System.EventHandler(this.B_WaterFlowers_Click);
+            this.CHK_FieldItemSnap.AutoSize = true;
+            this.CHK_FieldItemSnap.Checked = true;
+            this.CHK_FieldItemSnap.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CHK_FieldItemSnap.Location = new System.Drawing.Point(535, 496);
+            this.CHK_FieldItemSnap.Name = "CHK_FieldItemSnap";
+            this.CHK_FieldItemSnap.Size = new System.Drawing.Size(172, 17);
+            this.CHK_FieldItemSnap.TabIndex = 47;
+            this.CHK_FieldItemSnap.Text = "Snap Field Items to Grid on Set";
+            this.CHK_FieldItemSnap.UseVisualStyleBackColor = true;
             // 
             // FieldItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1027, 537);
+            this.Controls.Add(this.CHK_FieldItemSnap);
             this.Controls.Add(this.CHK_RedirectExtensionLoad);
             this.Controls.Add(this.L_TileMode);
             this.Controls.Add(this.RB_Terrain);
@@ -1498,5 +1512,6 @@
         private System.Windows.Forms.ToolStripMenuItem B_ClearPlacedDesigns;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem B_WaterFlowers;
+        private System.Windows.Forms.CheckBox CHK_FieldItemSnap;
     }
 }

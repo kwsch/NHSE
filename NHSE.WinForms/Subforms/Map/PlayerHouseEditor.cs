@@ -280,8 +280,17 @@ namespace NHSE.WinForms
 
         private void DeleteTile(Item tile, int x, int y)
         {
-            if (tile.IsRoot && CHK_AutoExtension.Checked)
+            if (CHK_AutoExtension.Checked)
+            {
+                if (!tile.IsRoot)
+                {
+                    x -= tile.ExtensionX;
+                    y -= tile.ExtensionY;
+                    tile = CurrentLayer.GetTile(x, y);
+                }
                 CurrentLayer.DeleteExtensionTiles(tile, x, y);
+            }
+
             tile.Delete();
             DrawLayer();
         }

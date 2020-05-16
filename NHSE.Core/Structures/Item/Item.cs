@@ -128,6 +128,7 @@ namespace NHSE.Core
         public bool IsNone => ItemId == NONE;
         public bool IsExtension => ItemId == EXTENSION;
         public bool IsRoot => ItemId < EXTENSION;
+        public bool IsFieldItem => IsRoot && ItemId >= 60_000;
         [field: FieldOffset(4)] public ushort ExtensionItemId { get; set; }
         [field: FieldOffset(6)] public byte ExtensionX { get; set; }
         [field: FieldOffset(7)] public byte ExtensionY { get; set; }

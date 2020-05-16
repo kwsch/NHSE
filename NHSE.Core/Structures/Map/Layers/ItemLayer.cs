@@ -55,7 +55,7 @@ namespace NHSE.Core
             return count;
         }
 
-        public void DeleteExtensionTiles(Item tile, in int x, in int y)
+        public void DeleteExtensionTiles(Item tile, int x, int y)
         {
             GetTileWidthHeight(tile, x, y, out var w, out var h);
 
