@@ -36,6 +36,7 @@
 
         #region Equality Comparison
         public override bool Equals(object obj) => obj is FileHashRegion r && r == this;
+        // ReSharper disable once PossiblyImpureMethodCallOnReadonlyVariable
         public override int GetHashCode() => BeginOffset.GetHashCode();
 
         public static bool operator !=(FileHashRegion left, FileHashRegion right) => !(left == right);

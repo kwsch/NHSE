@@ -137,7 +137,6 @@ namespace NHSE.Core
 
             var kind = ItemInfo.GetItemKind(index);
 
-
             if (kind.IsFlower())
             {
                 var display = GetItemName(index);

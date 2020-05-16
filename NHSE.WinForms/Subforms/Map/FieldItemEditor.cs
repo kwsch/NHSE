@@ -638,14 +638,14 @@ namespace NHSE.WinForms
 
         private void Remove(ToolStripItem sender, Func<int, int, int, int, int> removal)
         {
-            bool wholeMap = ModifierKeys == Keys.Shift;
+            bool wholeMap = (ModifierKeys & Keys.Shift) != 0;
 
             string q = string.Format(MessageStrings.MsgFieldItemRemoveAsk, sender.Text);
             var question = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, q);
             if (question != DialogResult.Yes)
                 return;
 
-            int count = View.RemoveFieldItems(removal, wholeMap);
+            int count = View.ModifyFieldItems(removal, wholeMap);
 
             if (count == 0)
             {
@@ -654,6 +654,26 @@ namespace NHSE.WinForms
             }
             LoadItemGridAcre();
             WinFormsUtil.Alert(string.Format(MessageStrings.MsgFieldItemRemoveCount, count));
+        }
+
+        private void Modify(ToolStripItem sender, Func<int, int, int, int, int> action)
+        {
+            bool wholeMap = (ModifierKeys & Keys.Shift) != 0;
+
+            string q = string.Format(MessageStrings.MsgFieldItemModifyAsk, sender.Text);
+            var question = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, q);
+            if (question != DialogResult.Yes)
+                return;
+
+            int count = View.ModifyFieldItems(action, wholeMap);
+
+            if (count == 0)
+            {
+                WinFormsUtil.Alert(MessageStrings.MsgFieldItemModifyNone);
+                return;
+            }
+            LoadItemGridAcre();
+            WinFormsUtil.Alert(string.Format(MessageStrings.MsgFieldItemModifyCount, count));
         }
 
         private void B_RemoveAllWeeds_Click(object sender, EventArgs e) => Remove(B_RemoveAllWeeds, Map.CurrentLayer.RemoveAllWeeds);
@@ -666,6 +686,9 @@ namespace NHSE.WinForms
         private void B_RemoveShells_Click(object sender, EventArgs e) => Remove(B_RemoveShells, Map.CurrentLayer.RemoveAllShells);
         private void B_RemoveBranches_Click(object sender, EventArgs e) => Remove(B_RemoveBranches, Map.CurrentLayer.RemoveAllBranches);
         private void B_RemoveFlowers_Click(object sender, EventArgs e) => Remove(B_RemoveFlowers, Map.CurrentLayer.RemoveAllFlowers);
+
+        private void B_WaterFlowers_Click(object sender, EventArgs e) => Modify(B_WaterFlowers, (xmin, ymin, width, height)
+            => Map.CurrentLayer.WaterAllFlowers(xmin, ymin, width, height, (ModifierKeys & Keys.Control) != 0));
 
         private static void ShowContextMenuBelow(ToolStripDropDown c, Control n) => c.Show(n.PointToScreen(new Point(0, n.Height)));
         private void B_RemoveItemDropDown_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_Remove, B_RemoveItemDropDown);

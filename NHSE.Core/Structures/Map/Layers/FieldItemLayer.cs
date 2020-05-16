@@ -64,6 +64,23 @@ namespace NHSE.Core
             return count;
         }
 
+        public int ModifyAll(int xmin, int ymin, int width, int height, Func<Item, bool> criteria, Action<Item> action)
+        {
+            int count = 0;
+            for (int x = xmin; x < xmin + width; x++)
+            {
+                for (int y = ymin; y < ymin + height; y++)
+                {
+                    var t = GetTile(x, y);
+                    if (!criteria(t))
+                        continue;
+                    action(t);
+                    count++;
+                }
+            }
+            return count;
+        }
+
         public int RemoveAllHoles(int xmin, int ymin, int width, int height) => ClearFieldPlanted(xmin, ymin, width, height, z => z == FieldItemKind.UnitIconHole);
         public int RemoveAllWeeds(int xmin, int ymin, int width, int height) => ClearFieldPlanted(xmin, ymin, width, height, z => z.IsWeed());
         public int RemoveAllPlants(int xmin, int ymin, int width, int height) => ClearFieldPlanted(xmin, ymin, width, height, z => z.IsPlant());
@@ -75,6 +92,26 @@ namespace NHSE.Core
         public int RemoveAllShells(int xmin, int ymin, int width, int height) => RemoveAll(xmin, ymin, width, height, z => GameLists.Shells.Contains(z.DisplayItemId));
         public int RemoveAllBranches(int xmin, int ymin, int width, int height) => RemoveAll(xmin, ymin, width, height, z => z.DisplayItemId == 2500);
         public int RemoveAllPlacedItems(int xmin, int ymin, int width, int height) => RemoveAll(xmin, ymin, width,
-            height, z => z.DisplayItemId != Item.NONE && !FieldItemList.Items.ContainsKey(z.DisplayItemId));
+            height, z => !z.IsNone && !FieldItemList.Items.ContainsKey(z.DisplayItemId));
+
+        public int WaterAllFlowers(int xmin, int ymin, int width, int height, bool all)
+        {
+            var fi = FieldItemList.Items;
+
+            bool IsFlowerWaterable(Item item)
+            {
+                if (item.IsNone)
+                    return false;
+                if (!item.IsRoot)
+                    return false;
+                if (!fi.TryGetValue(item.ItemId, out var def))
+                    return false;
+                if (!def.Kind.IsFlower())
+                    return false;
+                return true;
+            }
+
+            return ModifyAll(xmin, ymin, width, height, IsFlowerWaterable, z => z.Water(all));
+        }
     }
 }

@@ -32,6 +32,9 @@ namespace NHSE.WinForms
         public static string MsgFieldItemRemoveAsk { get; set; } = "Are you sure you want to remove {0}?";
         public static string MsgFieldItemRemoveNone { get; set; } = "Nothing removed (none found).";
         public static string MsgFieldItemRemoveCount { get; set; } = "Removed {0} from the map.";
+        public static string MsgFieldItemModifyAsk { get; set; } = "Are you sure you want to {0}?";
+        public static string MsgFieldItemModifyNone { get; set; } = "Nothing modified (none found).";
+        public static string MsgFieldItemModifyCount { get; set; } = "Modified {0} tiles on the map.";
         public static string MsgFieldItemUnsupportedLayer2Tile { get; set; } = "Unsupported Layer2 items detected.";
 
         public static string MsgSysBotInfo { get; set; } = "This SysBot reads and writes RAM directly to your game when called to Read/Write.";

@@ -72,12 +72,12 @@ namespace NHSE.Core
             SetViewTo(x, y);
         }
 
-        public int RemoveFieldItems(Func<int, int, int, int, int> removal, bool wholeMap = false)
+        public int ModifyFieldItems(Func<int, int, int, int, int> action, in bool wholeMap)
         {
             var layer = Map.CurrentLayer;
             return wholeMap
-                ? removal(0, 0, layer.MaxWidth, layer.MaxHeight)
-                : removal(X, Y, layer.GridWidth, layer.GridHeight);
+                ? action(0, 0, layer.MaxWidth, layer.MaxHeight)
+                : action(X, Y, layer.GridWidth, layer.GridHeight);
         }
 
         public void GetCursorCoordinates(in int mX, in int mY, out int x, out int y)
