@@ -748,7 +748,10 @@ namespace NHSE.WinForms
             if (LB_Items.SelectedIndex < 0)
                 return;
             LoadIndex(LB_Items.SelectedIndex);
-            ReloadBuildingsTerrain();
+
+            // View location snap has changed the view. Reload everything
+            LoadItemGridAcre();
+            ReloadMapBackground();
         }
 
         private void LoadIndex(int index)
@@ -765,6 +768,11 @@ namespace NHSE.WinForms
             NUD_TypeArg.Value = b.TypeArg;
             NUD_UniqueID.Value = b.UniqueID;
             Loading = false;
+
+            // -32 for relative offset on map (buildings can be placed on the exterior ocean acres)
+            // -16 to put it in the center of the view
+            const int shift = 48;
+            View.SetViewTo(b.X - shift, b.Y - shift);
         }
 
         private void NUD_BuildingType_ValueChanged(object sender, EventArgs e)
