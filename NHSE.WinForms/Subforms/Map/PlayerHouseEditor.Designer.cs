@@ -131,6 +131,7 @@
             this.PB_Room.Location = new System.Drawing.Point(333, 30);
             this.PB_Room.Name = "PB_Room";
             this.PB_Room.Size = new System.Drawing.Size(482, 482);
+            this.PB_Room.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.PB_Room.TabIndex = 7;
             this.PB_Room.TabStop = false;
             this.PB_Room.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PlayerHouseEditor_Click);

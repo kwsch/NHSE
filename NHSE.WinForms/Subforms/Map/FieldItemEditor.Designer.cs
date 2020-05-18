@@ -294,7 +294,7 @@
             this.PB_Map.Location = new System.Drawing.Point(535, 35);
             this.PB_Map.Name = "PB_Map";
             this.PB_Map.Size = new System.Drawing.Size(226, 194);
-            this.PB_Map.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PB_Map.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.PB_Map.TabIndex = 23;
             this.PB_Map.TabStop = false;
             this.PB_Map.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PB_Map_MouseDown);
@@ -398,6 +398,7 @@
             this.PB_Acre.Location = new System.Drawing.Point(12, 12);
             this.PB_Acre.Name = "PB_Acre";
             this.PB_Acre.Size = new System.Drawing.Size(514, 514);
+            this.PB_Acre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.PB_Acre.TabIndex = 28;
             this.PB_Acre.TabStop = false;
             this.PB_Acre.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PB_Acre_MouseClick);

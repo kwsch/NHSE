@@ -45,15 +45,16 @@
             this.CB_Recipe = new System.Windows.Forms.ComboBox();
             this.FLP_Controls = new System.Windows.Forms.FlowLayoutPanel();
             this.PB_Item = new System.Windows.Forms.PictureBox();
+            this.FLP_Meta = new System.Windows.Forms.FlowLayoutPanel();
             this.CHK_IsExtension = new System.Windows.Forms.CheckBox();
-            this.PAN_DummyExtension = new System.Windows.Forms.Panel();
             this.FLP_Extension = new System.Windows.Forms.FlowLayoutPanel();
             this.L_ExtensionX = new System.Windows.Forms.Label();
             this.NUD_ExtensionX = new System.Windows.Forms.NumericUpDown();
             this.L_ExtensionY = new System.Windows.Forms.Label();
             this.NUD_ExtensionY = new System.Windows.Forms.NumericUpDown();
-            this.FLP_Item = new System.Windows.Forms.FlowLayoutPanel();
             this.CB_Fossil = new System.Windows.Forms.ComboBox();
+            this.PAN_DummyExtension = new System.Windows.Forms.Panel();
+            this.FLP_Item = new System.Windows.Forms.FlowLayoutPanel();
             this.FLP_Count = new System.Windows.Forms.FlowLayoutPanel();
             this.PAN_DummyCount = new System.Windows.Forms.Panel();
             this.L_RemakeBody = new System.Windows.Forms.Label();
@@ -71,6 +72,7 @@
             this.CHK_W1 = new System.Windows.Forms.CheckBox();
             this.CHK_S2 = new System.Windows.Forms.CheckBox();
             this.CHK_S1 = new System.Windows.Forms.CheckBox();
+            this.PAN_DummyFlower = new System.Windows.Forms.Panel();
             this.FLP_FlowerFlags = new System.Windows.Forms.FlowLayoutPanel();
             this.CHK_IsWatered = new System.Windows.Forms.CheckBox();
             this.NUD_WaterDays = new System.Windows.Forms.NumericUpDown();
@@ -86,8 +88,6 @@
             this.CHK_WV6 = new System.Windows.Forms.CheckBox();
             this.CHK_WV9 = new System.Windows.Forms.CheckBox();
             this.CHK_Gold = new System.Windows.Forms.CheckBox();
-            this.FLP_Meta = new System.Windows.Forms.FlowLayoutPanel();
-            this.PAN_DummyFlower = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Count)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Uses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag0)).BeginInit();
@@ -95,6 +95,7 @@
             this.CM_Hand.SuspendLayout();
             this.FLP_Controls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Item)).BeginInit();
+            this.FLP_Meta.SuspendLayout();
             this.FLP_Extension.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_ExtensionX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_ExtensionY)).BeginInit();
@@ -107,7 +108,6 @@
             this.FLP_Genetics.SuspendLayout();
             this.FLP_FlowerFlags.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_WaterDays)).BeginInit();
-            this.FLP_Meta.SuspendLayout();
             this.SuspendLayout();
             // 
             // CB_ItemID
@@ -284,6 +284,22 @@
             this.PB_Item.TabIndex = 28;
             this.PB_Item.TabStop = false;
             // 
+            // FLP_Meta
+            // 
+            this.FLP_Meta.AutoSize = true;
+            this.FLP_Meta.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.FLP_Meta.Controls.Add(this.CB_ItemID);
+            this.FLP_Meta.Controls.Add(this.CHK_IsExtension);
+            this.FLP_Meta.Controls.Add(this.PAN_DummyExtension);
+            this.FLP_Meta.Controls.Add(this.FLP_Extension);
+            this.FLP_Meta.Controls.Add(this.CB_Recipe);
+            this.FLP_Meta.Controls.Add(this.CB_Fossil);
+            this.FLP_Meta.Location = new System.Drawing.Point(0, 72);
+            this.FLP_Meta.Margin = new System.Windows.Forms.Padding(0);
+            this.FLP_Meta.Name = "FLP_Meta";
+            this.FLP_Meta.Size = new System.Drawing.Size(147, 132);
+            this.FLP_Meta.TabIndex = 30;
+            // 
             // CHK_IsExtension
             // 
             this.CHK_IsExtension.AutoSize = true;
@@ -296,14 +312,6 @@
             this.CHK_IsExtension.Text = "Extension";
             this.CHK_IsExtension.UseVisualStyleBackColor = true;
             this.CHK_IsExtension.CheckedChanged += new System.EventHandler(this.CHK_IsExtension_CheckedChanged);
-            // 
-            // PAN_DummyExtension
-            // 
-            this.PAN_DummyExtension.Location = new System.Drawing.Point(0, 46);
-            this.PAN_DummyExtension.Margin = new System.Windows.Forms.Padding(0);
-            this.PAN_DummyExtension.Name = "PAN_DummyExtension";
-            this.PAN_DummyExtension.Size = new System.Drawing.Size(0, 0);
-            this.PAN_DummyExtension.TabIndex = 29;
             // 
             // FLP_Extension
             // 
@@ -369,20 +377,6 @@
             this.NUD_ExtensionY.Size = new System.Drawing.Size(35, 20);
             this.NUD_ExtensionY.TabIndex = 25;
             // 
-            // FLP_Item
-            // 
-            this.FLP_Item.AutoSize = true;
-            this.FLP_Item.Controls.Add(this.FLP_Count);
-            this.FLP_Item.Controls.Add(this.FLP_Uses);
-            this.FLP_Item.Controls.Add(this.FLP_Flag0);
-            this.FLP_Item.Controls.Add(this.FLP_Flag1);
-            this.FLP_Item.Controls.Add(this.FLP_Flower);
-            this.FLP_Item.Location = new System.Drawing.Point(0, 204);
-            this.FLP_Item.Margin = new System.Windows.Forms.Padding(0);
-            this.FLP_Item.Name = "FLP_Item";
-            this.FLP_Item.Size = new System.Drawing.Size(147, 324);
-            this.FLP_Item.TabIndex = 25;
-            // 
             // CB_Fossil
             // 
             this.CB_Fossil.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -398,6 +392,28 @@
             this.CB_Fossil.Visible = false;
             this.CB_Fossil.SelectedValueChanged += new System.EventHandler(this.CB_CountAlias_SelectedValueChanged);
             this.CB_Fossil.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CB_KeyDown);
+            // 
+            // PAN_DummyExtension
+            // 
+            this.PAN_DummyExtension.Location = new System.Drawing.Point(0, 46);
+            this.PAN_DummyExtension.Margin = new System.Windows.Forms.Padding(0);
+            this.PAN_DummyExtension.Name = "PAN_DummyExtension";
+            this.PAN_DummyExtension.Size = new System.Drawing.Size(0, 0);
+            this.PAN_DummyExtension.TabIndex = 29;
+            // 
+            // FLP_Item
+            // 
+            this.FLP_Item.AutoSize = true;
+            this.FLP_Item.Controls.Add(this.FLP_Count);
+            this.FLP_Item.Controls.Add(this.FLP_Uses);
+            this.FLP_Item.Controls.Add(this.FLP_Flag0);
+            this.FLP_Item.Controls.Add(this.FLP_Flag1);
+            this.FLP_Item.Controls.Add(this.FLP_Flower);
+            this.FLP_Item.Location = new System.Drawing.Point(0, 204);
+            this.FLP_Item.Margin = new System.Windows.Forms.Padding(0);
+            this.FLP_Item.Name = "FLP_Item";
+            this.FLP_Item.Size = new System.Drawing.Size(152, 324);
+            this.FLP_Item.TabIndex = 25;
             // 
             // FLP_Count
             // 
@@ -453,7 +469,7 @@
             this.FLP_Uses.Location = new System.Drawing.Point(0, 76);
             this.FLP_Uses.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Uses.Name = "FLP_Uses";
-            this.FLP_Uses.Size = new System.Drawing.Size(147, 26);
+            this.FLP_Uses.Size = new System.Drawing.Size(152, 26);
             this.FLP_Uses.TabIndex = 17;
             // 
             // FLP_Flag0
@@ -463,7 +479,7 @@
             this.FLP_Flag0.Location = new System.Drawing.Point(0, 102);
             this.FLP_Flag0.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Flag0.Name = "FLP_Flag0";
-            this.FLP_Flag0.Size = new System.Drawing.Size(147, 26);
+            this.FLP_Flag0.Size = new System.Drawing.Size(152, 26);
             this.FLP_Flag0.TabIndex = 17;
             // 
             // FLP_Flag1
@@ -473,7 +489,7 @@
             this.FLP_Flag1.Location = new System.Drawing.Point(0, 128);
             this.FLP_Flag1.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Flag1.Name = "FLP_Flag1";
-            this.FLP_Flag1.Size = new System.Drawing.Size(147, 26);
+            this.FLP_Flag1.Size = new System.Drawing.Size(152, 26);
             this.FLP_Flag1.TabIndex = 17;
             // 
             // FLP_Flower
@@ -485,7 +501,7 @@
             this.FLP_Flower.Location = new System.Drawing.Point(0, 154);
             this.FLP_Flower.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Flower.Name = "FLP_Flower";
-            this.FLP_Flower.Size = new System.Drawing.Size(147, 170);
+            this.FLP_Flower.Size = new System.Drawing.Size(152, 170);
             this.FLP_Flower.TabIndex = 24;
             this.FLP_Flower.Visible = false;
             // 
@@ -504,14 +520,14 @@
             this.FLP_Genetics.Location = new System.Drawing.Point(0, 0);
             this.FLP_Genetics.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Genetics.Name = "FLP_Genetics";
-            this.FLP_Genetics.Size = new System.Drawing.Size(106, 65);
+            this.FLP_Genetics.Size = new System.Drawing.Size(108, 65);
             this.FLP_Genetics.TabIndex = 18;
             // 
             // CHK_R2
             // 
             this.CHK_R2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_R2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_R2.Location = new System.Drawing.Point(56, 0);
+            this.CHK_R2.Location = new System.Drawing.Point(58, 0);
             this.CHK_R2.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_R2.Name = "CHK_R2";
             this.CHK_R2.Size = new System.Drawing.Size(50, 16);
@@ -524,7 +540,7 @@
             // 
             this.CHK_R1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_R1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_R1.Location = new System.Drawing.Point(6, 0);
+            this.CHK_R1.Location = new System.Drawing.Point(8, 0);
             this.CHK_R1.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_R1.Name = "CHK_R1";
             this.CHK_R1.Size = new System.Drawing.Size(50, 16);
@@ -537,7 +553,7 @@
             // 
             this.CHK_Y2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_Y2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_Y2.Location = new System.Drawing.Point(56, 16);
+            this.CHK_Y2.Location = new System.Drawing.Point(58, 16);
             this.CHK_Y2.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_Y2.Name = "CHK_Y2";
             this.CHK_Y2.Size = new System.Drawing.Size(50, 16);
@@ -550,7 +566,7 @@
             // 
             this.CHK_Y1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_Y1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_Y1.Location = new System.Drawing.Point(6, 16);
+            this.CHK_Y1.Location = new System.Drawing.Point(8, 16);
             this.CHK_Y1.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_Y1.Name = "CHK_Y1";
             this.CHK_Y1.Size = new System.Drawing.Size(50, 16);
@@ -563,7 +579,7 @@
             // 
             this.CHK_W2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_W2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_W2.Location = new System.Drawing.Point(56, 32);
+            this.CHK_W2.Location = new System.Drawing.Point(58, 32);
             this.CHK_W2.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_W2.Name = "CHK_W2";
             this.CHK_W2.Size = new System.Drawing.Size(50, 16);
@@ -576,7 +592,7 @@
             // 
             this.CHK_W1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_W1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_W1.Location = new System.Drawing.Point(6, 32);
+            this.CHK_W1.Location = new System.Drawing.Point(8, 32);
             this.CHK_W1.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_W1.Name = "CHK_W1";
             this.CHK_W1.Size = new System.Drawing.Size(50, 16);
@@ -589,7 +605,7 @@
             // 
             this.CHK_S2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_S2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_S2.Location = new System.Drawing.Point(56, 48);
+            this.CHK_S2.Location = new System.Drawing.Point(58, 48);
             this.CHK_S2.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_S2.Name = "CHK_S2";
             this.CHK_S2.Size = new System.Drawing.Size(50, 16);
@@ -602,7 +618,7 @@
             // 
             this.CHK_S1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_S1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_S1.Location = new System.Drawing.Point(6, 48);
+            this.CHK_S1.Location = new System.Drawing.Point(8, 48);
             this.CHK_S1.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_S1.Name = "CHK_S1";
             this.CHK_S1.Size = new System.Drawing.Size(50, 16);
@@ -610,6 +626,14 @@
             this.CHK_S1.Text = "S1";
             this.CHK_S1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_S1.UseVisualStyleBackColor = true;
+            // 
+            // PAN_DummyFlower
+            // 
+            this.PAN_DummyFlower.Location = new System.Drawing.Point(0, 65);
+            this.PAN_DummyFlower.Margin = new System.Windows.Forms.Padding(0);
+            this.PAN_DummyFlower.Name = "PAN_DummyFlower";
+            this.PAN_DummyFlower.Size = new System.Drawing.Size(0, 0);
+            this.PAN_DummyFlower.TabIndex = 21;
             // 
             // FLP_FlowerFlags
             // 
@@ -631,7 +655,7 @@
             this.FLP_FlowerFlags.Location = new System.Drawing.Point(0, 65);
             this.FLP_FlowerFlags.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_FlowerFlags.Name = "FLP_FlowerFlags";
-            this.FLP_FlowerFlags.Size = new System.Drawing.Size(147, 105);
+            this.FLP_FlowerFlags.Size = new System.Drawing.Size(152, 105);
             this.FLP_FlowerFlags.TabIndex = 20;
             // 
             // CHK_IsWatered
@@ -640,7 +664,7 @@
             this.CHK_IsWatered.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.FLP_FlowerFlags.SetFlowBreak(this.CHK_IsWatered, true);
             this.CHK_IsWatered.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_IsWatered.Location = new System.Drawing.Point(72, 0);
+            this.CHK_IsWatered.Location = new System.Drawing.Point(77, 0);
             this.CHK_IsWatered.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_IsWatered.Name = "CHK_IsWatered";
             this.CHK_IsWatered.Size = new System.Drawing.Size(75, 18);
@@ -652,7 +676,7 @@
             // NUD_WaterDays
             // 
             this.NUD_WaterDays.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NUD_WaterDays.Location = new System.Drawing.Point(112, 20);
+            this.NUD_WaterDays.Location = new System.Drawing.Point(117, 20);
             this.NUD_WaterDays.Margin = new System.Windows.Forms.Padding(0);
             this.NUD_WaterDays.Maximum = new decimal(new int[] {
             31,
@@ -667,7 +691,7 @@
             // 
             this.L_WaterDays.AutoSize = true;
             this.FLP_FlowerFlags.SetFlowBreak(this.L_WaterDays, true);
-            this.L_WaterDays.Location = new System.Drawing.Point(75, 23);
+            this.L_WaterDays.Location = new System.Drawing.Point(80, 23);
             this.L_WaterDays.Margin = new System.Windows.Forms.Padding(3);
             this.L_WaterDays.Name = "L_WaterDays";
             this.L_WaterDays.Size = new System.Drawing.Size(34, 13);
@@ -679,7 +703,7 @@
             // 
             this.CHK_WV2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_WV2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_WV2.Location = new System.Drawing.Point(99, 40);
+            this.CHK_WV2.Location = new System.Drawing.Point(104, 40);
             this.CHK_WV2.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_WV2.Name = "CHK_WV2";
             this.CHK_WV2.Size = new System.Drawing.Size(48, 16);
@@ -692,7 +716,7 @@
             // 
             this.CHK_WV1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_WV1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_WV1.Location = new System.Drawing.Point(51, 40);
+            this.CHK_WV1.Location = new System.Drawing.Point(56, 40);
             this.CHK_WV1.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_WV1.Name = "CHK_WV1";
             this.CHK_WV1.Size = new System.Drawing.Size(48, 16);
@@ -705,7 +729,7 @@
             // 
             this.CHK_WV0.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_WV0.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_WV0.Location = new System.Drawing.Point(3, 40);
+            this.CHK_WV0.Location = new System.Drawing.Point(8, 40);
             this.CHK_WV0.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_WV0.Name = "CHK_WV0";
             this.CHK_WV0.Size = new System.Drawing.Size(48, 16);
@@ -718,7 +742,7 @@
             // 
             this.CHK_WV5.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_WV5.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_WV5.Location = new System.Drawing.Point(99, 56);
+            this.CHK_WV5.Location = new System.Drawing.Point(104, 56);
             this.CHK_WV5.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_WV5.Name = "CHK_WV5";
             this.CHK_WV5.Size = new System.Drawing.Size(48, 16);
@@ -731,7 +755,7 @@
             // 
             this.CHK_WV4.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_WV4.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_WV4.Location = new System.Drawing.Point(51, 56);
+            this.CHK_WV4.Location = new System.Drawing.Point(56, 56);
             this.CHK_WV4.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_WV4.Name = "CHK_WV4";
             this.CHK_WV4.Size = new System.Drawing.Size(48, 16);
@@ -744,7 +768,7 @@
             // 
             this.CHK_WV3.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_WV3.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_WV3.Location = new System.Drawing.Point(3, 56);
+            this.CHK_WV3.Location = new System.Drawing.Point(8, 56);
             this.CHK_WV3.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_WV3.Name = "CHK_WV3";
             this.CHK_WV3.Size = new System.Drawing.Size(48, 16);
@@ -757,7 +781,7 @@
             // 
             this.CHK_WV8.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_WV8.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_WV8.Location = new System.Drawing.Point(99, 72);
+            this.CHK_WV8.Location = new System.Drawing.Point(104, 72);
             this.CHK_WV8.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_WV8.Name = "CHK_WV8";
             this.CHK_WV8.Size = new System.Drawing.Size(48, 16);
@@ -770,7 +794,7 @@
             // 
             this.CHK_WV7.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_WV7.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_WV7.Location = new System.Drawing.Point(51, 72);
+            this.CHK_WV7.Location = new System.Drawing.Point(56, 72);
             this.CHK_WV7.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_WV7.Name = "CHK_WV7";
             this.CHK_WV7.Size = new System.Drawing.Size(48, 16);
@@ -783,7 +807,7 @@
             // 
             this.CHK_WV6.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_WV6.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_WV6.Location = new System.Drawing.Point(3, 72);
+            this.CHK_WV6.Location = new System.Drawing.Point(8, 72);
             this.CHK_WV6.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_WV6.Name = "CHK_WV6";
             this.CHK_WV6.Size = new System.Drawing.Size(48, 16);
@@ -796,7 +820,7 @@
             // 
             this.CHK_WV9.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_WV9.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_WV9.Location = new System.Drawing.Point(99, 88);
+            this.CHK_WV9.Location = new System.Drawing.Point(104, 88);
             this.CHK_WV9.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_WV9.Name = "CHK_WV9";
             this.CHK_WV9.Size = new System.Drawing.Size(48, 16);
@@ -810,7 +834,7 @@
             this.CHK_Gold.AutoSize = true;
             this.CHK_Gold.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_Gold.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHK_Gold.Location = new System.Drawing.Point(45, 88);
+            this.CHK_Gold.Location = new System.Drawing.Point(50, 88);
             this.CHK_Gold.Margin = new System.Windows.Forms.Padding(0);
             this.CHK_Gold.Name = "CHK_Gold";
             this.CHK_Gold.Size = new System.Drawing.Size(54, 18);
@@ -818,30 +842,6 @@
             this.CHK_Gold.Text = "Gold";
             this.CHK_Gold.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_Gold.UseVisualStyleBackColor = true;
-            // 
-            // FLP_Meta
-            // 
-            this.FLP_Meta.AutoSize = true;
-            this.FLP_Meta.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.FLP_Meta.Controls.Add(this.CB_ItemID);
-            this.FLP_Meta.Controls.Add(this.CHK_IsExtension);
-            this.FLP_Meta.Controls.Add(this.PAN_DummyExtension);
-            this.FLP_Meta.Controls.Add(this.FLP_Extension);
-            this.FLP_Meta.Controls.Add(this.CB_Recipe);
-            this.FLP_Meta.Controls.Add(this.CB_Fossil);
-            this.FLP_Meta.Location = new System.Drawing.Point(0, 72);
-            this.FLP_Meta.Margin = new System.Windows.Forms.Padding(0);
-            this.FLP_Meta.Name = "FLP_Meta";
-            this.FLP_Meta.Size = new System.Drawing.Size(147, 132);
-            this.FLP_Meta.TabIndex = 30;
-            // 
-            // PAN_DummyFlower
-            // 
-            this.PAN_DummyFlower.Location = new System.Drawing.Point(0, 65);
-            this.PAN_DummyFlower.Margin = new System.Windows.Forms.Padding(0);
-            this.PAN_DummyFlower.Name = "PAN_DummyFlower";
-            this.PAN_DummyFlower.Size = new System.Drawing.Size(0, 0);
-            this.PAN_DummyFlower.TabIndex = 21;
             // 
             // ItemEditor
             // 
@@ -858,6 +858,8 @@
             this.FLP_Controls.ResumeLayout(false);
             this.FLP_Controls.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Item)).EndInit();
+            this.FLP_Meta.ResumeLayout(false);
+            this.FLP_Meta.PerformLayout();
             this.FLP_Extension.ResumeLayout(false);
             this.FLP_Extension.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_ExtensionX)).EndInit();
@@ -874,8 +876,6 @@
             this.FLP_FlowerFlags.ResumeLayout(false);
             this.FLP_FlowerFlags.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_WaterDays)).EndInit();
-            this.FLP_Meta.ResumeLayout(false);
-            this.FLP_Meta.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
