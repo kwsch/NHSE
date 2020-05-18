@@ -102,6 +102,8 @@ namespace NHSE.Sprites
                             tile = layer.GetTile(x - tile.ExtensionX, y - tile.ExtensionY);
                         }
                         var geneValue = ((uint)tile.Genes >> (geneIndex * 2)) & 3;
+                        if (geneValue == 0)
+                            continue;
                         DrawGene(data, (x - x0) * scale, (y - y0) * scale, scale, w, geneValue, geneIndex);
                     }
                 }
@@ -110,8 +112,6 @@ namespace NHSE.Sprites
 
         private static void DrawGene(int[] data, int x0, int y0, int scale, int w, uint geneValue, int geneIndex)
         {
-            if (geneValue == 0)
-                return;
 
             var c = ShiftToGeneCoordinate(ref x0, ref y0, scale, geneIndex);
             FillSquare(data, x0, y0, scale / 2, w, c, geneValue == 3 ? 1 : 2);
