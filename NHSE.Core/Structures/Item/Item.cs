@@ -31,9 +31,42 @@ namespace NHSE.Core
         public bool Is_40 => (SystemParam & 0x40) != 0;
         public bool Is_80 => (SystemParam & 0x80) != 0;
 
-        public ItemWrapping WrappingType => (ItemWrapping)(AdditionalParam & 3);
-        public int WrappingPaper => (AdditionalParam >> 2) & 0xF;
+        #region Flag1 (Wrapping / Etc)
+        public bool IsWrapped
+        {
+            get
+            {
+                if (AdditionalParam == 0)
+                    return false;
+                var id = DisplayItemId;
+                return id != MessageBottle && id != MessageBottleEgg;
+            }
+        }
+
+        public ItemWrapping WrappingType
+        {
+            get => (ItemWrapping) (AdditionalParam & 3);
+            set => AdditionalParam = (byte)((AdditionalParam & ~3) | ((byte)value & 3));
+        }
+
+        public ItemWrappingPaper WrappingPaper
+        {
+            get => (ItemWrappingPaper) ((AdditionalParam >> 2) & 0xF);
+            set => AdditionalParam = (byte)((AdditionalParam & 3) | ((byte)value & 0xF) << 2);
+        }
+
+        public void SetWrapping(ItemWrapping wrap, ItemWrappingPaper color)
+        {
+            if (wrap == ItemWrapping.Nothing || wrap > ItemWrapping.Delivery)
+            {
+                AdditionalParam = 0;
+                return;
+            }
+            WrappingType = wrap;
+            WrappingPaper = wrap == ItemWrapping.WrappingPaper ? color : 0;
+        }
         // 2 bits ???
+        #endregion
 
         #region Stackable Items
         [field: FieldOffset(4)] public ushort Count { get; set; }
@@ -175,7 +208,7 @@ namespace NHSE.Core
         {
             return WrappingType switch
             {
-                ItemWrapping.WrappingPaper => (ushort) (0x1E13 + WrappingPaper),
+                ItemWrapping.WrappingPaper => (ushort) (0x1E13 + (ushort)WrappingPaper),
                 ItemWrapping.Present => 0x1180,
                 ItemWrapping.Delivery => 0x1225,
                 _ => ItemId,

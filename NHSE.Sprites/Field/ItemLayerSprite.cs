@@ -112,7 +112,6 @@ namespace NHSE.Sprites
 
         private static void DrawGene(int[] data, int x0, int y0, int scale, int w, uint geneValue, int geneIndex)
         {
-
             var c = ShiftToGeneCoordinate(ref x0, ref y0, scale, geneIndex);
             FillSquare(data, x0, y0, scale / 2, w, c, geneValue == 3 ? 1 : 2);
         }

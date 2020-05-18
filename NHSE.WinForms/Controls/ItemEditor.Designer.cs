@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.CB_ItemID = new System.Windows.Forms.ComboBox();
             this.NUD_Count = new System.Windows.Forms.NumericUpDown();
             this.L_Count = new System.Windows.Forms.Label();
@@ -38,10 +37,6 @@
             this.NUD_Flag0 = new System.Windows.Forms.NumericUpDown();
             this.L_Flag1 = new System.Windows.Forms.Label();
             this.NUD_Flag1 = new System.Windows.Forms.NumericUpDown();
-            this.CM_Hand = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.Menu_View = new System.Windows.Forms.ToolStripMenuItem();
-            this.Menu_Set = new System.Windows.Forms.ToolStripMenuItem();
-            this.Menu_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.CB_Recipe = new System.Windows.Forms.ComboBox();
             this.FLP_Controls = new System.Windows.Forms.FlowLayoutPanel();
             this.PB_Item = new System.Windows.Forms.PictureBox();
@@ -88,11 +83,15 @@
             this.CHK_WV6 = new System.Windows.Forms.CheckBox();
             this.CHK_WV9 = new System.Windows.Forms.CheckBox();
             this.CHK_Gold = new System.Windows.Forms.CheckBox();
+            this.FLP_Flag1Group = new System.Windows.Forms.FlowLayoutPanel();
+            this.CHK_Wrapped = new System.Windows.Forms.CheckBox();
+            this.FLP_Wrapped = new System.Windows.Forms.FlowLayoutPanel();
+            this.CB_WrapType = new System.Windows.Forms.ComboBox();
+            this.CB_WrapColor = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Count)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Uses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag1)).BeginInit();
-            this.CM_Hand.SuspendLayout();
             this.FLP_Controls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Item)).BeginInit();
             this.FLP_Meta.SuspendLayout();
@@ -108,6 +107,8 @@
             this.FLP_Genetics.SuspendLayout();
             this.FLP_FlowerFlags.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_WaterDays)).BeginInit();
+            this.FLP_Flag1Group.SuspendLayout();
+            this.FLP_Wrapped.SuspendLayout();
             this.SuspendLayout();
             // 
             // CB_ItemID
@@ -216,33 +217,6 @@
             this.NUD_Flag1.Size = new System.Drawing.Size(56, 20);
             this.NUD_Flag1.TabIndex = 12;
             // 
-            // CM_Hand
-            // 
-            this.CM_Hand.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Menu_View,
-            this.Menu_Set,
-            this.Menu_Delete});
-            this.CM_Hand.Name = "CM_Hand";
-            this.CM_Hand.Size = new System.Drawing.Size(108, 70);
-            // 
-            // Menu_View
-            // 
-            this.Menu_View.Name = "Menu_View";
-            this.Menu_View.Size = new System.Drawing.Size(107, 22);
-            this.Menu_View.Text = "View";
-            // 
-            // Menu_Set
-            // 
-            this.Menu_Set.Name = "Menu_Set";
-            this.Menu_Set.Size = new System.Drawing.Size(107, 22);
-            this.Menu_Set.Text = "Set";
-            // 
-            // Menu_Delete
-            // 
-            this.Menu_Delete.Name = "Menu_Delete";
-            this.Menu_Delete.Size = new System.Drawing.Size(107, 22);
-            this.Menu_Delete.Text = "Delete";
-            // 
             // CB_Recipe
             // 
             this.CB_Recipe.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -266,6 +240,7 @@
             this.FLP_Controls.Controls.Add(this.PB_Item);
             this.FLP_Controls.Controls.Add(this.FLP_Meta);
             this.FLP_Controls.Controls.Add(this.FLP_Item);
+            this.FLP_Controls.Controls.Add(this.FLP_Flag1Group);
             this.FLP_Controls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FLP_Controls.Location = new System.Drawing.Point(0, 0);
             this.FLP_Controls.Margin = new System.Windows.Forms.Padding(0);
@@ -407,12 +382,11 @@
             this.FLP_Item.Controls.Add(this.FLP_Count);
             this.FLP_Item.Controls.Add(this.FLP_Uses);
             this.FLP_Item.Controls.Add(this.FLP_Flag0);
-            this.FLP_Item.Controls.Add(this.FLP_Flag1);
             this.FLP_Item.Controls.Add(this.FLP_Flower);
             this.FLP_Item.Location = new System.Drawing.Point(0, 204);
             this.FLP_Item.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Item.Name = "FLP_Item";
-            this.FLP_Item.Size = new System.Drawing.Size(152, 324);
+            this.FLP_Item.Size = new System.Drawing.Size(152, 298);
             this.FLP_Item.TabIndex = 25;
             // 
             // FLP_Count
@@ -486,7 +460,7 @@
             // 
             this.FLP_Flag1.Controls.Add(this.L_Flag1);
             this.FLP_Flag1.Controls.Add(this.NUD_Flag1);
-            this.FLP_Flag1.Location = new System.Drawing.Point(0, 128);
+            this.FLP_Flag1.Location = new System.Drawing.Point(0, 0);
             this.FLP_Flag1.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Flag1.Name = "FLP_Flag1";
             this.FLP_Flag1.Size = new System.Drawing.Size(152, 26);
@@ -498,7 +472,7 @@
             this.FLP_Flower.Controls.Add(this.FLP_Genetics);
             this.FLP_Flower.Controls.Add(this.PAN_DummyFlower);
             this.FLP_Flower.Controls.Add(this.FLP_FlowerFlags);
-            this.FLP_Flower.Location = new System.Drawing.Point(0, 154);
+            this.FLP_Flower.Location = new System.Drawing.Point(0, 128);
             this.FLP_Flower.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Flower.Name = "FLP_Flower";
             this.FLP_Flower.Size = new System.Drawing.Size(152, 170);
@@ -843,6 +817,67 @@
             this.CHK_Gold.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_Gold.UseVisualStyleBackColor = true;
             // 
+            // FLP_Flag1Group
+            // 
+            this.FLP_Flag1Group.AutoSize = true;
+            this.FLP_Flag1Group.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.FLP_Flag1Group.Controls.Add(this.FLP_Flag1);
+            this.FLP_Flag1Group.Controls.Add(this.CHK_Wrapped);
+            this.FLP_Flag1Group.Controls.Add(this.FLP_Wrapped);
+            this.FLP_Flag1Group.Location = new System.Drawing.Point(0, 502);
+            this.FLP_Flag1Group.Margin = new System.Windows.Forms.Padding(0);
+            this.FLP_Flag1Group.Name = "FLP_Flag1Group";
+            this.FLP_Flag1Group.Size = new System.Drawing.Size(152, 91);
+            this.FLP_Flag1Group.TabIndex = 31;
+            // 
+            // CHK_Wrapped
+            // 
+            this.CHK_Wrapped.AutoSize = true;
+            this.FLP_Flag1Group.SetFlowBreak(this.CHK_Wrapped, true);
+            this.CHK_Wrapped.Location = new System.Drawing.Point(17, 29);
+            this.CHK_Wrapped.Margin = new System.Windows.Forms.Padding(17, 3, 3, 3);
+            this.CHK_Wrapped.Name = "CHK_Wrapped";
+            this.CHK_Wrapped.Size = new System.Drawing.Size(70, 17);
+            this.CHK_Wrapped.TabIndex = 27;
+            this.CHK_Wrapped.Text = "Wrapped";
+            this.CHK_Wrapped.UseVisualStyleBackColor = true;
+            this.CHK_Wrapped.CheckedChanged += new System.EventHandler(this.CHK_Wrapped_CheckedChanged);
+            // 
+            // FLP_Wrapped
+            // 
+            this.FLP_Wrapped.AutoSize = true;
+            this.FLP_Wrapped.Controls.Add(this.CB_WrapType);
+            this.FLP_Wrapped.Controls.Add(this.CB_WrapColor);
+            this.FLP_Flag1Group.SetFlowBreak(this.FLP_Wrapped, true);
+            this.FLP_Wrapped.Location = new System.Drawing.Point(0, 49);
+            this.FLP_Wrapped.Margin = new System.Windows.Forms.Padding(0);
+            this.FLP_Wrapped.Name = "FLP_Wrapped";
+            this.FLP_Wrapped.Size = new System.Drawing.Size(121, 42);
+            this.FLP_Wrapped.TabIndex = 24;
+            this.FLP_Wrapped.Visible = false;
+            // 
+            // CB_WrapType
+            // 
+            this.CB_WrapType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_WrapType.FormattingEnabled = true;
+            this.CB_WrapType.Location = new System.Drawing.Point(0, 0);
+            this.CB_WrapType.Margin = new System.Windows.Forms.Padding(0);
+            this.CB_WrapType.Name = "CB_WrapType";
+            this.CB_WrapType.Size = new System.Drawing.Size(121, 21);
+            this.CB_WrapType.TabIndex = 27;
+            this.CB_WrapType.SelectedIndexChanged += new System.EventHandler(this.CB_WrapType_SelectedIndexChanged);
+            // 
+            // CB_WrapColor
+            // 
+            this.CB_WrapColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_WrapColor.FormattingEnabled = true;
+            this.CB_WrapColor.Location = new System.Drawing.Point(0, 21);
+            this.CB_WrapColor.Margin = new System.Windows.Forms.Padding(0);
+            this.CB_WrapColor.Name = "CB_WrapColor";
+            this.CB_WrapColor.Size = new System.Drawing.Size(121, 21);
+            this.CB_WrapColor.TabIndex = 28;
+            this.CB_WrapColor.Visible = false;
+            // 
             // ItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -854,7 +889,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Uses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag1)).EndInit();
-            this.CM_Hand.ResumeLayout(false);
             this.FLP_Controls.ResumeLayout(false);
             this.FLP_Controls.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Item)).EndInit();
@@ -876,6 +910,9 @@
             this.FLP_FlowerFlags.ResumeLayout(false);
             this.FLP_FlowerFlags.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_WaterDays)).EndInit();
+            this.FLP_Flag1Group.ResumeLayout(false);
+            this.FLP_Flag1Group.PerformLayout();
+            this.FLP_Wrapped.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -891,10 +928,6 @@
         private System.Windows.Forms.NumericUpDown NUD_Flag0;
         private System.Windows.Forms.Label L_Flag1;
         private System.Windows.Forms.NumericUpDown NUD_Flag1;
-        private System.Windows.Forms.ContextMenuStrip CM_Hand;
-        private System.Windows.Forms.ToolStripMenuItem Menu_View;
-        private System.Windows.Forms.ToolStripMenuItem Menu_Set;
-        private System.Windows.Forms.ToolStripMenuItem Menu_Delete;
         private System.Windows.Forms.ComboBox CB_Recipe;
         private System.Windows.Forms.FlowLayoutPanel FLP_Controls;
         private System.Windows.Forms.FlowLayoutPanel FLP_Count;
@@ -941,5 +974,10 @@
         private System.Windows.Forms.Panel PAN_DummyExtension;
         private System.Windows.Forms.FlowLayoutPanel FLP_Meta;
         private System.Windows.Forms.Panel PAN_DummyFlower;
+        private System.Windows.Forms.FlowLayoutPanel FLP_Flag1Group;
+        private System.Windows.Forms.CheckBox CHK_Wrapped;
+        private System.Windows.Forms.FlowLayoutPanel FLP_Wrapped;
+        private System.Windows.Forms.ComboBox CB_WrapType;
+        private System.Windows.Forms.ComboBox CB_WrapColor;
     }
 }

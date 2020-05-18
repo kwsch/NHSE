@@ -19,6 +19,9 @@ namespace NHSE.WinForms
         {
             InitializeComponent();
 
+            CB_WrapColor.Items.AddRange(Enum.GetNames(typeof(ItemWrappingPaper)));
+            CB_WrapType.Items.AddRange(Enum.GetNames(typeof(ItemWrapping)));
+
             Watered = new[]
             {
                 CHK_WV0, CHK_WV1,
@@ -73,9 +76,19 @@ namespace NHSE.WinForms
                 NUD_Count.Value = item.Count;
                 NUD_Uses.Value = item.UseCount;
                 NUD_Flag0.Value = item.SystemParam;
-                NUD_Flag1.Value = item.AdditionalParam;
 
-                LoadItemTypeValues(kind);
+                if (kind == ItemKind.Kind_MessageBottle || id >= 60_000)
+                {
+                    NUD_Flag1.Value = item.AdditionalParam;
+                }
+                else
+                {
+                    CHK_Wrapped.Checked = item.WrappingType != 0;
+                    CB_WrapType.SelectedIndex = (int)item.WrappingType;
+                    CB_WrapColor.SelectedIndex = (int)item.WrappingPaper;
+                }
+
+                LoadItemTypeValues(kind, id);
             }
 
             Loading = false;
@@ -108,13 +121,27 @@ namespace NHSE.WinForms
                 item.IsWatered = CHK_IsWatered.Checked;
                 for (int i = 0; i < Watered.Length; i++)
                     item.SetIsWateredByVisitor(i, Watered[i].Checked);
+
+                item.SystemParam = 0;
+                item.AdditionalParam = 0;
             }
             else
             {
                 item.Count = (ushort)NUD_Count.Value;
                 item.UseCount = (ushort)NUD_Uses.Value;
                 item.SystemParam = (byte)NUD_Flag0.Value;
-                item.AdditionalParam = (byte)NUD_Flag1.Value;
+
+                if (kind == ItemKind.Kind_MessageBottle)
+                {
+                    item.AdditionalParam = (byte)NUD_Flag1.Value;
+                }
+                else
+                {
+                    if (CHK_Wrapped.Checked)
+                        item.SetWrapping((ItemWrapping)CB_WrapType.SelectedIndex, (ItemWrappingPaper)CB_WrapColor.SelectedIndex);
+                    else
+                        item.SetWrapping(0, 0);
+                }
             }
             return item;
         }
@@ -137,7 +164,7 @@ namespace NHSE.WinForms
 
             ToggleEditorVisibility(kind);
             if (!Loading)
-                LoadItemTypeValues(kind);
+                LoadItemTypeValues(kind, itemID);
 
             var remake = ItemRemakeUtil.GetRemakeIndex(itemID);
             if (remake < 0)
@@ -158,8 +185,16 @@ namespace NHSE.WinForms
             }
         }
 
-        private void LoadItemTypeValues(ItemKind k)
+        private void LoadItemTypeValues(ItemKind k, ushort index)
         {
+            if (index >= 60_000)
+            {
+                CHK_Wrapped.Checked = false;
+                CHK_Wrapped.Visible = CHK_Wrapped.Checked = false;
+                FLP_Flag1.Visible = true;
+                return;
+            }
+
             switch (k)
             {
                 case ItemKind.Kind_FossilUnknown:
@@ -167,10 +202,19 @@ namespace NHSE.WinForms
                     break;
 
                 case ItemKind.Kind_DIYRecipe:
+                    CB_Recipe.SelectedValue = (int)NUD_Count.Value;
+                    break;
+
                 case ItemKind.Kind_MessageBottle:
                     CB_Recipe.SelectedValue = (int) NUD_Count.Value;
-                    break;
+                    CHK_Wrapped.Checked = false;
+                    CHK_Wrapped.Visible = CHK_Wrapped.Checked = false;
+                    FLP_Flag1.Visible = true;
+                    return;
             }
+
+            CHK_Wrapped.Visible  = true;
+            FLP_Flag1.Visible = false;
         }
 
         private void ToggleEditorVisibility(ItemKind k)
@@ -283,5 +327,14 @@ namespace NHSE.WinForms
             pb.BackColor = ItemColor.GetItemColor(item);
             pb.BackgroundImage = ItemSprite.GetItemSprite(item);
         }
+
+        private void CHK_Wrapped_CheckedChanged(object sender, EventArgs e)
+        {
+            FLP_Wrapped.Visible = CHK_Wrapped.Checked;
+            if (CHK_Wrapped.Checked && CB_WrapType.SelectedIndex == 0)
+                CB_WrapType.SelectedIndex = (int)ItemWrapping.WrappingPaper;
+        }
+
+        private void CB_WrapType_SelectedIndexChanged(object sender, EventArgs e) => CB_WrapColor.Visible = (ItemWrapping)CB_WrapType.SelectedIndex == ItemWrapping.WrappingPaper;
     }
 }
