@@ -87,7 +87,64 @@ namespace NHSE.Sprites
                         DrawPlus(data, (x - x0) * scale, (y - y0) * scale, scale, w);
                     else if (tile.IsExtension)
                         DrawDirectional(data, tile, (x - x0) * scale, (y - y0) * scale, scale, w);
+
+                    var kind = ItemInfo.GetItemKind(tile.DisplayItemId);
+                    if (kind.IsFlower())
+                    {
+                        int geneIndex;
+                        if (tile.IsRoot)
+                        {
+                            geneIndex = 0;
+                        }
+                        else
+                        {
+                            geneIndex = (tile.ExtensionY << 1) | tile.ExtensionX;
+                            tile = layer.GetTile(x - tile.ExtensionX, y - tile.ExtensionY);
+                        }
+                        var geneValue = ((uint)tile.Genes >> (geneIndex * 2)) & 3;
+                        DrawGene(data, (x - x0) * scale, (y - y0) * scale, scale, w, geneValue, geneIndex);
+                    }
                 }
+            }
+        }
+
+        private static void DrawGene(int[] data, int x0, int y0, int scale, int w, uint geneValue, int geneIndex)
+        {
+            if (geneValue == 0)
+                return;
+
+            var c = ShiftToGeneCoordinate(ref x0, ref y0, scale, geneIndex);
+            FillSquare(data, x0, y0, scale / 2, w, c, geneValue == 3 ? 1 : 2);
+        }
+
+        private static void FillSquare(int[] data, int x0, int y0, int scale, int w, int color, int increment)
+        {
+            var baseIndex = (y0 * w) + x0;
+            for (int i = 0; i < scale * scale; i += increment)
+            {
+                var x = i % scale;
+                var y = i / scale;
+                var index = (y * w) + x;
+                data[baseIndex + index] = color;
+            }
+        }
+
+        private static int ShiftToGeneCoordinate(ref int x0, ref int y0, int scale, int geneIndex)
+        {
+            switch (geneIndex)
+            {
+                case 0: // bottom right
+                    x0 += scale / 2;
+                    y0 += scale / 2;
+                    return Color.Red.ToArgb();
+                case 1: // bottom left
+                    y0 += scale / 2;
+                    return Color.Yellow.ToArgb();
+                case 2: // top right
+                    x0 += scale / 2;
+                    return Color.AntiqueWhite.ToArgb();
+                default: // top left
+                    return Color.Black.ToArgb();
             }
         }
 
