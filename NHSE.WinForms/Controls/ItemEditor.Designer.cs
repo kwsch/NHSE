@@ -903,6 +903,7 @@
             this.CHK_Wrap80.TabIndex = 30;
             this.CHK_Wrap80.Text = "Flag 0x80";
             this.CHK_Wrap80.UseVisualStyleBackColor = true;
+            this.CHK_Wrap80.Visible = false;
             // 
             // ItemEditor
             // 
