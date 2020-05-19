@@ -33,6 +33,8 @@
             this.LB_Counts = new System.Windows.Forms.ListBox();
             this.NUD_Count = new System.Windows.Forms.NumericUpDown();
             this.L_Count = new System.Windows.Forms.Label();
+            this.B_Load = new System.Windows.Forms.Button();
+            this.B_Dump = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Count)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,11 +101,35 @@
             this.L_Count.TabIndex = 10;
             this.L_Count.Text = "Value:";
             // 
-            // FlagEditor
+            // B_Load
+            // 
+            this.B_Load.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.B_Load.Location = new System.Drawing.Point(200, 158);
+            this.B_Load.Name = "B_Load";
+            this.B_Load.Size = new System.Drawing.Size(72, 23);
+            this.B_Load.TabIndex = 14;
+            this.B_Load.Text = "Load";
+            this.B_Load.UseVisualStyleBackColor = true;
+            this.B_Load.Click += new System.EventHandler(this.B_Load_Click);
+            // 
+            // B_Dump
+            // 
+            this.B_Dump.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.B_Dump.Location = new System.Drawing.Point(200, 129);
+            this.B_Dump.Name = "B_Dump";
+            this.B_Dump.Size = new System.Drawing.Size(72, 23);
+            this.B_Dump.TabIndex = 13;
+            this.B_Dump.Text = "Dump";
+            this.B_Dump.UseVisualStyleBackColor = true;
+            this.B_Dump.Click += new System.EventHandler(this.B_Dump_Click);
+            // 
+            // VillagerFlagEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.B_Load);
+            this.Controls.Add(this.B_Dump);
             this.Controls.Add(this.L_Count);
             this.Controls.Add(this.NUD_Count);
             this.Controls.Add(this.LB_Counts);
@@ -112,7 +138,7 @@
             this.Icon = global::NHSE.WinForms.Properties.Resources.icon;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FlagEditor";
+            this.Name = "VillagerFlagEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Flag Editor";
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Count)).EndInit();
@@ -128,5 +154,7 @@
         private System.Windows.Forms.ListBox LB_Counts;
         private System.Windows.Forms.NumericUpDown NUD_Count;
         private System.Windows.Forms.Label L_Count;
+        private System.Windows.Forms.Button B_Load;
+        private System.Windows.Forms.Button B_Dump;
     }
 }

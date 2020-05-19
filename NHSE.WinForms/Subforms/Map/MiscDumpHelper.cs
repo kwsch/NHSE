@@ -197,5 +197,38 @@ namespace NHSE.WinForms
             data.CopyTo(room.Data, 0);
             return true;
         }
+
+        public static void DumpFlags(byte[] data, string name)
+        {
+            using var sfd = new SaveFileDialog
+            {
+                Filter = "New Horizons Flag List (*.nhfl)|*.nhfl|All files (*.*)|*.*",
+                FileName = $"{name}.nhfl",
+            };
+            if (sfd.ShowDialog() == DialogResult.OK)
+                File.WriteAllBytes(sfd.FileName, data);
+        }
+
+        public static byte[] LoadFlags(int size, string name)
+        {
+            using var ofd = new OpenFileDialog
+            {
+                Filter = "New Horizons Flag List (*.nhfl)|*.nhfl|All files (*.*)|*.*",
+                FileName = $"{name}.nhfl",
+            };
+            if (ofd.ShowDialog() != DialogResult.OK)
+                return System.Array.Empty<byte>();
+
+            var file = ofd.FileName;
+            var fi = new FileInfo(file);
+            int expectLength = size;
+            if (fi.Length != expectLength)
+            {
+                WinFormsUtil.Error(MessageStrings.MsgCanceling, string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength));
+                return System.Array.Empty<byte>();
+            }
+
+            return File.ReadAllBytes(file);
+        }
     }
 }

@@ -46,5 +46,20 @@ namespace NHSE.WinForms
 
             NUD_Count.Value = Counts[Index = LB_Counts.SelectedIndex];
         }
+
+        private void B_Dump_Click(object sender, EventArgs e)
+        {
+            byte[] data = new byte[Counts.Length * 2];
+            Buffer.BlockCopy(Counts, 0, data, 0, data.Length);
+            MiscDumpHelper.DumpFlags(data, nameof(EventFlagPlayer));
+        }
+
+        private void B_Load_Click(object sender, EventArgs e)
+        {
+            var data = MiscDumpHelper.LoadFlags(Counts.Length * 2, nameof(EventFlagPlayer));
+            if (data.Length != 0)
+                Buffer.BlockCopy(data, 0, Counts, 0, data.Length);
+            LB_Counts.SelectedIndex = LB_Counts.SelectedIndex;
+        }
     }
 }
