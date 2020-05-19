@@ -86,6 +86,8 @@ namespace NHSE.WinForms
                     CHK_Wrapped.Checked = item.WrappingType != 0;
                     CB_WrapType.SelectedIndex = (int)item.WrappingType;
                     CB_WrapColor.SelectedIndex = (int)item.WrappingPaper;
+                    CHK_WrapShowName.Checked = item.WrappingShowItem;
+                    CHK_Wrap80.Checked = item.Wrapping80;
                 }
 
                 LoadItemTypeValues(kind, id);
@@ -137,10 +139,18 @@ namespace NHSE.WinForms
                 }
                 else
                 {
-                    if (CHK_Wrapped.Checked)
-                        item.SetWrapping((ItemWrapping)CB_WrapType.SelectedIndex, (ItemWrappingPaper)CB_WrapColor.SelectedIndex);
-                    else
+                    if (!CHK_Wrapped.Checked)
+                    {
                         item.SetWrapping(0, 0);
+                    }
+                    else
+                    {
+                        var type = (ItemWrapping) CB_WrapType.SelectedIndex;
+                        var color = (ItemWrappingPaper) CB_WrapColor.SelectedIndex;
+                        var show = CHK_WrapShowName.Checked;
+                        var flag = CHK_Wrap80.Checked;
+                        item.SetWrapping(type, color, show, flag);
+                    }
                 }
             }
             return item;

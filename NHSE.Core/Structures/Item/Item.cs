@@ -55,7 +55,7 @@ namespace NHSE.Core
             set => AdditionalParam = (byte)((AdditionalParam & 3) | ((byte)value & 0xF) << 2);
         }
 
-        public void SetWrapping(ItemWrapping wrap, ItemWrappingPaper color)
+        public void SetWrapping(ItemWrapping wrap, ItemWrappingPaper color, bool showItem = false, bool item80 = false)
         {
             if (wrap == ItemWrapping.Nothing || wrap > ItemWrapping.Delivery)
             {
@@ -64,8 +64,21 @@ namespace NHSE.Core
             }
             WrappingType = wrap;
             WrappingPaper = wrap == ItemWrapping.WrappingPaper ? color : 0;
+            WrappingShowItem = showItem;
+            Wrapping80 = item80;
         }
-        // 2 bits ???
+
+        public bool WrappingShowItem
+        {
+            get => (AdditionalParam & 0x40) != 0;
+            set => AdditionalParam = (byte)((AdditionalParam & ~0x40) | (value ? 1 << 6 : 0));
+        }
+
+        public bool Wrapping80
+        {
+            get => (AdditionalParam & 0x80) != 0;
+            set => AdditionalParam = (byte)((AdditionalParam & ~0x80) | (value ? 1 << 7 : 0));
+        }
         #endregion
 
         #region Stackable Items

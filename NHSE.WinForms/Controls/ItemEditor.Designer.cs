@@ -42,13 +42,13 @@
             this.PB_Item = new System.Windows.Forms.PictureBox();
             this.FLP_Meta = new System.Windows.Forms.FlowLayoutPanel();
             this.CHK_IsExtension = new System.Windows.Forms.CheckBox();
+            this.PAN_DummyExtension = new System.Windows.Forms.Panel();
             this.FLP_Extension = new System.Windows.Forms.FlowLayoutPanel();
             this.L_ExtensionX = new System.Windows.Forms.Label();
             this.NUD_ExtensionX = new System.Windows.Forms.NumericUpDown();
             this.L_ExtensionY = new System.Windows.Forms.Label();
             this.NUD_ExtensionY = new System.Windows.Forms.NumericUpDown();
             this.CB_Fossil = new System.Windows.Forms.ComboBox();
-            this.PAN_DummyExtension = new System.Windows.Forms.Panel();
             this.FLP_Item = new System.Windows.Forms.FlowLayoutPanel();
             this.FLP_Count = new System.Windows.Forms.FlowLayoutPanel();
             this.PAN_DummyCount = new System.Windows.Forms.Panel();
@@ -56,7 +56,6 @@
             this.L_RemakeFabric = new System.Windows.Forms.Label();
             this.FLP_Uses = new System.Windows.Forms.FlowLayoutPanel();
             this.FLP_Flag0 = new System.Windows.Forms.FlowLayoutPanel();
-            this.FLP_Flag1 = new System.Windows.Forms.FlowLayoutPanel();
             this.FLP_Flower = new System.Windows.Forms.FlowLayoutPanel();
             this.FLP_Genetics = new System.Windows.Forms.FlowLayoutPanel();
             this.CHK_R2 = new System.Windows.Forms.CheckBox();
@@ -84,10 +83,13 @@
             this.CHK_WV9 = new System.Windows.Forms.CheckBox();
             this.CHK_Gold = new System.Windows.Forms.CheckBox();
             this.FLP_Flag1Group = new System.Windows.Forms.FlowLayoutPanel();
+            this.FLP_Flag1 = new System.Windows.Forms.FlowLayoutPanel();
             this.CHK_Wrapped = new System.Windows.Forms.CheckBox();
             this.FLP_Wrapped = new System.Windows.Forms.FlowLayoutPanel();
             this.CB_WrapType = new System.Windows.Forms.ComboBox();
             this.CB_WrapColor = new System.Windows.Forms.ComboBox();
+            this.CHK_WrapShowName = new System.Windows.Forms.CheckBox();
+            this.CHK_Wrap80 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Count)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Uses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag0)).BeginInit();
@@ -102,12 +104,12 @@
             this.FLP_Count.SuspendLayout();
             this.FLP_Uses.SuspendLayout();
             this.FLP_Flag0.SuspendLayout();
-            this.FLP_Flag1.SuspendLayout();
             this.FLP_Flower.SuspendLayout();
             this.FLP_Genetics.SuspendLayout();
             this.FLP_FlowerFlags.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_WaterDays)).BeginInit();
             this.FLP_Flag1Group.SuspendLayout();
+            this.FLP_Flag1.SuspendLayout();
             this.FLP_Wrapped.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -288,6 +290,14 @@
             this.CHK_IsExtension.UseVisualStyleBackColor = true;
             this.CHK_IsExtension.CheckedChanged += new System.EventHandler(this.CHK_IsExtension_CheckedChanged);
             // 
+            // PAN_DummyExtension
+            // 
+            this.PAN_DummyExtension.Location = new System.Drawing.Point(0, 46);
+            this.PAN_DummyExtension.Margin = new System.Windows.Forms.Padding(0);
+            this.PAN_DummyExtension.Name = "PAN_DummyExtension";
+            this.PAN_DummyExtension.Size = new System.Drawing.Size(0, 0);
+            this.PAN_DummyExtension.TabIndex = 29;
+            // 
             // FLP_Extension
             // 
             this.FLP_Extension.AutoSize = true;
@@ -368,14 +378,6 @@
             this.CB_Fossil.SelectedValueChanged += new System.EventHandler(this.CB_CountAlias_SelectedValueChanged);
             this.CB_Fossil.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CB_KeyDown);
             // 
-            // PAN_DummyExtension
-            // 
-            this.PAN_DummyExtension.Location = new System.Drawing.Point(0, 46);
-            this.PAN_DummyExtension.Margin = new System.Windows.Forms.Padding(0);
-            this.PAN_DummyExtension.Name = "PAN_DummyExtension";
-            this.PAN_DummyExtension.Size = new System.Drawing.Size(0, 0);
-            this.PAN_DummyExtension.TabIndex = 29;
-            // 
             // FLP_Item
             // 
             this.FLP_Item.AutoSize = true;
@@ -455,16 +457,6 @@
             this.FLP_Flag0.Name = "FLP_Flag0";
             this.FLP_Flag0.Size = new System.Drawing.Size(152, 26);
             this.FLP_Flag0.TabIndex = 17;
-            // 
-            // FLP_Flag1
-            // 
-            this.FLP_Flag1.Controls.Add(this.L_Flag1);
-            this.FLP_Flag1.Controls.Add(this.NUD_Flag1);
-            this.FLP_Flag1.Location = new System.Drawing.Point(0, 0);
-            this.FLP_Flag1.Margin = new System.Windows.Forms.Padding(0);
-            this.FLP_Flag1.Name = "FLP_Flag1";
-            this.FLP_Flag1.Size = new System.Drawing.Size(152, 26);
-            this.FLP_Flag1.TabIndex = 17;
             // 
             // FLP_Flower
             // 
@@ -827,8 +819,18 @@
             this.FLP_Flag1Group.Location = new System.Drawing.Point(0, 502);
             this.FLP_Flag1Group.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Flag1Group.Name = "FLP_Flag1Group";
-            this.FLP_Flag1Group.Size = new System.Drawing.Size(152, 91);
+            this.FLP_Flag1Group.Size = new System.Drawing.Size(152, 125);
             this.FLP_Flag1Group.TabIndex = 31;
+            // 
+            // FLP_Flag1
+            // 
+            this.FLP_Flag1.Controls.Add(this.L_Flag1);
+            this.FLP_Flag1.Controls.Add(this.NUD_Flag1);
+            this.FLP_Flag1.Location = new System.Drawing.Point(0, 0);
+            this.FLP_Flag1.Margin = new System.Windows.Forms.Padding(0);
+            this.FLP_Flag1.Name = "FLP_Flag1";
+            this.FLP_Flag1.Size = new System.Drawing.Size(152, 26);
+            this.FLP_Flag1.TabIndex = 17;
             // 
             // CHK_Wrapped
             // 
@@ -848,11 +850,13 @@
             this.FLP_Wrapped.AutoSize = true;
             this.FLP_Wrapped.Controls.Add(this.CB_WrapType);
             this.FLP_Wrapped.Controls.Add(this.CB_WrapColor);
+            this.FLP_Wrapped.Controls.Add(this.CHK_WrapShowName);
+            this.FLP_Wrapped.Controls.Add(this.CHK_Wrap80);
             this.FLP_Flag1Group.SetFlowBreak(this.FLP_Wrapped, true);
             this.FLP_Wrapped.Location = new System.Drawing.Point(0, 49);
             this.FLP_Wrapped.Margin = new System.Windows.Forms.Padding(0);
             this.FLP_Wrapped.Name = "FLP_Wrapped";
-            this.FLP_Wrapped.Size = new System.Drawing.Size(121, 42);
+            this.FLP_Wrapped.Size = new System.Drawing.Size(124, 76);
             this.FLP_Wrapped.TabIndex = 24;
             this.FLP_Wrapped.Visible = false;
             // 
@@ -877,6 +881,28 @@
             this.CB_WrapColor.Size = new System.Drawing.Size(121, 21);
             this.CB_WrapColor.TabIndex = 28;
             this.CB_WrapColor.Visible = false;
+            // 
+            // CHK_WrapShowName
+            // 
+            this.FLP_Wrapped.SetFlowBreak(this.CHK_WrapShowName, true);
+            this.CHK_WrapShowName.Location = new System.Drawing.Point(17, 42);
+            this.CHK_WrapShowName.Margin = new System.Windows.Forms.Padding(17, 0, 0, 0);
+            this.CHK_WrapShowName.Name = "CHK_WrapShowName";
+            this.CHK_WrapShowName.Size = new System.Drawing.Size(107, 17);
+            this.CHK_WrapShowName.TabIndex = 29;
+            this.CHK_WrapShowName.Text = "Show Item Name";
+            this.CHK_WrapShowName.UseVisualStyleBackColor = true;
+            // 
+            // CHK_Wrap80
+            // 
+            this.FLP_Wrapped.SetFlowBreak(this.CHK_Wrap80, true);
+            this.CHK_Wrap80.Location = new System.Drawing.Point(17, 59);
+            this.CHK_Wrap80.Margin = new System.Windows.Forms.Padding(17, 0, 0, 0);
+            this.CHK_Wrap80.Name = "CHK_Wrap80";
+            this.CHK_Wrap80.Size = new System.Drawing.Size(107, 17);
+            this.CHK_Wrap80.TabIndex = 30;
+            this.CHK_Wrap80.Text = "Flag 0x80";
+            this.CHK_Wrap80.UseVisualStyleBackColor = true;
             // 
             // ItemEditor
             // 
@@ -904,7 +930,6 @@
             this.FLP_Count.PerformLayout();
             this.FLP_Uses.ResumeLayout(false);
             this.FLP_Flag0.ResumeLayout(false);
-            this.FLP_Flag1.ResumeLayout(false);
             this.FLP_Flower.ResumeLayout(false);
             this.FLP_Genetics.ResumeLayout(false);
             this.FLP_FlowerFlags.ResumeLayout(false);
@@ -912,6 +937,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_WaterDays)).EndInit();
             this.FLP_Flag1Group.ResumeLayout(false);
             this.FLP_Flag1Group.PerformLayout();
+            this.FLP_Flag1.ResumeLayout(false);
             this.FLP_Wrapped.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -979,5 +1005,7 @@
         private System.Windows.Forms.FlowLayoutPanel FLP_Wrapped;
         private System.Windows.Forms.ComboBox CB_WrapType;
         private System.Windows.Forms.ComboBox CB_WrapColor;
+        private System.Windows.Forms.CheckBox CHK_WrapShowName;
+        private System.Windows.Forms.CheckBox CHK_Wrap80;
     }
 }
