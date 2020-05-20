@@ -8,7 +8,7 @@ using NHSE.Sprites;
 
 namespace NHSE.WinForms
 {
-    public sealed partial class FieldItemEditor : Form
+    public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     {
         private readonly MainSave SAV;
 
@@ -23,6 +23,9 @@ namespace NHSE.WinForms
         private int DragX = -1;
         private int DragY = -1;
         private bool Dragging;
+
+        public ItemEditor ItemProvider => ItemEdit;
+        public ItemLayer SpawnLayer => Map.CurrentLayer;
 
         public FieldItemEditor(MainSave sav)
         {
@@ -117,7 +120,7 @@ namespace NHSE.WinForms
         private void ReloadMapItemGrid() => PB_Map.Image = View.GetMapWithReticle(GetItemTransparency());
         private void ReloadAcreItemGrid() => PB_Acre.Image = View.GetLayerAcre(GetItemTransparency());
 
-        private void ReloadItems()
+        public void ReloadItems()
         {
             ReloadAcreItemGrid();
             ReloadMapItemGrid();
@@ -885,5 +888,14 @@ namespace NHSE.WinForms
             MapManager.ClearDesignTiles(SAV);
             System.Media.SystemSounds.Asterisk.Play();
         }
+
+        private void Menu_Spawn_Click(object sender, EventArgs e) => new BulkSpawn(this, View.X, View.Y).ShowDialog();
+    }
+
+    public interface IItemLayerEditor
+    {
+        void ReloadItems();
+        ItemEditor ItemProvider { get; }
+        ItemLayer SpawnLayer { get; }
     }
 }
