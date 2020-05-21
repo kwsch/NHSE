@@ -31,7 +31,7 @@
         public override int Pockets1 => PlayerOther + 0x4;
         public override int Pockets2 => Pockets1 + (8 * Pockets1Count) + 0x18;
         public override int Wallet => Pockets2 + (8 * Pockets2Count) + 0x18;
-        public override int ItemChest => PlayerOther + 0x18C;
+        public override int ItemChest => PlayerOther + 0x180;
         public override int ItemCollectBit => PlayerOther + 0xA04C;
         public override int ItemRemakeCollectBit => PlayerOther + 0xA7A0;
         public override int Manpu => PlayerOther + 0xAF70;
