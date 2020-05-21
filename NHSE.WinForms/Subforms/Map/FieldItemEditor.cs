@@ -86,7 +86,11 @@ namespace NHSE.WinForms
 
         private int AcreIndex => CB_Acre.SelectedIndex;
 
-        private void ChangeAcre(object sender, EventArgs e) => ChangeViewToAcre(AcreIndex);
+        private void ChangeAcre(object sender, EventArgs e)
+        {
+            ChangeViewToAcre(AcreIndex);
+            CB_MapAcre.Text = CB_Acre.Text;
+        }
 
         private void ChangeViewToAcre(int acre)
         {
@@ -812,6 +816,10 @@ namespace NHSE.WinForms
         {
             var acre = Map.Terrain.BaseAcres[CB_MapAcre.SelectedIndex * 2];
             CB_MapAcreSelect.SelectedValue = (int)acre;
+
+            // Jump view if available
+            if (CB_Acre.Items.OfType<string>().Any(z => z == CB_MapAcre.Text))
+                CB_Acre.Text = CB_MapAcre.Text;
         }
 
         private void CB_MapAcreSelect_SelectedValueChanged(object sender, EventArgs e)
