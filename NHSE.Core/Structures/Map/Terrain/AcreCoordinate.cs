@@ -34,8 +34,8 @@
             {
                 for (int x = 0; x < width; x++)
                 {
-                    var xn = (x == 0) ? 'L' : x == width - 1 ? 'R' : (char)('0' + x - 1);
-                    var yn = (y == 0) ? 'T' : y == height - 1 ? 'B' : (char)('A' + y - 1);
+                    var xn = (x == 0) ? '<' : x == width - 1 ? '>' : (char)('0' + x - 1);
+                    var yn = (y == 0) ? '^' : y == height - 1 ? 'V' : (char)('A' + y - 1);
                     result[i++] = new AcreCoordinate(xn, yn, x, y);
                 }
             }
