@@ -354,10 +354,8 @@ namespace NHSE.WinForms
         private void B_EditAchievements_Click(object sender, EventArgs e)
         {
             var pers = SAV.Players[PlayerIndex].Personal;
-            var records = pers.GetCountAchievement();
-            using var editor = new AchievementEditor(records);
-            if (editor.ShowDialog() == DialogResult.OK)
-                pers.SetCountAchievement(records);
+            using var editor = new AchievementEditor(pers);
+            editor.ShowDialog();
         }
 
         private void B_EditPlayerFlags_Click(object sender, EventArgs e)

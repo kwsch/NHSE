@@ -100,16 +100,10 @@ namespace NHSE.Core
             set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.ItemChest + (Offsets.ItemChestCount * Item.SIZE));
         }
 
-        public uint[] GetCountAchievement()
+        public AchievementList Achievements
         {
-            var result = new uint[Offsets.MaxAchievementID];
-            Buffer.BlockCopy(Data, Offsets.CountAchievement, result, 0, sizeof(uint) * result.Length);
-            return result;
-        }
-
-        public void SetCountAchievement(uint[] achievements)
-        {
-            Buffer.BlockCopy(achievements, 0, Data, Offsets.CountAchievement, sizeof(uint) * Offsets.MaxAchievementID);
+            get => Data.Slice(Offsets.CountAchievement, AchievementList.SIZE).ToStructure<AchievementList>();
+            set => value.ToBytes().CopyTo(Data, Offsets.CountAchievement);
         }
 
         public bool[] GetRecipeList() => ArrayUtil.GitBitFlagArray(Data, Offsets.Recipes, Offsets.MaxRecipeID + 1);

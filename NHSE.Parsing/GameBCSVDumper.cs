@@ -279,27 +279,44 @@ namespace NHSE.Parsing
             var findex = dict[0x54706054];
             var fname = dict[0x45F320F2];
             var fcomment = dict[0x85CF1615];
-            var fv1 = dict[0x3FE43170];
-            var fv2 = dict[0x4171A41D];
+            var fLand = dict[0x3FE43170];
+            var fPlayer = dict[0x4171A41D];
+
+            var fmaxLevel = dict[0x1BE772F0];
+            var fThreshold1 = dict[0xCE0933FC];
+            var fThreshold2 = dict[0x89A9492C];
+            var fThreshold3 = dict[0xB4C9609C];
+            var fThreshold4 = dict[0x06E9BC8C];
+            var fThreshold5 = dict[0x3B89953C];
 
             var result = new List<string>();
             for (int i = 0; i < bcsv.EntryCount; i++)
             {
+                int readHex(BCSVFieldParam p) => int.Parse(bcsv.ReadValue(i, p).Substring(2), NumberStyles.HexNumber);
+
                 var iid = bcsv.ReadValue(i, findex);
-                var ival = ushort.Parse(iid);
+                var index = ushort.Parse(iid);
 
-                var iv1 = bcsv.ReadValue(i, fv1).Substring(2);
-                var iv1a = int.Parse(iv1, NumberStyles.HexNumber);
-
-                var iv2 = bcsv.ReadValue(i, fv2).Substring(2);
-                var iv2a = int.Parse(iv2, NumberStyles.HexNumber);
+                var land = readHex(fLand);
+                var player = readHex(fPlayer);
 
                 var name = bcsv.ReadValue(i, fname).TrimEnd('\0');
+                var paddedName = $"\"{name}\"".PadRight(30, ' ');
+
                 var comment = bcsv.ReadValue(i, fcomment).TrimEnd('\0');
 
-                var paddedName = $"\"{name}\"".PadRight(30, ' ');
-                var v = $"new {nameof(LifeSupportAchievement)}({iv1a,2}, {iv2a,4}, {ival:0000}, {paddedName})";
-                var kvp = $"{{0x{ival:X3}, {v}}}, // {comment}";
+                var tmp = bcsv.ReadValue(i, fmaxLevel);
+                var max = ushort.Parse(tmp);
+                var t1 = readHex(fThreshold1);
+                var t2 = readHex(fThreshold2);
+                var t3 = readHex(fThreshold3);
+                var t4 = readHex(fThreshold4);
+                var t5 = readHex(fThreshold5);
+
+                var values = $"{max}, {t1:0000}, {t2:0000}, {t3:0000}, {t4:0000}, {t5:0000}";
+
+                var v = $"new {nameof(LifeSupportAchievement)}({index:000}, {values}, {land,3}, {player,3}, {paddedName})";
+                var kvp = $"{{0x{index:X2}, {v}}}, // {comment}";
                 result.Add(kvp);
             }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace NHSE.Core
 {
@@ -10,102 +11,130 @@ namespace NHSE.Core
         public ushort Index { get; }
         public string Name { get; }
 
-        public LifeSupportAchievement(short land, short player, ushort index, string name)
+        public readonly int AchievementCount;
+        public readonly uint Threshold1;
+        public readonly uint Threshold2;
+        public readonly uint Threshold3;
+        public readonly uint Threshold4;
+        public readonly uint Threshold5;
+
+        public LifeSupportAchievement(ushort index, byte max, uint t1, uint t2, uint t3, uint t4, uint t5, short land, short player, string name)
         {
-            Name = name;
             Index = index;
+            AchievementCount = max;
+            Threshold1 = t1;
+            Threshold2 = t2;
+            Threshold3 = t3;
+            Threshold4 = t4;
+            Threshold5 = t5;
             FlagLand = land;
             FlagPlayer = player;
+            Name = name;
+        }
+
+        public uint MaxThreshold => Math.Max(Threshold1, Math.Max(Threshold2, Math.Max(Threshold3, Math.Max(Threshold4, Threshold5))));
+
+        public uint GetThresholdValue(in int row)
+        {
+            return row switch
+            {
+                0 => Threshold1,
+                1 => Threshold2,
+                2 => Threshold3,
+                3 => Threshold4,
+                4 => Threshold5,
+                _ => 0,
+            };
         }
 
         private const string Unknown = "???";
 
         public static readonly IReadOnlyDictionary<int, LifeSupportAchievement> List = new Dictionary<int, LifeSupportAchievement>
         {
-            {0x000, new LifeSupportAchievement( 3,   -1, 0000, "CatchFish"                   )}, // サカナを釣った
-            {0x001, new LifeSupportAchievement( 3,   -1, 0001, "CatchInsect"                 )}, // ムシを捕まえた
-            {0x002, new LifeSupportAchievement(-1,   -1, 0002, "CatchFishContinuously"       )}, // 連続で釣りを成功させた回数の最高記録
-            {0x003, new LifeSupportAchievement(-1,   -1, 0003, "FillFishList"                )}, // サカナ図鑑を埋めた
-            {0x004, new LifeSupportAchievement(-1,   -1, 0004, "FillInsectList"              )}, // ムシ図鑑を埋めた
-            {0x005, new LifeSupportAchievement(-1,   -1, 0005, "ShootDownBalloon"            )}, // ふうせんを撃ち落とした
-            {0x006, new LifeSupportAchievement( 3,   -1, 0006, "PlantFlowerSeed"             )}, // 花の種を植えた
-            {0x007, new LifeSupportAchievement(-1,   -1, 0007, "PlantFruit"                  )}, // 6種類のフルーツを植えた
-            {0x008, new LifeSupportAchievement(-1,   -1, 0008, "PlantTreeSeedling"           )}, // 木の苗を植えた
-            {0x009, new LifeSupportAchievement(-1,   -1, 0009, "BuyKabu"                     )}, // カブを買った
-            {0x00A, new LifeSupportAchievement(-1,   -1, 0010, "HowmuchSellKabu"             )}, // カブで得た累計利益
-            {0x00B, new LifeSupportAchievement(-1,   -1, 0011, "HowmuchBuyItem"              )}, // これまでの買い物総額
-            {0x00C, new LifeSupportAchievement(-1,   -1, 0012, "BuyItemRcm"                  )}, // まめきちの店で買い物した
-            {0x00D, new LifeSupportAchievement(-1,   -1, 0013, "SellItemRcm"                 )}, // まめきちの店で売った
-            {0x00E, new LifeSupportAchievement(-1,   -1, 0014, "RemakeFurniture"             )}, // リメイクをした
-            {0x00F, new LifeSupportAchievement(-1,   -1, 0015, "FillCatalog"                 )}, // カタログの項目数
-            {0x010, new LifeSupportAchievement(-1,   -1, 0016, "BuyItemCatalog"              )}, // 通販を利用した
-            {0x011, new LifeSupportAchievement(-1,   -1, 0017, "GotoTotakekeShow"            )}, // とたけけのライブを観た
-            {0x012, new LifeSupportAchievement(-1,   -1, 0018, "VisitAnotherIsland"          )}, // よその島へのおでかけした
-            {0x013, new LifeSupportAchievement(-1,   -1, 0019, "InviteFriend"                )}, // 島にフレンドを招いた
-            {0x015, new LifeSupportAchievement(-1,   -1, 0021, "DayPlayed"                   )}, // 活動日数
-            {0x017, new LifeSupportAchievement(-1,   -1, 0023, "WaterPlant"                  )}, // 水やりをした
-            {0x018, new LifeSupportAchievement(-1,   -1, 0024, "BeStungbyWasp"               )}, // ハチに刺された
-            {0x019, new LifeSupportAchievement(-1,   -1, 0025, "CatchSeminonukegara"         )}, // セミのぬけがらを取った
-            {0x01A, new LifeSupportAchievement(-1,   -1, 0026, "CatchNomi"                   )}, // ノミを取ってあげた
-            {0x01B, new LifeSupportAchievement(-1,   -1, 0027, "BeStungbyPoisonousInsect"    )}, // こわいムシで気絶した
-            {0x01F, new LifeSupportAchievement(-1,   -1, 0031, "FillReactionList"            )}, // リアクションを覚えた
-            {0x020, new LifeSupportAchievement(-1,   -1, 0032, "CatchTrash"                  )}, // ゴミを釣った
-            {0x021, new LifeSupportAchievement(-1,   -1, 0033, "PayImmigrationCost"          )}, // 移住費用を支払った
-            {0x022, new LifeSupportAchievement(-1,   -1, 0034, "RepayLoan"                   )}, // ローンを完済した
-            {0x023, new LifeSupportAchievement( 3,   -1, 0035, "UseMydesign"                 )}, // マイデザインを使った
-            {0x024, new LifeSupportAchievement(-1,   -1, 0036, "UseMydesignPRO"              )}, // マイデザインPROを使った
-            {0x025, new LifeSupportAchievement(-1,   -1, 0037, "SellWeed"                    )}, // 雑草を引き取ってもらった
-            {0x027, new LifeSupportAchievement(-1,   -1, 0039, "CollectGoldTool"             )}, // 6種類の金の道具を集めた
-            {0x028, new LifeSupportAchievement(-1,   -1, 0040, "GetSRankonHHA"               )}, // HHAでSを取った
-            {0x029, new LifeSupportAchievement(-1,   -1, 0041, "AttendFishingConvention"     )}, // 釣り大会に春夏秋冬参加した
-            {0x02A, new LifeSupportAchievement(-1,   -1, 0042, "AttendInsectConvention"      )}, // ムシとり大会に6～9月参加した
-            {0x02B, new LifeSupportAchievement(-1,   -1, 0043, "HelpGul"                     )}, // ジョニーを助けた
-            {0x02C, new LifeSupportAchievement(-1,   -1, 0044, "HelpGst"                     )}, // ゆうたろうを助けた
-            {0x02D, new LifeSupportAchievement(-1,   -1, 0045, "MakePerfectSnowball"         )}, // 最高のゆきだるまを作った
-            {0x02E, new LifeSupportAchievement(-1,   -1, 0046, "ReachMyBirthday"             )}, // 誕生日を迎えた
-            {0x02F, new LifeSupportAchievement(-1,   -1, 0047, "CelebrateVillagersBithday"   )}, // 村民の誕生日を祝ってあげた
-            {0x030, new LifeSupportAchievement(-1,   -1, 0048, "AttendCountdownParty"        )}, // カウントダウンに参加した
-            {0x031, new LifeSupportAchievement(-1,   -1, 0049, "BreakTool"                   )}, // 道具を壊した
-            {0x032, new LifeSupportAchievement(-1,   -1, 0050, "SendLetter"                  )}, // 手紙を送った
-            {0x033, new LifeSupportAchievement(-1,   -1, 0051, "MakePitfall"                 )}, // 落とし穴を作った
-            {0x034, new LifeSupportAchievement(-1,   -1, 0052, "FallintoPitfall"             )}, // 落とし穴に落ちた
-            {0x035, new LifeSupportAchievement(-1,   -1, 0053, "ImmigratetoIsland"           )}, // 島に移住した
-            {0x036, new LifeSupportAchievement(-1,   -1, 0054, "BeFriendwithVillager"        )}, // どうぶつとなかよしになった
-            {0x037, new LifeSupportAchievement(-1,   -1, 0055, "FillRecipeList"              )}, // 集めたレシピの数
-            {0x038, new LifeSupportAchievement(-1,   -1, 0056, "BootPhone"                   )}, // スマホを起動した(上級)
-            {0x039, new LifeSupportAchievement(-1,   -1, 0057, "StrikeRock8Times"            )}, // コイン岩を8連打した
-            {0x03A, new LifeSupportAchievement(-1,  320, 0058, "AchieveAppQuest"             )}, // 村活クエストを達成した
-            {0x03B, new LifeSupportAchievement(-1,   -1, 0059, "AchieveVillagersQuest"       )}, // どうぶつのお願いを聞いた
-            {0x03C, new LifeSupportAchievement(-1,   -1, 0060, "DigBell"                     )}, // ベルを掘り出した
-            {0x03D, new LifeSupportAchievement(-1,   -1, 0061, "DigFossil"                   )}, // 化石を掘り出した
-            {0x03E, new LifeSupportAchievement(-1,   -1, 0062, "JudgeFossil"                 )}, // 化石を鑑定した
-            {0x03F, new LifeSupportAchievement(66,   -1, 0063, "DigShell"                    )}, // 潮干狩りをした
-            {0x040, new LifeSupportAchievement( 3,   -1, 0064, "PutFurnitureOutside"         )}, // 外に家具を置いた
-            {0x043, new LifeSupportAchievement(-1,   -1, 0067, "StrikeWood"                  )}, // 木からもくざいを出した
-            {0x044, new LifeSupportAchievement( 3,   -1, 0068, "GreetAllVillager"            )}, // 村民全員とあいさつをした
-            {0x045, new LifeSupportAchievement( 3,   -1, 0069, "SellShell"                   )}, // 貝殻を売った
-            {0x046, new LifeSupportAchievement( 3,   -1, 0070, "SellFruit"                   )}, // フルーツを売った
-            {0x047, new LifeSupportAchievement(-1,   -1, 0071, "CatchBeeContinuously"        )}, // ハチを5連続捕まえた
-            {0x048, new LifeSupportAchievement(-1,   -1, 0072, "DIYTool"                     )}, // 道具をDIYした
-            {0x049, new LifeSupportAchievement(-1,   -1, 0073, "DIYFurniture"                )}, // 家具をDIYした
-            {0x04B, new LifeSupportAchievement( 3,   -1, 0075, "TakePicture"                 )}, // カメラで写真を撮った
-            {0x04C, new LifeSupportAchievement(-1,   -1, 0076, "BootPhoneBeginner"           )}, // スマホを起動した(初級)
-            {0x04D, new LifeSupportAchievement(-1,   -1, 0077, "HouseStorageItem"            )}, // 家の倉庫に収納したアイテムの数
-            {0x04E, new LifeSupportAchievement(-1,   -1, 0078, "PlaceFurnitureMyHouse"       )}, // 家に飾っている家具の数
-            {0x04F, new LifeSupportAchievement(-1,   -1, 0079, "FallFurnitureLeaf"           )}, // 木を揺すって家具（葉っぱ）を落とした回数
-            {0x050, new LifeSupportAchievement(-1,   -1, 0080, "DropPresentinWater"          )}, // 風船のプレゼントを撃ち水の中に落とした
-            {0x051, new LifeSupportAchievement(-1,   -1, 0081, "ReformMyHome"                )}, // マイホームをリフォームした
-            {0x052, new LifeSupportAchievement(-1,   -1, 0082, "ExtendMyHome"                )}, // マイホームを増築した
-            {0x053, new LifeSupportAchievement( 3,   -1, 0083, "PostMessageBoard"            )}, // 自分の島の掲示板に書き込む
-            {0x054, new LifeSupportAchievement(-1,   -1, 0084, "UseCloset"                   )}, // クローゼットで着替える
-            {0x055, new LifeSupportAchievement(-1,   -1, 0085, "PrayShootingStar"            )}, // 流れ星に祈る
-            {0x056, new LifeSupportAchievement(59,   -1, 0086, "ChangeSymbol"                )}, // 島の旗、島メロを変える
-            {0x057, new LifeSupportAchievement( 3,   -1, 0087, "UpdatePassport"              )}, // パスポートを更新した
-            {0x058, new LifeSupportAchievement(-1,  513, 0088, "ModifyIsland"                )}, // 各地形造成をやってみた
-            {0x059, new LifeSupportAchievement(-1,  478, 0089, "BuildFence"                  )}, // 柵を置く
-            {0x05A, new LifeSupportAchievement(-1,   -1, 0090, "DonateFake"                  )}, // 寄贈しようとした美術品が贋作だった
-            {0x05B, new LifeSupportAchievement(-1,   -1, 0091, "BuyatTsunekichiShop"         )}, // いなりマーケットで芸術品を買った
-            {0x05C, new LifeSupportAchievement(-1,   -1, 0092, "PlantBushSeedling"           )}, // 各種低木の苗を植えた
+            {0x00, new LifeSupportAchievement(000, 5, 0010, 0100, 0500, 2000, 5000,   3,  -1, "CatchFish"                   )}, // サカナを釣った
+            {0x01, new LifeSupportAchievement(001, 5, 0010, 0100, 0500, 2000, 5000,   3,  -1, "CatchInsect"                 )}, // ムシを捕まえた
+            {0x02, new LifeSupportAchievement(002, 3, 0010, 0050, 0100, 0000, 0000,  -1,  -1, "CatchFishContinuously"       )}, // 連続で釣りを成功させた回数の最高記録
+            {0x03, new LifeSupportAchievement(003, 5, 0010, 0020, 0040, 0060, 0080,  -1,  -1, "FillFishList"                )}, // サカナ図鑑を埋めた
+            {0x04, new LifeSupportAchievement(004, 5, 0010, 0020, 0040, 0060, 0080,  -1,  -1, "FillInsectList"              )}, // ムシ図鑑を埋めた
+            {0x05, new LifeSupportAchievement(005, 5, 0005, 0020, 0050, 0100, 0300,  -1,  -1, "ShootDownBalloon"            )}, // ふうせんを撃ち落とした
+            {0x06, new LifeSupportAchievement(006, 5, 0010, 0050, 0100, 0200, 0300,   3,  -1, "PlantFlowerSeed"             )}, // 花の種を植えた
+            {0x07, new LifeSupportAchievement(007, 6, 0000, 0000, 0000, 0000, 0000,  -1,  -1, "PlantFruit"                  )}, // 6種類のフルーツを植えた
+            {0x08, new LifeSupportAchievement(008, 3, 0005, 0010, 0030, 0000, 0000,  -1,  -1, "PlantTreeSeedling"           )}, // 木の苗を植えた
+            {0x09, new LifeSupportAchievement(009, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "BuyKabu"                     )}, // カブを買った
+            {0x0A, new LifeSupportAchievement(010, 5, 1000, 10000, 100000, 1000000, 10000000,  -1,  -1, "HowmuchSellKabu"             )}, // カブで得た累計利益
+            {0x0B, new LifeSupportAchievement(011, 5, 5000, 50000, 500000, 2000000, 5000000,  -1,  -1, "HowmuchBuyItem"              )}, // これまでの買い物総額
+            {0x0C, new LifeSupportAchievement(012, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "BuyItemRcm"                  )}, // まめきちの店で買い物した
+            {0x0D, new LifeSupportAchievement(013, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "SellItemRcm"                 )}, // まめきちの店で売った
+            {0x0E, new LifeSupportAchievement(014, 5, 0005, 0020, 0050, 0100, 0200,  -1,  -1, "RemakeFurniture"             )}, // リメイクをした
+            {0x0F, new LifeSupportAchievement(015, 5, 0100, 0200, 0300, 0400, 0500,  -1,  -1, "FillCatalog"                 )}, // カタログの項目数
+            {0x10, new LifeSupportAchievement(016, 5, 0001, 0020, 0050, 0100, 0200,  -1,  -1, "BuyItemCatalog"              )}, // 通販を利用した
+            {0x11, new LifeSupportAchievement(017, 5, 0001, 0010, 0030, 0060, 0100,  -1,  -1, "GotoTotakekeShow"            )}, // とたけけのライブを観た
+            {0x12, new LifeSupportAchievement(018, 3, 0001, 0005, 0010, 0000, 0000,  -1,  -1, "VisitAnotherIsland"          )}, // よその島へのおでかけした
+            {0x13, new LifeSupportAchievement(019, 3, 0001, 0005, 0010, 0000, 0000,  -1,  -1, "InviteFriend"                )}, // 島にフレンドを招いた
+            {0x15, new LifeSupportAchievement(021, 5, 0003, 0020, 0050, 0100, 0300,  -1,  -1, "DayPlayed"                   )}, // 活動日数
+            {0x17, new LifeSupportAchievement(023, 5, 0010, 0050, 0100, 0500, 1000,  -1,  -1, "WaterPlant"                  )}, // 水やりをした
+            {0x18, new LifeSupportAchievement(024, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "BeStungbyWasp"               )}, // ハチに刺された
+            {0x19, new LifeSupportAchievement(025, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "CatchSeminonukegara"         )}, // セミのぬけがらを取った
+            {0x1A, new LifeSupportAchievement(026, 3, 0001, 0005, 0010, 0000, 0000,  -1,  -1, "CatchNomi"                   )}, // ノミを取ってあげた
+            {0x1B, new LifeSupportAchievement(027, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "BeStungbyPoisonousInsect"    )}, // こわいムシで気絶した
+            {0x1F, new LifeSupportAchievement(031, 5, 0001, 0010, 0020, 0030, 0042,  -1,  -1, "FillReactionList"            )}, // リアクションを覚えた
+            {0x20, new LifeSupportAchievement(032, 3, 0003, 0010, 0020, 0000, 0000,  -1,  -1, "CatchTrash"                  )}, // ゴミを釣った
+            {0x21, new LifeSupportAchievement(033, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "PayImmigrationCost"          )}, // 移住費用を支払った
+            {0x22, new LifeSupportAchievement(034, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "RepayLoan"                   )}, // ローンを完済した
+            {0x23, new LifeSupportAchievement(035, 1, 0001, 0000, 0000, 0000, 0000,   3,  -1, "UseMydesign"                 )}, // マイデザインを使った
+            {0x24, new LifeSupportAchievement(036, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "UseMydesignPRO"              )}, // マイデザインPROを使った
+            {0x25, new LifeSupportAchievement(037, 5, 0050, 0200, 1000, 2000, 3000,  -1,  -1, "SellWeed"                    )}, // 雑草を引き取ってもらった
+            {0x27, new LifeSupportAchievement(039, 6, 0000, 0000, 0000, 0000, 0000,  -1,  -1, "CollectGoldTool"             )}, // 6種類の金の道具を集めた
+            {0x28, new LifeSupportAchievement(040, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "GetSRankonHHA"               )}, // HHAでSを取った
+            {0x29, new LifeSupportAchievement(041, 4, 0000, 0000, 0000, 0000, 0000,  -1,  -1, "AttendFishingConvention"     )}, // 釣り大会に春夏秋冬参加した
+            {0x2A, new LifeSupportAchievement(042, 4, 0000, 0000, 0000, 0000, 0000,  -1,  -1, "AttendInsectConvention"      )}, // ムシとり大会に6～9月参加した
+            {0x2B, new LifeSupportAchievement(043, 3, 0001, 0010, 0020, 0000, 0000,  -1,  -1, "HelpGul"                     )}, // ジョニーを助けた
+            {0x2C, new LifeSupportAchievement(044, 3, 0001, 0010, 0020, 0000, 0000,  -1,  -1, "HelpGst"                     )}, // ゆうたろうを助けた
+            {0x2D, new LifeSupportAchievement(045, 3, 0001, 0010, 0020, 0000, 0000,  -1,  -1, "MakePerfectSnowball"         )}, // 最高のゆきだるまを作った
+            {0x2E, new LifeSupportAchievement(046, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "ReachMyBirthday"             )}, // 誕生日を迎えた
+            {0x2F, new LifeSupportAchievement(047, 3, 0001, 0010, 0020, 0000, 0000,  -1,  -1, "CelebrateVillagersBithday"   )}, // 村民の誕生日を祝ってあげた
+            {0x30, new LifeSupportAchievement(048, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "AttendCountdownParty"        )}, // カウントダウンに参加した
+            {0x31, new LifeSupportAchievement(049, 5, 0001, 0020, 0050, 0100, 0200,  -1,  -1, "BreakTool"                   )}, // 道具を壊した
+            {0x32, new LifeSupportAchievement(050, 5, 0005, 0020, 0050, 0100, 0200,  -1,  -1, "SendLetter"                  )}, // 手紙を送った
+            {0x33, new LifeSupportAchievement(051, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "MakePitfall"                 )}, // 落とし穴を作った
+            {0x34, new LifeSupportAchievement(052, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "FallintoPitfall"             )}, // 落とし穴に落ちた
+            {0x35, new LifeSupportAchievement(053, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "ImmigratetoIsland"           )}, // 島に移住した
+            {0x36, new LifeSupportAchievement(054, 3, 0001, 0002, 0003, 0000, 0000,  -1,  -1, "BeFriendwithVillager"        )}, // どうぶつとなかよしになった
+            {0x37, new LifeSupportAchievement(055, 5, 0010, 0050, 0100, 0150, 0200,  -1,  -1, "FillRecipeList"              )}, // 集めたレシピの数
+            {0x38, new LifeSupportAchievement(056, 1, 1000, 0000, 0000, 0000, 0000,  -1,  -1, "BootPhone"                   )}, // スマホを起動した(上級)
+            {0x39, new LifeSupportAchievement(057, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "StrikeRock8Times"            )}, // コイン岩を8連打した
+            {0x3A, new LifeSupportAchievement(058, 5, 0005, 0050, 0200, 1000, 3000,  -1, 320, "AchieveAppQuest"             )}, // 村活クエストを達成した
+            {0x3B, new LifeSupportAchievement(059, 5, 0001, 0010, 0050, 0100, 0300,  -1,  -1, "AchieveVillagersQuest"       )}, // どうぶつのお願いを聞いた
+            {0x3C, new LifeSupportAchievement(060, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "DigBell"                     )}, // ベルを掘り出した
+            {0x3D, new LifeSupportAchievement(061, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "DigFossil"                   )}, // 化石を掘り出した
+            {0x3E, new LifeSupportAchievement(062, 5, 0005, 0030, 0100, 0300, 0500,  -1,  -1, "JudgeFossil"                 )}, // 化石を鑑定した
+            {0x3F, new LifeSupportAchievement(063, 5, 0005, 0020, 0050, 0100, 0200,  66,  -1, "DigShell"                    )}, // 潮干狩りをした
+            {0x40, new LifeSupportAchievement(064, 1, 0010, 0000, 0000, 0000, 0000,   3,  -1, "PutFurnitureOutside"         )}, // 外に家具を置いた
+            {0x43, new LifeSupportAchievement(067, 5, 0020, 0100, 0500, 2000, 5000,  -1,  -1, "StrikeWood"                  )}, // 木からもくざいを出した
+            {0x44, new LifeSupportAchievement(068, 5, 0001, 0010, 0020, 0030, 0050,   3,  -1, "GreetAllVillager"            )}, // 村民全員とあいさつをした
+            {0x45, new LifeSupportAchievement(069, 5, 0010, 0050, 0200, 0500, 1000,   3,  -1, "SellShell"                   )}, // 貝殻を売った
+            {0x46, new LifeSupportAchievement(070, 5, 0020, 0100, 0500, 1000, 3000,   3,  -1, "SellFruit"                   )}, // フルーツを売った
+            {0x47, new LifeSupportAchievement(071, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "CatchBeeContinuously"        )}, // ハチを5連続捕まえた
+            {0x48, new LifeSupportAchievement(072, 5, 0005, 0050, 0200, 1000, 3000,  -1,  -1, "DIYTool"                     )}, // 道具をDIYした
+            {0x49, new LifeSupportAchievement(073, 5, 0005, 0050, 0200, 1000, 3000,  -1,  -1, "DIYFurniture"                )}, // 家具をDIYした
+            {0x4B, new LifeSupportAchievement(075, 1, 0001, 0000, 0000, 0000, 0000,   3,  -1, "TakePicture"                 )}, // カメラで写真を撮った
+            {0x4C, new LifeSupportAchievement(076, 1, 0010, 0000, 0000, 0000, 0000,  -1,  -1, "BootPhoneBeginner"           )}, // スマホを起動した(初級)
+            {0x4D, new LifeSupportAchievement(077, 5, 0020, 0050, 0100, 0200, 0300,  -1,  -1, "HouseStorageItem"            )}, // 家の倉庫に収納したアイテムの数
+            {0x4E, new LifeSupportAchievement(078, 5, 0005, 0015, 0030, 0100, 0150,  -1,  -1, "PlaceFurnitureMyHouse"       )}, // 家に飾っている家具の数
+            {0x4F, new LifeSupportAchievement(079, 5, 0001, 0010, 0020, 0050, 0100,  -1,  -1, "FallFurnitureLeaf"           )}, // 木を揺すって家具（葉っぱ）を落とした回数
+            {0x50, new LifeSupportAchievement(080, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "DropPresentinWater"          )}, // 風船のプレゼントを撃ち水の中に落とした
+            {0x51, new LifeSupportAchievement(081, 3, 0001, 0003, 0005, 0000, 0000,  -1,  -1, "ReformMyHome"                )}, // マイホームをリフォームした
+            {0x52, new LifeSupportAchievement(082, 5, 0001, 0002, 0005, 0006, 0007,  -1,  -1, "ExtendMyHome"                )}, // マイホームを増築した
+            {0x53, new LifeSupportAchievement(083, 1, 0001, 0000, 0000, 0000, 0000,   3,  -1, "PostMessageBoard"            )}, // 自分の島の掲示板に書き込む
+            {0x54, new LifeSupportAchievement(084, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "UseCloset"                   )}, // クローゼットで着替える
+            {0x55, new LifeSupportAchievement(085, 3, 0001, 0030, 0200, 0000, 0000,  -1,  -1, "PrayShootingStar"            )}, // 流れ星に祈る
+            {0x56, new LifeSupportAchievement(086, 2, 0000, 0000, 0000, 0000, 0000,  59,  -1, "ChangeSymbol"                )}, // 島の旗、島メロを変える
+            {0x57, new LifeSupportAchievement(087, 1, 0001, 0000, 0000, 0000, 0000,   3,  -1, "UpdatePassport"              )}, // パスポートを更新した
+            {0x58, new LifeSupportAchievement(088, 3, 0000, 0000, 0000, 0000, 0000,  -1, 513, "ModifyIsland"                )}, // 各地形造成をやってみた
+            {0x59, new LifeSupportAchievement(089, 1, 0020, 0000, 0000, 0000, 0000,  -1, 478, "BuildFence"                  )}, // 柵を置く
+            {0x5A, new LifeSupportAchievement(090, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "DonateFake"                  )}, // 寄贈しようとした美術品が贋作だった
+            {0x5B, new LifeSupportAchievement(091, 3, 0001, 0010, 0020, 0000, 0000,  -1,  -1, "BuyatTsunekichiShop"         )}, // いなりマーケットで芸術品を買った
+            {0x5C, new LifeSupportAchievement(092, 3, 0001, 0005, 0020, 0000, 0000,  -1,  -1, "PlantBushSeedling"           )}, // 各種低木の苗を植えた
         };
 
         public static string GetName(int index, uint count, IReadOnlyDictionary<string, string> str)
