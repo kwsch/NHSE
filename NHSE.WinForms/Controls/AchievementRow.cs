@@ -52,7 +52,13 @@ namespace NHSE.WinForms
                 return;
 
             var threshold = detail.GetThresholdValue(row);
-            L_Threshold.ForeColor = row < detail.AchievementCount && count >= threshold ? Color.Red : CHK_Read.ForeColor;
+            if (threshold == 0)
+            {
+                var bit = (count >> row) & 1;
+                L_Threshold.ForeColor = bit != 0 ? Color.Red : CHK_Read.ForeColor;
+                return;
+            }
+            L_Threshold.ForeColor = count >= threshold ? Color.Red : CHK_Read.ForeColor;
         }
 
         private void CAL_Date_MouseDown(object sender, MouseEventArgs e)
