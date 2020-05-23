@@ -51,14 +51,8 @@ namespace NHSE.WinForms
             if (!LifeSupportAchievement.List.TryGetValue(index, out var detail))
                 return;
 
-            var threshold = detail.GetThresholdValue(row);
-            if (threshold == 0)
-            {
-                var bit = (count >> row) & 1;
-                L_Threshold.ForeColor = bit != 0 ? Color.Red : CHK_Read.ForeColor;
-                return;
-            }
-            L_Threshold.ForeColor = count >= threshold ? Color.Red : CHK_Read.ForeColor;
+            bool satisfied = detail.GetIsSatisfied(row, count);
+            L_Threshold.ForeColor = satisfied ? Color.Red : CHK_Read.ForeColor;
         }
 
         private void CAL_Date_MouseDown(object sender, MouseEventArgs e)

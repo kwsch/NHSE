@@ -1,5 +1,8 @@
 ﻿namespace NHSE.Core
 {
+    /// <summary>
+    /// Learned Emotions that can be used from the Reaction Wheel
+    /// </summary>
     public enum Reaction : byte
     {
         None,

@@ -2,6 +2,9 @@
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Simple design pattern
+    /// </summary>
     public class DesignPattern : IVillagerOrigin
     {
         public const int Width = 32;

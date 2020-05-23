@@ -1,5 +1,8 @@
 ﻿namespace NHSE.Core
 {
+    /// <summary>
+    /// Material used for a <see cref="BridgeType"/> construction (footstep sounds?).
+    /// </summary>
     public enum BridgeMaterial : byte
     {
         BridgeStone = 0x00,

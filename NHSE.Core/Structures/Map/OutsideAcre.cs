@@ -187,7 +187,7 @@ namespace NHSE.Core
             {29, Color.FromArgb(232, 222, 162)}, // Edge of beach, next to sea
             {41, Color.FromArgb(118, 122, 132)}, // Rocks at top of map
             {42, Color.FromArgb(128, 133, 147)}, // Taller regions, rocks at top of map
-            {43, Color.Cyan},
+            {43, Color.Cyan}, // Tide pool
             {44, Color.FromArgb( 62, 112,  56)}, // Edge connecting grass and beach
             {45, Color.FromArgb(118, 122, 132)}, // Some kind of rock
             {46, Color.FromArgb(120, 207, 187)}, // Edge of sea, next to beach

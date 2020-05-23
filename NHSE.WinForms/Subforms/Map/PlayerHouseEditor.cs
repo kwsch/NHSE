@@ -132,7 +132,7 @@ namespace NHSE.WinForms
             GetCoordinates(e, out HoverX, out HoverY);
 
             // Mouse event may fire with a slightly too large x/y; clamp just in case.
-            Manager.Layers[0].ClampCoordinates(ref HoverX, ref HoverY);
+            Manager.Layers[0].ClampCoordinatesInsideGrid(ref HoverX, ref HoverY);
         }
 
         private static void GetCoordinates(MouseEventArgs e, out int x, out int y)

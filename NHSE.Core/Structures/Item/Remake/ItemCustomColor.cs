@@ -1,5 +1,8 @@
 ﻿namespace NHSE.Core
 {
+    /// <summary>
+    /// General color that a customized item (of a specific value) has
+    /// </summary>
     public enum ItemCustomColor : byte
     {
         Orange = 0,    // オレンジ

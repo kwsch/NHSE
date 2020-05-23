@@ -5,7 +5,11 @@ namespace NHSE.Core
 {
     public class FieldItemLayer : ItemLayer
     {
-        public FieldItemLayer(Item[] tiles) : base(tiles, 32 * AcreWidth, 32 * AcreHeight, 32, 32)
+        public const int TilesPerAcreDim = 32;
+        public const int FieldItemWidth = TilesPerAcreDim * AcreWidth;
+        public const int FieldItemHeight = TilesPerAcreDim * AcreHeight;
+
+        public FieldItemLayer(Item[] tiles) : base(tiles, FieldItemWidth, FieldItemHeight, TilesPerAcreDim, TilesPerAcreDim)
         {
         }
 

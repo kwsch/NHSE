@@ -1,5 +1,8 @@
 ﻿namespace NHSE.Core
 {
+    /// <summary>
+    /// Incline / Slope model
+    /// </summary>
     public enum SlopeType : ushort
     {
         SlopeStoneStair = 0x00,

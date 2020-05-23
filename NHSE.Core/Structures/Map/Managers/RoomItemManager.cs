@@ -27,13 +27,13 @@ namespace NHSE.Core
 
             var l = Layers[layer];
             var tile = l.GetTile(x, y);
-            return !tile.IsNone || (layer == 1 && IsOccupied(0, x, y));
+            return !tile.IsNone || (layer == (int)RoomLayerSurface.FloorSupported && IsOccupied((int)RoomLayerSurface.Floor, x, y));
         }
 
         public List<string> GetUnsupportedTiles()
         {
-            var lBase = Layers[0];
-            var lSupport = Layers[1];
+            var lBase = Layers[(int)RoomLayerSurface.Floor];
+            var lSupport = Layers[(int)RoomLayerSurface.FloorSupported];
             var result = new List<string>();
             for (int x = 0; x < lBase.MaxWidth; x++)
             {

@@ -1,5 +1,8 @@
 ﻿namespace NHSE.Core
 {
+    /// <summary>
+    /// Bridge model
+    /// </summary>
 #pragma warning disable CA1027 // Mark enums with FlagsAttribute
     public enum BridgeType : ushort
 #pragma warning restore CA1027 // Mark enums with FlagsAttribute

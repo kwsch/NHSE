@@ -2,6 +2,9 @@
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Determines how an item's secondary customization value is used.
+    /// </summary>
     [Flags]
     public enum ItemRemakeDesignSource
     {

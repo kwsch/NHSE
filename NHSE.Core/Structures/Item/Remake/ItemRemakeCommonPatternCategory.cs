@@ -1,5 +1,8 @@
 ﻿namespace NHSE.Core
 {
+    /// <summary>
+    /// Category of <see cref="ItemRemakeCommonPattern"/>
+    /// </summary>
     public enum ItemRemakeCommonPatternCategory : byte
     {
         None = 0,

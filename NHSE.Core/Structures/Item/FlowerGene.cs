@@ -2,6 +2,9 @@
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Genes that a Flower Item has
+    /// </summary>
     [Flags]
     public enum FlowerGene : byte
     {

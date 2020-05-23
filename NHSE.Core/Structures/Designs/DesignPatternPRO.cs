@@ -2,6 +2,9 @@
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Advanced design pattern with 4 sheets arranged in a square.
+    /// </summary>
     public class DesignPatternPRO : IVillagerOrigin
     {
         public const int Width = 32;

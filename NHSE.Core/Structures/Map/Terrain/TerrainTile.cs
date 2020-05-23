@@ -4,6 +4,9 @@ using System.Runtime.InteropServices;
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Represents a Terraform-able terrain tile.
+    /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public class TerrainTile
     {

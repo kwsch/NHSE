@@ -1,5 +1,8 @@
 ﻿namespace NHSE.Core
 {
+    /// <summary>
+    /// Navigation metadata for acre coordinates.
+    /// </summary>
     public class AcreCoordinate
     {
         public readonly string Name;

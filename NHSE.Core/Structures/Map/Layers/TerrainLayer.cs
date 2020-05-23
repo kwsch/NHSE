@@ -2,6 +2,9 @@
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Grid of <see cref="TerrainTile"/>
+    /// </summary>
     public class TerrainLayer : MapGrid
     {
         public readonly TerrainTile[] Tiles;

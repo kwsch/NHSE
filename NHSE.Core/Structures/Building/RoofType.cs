@@ -1,5 +1,8 @@
 ﻿namespace NHSE.Core
 {
+    /// <summary>
+    /// Roof model for a house.
+    /// </summary>
     public enum RoofType : ushort
     {
         HouseRoofPA04StandardA = 0x00,

@@ -4,6 +4,9 @@ using System.Globalization;
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Converts cheat codes to and from <see cref="Item"/>
+    /// </summary>
     public static class ItemCheatCode
     {
         public static byte[] ReadCode(string paste)

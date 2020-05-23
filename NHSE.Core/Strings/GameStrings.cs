@@ -2,6 +2,9 @@
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Stores game localization strings for use by logic.
+    /// </summary>
     public sealed class GameStrings : IRemakeString
     {
         private readonly string lang;

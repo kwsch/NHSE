@@ -4,6 +4,9 @@ using System.Runtime.InteropServices;
 #pragma warning disable CS8618, CA1815, CA1819, IDE1006
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Custom structure to wrap logic for editing all <see cref="LifeSupportAchievement"/> milestone data.
+    /// </summary>
     [StructLayout(LayoutKind.Sequential, Pack = 4)]
     public struct AchievementList
     {

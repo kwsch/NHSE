@@ -15,7 +15,7 @@ namespace NHSE.Core
             Debug.Assert(MaxWidth * MaxHeight == tiles.Length);
         }
 
-        public Item GetTile(int x, int y) => this[GetTileIndex(x, y)];
+        public Item GetTile(in int x, in int y) => this[GetTileIndex(x, y)];
 
         public Item this[int index]
         {
@@ -38,7 +38,7 @@ namespace NHSE.Core
                 Tiles[i].CopyFrom(tiles[i]);
         }
 
-        public int RemoveAll(int xmin, int ymin, int width, int height, Func<Item, bool> criteria)
+        public int RemoveAll(in int xmin, in int ymin, in int width, in int height, Func<Item, bool> criteria)
         {
             int count = 0;
             for (int x = xmin; x < xmin + width; x++)

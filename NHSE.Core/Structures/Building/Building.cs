@@ -3,6 +3,9 @@ using System.Runtime.InteropServices;
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Interact-able structure that can be entered by the player.
+    /// </summary>
     [StructLayout(LayoutKind.Explicit, Size = SIZE, Pack = 1)]
     public class Building
     {

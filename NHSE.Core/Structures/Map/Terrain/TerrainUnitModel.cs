@@ -2,6 +2,9 @@
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Model to be used when the <see cref="TerrainTile"/> renders / references collision data.
+    /// </summary>
     public enum TerrainUnitModel : ushort
     {
         Base = 0x00,

@@ -2,6 +2,9 @@
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Metadata for an item's customization permissions
+    /// </summary>
     public class ItemRemakeInfo
     {
         public const int BodyColorCountMax = 8;

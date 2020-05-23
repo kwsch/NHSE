@@ -3,19 +3,38 @@ using System.Collections.Generic;
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Multi-milestone definition for tracking game-play achievements.
+    /// </summary>
     public class LifeSupportAchievement : INamedValue
     {
+        /// <summary>
+        /// Amount of milestones an achievement can have.
+        /// </summary>
+        public const int MilestoneMax = 6;
+
         public readonly short FlagLand;
         public readonly short FlagPlayer;
 
         public ushort Index { get; }
         public string Name { get; }
 
+        /// <summary> Total number of milestones for this achievement type. </summary>
         public readonly int AchievementCount;
+
+        /// <summary> First Milestone's Satisfaction Threshold </summary>
         public readonly uint Threshold1;
+
+        /// <summary> Second Milestone's Satisfaction Threshold </summary>
         public readonly uint Threshold2;
+
+        /// <summary> Third Milestone's Satisfaction Threshold </summary>
         public readonly uint Threshold3;
+
+        /// <summary> Fourth Milestone's Satisfaction Threshold </summary>
         public readonly uint Threshold4;
+
+        /// <summary> Fifth Milestone's Satisfaction Threshold </summary>
         public readonly uint Threshold5;
 
         public LifeSupportAchievement(ushort index, byte max, uint t1, uint t2, uint t3, uint t4, uint t5, short land, short player, string name)
@@ -34,9 +53,14 @@ namespace NHSE.Core
 
         public uint MaxThreshold => Math.Max(Threshold1, Math.Max(Threshold2, Math.Max(Threshold3, Math.Max(Threshold4, Threshold5))));
 
-        public uint GetThresholdValue(in int row)
+        /// <summary>
+        /// Gets the Milestone Threshold
+        /// </summary>
+        /// <param name="index">Milestone index</param>
+        /// <returns>Zero if the milestone does not have a threshold</returns>
+        public uint GetThresholdValue(in int index)
         {
-            return row switch
+            return index switch
             {
                 0 => Threshold1,
                 1 => Threshold2,
@@ -45,6 +69,27 @@ namespace NHSE.Core
                 4 => Threshold5,
                 _ => 0,
             };
+        }
+
+        /// <summary>
+        /// Checks if the Milestone is satisfied.
+        /// </summary>
+        /// <param name="index">Milestone index</param>
+        /// <param name="count">Value stored for the entry</param>
+        /// <returns>True if the milestone is satisfied, false if not.</returns>
+        public bool GetIsSatisfied(in int index, in uint count)
+        {
+            if ((uint)index >= MilestoneMax)
+                throw new ArgumentOutOfRangeException(nameof(index));
+
+            // Threshold value milestone
+            var threshold = GetThresholdValue(index);
+            if (threshold != 0)
+                return count >= threshold;
+
+            // Bit-toggle milestone
+            var bit = (count >> index) & 1;
+            return bit != 0;
         }
 
         private const string Unknown = "???";

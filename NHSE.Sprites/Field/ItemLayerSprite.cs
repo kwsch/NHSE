@@ -235,7 +235,7 @@ namespace NHSE.Sprites
             return DrawViewReticle(dest, layer, x, y);
         }
 
-        private static Bitmap DrawViewReticle(Bitmap map, MapGrid g, int x, int y, int scale = 1)
+        private static Bitmap DrawViewReticle(Bitmap map, TileGrid g, int x, int y, int scale = 1)
         {
             using var gfx = Graphics.FromImage(map);
             using var pen = new Pen(Color.Red);

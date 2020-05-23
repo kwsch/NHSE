@@ -1,5 +1,8 @@
 ﻿namespace NHSE.Core
 {
+    /// <summary>
+    /// Determines what color the airport structure will show up with in the overworld.
+    /// </summary>
     public enum AirportColor : byte
     {
         Blue = 0,

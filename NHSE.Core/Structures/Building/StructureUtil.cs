@@ -3,6 +3,9 @@ using System.Linq;
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Retrieves value metadata for customizing structures.
+    /// </summary>
     public static class StructureUtil
     {
         public static Dictionary<string, string[]> GetStructureHelpList()

@@ -1,5 +1,8 @@
 ﻿namespace NHSE.Core
 {
+    /// <summary>
+    /// Door model for a house.
+    /// </summary>
     public enum DoorKind : ushort
     {
         HouseDoorStandardAR = 0x00,

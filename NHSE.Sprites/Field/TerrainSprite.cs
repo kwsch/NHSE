@@ -53,7 +53,7 @@ namespace NHSE.Sprites
             return DrawReticle(map, mgr, x, y, scale);
         }
 
-        private static Bitmap DrawReticle(Bitmap map, MapGrid mgr, int x, int y, int scale)
+        private static Bitmap DrawReticle(Bitmap map, TileGrid mgr, int x, int y, int scale)
         {
             using var gfx = Graphics.FromImage(map);
             using var pen = new Pen(Color.Red);

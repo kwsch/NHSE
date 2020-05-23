@@ -1,5 +1,8 @@
 ﻿namespace NHSE.Core
 {
+    /// <summary>
+    /// Wall model for a house.
+    /// </summary>
     public enum WallType : ushort
     {
         HouseWallPA04StandardA = 0x00,
