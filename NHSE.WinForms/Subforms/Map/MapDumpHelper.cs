@@ -245,7 +245,7 @@ namespace NHSE.WinForms
                 return false;
             }
 
-            modified.CopyTo(data, modified.Length);
+            modified.CopyTo(data, 0);
             return true;
         }
     }
