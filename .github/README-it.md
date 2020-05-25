@@ -18,6 +18,6 @@ Cambia i salvataggi scaricati dalla tua Nintendo Switch.
 
 ## Altro
 
-Fare riferimento alla [Wiki](https://github.com/kwsch/NHSE/wiki) per maggiori informazioni.
+Fare riferimento alla [Wiki](https://github.com/kwsch/NHSE/wiki) (inglese) per maggiori informazioni.
 
 **Non supportiamo o perdoniamo ibrogli a spese degli altri.** Per favore, sii responsabile!
