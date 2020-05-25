@@ -6,18 +6,18 @@ NHSE
 
 ![License](https://img.shields.io/badge/License-GPLv3-blue.svg)
 
-Save Editor for Animal Crossing: New Horizons
+Editor di salvataggi per Animal Crossing: New Horizons
 
-Edits savedata dumped from the Nintendo Switch. 
-* Bring your own save file data; this program does not dump it from your console.
+Cambia i salvataggi scaricati dalla tua Nintendo Switch.
+* Scarica i tuoi salvataggi; questo programma non scarica i salvataggi dalla tua console.
 
-## See Also
+## Guarda Anche
 
-[MyHorizons](https://github.com/Cuyler36/MyHorizons) by [Cuyler36](https://github.com/Cuyler36/)
-* Some portions of code are liberally adapted from Cuyler36's project above.
+[MyHorizons](https://github.com/Cuyler36/MyHorizons) di [Cuyler36](https://github.com/Cuyler36/)
+* Alcuni porzioni di codice sono liberalmente adattati dal progetto di Cuyler36.
 
-## Other
+## Altro
 
-Refer to the [Wiki](https://github.com/kwsch/NHSE/wiki) for more information.
+Fare riferimento alla [Wiki](https://github.com/kwsch/NHSE/wiki) per maggiori informazioni.
 
-**We do not support or condone cheating at the expense of others.** Please be responsible!
+**Non supportiamo o perdoniamo ibrogli a spese degli altri.** Per favore, sii responsabile!
