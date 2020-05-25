@@ -259,7 +259,7 @@
             this.B_EditVillagerDesign,
             this.B_EditVillagerPlayerMemories});
             this.CM_EditVillager.Name = "CM_EditPlayer";
-            this.CM_EditVillager.Size = new System.Drawing.Size(186, 114);
+            this.CM_EditVillager.Size = new System.Drawing.Size(186, 92);
             // 
             // B_EditFurniture
             // 

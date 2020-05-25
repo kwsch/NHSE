@@ -14,10 +14,19 @@ namespace NHSE.WinForms
         private int FlagIndex = -1;
         private byte[] Flags = Array.Empty<byte>();
 
+        private readonly TextBox[] Greetings;
+
         public VillagerMemoryEditor(Villager villager)
         {
             InitializeComponent();
             this.TranslateInterface(GameInfo.CurrentLanguage);
+
+            Greetings = new[]
+            {
+                TB_Greeting,
+                TB_Greeting1, TB_Greeting2, TB_Greeting3, TB_Greeting4, TB_Greeting5,
+                TB_Greeting6, TB_Greeting7, TB_Greeting8, TB_Greeting9, TB_Greeting10
+            };
 
             Villager = villager;
             Memories = villager.GetMemories();
@@ -85,6 +94,15 @@ namespace NHSE.WinForms
 
             Flags = flags;
             LB_Counts.SelectedIndex = FlagIndex = index;
+
+            TB_NickName.Text = memory.NickName;
+            for (int i = 0; i < Greetings.Length; i++)
+                Greetings[i].Text = memory.GetGreeting(i);
+
+            var date = memory.GreetingSetDate;
+            if (date < CAL_GreetDate.MinDate)
+                date = CAL_GreetDate.MinDate;
+            CAL_GreetDate.Value = date;
         }
 
         private void SavePlayer(in int playerIndex)
@@ -94,6 +112,11 @@ namespace NHSE.WinForms
 
             var memory = Memories[playerIndex];
             memory.SetEventFlags(Flags);
+
+            memory.NickName = TB_NickName.Text;
+            for (int i = 0; i < Greetings.Length; i++)
+                memory.SetGreeting(Greetings[i].Text, i);
+            memory.GreetingSetDate = CAL_GreetDate.Value == CAL_GreetDate.MinDate ? new GSaveDate() : (GSaveDate)CAL_GreetDate.Value;
         }
 
         private void B_Dump_Click(object sender, EventArgs e)

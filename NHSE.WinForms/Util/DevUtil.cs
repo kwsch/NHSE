@@ -88,6 +88,7 @@ namespace NHSE.WinForms
             "L_PatternName=",
             "L_RemakeBody=",
             "L_RemakeFabric=",
+            "AchievementEditor.L_Threshold",
         };
 
         private static readonly string[] PurgeBanlist =

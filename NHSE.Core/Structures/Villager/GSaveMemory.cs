@@ -43,5 +43,33 @@ namespace NHSE.Core
         public void SetEventFlags(byte[] value) => value.CopyTo(Data, 0x38);
 
         public byte Friendship { get => Data[0x38 + 10]; set => Data[0x38 + 10] = value; }
+
+        public string NickName
+        {
+            get => StringUtil.GetString(Data, 0x138, 10);
+            set => StringUtil.GetBytes(value, 10).CopyTo(Data, 0x138);
+        }
+
+        private const int GreetingCount = 11;
+        public string GetGreeting(in int index)
+        {
+            var offset = GetGreetingOffset(index);
+            return StringUtil.GetString(Data, offset, 10);
+        }
+
+        private int GetGreetingOffset(in int index)
+        {
+            if ((uint)index >= GreetingCount)
+                throw new ArgumentOutOfRangeException(nameof(index));
+            return 0x14C + (0x60 * index);
+        }
+
+        public void SetGreeting(string value, int index)
+        {
+            var offset = GetGreetingOffset(index);
+            StringUtil.GetBytes(value, 47).CopyTo(Data, offset);
+        }
+
+        public GSaveDate GreetingSetDate { get => Data.Slice(0x56C, GSaveDate.SIZE).ToStructure<GSaveDate>(); set => value.ToBytes().CopyTo(Data, 0x56C); }
     };
 }
