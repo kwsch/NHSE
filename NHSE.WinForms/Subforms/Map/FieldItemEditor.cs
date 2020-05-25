@@ -779,7 +779,9 @@ namespace NHSE.WinForms
             // -32 for relative offset on map (buildings can be placed on the exterior ocean acres)
             // -16 to put it in the center of the view
             const int shift = 48;
-            View.SetViewTo(b.X - shift, b.Y - shift);
+            var x = (b.X - shift) & 0xFFFE;
+            var y = (b.Y - shift) & 0xFFFE;
+            View.SetViewTo(x, y);
         }
 
         private void NUD_BuildingType_ValueChanged(object sender, EventArgs e)
