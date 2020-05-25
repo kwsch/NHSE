@@ -32,9 +32,10 @@ namespace NHSE.WinForms
             InitializeComponent();
             this.TranslateInterface(GameInfo.CurrentLanguage);
 
+            var scale = (PB_Acre.Width - 2) / 32;
             SAV = sav;
             Map = new MapManager(sav);
-            View = new MapViewer(Map);
+            View = new MapViewer(Map, scale);
 
             Loading = true;
 

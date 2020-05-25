@@ -8,14 +8,18 @@ namespace NHSE.Core
         public readonly MapManager Map;
 
         public int MapScale { get; } = 1;
-        public int AcreScale { get; } = 16;
+        public int AcreScale { get; }
         public int TerrainScale => AcreScale * 2;
 
         // Top Left Anchor Coordinates
         public int X { get; set; }
         public int Y { get; set; }
 
-        protected MapView(MapManager m) => Map = m;
+        protected MapView(MapManager m, int scale = 16)
+        {
+            AcreScale = scale;
+            Map = m;
+        }
 
         public bool CanUp => Y != 0;
         public bool CanDown => Y < Map.CurrentLayer.MaxHeight - Map.CurrentLayer.GridHeight;
