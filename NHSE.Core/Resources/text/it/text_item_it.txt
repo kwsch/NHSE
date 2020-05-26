@@ -3,33 +3,33 @@
 quadro invernale
 
 
-quadro armonioso (forgery)
+quadro armonioso (falso)
 quadro armonioso
 
 
-quadro buffo (forgery)
+quadro buffo (falso)
 quadro buffo
 
 
-quadro semplice (forgery)
+quadro semplice (falso)
 quadro semplice
 
 
-quadro famoso (forgery)
+quadro famoso (falso)
 quadro famoso
 
 quadro perfetto
 
 
-quadro simbolico (forgery)
+quadro simbolico (falso)
 quadro simbolico
 
 
-quadro realista (forgery)
+quadro realista (falso)
 quadro realista
 
 
-quadro colorato (forgery)
+quadro colorato (falso)
 quadro colorato
 
 quadro classico
@@ -39,7 +39,7 @@ quadro classico
 quadro marino
 
 
-quadro organico (forgery)
+quadro organico (falso)
 quadro organico
 
 quadro povero
@@ -53,7 +53,7 @@ quadro fiorito
 quadro possente
 
 
-quadro stupendo (forgery)
+quadro stupendo (falso)
 quadro stupendo
 
 
@@ -63,17 +63,17 @@ quadro stupendo
 
 
 
-quadro spaventoso (forgery)
+quadro spaventoso (falso)
 quadro spaventoso
 
 quadro prezioso
 
 
-quadro solenne (forgery)
+quadro solenne (falso)
 quadro solenne
 
 
-quadro intenso (metà dx) (forgery)
+quadro intenso (metà dx) (falso)
 quadro intenso (metà dx)
 
 quadro riposante
@@ -1330,21 +1330,21 @@ banco di scuola
 cattedra antica
 cattedra da professore
 statua leggendaria
-statua leggendaria (forgery)
+statua leggendaria (falso)
 statua maestosa
-statua maestosa (forgery)
+statua maestosa (falso)
 statua atletica
-statua atletica (forgery)
+statua atletica (falso)
 statua antica
-statua antica (forgery)
+statua antica (falso)
 statua trionfante
 
 statua aggraziata
-statua aggraziata (forgery)
+statua aggraziata (falso)
 statua enigmatica
-statua enigmatica (forgery)
+statua enigmatica (falso)
 statua eroica
-statua eroica (forgery)
+statua eroica (falso)
 
 gabbia per criceti
 
@@ -12532,13 +12532,13 @@ ghirlanda caccia all'uovo
 
 
 testa di roccia
-testa di roccia (forgery)
+testa di roccia (falso)
 pietra informativa
-pietra informativa (forgery)
+pietra informativa (falso)
 scultura imponente
-scultura imponente (forgery)
+scultura imponente (falso)
 statua guerriera
-statua guerriera (forgery)
+statua guerriera (falso)
 statua pensierosa
 
 Nintendo Switch
@@ -12569,7 +12569,7 @@ piatto Alpaca e Merino
 
 
 quadro intenso (metà sx)
-quadro intenso (metà sx) (forgery)
+quadro intenso (metà sx) (falso)
 
 
 
@@ -12618,16 +12618,16 @@ ascia consumata
 
 quadro sfavillante
 quadro accademico
-quadro accademico (forgery)
+quadro accademico (falso)
 quadro acquatico
 quadro dettagliato
-quadro dettagliato (forgery)
+quadro dettagliato (falso)
 quadro abbagliante
 quadro misterioso
 
 
 
-quadro invernale (forgery)
+quadro invernale (falso)
 recinzione caccia all'uovo
 
 
