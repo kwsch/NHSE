@@ -14,7 +14,7 @@ Puoi modificare i salvataggi esportati dalla tua Nintendo Switch.
 ## Guarda Anche
 
 [MyHorizons](https://github.com/Cuyler36/MyHorizons) di [Cuyler36](https://github.com/Cuyler36/)
-* Alcune porzioni del codice sono completamente adattate dal progetto Cuyler36.
+* Alcune porzioni del codice sono completamente adattate dal progetto di Cuyler36.
 
 ## Altro
 
