@@ -1,35 +1,35 @@
-(None)
+(Geen)
 
 Wintergemälde
 
 
-Anmutsgemälde (forgery)
+Anmutsgemälde (namaak)
 Anmutsgemälde
 
 
-Altertumsgemälde (forgery)
+Altertumsgemälde (namaak)
 Altertumsgemälde
 
 
-Einfachgemälde (forgery)
+Einfachgemälde (namaak)
 Einfachgemälde
 
 
-Berühmtgemälde (forgery)
+Berühmtgemälde (namaak)
 Berühmtgemälde
 
 Perfektgemälde
 
 
-Edelgemälde (forgery)
+Edelgemälde (namaak)
 Edelgemälde
 
 
-Perlengemälde (forgery)
+Perlengemälde (namaak)
 Perlengemälde
 
 
-Schöngemälde (forgery)
+Schöngemälde (namaak)
 Schöngemälde
 
 Warmgemälde
@@ -39,7 +39,7 @@ Warmgemälde
 Wellengemälde
 
 
-Gemüsegemälde (forgery)
+Gemüsegemälde (namaak)
 Gemüsegemälde
 
 Bekanntgemälde
@@ -53,7 +53,7 @@ Blumengemälde
 Kraftgemälde
 
 
-Enormgemälde (forgery)
+Enormgemälde (namaak)
 Enormgemälde
 
 
@@ -63,17 +63,17 @@ Enormgemälde
 
 
 
-Furchtgemälde (forgery)
+Furchtgemälde (namaak)
 Furchtgemälde
 
 Wahrgemälde
 
 
-Feierlichgemälde (forgery)
+Feierlichgemälde (namaak)
 Feierlichgemälde
 
 
-Ungestümgemälde (forgery)
+Ungestümgemälde (namaak)
 Ungestümgemälde
 
 Ruhegemälde
@@ -1330,21 +1330,21 @@ Schultisch
 Lehrerpult
 Schulpult
 Wölfinnenstatue
-Wölfinnenstatue (forgery)
+Wölfinnenstatue (namaak)
 Galantstatue
-Galantstatue (forgery)
+Galantstatue (namaak)
 Athletenstatue
-Athletenstatue (forgery)
+Athletenstatue (namaak)
 Uraltstatue
-Uraltstatue (forgery)
+Uraltstatue (namaak)
 Würdestatue
 
 Eleganzstatue
-Eleganzstatue (forgery)
+Eleganzstatue (namaak)
 Geheimnisbüste
-Geheimnisbüste (forgery)
+Geheimnisbüste (namaak)
 Erhabenstatue
-Erhabenstatue (forgery)
+Erhabenstatue (namaak)
 
 Hamsterkäfig
 
@@ -12532,13 +12532,13 @@ Häschentag-Türkranz
 
 
 Dickkopfskulptur
-Dickkopfskulptur (forgery)
+Dickkopfskulptur (namaak)
 Hinweisskulptur
-Hinweisskulptur (forgery)
+Hinweisskulptur (namaak)
 Prachtskulptur
-Prachtskulptur (forgery)
+Prachtskulptur (namaak)
 Kriegerstatue
-Kriegerstatue (forgery)
+Kriegerstatue (namaak)
 Vertrautstatue
 
 Nintendo Switch
@@ -12569,7 +12569,7 @@ Foto
 
 
 Ungestümgemälde
-Ungestümgemälde (forgery)
+Ungestümgemälde (namaak)
 
 
 
@@ -12618,16 +12618,16 @@ Morschaxt
 
 Funkelgemälde
 Wissenschaftsgemälde
-Wissenschaftsgemälde (forgery)
+Wissenschaftsgemälde (namaak)
 Versinkgemälde
 Detailgemälde
-Detailgemälde (forgery)
+Detailgemälde (namaak)
 Lichtgemälde
 Rätselgemälde
 
 
 
-Wintergemälde (forgery)
+Wintergemälde (namaak)
 Häschentag-Zaun
 
 
