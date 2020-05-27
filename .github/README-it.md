@@ -6,18 +6,20 @@ NHSE
 
 ![License](https://img.shields.io/badge/License-GPLv3-blue.svg)
 
-Editor di salvataggi per Animal Crossing: New Horizons
+Modificatore di salvataggi per Animal Crossing: New Horizons
 
-Cambia i salvataggi scaricati dalla tua Nintendo Switch.
-* Scarica i tuoi salvataggi; questo programma non scarica i salvataggi dalla tua console.
+Puoi modificare i salvataggi esportati dalla tua Nintendo Switch.
+* Esporta i tuoi salvataggi; Questo programma non può esportare direttamente i salvataggi dalla tua console.
 
 ## Guarda Anche
 
 [MyHorizons](https://github.com/Cuyler36/MyHorizons) di [Cuyler36](https://github.com/Cuyler36/)
-* Alcuni porzioni di codice sono liberalmente adattati dal progetto di Cuyler36.
+* Alcune porzioni del codice sono completamente adattate dal progetto di Cuyler36.
 
 ## Altro
 
-Fare riferimento alla [Wiki](https://github.com/kwsch/NHSE/wiki) (inglese) per maggiori informazioni.
+Per ulteriori informazioni, consultare la nostra [Wiki](https://github.com/kwsch/NHSE/wiki) (in inglese).
 
-**Non supportiamo o perdoniamo ibrogli a spese degli altri.** Per favore, sii responsabile!
+**Questo programma è completamente gratuito.**
+
+**Non supportiamo né perdoniamo imbrogli a spese di altri.** Sarai responsabile per qualsiasi conseguenza derivante dall'utilizzo di questo programma!
