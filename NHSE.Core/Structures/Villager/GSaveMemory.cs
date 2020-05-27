@@ -57,7 +57,7 @@ namespace NHSE.Core
             return StringUtil.GetString(Data, offset, 10);
         }
 
-        private int GetGreetingOffset(in int index)
+        private static int GetGreetingOffset(in int index)
         {
             if ((uint)index >= GreetingCount)
                 throw new ArgumentOutOfRangeException(nameof(index));

@@ -20,7 +20,7 @@ namespace NHSE.Sprites
         private readonly int[] PixelsBackgroundMapX;
         private readonly Bitmap BackgroundMap;
 
-        public MapViewer(MapManager m, int scale) : base(m)
+        public MapViewer(MapManager m, int scale) : base(m, scale)
         {
             var l1 = m.Items.Layer1;
             PixelsItemAcre1 = new int[l1.GridWidth * l1.GridHeight];
