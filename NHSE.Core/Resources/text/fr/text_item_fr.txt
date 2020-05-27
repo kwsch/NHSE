@@ -1,35 +1,35 @@
-(None)
+(Aucun)
 
 toile hivernale
 
 
-toile gracieuse (forgery)
+toile gracieuse (falsification)
 toile gracieuse
 
 
-toile charmante (forgery)
+toile charmante (falsification)
 toile charmante
 
 
-toile classique (forgery)
+toile classique (falsification)
 toile classique
 
 
-toile célèbre (forgery)
+toile célèbre (falsification)
 toile célèbre
 
 toile parfaite
 
 
-toile royale (forgery)
+toile royale (falsification)
 toile royale
 
 
-toile nacrée (forgery)
+toile nacrée (falsification)
 toile nacrée
 
 
-toile émouvante (forgery)
+toile émouvante (falsification)
 toile émouvante
 
 toile radieuse
@@ -39,7 +39,7 @@ toile radieuse
 toile déferlante
 
 
-toile potagère (forgery)
+toile potagère (falsification)
 toile potagère
 
 toile commune
@@ -53,7 +53,7 @@ toile florale
 toile puissante
 
 
-toile incroyable (forgery)
+toile incroyable (falsification)
 toile incroyable
 
 
@@ -63,17 +63,17 @@ toile incroyable
 
 
 
-toile effrayante (forgery)
+toile effrayante (falsification)
 toile effrayante
 
 toile précieuse
 
 
-toile solennelle (forgery)
+toile solennelle (falsification)
 toile solennelle
 
 
-partie d. de toile sauvage (forgery)
+partie d. de toile sauvage (falsification)
 partie d. de toile sauvage
 
 toile apaisante
@@ -1330,21 +1330,21 @@ pupitre
 bureau de professeur
 bureau du prof
 statue maternelle
-statue maternelle (forgery)
+statue maternelle (falsification)
 statue majestueuse
-statue majestueuse (forgery)
+statue majestueuse (falsification)
 statue athlétique
-statue athlétique (forgery)
+statue athlétique (falsification)
 statuette antique
-statuette antique (forgery)
+statuette antique (falsification)
 statue imposante
 
 statue féminine
-statue féminine (forgery)
+statue féminine (falsification)
 sculpture mystérieuse
-sculpture mystérieuse (forgery)
+sculpture mystérieuse (falsification)
 statue héroïque
-statue héroïque (forgery)
+statue héroïque (falsification)
 
 cage à hamster
 
@@ -12532,13 +12532,13 @@ couronne fête des œufs
 
 
 sculpture déterminée
-sculpture déterminée (forgery)
+sculpture déterminée (falsification)
 tablette édifiante
-tablette édifiante (forgery)
+tablette édifiante (falsification)
 sculpture singulière
-sculpture singulière (forgery)
+sculpture singulière (falsification)
 statue guerrière
-statue guerrière (forgery)
+statue guerrière (falsification)
 statue pensive
 
 Nintendo Switch
@@ -12569,7 +12569,7 @@ assiette Risette & Serge
 
 
 partie g. de toile sauvage
-partie g. de toile sauvage (forgery)
+partie g. de toile sauvage (falsification)
 
 
 
@@ -12618,16 +12618,16 @@ hache émoussée
 
 toile scintillante
 toile académique
-toile académique (forgery)
+toile académique (falsification)
 toile tragique
 toile détaillée
-toile détaillée (forgery)
+toile détaillée (falsification)
 toile crépusculaire
 toile ténébreuse
 
 
 
-toile hivernale (forgery)
+toile hivernale (falsification)
 clôture fête des œufs
 
 
