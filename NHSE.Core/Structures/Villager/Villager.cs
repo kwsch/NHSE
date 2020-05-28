@@ -72,9 +72,19 @@ namespace NHSE.Core
             set => StringUtil.GetBytes(value, 2 * 12).CopyTo(Data, 0x10014);
         }
 
-        public IReadOnlyList<VillagerItem> Furniture
+        private const int WearCount = 24;
+
+        public IReadOnlyList<VillagerItem> WearStockList
         {
-            get => VillagerItem.GetArray(Data.Slice(0x105EC, 16 * VillagerItem.SIZE));
+            get => VillagerItem.GetArray(Data.Slice(0x101CC, WearCount * VillagerItem.SIZE));
+            set => VillagerItem.SetArray(value).CopyTo(Data, 0x101CC);
+        }
+
+        private const int FurnitureCount = 32;
+
+        public IReadOnlyList<VillagerItem> FtrStockList
+        {
+            get => VillagerItem.GetArray(Data.Slice(0x105EC, FurnitureCount * VillagerItem.SIZE));
             set => VillagerItem.SetArray(value).CopyTo(Data, 0x105EC);
         }
 

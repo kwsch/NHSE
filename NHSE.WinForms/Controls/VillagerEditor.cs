@@ -151,13 +151,22 @@ namespace NHSE.WinForms
             LoadVillager(Villagers[VillagerIndex] = v);
         }
 
+        private void B_EditWear_Click(object sender, EventArgs e)
+        {
+            var v = Villagers[VillagerIndex];
+            var items = v.WearStockList;
+            using var editor = new PlayerItemEditor<VillagerItem>(items, 8, 3);
+            if (editor.ShowDialog() == DialogResult.OK)
+                v.WearStockList = items;
+        }
+
         private void B_EditFurniture_Click(object sender, EventArgs e)
         {
             var v = Villagers[VillagerIndex];
-            var items = v.Furniture;
-            using var editor = new PlayerItemEditor<VillagerItem>(items, 8, 2);
+            var items = v.FtrStockList;
+            using var editor = new PlayerItemEditor<VillagerItem>(items, 8, 4);
             if (editor.ShowDialog() == DialogResult.OK)
-                v.Furniture = items;
+                v.FtrStockList = items;
         }
 
         private void B_EditVillagerFlags_Click(object sender, EventArgs e)

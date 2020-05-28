@@ -53,6 +53,7 @@
             this.B_EditVillagerRoom = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditVillagerDesign = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditVillagerPlayerMemories = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditWear = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Variant)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Species)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Villager)).BeginInit();
@@ -83,6 +84,7 @@
             // 
             // B_EditVillager
             // 
+            this.B_EditVillager.ContextMenuStrip = this.CM_EditVillager;
             this.B_EditVillager.Location = new System.Drawing.Point(297, 165);
             this.B_EditVillager.Name = "B_EditVillager";
             this.B_EditVillager.Size = new System.Drawing.Size(92, 40);
@@ -255,11 +257,12 @@
             // 
             this.CM_EditVillager.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.B_EditFurniture,
+            this.B_EditWear,
             this.B_EditVillagerRoom,
             this.B_EditVillagerDesign,
             this.B_EditVillagerPlayerMemories});
             this.CM_EditVillager.Name = "CM_EditPlayer";
-            this.CM_EditVillager.Size = new System.Drawing.Size(186, 92);
+            this.CM_EditVillager.Size = new System.Drawing.Size(186, 114);
             // 
             // B_EditFurniture
             // 
@@ -288,6 +291,13 @@
             this.B_EditVillagerPlayerMemories.Size = new System.Drawing.Size(185, 22);
             this.B_EditVillagerPlayerMemories.Text = "Edit Player Memories";
             this.B_EditVillagerPlayerMemories.Click += new System.EventHandler(this.B_EditVillagerPlayerMemories_Click);
+            // 
+            // B_EditWear
+            // 
+            this.B_EditWear.Name = "B_EditWear";
+            this.B_EditWear.Size = new System.Drawing.Size(185, 22);
+            this.B_EditWear.Text = "Edit Wear";
+            this.B_EditWear.Click += new System.EventHandler(this.B_EditWear_Click);
             // 
             // VillagerEditor
             // 
@@ -350,5 +360,6 @@
         private System.Windows.Forms.ToolStripMenuItem B_EditVillagerRoom;
         private System.Windows.Forms.ToolStripMenuItem B_EditVillagerDesign;
         private System.Windows.Forms.ToolStripMenuItem B_EditVillagerPlayerMemories;
+        private System.Windows.Forms.ToolStripMenuItem B_EditWear;
     }
 }
