@@ -164,7 +164,7 @@ FieldItemEditor.CHK_WV8=V9
 FieldItemEditor.CHK_WV9=V10
 FieldItemEditor.CHK_Y1=Y1
 FieldItemEditor.CHK_Y2=Y2
-FieldItemEditor.GB_Remove=Rimuovi dalla finestra (Shift premuto = tutta la mappa)
+FieldItemEditor.GB_Remove=Rimuovi dalla finestra (Shift premuto = Mappa)
 FieldItemEditor.L_Acre=Sezione:
 FieldItemEditor.L_Bit=Bit:
 FieldItemEditor.L_BuildingRotation=Angolo:
