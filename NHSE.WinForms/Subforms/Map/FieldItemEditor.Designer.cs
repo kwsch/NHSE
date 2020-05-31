@@ -70,6 +70,7 @@
             this.B_RemoveAll = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.B_WaterFlowers = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menu_Spawn = new System.Windows.Forms.ToolStripMenuItem();
             this.GB_Remove = new System.Windows.Forms.Label();
             this.TC_Editor = new System.Windows.Forms.TabControl();
             this.Tab_Item = new System.Windows.Forms.TabPage();
@@ -143,7 +144,7 @@
             this.L_TileMode = new System.Windows.Forms.Label();
             this.CHK_RedirectExtensionLoad = new System.Windows.Forms.CheckBox();
             this.CHK_FieldItemSnap = new System.Windows.Forms.CheckBox();
-            this.Menu_Spawn = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_RemoveAllTrees = new System.Windows.Forms.ToolStripMenuItem();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
@@ -457,6 +458,7 @@
             // 
             this.CM_Remove.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.B_RemoveAllWeeds,
+            this.B_RemoveAllTrees,
             this.B_RemovePlants,
             this.B_RemoveObjects,
             this.B_RemovePlacedItems,
@@ -471,7 +473,7 @@
             this.Menu_Spawn});
             this.CM_Remove.Name = "CM_Picture";
             this.CM_Remove.ShowImageMargin = false;
-            this.CM_Remove.Size = new System.Drawing.Size(156, 296);
+            this.CM_Remove.Size = new System.Drawing.Size(156, 318);
             // 
             // B_RemoveAllWeeds
             // 
@@ -554,6 +556,13 @@
             this.B_WaterFlowers.Size = new System.Drawing.Size(155, 22);
             this.B_WaterFlowers.Text = "Water Flowers";
             this.B_WaterFlowers.Click += new System.EventHandler(this.B_WaterFlowers_Click);
+            // 
+            // Menu_Spawn
+            // 
+            this.Menu_Spawn.Name = "Menu_Spawn";
+            this.Menu_Spawn.Size = new System.Drawing.Size(155, 22);
+            this.Menu_Spawn.Text = "Spawn...";
+            this.Menu_Spawn.Click += new System.EventHandler(this.Menu_Spawn_Click);
             // 
             // GB_Remove
             // 
@@ -1329,12 +1338,12 @@
             this.CHK_FieldItemSnap.Text = "Snap Field Items to Grid on Set";
             this.CHK_FieldItemSnap.UseVisualStyleBackColor = true;
             // 
-            // Menu_Spawn
+            // B_RemoveAllTrees
             // 
-            this.Menu_Spawn.Name = "Menu_Spawn";
-            this.Menu_Spawn.Size = new System.Drawing.Size(155, 22);
-            this.Menu_Spawn.Text = "Spawn...";
-            this.Menu_Spawn.Click += new System.EventHandler(this.Menu_Spawn_Click);
+            this.B_RemoveAllTrees.Name = "B_RemoveAllTrees";
+            this.B_RemoveAllTrees.Size = new System.Drawing.Size(155, 22);
+            this.B_RemoveAllTrees.Text = "Trees";
+            this.B_RemoveAllTrees.Click += new System.EventHandler(this.B_RemoveAllTrees_Click);
             // 
             // FieldItemEditor
             // 
@@ -1524,5 +1533,6 @@
         private System.Windows.Forms.ToolStripMenuItem B_WaterFlowers;
         private System.Windows.Forms.CheckBox CHK_FieldItemSnap;
         private System.Windows.Forms.ToolStripMenuItem Menu_Spawn;
+        private System.Windows.Forms.ToolStripMenuItem B_RemoveAllTrees;
     }
 }
