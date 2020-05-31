@@ -106,8 +106,8 @@ namespace NHSE.Core
             set => value.ToBytes().CopyTo(Data, Offsets.CountAchievement);
         }
 
-        public bool[] GetRecipeList() => ArrayUtil.GitBitFlagArray(Data, Offsets.Recipes, Offsets.MaxRecipeID + 1);
-        public void SetRecipeList(bool[] value) => ArrayUtil.SetBitFlagArray(Data, Offsets.Recipes, value);
+        public RecipeBook GetRecipeBook() => new RecipeBook(Data.Slice(Offsets.Recipes, RecipeBook.SIZE));
+        public void SetRecipeBook(RecipeBook book) => book.Save(Data, Offsets.Recipes);
 
         public short[] GetEventFlagsPlayer()
         {
