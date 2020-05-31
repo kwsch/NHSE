@@ -47,7 +47,7 @@ namespace NHSE.Core
             {
                 SetIsKnown(i, false);
                 SetIsNew(i, false);
-                SetIsFavorite(i, false);
+                SetIsMade(i, false);
                 SetIsFavorite(i, false);
             }
         }

@@ -39,12 +39,14 @@ namespace NHSE.WinForms
 
         private void FillListBox(ushort max, IReadOnlyDictionary<ushort, ushort> recipes, string[] strings, RecipeBook book)
         {
+            Loading = true;
             for (ushort i = 0; i <= max; i++)
             {
                 var name = GetItemName(i, recipes, strings);
                 var text = GetEntryText(book, i, name);
                 LB_Recipes.Items.Add(text);
             }
+            Loading = false;
         }
 
         private static List<ComboItem> GetJumpList(ushort max, IReadOnlyDictionary<ushort, ushort> recipes, string[] strings, List<ComboItem> gotoSource)
@@ -85,6 +87,22 @@ namespace NHSE.WinForms
             book.GiveAll(recipes);
             LB_Recipes.Items.Clear();
             FillListBox(max, recipes, strings, book);
+            LoadIndex(index);
+            LB_Recipes.SelectedIndex = index;
+        }
+
+        private void B_ClearAll_Click(object sender, EventArgs e)
+        {
+            var index = LB_Recipes.SelectedIndex;
+            var book = Book;
+            var recipes = RecipeList.Recipes;
+            var strings = GameInfo.Strings.itemlist;
+            const ushort max = RecipeBook.RecipeCount;
+
+            book.ClearAll();
+            LB_Recipes.Items.Clear();
+            FillListBox(max, recipes, strings, book);
+            LoadIndex(index);
             LB_Recipes.SelectedIndex = index;
         }
 

@@ -38,6 +38,7 @@
             this.CHK_Made = new System.Windows.Forms.CheckBox();
             this.CHK_Favorite = new System.Windows.Forms.CheckBox();
             this.CHK_New = new System.Windows.Forms.CheckBox();
+            this.B_ClearAll = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // B_Cancel
@@ -150,11 +151,23 @@
             this.CHK_New.Text = "New";
             this.CHK_New.UseVisualStyleBackColor = true;
             // 
+            // B_ClearAll
+            // 
+            this.B_ClearAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.B_ClearAll.Location = new System.Drawing.Point(100, 347);
+            this.B_ClearAll.Name = "B_ClearAll";
+            this.B_ClearAll.Size = new System.Drawing.Size(82, 23);
+            this.B_ClearAll.TabIndex = 18;
+            this.B_ClearAll.Text = "Clear All";
+            this.B_ClearAll.UseVisualStyleBackColor = true;
+            this.B_ClearAll.Click += new System.EventHandler(this.B_ClearAll_Click);
+            // 
             // RecipeListEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(404, 381);
+            this.Controls.Add(this.B_ClearAll);
             this.Controls.Add(this.CHK_New);
             this.Controls.Add(this.CHK_Favorite);
             this.Controls.Add(this.CHK_Made);
@@ -187,5 +200,6 @@
         private System.Windows.Forms.CheckBox CHK_Made;
         private System.Windows.Forms.CheckBox CHK_Favorite;
         private System.Windows.Forms.CheckBox CHK_New;
+        private System.Windows.Forms.Button B_ClearAll;
     }
 }
