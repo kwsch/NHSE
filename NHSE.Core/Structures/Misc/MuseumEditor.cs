@@ -57,7 +57,7 @@ namespace NHSE.Core
         {
             var items = new[]
             {
-                GameLists.Art.Where(z => englishNames[z].Contains('(')), // ignore forgeries
+                GameLists.Art.Where(z => !englishNames[z].Contains('(')), // ignore forgeries
                 GameLists.Fish,
                 GameLists.Fossils,
                 GameLists.Bugs,
