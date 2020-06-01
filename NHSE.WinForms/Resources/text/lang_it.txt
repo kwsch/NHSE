@@ -370,6 +370,7 @@ ReactionEditor.B_Save=Salva
 RecipeListEditor.B_All=Impara Tutto
 RecipeListEditor.B_Cancel=Indietro
 RecipeListEditor.B_ClearAll=Elimina Tutto
+RecipeListEditor.B_CraftAll=Craft All
 RecipeListEditor.B_Save=Salva
 RecipeListEditor.CHK_Favorite=Favorito
 RecipeListEditor.CHK_Known=Conosciuto

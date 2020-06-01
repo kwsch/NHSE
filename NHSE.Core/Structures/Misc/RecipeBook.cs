@@ -51,5 +51,17 @@ namespace NHSE.Core
                 SetIsFavorite(i, false);
             }
         }
+
+        public void CraftAll()
+        {
+            for (int i = 0; i < RecipeCount; i++)
+            {
+                bool alreadyHave = GetIsKnown(i);
+                if (!alreadyHave)
+                    continue;
+                SetIsMade(i);
+                SetIsNew(i, false);
+            }
+        }
     }
 }

@@ -39,6 +39,7 @@
             this.CHK_Favorite = new System.Windows.Forms.CheckBox();
             this.CHK_New = new System.Windows.Forms.CheckBox();
             this.B_ClearAll = new System.Windows.Forms.Button();
+            this.B_CraftAll = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // B_Cancel
@@ -66,11 +67,11 @@
             // B_All
             // 
             this.B_All.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.B_All.Location = new System.Drawing.Point(12, 347);
+            this.B_All.Location = new System.Drawing.Point(290, 200);
             this.B_All.Name = "B_All";
             this.B_All.Size = new System.Drawing.Size(82, 23);
             this.B_All.TabIndex = 10;
-            this.B_All.Text = "Give All";
+            this.B_All.Text = "Learn All";
             this.B_All.UseVisualStyleBackColor = true;
             this.B_All.Click += new System.EventHandler(this.B_All_Click);
             // 
@@ -154,7 +155,7 @@
             // B_ClearAll
             // 
             this.B_ClearAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.B_ClearAll.Location = new System.Drawing.Point(100, 347);
+            this.B_ClearAll.Location = new System.Drawing.Point(290, 275);
             this.B_ClearAll.Name = "B_ClearAll";
             this.B_ClearAll.Size = new System.Drawing.Size(82, 23);
             this.B_ClearAll.TabIndex = 18;
@@ -162,11 +163,23 @@
             this.B_ClearAll.UseVisualStyleBackColor = true;
             this.B_ClearAll.Click += new System.EventHandler(this.B_ClearAll_Click);
             // 
+            // B_CraftAll
+            // 
+            this.B_CraftAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.B_CraftAll.Location = new System.Drawing.Point(290, 229);
+            this.B_CraftAll.Name = "B_CraftAll";
+            this.B_CraftAll.Size = new System.Drawing.Size(82, 23);
+            this.B_CraftAll.TabIndex = 19;
+            this.B_CraftAll.Text = "Craft All";
+            this.B_CraftAll.UseVisualStyleBackColor = true;
+            this.B_CraftAll.Click += new System.EventHandler(this.B_CraftAll_Click);
+            // 
             // RecipeListEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(404, 381);
+            this.Controls.Add(this.B_CraftAll);
             this.Controls.Add(this.B_ClearAll);
             this.Controls.Add(this.CHK_New);
             this.Controls.Add(this.CHK_Favorite);
@@ -201,5 +214,6 @@
         private System.Windows.Forms.CheckBox CHK_Favorite;
         private System.Windows.Forms.CheckBox CHK_New;
         private System.Windows.Forms.Button B_ClearAll;
+        private System.Windows.Forms.Button B_CraftAll;
     }
 }

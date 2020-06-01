@@ -76,7 +76,11 @@ namespace NHSE.WinForms
             return $"0x{index:X3} - {known} {item}";
         }
 
-        private void B_All_Click(object sender, EventArgs e)
+        private void B_All_Click(object sender, EventArgs e) => DoAll(() => Book.GiveAll(RecipeList.Recipes));
+        private void B_ClearAll_Click(object sender, EventArgs e) => DoAll(Book.ClearAll);
+        private void B_CraftAll_Click(object sender, EventArgs e) => DoAll(Book.CraftAll);
+
+        private void DoAll(Action action)
         {
             var index = LB_Recipes.SelectedIndex;
             var book = Book;
@@ -84,22 +88,7 @@ namespace NHSE.WinForms
             var strings = GameInfo.Strings.itemlist;
             const ushort max = RecipeBook.RecipeCount;
 
-            book.GiveAll(recipes);
-            LB_Recipes.Items.Clear();
-            FillListBox(max, recipes, strings, book);
-            LoadIndex(index);
-            LB_Recipes.SelectedIndex = index;
-        }
-
-        private void B_ClearAll_Click(object sender, EventArgs e)
-        {
-            var index = LB_Recipes.SelectedIndex;
-            var book = Book;
-            var recipes = RecipeList.Recipes;
-            var strings = GameInfo.Strings.itemlist;
-            const ushort max = RecipeBook.RecipeCount;
-
-            book.ClearAll();
+            action();
             LB_Recipes.Items.Clear();
             FillListBox(max, recipes, strings, book);
             LoadIndex(index);
