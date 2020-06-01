@@ -703,7 +703,7 @@ namespace NHSE.WinForms
         }
 
         private void B_RemoveAllWeeds_Click(object sender, EventArgs e) => Remove(B_RemoveAllWeeds, Map.CurrentLayer.RemoveAllWeeds);
-        private void B_RemoveAllTrees_Click(object sender, EventArgs e) => Remove(B_RemoveAllWeeds, Map.CurrentLayer.RemoveAllTrees);
+        private void B_RemoveAllTrees_Click(object sender, EventArgs e) => Remove(B_RemoveAllTrees, Map.CurrentLayer.RemoveAllTrees);
         private void B_FillHoles_Click(object sender, EventArgs e) => Remove(B_FillHoles, Map.CurrentLayer.RemoveAllHoles);
         private void B_RemovePlants_Click(object sender, EventArgs e) => Remove(B_RemovePlants, Map.CurrentLayer.RemoveAllPlants);
         private void B_RemoveFences_Click(object sender, EventArgs e) => Remove(B_RemoveFences, Map.CurrentLayer.RemoveAllFences);
