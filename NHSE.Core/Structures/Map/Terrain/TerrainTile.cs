@@ -74,5 +74,25 @@ namespace NHSE.Core
             VariationRoad = tile.VariationRoad;
             LandMakingAngleRoad = tile.LandMakingAngleRoad;
         }
+
+        public bool Rotate() => UnitModelRoad != 0 ? RotateRoad() : RotateTerrain();
+
+        private bool RotateTerrain()
+        {
+            if (UnitModel == TerrainUnitModel.Base)
+                return false;
+            var rot = LandMakingAngle;
+            rot = (ushort)((rot + 1) & 3);
+            LandMakingAngle = rot;
+            return true;
+        }
+
+        private bool RotateRoad()
+        {
+            var rot = LandMakingAngleRoad;
+            rot = (ushort) ((rot + 1) & 3);
+            LandMakingAngleRoad = rot;
+            return true;
+        }
     }
 }

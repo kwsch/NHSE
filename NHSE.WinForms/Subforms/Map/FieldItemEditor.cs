@@ -204,6 +204,9 @@ namespace NHSE.WinForms
                 default:
                     ViewTile(tile);
                     return;
+                case Keys.Shift | Keys.Control:
+                    RotateTile(tile);
+                    return;
                 case Keys.Shift:
                     SetTile(tile);
                     return;
@@ -356,6 +359,17 @@ namespace NHSE.WinForms
             tile.CopyFrom(pgt);
 
             ReloadItems();
+        }
+
+        private void RotateTile(TerrainTile tile)
+        {
+            bool rotated = tile.Rotate();
+            if (!rotated)
+            {
+                System.Media.SystemSounds.Asterisk.Play();
+                return;
+            }
+            ReloadBuildingsTerrain();
         }
 
         private void SetTile(TerrainTile tile)
