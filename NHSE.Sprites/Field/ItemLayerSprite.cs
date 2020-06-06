@@ -101,7 +101,9 @@ namespace NHSE.Sprites
                             geneIndex = (tile.ExtensionY << 1) | tile.ExtensionX;
                             tile = layer.GetTile(x - tile.ExtensionX, y - tile.ExtensionY);
                         }
-                        var geneValue = ((uint)tile.Genes >> (geneIndex * 2)) & 3;
+
+                        var genes = ((uint)tile.Genes ^ 0b00_11_00_00); // invert W bits
+                        var geneValue = (genes >> (geneIndex * 2)) & 3;
                         if (geneValue == 0)
                             continue;
                         DrawGene(data, (x - x0) * scale, (y - y0) * scale, scale, w, geneValue, geneIndex);
