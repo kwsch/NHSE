@@ -111,9 +111,12 @@ namespace NHSE.WinForms
             var sb = new SysBotController(InjectionType.Pouch);
             var pockInject = new PocketInjector(ItemArray.Items, sb.Bot);
             var ai = new AutoInjector(pockInject, AfterRead, AfterWrite);
+            var ub = new USBBotController();
+            var pockInjectUSB = new PocketInjector(ItemArray.Items, ub.Bot);
+            var aiUSB = new AutoInjector(pockInjectUSB, AfterRead, AfterWrite);
 
             ItemGrid.ItemChanged = () => ai.Write();
-            var sysbot = new SysBotUI(ai, sb);
+            var sysbot = new SysBotUI(ai, sb, aiUSB, ub);
             sysbot.Show();
         }
     }
