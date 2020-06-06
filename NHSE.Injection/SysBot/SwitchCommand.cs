@@ -9,7 +9,7 @@ namespace NHSE.Injection
     public static class SwitchCommand
     {
         private static readonly Encoding Encoder = Encoding.UTF8;
-        private static byte[] Encode(string command) => Encoder.GetBytes(command + "\r\n");
+        private static byte[] Encode(string command, bool addrn = true) => Encoder.GetBytes(addrn ? command + "\r\n" : command);
 
         /// <summary>
         /// Removes the virtual controller from the bot. Allows physical controllers to control manually.
@@ -66,5 +66,13 @@ namespace NHSE.Injection
         /// <param name="data">Data to write</param>
         /// <returns>Encoded command bytes</returns>
         public static byte[] Poke(uint offset, byte[] data) => Encode($"poke 0x{offset:X8} 0x{string.Concat(data.Select(z => $"{z:X2}"))}");
+
+        /// <summary>
+        /// (Without return) Requests the Bot to send <see cref="count"/> bytes from <see cref="offset"/>.
+        /// </summary>
+        /// <param name="offset">Address of the data</param>
+        /// <param name="count">Amount of bytes</param>
+        /// <returns>Encoded command bytes</returns>
+        public static byte[] PeekRaw(uint offset, int count) => Encode($"peek 0x{offset:X8} {count}", false);
     }
 }

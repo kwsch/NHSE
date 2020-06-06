@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="LibUsbDotNet" Version="2.2.29" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\NHSE.Core\NHSE.Core.csproj" />
   </ItemGroup>
 

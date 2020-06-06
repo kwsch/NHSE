@@ -43,7 +43,13 @@
             this.B_ReadCurrent = new System.Windows.Forms.Button();
             this.B_WriteCurrent = new System.Windows.Forms.Button();
             this.TIM_Interval = new System.Windows.Forms.Timer(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ReadUSB = new System.Windows.Forms.Button();
+            this.WriteUSB = new System.Windows.Forms.Button();
+            this.L_OffsetUSB = new System.Windows.Forms.Label();
+            this.RamOffsetUSB = new System.Windows.Forms.TextBox();
             this.GB_Inject.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // B_Connect
@@ -188,11 +194,65 @@
             // 
             this.TIM_Interval.Interval = 5000;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.RamOffsetUSB);
+            this.groupBox1.Controls.Add(this.L_OffsetUSB);
+            this.groupBox1.Controls.Add(this.WriteUSB);
+            this.groupBox1.Controls.Add(this.ReadUSB);
+            this.groupBox1.Location = new System.Drawing.Point(16, 191);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(149, 75);
+            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "USB";
+            // 
+            // ReadUSB
+            // 
+            this.ReadUSB.Location = new System.Drawing.Point(6, 46);
+            this.ReadUSB.Name = "ReadUSB";
+            this.ReadUSB.Size = new System.Drawing.Size(68, 23);
+            this.ReadUSB.TabIndex = 0;
+            this.ReadUSB.Text = "Read USB";
+            this.ReadUSB.UseVisualStyleBackColor = true;
+            this.ReadUSB.Click += new System.EventHandler(this.ReadUSB_Click);
+            // 
+            // WriteUSB
+            // 
+            this.WriteUSB.Location = new System.Drawing.Point(74, 46);
+            this.WriteUSB.Name = "WriteUSB";
+            this.WriteUSB.Size = new System.Drawing.Size(69, 23);
+            this.WriteUSB.TabIndex = 1;
+            this.WriteUSB.Text = "Write USB";
+            this.WriteUSB.UseVisualStyleBackColor = true;
+            this.WriteUSB.Click += new System.EventHandler(this.WriteUSB_Click);
+            // 
+            // L_OffsetUSB
+            // 
+            this.L_OffsetUSB.Location = new System.Drawing.Point(3, 24);
+            this.L_OffsetUSB.Name = "L_OffsetUSB";
+            this.L_OffsetUSB.Size = new System.Drawing.Size(63, 20);
+            this.L_OffsetUSB.TabIndex = 20;
+            this.L_OffsetUSB.Text = "Offset:";
+            this.L_OffsetUSB.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // RamOffsetUSB
+            // 
+            this.RamOffsetUSB.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RamOffsetUSB.Location = new System.Drawing.Point(72, 24);
+            this.RamOffsetUSB.MaxLength = 8;
+            this.RamOffsetUSB.Name = "RamOffsetUSB";
+            this.RamOffsetUSB.Size = new System.Drawing.Size(63, 20);
+            this.RamOffsetUSB.TabIndex = 24;
+            this.RamOffsetUSB.Text = "AC4723D0";
+            this.RamOffsetUSB.TextChanged += new System.EventHandler(this.RamOffsetUSB_TextChanged);
+            // 
             // SysBotUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(184, 197);
+            this.ClientSize = new System.Drawing.Size(184, 278);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.GB_Inject);
             this.Controls.Add(this.B_Connect);
             this.Controls.Add(this.L_Port);
@@ -209,6 +269,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SysBotUI_FormClosing);
             this.GB_Inject.ResumeLayout(false);
             this.GB_Inject.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,5 +292,10 @@
         private System.Windows.Forms.CheckBox CHK_AutoRead;
         private System.Windows.Forms.Timer TIM_Interval;
         private System.Windows.Forms.CheckBox CHK_Validate;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button ReadUSB;
+        private System.Windows.Forms.Button WriteUSB;
+        private System.Windows.Forms.TextBox RamOffsetUSB;
+        private System.Windows.Forms.Label L_OffsetUSB;
     }
 }

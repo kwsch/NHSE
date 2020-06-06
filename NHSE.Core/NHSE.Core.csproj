@@ -162,4 +162,8 @@
     <EmbeddedResource Include="Resources\text\zht\text_villager_zht.txt" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="LibUsbDotNet" Version="2.2.29" />
+  </ItemGroup>
+
 </Project>

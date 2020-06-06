@@ -20,6 +20,10 @@ namespace NHSE.Sprites
 
             ItemNames = itemNames;
 
+            //create items folder if not exist
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+
             var files = Directory.EnumerateFiles(path, "*.png", SearchOption.AllDirectories);
             foreach (var f in files)
             {
