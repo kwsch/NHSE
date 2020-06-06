@@ -1,23 +1,10 @@
-NHSE
+NHSE - USB
 =====
 <div>
-  <span>English</span> / <a href=".github/README-jp.md">日本語</a> / <a href=".github/README-zh-CN.md">简体中文</a> / <a href=".github/README-es.md">Español</a> / <a href=".github/README-it.md">Italiano</a>
-</div>
 
-![License](https://img.shields.io/badge/License-GPLv3-blue.svg)
+[NHSE](https://github.com/kwsch/NHSE) with an interface for [USB-Botbase](https://github.com/fishguy6564/USB-Botbase) so you can edit your inventory while locally visiting (ideally your own) island.
 
-Save Editor for Animal Crossing: New Horizons
+Requires LibUsbDotNet (use NuGet in vs2019)
 
-Edits savedata dumped from the Nintendo Switch. 
-* Bring your own save file data; this program does not dump it from your console.
-
-## See Also
-
-[MyHorizons](https://github.com/Cuyler36/MyHorizons) by [Cuyler36](https://github.com/Cuyler36/)
-* Some portions of code are liberally adapted from Cuyler36's project above.
-
-## Other
-
-Refer to the [Wiki](https://github.com/kwsch/NHSE/wiki) for more information.
-
+Reiterating from NHSE:
 **We do not support or condone cheating at the expense of others.** Please be responsible!
