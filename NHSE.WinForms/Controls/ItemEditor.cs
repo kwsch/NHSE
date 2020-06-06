@@ -285,8 +285,8 @@ namespace NHSE.WinForms
             CHK_R2.Checked = (genes & FlowerGene.R2) != 0;
             CHK_Y1.Checked = (genes & FlowerGene.Y1) != 0;
             CHK_Y2.Checked = (genes & FlowerGene.Y2) != 0;
-            CHK_W1.Checked = (genes & FlowerGene.W1) != 0;
-            CHK_W2.Checked = (genes & FlowerGene.W2) != 0;
+            CHK_W1.Checked = (genes & FlowerGene.w1) == 0; // inverted; both bits on = no gene (not white)
+            CHK_W2.Checked = (genes & FlowerGene.w2) == 0; // inverted; both bits on = no gene (not white)
             CHK_S1.Checked = (genes & FlowerGene.S1) != 0;
             CHK_S2.Checked = (genes & FlowerGene.S2) != 0;
         }
@@ -298,8 +298,8 @@ namespace NHSE.WinForms
             if (CHK_R2.Checked) val |= FlowerGene.R2;
             if (CHK_Y1.Checked) val |= FlowerGene.Y1;
             if (CHK_Y2.Checked) val |= FlowerGene.Y2;
-            if (CHK_W1.Checked) val |= FlowerGene.W1;
-            if (CHK_W2.Checked) val |= FlowerGene.W2;
+            if (!CHK_W1.Checked) val |= FlowerGene.w1; // inverted; both bits on = no gene (not white)
+            if (!CHK_W2.Checked) val |= FlowerGene.w2; // inverted; both bits on = no gene (not white)
             if (CHK_S1.Checked) val |= FlowerGene.S1;
             if (CHK_S2.Checked) val |= FlowerGene.S2;
             return val;
