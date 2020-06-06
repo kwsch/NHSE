@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using LibUsbDotNet;
-using LibUsbDotNet.Info;
 using LibUsbDotNet.Main;
-using NHSE.Core;
 
 namespace NHSE.Injection
 {
@@ -24,7 +19,6 @@ namespace NHSE.Injection
         {
             lock (_sync)
             {
-                
                 // Find and open the usb device.
                 //SwDevice = UsbDevice.OpenUsbDevice(SwFinder);
                 foreach (UsbRegistry ur in UsbDevice.AllDevices)
@@ -44,22 +38,20 @@ namespace NHSE.Injection
                     SwDevice.Close();
                 SwDevice.Open();
 
-                    
-                IUsbDevice? wholeUsbDevice = SwDevice as IUsbDevice;
-                if (!ReferenceEquals(wholeUsbDevice, null))
+                if (SwDevice is IUsbDevice wholeUsbDevice)
                 {
                     // This is a "whole" USB device. Before it can be used, 
                     // the desired configuration and interface must be selected.
 
                     // Select config #1
-                    bool res = wholeUsbDevice.SetConfiguration(1);
+                    wholeUsbDevice.SetConfiguration(1);
 
                     // Claim interface #0.
                     bool resagain = wholeUsbDevice.ClaimInterface(0);
-                    if (resagain == false)
+                    if (!resagain)
                     {
                         wholeUsbDevice.ReleaseInterface(0);
-                        resagain = wholeUsbDevice.ClaimInterface(0);
+                        wholeUsbDevice.ClaimInterface(0);
                     }
                 }
                 else
@@ -71,7 +63,7 @@ namespace NHSE.Injection
                 // open read write endpoints 1.
                 reader = SwDevice.OpenEndpointReader(ReadEndpointID.Ep01);
                 writer = SwDevice.OpenEndpointWriter(WriteEndpointID.Ep01);
-                
+
                 Connected = true;
                 return true;
             }
@@ -86,17 +78,13 @@ namespace NHSE.Injection
                     if (SwDevice.IsOpen)
                     {
                         IUsbDevice? wholeUsbDevice = SwDevice as IUsbDevice;
-                        if (!ReferenceEquals(wholeUsbDevice, null))
-                        {
-                            wholeUsbDevice.ReleaseInterface(0);
-                        }
+                        wholeUsbDevice?.ReleaseInterface(0);
                         SwDevice.Close();
                     }
                 }
-                if (!ReferenceEquals(reader, null))
-                    reader.Dispose(); 
-                if (!ReferenceEquals(writer, null))
-                    writer.Dispose();
+
+                reader?.Dispose();
+                writer?.Dispose();
                 Connected = false;
             }
         }
@@ -104,37 +92,31 @@ namespace NHSE.Injection
         private int ReadInternal(byte[] buffer)
         {
             byte[] sizeOfReturn = new byte[4];
-            ErrorCode ec = ErrorCode.None;
-            int lenNew = 0;
-            int lenVal = 0;
 
             //read size, no error checking as of yet, should be the required 368 bytes
-            if (!ReferenceEquals(reader, null))
-                ec = reader.Read(sizeOfReturn, 5000, out lenNew);
-            else
+            if (reader == null)
                 throw new Exception("USB writer is null, you may have disconnected the device during previous function");
 
+            reader.Read(sizeOfReturn, 5000, out _);
+
             //read stack
-            reader.Read(buffer, 5000, out lenVal);
+            reader.Read(buffer, 5000, out var lenVal);
             return lenVal;
         }
 
         private int SendInternal(byte[] buffer)
         {
-            int l;
-            uint pack = (uint)buffer.Length + 2;
-            ErrorCode ec;
-            if (!ReferenceEquals(writer, null))
-                ec = writer.Write(BitConverter.GetBytes(pack), 2000, out l);
-            else
+            if (writer == null)
                 throw new Exception("USB writer is null, you may have disconnected the device during previous function");
 
+            uint pack = (uint)buffer.Length + 2;
+            var ec = writer.Write(BitConverter.GetBytes(pack), 2000, out _);
             if (ec != ErrorCode.None)
             {
                 Disconnect();
                 throw new Exception(UsbDevice.LastErrorString);
             }
-            ec = writer.Write(buffer, 2000, out l);
+            ec = writer.Write(buffer, 2000, out var l);
             if (ec != ErrorCode.None)
             {
                 Disconnect();
@@ -160,7 +142,7 @@ namespace NHSE.Injection
 
                 // give it time to push data back
                 Thread.Sleep((length / 256) + 100);
-                
+
                 var buffer = new byte[length];
                 var _ = ReadInternal(buffer);
                 //return Decoder.ConvertHexByteStringToBytes(buffer);
@@ -178,6 +160,5 @@ namespace NHSE.Injection
                 Thread.Sleep((data.Length / 256) + 100);
             }
         }
-
     }
 }
