@@ -677,6 +677,7 @@
             this.NUD_Wallet.Name = "NUD_Wallet";
             this.NUD_Wallet.Size = new System.Drawing.Size(100, 20);
             this.NUD_Wallet.TabIndex = 10;
+            this.NUD_Wallet.ValueChanged += new System.EventHandler(this.NUD_Wallet_ValueChanged);
             // 
             // L_NookMiles
             // 
