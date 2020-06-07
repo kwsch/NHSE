@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Sprites;
@@ -32,7 +33,9 @@ namespace NHSE.WinForms
             };
         }
 
-        public void Initialize(IList<ComboItem> items, bool canExtend = false)
+        private IReadOnlyList<ComboItem> AllItems = Array.Empty<ComboItem>();
+
+        public void Initialize(IReadOnlyList<ComboItem> items, bool canExtend = false)
         {
             CHK_IsExtension.Visible = CanExtend = canExtend;
 
@@ -49,6 +52,8 @@ namespace NHSE.WinForms
             CB_Fossil.DataSource = Fossils;
 
             LoadItem(Item.NO_ITEM);
+
+            AllItems = items;
         }
 
         public Item LoadItem(Item item)
@@ -346,5 +351,13 @@ namespace NHSE.WinForms
         }
 
         private void CB_WrapType_SelectedIndexChanged(object sender, EventArgs e) => CB_WrapColor.Visible = (ItemWrapping)CB_WrapType.SelectedIndex == ItemWrapping.WrappingPaper;
+
+        private void CB_ItemID_TextChanged(object sender, EventArgs e)
+        {
+            var entered = CB_ItemID.Text;
+            var itemNames = AllItems.Where(z => z.Text.Contains(entered)).Take(10).Select(z => z.Text);
+            var caption = string.Join(Environment.NewLine, itemNames);
+            TT_Search.SetToolTip(CB_ItemID, caption);
+        }
     }
 }
