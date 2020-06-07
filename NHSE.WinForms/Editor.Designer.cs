@@ -57,6 +57,8 @@
             this.B_EditFieldItems = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditBulletin = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditFieldGoods = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditMuseum_Click = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditVisitors = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditPRODesigns = new System.Windows.Forms.Button();
             this.B_EditPatterns = new System.Windows.Forms.Button();
             this.B_EditTurnipExchange = new System.Windows.Forms.Button();
@@ -94,8 +96,6 @@
             this.CB_Players = new System.Windows.Forms.ComboBox();
             this.PB_Player = new System.Windows.Forms.PictureBox();
             this.TC_Editors = new System.Windows.Forms.TabControl();
-            this.B_EditMuseum_Click = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_EditVisitors = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Editor.SuspendLayout();
             this.CM_Picture.SuspendLayout();
             this.Tab_Map.SuspendLayout();
@@ -344,35 +344,49 @@
             this.B_EditMuseum_Click,
             this.B_EditVisitors});
             this.CM_EditMap.Name = "CM_EditMap";
-            this.CM_EditMap.Size = new System.Drawing.Size(181, 158);
+            this.CM_EditMap.Size = new System.Drawing.Size(172, 136);
             // 
             // B_EditLandFlags
             // 
             this.B_EditLandFlags.Name = "B_EditLandFlags";
-            this.B_EditLandFlags.Size = new System.Drawing.Size(180, 22);
+            this.B_EditLandFlags.Size = new System.Drawing.Size(171, 22);
             this.B_EditLandFlags.Text = "Edit Flags";
             this.B_EditLandFlags.Click += new System.EventHandler(this.B_EditLandFlags_Click);
             // 
             // B_EditFieldItems
             // 
             this.B_EditFieldItems.Name = "B_EditFieldItems";
-            this.B_EditFieldItems.Size = new System.Drawing.Size(180, 22);
+            this.B_EditFieldItems.Size = new System.Drawing.Size(171, 22);
             this.B_EditFieldItems.Text = "Edit Field Items";
             this.B_EditFieldItems.Click += new System.EventHandler(this.B_EditFieldItems_Click);
             // 
             // B_EditBulletin
             // 
             this.B_EditBulletin.Name = "B_EditBulletin";
-            this.B_EditBulletin.Size = new System.Drawing.Size(180, 22);
+            this.B_EditBulletin.Size = new System.Drawing.Size(171, 22);
             this.B_EditBulletin.Text = "Edit Bulletin Board";
             this.B_EditBulletin.Click += new System.EventHandler(this.B_EditBulletin_Click);
             // 
             // B_EditFieldGoods
             // 
             this.B_EditFieldGoods.Name = "B_EditFieldGoods";
-            this.B_EditFieldGoods.Size = new System.Drawing.Size(180, 22);
+            this.B_EditFieldGoods.Size = new System.Drawing.Size(171, 22);
             this.B_EditFieldGoods.Text = "Edit Field Goods";
             this.B_EditFieldGoods.Click += new System.EventHandler(this.B_EditFieldGoods_Click);
+            // 
+            // B_EditMuseum_Click
+            // 
+            this.B_EditMuseum_Click.Name = "B_EditMuseum_Click";
+            this.B_EditMuseum_Click.Size = new System.Drawing.Size(171, 22);
+            this.B_EditMuseum_Click.Text = "Edit Museum";
+            this.B_EditMuseum_Click.Click += new System.EventHandler(this.B_EditMuseum_Click_Click);
+            // 
+            // B_EditVisitors
+            // 
+            this.B_EditVisitors.Name = "B_EditVisitors";
+            this.B_EditVisitors.Size = new System.Drawing.Size(171, 22);
+            this.B_EditVisitors.Text = "Edit Visitors";
+            this.B_EditVisitors.Click += new System.EventHandler(this.B_EditVisitors_Click);
             // 
             // B_EditPRODesigns
             // 
@@ -540,6 +554,7 @@
             0,
             0,
             0});
+            this.NUD_PocketCount2.ValueChanged += new System.EventHandler(this.NUD_PocketCount_ValueChanged);
             // 
             // NUD_PocketCount1
             // 
@@ -557,6 +572,7 @@
             0,
             0,
             0});
+            this.NUD_PocketCount1.ValueChanged += new System.EventHandler(this.NUD_PocketCount_ValueChanged);
             // 
             // B_EditPlayer
             // 
@@ -768,20 +784,6 @@
             this.TC_Editors.SelectedIndex = 0;
             this.TC_Editors.Size = new System.Drawing.Size(404, 237);
             this.TC_Editors.TabIndex = 1;
-            // 
-            // B_EditMuseum_Click
-            // 
-            this.B_EditMuseum_Click.Name = "B_EditMuseum_Click";
-            this.B_EditMuseum_Click.Size = new System.Drawing.Size(180, 22);
-            this.B_EditMuseum_Click.Text = "Edit Museum";
-            this.B_EditMuseum_Click.Click += new System.EventHandler(this.B_EditMuseum_Click_Click);
-            // 
-            // B_EditVisitors
-            // 
-            this.B_EditVisitors.Name = "B_EditVisitors";
-            this.B_EditVisitors.Size = new System.Drawing.Size(180, 22);
-            this.B_EditVisitors.Text = "Edit Visitors";
-            this.B_EditVisitors.Click += new System.EventHandler(this.B_EditVisitors_Click);
             // 
             // Editor
             // 
