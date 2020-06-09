@@ -67,7 +67,6 @@ namespace NHSE.WinForms
             var path = Settings.Default.LastFilePath;
             var sav = new HorizonSave(path);
             using var editor = new Editor(sav);
-            using var items = new PlayerItemEditor<Item>(new[] {new Item()}, 1, 1);
             using var so = new SingleObjectEditor<object>(new object(), PropertySort.NoSort, false);
         }
 

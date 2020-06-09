@@ -212,7 +212,7 @@ namespace NHSE.WinForms
                 var bag = pers.Bag;
                 var pocket = pers.Pocket;
                 var items = pocket.Concat(bag).ToArray();
-                using var editor = new PlayerItemEditor<Item>(items, 10, 4, sysbot: true);
+                using var editor = new PlayerItemEditor(items, 10, 4, sysbot: true);
                 if (editor.ShowDialog() != DialogResult.OK)
                     return;
 
@@ -226,7 +226,7 @@ namespace NHSE.WinForms
             var player = SAV.Players[PlayerIndex];
             var pers = player.Personal;
             var p1 = pers.ItemChest;
-            using var editor = new PlayerItemEditor<Item>(p1, 10, 5);
+            using var editor = new PlayerItemEditor(p1, 10, 5);
             if (editor.ShowDialog() == DialogResult.OK)
                 pers.ItemChest = p1;
         }
@@ -234,7 +234,7 @@ namespace NHSE.WinForms
         private void B_RecycleBin_Click(object sender, EventArgs e)
         {
             var items = SAV.Main.RecycleBin;
-            using var editor = new PlayerItemEditor<Item>(items, 10, 4);
+            using var editor = new PlayerItemEditor(items, 10, 4);
             if (editor.ShowDialog() == DialogResult.OK)
                 SAV.Main.RecycleBin = items;
         }
