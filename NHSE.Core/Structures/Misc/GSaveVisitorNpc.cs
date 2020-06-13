@@ -34,8 +34,8 @@ namespace NHSE.Core
         [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
         public byte[] gap_6e;
 
-        public int _e2484556 {get; set; }
-        public int _753479b1 { get; set; }
+        public int DayWisp {get; set; }
+        public int DayCeleste { get; set; }
     }
 
     // same as Vector3; not importing package
@@ -55,7 +55,7 @@ namespace NHSE.Core
         Gulliver = 1,
         Label = 2,
         Saharah = 3,
-        Wisp = 4,
+        Unknown = 4,
         Mabel = 5,
         CJ = 6,
         Flick = 7,
