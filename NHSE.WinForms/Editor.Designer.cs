@@ -96,6 +96,8 @@
             this.CB_Players = new System.Windows.Forms.ComboBox();
             this.PB_Player = new System.Windows.Forms.PictureBox();
             this.TC_Editors = new System.Windows.Forms.TabControl();
+            this.L_WeatherSeed = new System.Windows.Forms.Label();
+            this.NUD_WeatherSeed = new System.Windows.Forms.NumericUpDown();
             this.Menu_Editor.SuspendLayout();
             this.CM_Picture.SuspendLayout();
             this.Tab_Map.SuspendLayout();
@@ -111,6 +113,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).BeginInit();
             this.TC_Editors.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_WeatherSeed)).BeginInit();
             this.SuspendLayout();
             // 
             // Menu_Editor
@@ -236,6 +239,8 @@
             // 
             // Tab_Map
             // 
+            this.Tab_Map.Controls.Add(this.NUD_WeatherSeed);
+            this.Tab_Map.Controls.Add(this.L_WeatherSeed);
             this.Tab_Map.Controls.Add(this.B_EditDesignsTailor);
             this.Tab_Map.Controls.Add(this.B_EditPatternFlag);
             this.Tab_Map.Controls.Add(this.CB_AirportColor);
@@ -786,6 +791,33 @@
             this.TC_Editors.Size = new System.Drawing.Size(404, 237);
             this.TC_Editors.TabIndex = 1;
             // 
+            // L_WeatherSeed
+            // 
+            this.L_WeatherSeed.AutoSize = true;
+            this.L_WeatherSeed.Location = new System.Drawing.Point(301, 66);
+            this.L_WeatherSeed.Name = "L_WeatherSeed";
+            this.L_WeatherSeed.Size = new System.Drawing.Size(63, 13);
+            this.L_WeatherSeed.TabIndex = 64;
+            this.L_WeatherSeed.Text = "Hemisphere";
+            // 
+            // NUD_WeatherSeed
+            // 
+            this.NUD_WeatherSeed.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NUD_WeatherSeed.Location = new System.Drawing.Point(202, 59);
+            this.NUD_WeatherSeed.Maximum = new decimal(new int[] {
+            -1,
+            0,
+            0,
+            0});
+            this.NUD_WeatherSeed.Name = "NUD_WeatherSeed";
+            this.NUD_WeatherSeed.Size = new System.Drawing.Size(93, 20);
+            this.NUD_WeatherSeed.TabIndex = 65;
+            this.NUD_WeatherSeed.Value = new decimal(new int[] {
+            1234567890,
+            0,
+            0,
+            0});
+            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -817,6 +849,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).EndInit();
             this.TC_Editors.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_WeatherSeed)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -890,6 +923,8 @@
         private System.Windows.Forms.Button B_EditPatternFlag;
         private System.Windows.Forms.ToolStripMenuItem B_EditMuseum_Click;
         private System.Windows.Forms.ToolStripMenuItem B_EditVisitors;
+        private System.Windows.Forms.Label L_WeatherSeed;
+        private System.Windows.Forms.NumericUpDown NUD_WeatherSeed;
     }
 }
 

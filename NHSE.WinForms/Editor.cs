@@ -180,6 +180,7 @@ namespace NHSE.WinForms
             foreach (var n in names)
                 CB_AirportColor.Items.Add(n);
             CB_AirportColor.SelectedIndex = (int)m.AirportThemeColor;
+            NUD_WeatherSeed.Value = m.WeatherSeed;
         }
 
         private void SaveMain()
@@ -187,6 +188,7 @@ namespace NHSE.WinForms
             var m = SAV.Main;
             m.Hemisphere = (Hemisphere)CB_Hemisphere.SelectedIndex;
             m.AirportThemeColor = (AirportColor)CB_AirportColor.SelectedIndex;
+            m.WeatherSeed = (uint)NUD_WeatherSeed.Value;
         }
 
         #region Player Editing
