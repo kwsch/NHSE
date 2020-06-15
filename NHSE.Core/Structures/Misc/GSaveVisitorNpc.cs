@@ -55,7 +55,7 @@ namespace NHSE.Core
         Gulliver = 1,
         Label = 2,
         Saharah = 3,
-        Unknown = 4,
+        Wisp = 4,
         Mabel = 5,
         CJ = 6,
         Flick = 7,
