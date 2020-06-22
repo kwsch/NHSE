@@ -94,6 +94,10 @@ namespace NHSE.WinForms
         private void B_LoadHouse_Click(object sender, EventArgs e)
         {
             var name = GetVillagerName(Houses[Index]);
+            if(name == "???")
+            {
+                name = "*";
+            }
             using var ofd = new OpenFileDialog
             {
                 Filter = "New Horizons Villager House (*.nhvh)|*.nhvh|All files (*.*)|*.*",
