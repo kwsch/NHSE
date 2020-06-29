@@ -8,17 +8,17 @@ using NHSE.Injection;
 
 namespace NHSE.WinForms
 {
-    public partial class PlayerItemEditor<T> : Form where T : Item
+    public partial class PlayerItemEditor : Form
     {
         private readonly Action LoadItems;
         private readonly ItemGridEditor ItemGrid;
-        private readonly ItemArrayEditor<T> ItemArray;
+        private readonly ItemArrayEditor<Item> ItemArray;
 
-        public PlayerItemEditor(IReadOnlyList<T> array, int width, int height, bool sysbot = false)
+        public PlayerItemEditor(IReadOnlyList<Item> array, int width, int height, bool sysbot = false)
         {
             InitializeComponent();
             this.TranslateInterface(GameInfo.CurrentLanguage);
-            ItemArray = new ItemArrayEditor<T>(array);
+            ItemArray = new ItemArrayEditor<Item>(array);
 
             var Editor = ItemGrid = new ItemGridEditor(ItemEditor, array) {Dock = DockStyle.Fill};
             Editor.InitializeGrid(width, height, 64, 64);

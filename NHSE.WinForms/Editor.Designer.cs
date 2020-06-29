@@ -57,6 +57,8 @@
             this.B_EditFieldItems = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditBulletin = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditFieldGoods = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditMuseum_Click = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditVisitors = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditPRODesigns = new System.Windows.Forms.Button();
             this.B_EditPatterns = new System.Windows.Forms.Button();
             this.B_EditTurnipExchange = new System.Windows.Forms.Button();
@@ -94,8 +96,8 @@
             this.CB_Players = new System.Windows.Forms.ComboBox();
             this.PB_Player = new System.Windows.Forms.PictureBox();
             this.TC_Editors = new System.Windows.Forms.TabControl();
-            this.B_EditMuseum_Click = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_EditVisitors = new System.Windows.Forms.ToolStripMenuItem();
+            this.L_WeatherSeed = new System.Windows.Forms.Label();
+            this.NUD_WeatherSeed = new System.Windows.Forms.NumericUpDown();
             this.Menu_Editor.SuspendLayout();
             this.CM_Picture.SuspendLayout();
             this.Tab_Map.SuspendLayout();
@@ -111,6 +113,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).BeginInit();
             this.TC_Editors.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_WeatherSeed)).BeginInit();
             this.SuspendLayout();
             // 
             // Menu_Editor
@@ -236,6 +239,8 @@
             // 
             // Tab_Map
             // 
+            this.Tab_Map.Controls.Add(this.NUD_WeatherSeed);
+            this.Tab_Map.Controls.Add(this.L_WeatherSeed);
             this.Tab_Map.Controls.Add(this.B_EditDesignsTailor);
             this.Tab_Map.Controls.Add(this.B_EditPatternFlag);
             this.Tab_Map.Controls.Add(this.CB_AirportColor);
@@ -344,35 +349,49 @@
             this.B_EditMuseum_Click,
             this.B_EditVisitors});
             this.CM_EditMap.Name = "CM_EditMap";
-            this.CM_EditMap.Size = new System.Drawing.Size(181, 158);
+            this.CM_EditMap.Size = new System.Drawing.Size(172, 136);
             // 
             // B_EditLandFlags
             // 
             this.B_EditLandFlags.Name = "B_EditLandFlags";
-            this.B_EditLandFlags.Size = new System.Drawing.Size(180, 22);
+            this.B_EditLandFlags.Size = new System.Drawing.Size(171, 22);
             this.B_EditLandFlags.Text = "Edit Flags";
             this.B_EditLandFlags.Click += new System.EventHandler(this.B_EditLandFlags_Click);
             // 
             // B_EditFieldItems
             // 
             this.B_EditFieldItems.Name = "B_EditFieldItems";
-            this.B_EditFieldItems.Size = new System.Drawing.Size(180, 22);
+            this.B_EditFieldItems.Size = new System.Drawing.Size(171, 22);
             this.B_EditFieldItems.Text = "Edit Field Items";
             this.B_EditFieldItems.Click += new System.EventHandler(this.B_EditFieldItems_Click);
             // 
             // B_EditBulletin
             // 
             this.B_EditBulletin.Name = "B_EditBulletin";
-            this.B_EditBulletin.Size = new System.Drawing.Size(180, 22);
+            this.B_EditBulletin.Size = new System.Drawing.Size(171, 22);
             this.B_EditBulletin.Text = "Edit Bulletin Board";
             this.B_EditBulletin.Click += new System.EventHandler(this.B_EditBulletin_Click);
             // 
             // B_EditFieldGoods
             // 
             this.B_EditFieldGoods.Name = "B_EditFieldGoods";
-            this.B_EditFieldGoods.Size = new System.Drawing.Size(180, 22);
+            this.B_EditFieldGoods.Size = new System.Drawing.Size(171, 22);
             this.B_EditFieldGoods.Text = "Edit Field Goods";
             this.B_EditFieldGoods.Click += new System.EventHandler(this.B_EditFieldGoods_Click);
+            // 
+            // B_EditMuseum_Click
+            // 
+            this.B_EditMuseum_Click.Name = "B_EditMuseum_Click";
+            this.B_EditMuseum_Click.Size = new System.Drawing.Size(171, 22);
+            this.B_EditMuseum_Click.Text = "Edit Museum";
+            this.B_EditMuseum_Click.Click += new System.EventHandler(this.B_EditMuseum_Click_Click);
+            // 
+            // B_EditVisitors
+            // 
+            this.B_EditVisitors.Name = "B_EditVisitors";
+            this.B_EditVisitors.Size = new System.Drawing.Size(171, 22);
+            this.B_EditVisitors.Text = "Edit Visitors";
+            this.B_EditVisitors.Click += new System.EventHandler(this.B_EditVisitors_Click);
             // 
             // B_EditPRODesigns
             // 
@@ -540,6 +559,7 @@
             0,
             0,
             0});
+            this.NUD_PocketCount2.ValueChanged += new System.EventHandler(this.NUD_PocketCount_ValueChanged);
             // 
             // NUD_PocketCount1
             // 
@@ -557,6 +577,7 @@
             0,
             0,
             0});
+            this.NUD_PocketCount1.ValueChanged += new System.EventHandler(this.NUD_PocketCount_ValueChanged);
             // 
             // B_EditPlayer
             // 
@@ -661,6 +682,7 @@
             this.NUD_Wallet.Name = "NUD_Wallet";
             this.NUD_Wallet.Size = new System.Drawing.Size(100, 20);
             this.NUD_Wallet.TabIndex = 10;
+            this.NUD_Wallet.ValueChanged += new System.EventHandler(this.NUD_Wallet_ValueChanged);
             // 
             // L_NookMiles
             // 
@@ -769,19 +791,32 @@
             this.TC_Editors.Size = new System.Drawing.Size(404, 237);
             this.TC_Editors.TabIndex = 1;
             // 
-            // B_EditMuseum_Click
+            // L_WeatherSeed
             // 
-            this.B_EditMuseum_Click.Name = "B_EditMuseum_Click";
-            this.B_EditMuseum_Click.Size = new System.Drawing.Size(180, 22);
-            this.B_EditMuseum_Click.Text = "Edit Museum";
-            this.B_EditMuseum_Click.Click += new System.EventHandler(this.B_EditMuseum_Click_Click);
+            this.L_WeatherSeed.AutoSize = true;
+            this.L_WeatherSeed.Location = new System.Drawing.Point(301, 66);
+            this.L_WeatherSeed.Name = "L_WeatherSeed";
+            this.L_WeatherSeed.Size = new System.Drawing.Size(63, 13);
+            this.L_WeatherSeed.TabIndex = 64;
+            this.L_WeatherSeed.Text = "Hemisphere";
             // 
-            // B_EditVisitors
+            // NUD_WeatherSeed
             // 
-            this.B_EditVisitors.Name = "B_EditVisitors";
-            this.B_EditVisitors.Size = new System.Drawing.Size(180, 22);
-            this.B_EditVisitors.Text = "Edit Visitors";
-            this.B_EditVisitors.Click += new System.EventHandler(this.B_EditVisitors_Click);
+            this.NUD_WeatherSeed.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NUD_WeatherSeed.Location = new System.Drawing.Point(202, 59);
+            this.NUD_WeatherSeed.Maximum = new decimal(new int[] {
+            -1,
+            0,
+            0,
+            0});
+            this.NUD_WeatherSeed.Name = "NUD_WeatherSeed";
+            this.NUD_WeatherSeed.Size = new System.Drawing.Size(93, 20);
+            this.NUD_WeatherSeed.TabIndex = 65;
+            this.NUD_WeatherSeed.Value = new decimal(new int[] {
+            1234567890,
+            0,
+            0,
+            0});
             // 
             // Editor
             // 
@@ -814,6 +849,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).EndInit();
             this.TC_Editors.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_WeatherSeed)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -887,6 +923,8 @@
         private System.Windows.Forms.Button B_EditPatternFlag;
         private System.Windows.Forms.ToolStripMenuItem B_EditMuseum_Click;
         private System.Windows.Forms.ToolStripMenuItem B_EditVisitors;
+        private System.Windows.Forms.Label L_WeatherSeed;
+        private System.Windows.Forms.NumericUpDown NUD_WeatherSeed;
     }
 }
 

@@ -11,8 +11,9 @@ namespace NHSE.Core
         public readonly MainSaveOffsets Offsets;
         public MainSave(string folder) : base(folder, "main") => Offsets = MainSaveOffsets.GetOffsets(Info);
 
-        public Hemisphere Hemisphere { get => (Hemisphere)Data[Offsets.Hemisphere]; set => Data[Offsets.Hemisphere] = (byte)value; }
+        public Hemisphere Hemisphere { get => (Hemisphere)Data[Offsets.WeatherArea]; set => Data[Offsets.WeatherArea] = (byte)value; }
         public AirportColor AirportThemeColor { get => (AirportColor)Data[Offsets.AirportThemeColor]; set => Data[Offsets.AirportThemeColor] = (byte)value; }
+        public uint WeatherSeed { get => BitConverter.ToUInt32(Data, Offsets.WeatherRandSeed); set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.WeatherRandSeed); }
 
         public Villager GetVillager(int index) => Offsets.ReadVillager(Data, index);
         public void SetVillager(Villager value, int index) => Offsets.WriteVillager(value, Data, index);

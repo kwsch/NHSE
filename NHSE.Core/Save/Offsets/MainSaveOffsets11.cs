@@ -15,7 +15,8 @@
         public override int PatternTailor => PatternFlag + DesignPattern.SIZE;
 
         public const int GSaveWeather = GSaveLandStart + 0x1D6F98;
-        public override int Hemisphere => GSaveWeather + 0x14;
+        public override int WeatherArea => GSaveWeather + 0x14; // Hemisphere
+        public override int WeatherRandSeed => GSaveWeather + 0x18;
 
         public override int EventFlagLand => GSaveLandStart + 0x20100C;
 

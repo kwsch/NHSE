@@ -42,9 +42,17 @@
             this.FLP_Controls = new System.Windows.Forms.FlowLayoutPanel();
             this.PAN_Navigation = new System.Windows.Forms.Panel();
             this.HoverTip = new System.Windows.Forms.ToolTip(this.components);
+            this.CM_Remove = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.B_ClearAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_ClearClothing = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_ClearCrafting = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_ClearBugs = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_ClearFish = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_ClearFurniture = new System.Windows.Forms.ToolStripMenuItem();
             this.CM_Hand.SuspendLayout();
             this.FLP_Controls.SuspendLayout();
             this.PAN_Navigation.SuspendLayout();
+            this.CM_Remove.SuspendLayout();
             this.SuspendLayout();
             // 
             // ItemGrid
@@ -142,6 +150,7 @@
             // 
             this.B_Clear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.B_Clear.ContextMenuStrip = this.CM_Remove;
             this.B_Clear.Location = new System.Drawing.Point(3, 110);
             this.B_Clear.Name = "B_Clear";
             this.B_Clear.Size = new System.Drawing.Size(64, 29);
@@ -177,6 +186,61 @@
             // 
             this.HoverTip.AutomaticDelay = 100;
             // 
+            // CM_Remove
+            // 
+            this.CM_Remove.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.B_ClearAll,
+            this.B_ClearClothing,
+            this.B_ClearCrafting,
+            this.B_ClearBugs,
+            this.B_ClearFish,
+            this.B_ClearFurniture});
+            this.CM_Remove.Name = "CM_Picture";
+            this.CM_Remove.ShowImageMargin = false;
+            this.CM_Remove.Size = new System.Drawing.Size(156, 158);
+            // 
+            // B_ClearAll
+            // 
+            this.B_ClearAll.Name = "B_ClearAll";
+            this.B_ClearAll.Size = new System.Drawing.Size(155, 22);
+            this.B_ClearAll.Text = "All";
+            this.B_ClearAll.Click += new System.EventHandler(this.B_ClearAll_Click);
+            // 
+            // B_ClearClothing
+            // 
+            this.B_ClearClothing.Name = "B_ClearClothing";
+            this.B_ClearClothing.Size = new System.Drawing.Size(155, 22);
+            this.B_ClearClothing.Text = "Clothing";
+            this.B_ClearClothing.Click += new System.EventHandler(this.B_ClearClothing_Click);
+            // 
+            // B_ClearCrafting
+            // 
+            this.B_ClearCrafting.Name = "B_ClearCrafting";
+            this.B_ClearCrafting.Size = new System.Drawing.Size(155, 22);
+            this.B_ClearCrafting.Text = "Crafting Materials";
+            this.B_ClearCrafting.Click += new System.EventHandler(this.B_ClearCrafting_Click);
+            // 
+            // B_ClearBugs
+            // 
+            this.B_ClearBugs.Name = "B_ClearBugs";
+            this.B_ClearBugs.Size = new System.Drawing.Size(155, 22);
+            this.B_ClearBugs.Text = "Bugs";
+            this.B_ClearBugs.Click += new System.EventHandler(this.B_ClearBugs_Click);
+            // 
+            // B_ClearFish
+            // 
+            this.B_ClearFish.Name = "B_ClearFish";
+            this.B_ClearFish.Size = new System.Drawing.Size(155, 22);
+            this.B_ClearFish.Text = "Fish";
+            this.B_ClearFish.Click += new System.EventHandler(this.B_ClearFish_Click);
+            // 
+            // B_ClearFurniture
+            // 
+            this.B_ClearFurniture.Name = "B_ClearFurniture";
+            this.B_ClearFurniture.Size = new System.Drawing.Size(155, 22);
+            this.B_ClearFurniture.Text = "Furniture";
+            this.B_ClearFurniture.Click += new System.EventHandler(this.B_ClearFurniture_Click);
+            // 
             // ItemGridEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,6 +251,7 @@
             this.CM_Hand.ResumeLayout(false);
             this.FLP_Controls.ResumeLayout(false);
             this.PAN_Navigation.ResumeLayout(false);
+            this.CM_Remove.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -206,5 +271,12 @@
         private System.Windows.Forms.FlowLayoutPanel FLP_Controls;
         private System.Windows.Forms.Panel PAN_Navigation;
         private System.Windows.Forms.ToolTip HoverTip;
+        private System.Windows.Forms.ContextMenuStrip CM_Remove;
+        private System.Windows.Forms.ToolStripMenuItem B_ClearAll;
+        private System.Windows.Forms.ToolStripMenuItem B_ClearClothing;
+        private System.Windows.Forms.ToolStripMenuItem B_ClearCrafting;
+        private System.Windows.Forms.ToolStripMenuItem B_ClearBugs;
+        private System.Windows.Forms.ToolStripMenuItem B_ClearFish;
+        private System.Windows.Forms.ToolStripMenuItem B_ClearFurniture;
     }
 }

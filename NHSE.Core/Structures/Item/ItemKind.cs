@@ -1,4 +1,5 @@
-﻿using static NHSE.Core.ItemKind;
+﻿using System.Collections.Generic;
+using static NHSE.Core.ItemKind;
 
 namespace NHSE.Core
 {
@@ -157,6 +158,44 @@ namespace NHSE.Core
 
     public static class ItemKindExtensions
     {
+        private static readonly HashSet<ItemKind> Clothing = new HashSet<ItemKind>
+        {
+            Bottoms_Long,
+            Bottoms_Middle,
+            Bottoms_Short,
+            Kind_Accessory,
+            Kind_Bag,
+            Kind_Cap,
+            Kind_Helmet,
+            Kind_NpcOutfit,
+            Kind_PlayerDemoOutfit,
+            Kind_Socks,
+            Onepiece_Dress,
+            Onepiece_Long,
+            Onepiece_Middle,
+            Onepiece_Short,
+            Shoes_Boots,
+            Shoes_Pumps,
+            Top_Long,
+            Top_Middle,
+            Top_Short,
+        };
+
+        private static readonly HashSet<ItemKind> Furniture = new HashSet<ItemKind>
+        {
+            Ftr_1x1_Chair,
+            Ftr_1x1_Floor,
+            Ftr_2x1_Bed,
+            Ftr_2x1_Floor,
+            Ftr_2x2_Floor,
+            Kind_DummyFtr,
+            Kind_EventObjFtr,
+            Kind_Ftr,
+        };
+
         public static bool IsFlower(this ItemKind k) => (Kind_Flower <= k && k <= Kind_FlowerBud) || (UnitIcon_FlwAnemone <= k && k <= UnitIcon_FlwTulip);
+        public static bool IsClothing(this ItemKind k) => Clothing.Contains(k);
+        public static bool IsCrafting(this ItemKind k) => k == Kind_Ore || k == Kind_CraftMaterial || k == Kind_CraftPhoneCase || k == Kind_CraftRemake;
+        public static bool IsFurniture(this ItemKind k) => Furniture.Contains(k);
     }
 }

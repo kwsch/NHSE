@@ -155,7 +155,7 @@ namespace NHSE.WinForms
         {
             var v = Villagers[VillagerIndex];
             var items = v.WearStockList;
-            using var editor = new PlayerItemEditor<VillagerItem>(items, 8, 3);
+            using var editor = new PlayerItemEditor(items, 8, 3);
             if (editor.ShowDialog() == DialogResult.OK)
                 v.WearStockList = items;
         }
@@ -164,7 +164,7 @@ namespace NHSE.WinForms
         {
             var v = Villagers[VillagerIndex];
             var items = v.FtrStockList;
-            using var editor = new PlayerItemEditor<VillagerItem>(items, 8, 4);
+            using var editor = new PlayerItemEditor(items, 8, 4);
             if (editor.ShowDialog() == DialogResult.OK)
                 v.FtrStockList = items;
         }

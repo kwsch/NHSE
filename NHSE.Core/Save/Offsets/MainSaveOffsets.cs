@@ -21,7 +21,8 @@ namespace NHSE.Core
         public abstract int PatternFlag { get; }
         public abstract int PatternTailor { get; }
 
-        public abstract int Hemisphere { get; }
+        public abstract int WeatherArea { get; }
+        public abstract int WeatherRandSeed { get; }
 
         public abstract int MainFieldStructure { get; }
 

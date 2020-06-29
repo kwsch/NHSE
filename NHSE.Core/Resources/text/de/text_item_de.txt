@@ -1,35 +1,35 @@
-(Geen)
+(Leer)
 
 Wintergemälde
 
 
-Anmutsgemälde (namaak)
+Anmutsgemälde (fälschung)
 Anmutsgemälde
 
 
-Altertumsgemälde (namaak)
+Altertumsgemälde (fälschung)
 Altertumsgemälde
 
 
-Einfachgemälde (namaak)
+Einfachgemälde (fälschung)
 Einfachgemälde
 
 
-Berühmtgemälde (namaak)
+Berühmtgemälde (fälschung)
 Berühmtgemälde
 
 Perfektgemälde
 
 
-Edelgemälde (namaak)
+Edelgemälde (fälschung)
 Edelgemälde
 
 
-Perlengemälde (namaak)
+Perlengemälde (fälschung)
 Perlengemälde
 
 
-Schöngemälde (namaak)
+Schöngemälde (fälschung)
 Schöngemälde
 
 Warmgemälde
@@ -39,7 +39,7 @@ Warmgemälde
 Wellengemälde
 
 
-Gemüsegemälde (namaak)
+Gemüsegemälde (fälschung)
 Gemüsegemälde
 
 Bekanntgemälde
@@ -53,7 +53,7 @@ Blumengemälde
 Kraftgemälde
 
 
-Enormgemälde (namaak)
+Enormgemälde (fälschung)
 Enormgemälde
 
 
@@ -63,17 +63,17 @@ Enormgemälde
 
 
 
-Furchtgemälde (namaak)
+Furchtgemälde (fälschung)
 Furchtgemälde
 
 Wahrgemälde
 
 
-Feierlichgemälde (namaak)
+Feierlichgemälde (fälschung)
 Feierlichgemälde
 
 
-Ungestümgemälde (namaak)
+Ungestümgemälde (fälschung)
 Ungestümgemälde
 
 Ruhegemälde
@@ -1330,21 +1330,21 @@ Schultisch
 Lehrerpult
 Schulpult
 Wölfinnenstatue
-Wölfinnenstatue (namaak)
+Wölfinnenstatue (fälschung)
 Galantstatue
-Galantstatue (namaak)
+Galantstatue (fälschung)
 Athletenstatue
-Athletenstatue (namaak)
+Athletenstatue (fälschung)
 Uraltstatue
-Uraltstatue (namaak)
+Uraltstatue (fälschung)
 Würdestatue
 
 Eleganzstatue
-Eleganzstatue (namaak)
+Eleganzstatue (fälschung)
 Geheimnisbüste
-Geheimnisbüste (namaak)
+Geheimnisbüste (fälschung)
 Erhabenstatue
-Erhabenstatue (namaak)
+Erhabenstatue (fälschung)
 
 Hamsterkäfig
 
@@ -12532,13 +12532,13 @@ Häschentag-Türkranz
 
 
 Dickkopfskulptur
-Dickkopfskulptur (namaak)
+Dickkopfskulptur (fälschung)
 Hinweisskulptur
-Hinweisskulptur (namaak)
+Hinweisskulptur (fälschung)
 Prachtskulptur
-Prachtskulptur (namaak)
+Prachtskulptur (fälschung)
 Kriegerstatue
-Kriegerstatue (namaak)
+Kriegerstatue (fälschung)
 Vertrautstatue
 
 Nintendo Switch
@@ -12569,7 +12569,7 @@ Foto
 
 
 Ungestümgemälde
-Ungestümgemälde (namaak)
+Ungestümgemälde (fälschung)
 
 
 
@@ -12618,16 +12618,16 @@ Morschaxt
 
 Funkelgemälde
 Wissenschaftsgemälde
-Wissenschaftsgemälde (namaak)
+Wissenschaftsgemälde (fälschung)
 Versinkgemälde
 Detailgemälde
-Detailgemälde (namaak)
+Detailgemälde (fälschung)
 Lichtgemälde
 Rätselgemälde
 
 
 
-Wintergemälde (namaak)
+Wintergemälde (fälschung)
 Häschentag-Zaun
 
 
