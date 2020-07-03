@@ -415,6 +415,7 @@ grf	Gracie
 gstA	Wisp
 gstB	Wisp
 gul	Gulliver
+gulB	Gullivarrr
 hgc	Label
 hgh	Mabel
 hgs	Sable

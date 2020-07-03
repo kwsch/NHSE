@@ -1,35 +1,35 @@
-(Niente)
+(None)
 
 quadro invernale
 
 
-quadro armonioso (falso)
+quadro armonioso (forgery)
 quadro armonioso
 
 
-quadro buffo (falso)
+quadro buffo (forgery)
 quadro buffo
 
 
-quadro semplice (falso)
+quadro semplice (forgery)
 quadro semplice
 
 
-quadro famoso (falso)
+quadro famoso (forgery)
 quadro famoso
 
 quadro perfetto
 
 
-quadro simbolico (falso)
+quadro simbolico (forgery)
 quadro simbolico
 
 
-quadro realista (falso)
+quadro realista (forgery)
 quadro realista
 
 
-quadro colorato (falso)
+quadro colorato (forgery)
 quadro colorato
 
 quadro classico
@@ -39,7 +39,7 @@ quadro classico
 quadro marino
 
 
-quadro organico (falso)
+quadro organico (forgery)
 quadro organico
 
 quadro povero
@@ -53,7 +53,7 @@ quadro fiorito
 quadro possente
 
 
-quadro stupendo (falso)
+quadro stupendo (forgery)
 quadro stupendo
 
 
@@ -63,17 +63,17 @@ quadro stupendo
 
 
 
-quadro spaventoso (falso)
+quadro spaventoso (forgery)
 quadro spaventoso
 
 quadro prezioso
 
 
-quadro solenne (falso)
+quadro solenne (forgery)
 quadro solenne
 
 
-quadro intenso (metà dx) (falso)
+quadro intenso (metà dx) (forgery)
 quadro intenso (metà dx)
 
 quadro riposante
@@ -233,7 +233,7 @@ coda stegosauro
 
 
 cranio plesiosauro
-corpo plesiosauro
+torso plesiosauro
 coda plesiosauro
 
 cranio tirannosauro
@@ -1180,7 +1180,7 @@ biliardino
 
 
 tavolo tennis da tavolo
-
+pianta tradizionale
 
 
 cabina del telefono
@@ -1266,12 +1266,12 @@ armadio pera
 
 barile
 
+cannone pirata
 
 
 
 
-
-
+timone pirata
 
 
 
@@ -1330,21 +1330,21 @@ banco di scuola
 cattedra antica
 cattedra da professore
 statua leggendaria
-statua leggendaria (falso)
+statua leggendaria (forgery)
 statua maestosa
-statua maestosa (falso)
+statua maestosa (forgery)
 statua atletica
-statua atletica (falso)
+statua atletica (forgery)
 statua antica
-statua antica (falso)
+statua antica (forgery)
 statua trionfante
 
 statua aggraziata
-statua aggraziata (falso)
+statua aggraziata (forgery)
 statua enigmatica
-statua enigmatica (falso)
+statua enigmatica (forgery)
 statua eroica
-statua eroica (falso)
+statua eroica (forgery)
 
 gabbia per criceti
 
@@ -1821,7 +1821,7 @@ cabina di prova
 
 
 
-spazzatura
+set sacchi per la spazzatura
 
 
 
@@ -2618,7 +2618,7 @@ scala a pioli
 
 
 
-
+alga wakame
 
 
 
@@ -2781,7 +2781,7 @@ cupcake di compleanno
 
 maglietta da kung fu (Blu marino)
 giacca montgomery (Blu marino)
-vestito a quadri rosa (Rosa)
+vestito a quadri (Rosa)
 completo sobrio (Blu)
 
 
@@ -2828,35 +2828,35 @@ camicia classica (Bianco)
 
 
 
+vite di mare
+riccio di mare
+dente di cane
+ostrica
+lumaca turbante
+abalone
 
 
+ostrica pinctada
+capasanta
+anemone di mare
+stella marina
+cetriolo di mare
+nudibranchi
+verme piatto
+gambero mantide
+gamberetto boreale
+gambero black tiger
+aragosta mediterranea
+astice
+granchio della neve
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+granchio gigante
+granchio gig. del Giappone
+polpo
+anguilla di giardino
+nautilus
+granchio ferro di cavallo
+isopode gigante
 
 azalea bianca giovane
 azalea bianca adulta
@@ -2978,7 +2978,7 @@ bocciolo di rosa d'oro
 
 
 giglio bianco
-rosa rosa
+giglio bianco
 gemma di giglio bianco
 bocciolo di giglio bianco
 giglio rosso
@@ -3145,7 +3145,7 @@ uniforme bar anni '50 (Rosa)
 camicia a maniche corte (Bianco)
 camicia smanicata (Bianco)
 vestito da coniglio (Rosa)
-
+giaccone da pirata (Rosso)
 
 
 
@@ -3548,7 +3548,7 @@ fiocco di neve grande
 
 
 becco (Giallo)
-baffo a manubrio (Nero)
+baffo a manubrio (Colore dei capelli)
 scaffale di bambù
 
 divisorio di bambù
@@ -4293,7 +4293,7 @@ maglietta con taschino (Bianco)
 tenuta da miko (Vermiglio)
 ghirlanda cosmee
 
-
+vestito da pirata (Rosso)
 gonna di velluto a coste (Marrone)
 
 
@@ -4455,7 +4455,7 @@ maschera da sci (Bianco)
 paio di occhialini da nuoto (Nero)
 
 montatura rétro (Giallo)
-benda da pirata (Nero)
+benda per occhio (Nero)
 montatura sportiva (Nero)
 montatura a goccia (Nero)
 montatura tartarugata (Marrone)
@@ -4549,7 +4549,7 @@ gonna a ricami floreali (Verde)
 gonna a ricami geometrici (Blu)
 esca
 
-
+maschera con boccaglio (Blu)
 visore da ciberspazio (Rosso)
 maglione con sciarpa (Bianco)
 
@@ -4670,14 +4670,14 @@ tunica a canottiera (Bianco)
 montatura di legno (Marrone)
 
 mascherina da incognito (Nero)
-baffo arricciato (Nero)
+baffo arricciato (Colore dei capelli)
 pettorina (1)
 cardigan lungo di ciniglia (Senape)
 toppino con fiocchi (Nero)
-pizzetto (Nero)
+pizzetto (Colore dei capelli)
 set di cerotti (Beige)
 maschera da giullare (Nero)
-barba rifinita (Nero)
+barba rifinita (Colore dei capelli)
 felpa di pile con stampa (Verde muschio)
 giacca da detective (Marrone)
 foglia (Verde)
@@ -5140,7 +5140,7 @@ sombrero (Naturale e rosso)
 elmetto protettivo (Giallo)
 cappello da cuoco (Bianco)
 cappello da poliziotto (Blu marino)
-
+cappello da pirata (Nero)
 cappello di bambù (Beige)
 cappello di ecopelliccia (Beige)
 bandana a quadri (Giallo)
@@ -6918,7 +6918,7 @@ ombrello a righe
 ombrello tartan
 ombrello plastica decorato
 ombrello tetro
-
+calamaro lucciola
 aureola (Dorato)
 paio di infradito (Verde)
 ombrello mimetico
@@ -7189,7 +7189,7 @@ muro bosco
 
 faretto su treppiede
 faretto da muro
-
+granchio gazami
 
 
 
@@ -7201,7 +7201,7 @@ maglia da jogging (Nero)
 maglia da jogging (Blu)
 maglia da jogging (Rosso lampone)
 maglia da jogging (Blu marino)
-
+calamaro vampiro
 moquette fiori di ciliegio
 muro fiori di ciliegio
 
@@ -7212,7 +7212,7 @@ cerchietto da coniglio (Nero)
 kit creazione ponte
 foto di Capraldo
 foto di Ovilio
-
+tridacna gigante
 muro grazioso bianco
 muro grazioso rosso
 muro grazioso blu
@@ -7226,7 +7226,7 @@ pavimento grazioso giallo
 
 
 
-
+ananas di mare
 carriola
 doccia cosmea
 scatola a sorpresa tulipano
@@ -7243,14 +7243,14 @@ muro bar anni '50 azzurro
 muro bar anni '50 rosa
 muro bar anni '50 grigio
 muro bar anni '50 cacao
-
+medusa aurelia
 
 silo
 
 
 
 punta di coda diplodoco
-
+polpo ombrello
 orologio stella
 cappello di paglia orientale (Marrone)
 
@@ -7265,7 +7265,7 @@ latta di metallo
 vessillo del campione
 
 
-
+riccio matita
 
 
 
@@ -7276,7 +7276,7 @@ muro patchwork rosa
 muro patchwork lilla
 muro patchwork giallo
 muro patchwork azzurro
-
+buccino
 
 set di ingranaggi
 slitta
@@ -7301,12 +7301,12 @@ maschera a foglia (Verde)
 
 
 borsa sportiva rétro (Blu)
-
+porcellino di mare
 borsello (Blu)
 borsetta da sera (Rosa)
 
 
-
+granciporro
 
 
 
@@ -7316,7 +7316,7 @@ borsetta da sera (Rosa)
 
 
 lapide giapponese
-
+cestello di Venere
 
 
 
@@ -7409,7 +7409,7 @@ replica di centopiedi
 pietra laghetto foglie acero
 pietra laghetto fiori ciliegio
 
-
+cozza
 tiara (Argentato)
 
 
@@ -7431,16 +7431,16 @@ vestito nobile (Nero)
 vestito nobile (Viola)
 vestito nobile (Giallo)
 vestito nobile (Rosso)
+giaccone da pirata (Blu)
+giaccone da pirata (Nero)
 
 
 
 
 
 
-
-
-
-
+vestito da pirata (Blu)
+vestito da pirata (Nero)
 
 
 uniforme da portiere (Rosso)
@@ -8298,8 +8298,8 @@ maglietta a pois colorati (Bianco)
 moka
 letto a castello
 maglione cuore (Rosso)
-vestito a quadri rosa (Blu)
-vestito a quadri rosa (Verde)
+vestito a quadri (Blu)
+vestito a quadri (Verde)
 maglietta maculata (Rosa)
 maglietta maculata (Verde)
 maglietta maculata (Grigio)
@@ -11491,11 +11491,11 @@ montatura sportiva (Bianco)
 montatura sportiva (Rosa)
 montatura sportiva (Limetta)
 montatura sportiva (Blu chiaro)
-
-
-
-
-
+maschera con boccaglio (Arancio)
+maschera con boccaglio (Rosso)
+maschera con boccaglio (Rosa)
+maschera con boccaglio (Verde)
+maschera con boccaglio (Nero)
 visore da ciberspazio (Nero)
 visore da ciberspazio (Argentato)
 visore da ciberspazio (Viola)
@@ -12532,13 +12532,13 @@ ghirlanda caccia all'uovo
 
 
 testa di roccia
-testa di roccia (falso)
+testa di roccia (forgery)
 pietra informativa
-pietra informativa (falso)
+pietra informativa (forgery)
 scultura imponente
-scultura imponente (falso)
+scultura imponente (forgery)
 statua guerriera
-statua guerriera (falso)
+statua guerriera (forgery)
 statua pensierosa
 
 Nintendo Switch
@@ -12550,29 +12550,29 @@ gemma dell'amore
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+tavolo sirena
+scaffale sirena
+toletta sirena
+separé sirena
+lampada sirena
+orologio a muro sirena
+letto sirena
+armadio sirena
+sofà sirena
+comò sirena
+sedia sirena
+tappeto sirena
+tappeto pirata
 piatto Alpaca e Merino
-
-
-
-
+muro sirena
+muro pirata
+pavimento sirena
+pavimento pirata
 quadro intenso (metà sx)
-quadro intenso (metà sx) (falso)
-
-
-
+quadro intenso (metà sx) (forgery)
+barile pirata in orizzontale
+forziere pirata
+barile pirata in verticale
 mantello fatto a mano (Rosso)
 corona fatta a mano (Rosso)
 corona solstizio d'estate (Giallo)
@@ -12618,16 +12618,16 @@ ascia consumata
 
 quadro sfavillante
 quadro accademico
-quadro accademico (falso)
+quadro accademico (forgery)
 quadro acquatico
 quadro dettagliato
-quadro dettagliato (falso)
+quadro dettagliato (forgery)
 quadro abbagliante
 quadro misterioso
 
 
 
-quadro invernale (falso)
+quadro invernale (forgery)
 recinzione caccia all'uovo
 
 
@@ -12658,15 +12658,15 @@ recinzione caccia all'uovo
 
 
 
-
-
-
-
-
-
-
-
-
+paio scarpe sirena (Rosa)
+tiara sirena (Bianco)
+benda piratesca (Nero)
+barba da pirata (Colore dei capelli)
+pantalone da pirata (Nero)
+paio di stivali da pirata (Marrone)
+bandana da pirata (Rosso)
+costume tesoro pirata (Nero)
+costume da mozzo pirata (Rosso)
 
 
 
@@ -12955,8 +12955,8 @@ recinzione nuziale
 
 
 
-
-
+abito principessa sirena (Rosa)
+abito a scaglie sirena (Rosa)
 maglione solstizio d'inverno (Beige)
 
 
@@ -12966,6 +12966,9 @@ maglione solstizio d'inverno (Beige)
 
 
 
+perla
+
+muta Nook Inc. (Verde)
 
 
 
@@ -12975,10 +12978,239 @@ maglione solstizio d'inverno (Beige)
 
 
 
-
-
-
-
-
+corona tesoro pirata (Argentato)
+muta con foglia (Blu chiaro)
 cam. aloha Nook Inc. rosa (Corallo)
 cam. aloha Nook Inc. verde (Verde)
+
+
+muta a righe orizzontali (Rosso)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+paio scarpe sirena (Blu chiaro)
+bandana da pirata (Blu)
+bandana da pirata (Nero)
+costume da mozzo pirata (Blu)
+costume da mozzo pirata (Nero)
+abito principessa sirena (Blu chiaro)
+abito a scaglie sirena (Blu chiaro)
+
+
+
+
+muta con foglia (Viola)
+muta con foglia (Giallo)
+muta con foglia (Verde)
+muta a righe orizzontali (Blu)
+muta a righe orizzontali (Giallo)
+muta a righe orizzontali (Nero)
+
+comunicatore
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+maschera mare Nook Inc. (Verde)

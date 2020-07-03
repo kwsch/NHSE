@@ -415,6 +415,7 @@ grf	그레이스
 gstA	깨빈
 gstB	깨빈
 gul	죠니
+gulB	해적
 hgc	고숙이
 hgh	고순이
 hgs	고옥이

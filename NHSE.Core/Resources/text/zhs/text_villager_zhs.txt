@@ -415,6 +415,7 @@ grf	葛瑞斯
 gstA	幽幽
 gstB	幽幽
 gul	吕游
+gulB	海盗
 hgc	绵儿
 hgh	绢儿
 hgs	麻儿

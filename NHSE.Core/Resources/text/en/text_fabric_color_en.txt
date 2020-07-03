@@ -341,7 +341,7 @@
 04102_3	Red
 04102_4	Yellow
 04122_0	Blank
-04122_1	Comic plan
+04122_1	Comic storyboard
 04122_2	Gag comic
 04140_0	Yellow oil
 04140_1	Green with animal
