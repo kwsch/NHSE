@@ -41,10 +41,10 @@
         #endregion
 
         #region GSaveLandOther
-        public const int GSaveLandOtherStart = 0x4FAD30;
+        public const int GSaveLandOtherStart = 0x4FAD60;
 
-        public override int LostItemBox => GSaveLandOtherStart + 0x5CF370;
-        public override int LastSavedTime => GSaveLandOtherStart + 0x5D3CC8;
+        public override int LostItemBox => GSaveLandOtherStart + 0x5CF3F0;
+        public override int LastSavedTime => GSaveLandOtherStart + 0x5D3D48;
         #endregion
     }
 }
