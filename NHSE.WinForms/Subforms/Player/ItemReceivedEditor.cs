@@ -122,6 +122,7 @@ namespace NHSE.WinForms
         private void B_AllBugs_Click(object sender, EventArgs e) => GiveAll(GameLists.Bugs, ModifierKeys != Keys.Alt);
         private void B_AllFish_Click(object sender, EventArgs e) => GiveAll(GameLists.Fish, ModifierKeys != Keys.Alt);
         private void B_AllArt_Click(object sender, EventArgs e) => GiveAll(GameLists.Art, ModifierKeys != Keys.Alt);
+        private void B_AllDive_Click(object sender, EventArgs e) => GiveAll(GameLists.Dive, ModifierKeys != Keys.Alt);
         private void B_GiveEverything_Click(object sender, EventArgs e) => GiveEverything(GameInfo.Strings.itemlist, ModifierKeys != Keys.Alt);
         private void B_Cancel_Click(object sender, EventArgs e) => Close();
 

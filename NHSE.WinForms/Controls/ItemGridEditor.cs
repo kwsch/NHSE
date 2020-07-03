@@ -250,6 +250,7 @@ namespace NHSE.WinForms
         private void B_ClearFurniture_Click(object sender, EventArgs e) => ClearItemIf(z => ItemInfo.GetItemKind(z).IsFurniture());
         private void B_ClearBugs_Click(object sender, EventArgs e) => ClearItemIf(z => GameLists.Bugs.Contains(z.ItemId));
         private void B_ClearFish_Click(object sender, EventArgs e) => ClearItemIf(z => GameLists.Fish.Contains(z.ItemId));
+        private void B_ClearDive_Click(object sender, EventArgs e) => ClearItemIf(z => GameLists.Dive.Contains(z.ItemId));
 
         private class GridSize : IGridItem
         {

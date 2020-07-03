@@ -61,6 +61,7 @@ namespace NHSE.Core
                 GameLists.Fish,
                 GameLists.Fossils,
                 GameLists.Bugs,
+                GameLists.Dive,
             }.SelectMany(z => z).ToArray();
 
             RandUtil.Shuffle(items);

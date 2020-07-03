@@ -53,6 +53,7 @@ namespace NHSE.Parsing
             DumpS("outsideAcres.txt", GetAcreNames(pathBCSV));
 
             DumpS("fish.txt", GetFishList(pathBCSV, itemNames));
+            DumpS("dive.txt", GetDiveList(pathBCSV, itemNames));
             DumpS("bugs.txt", GetInsectList(pathBCSV, itemNames));
             DumpS("fossils.txt", GetFossilList(pathBCSV, itemNames));
             DumpS("eventFlagPlayer.txt", GetEventFlagNames(pathBCSV));
@@ -339,6 +340,11 @@ namespace NHSE.Parsing
             return GetItemList(pathBCSV, fn, 0x20CB67BC);
         }
 
+        public static IEnumerable<ushort> GetDiveList(string pathBCSV, string fn = "SeafoodStatusParam.bcsv")
+        {
+            return GetItemList(pathBCSV, fn, 0x20CB67BC);
+        }
+
         public static IEnumerable<string> GetInsectList(string pathBCSV, IReadOnlyList<string> items, string fn = "InsectStatusParam.bcsv")
         {
             var insects = GetInsectList(pathBCSV, fn);
@@ -348,6 +354,12 @@ namespace NHSE.Parsing
         public static IEnumerable<string> GetFishList(string pathBCSV, IReadOnlyList<string> items, string fn = "FishStatusParam.bcsv")
         {
             var insects = GetFishList(pathBCSV, fn);
+            return insects.Select(z => $"{z:00000}, // {items[z]}");
+        }
+
+        public static IEnumerable<string> GetDiveList(string pathBCSV, IReadOnlyList<string> items, string fn = "SeafoodStatusParam.bcsv")
+        {
+            var insects = GetDiveList(pathBCSV, fn);
             return insects.Select(z => $"{z:00000}, // {items[z]}");
         }
 
