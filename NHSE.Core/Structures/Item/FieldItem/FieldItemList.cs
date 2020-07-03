@@ -412,7 +412,7 @@ namespace NHSE.Core
             {0xED0D, new FieldItemDefinition(60685, 65534, 12894, "FenceJuneBride"        , FieldItemKind.FenceJuneBride      )}, // ジューンブライドな柵
             {0xED0E, new FieldItemDefinition(60686, 65534, 2213 , "FenceJuneBride1"       , FieldItemKind.FenceJuneBride      )}, // ジューンブライドな柵ピンク
             {0xED16, new FieldItemDefinition(60694, 2799 , 65534, "PltTreeEasterEgg"      , FieldItemKind.PltTreeOak          )}, // イースターのタマゴの木
-
+            {0xED21, new FieldItemDefinition(60705, 65534, 2213 , "FenceMermaid"          , FieldItemKind.FenceMermaid        )}, // マーメイドな柵
         };
     }
 }
