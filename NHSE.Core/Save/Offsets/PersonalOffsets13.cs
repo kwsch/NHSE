@@ -3,7 +3,7 @@
     /// <summary>
     /// <inheritdoc cref="PersonalOffsets"/>
     /// </summary>
-    public sealed class PersonalOffsets12 : PersonalOffsets
+    public sealed class PersonalOffsets13 : PersonalOffsets
     {
         private const int Player = 0x110;
 
@@ -38,7 +38,7 @@
         public override int Bank => PlayerOther + 0x345E4;
         public override int Recipes => Bank + 0x10;
 
-        public override int MaxRecipeID => 0x2DA; // mermaid stuff
+        public override int MaxRecipeID => 0x2CB;
         public override int MaxRemakeBitFlag => 0x7D0 * 32;
     }
 }
