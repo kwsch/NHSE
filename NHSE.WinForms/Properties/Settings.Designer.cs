@@ -73,7 +73,7 @@ namespace NHSE.WinForms.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2890343376")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2879727272")]
         public uint SysBotPouchOffset {
             get {
                 return ((uint)(this["SysBotPouchOffset"]));
