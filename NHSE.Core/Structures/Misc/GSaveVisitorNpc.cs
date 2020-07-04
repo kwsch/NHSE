@@ -62,6 +62,6 @@ namespace NHSE.Core
         Kicks = 8,
         Leif = 9,
         Redd = 10,
-		Gullivarrr = 11,
+        Gullivarrr = 11,
     }
 }
