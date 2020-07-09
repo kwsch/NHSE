@@ -341,6 +341,50 @@ namespace NHSE.Core
             12629, // scenic painting (forgery) 
         };
 
+        public static readonly IReadOnlyList<ushort> Dive = new ushort[]
+        {
+            02620, // seaweed
+            02830, // sea grapes
+            02831, // sea urchin
+            02832, // acorn barnacle
+            02833, // oyster
+            02834, // turban shell
+            02835, // abalone
+            02838, // pearl oyster
+            02839, // scallop
+            02840, // sea anemone
+            02841, // sea star
+            02842, // sea cucumber
+            02843, // sea slug
+            02844, // flatworm
+            02845, // mantis shrimp
+            02846, // sweet shrimp
+            02847, // tiger prawn
+            02848, // spiny lobster
+            02849, // lobster
+            02850, // snow crab
+            02852, // red king crab
+            02853, // spider crab
+            02854, // octopus
+            02855, // spotted garden eel
+            02856, // chambered nautilus
+            02857, // horseshoe crab
+            02858, // giant isopod
+            06920, // firefly squid
+            07191, // gazami crab
+            07203, // vampire squid
+            07214, // gigas giant clam
+            07228, // sea pineapple
+            07245, // moon jellyfish
+            07252, // umbrella octopus
+            07267, // slate pencil urchin
+            07278, // whelk
+            07303, // sea pig
+            07308, // Dungeness crab
+            07318, // Venus' flower basket
+            07411, // mussel
+        };
+
         public static readonly HashSet<ushort> Shells = new HashSet<ushort>
         {
             1374, // sea snail
@@ -353,6 +397,7 @@ namespace NHSE.Core
             1382, // cowrie
 
             5982, // summer shell
+            12968, // pearl
         };
 
         public static readonly HashSet<ushort> Terraforming = new HashSet<ushort>

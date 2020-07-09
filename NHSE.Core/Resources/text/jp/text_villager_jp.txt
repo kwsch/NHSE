@@ -415,6 +415,7 @@ grf	グレース
 gstA	ゆうたろう
 gstB	ゆうたろう
 gul	ジョニー
+gulB	かいぞく
 hgc	ことの
 hgh	きぬよ
 hgs	あさみ

@@ -11,14 +11,14 @@
         public readonly int HashOffset;
 
         /// <summary>
-        /// Offset where the data to be hashed starts at.
-        /// </summary>
-        public readonly int BeginOffset;
-
-        /// <summary>
         /// Length of the hashed data.
         /// </summary>
         public readonly int Size;
+
+        /// <summary>
+        /// Offset where the data to be hashed starts at (calculated).
+        /// </summary>
+        public int BeginOffset => HashOffset + 4;
 
         /// <summary>
         /// Offset where the data to be hashed ends at (calculated).
@@ -27,10 +27,9 @@
 
         public override string ToString() => $"0x{HashOffset:X}: (0x{BeginOffset:X}-0x{EndOffset:X})";
 
-        public FileHashRegion(int hashOfs, int begOfs, int size)
+        public FileHashRegion(int hashOfs, int size)
         {
             HashOffset = hashOfs;
-            BeginOffset = begOfs;
             Size = size;
         }
 

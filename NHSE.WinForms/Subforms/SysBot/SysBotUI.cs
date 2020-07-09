@@ -24,6 +24,7 @@ namespace NHSE.WinForms
             var offset = Bot.GetDefaultOffset();
             Injector.SetWriteOffset(offset);
             RamOffset.Text = offset.ToString("X8");
+            RamOffsetUSB.Text = offset.ToString("X8");
 
             TB_IP.Text = Bot.IP;
             TB_Port.Text = Bot.Port;
@@ -125,6 +126,7 @@ namespace NHSE.WinForms
             }
 
             Injector.SetWriteOffset(offset);
+            Bot.SetOffset(offset);
         }
 
         private void ReadUSB_Click(object sender, EventArgs e)
@@ -140,6 +142,7 @@ namespace NHSE.WinForms
             }
 
             InjectorUSB.SetWriteOffset(offset);
+            Bot.SetOffset(offset);
 
             try
             {
@@ -171,6 +174,7 @@ namespace NHSE.WinForms
             }
 
             InjectorUSB.SetWriteOffset(offset);
+            Bot.SetOffset(offset);
 
             try
             {
@@ -199,6 +203,7 @@ namespace NHSE.WinForms
             }
 
             Injector.SetWriteOffset(offset);
+            Bot.SetOffset(offset);
         }
     }
 }

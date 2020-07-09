@@ -17,6 +17,7 @@ namespace NHSE.Core
         FenceJuneBride,
         FenceLattice,
         FenceLog,
+        FenceMermaid,
         FencePegRope,
         FenceSharply,
         FenceSteel,
