@@ -1,0 +1,391 @@
+ant00	ett-CCIÙ
+ant01	honk
+ant02	snuuf
+ant03	snorty
+ant06	sniffff
+ant08	chic
+ant09	swish
+bea00	gruf
+bea01	cubetto
+bea02	grrroan
+bea03	ehilà
+bea05	yauuun
+bea06	grum grum
+bea07	gnifa
+bea08	gruuunf
+bea09	grrr
+bea10	bah
+bea11	sgrugno
+bea12	sbuff
+bea13	andale
+bea14	bailar
+bea15	sucré
+brd00	cipinci
+brd01	yuppidù
+brd02	ciripì
+brd03	ciiip
+brd04	bzzert
+brd05	cocoricò
+brd06	cipissi
+brd08	firulì
+brd11	ciiipito
+brd15	lorito
+brd16	pio pio
+brd17	sprint
+brd18	adiós
+bul00	macmoo
+bul01	oléolé
+bul03	ciaumù
+bul05	muuusica
+bul07	oooh issa
+bul08	trullalà
+cat00	baffo
+cat01	miao
+cat02	tontolon
+cat03	purrr
+cat04	mieaoo
+cat05	miiiiaOU
+cat06	maramao
+cat07	micetto
+cat08	myawn
+cat09	meooo-OH
+cat10	psst
+cat11	miaù
+cat12	meOW
+cat13	GAAHHH
+cat14	fusolo
+cat15	mi-IAO
+cat16	pffffft
+cat17	meeeow
+cat18	purrrr
+cat19	miao miao
+cat20	ron ron
+cat21	fffz
+cat23	rrricooo
+cbr00	pepè
+cbr01	miele
+cbr02	babà
+cbr03	pulcino
+cbr04	oki-doki
+cbr05	ohilà
+cbr06	nyet
+cbr07	grizzel
+cbr09	fagiolino
+cbr10	trallalà
+cbr13	grrande
+cbr14	purrrimba
+cbr15	brupp
+cbr16	babalù
+cbr17	ohè
+cbr19	misu misu
+chn00	cucù
+chn01	uh-hoo
+chn02	du du du
+chn05	sbecsbec
+chn09	coccoricò
+chn10	zampoli
+chn11	uovole
+chn12	ovodè
+chn13	quiriqui
+cow00	truuulà
+cow01	sì sì sì
+cow06	mu muuu
+cow07	moumou
+crd00	proprio
+crd01	graaag
+crd02	gnammi
+crd04	chomp
+crd06	ciaf
+crd07	désolée
+crd08	tic tac
+der00	vule vu
+der01	hop hop
+der02	arriba
+der03	uauwaii
+der04	babam
+der05	sdleng
+der06	cervilà
+der07	gnam gnam
+der08	mamy
+der09	relax
+dog00	wuf wuf
+dog01	ROOOOOF
+dog02	ossorrr
+dog03	brrranco
+dog04	yip yip
+dog05	ronfietto
+dog06	wuff
+dog07	bau WOW
+dog08	bubabù
+dog09	yuuuppii
+dog10	bingo
+dog14	arfidenti
+dog15	snif snif
+dog16	bauuau
+dog17	arf arf
+dog18	guau guau
+duk00	quaquo
+duk01	squack
+duk02	quackquack
+duk03	paperotto
+duk04	quiproquò
+duk05	quoquiquà
+duk06	quackplà
+duk07	qua qua
+duk08	quaccolo
+duk09	quaqua
+duk10	zip zoom
+duk11	quaaa
+duk12	quaquao
+duk13	quaraquack
+duk15	paperonz
+duk16	coin coin
+duk17	cua cua
+elp00	snoob
+elp01	ullà
+elp02	furfante
+elp03	nappole
+elp04	tootie
+elp05	pistaaaa
+elp06	SBONK
+elp07	caromé
+elp09	barrir
+elp10	parbleu
+elp12	rocking
+flg00	gragragra
+flg01	cracrà
+flg02	fribbit
+flg03	attacroak
+flg04	girin
+flg05	cracragnam
+flg06	splash
+flg07	fri fri
+flg09	sluuuurp
+flg10	et voilà
+flg11	hophop
+flg12	berp
+flg13	crok-ok
+flg15	rrruuuak
+flg16	gurghigù
+flg17	umpf
+flg18	crabum
+flg19	croac
+goa00	beeello
+goa01	bimbi
+goa02	sorbeeelli
+goa04	bleh eh
+goa06	blip
+goa07	balido
+goa08	embeeeh
+goa09	beeewn
+gor00	dado
+gor01	baaanane
+gor02	baboom
+gor04	bum bum
+gor05	bam bam
+gor07	tump tump
+gor08	bananao
+gor09	uhatà
+gor10	entonces
+ham00	puff pant
+ham01	triplo uau
+ham02	paella
+ham03	flop
+ham04	vriiin
+ham05	popomf
+ham06	fondue
+ham07	spatapumf
+hip00	ipper
+hip02	hiippy
+hip03	blup
+hip04	squirt
+hip05	bibù
+hip08	uhuhuh
+hip09	vale
+hrs00	cowboy
+hrs01	zolletta
+hrs02	hip hip
+hrs03	pinopino
+hrs04	nay
+hrs05	biadina
+hrs06	pirulì
+hrs07	dolcetto
+hrs08	oh mamma
+hrs09	palio
+hrs10	clop clop
+hrs11	hiii
+hrs12	clip clop
+hrs13	vamos
+hrs16	hiii-op
+kal00	tsé tsé
+kal01	tesorino
+kal02	toasty
+kal03	calipto
+kal04	dinamite
+kal05	ulabadula
+kal08	eurekalì
+kal09	ponzipò
+kal10	koahola
+kgr00	cucciolo
+kgr01	oplà
+kgr02	gnegné
+kgr05	fagotto
+kgr06	saltolà
+kgr08	boing
+kgr09	balz balz
+kgr10	me oui
+lon00	ruggi
+lon01	unh-hunh
+lon02	grrringo
+lon04	sonré
+lon06	groarrivo
+lon07	roar
+lon08	ahora
+mnk01	po po
+mnk02	zzzook
+mnk03	scimmietta
+mnk04	g'tang
+mnk05	per favore
+mnk06	clap clap
+mnk07	babbuh
+mnk08	panzé
+mus00	squiksquik
+mus01	squick
+mus02	eeks
+mus03	formaggino
+mus04	pisquak
+mus05	flapflap
+mus08	squitto
+mus09	squiii
+mus10	cippoli
+mus12	squikko
+mus14	quink
+mus15	zink zink
+mus16	rattaplan
+mus17	cheeese
+mus18	iiik
+ocp00	perdindi
+ocp01	blurp
+ocp02	blub
+ost00	polpetta
+ost01	stretch
+ost02	vruum
+ost03	niiun
+ost05	blaaah
+ost06	boa
+ost07	tambien
+ost08	bien sur
+ost09	sivuplé
+ost10	behmù
+pbr00	pah
+pbr01	mini mini
+pbr02	pronti via
+pbr03	capo
+pbr05	gawk
+pbr06	rapaciao
+pbr07	chicchirò
+pbr08	baila
+pbr09	ah bon
+pgn00	b-b-baby
+pgn01	br-br-brr
+pgn02	brivido
+pgn03	sguish
+pgn04	brrrumf
+pgn05	a-a-amor
+pgn06	brrrrrrrrr
+pgn09	uhiii uuuh
+pgn10	glacius
+pgn11	tubi tubi
+pgn12	frio
+pgn13	iglù
+pgn14	unz unz
+pig00	niooink
+pig01	ficcanaso
+pig02	snoooink
+pig03	snort
+pig04	snoink
+pig05	snork
+pig08	salsicce
+pig09	sgrunf
+pig10	sissì
+pig11	oink
+pig13	gruffeffè
+pig14	oinc
+pig15	boink
+pig16	grufidù
+pig17	splosh
+rbt00	tiptap
+rbt01	caroté
+rbt02	evviva
+rbt03	bun bun
+rbt04	cherie
+rbt05	mielito
+rbt06	gnaf
+rbt07	bunbun
+rbt08	mochi
+rbt09	orecchine
+rbt10	soufflé
+rbt11	hoppela
+rbt12	lulalà
+rbt13	lilalà
+rbt14	siiigh
+rbt15	aquesí
+rbt16	gnuf gnuf
+rbt17	hurrah
+rbt18	niglio
+rbt19	baffoplà
+rhn00	zamperù
+rhn01	piedone
+rhn02	pachi
+rhn04	splush
+rhn07	rien
+rhn08	stomp
+shp00	beeeby
+shp01	breeezza
+shp02	laaagna
+shp03	beeene
+shp04	beensì
+shp07	babeeebí
+shp08	hermoso
+shp09	beee-ehi
+shp10	pecoramè
+shp11	beee la la
+shp12	lanadà
+shp13	peco peco
+shp15	veronò
+squ00	sgronch
+squ01	scrick
+squ02	gnic gnic
+squ03	cipì
+squ04	truciolo
+squ05	spalla
+squ06	ehilaaà
+squ07	nocciolina
+squ08	sguscio
+squ09	squercia
+squ10	nocciola
+squ11	SCRUNCH
+squ13	munch
+squ14	sgranocc
+squ15	squittole
+squ16	flash
+squ17	ardillà
+squ18	blink
+tig00	grrrolf
+tig01	mango
+tig02	grrrRAH
+tig03	grouf
+tig04	joggingrrr
+tig05	smack
+tig06	yeppa
+wol00	arrrgh
+wol01	etchuuuu
+wol02	zanna
+wol03	snappy
+wol04	gnams
+wol05	uuuff
+wol06	fabuuula
+wol08	arruuu
+wol09	uuuhlalà
+wol10	sgnack
+wol12	foxtrot

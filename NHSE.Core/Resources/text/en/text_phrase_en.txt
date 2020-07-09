@@ -1,0 +1,391 @@
+ant00	ah-CHOO
+ant01	honk
+ant02	snooooof
+ant03	snorty
+ant06	sniffff
+ant08	gumdrop
+ant09	whiffa
+bea00	grooof
+bea01	wah
+bea02	fuzzball
+bea03	aiya
+bea05	yawwwn
+bea06	grumble
+bea07	twinkles
+bea08	grooomph
+bea09	grrr
+bea10	yodelay
+bea11	roadie
+bea12	urgh
+bea13	whiskers
+bea14	strudel
+bea15	sundae
+brd00	heeeeeyy
+brd01	la-di-da
+brd02	chuurp
+brd03	cheepers
+brd04	bzzert
+brd05	chickadee
+brd06	aye aye
+brd08	tweedledee
+brd11	ya feel
+brd15	cacaw
+brd16	zut alors
+brd17	crunch
+brd18	like whoa
+bul00	macmoo
+bul01	chaps
+bul03	mrooooo
+bul05	moocher
+bul07	stubble
+bul08	cud
+cat00	pthhpth
+cat01	mew
+cat02	silly
+cat03	purrr
+cat04	kitty cat
+cat05	reeeeOWR
+cat06	mrmpht
+cat07	kitten
+cat08	myawn
+cat09	meooo-OH
+cat10	psst
+cat11	pffffft
+cat12	me-WOW
+cat13	GAAHHH
+cat14	mrowrr
+cat15	me-YOWZA
+cat16	mweee
+cat17	mimimi
+cat18	bonbon
+cat19	me meow
+cat20	mush
+cat21	purrty
+cat23	crisp
+cbr00	peach
+cbr01	honey
+cbr02	li'l bear
+cbr03	golly
+cbr04	grah grah
+cbr05	stuffin'
+cbr06	nyet
+cbr07	malarkey
+cbr09	sweet pea
+cbr10	tralala
+cbr13	rainbow
+cbr14	bud
+cbr15	rookie
+cbr16	cubby
+cbr17	ya heard
+cbr19	myohmy
+chn00	buh-kay
+chn01	uh-hoo
+chn02	doodle-duh
+chn05	beaker
+chn09	chicklet
+chn10	chicky-poo
+chn11	cluckling
+chn12	cluckadoo
+chn13	no doubt
+cow00	how-now
+cow01	pushy
+cow06	hoof hoo
+cow07	moolah
+crd00	it'sa me
+crd01	graaagh
+crd02	munchie
+crd04	gronk
+crd06	hoo-rah
+crd07	snacky
+crd08	burrrn
+der00	dearie
+der01	kablang
+der02	pronk
+der03	gruff
+der04	whatevs
+der05	badoom
+der06	precious
+der07	saltlick
+der08	no doy
+der09	chow down
+dog00	woof
+dog01	ROOOOOWF
+dog02	rrr-owch
+dog03	dawg
+dog04	yip yip
+dog05	ruffian
+dog06	wuh
+dog07	bow-WOW
+dog08	arfer
+dog09	yippee
+dog10	bingo
+dog14	woo woof
+dog15	non
+dog16	alrighty
+dog17	what what
+dog18	baa baa baa
+duk00	quacko
+duk01	bleeeeeck
+duk02	quackle
+duk03	duckling
+duk04	woowoo
+duk05	rah rah
+duk06	quackpth
+duk07	ducky
+duk08	derrrr
+duk09	quacko
+duk10	zip zoom
+duk11	quaa
+duk12	quackulous
+duk13	bitty
+duk15	quacker
+duk16	quackidee
+duk17	ridukulous
+elp00	snoot
+elp01	woo-oo
+elp02	villain
+elp03	tooooot
+elp04	tootie
+elp05	pal
+elp06	WHONK
+elp07	li'l one
+elp09	fuzzers
+elp10	teacup
+elp12	rockin'
+flg00	toady
+flg01	zzrrbbitt
+flg02	fribbit
+flg03	ten-hut
+flg04	dribbit
+flg05	grr-ribbit
+flg06	splish
+flg07	nee-deep
+flg09	sluuuurp
+flg10	oui oui
+flg11	hopper
+flg12	burrup
+flg13	croak-kay
+flg15	aaach—
+flg16	ribbette
+flg17	as if
+flg18	ya know
+flg19	snoozit
+goa00	la baa
+goa01	kid
+goa02	dagnaabit
+goa04	bleh eh eh
+goa06	blih
+goa07	wut
+goa08	kidders
+goa09	bawwww
+gor00	highness
+gor01	li'l bitty baby
+gor02	baboom
+gor04	hoo hoo ha
+gor05	uh-oh
+gor07	sweetie
+gor08	ayyyeee
+gor09	vroom
+gor10	groovy
+ham00	hammie
+ham01	cheekers
+ham02	indeed
+ham03	le ham
+ham04	tarnation
+ham05	thump
+ham06	powderpuff
+ham07	snort
+hip00	hippie
+hip02	hipster
+hip03	bloop
+hip04	squirt
+hip05	my dear
+hip08	beach bum
+hip09	natch
+hrs00	pardner
+hrs01	sugar cube
+hrs02	y'all
+hrs03	tenderfoot
+hrs04	nay
+hrs05	hay-OK
+hrs06	greenhorn
+hrs07	sugar
+hrs08	neighbor
+hrs09	nipper
+hrs10	clip clawp
+hrs11	check it
+hrs12	haaay
+hrs13	glitter
+hrs16	ayup yup
+kal00	tsk tsk
+kal01	guvnor
+kal02	toasty
+kal03	sunshine
+kal04	mate
+kal05	ol' bear
+kal08	nuh uh
+kal09	chips
+kal10	yeah buddy
+kgr00	child
+kgr01	wee baby
+kgr02	little one
+kgr05	my pet
+kgr06	boing
+kgr08	pockets
+kgr09	punches
+kgr10	pouches
+lon00	shredded
+lon01	unh-hunh
+lon02	cool cat
+lon04	lion cub
+lon06	cagey
+lon07	capital
+lon08	precisely
+mnk01	po po
+mnk02	zzzook
+mnk03	chimpy
+mnk04	g'tang
+mnk05	puh-lease
+mnk06	rerack
+mnk07	cheeky
+mnk08	monch
+mus00	squeaky
+mus01	squinky
+mus02	eeks
+mus03	cheeseball
+mus04	pipsqueak
+mus05	ace
+mus08	sweetie
+mus09	squee
+mus10	cannoli
+mus12	eat it
+mus14	shorty
+mus15	eekers
+mus16	yelp
+mus17	oh bow
+mus18	fromage
+ocp00	sucker
+ocp01	blurp
+ocp02	bloop
+ost00	chicken
+ost01	stretch
+ost02	speedy
+ost03	zort
+ost05	dahling
+ost06	sweatband
+ost07	hurk
+ost08	quite so
+ost09	pinky
+ost10	sparky
+pbr00	pah
+pbr01	cuz
+pbr02	hawkeye
+pbr03	captain
+pbr05	skree-haw
+pbr06	crushy
+pbr07	skraaaaw
+pbr08	wingo
+pbr09	feathers
+pgn00	b-b-baby
+pgn01	b-b-buddy
+pgn02	brainfreeze
+pgn03	slushie
+pgn04	brrrmph
+pgn05	h-h-h-hon
+pgn06	brrrrrrrrr
+pgn09	so it goes
+pgn10	human
+pgn11	waddler
+pgn12	picante
+pgn13	cha
+pgn14	frappe
+pig00	nyoink
+pig01	snoutie
+pig02	swine
+pig03	snortle
+pig04	snoooink
+pig05	snork
+pig08	hot dog
+pig09	schnort
+pig10	schep
+pig11	shweetie
+pig13	snortie
+pig14	zoink
+pig15	weeweewee
+pig16	sooey
+pig17	snuffle
+rbt00	tee-hee
+rbt01	wee one
+rbt02	doyoing
+rbt03	bunyip
+rbt04	mon chou
+rbt05	honeybun
+rbt06	li'l hare
+rbt07	bunbun
+rbt08	mochi
+rbt09	li'l ears
+rbt10	old bunny
+rbt11	hopalong
+rbt12	karat
+rbt13	sparkles
+rbt14	thumper
+rbt15	amigo
+rbt16	nougat
+rbt17	deelish
+rbt18	coooooool
+rbt19	cottontail
+rhn00	kerPOW
+rhn01	bigfoot
+rhn02	punk
+rhn04	schnozzle
+rhn07	shortcake
+rhn08	yo yo yo
+shp00	baaaffo
+shp01	daahling
+shp02	lambchop
+shp03	baa-dabing
+shp04	baaaby
+shp07	bo peep
+shp08	shearly
+shp09	lambkins
+shp10	pine nut
+shp11	oh ewe
+shp12	nightshade
+shp13	honk honk
+shp15	indeedaroo
+squ00	slacker
+squ01	nutlet
+squ02	bucko
+squ03	chipmunk
+squ04	niblet
+squ05	sidekick
+squ06	hulaaaa
+squ07	nutmeg
+squ08	krzzt
+squ09	ahhhhhh
+squ10	nutcase
+squ11	WHEE
+squ13	nice nice
+squ14	hubbub
+squ15	nutty
+squ16	cardio
+squ17	sulky
+squ18	uni-wow
+tig00	grrrolf
+tig01	mango
+tig02	grrrRAH
+tig03	growf
+tig04	flexin'
+tig05	ooh la la
+tig06	glimmer
+wol00	harrumph
+wol01	ah-rooooo
+wol02	snarrrl
+wol03	snappy
+wol04	ohmmm
+wol05	uff da
+wol06	cha-chomp
+wol08	piffle
+wol09	airmail
+wol10	alpha
+wol12	foxtrot
