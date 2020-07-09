@@ -236,5 +236,11 @@ namespace NHSE.WinForms
             if (editor.ShowDialog() == DialogResult.OK)
             { } // editor saves our changes
         }
+
+        private void B_SetPhraseOriginal_Click(object sender, EventArgs e)
+        {
+            var internalName = GetCurrentVillagerInternalName();
+            TB_Catchphrase.Text = GameInfo.Strings.GetVillagerDefaultPhrase(internalName);
+        }
     }
 }

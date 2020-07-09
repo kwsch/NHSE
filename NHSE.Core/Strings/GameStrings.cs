@@ -12,7 +12,9 @@ namespace NHSE.Core
         public readonly string[] villagers;
         public readonly string[] itemlist;
         public readonly string[] itemlistdisplay;
+        public readonly string[] villagerDefaultPhrases;
         public readonly Dictionary<string, string> VillagerMap;
+        public readonly Dictionary<string, string> VillagerDefaultPhraseMap;
         public readonly List<ComboItem> ItemDataSource;
         public readonly Dictionary<string, string> InternalNameTranslation = new Dictionary<string, string>();
 
@@ -28,6 +30,8 @@ namespace NHSE.Core
             lang = l;
             villagers = Get("villager");
             VillagerMap = GetMap(villagers);
+            villagerDefaultPhrases = Get("phrase");
+            VillagerDefaultPhraseMap = GetMap(villagerDefaultPhrases);
             itemlist = Get("item");
             itemlistdisplay = GetItemDisplayList(itemlist);
             ItemDataSource = CreateItemDataSource(itemlistdisplay);
@@ -110,6 +114,11 @@ namespace NHSE.Core
         public string GetVillager(string name)
         {
             return VillagerMap.TryGetValue(name, out var result) ? result : name;
+        }
+
+        public string GetVillagerDefaultPhrase(string name)
+        {
+            return VillagerDefaultPhraseMap.TryGetValue(name, out var result) ? result : name; // I know it shouldn't be name but I have to return something
         }
 
         public static string[] GetItemDisplayList(string[] items)
