@@ -7302,7 +7302,6 @@ Blatt-Maske (Grün)
 
 Retro-Sporttasche (Blau)
 Scotoplanes
-\0\0\0'
 Minitasche (Blau)
 Abendhandtasche (Rosa)
 
