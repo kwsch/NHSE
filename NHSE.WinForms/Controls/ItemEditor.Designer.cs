@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.CB_ItemID = new System.Windows.Forms.ComboBox();
             this.NUD_Count = new System.Windows.Forms.NumericUpDown();
             this.L_Count = new System.Windows.Forms.Label();
@@ -90,6 +91,7 @@
             this.CB_WrapColor = new System.Windows.Forms.ComboBox();
             this.CHK_WrapShowName = new System.Windows.Forms.CheckBox();
             this.CHK_Wrap80 = new System.Windows.Forms.CheckBox();
+            this.TT_Search = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Count)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Uses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Flag0)).BeginInit();
@@ -126,6 +128,7 @@
             this.CB_ItemID.Size = new System.Drawing.Size(141, 21);
             this.CB_ItemID.TabIndex = 1;
             this.CB_ItemID.SelectedValueChanged += new System.EventHandler(this.CB_ItemID_SelectedValueChanged);
+            this.CB_ItemID.TextChanged += new System.EventHandler(this.CB_ItemID_TextChanged);
             this.CB_ItemID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CB_KeyDown);
             // 
             // NUD_Count
@@ -905,6 +908,13 @@
             this.CHK_Wrap80.UseVisualStyleBackColor = true;
             this.CHK_Wrap80.Visible = false;
             // 
+            // TT_Search
+            // 
+            this.TT_Search.AutomaticDelay = 200;
+            this.TT_Search.AutoPopDelay = 10000;
+            this.TT_Search.InitialDelay = 200;
+            this.TT_Search.ReshowDelay = 40;
+            // 
             // ItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1008,5 +1018,6 @@
         private System.Windows.Forms.ComboBox CB_WrapColor;
         private System.Windows.Forms.CheckBox CHK_WrapShowName;
         private System.Windows.Forms.CheckBox CHK_Wrap80;
+        private System.Windows.Forms.ToolTip TT_Search;
     }
 }

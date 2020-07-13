@@ -415,6 +415,7 @@ grf	Carla
 gstA	Follet
 gstB	Follet
 gul	Gulliver
+gulB	Gullivarrr
 hgc	Tiquette
 hgh	Layette
 hgs	Cousette

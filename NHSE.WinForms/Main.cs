@@ -181,7 +181,7 @@ namespace NHSE.WinForms
                     var items = new Item[40];
                     for (int i = 0; i < items.Length; i++)
                         items[i] = new Item(Item.NONE);
-                    using var editor = new PlayerItemEditor<Item>(items, 10, 4, true);
+                    using var editor = new PlayerItemEditor(items, 10, 4, true);
                     editor.ShowDialog();
                     break;
                 }

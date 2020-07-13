@@ -86,9 +86,9 @@ namespace NHSE.Parsing.Properties {
         ///	(&apos;Heavy&apos;     , &apos;重い&apos;),
         ///	 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string specs_120 {
+        internal static string specs_130 {
             get {
-                return ResourceManager.GetString("specs_120", resourceCulture);
+                return ResourceManager.GetString("specs_130", resourceCulture);
             }
         }
     }

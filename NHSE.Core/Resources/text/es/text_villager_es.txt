@@ -415,6 +415,7 @@ grf	Graciela
 gstA	Buh
 gstB	Buh
 gul	Gulliver
+gulB	Gullivarrr
 hgc	Tili
 hgh	Pili
 hgs	Mili

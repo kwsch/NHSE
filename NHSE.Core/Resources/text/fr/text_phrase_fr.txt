@@ -1,0 +1,391 @@
+ant00	ATCHOUM
+ant01	pouet
+ant02	pouuuuuf
+ant03	grognon
+ant06	snif snif
+ant08	tap tap
+ant09	tartarin
+bea00	grrrrrr
+bea01	ouah
+bea02	bouboule
+bea03	lala
+bea05	baaîîîllle
+bea06	grou-gnon
+bea07	pic pic
+bea08	groumpf
+bea09	canaillou
+bea10	léchouille
+bea11	pot d'miel
+bea12	verlue
+bea13	poilodos
+bea14	achtung
+bea15	berlingot
+brd00	maaaaaais
+brd01	ta-di-da
+brd02	muf-muf
+brd03	coolos
+brd04	bouerk
+brd05	puic puic
+brd06	cornichon
+brd08	loulou
+brd11	asticô
+brd15	yaaaah
+brd16	ploc ploc
+brd17	poupousse
+brd18	piaaaaf
+bul00	meuh meuh
+bul01	crac
+bul03	meuh quoi
+bul05	vachte
+bul07	mon cou
+bul08	moumoul
+cat00	pfioupf
+cat01	meeeeeh
+cat02	flûte
+cat03	rrrrrrrrr
+cat04	chti minou
+cat05	roooaR
+cat06	blébléblé
+cat07	chaton
+cat08	miou
+cat09	mia-ouh
+cat10	psst
+cat11	pffffft
+cat12	mi-AOUUH
+cat13	miaoum
+cat14	miaaaouh
+cat15	mistigri
+cat16	miou-mi
+cat17	chatounet
+cat18	ron-ron
+cat19	mi-i-i-ouh
+cat20	alatienne
+cat21	miaouille
+cat23	panache
+cbr00	prune
+cbr01	chouchou
+cbr02	nounours
+cbr03	louloute
+cbr04	grih grih
+cbr05	ou bien
+cbr06	niet
+cbr07	canaille
+cbr09	trognon
+cbr10	tralala
+cbr13	cacou
+cbr14	linou
+cbr15	pla-pla
+cbr16	dodododu
+cbr17	grifouille
+cbr19	oh là là
+chn00	bouyaka
+chn01	oh oh
+chn02	di di dou
+chn05	cô-cômment
+chn09	côôôôt
+chn10	galine
+chn11	ra-ta-tak
+chn12	mon œuf
+chn13	pôt pôt
+cow00	allez
+cow01	choupette
+cow06	meuh nan
+cow07	pistouille
+crd00	moi moi
+crd01	graaagh
+crd02	mariolle
+crd04	clap
+crd06	repos
+crd07	croquignou
+crd08	ducroc
+der00	toudoux
+der01	têtedebois
+der02	wapiti
+der03	nunul
+der04	pan
+der05	jaunisse
+der06	rosace
+der07	feufeuille
+der08	bichouchou
+der09	breuh
+dog00	ouaf
+dog01	WROOOOUF
+dog02	graaaouch
+dog03	clair
+dog04	yip yip
+dog05	brute
+dog06	ouh
+dog07	mon chou
+dog08	woufi
+dog09	youp
+dog10	mon chaton
+dog14	babines
+dog15	miaouf
+dog16	croquettes
+dog17	niniche
+dog18	pedigree
+duk00	choupichou
+duk01	beeeuuuurk
+duk02	coin coin
+duk03	canardou
+duk04	youhou
+duk05	rah rah
+duk06	coinpff
+duk07	poussin
+duk08	derrrr
+duk09	canard
+duk10	zak zak
+duk11	plumeau
+duk12	couac
+duk13	plouf
+duk15	kwakos
+duk16	canénette
+duk17	arrêêêête
+elp00	gropif
+elp01	woutchou
+elp02	vipère
+elp03	tooouut
+elp04	toutie
+elp05	fanfan
+elp06	splaf
+elp07	sacrelotte
+elp09	mammouth
+elp10	énoooorme
+elp12	bastringue
+flg00	watich'
+flg01	croac
+flg02	breup
+flg03	taïaut
+flg04	braaaa
+flg05	croa-croa
+flg06	splufff
+flg07	brooap
+flg09	nénuf
+flg10	bidule
+flg11	nouille
+flg12	boiiiiing
+flg13	quoi
+flg15	kroah
+flg16	crôazou
+flg17	crapoupou
+flg18	cuicuisse
+flg19	pustule
+goa00	la baa
+goa01	fromage
+goa02	eh bââlèze
+goa04	hé bêêê
+goa06	tu vois
+goa07	mouhai
+goa08	mon moulin
+goa09	bââââille
+gor00	brutus
+gor01	gadget
+gor02	ma noix
+gor04	tonneau
+gor05	pelage
+gor07	gong
+gor08	ouba-oub
+gor09	patouche
+gor10	tût tût
+ham00	chicots
+ham01	bibille
+ham02	au pif
+ham03	caries
+ham04	gnognotte
+ham05	pindépice
+ham06	abajoujou
+ham07	balivernes
+hip00	babi
+hip02	hip hop là
+hip03	rololol
+hip04	hips hips
+hip05	joli cœur
+hip08	mille
+hip09	tam-tam
+hrs00	taty
+hrs01	susucre
+hrs02	wimbowé
+hrs03	mouuuuiii
+hrs04	shérif
+hrs05	youp là
+hrs06	tagada
+hrs07	beauté
+hrs08	mustang
+hrs09	galapia
+hrs10	mouh-ouh
+hrs11	hue hue
+hrs12	en selle
+hrs13	trottoune
+hrs16	crincrin
+kal00	tss tss
+kal01	chef
+kal02	pêchou
+kal03	mon trésor
+kal04	galopin
+kal05	koa là là
+kal08	zyva
+kal09	sandwich
+kal10	yapaphoto
+kgr00	gamin
+kgr01	riquiqui
+kgr02	poupon
+kgr05	mon étoile
+kgr06	d'la balle
+kgr08	popoche
+kgr09	savate
+kgr10	wallaby
+lon00	m'pote
+lon01	bébé
+lon02	lionceau
+lon04	minus
+lon06	grif-grif
+lon07	criniou
+lon08	papatte
+mnk01	po po
+mnk02	zzziik
+mnk03	booof
+mnk04	l'outang
+mnk05	steup
+mnk06	oh hisse
+mnk07	tavu
+mnk08	liaaaane
+mus00	tatouille
+mus01	scriiich
+mus02	hiiiii
+mus03	boulette
+mus04	scouic
+mus05	tip top
+mus08	claquos
+mus09	nouik
+mus10	dis donc
+mus12	flim-flam
+mus14	bééléé
+mus15	skouik-ik
+mus16	téma
+mus17	grugru
+mus18	frometon
+ocp00	chenapan
+ocp01	beurp
+ocp02	sploush
+ost00	poupoule
+ost01	codêt
+ost02	euh quoi
+ost03	pik pik
+ost05	trutruche
+ost06	omelette
+ost07	bécot
+ost08	viiiite
+ost09	guiboles
+ost10	chanmé
+pbr00	trraaaa
+pbr01	croooa
+pbr02	œil agile
+pbr03	flap flap
+pbr05	phélès
+pbr06	maaaarre
+pbr07	kaputt
+pbr08	royaaaal
+pbr09	bebec
+pgn00	b-b-bébé
+pgn01	pépépère
+pgn02	cococopain
+pgn03	manette
+pgn04	bourfff
+pgn05	h-h-h-hon
+pgn06	brrrrrrrrr
+pgn09	blanbec
+pgn10	boudiou
+pgn11	zozio
+pgn12	gla gla
+pgn13	golri
+pgn14	mon glaçon
+pig00	coink
+pig01	jambon
+pig02	porcelet
+pig03	cuick
+pig04	groingroin
+pig05	diantre
+pig08	andouille
+pig09	minot
+pig10	grouik
+pig11	fleur
+pig13	tigroin
+pig14	lardon
+pig15	toutébon
+pig16	sabots
+pig17	sauciflard
+rbt00	hé hé hé
+rbt01	lapinou
+rbt02	touloulou
+rbt03	mon lapin
+rbt04	cahuète
+rbt05	mon lièvre
+rbt06	ti’ lièvre
+rbt07	pinpin
+rbt08	mochi
+rbt09	n'oreille
+rbt10	morbleu
+rbt11	sans rire
+rbt12	carotte
+rbt13	hop
+rbt14	pfui
+rbt15	pécaïre
+rbt16	pinou-nou
+rbt17	nananère
+rbt18	chaaauuud
+rbt19	auch auch
+rhn00	kaboum
+rhn01	grand pied
+rhn02	saperlotte
+rhn04	euh
+rhn07	ma fraise
+rhn08	badaboum
+shp00	pupull
+shp01	chêêêri
+shp02	bêbêêêêh
+shp03	mon agneau
+shp04	bêllissime
+shp07	tourni
+shp08	toison
+shp09	bê-bê-bê
+shp10	barbiche
+shp11	mouêêê
+shp12	tricoti
+shp13	bamboche
+shp15	broutille
+squ00	noisette
+squ01	coquille
+squ02	gogo
+squ03	fouloulou
+squ04	nunuche
+squ05	poto
+squ06	houlaaaa
+squ07	tac
+squ08	krzzt
+squ09	ahhhhhh
+squ10	dingo
+squ11	yeeeees
+squ13	ptigri
+squ14	grignote
+squ15	scratchy
+squ16	toutouffe
+squ17	nanache
+squ18	tac tac
+tig00	grrrufff
+tig01	banane
+tig02	grouaaah
+tig03	ma souris
+tig04	rebelote
+tig05	grou grou
+tig06	croky
+wol00	mmmph
+wol01	ah rooooo
+wol02	snurffff
+wol03	sbam
+wol04	peuchère
+wol05	mon loulou
+wol06	sagouin
+wol08	crocroque
+wol09	mumuseau
+wol10	garooouuu
+wol12	trottine

@@ -74,5 +74,13 @@ namespace NHSE.Injection
         /// <param name="count">Amount of bytes</param>
         /// <returns>Encoded command bytes</returns>
         public static byte[] PeekRaw(uint offset, int count) => Encode($"peek 0x{offset:X8} {count}", false);
+
+        /// <summary>
+        /// (Without return) Sends the Bot <see cref="data"/> to be written to <see cref="offset"/>.
+        /// </summary>
+        /// <param name="offset">Address of the data</param>
+        /// <param name="data">Data to write</param>
+        /// <returns>Encoded command bytes</returns>
+        public static byte[] PokeRaw(uint offset, byte[] data) => Encode($"poke 0x{offset:X8} 0x{string.Concat(data.Select(z => $"{z:X2}"))}", false);
     }
 }

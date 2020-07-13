@@ -233,7 +233,7 @@ stego tail
 
 
 plesio skull
-plesio body
+plesio torso
 plesio tail
 
 T. rex skull
@@ -1180,7 +1180,7 @@ foosball table
 
 
 tennis table
-
+bamboo grass
 
 
 phone box
@@ -1266,12 +1266,12 @@ pear wardrobe
 
 barrel
 
+pirate-ship cannon
 
 
 
 
-
-
+pirate-ship helm
 
 
 
@@ -2618,7 +2618,7 @@ ladder
 
 
 
-
+seaweed
 
 
 
@@ -2828,35 +2828,35 @@ dress shirt (White)
 
 
 
+sea grapes
+sea urchin
+acorn barnacle
+oyster
+turban shell
+abalone
 
 
+pearl oyster
+scallop
+sea anemone
+sea star
+sea cucumber
+sea slug
+flatworm
+mantis shrimp
+sweet shrimp
+tiger prawn
+spiny lobster
+lobster
+snow crab
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+red king crab
+spider crab
+octopus
+spotted garden eel
+chambered nautilus
+horseshoe crab
+giant isopod
 
 young white azalea
 white-azalea bush
@@ -3145,7 +3145,7 @@ diner uniform (Pink)
 short-sleeve dress shirt (White)
 sleeveless dress shirt (White)
 bunny dress (Pink)
-
+sea captain's coat (Red)
 
 
 
@@ -3334,7 +3334,7 @@ timer
 LCD TV (20 in.)
 track jacket (Navy blue)
 track pants (Navy blue)
-cake dress (White)
+wedding dress (White)
 kilt (Red)
 
 waistcoat (Gray)
@@ -3548,7 +3548,7 @@ large snowflake
 
 
 beak (Yellow)
-handlebar mustache (Black)
+handlebar mustache (Hair Color)
 bamboo shelf
 
 bamboo partition
@@ -3582,7 +3582,7 @@ bonsai shelf
 fish-drying rack
 book
 fishing-boat flag
-writing poster
+study poster
 
 magazine
 fishing-rod stand
@@ -3699,8 +3699,8 @@ portable radio
 bowling shirt (Red)
 fish print
 V-neck sweater (Blue)
-writing desk
-writing chair
+study desk
+study chair
 fairy dress (Green)
 kimono sandals (Black)
 boa fleece (White)
@@ -4293,7 +4293,7 @@ pocket tee (White)
 miko attire (Vermilion)
 cosmos wreath
 
-
+pirate dress (Red)
 corduroy skirt (Brown)
 
 
@@ -4549,7 +4549,7 @@ embroidered floral skirt (Green)
 embroidered-pattern skirt (Blue)
 fish bait
 
-
+snorkel mask (Blue)
 cyber shades (Red)
 checkered muffler (White)
 
@@ -4670,14 +4670,14 @@ tunic tank (White)
 wooden-frame glasses (Brown)
 
 privacy mask (Black)
-curly mustache (Black)
+curly mustache (Hair Color)
 sports tank (1)
 long chenille cardigan (Mustard)
 ribbon-straps tank (Black)
-goatee (Black)
+goatee (Hair Color)
 bandage (Beige)
 jester's mask (Black)
-rounded beard (Black)
+rounded beard (Hair Color)
 printed fleece sweater (Moss green)
 detective's coat (Brown)
 leaf (Green)
@@ -5140,7 +5140,7 @@ sombrero (Natural & red)
 safety helmet (Yellow)
 chef's hat (White)
 police cap (Navy blue)
-
+pirate's hat (Black)
 bamboo hat (Beige)
 faux-fur hat (Beige)
 do-rag (Yellow)
@@ -6918,7 +6918,7 @@ striped umbrella
 tartan-check umbrella
 patterned vinyl umbrella
 bat umbrella
-
+firefly squid
 halo (Gold)
 flip-flops (Green)
 camo umbrella
@@ -7189,7 +7189,7 @@ forest wall
 
 studio spotlight
 studio wall spotlight
-
+gazami crab
 
 
 
@@ -7201,7 +7201,7 @@ athletic jacket (Black)
 athletic jacket (Blue)
 athletic jacket (Berry red)
 athletic jacket (Navy blue)
-
+vampire squid
 cherry-blossom flooring
 cherry-blossom-trees wall
 
@@ -7212,7 +7212,7 @@ bunny ears (Black)
 bridge construction kit
 Sherb's photo
 Dom's photo
-
+gigas giant clam
 cute white wall
 cute red wall
 cute blue wall
@@ -7226,7 +7226,7 @@ cute yellow-tile flooring
 
 
 
-
+sea pineapple
 handcart
 cosmos shower
 tulip surprise box
@@ -7243,14 +7243,14 @@ blue diner wall
 pink diner wall
 gray diner wall
 brown diner wall
-
+moon jellyfish
 
 silo
 
 
 
 diplo tail tip
-
+umbrella octopus
 star clock
 straw umbrella hat (Brown)
 
@@ -7265,7 +7265,7 @@ metal can
 champion's pennant
 
 
-
+slate pencil urchin
 
 
 
@@ -7276,7 +7276,7 @@ pink quilt wall
 purple quilt wall
 yellow quilt wall
 blue quilt wall
-
+whelk
 
 gears
 sleigh
@@ -7301,12 +7301,12 @@ leaf mask (Green)
 
 
 retro sports bag (Blue)
-
+sea pig
 sacoche bag (Blue)
 evening bag (Pink)
 
 
-
+Dungeness crab
 
 
 
@@ -7316,7 +7316,7 @@ evening bag (Pink)
 
 
 zen-style stone
-
+Venus' flower basket
 
 
 
@@ -7409,7 +7409,7 @@ centipede model
 maple-leaf pond stone
 cherry-blossom pond stone
 
-
+mussel
 tiara (Silver)
 
 
@@ -7431,16 +7431,16 @@ noble dress (Black)
 noble dress (Purple)
 noble dress (Yellow)
 noble dress (Red)
+sea captain's coat (Blue)
+sea captain's coat (Black)
 
 
 
 
 
 
-
-
-
-
+pirate dress (Blue)
+pirate dress (Black)
 
 
 concierge uniform (Red)
@@ -11491,11 +11491,11 @@ sporty shades (White)
 sporty shades (Pink)
 sporty shades (Lime)
 sporty shades (Light blue)
-
-
-
-
-
+snorkel mask (Orange)
+snorkel mask (Red)
+snorkel mask (Pink)
+snorkel mask (Green)
+snorkel mask (Black)
 cyber shades (Black)
 cyber shades (Silver)
 cyber shades (Purple)
@@ -12550,29 +12550,29 @@ heart crystal
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+mermaid table
+mermaid shelf
+mermaid vanity
+mermaid screen
+mermaid lamp
+mermaid wall clock
+mermaid bed
+mermaid closet
+mermaid sofa
+mermaid dresser
+mermaid chair
+mermaid rug
+pirate rug
 Reese & Cyrus photo plate
-
-
-
-
+mermaid wall
+pirate wall
+mermaid flooring
+pirate flooring
 wild painting left half
 wild painting left half (forgery)
-
-
-
+sideways pirate barrel
+pirate-treasure chest
+pirate barrel
 handmade cape (Red)
 handmade crown (Red)
 summer-solstice crown (Yellow)
@@ -12658,15 +12658,15 @@ Bunny Day fence
 
 
 
-
-
-
-
-
-
-
-
-
+mermaid shoes (Pink)
+mermaid tiara (White)
+pirate eye patch (Black)
+pirate beard (Hair Color)
+pirate pants (Black)
+pirate boots (Brown)
+pirate bandanna (Red)
+pirate-treasure robe (Black)
+pirate outfit (Red)
 
 
 
@@ -12955,8 +12955,8 @@ wedding fence
 
 
 
-
-
+mermaid princess dress (Pink)
+mermaid fishy dress (Pink)
 winter-solstice sweater (Beige)
 
 
@@ -12966,6 +12966,9 @@ winter-solstice sweater (Beige)
 
 
 
+pearl
+
+Nook Inc. wet suit (Green)
 
 
 
@@ -12975,10 +12978,239 @@ winter-solstice sweater (Beige)
 
 
 
-
-
-
-
-
+pirate-treasure crown (Silver)
+leaf-print wet suit (Light blue)
 coral Nook Inc. aloha shirt (Coral)
 green Nook Inc. aloha shirt (Green)
+
+
+horizontal-striped wet suit (Red)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mermaid shoes (Light blue)
+pirate bandanna (Blue)
+pirate bandanna (Black)
+pirate outfit (Blue)
+pirate outfit (Black)
+mermaid princess dress (Light blue)
+mermaid fishy dress (Light blue)
+
+
+
+
+leaf-print wet suit (Purple)
+leaf-print wet suit (Yellow)
+leaf-print wet suit (Green)
+horizontal-striped wet suit (Blue)
+horizontal-striped wet suit (Yellow)
+horizontal-striped wet suit (Black)
+
+communicator
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Nook Inc. snorkel (Green)

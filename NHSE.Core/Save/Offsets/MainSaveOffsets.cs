@@ -21,7 +21,8 @@ namespace NHSE.Core
         public abstract int PatternFlag { get; }
         public abstract int PatternTailor { get; }
 
-        public abstract int Hemisphere { get; }
+        public abstract int WeatherArea { get; }
+        public abstract int WeatherRandSeed { get; }
 
         public abstract int MainFieldStructure { get; }
 
@@ -56,6 +57,8 @@ namespace NHSE.Core
                 5 => new MainSaveOffsets11(),
                 6 => new MainSaveOffsets12(),
                 7 => new MainSaveOffsets12(),
+                8 => new MainSaveOffsets13(),
+                9 => new MainSaveOffsets13(),
                 _ => throw new IndexOutOfRangeException("Unknown revision!"),
             };
         }

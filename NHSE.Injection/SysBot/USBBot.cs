@@ -78,7 +78,8 @@ namespace NHSE.Injection
                     if (SwDevice.IsOpen)
                     {
                         IUsbDevice? wholeUsbDevice = SwDevice as IUsbDevice;
-                        wholeUsbDevice?.ReleaseInterface(0);
+                        if (wholeUsbDevice != null)
+                            wholeUsbDevice?.ReleaseInterface(0);
                         SwDevice.Close();
                     }
                 }
@@ -154,7 +155,7 @@ namespace NHSE.Injection
         {
             lock (_sync)
             {
-                SendInternal(SwitchCommand.Poke(offset, data));
+                SendInternal(SwitchCommand.PokeRaw(offset, data));
 
                 // give it time to push data back
                 Thread.Sleep((data.Length / 256) + 100);

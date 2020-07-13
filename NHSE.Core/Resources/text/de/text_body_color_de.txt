@@ -1484,7 +1484,7 @@
 03617_5	Weiß
 03617_6	Schwarz
 03617_7	Grau
-03618_0	Natur
+03618_0	Unbehandelt
 03618_1	Kirschholz
 03618_2	Dunkel
 03618_3	Natur

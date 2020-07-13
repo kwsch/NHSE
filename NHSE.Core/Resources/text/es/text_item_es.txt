@@ -1,35 +1,35 @@
-(Nada)
+(None)
 
 cuadro invernal
 
 
-retrato oriental (falsificación)
+retrato oriental (forgery)
 retrato oriental
 
 
-retrato holandés (falsificación)
+retrato holandés (forgery)
 retrato holandés
 
 
-retrato heroico (falsificación)
+retrato heroico (forgery)
 retrato heroico
 
 
-retrato italiano (falsificación)
+retrato italiano (forgery)
 retrato italiano
 
 bodegón
 
 
-retrato regio (falsificación)
+retrato regio (forgery)
 retrato regio
 
 
-retrato perla (falsificación)
+retrato perla (forgery)
 retrato perla
 
 
-cuadro alegórico (falsificación)
+cuadro alegórico (forgery)
 cuadro alegórico
 
 cuadro clásico
@@ -39,7 +39,7 @@ cuadro clásico
 cuadro ola
 
 
-cuadro orgánico (falsificación)
+cuadro orgánico (forgery)
 cuadro orgánico
 
 cuadro segadoras
@@ -53,7 +53,7 @@ cuadro flores
 retrato joven
 
 
-cuadro holandés (falsificación)
+cuadro holandés (forgery)
 cuadro holandés
 
 
@@ -63,17 +63,17 @@ cuadro holandés
 
 
 
-cuadro japonés (falsificación)
+cuadro japonés (forgery)
 cuadro japonés
 
 cuadro romántico
 
 
-cuadro español (falsificación)
+cuadro español (forgery)
 cuadro español
 
 
-cuadro naturaleza (dcha.) (falsificación)
+cuadro naturaleza (dcha.) (forgery)
 cuadro naturaleza (dcha.)
 
 paisaje francés
@@ -240,9 +240,9 @@ cráneo tiranosaurio
 cuerpo tiranosaurio
 cola tiranosaurio
 
-cráneo triceratops
-cuerpo triceratops
-cola triceratops
+cráneo tricerátops
+cuerpo tricerátops
+cola tricerátops
 
 
 
@@ -1180,7 +1180,7 @@ futbolín
 
 
 tenis de mesa
-
+caña de bambú
 
 
 cabina telefónica
@@ -1266,12 +1266,12 @@ armario pera
 
 tonel
 
+cañón de barco pirata
 
 
 
 
-
-
+timón de barco pirata
 
 
 
@@ -1330,21 +1330,21 @@ mesa escolar
 escritorio de profe
 mesa de maestro
 figura materna
-figura materna (falsificación)
+figura materna (forgery)
 estatua majestuosa
-estatua majestuosa (falsificación)
+estatua majestuosa (forgery)
 estatua atlética
-estatua atlética (falsificación)
+estatua atlética (forgery)
 estatua primitiva
-estatua primitiva (falsificación)
+estatua primitiva (forgery)
 estatua triunfante
 
 estatua femenina
-estatua femenina (falsificación)
+estatua femenina (forgery)
 busto antiguo
-busto antiguo (falsificación)
+busto antiguo (forgery)
 estatua alada
-estatua alada (falsificación)
+estatua alada (forgery)
 
 jaula de hámster
 
@@ -1821,7 +1821,7 @@ probador
 
 
 
-basura
+par de bolsas de basura
 
 
 
@@ -2496,7 +2496,7 @@ Tota-disco
 Feliz en tu día
 
 
-camiseta bola 3 (Rojo)
+camiseta bola 3 (Rojo)
 
 rama
 tallo de bambú
@@ -2539,7 +2539,7 @@ kit de personalización
 
 
 
-camiseta bola 2 (Azul)
+camiseta bola 2 (Azul)
 
 permiso de elevaciones
 varita estrella
@@ -2618,7 +2618,7 @@ escalera de mano
 
 
 
-
+alga wakame
 
 
 
@@ -2828,35 +2828,35 @@ camisa de vestir (Blanco)
 
 
 
+uva de mar
+erizo de mar
+bellota de mar
+ostra
+caracola espinosa
+abulón
 
 
+ostra perlera
+vieira
+anémona
+estrella de mar
+pepino de mar
+babosa de mar
+gusano políclado
+langosta mantis
+camarón boreal
+langostino tigre
+langosta espinosa
+bogavante
+cangrejo de nieve
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+cangrejo boreal
+cangrejo gigante japonés
+pulpo
+anguila jardinera
+nautilo
+cangrejo herradura
+isópodo gigante
 
 azalea blanca joven
 azalea blanca adulta
@@ -3145,7 +3145,7 @@ uniforme café años 50 (Rosa)
 camisa de manga corta (Blanco)
 camisa sin mangas (Blanco)
 vestido de conejito (Rosa)
-
+casaca pirata (Rojo)
 
 
 
@@ -3318,13 +3318,13 @@ camisa bicolor (Azul)
 pantalón bicolor (Blanco y negro)
 
 falda vichy (Rojo)
-camiseta bola 1 (Amarillo)
-camiseta bola 4 (Púrpura)
-camiseta bola 5 (Naranja)
-camiseta bola 6 (Verde)
-camiseta bola 7 (Marrón)
-camiseta bola 8 (Negro)
-camiseta bola 9 (Amarillo)
+camiseta bola 1 (Amarillo)
+camiseta bola 4 (Púrpura)
+camiseta bola 5 (Naranja)
+camiseta bola 6 (Verde)
+camiseta bola 7 (Marrón)
+camiseta bola 8 (Negro)
+camiseta bola 9 (Amarillo)
 
 camisa con jersey (Rosa)
 
@@ -3548,7 +3548,7 @@ copo de nieve XL
 
 
 pico (Amarillo)
-bigote inglés (Negro)
+bigote inglés (Color del pelo)
 estante de bambú
 
 separador de bambú
@@ -4293,7 +4293,7 @@ camiseta con bolsillo (Blanco)
 uniforme de sacerdotisa (Bermellón)
 corona cosmos
 
-
+vestido de pirata (Rojo)
 falda corta de pana (Marrón)
 
 
@@ -4549,7 +4549,7 @@ falda flores bordadas (Verde)
 falda cenefas bordadas (Azul)
 cebo
 
-
+gafa de buceo (Azul)
 cibergafa (Rojo)
 jersey con bufanda (Blanco)
 
@@ -4670,14 +4670,14 @@ top largo (Blanco)
 montura de madera (Marrón)
 
 máscara anonimato (Negro)
-bigote de artista (Negro)
+bigote de artista (Color del pelo)
 top carrera (1)
 cárdigan de punto largo (Mostaza)
 top lunares y lacitos (Negro)
-perilla (Negro)
+perilla (Color del pelo)
 par de tiritas (Beis)
 careta de bufón (Negro)
-barba perfilada (Negro)
+barba perfilada (Color del pelo)
 jersey de lana estampado (Verde musgo)
 traje de detective (Marrón)
 hoja (Verde)
@@ -5140,7 +5140,7 @@ sombrero cuate (Natural y rojo)
 casco de obra (Amarillo)
 gorro de chef (Blanco)
 gorra de policía (Azul marino)
-
+sombrero pirata (Negro)
 gorro de bambú cónico (Beis)
 gorro de pelo sintético (Beis)
 pañuelo anudado (Amarillo)
@@ -6886,7 +6886,7 @@ mocasín de talón bajo (Rojo)
 mocasín de talón bajo (Azul)
 
 
-camiseta n.º 1 (Rojo)
+camiseta n.º 1 (Rojo)
 mocasín de talón bajo (Verde)
 mocasín de talón bajo (Negro)
 
@@ -6918,7 +6918,7 @@ paraguas rayas
 paraguas tartán
 paraguas de vinilo a topos
 paraguas negro
-
+calamar luciérnaga
 halo (Dorado)
 chancla (Verde)
 paraguas camuflaje
@@ -7189,7 +7189,7 @@ pared bosque
 
 foco profesional de pie
 foco profesional para colgar
-
+cangrejo gazami
 
 
 
@@ -7201,7 +7201,7 @@ sudadera sport (Negro)
 sudadera sport (Azul)
 sudadera sport (Burdeos)
 sudadera sport (Azul marino)
-
+calamar vampiro
 suelo cerezos en flor
 pared cerezos en flor
 
@@ -7212,7 +7212,7 @@ diadema orejitas de conejo (Negro)
 kit de puente
 foto de Morfeo
 foto de Fibrilio
-
+taclobo gigante
 pared cuqui blanca
 pared cuqui roja
 pared cuqui azul
@@ -7226,7 +7226,7 @@ losa cuqui amarilla
 
 
 
-
+piña de mar
 carretilla
 ducha cosmos
 caja sorpresa tulipán
@@ -7243,14 +7243,14 @@ pared café años 50 azul
 pared café años 50 rosa
 pared café años 50 gris
 pared café años 50 marrón
-
+medusa luna
 
 silo
 
 
 
 punta de cola diplodocus
-
+pulpo paraguas
 reloj estrella
 gorro de paja achatado (Marrón)
 
@@ -7265,7 +7265,7 @@ lata metálica
 estandarte de la victoria
 
 
-
+erizo lápiz de pizarra
 
 
 
@@ -7276,7 +7276,7 @@ pared patchwork rosa
 pared patchwork lila
 pared patchwork amarilla
 pared patchwork azul
-
+buccino
 
 engranaje
 trineo
@@ -7301,12 +7301,12 @@ máscara hoja (Verde)
 
 
 bolsa deportiva retro (Azul)
-
+cerdo de mar
 minibolsa (Azul)
 bolso de noche (Rosa)
 
 
-
+buey del Pacífico
 
 
 
@@ -7316,7 +7316,7 @@ bolso de noche (Rosa)
 
 
 tumba japonesa
-
+canasta de flores de Venus
 
 
 
@@ -7409,7 +7409,7 @@ figura de ciempiés
 roca con agua y hojas arce
 roca con agua y pétalos
 
-
+mejillón
 tiara (Plateado)
 
 
@@ -7431,16 +7431,16 @@ vestido nobiliario (Negro)
 vestido nobiliario (Púrpura)
 vestido nobiliario (Amarillo)
 vestido nobiliario (Rojo)
+casaca pirata (Azul)
+casaca pirata (Negro)
 
 
 
 
 
 
-
-
-
-
+vestido de pirata (Azul)
+vestido de pirata (Negro)
 
 
 uniforme de conserje (Rojo)
@@ -8530,7 +8530,7 @@ blusa manga abullonada (Lima)
 camisa con cámara (Negro)
 camisa con brazalete (Rojo)
 camisa con brazalete (Amarillo)
-camiseta A (Azul)
+camiseta A (Azul)
 regadera de oro
 regadera colorida
 regadera elefante
@@ -10311,7 +10311,7 @@ proyecto tirachinas
 
 
 póster de Canela
-póster de Rese.T.
+póster de Rese T.
 póster de Talía
 póster de Zoilo
 póster de Coni
@@ -10855,14 +10855,14 @@ lazo (Naranja)
 lazo (Rosa)
 lazo (Blanco)
 lazo (Negro)
-póster de Reneigh
-póster de Judy
-póster de Audie
-póster de Megan
-póster de Raymond
-póster de Cyd
-póster de Sherb
-póster de Dom
+póster de Corcelia
+póster de Rosezna
+póster de Mónica
+póster de Carmela
+póster de Narciso
+póster de Ramón
+póster de Morfeo
+póster de Fibrilio
 
 
 gorra de colegio (Azul marino)
@@ -11491,11 +11491,11 @@ gafa de sol esquí (Blanco)
 gafa de sol esquí (Rosa)
 gafa de sol esquí (Lima)
 gafa de sol esquí (Celeste)
-
-
-
-
-
+gafa de buceo (Naranja)
+gafa de buceo (Rojo)
+gafa de buceo (Rosa)
+gafa de buceo (Verde)
+gafa de buceo (Negro)
 cibergafa (Negro)
 cibergafa (Plateado)
 cibergafa (Púrpura)
@@ -12532,13 +12532,13 @@ corona Caza del Huevo
 
 
 cabeza colosal
-cabeza colosal (falsificación)
+cabeza colosal (forgery)
 piedra políglota
-piedra políglota (falsificación)
+piedra políglota (forgery)
 urna imponente
-urna imponente (falsificación)
-estatua guerrera
-estatua guerrera (falsificación)
+urna imponente (forgery)
+escultura guerrera
+escultura guerrera (forgery)
 estatua pensativa
 
 Nintendo Switch
@@ -12550,29 +12550,29 @@ joya amorosa
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+mesa sirena
+estantería sirena
+tocador sirena
+biombo sirena
+lámpara sirena
+reloj de pared sirena
+cama sirena
+armario sirena
+sofá sirena
+cómoda sirena
+silla sirena
+alfombra sirena
+alfombra pirata
 foto de Al y Paca
-
-
-
-
+pared sirena
+pared pirata
+suelo sirena
+suelo pirata
 cuadro naturaleza (izda.)
-cuadro naturaleza (izda.) (falsificación)
-
-
-
+cuadro naturaleza (izda.) (forgery)
+tonel pirata tumbado
+cofre del tesoro pirata
+tonel pirata
 capa hecha a mano (Rojo)
 corona hecha a mano (Rojo)
 corona de girasoles (Amarillo)
@@ -12618,16 +12618,16 @@ hacha maltrecha
 
 paisaje estrellado
 cuadro anatómico
-cuadro anatómico (falsificación)
+cuadro anatómico (forgery)
 cuadro literario
 cuadro detallado
-cuadro detallado (falsificación)
+cuadro detallado (forgery)
 cuadro vespertino
 cuadro tenebroso
 
 
 
-cuadro invernal (falsificación)
+cuadro invernal (forgery)
 valla Caza del Huevo
 
 
@@ -12658,15 +12658,15 @@ valla Caza del Huevo
 
 
 
-
-
-
-
-
-
-
-
-
+zapato sirena (Rosa)
+tiara de sirena (Blanco)
+parche pirata (Negro)
+barba de pirata (Color del pelo)
+pantalón de pirata (Negro)
+bota pirata (Marrón)
+pañuelo de pirata (Rojo)
+casaca del tesoro pirata (Negro)
+traje de pirata (Rojo)
 
 
 
@@ -12955,8 +12955,8 @@ valla de boda
 
 
 
-
-
+vestido princesa sirena (Rosa)
+vestido cola de sirena (Rosa)
 jersey solsticio de invierno (Beis)
 
 
@@ -12966,6 +12966,9 @@ jersey solsticio de invierno (Beis)
 
 
 
+perla
+
+traje de buceo de Nook Inc. (Verde)
 
 
 
@@ -12975,10 +12978,239 @@ jersey solsticio de invierno (Beis)
 
 
 
-
-
-
-
-
+corona del tesoro pirata (Plateado)
+traje de buceo hoja (Celeste)
 cam. aloha Nook Inc. coral (Salmón)
 cam. aloha Nook Inc. verde (Verde)
+
+
+traje de buceo a rayas (Rojo)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+zapato sirena (Celeste)
+pañuelo de pirata (Azul)
+pañuelo de pirata (Negro)
+traje de pirata (Azul)
+traje de pirata (Negro)
+vestido princesa sirena (Celeste)
+vestido cola de sirena (Celeste)
+
+
+
+
+traje de buceo hoja (Púrpura)
+traje de buceo hoja (Amarillo)
+traje de buceo hoja (Verde)
+traje de buceo a rayas (Azul)
+traje de buceo a rayas (Amarillo)
+traje de buceo a rayas (Negro)
+
+comunicador
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+gafa de buceo Nook Inc. (Verde)
