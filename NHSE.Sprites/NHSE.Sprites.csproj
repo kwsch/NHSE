@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Resources\MenuIcon\" />
     <Folder Include="Resources\Villagers\" />
   </ItemGroup>
   
