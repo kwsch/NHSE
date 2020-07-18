@@ -57,6 +57,15 @@ namespace NHSE.Core
             return buffer;
         }
 
+        public static ushort[] GetBinaryResourceAsUshort(string name)
+        {
+            var byteBuffer = GetBinaryResource(name);
+            var buffer = new ushort[byteBuffer.Length / 2];
+            for (int i = 0; i < byteBuffer.Length / 2; i++)
+                buffer[i] = BitConverter.ToUInt16(byteBuffer, i*2);
+            return buffer;
+        }
+
         public static string? GetStringResource(string name)
         {
             if (!resourceNameMap.TryGetValue(name, out var resname))

@@ -58,7 +58,12 @@ namespace NHSE.Sprites
                 return null;
 
             if (!GetItemImageSprite(id, out var path))
-                return Resources.leaf;
+            {
+                if (!GetMenuIconSprite(id, out var img))
+                    return Resources.leaf;
+                else
+                    return img;
+            }
 
             try
             {
@@ -71,6 +76,13 @@ namespace NHSE.Sprites
                 Console.WriteLine(ex.Message);
                 return Resources.leaf;
             }
+        }
+
+        private static bool GetMenuIconSprite(ushort id, out Image? img)
+        {
+            ItemMenuIconType iconType = ItemInfo.GetMenuIcon(id);
+            img = (Image?)Resources.ResourceManager.GetObject(iconType == ItemMenuIconType.Leaf ? iconType.ToString() + "1" : iconType.ToString()); // the 1 stops the original "leaf" being overwritten
+            return img != null;
         }
 
         private static bool GetItemImageSprite(ushort id, out string? path)

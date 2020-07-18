@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="Resources\byte\item_kind.bin" />
+    <None Remove="Resources\byte\item_menuicon.bin" />
     <None Remove="Resources\byte\item_size.bin" />
     <None Remove="Resources\byte\outside.bin" />
     <None Remove="Resources\text\de\internal_de.txt" />
@@ -95,6 +96,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\byte\item_kind.bin" />
+    <EmbeddedResource Include="Resources\byte\item_menuicon.bin" />
     <EmbeddedResource Include="Resources\byte\item_size.bin" />
     <EmbeddedResource Include="Resources\byte\outside.bin" />
     <EmbeddedResource Include="Resources\text\de\internal_de.txt" />

@@ -47,6 +47,16 @@ namespace NHSE.Parsing
                 Console.WriteLine($"Created {fn}");
             }
 
+            void DumpU(string fn, ushort[] ushorts, string dir = "bin")
+            {
+                Directory.CreateDirectory(Path.Combine(dest, dir));
+                byte[] bytes = new byte[ushorts.Length * 2];
+                Buffer.BlockCopy(ushorts, 0, bytes, 0, ushorts.Length * 2);
+                File.WriteAllBytes(Path.Combine(dest, dir, fn), bytes);
+                Console.WriteLine($"Created {fn}");
+            }
+
+
             DumpS("bcsv_map.txt", BCSV.EnumLookup.Dump());
             DumpS("lifeSupportAchievement.txt", GetLifeSupportAchievementList(pathBCSV));
             DumpS("recipeDictionary.txt", GetRecipeList(pathBCSV));
@@ -64,6 +74,7 @@ namespace NHSE.Parsing
 
             DumpS("ItemKind.txt", GetPossibleEnum(pathBCSV, "ItemParam.bcsv", 0xFC275E86));
             DumpS("ItemSize.txt", GetPossibleEnum(pathBCSV, "ItemParam.bcsv", 0xE06FB090));
+            DumpS("ItemMenuIcon.txt", GetPossibleEnum(pathBCSV, "ItemParam.bcsv", 0x348D7B06));
             DumpS("PlantKind.txt", GetPossibleEnum(pathBCSV, "FgMainParam.bcsv", 0x48EF0398));
             DumpS("TerrainKind.txt", GetNumberedEnumValues(pathBCSV, "FieldLandMakingUnitModelParam.bcsv", 0x39B5A93D, 0x54706054));
             DumpS("BridgeKind.txt", GetNumberedEnumValues(pathBCSV, "StructureBridgeParam.bcsv", 0x39B5A93D, 0x54706054));
@@ -75,6 +86,7 @@ namespace NHSE.Parsing
 
             DumpB("item_kind.bin", GetItemKindArray(pathBCSV));
             DumpB("item_size.bin", GetItemSizeArray(pathBCSV));
+            DumpU("item_menuicon.bin", GetItemMenuIconArray(pathBCSV));
             DumpS("plants.txt", GetPlantedNames(pathBCSV));
             DumpS("item_size_dictionary.txt", GetItemSizeDictionary(pathBCSV));
             DumpS("item_remake.txt", GetItemRemakeDictionary(pathBCSV));
@@ -212,6 +224,39 @@ namespace NHSE.Parsing
             byte[] result = new byte[max + 1];
             foreach (var kvp in types)
                 result[kvp.Key] = (byte)kvp.Value;
+
+            return result;
+        }
+
+        public static ushort[] GetItemMenuIconArray(string pathBCSV, string fn = "ItemParam.bcsv")
+        {
+            var path = Path.Combine(pathBCSV, fn);
+            var data = File.ReadAllBytes(path);
+            var bcsv = new BCSV(data);
+
+            var dict = bcsv.GetFieldDictionary();
+            var fType = dict[0x348D7B06];
+            var fID = dict[0x54706054];
+
+            var types = new Dictionary<ushort, ItemMenuIconType>();
+            ushort max = 0;
+            for (int i = 0; i < bcsv.EntryCount; i++)
+            {
+                var id = bcsv.ReadValue(i, fID);
+                var ival = ushort.Parse(id);
+                var type = bcsv.ReadValue(i, fType).TrimEnd('\0');
+
+                if (!Enum.TryParse<ItemMenuIconType>(type, out var k))
+                    throw new InvalidEnumArgumentException($"{type} is not a known enum value @ index {i}. Update the enum index first.");
+                types.Add(ival, k);
+
+                if (ival > max)
+                    max = ival;
+            }
+
+            ushort[] result = new ushort[max + 1];
+            foreach (var kvp in types)
+                result[kvp.Key] = (ushort)kvp.Value;
 
             return result;
         }
