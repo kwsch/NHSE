@@ -9,10 +9,17 @@ namespace NHSE.Sprites
 {
     public static class ItemSprite
     {
-        private static readonly Dictionary<string, string> FileLookup = new Dictionary<string, string>();
-        private static string[] ItemNames = Array.Empty<string>();
+        private const string PointerFilename = "SpritePointer.txt";
 
-        public static void Initialize(string path, string[] itemNames)
+        private static readonly Dictionary<string, string> FileLookup = new Dictionary<string, string>();
+        private static string[] ItemNames = Array.Empty<string>(); // currently only used as length check for FieldItem
+
+        // %appdata%/NHSE
+        public static string PlatformAppDataPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), nameof(NHSE));
+        public static string PlatformAppDataImagePath { get; } = Path.Combine(PlatformAppDataPath, "img");
+        public static bool SpritePointerExists { get => File.Exists(Path.Combine(PlatformAppDataImagePath, PointerFilename)); }
+
+        public static void Initialize(string[] itemNames)
         {
             var lookup = FileLookup;
             if (lookup.Count > 0)
@@ -20,25 +27,13 @@ namespace NHSE.Sprites
 
             ItemNames = itemNames;
 
-            //create items folder if not exist
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
+            if (!Directory.Exists(PlatformAppDataImagePath))
+                Directory.CreateDirectory(PlatformAppDataImagePath);
 
-            var files = Directory.EnumerateFiles(path, "*.png", SearchOption.AllDirectories);
-            foreach (var f in files)
-            {
-                var fn = Path.GetFileNameWithoutExtension(f);
-                if (fn == null)
-                    continue;
-                lookup[fn.ToLower()] = f;
-                var index = fn.IndexOf('(');
-                if (index < 0)
-                    continue;
-
-                var simplerName = fn.Substring(0, index - 1);
-                if (!lookup.ContainsKey(simplerName))
-                    lookup.Add(simplerName, f);
-            }
+            var pointerPath = Path.Combine(PlatformAppDataImagePath, PointerFilename);
+            if (File.Exists(pointerPath))
+                foreach (var itemId in File.ReadLines(pointerPath))
+                    lookup.Add(itemId.Split(',')[0], Path.Combine(PlatformAppDataImagePath, itemId.Split(',')[1] + ".png"));
         }
 
         public static Bitmap GetItemMarkup(Item item, Font font, int width, int height, Bitmap backing)
@@ -49,15 +44,16 @@ namespace NHSE.Sprites
         public static Image? GetItemSprite(Item item)
         {
             var id = item.ItemId;
-            return GetItemSprite(id);
+            var count = item.Count;
+            return GetItemSprite(id, count);
         }
 
-        public static Image? GetItemSprite(ushort id)
+        public static Image? GetItemSprite(ushort id, ushort count = 0)
         {
             if (id == Item.NONE)
                 return null;
 
-            if (!GetItemImageSprite(id, out var path))
+            if (!GetItemImageSprite(id, out var path, count))
             {
                 if (!GetMenuIconSprite(id, out var img))
                     return Resources.leaf;
@@ -85,7 +81,7 @@ namespace NHSE.Sprites
             return img != null;
         }
 
-        private static bool GetItemImageSprite(ushort id, out string? path)
+        private static bool GetItemImageSprite(ushort id, out string? path, ushort count = 0)
         {
             path = string.Empty;
             var str = ItemNames;
@@ -101,16 +97,23 @@ namespace NHSE.Sprites
                 id = remap;
             }
 
-            var name = str[id].ToLower();
+            var sItemdId = id.ToString("X");
+            var bodyVal = (count & 0xF).ToString();
+            var fabricVal = (((count & 0xFF) - (count & 0xF)) / 32u).ToString();
+
+            // right now this brute force checks possible body and fabric values, cleanup requires more research because there are so many items that have nonconforming _X_X body and fabric values
+            var name = string.Format("{0}_{1}_{2}", sItemdId, bodyVal, fabricVal);
             if (FileLookup.TryGetValue(name, out path))
                 return true;
 
-            var index = name.IndexOf('(');
-            if (index <= 0)
-                return false;
+            name = string.Format("{0}_{1}", sItemdId, bodyVal);
+            if (FileLookup.TryGetValue(name, out path))
+                return true;
 
-            var simple = name.Substring(0, index - 1);
-            return FileLookup.TryGetValue(simple, out path);
+            if (FileLookup.TryGetValue(sItemdId, out path))
+                return true;
+
+            return false;
         }
 
         public static Bitmap? GetImage(Item item, Font font, int width, int height)

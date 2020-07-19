@@ -177,7 +177,7 @@ namespace NHSE.WinForms
                 }
                 case Keys.I:
                 {
-                    ItemSprite.Initialize(ItemPath, GameInfo.GetStrings("en").itemlist);
+                    ItemSprite.Initialize(GameInfo.GetStrings("en").itemlist);
                     var items = new Item[40];
                     for (int i = 0; i < items.Length; i++)
                         items[i] = new Item(Item.NONE);

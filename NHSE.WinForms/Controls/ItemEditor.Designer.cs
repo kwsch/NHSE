@@ -40,7 +40,7 @@
             this.NUD_Flag1 = new System.Windows.Forms.NumericUpDown();
             this.CB_Recipe = new System.Windows.Forms.ComboBox();
             this.FLP_Controls = new System.Windows.Forms.FlowLayoutPanel();
-            this.PB_Item = new System.Windows.Forms.PictureBox();
+            this.PB_Item = new InterpolatingPictureBox();
             this.FLP_Meta = new System.Windows.Forms.FlowLayoutPanel();
             this.CHK_IsExtension = new System.Windows.Forms.CheckBox();
             this.PAN_DummyExtension = new System.Windows.Forms.Panel();
@@ -143,6 +143,7 @@
             this.NUD_Count.Name = "NUD_Count";
             this.NUD_Count.Size = new System.Drawing.Size(56, 20);
             this.NUD_Count.TabIndex = 2;
+            this.NUD_Count.ValueChanged += new System.EventHandler(this.NUD_Count_ValueChanged);
             // 
             // L_Count
             // 
@@ -1005,7 +1006,7 @@
         private System.Windows.Forms.NumericUpDown NUD_ExtensionY;
         private System.Windows.Forms.FlowLayoutPanel FLP_Item;
         private System.Windows.Forms.FlowLayoutPanel FLP_Flower;
-        private System.Windows.Forms.PictureBox PB_Item;
+        private InterpolatingPictureBox PB_Item;
         private System.Windows.Forms.CheckBox CHK_IsExtension;
         private System.Windows.Forms.Panel PAN_DummyCount;
         private System.Windows.Forms.Panel PAN_DummyExtension;

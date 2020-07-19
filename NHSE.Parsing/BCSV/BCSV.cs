@@ -77,9 +77,17 @@ namespace NHSE.Parsing
                 1 => Data[offset].ToString(),
                 2 => BitConverter.ToInt16(Data, offset).ToString(),
                 4 => EnumLookup[BitConverter.ToUInt32(Data, offset)],
+                5 => $"0x{FiveByteLong(offset):X10}",
                 8 => $"0x{BitConverter.ToUInt64(Data, offset):X16}",
                 _ => Encoding.UTF8.GetString(Data, offset, length),
             };
+        }
+
+        private ulong FiveByteLong(in int offset)
+        {
+            var tmpBytes = new byte[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
+            Array.Copy(Data.Skip(offset).Take(5).ToArray(), 0, tmpBytes, 0, 5);
+            return BitConverter.ToUInt64(tmpBytes, 0);
         }
 
         private int GetFieldLength(in int i)

@@ -127,4 +127,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Resources\network\" />
+  </ItemGroup>
+
 </Project>

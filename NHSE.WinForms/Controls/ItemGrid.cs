@@ -13,7 +13,7 @@ namespace NHSE.WinForms
             InitializeComponent();
         }
 
-        public readonly List<PictureBox> Entries = new List<PictureBox>();
+        public readonly List<InterpolatingPictureBox> Entries = new List<InterpolatingPictureBox>();
         public int Slots { get; private set; }
 
         private int sizeW = 32;
@@ -59,9 +59,9 @@ namespace NHSE.WinForms
             ResumeLayout();
         }
 
-        public static PictureBox GetControl(int width, int height)
+        public static InterpolatingPictureBox GetControl(int width, int height)
         {
-            return new PictureBox
+            return new InterpolatingPictureBox
             {
                 AutoSize = false,
                 SizeMode = PictureBoxSizeMode.Zoom,

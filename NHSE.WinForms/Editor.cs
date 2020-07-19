@@ -56,7 +56,7 @@ namespace NHSE.WinForms
 
             Task.Run(() =>
             {
-                ItemSprite.Initialize(Main.ItemPath, GameInfo.GetStrings("en").itemlist);
+                ItemSprite.Initialize(GameInfo.GetStrings("en").itemlist);
                 TranslationUtil.SetLocalization(typeof(MessageStrings), lang);
                 TranslationUtil.SetLocalization(GameInfo.Strings.InternalNameTranslation, lang);
             });
@@ -142,6 +142,19 @@ namespace NHSE.WinForms
 
             var sysbot = new SysBotRAMEdit(InjectionType.Generic);
             sysbot.Show();
+        }
+
+        private void Menu_ItemImages_Click(object sender, EventArgs e)
+        {
+            var exist = WinFormsUtil.FirstFormOfType<ImageFetcher>();
+            if (exist != null)
+            {
+                exist.Show();
+                return;
+            }
+
+            var imgfetcher = new ImageFetcher();
+            imgfetcher.Show();
         }
 
         private void ReloadAll()
