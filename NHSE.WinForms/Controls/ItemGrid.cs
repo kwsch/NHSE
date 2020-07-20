@@ -59,7 +59,7 @@ namespace NHSE.WinForms
             ResumeLayout();
         }
 
-        public static InterpolatingPictureBox GetControl(int width, int height)
+        public static PictureBox GetControl(int width, int height)
         {
             return new InterpolatingPictureBox
             {

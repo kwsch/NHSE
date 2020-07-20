@@ -1006,7 +1006,7 @@
         private System.Windows.Forms.NumericUpDown NUD_ExtensionY;
         private System.Windows.Forms.FlowLayoutPanel FLP_Item;
         private System.Windows.Forms.FlowLayoutPanel FLP_Flower;
-        private InterpolatingPictureBox PB_Item;
+        private System.Windows.Forms.PictureBox PB_Item;
         private System.Windows.Forms.CheckBox CHK_IsExtension;
         private System.Windows.Forms.Panel PAN_DummyCount;
         private System.Windows.Forms.Panel PAN_DummyExtension;
