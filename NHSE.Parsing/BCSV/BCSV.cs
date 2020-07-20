@@ -85,8 +85,8 @@ namespace NHSE.Parsing
 
         private ulong FiveByteLong(in int offset)
         {
-            var tmpBytes = new byte[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
-            Array.Copy(Data.Skip(offset).Take(5).ToArray(), 0, tmpBytes, 0, 5);
+            var tmpBytes = new byte[8];
+            Array.Copy(Data, offset, tmpBytes, 0, 5);
             return BitConverter.ToUInt64(tmpBytes, 0);
         }
 

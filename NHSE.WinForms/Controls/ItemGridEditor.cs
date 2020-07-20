@@ -14,7 +14,7 @@ namespace NHSE.WinForms
         private readonly ItemEditor Editor;
         private readonly IReadOnlyList<Item> Items;
 
-        private IList<InterpolatingPictureBox> SlotPictureBoxes = Array.Empty<InterpolatingPictureBox>();
+        private IList<PictureBox> SlotPictureBoxes = Array.Empty<PictureBox>();
         private int Count => Items.Count;
         private int Page;
         private int ItemsPerPage;
@@ -65,7 +65,7 @@ namespace NHSE.WinForms
 
         public void Slot_MouseEnter(object? sender, EventArgs e)
         {
-            if (!(sender is InterpolatingPictureBox pb))
+            if (!(sender is PictureBox pb))
                 return;
             var index = SlotPictureBoxes.IndexOf(pb);
             var item = GetItem(index);
@@ -77,7 +77,7 @@ namespace NHSE.WinForms
 
         public void Slot_MouseLeave(object? sender, EventArgs e)
         {
-            if (!(sender is InterpolatingPictureBox))
+            if (!(sender is PictureBox))
                 return;
             L_ItemName.Text = string.Empty;
             HoverTip.RemoveAll();
@@ -111,7 +111,7 @@ namespace NHSE.WinForms
 
         private void ClickView(object sender, EventArgs e)
         {
-            var pb = WinFormsUtil.GetUnderlyingControl<InterpolatingPictureBox>(sender);
+            var pb = WinFormsUtil.GetUnderlyingControl<PictureBox>(sender);
             if (pb == null)
                 return;
             var index = SlotPictureBoxes.IndexOf(pb);
@@ -120,7 +120,7 @@ namespace NHSE.WinForms
 
         private void ClickSet(object sender, EventArgs e)
         {
-            var pb = WinFormsUtil.GetUnderlyingControl<InterpolatingPictureBox>(sender);
+            var pb = WinFormsUtil.GetUnderlyingControl<PictureBox>(sender);
             if (pb == null)
                 return;
             var index = SlotPictureBoxes.IndexOf(pb);
@@ -131,7 +131,7 @@ namespace NHSE.WinForms
 
         private void ClickDelete(object sender, EventArgs e)
         {
-            var pb = WinFormsUtil.GetUnderlyingControl<InterpolatingPictureBox>(sender);
+            var pb = WinFormsUtil.GetUnderlyingControl<PictureBox>(sender);
             if (pb == null)
                 return;
             var index = SlotPictureBoxes.IndexOf(pb);
@@ -143,7 +143,7 @@ namespace NHSE.WinForms
 
         private void ClickClone(object sender, EventArgs e)
         {
-            var pb = WinFormsUtil.GetUnderlyingControl<InterpolatingPictureBox>(sender);
+            var pb = WinFormsUtil.GetUnderlyingControl<PictureBox>(sender);
             if (pb == null)
                 return;
             var index = SlotPictureBoxes.IndexOf(pb);

@@ -7,13 +7,16 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NHSE.Core;
 using NHSE.Sprites;
 
 namespace NHSE.WinForms
 {
     public sealed partial class ImageFetcher : Form
     {
-        private const string filename = "image.zip";
+        private const string Filename = "image.zip";
+        private static string ZipFilePath { get => Path.Combine(ItemSprite.PlatformAppDataPath, Filename); }
+
         private readonly List<string> AllHosts;
 
         public ImageFetcher()
@@ -24,7 +27,7 @@ namespace NHSE.WinForms
             AllHosts = new List<string>(LoadHosts());
             CB_HostSelect.SelectedIndex = 0; // set outside of initialise to update filesize via HEAD response
 
-            CheckFileStatus();
+            CheckFileStatusLabel();
         }
 
         private string[] LoadHosts()
@@ -56,7 +59,7 @@ namespace NHSE.WinForms
                 {
                     webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
                     webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-                    webClient.DownloadFileAsync(new Uri(hostSelected), Path.Combine(path, filename));
+                    webClient.DownloadFileAsync(new Uri(hostSelected), ZipFilePath);
                 }
             }
 #pragma warning disable CA1031 // Do not catch general exception types
@@ -88,14 +91,14 @@ namespace NHSE.WinForms
         {
             try
             {
-                var pathRootNHSE = ItemSprite.PlatformAppDataPath;
-                var filePath = Path.Combine(pathRootNHSE, filename);
                 var outputFolderPath = ItemSprite.PlatformAppDataImagePath;
 
-                if (!Directory.Exists(outputFolderPath))
-                    Directory.CreateDirectory(outputFolderPath);
+                if (Directory.Exists(outputFolderPath)) // overwrite existing
+                    Directory.Delete(outputFolderPath, true);
 
-                await Task.Run(() => ZipFile.ExtractToDirectory(filePath, outputFolderPath));
+                Directory.CreateDirectory(outputFolderPath);
+
+                await Task.Run(() => ZipFile.ExtractToDirectory(ZipFilePath, outputFolderPath));
 
                 SetUIDownloadState(true, true);
             }
@@ -113,10 +116,16 @@ namespace NHSE.WinForms
             ControlBox = val;
             B_Download.Enabled = val;
             PBar_MultiUse.Value = 0;
-            L_Status.Text = success ? "Images created successfully." : string.Empty;
-            CheckFileStatus();
+
+            L_Status.Text = success ? "Images installed successfully." : string.Empty;
+
+            CheckFileStatusLabel();
+
             if (success)
                 ItemSprite.Initialize(Core.GameInfo.GetStrings("en").itemlist);
+
+            if (File.Exists(ZipFilePath))
+                File.Delete(ZipFilePath);
         }
 
         private void CB_HostSelect_SelectedIndexChanged(object sender, EventArgs e)
@@ -133,8 +142,8 @@ namespace NHSE.WinForms
             try
             {
                 var webClient = new WebClient();
-            
                 await webClient.OpenReadTaskAsync(new Uri(AllHosts[CB_HostSelect.SelectedIndex], UriKind.Absolute));
+
                 var totalSizeBytes = Convert.ToInt64(webClient.ResponseHeaders["Content-Length"]);
                 var totalSizeMb = totalSizeBytes / 1e+6;
                 L_FileSize.Text = totalSizeMb.ToString("0.##") + "MB";
@@ -154,6 +163,6 @@ namespace NHSE.WinForms
             return $"{uri.Host}/{uri.Segments[1]}";
         }
 
-        private bool CheckFileStatus() => L_ImgStatus.Visible = ItemSprite.SpritePointerExists;
+        private bool CheckFileStatusLabel() => L_ImgStatus.Visible = ItemSprite.SingleSpriteExists;
     }
 }
