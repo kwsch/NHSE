@@ -40,7 +40,7 @@
             this.NUD_Flag1 = new System.Windows.Forms.NumericUpDown();
             this.CB_Recipe = new System.Windows.Forms.ComboBox();
             this.FLP_Controls = new System.Windows.Forms.FlowLayoutPanel();
-            this.PB_Item = new System.Windows.Forms.PictureBox();
+            this.PB_Item = new InterpolatingPictureBox();
             this.FLP_Meta = new System.Windows.Forms.FlowLayoutPanel();
             this.CHK_IsExtension = new System.Windows.Forms.CheckBox();
             this.PAN_DummyExtension = new System.Windows.Forms.Panel();
