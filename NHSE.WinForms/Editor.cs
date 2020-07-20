@@ -144,19 +144,6 @@ namespace NHSE.WinForms
             sysbot.Show();
         }
 
-        private void Menu_ItemImages_Click(object sender, EventArgs e)
-        {
-            var exist = WinFormsUtil.FirstFormOfType<ImageFetcher>();
-            if (exist != null)
-            {
-                exist.Show();
-                return;
-            }
-
-            var imgfetcher = new ImageFetcher();
-            imgfetcher.Show();
-        }
-
         private void ReloadAll()
         {
             Villagers.Villagers = SAV.Main.GetVillagers();
