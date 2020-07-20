@@ -61,7 +61,7 @@ namespace NHSE.WinForms
 
         public static PictureBox GetControl(int width, int height)
         {
-            return new PictureBox
+            return new InterpolatingPictureBox
             {
                 AutoSize = false,
                 SizeMode = PictureBoxSizeMode.Zoom,
