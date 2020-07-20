@@ -5,7 +5,7 @@ namespace NHSE.WinForms
 {
     public class InterpolatingPictureBox : PictureBox
     {
-        public InterpolationMode InterpolationMode { get; set; } = InterpolationMode.HighQualityBicubic;
+        private readonly InterpolationMode InterpolationMode = InterpolationMode.HighQualityBicubic;
 
         protected override void OnPaint(PaintEventArgs eventArgs)
         {
