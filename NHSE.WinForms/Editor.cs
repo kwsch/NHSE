@@ -56,7 +56,7 @@ namespace NHSE.WinForms
 
             Task.Run(() =>
             {
-                ItemSprite.Initialize(Main.ItemPath, GameInfo.GetStrings("en").itemlist);
+                ItemSprite.Initialize(GameInfo.GetStrings("en").itemlist);
                 TranslationUtil.SetLocalization(typeof(MessageStrings), lang);
                 TranslationUtil.SetLocalization(GameInfo.Strings.InternalNameTranslation, lang);
             });
