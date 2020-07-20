@@ -98,12 +98,12 @@
             // L_ImgStatus
             // 
             this.L_ImgStatus.ForeColor = System.Drawing.Color.Red;
-            this.L_ImgStatus.Location = new System.Drawing.Point(37, 117);
+            this.L_ImgStatus.Location = new System.Drawing.Point(45, 117);
             this.L_ImgStatus.Name = "L_ImgStatus";
-            this.L_ImgStatus.Size = new System.Drawing.Size(330, 29);
+            this.L_ImgStatus.Size = new System.Drawing.Size(317, 29);
             this.L_ImgStatus.TabIndex = 6;
-            this.L_ImgStatus.Text = "Images already exists. Only repair images if absolutely necessary. Images do NOT " +
-    "need to be redownloaded when NHSE updates.";
+            this.L_ImgStatus.Text = "Images now exist. Only repair images if absolutely necessary. Images do NOT need " +
+    "to be redownloaded when NHSE updates.";
             this.L_ImgStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // L_FileSize
