@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
@@ -174,7 +175,8 @@ namespace NHSE.WinForms
         private void CB_ItemID_SelectedValueChanged(object sender, EventArgs e)
         {
             var itemID = (ushort)WinFormsUtil.GetIndex(CB_ItemID);
-            ChangeItem(itemID);
+            var itemCount = (ushort)NUD_Count.Value;
+            ChangeItem(itemID, itemCount);
             var kind = ItemInfo.GetItemKind(itemID);
 
             ToggleEditorVisibility(kind);
@@ -336,11 +338,11 @@ namespace NHSE.WinForms
             }
         }
 
-        private void ChangeItem(ushort item)
+        private void ChangeItem(ushort item, ushort count)
         {
             var pb = PB_Item;
             pb.BackColor = ItemColor.GetItemColor(item);
-            pb.BackgroundImage = ItemSprite.GetItemSprite(item);
+            pb.BackgroundImage = ItemSprite.GetItemSprite(item, count);
         }
 
         private void CHK_Wrapped_CheckedChanged(object sender, EventArgs e)
@@ -358,6 +360,13 @@ namespace NHSE.WinForms
             var itemNames = AllItems.Where(z => z.Text.Contains(entered)).Take(10).Select(z => z.Text);
             var caption = string.Join(Environment.NewLine, itemNames);
             TT_Search.SetToolTip(CB_ItemID, caption);
+        }
+
+        private void NUD_Count_ValueChanged(object sender, EventArgs e)
+        {
+            var itemID = (ushort)WinFormsUtil.GetIndex(CB_ItemID);
+            var itemCount = (ushort)NUD_Count.Value;
+            ChangeItem(itemID, itemCount);
         }
     }
 }

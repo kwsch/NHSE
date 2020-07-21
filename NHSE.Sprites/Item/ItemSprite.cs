@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using NHSE.Core;
 using NHSE.Sprites.Properties;
 
@@ -9,36 +10,19 @@ namespace NHSE.Sprites
 {
     public static class ItemSprite
     {
-        private static readonly Dictionary<string, string> FileLookup = new Dictionary<string, string>();
-        private static string[] ItemNames = Array.Empty<string>();
+        private static string[] ItemNames = Array.Empty<string>(); // currently only used as length check for FieldItem
 
-        public static void Initialize(string path, string[] itemNames)
+        // %appdata%/NHSE
+        public static string PlatformAppDataPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), nameof(NHSE));
+        public static string PlatformAppDataImagePath { get; } = Path.Combine(PlatformAppDataPath, "img");
+        public static bool SingleSpriteExists { get => Directory.EnumerateFileSystemEntries(PlatformAppDataImagePath).Any(); }
+
+        public static void Initialize(string[] itemNames)
         {
-            var lookup = FileLookup;
-            if (lookup.Count > 0)
-                return;
-
             ItemNames = itemNames;
 
-            //create items folder if not exist
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-
-            var files = Directory.EnumerateFiles(path, "*.png", SearchOption.AllDirectories);
-            foreach (var f in files)
-            {
-                var fn = Path.GetFileNameWithoutExtension(f);
-                if (fn == null)
-                    continue;
-                lookup[fn.ToLower()] = f;
-                var index = fn.IndexOf('(');
-                if (index < 0)
-                    continue;
-
-                var simplerName = fn.Substring(0, index - 1);
-                if (!lookup.ContainsKey(simplerName))
-                    lookup.Add(simplerName, f);
-            }
+            if (!Directory.Exists(PlatformAppDataImagePath))
+                Directory.CreateDirectory(PlatformAppDataImagePath);
         }
 
         public static Bitmap GetItemMarkup(Item item, Font font, int width, int height, Bitmap backing)
@@ -49,15 +33,16 @@ namespace NHSE.Sprites
         public static Image? GetItemSprite(Item item)
         {
             var id = item.ItemId;
-            return GetItemSprite(id);
+            var count = item.Count;
+            return GetItemSprite(id, count);
         }
 
-        public static Image? GetItemSprite(ushort id)
+        public static Image? GetItemSprite(ushort id, ushort count = 0)
         {
             if (id == Item.NONE)
                 return null;
 
-            if (!GetItemImageSprite(id, out var path))
+            if (!GetItemImageSprite(id, out var path, count))
             {
                 if (!GetMenuIconSprite(id, out var img))
                     return Resources.leaf;
@@ -80,37 +65,49 @@ namespace NHSE.Sprites
 
         private static bool GetMenuIconSprite(ushort id, out Image? img)
         {
-            ItemMenuIconType iconType = ItemInfo.GetMenuIcon(id);
+            id = TryGetFieldItemId(id, ItemNames.Length);
+            var iconType = ItemInfo.GetMenuIcon(id);
             img = (Image?)Resources.ResourceManager.GetObject(iconType == ItemMenuIconType.Leaf ? iconType.ToString() + "1" : iconType.ToString()); // the 1 stops the original "leaf" being overwritten
             return img != null;
         }
 
-        private static bool GetItemImageSprite(ushort id, out string? path)
+        private static bool GetItemImageSprite(ushort id, out string? path, ushort count = 0)
         {
             path = string.Empty;
-            var str = ItemNames;
-            if (id >= str.Length)
+            id = TryGetFieldItemId(id, ItemNames.Length);
+
+            var name = $"{id:00000}_{count}";
+            if (SpriteFileExists(name, out path))
+                return true;
+
+            name = $"{id:00000}_0"; // fallback to no variation
+            if (SpriteFileExists(name, out path))
+                return true;
+
+            return false;
+        }
+
+        private static bool SpriteFileExists(string filename, out string? path)
+        {
+            path = Path.Combine(PlatformAppDataImagePath, filename + ".png");
+            return File.Exists(path);
+        }
+
+        private static ushort TryGetFieldItemId(ushort id, int length)
+        {
+            if (id >= length)
             {
                 if (!FieldItemList.Items.TryGetValue(id, out var definition))
-                    return false;
+                    return id;
 
                 var remap = definition.HeldItemId;
-                if (remap >= str.Length)
-                    return false;
+                if (remap >= length)
+                    return id;
 
                 id = remap;
             }
 
-            var name = str[id].ToLower();
-            if (FileLookup.TryGetValue(name, out path))
-                return true;
-
-            var index = name.IndexOf('(');
-            if (index <= 0)
-                return false;
-
-            var simple = name.Substring(0, index - 1);
-            return FileLookup.TryGetValue(simple, out path);
+            return id;
         }
 
         public static Bitmap? GetImage(Item item, Font font, int width, int height)

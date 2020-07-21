@@ -143,6 +143,7 @@
             this.NUD_Count.Name = "NUD_Count";
             this.NUD_Count.Size = new System.Drawing.Size(56, 20);
             this.NUD_Count.TabIndex = 2;
+            this.NUD_Count.ValueChanged += new System.EventHandler(this.NUD_Count_ValueChanged);
             // 
             // L_Count
             // 
