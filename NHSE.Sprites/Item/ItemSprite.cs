@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -42,9 +41,9 @@ namespace NHSE.Sprites
             if (id == Item.NONE)
                 return null;
 
-            if (!GetItemImageSprite(id, out var path, count))
+            if (!TryGetItemImageSprite(id, out var path, count))
             {
-                if (!GetMenuIconSprite(id, out var img))
+                if (!TryGetMenuIconSprite(id, out var img))
                     return Resources.leaf;
                 else
                     return img;
@@ -63,17 +62,20 @@ namespace NHSE.Sprites
             }
         }
 
-        private static bool GetMenuIconSprite(ushort id, out Image? img)
+        private static bool TryGetMenuIconSprite(ushort id, out Image? img)
         {
             id = TryGetFieldItemId(id, ItemNames.Length);
             var iconType = ItemInfo.GetMenuIcon(id);
-            img = (Image?)Resources.ResourceManager.GetObject(iconType == ItemMenuIconType.Leaf ? iconType.ToString() + "1" : iconType.ToString()); // the 1 stops the original "leaf" being overwritten
+
+            // the 1 stops the original "leaf" being overwritten
+            var name = iconType == ItemMenuIconType.Leaf ? $"{iconType}1" : iconType.ToString();
+
+            img = (Image?)Resources.ResourceManager.GetObject(name); 
             return img != null;
         }
 
-        private static bool GetItemImageSprite(ushort id, out string? path, ushort count = 0)
+        private static bool TryGetItemImageSprite(ushort id, out string path, ushort count = 0)
         {
-            path = string.Empty;
             id = TryGetFieldItemId(id, ItemNames.Length);
 
             var name = $"{id:00000}_{count}";
@@ -87,7 +89,7 @@ namespace NHSE.Sprites
             return false;
         }
 
-        private static bool SpriteFileExists(string filename, out string? path)
+        private static bool SpriteFileExists(string filename, out string path)
         {
             path = Path.Combine(PlatformAppDataImagePath, filename + ".png");
             return File.Exists(path);
@@ -95,37 +97,17 @@ namespace NHSE.Sprites
 
         private static ushort TryGetFieldItemId(ushort id, int length)
         {
-            if (id >= length)
-            {
-                if (!FieldItemList.Items.TryGetValue(id, out var definition))
-                    return id;
+            if (id < length)
+                return id;
+            if (!FieldItemList.Items.TryGetValue(id, out var definition))
+                return id;
 
-                var remap = definition.HeldItemId;
-                if (remap >= length)
-                    return id;
-
-                id = remap;
-            }
-
-            return id;
-        }
-
-        public static Bitmap? GetImage(Item item, Font font, int width, int height)
-        {
-            if (item.ItemId == Item.NONE)
-                return null;
-
-            return CreateFake(item, font, width, height);
+            var remap = definition.HeldItemId;
+            return remap >= length ? id : remap;
         }
 
         private static readonly StringFormat Center = new StringFormat
         { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
-
-        public static Bitmap CreateFake(Item item, Font font, int width, int height)
-        {
-            var bmp = new Bitmap(width, height);
-            return CreateFake(item, font, width, height, bmp);
-        }
 
         private static Bitmap CreateFake(Item item, Font font, int width, int height, Bitmap bmp)
         {

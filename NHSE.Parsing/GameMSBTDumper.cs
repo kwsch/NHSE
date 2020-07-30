@@ -17,7 +17,10 @@ namespace NHSE.Parsing
             foreach (var item in list)
                 result[item.Key] = item.Value;
             for (int i = 0; i < result.Length; i++)
-                result[i] ??= string.Empty;
+            {
+                if (result[i] == null)
+                    result[i] = string.Empty;
+            }
             result[0] = "(None)";
             result[5794] = "DIY recipe";
             return result;

@@ -4,10 +4,8 @@ using System.ComponentModel;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NHSE.Core;
 using NHSE.Sprites;
 
 namespace NHSE.WinForms
@@ -17,26 +15,28 @@ namespace NHSE.WinForms
         private const string Filename = "image.zip";
         private static string ZipFilePath { get => Path.Combine(ItemSprite.PlatformAppDataPath, Filename); }
 
-        private readonly List<string> AllHosts;
+        private readonly IReadOnlyList<string> AllHosts;
 
         public ImageFetcher()
         {
             InitializeComponent();
             L_Status.Text = L_FileSize.Text = string.Empty;
 
-            AllHosts = new List<string>(LoadHosts());
+            var splitHosts = AllHosts = LoadHosts();
+
+            CB_HostSelect.Items.Clear();
+            foreach (var host in splitHosts)
+                CB_HostSelect.Items.Add(CleanUrl(host));
+
             CB_HostSelect.SelectedIndex = 0; // set outside of initialise to update filesize via HEAD response
 
             CheckFileStatusLabel();
         }
 
-        private string[] LoadHosts()
+        private static string[] LoadHosts()
         {
-            CB_HostSelect.Items.Clear();
             var hosts = Properties.Resources.hosts_images;
-            var splitHosts = hosts.Split(new string[] { "\r", "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-            foreach (var host in splitHosts)
-                CB_HostSelect.Items.Add(CleanUrl(host));
+            var splitHosts = hosts.Split(new[] { "\r", "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
 
             return splitHosts;
         }
@@ -55,12 +55,10 @@ namespace NHSE.WinForms
                 if (!Directory.Exists(path))
                     Directory.CreateDirectory(path);
 
-                using (var webClient = new WebClient())
-                {
-                    webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
-                    webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-                    webClient.DownloadFileAsync(new Uri(hostSelected), ZipFilePath);
-                }
+                using var webClient = new WebClient();
+                webClient.DownloadFileCompleted += Completed;
+                webClient.DownloadProgressChanged += ProgressChanged;
+                webClient.DownloadFileAsync(new Uri(hostSelected), ZipFilePath);
             }
 #pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
@@ -130,9 +128,6 @@ namespace NHSE.WinForms
 
         private void CB_HostSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (AllHosts == null)
-                return;
-
             CheckNetworkFileSizeAsync();
         }
 
@@ -141,26 +136,25 @@ namespace NHSE.WinForms
             L_FileSize.Text = string.Empty;
             try
             {
-                var webClient = new WebClient();
+                using var webClient = new WebClient();
                 await webClient.OpenReadTaskAsync(new Uri(AllHosts[CB_HostSelect.SelectedIndex], UriKind.Absolute));
 
                 var totalSizeBytes = Convert.ToInt64(webClient.ResponseHeaders["Content-Length"]);
                 var totalSizeMb = totalSizeBytes / 1e+6;
-                L_FileSize.Text = totalSizeMb.ToString("0.##") + "MB";
+                L_FileSize.Text = $"{totalSizeMb:0.##}MB";
             }
-            catch (Exception ex) 
+#pragma warning disable CA1031 // Do not catch general exception types
+            catch (Exception ex)
+#pragma warning restore CA1031 // Do not catch general exception types
             {
                 L_FileSize.Text = ex.Message;
             }
         }
 
-        private string CleanUrl(string url)
+        private static string CleanUrl(string url)
         {
             var uri = new Uri(url);
-            if (uri.Segments.Length < 2)
-                return url;
-
-            return $"{uri.Host}/{uri.Segments[1]}";
+            return uri.Segments.Length < 2 ? url : $"{uri.Host}/{uri.Segments[1]}";
         }
 
         private bool CheckFileStatusLabel() => L_ImgStatus.Visible = ItemSprite.SingleSpriteExists;
