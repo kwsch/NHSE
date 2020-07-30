@@ -2609,7 +2609,7 @@ lit en bois
 
 nœud à cheveux (Vert)
 nœud à cheveux (Rouge)
-
+serre-tête étoiles (Jaune)
 
 
 VTT
@@ -4384,7 +4384,7 @@ ballon de foot américain
 
 
 
-
+lance-bulles
 
 
 
@@ -5317,7 +5317,7 @@ bonnet gland tricoté (Châtaigne)
 casque lourd (Vert kaki)
 veste d'équipe de danse (Noir)
 
-
+éventail uchiwa
 ocarina
 
 foulard vert (Vert)
@@ -5605,7 +5605,7 @@ Le b.a.-ba du bricolage
 Bricolage tous azimuts
 Brico foldingo
 paire de babies à rubans (Rose)
-
+masque de pharaon (Or)
 paire de chaussons danse (Rose)
 paire de bottes visual kei (Noir)
 costume de rumba (Rouge)
@@ -5740,9 +5740,9 @@ bulle de chewing-gum (Rose)
 monture solaire fleurs (Rouge)
 
 baguette fluo
-
-
-
+sans-gêne
+cierge magique rouge
+moulin
 jolie couronne cosmos
 couronne anémone raffinée
 couronne rose élégante
@@ -7867,7 +7867,7 @@ porte-kimono élaboré
 
 panneau direction diagonal
 planche de surf
-
+ballon de baudruche bleu
 
 
 
@@ -9855,9 +9855,9 @@ p. de chaussures brodées (Rouge)
 épingle fleurie (Rose)
 épingle cœur (Rose)
 épingle étoile (Jaune)
-
-
-
+serre-tête lumières (Vert)
+serre-tête fleurs (Bleu)
+serre-tête cœurs (Rose)
 barrette (Rose)
 ruban géant (Rouge)
 cagoule étoile (Jaune)
@@ -12795,7 +12795,7 @@ clôture végétale
 
 
 
-
+hotte à raisin (Brun)
 
 
 
@@ -12919,7 +12919,7 @@ clôture de mariage
 
 
 
-
+animal de ranch sur ressort
 
 
 
@@ -12972,7 +12972,7 @@ combi plongée Nook Inc. (Vert)
 
 
 
-
+cierge magique bleu
 
 
 
@@ -13104,6 +13104,8 @@ combi plongée à rayures (Jaune)
 combi plongée à rayures (Noir)
 
 émetteur
+feu d'artifice fontaine
+feu d'artifice fontaine usagé
 
 
 
@@ -13119,14 +13121,12 @@ combi plongée à rayures (Noir)
 
 
 
+ballon de baudruche rouge
+ballon de baudruche jaune
+ballon de baudruche vert
+ballon de baudruche rose
 
-
-
-
-
-
-
-
+fanion portable Nook Inc.
 
 
 
@@ -13214,3 +13214,75 @@ combi plongée à rayures (Noir)
 
 
 masque avec tuba Nook Inc. (Vert)
+
+
+
+
+
+lit de Serena
+
+
+
+
+
+
+ticket rêve de clochettes 
+
+mur feux d'artifice
+
+
+
+
+
+
+
+
+tenue d'Orihime (Rouge)
+tenue d'Hikoboshi (Bleu)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tapis lune

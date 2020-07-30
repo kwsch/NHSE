@@ -183,7 +183,6 @@ namespace NHSE.Core
             {0x5F, new LifeSupportAchievement(095, 5, 0005, 0010, 0020, 0030, 0040,  -1,  -1, "FillSeafoodList"             )}, // 海の幸図鑑を埋めた数
             {0x60, new LifeSupportAchievement(096, 3, 0001, 0010, 0020, 0000, 0000,  -1,  -1, "GiveScallopsToSeo"           )}, // ラコスケにホタテを渡した回数
             {0x62, new LifeSupportAchievement(098, 5, 0005, 0050, 0250, 1000, 2500,  -1,  -1, "CatchSeafood"                )}, // 海の幸をGETした回数
-
         };
 
         public static string GetName(int index, uint count, IReadOnlyDictionary<string, string> str)

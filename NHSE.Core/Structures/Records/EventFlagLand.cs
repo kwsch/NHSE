@@ -104,7 +104,7 @@ namespace NHSE.Core
             {0x054, new EventFlagLand(0 , 10   , 0084, "NNpcPhoneColorChangeCounter"                )}, // 一般NPC|スマホ柄が汎用布地に変わるカウンタ
             {0x055, new EventFlagLand(0 , 1    , 0085, "RcoEnableBuyHousingKit"                     )}, // たぬきち|売り土地を探すの選択肢解禁
             {0x056, new EventFlagLand(0 , 99   , 0086, "OpeningSeqBGMChangeCounter"                 )}, // 序盤シーケンス|BGM切替カウンタ
-            {0x060, new EventFlagLand(0 , 1    , 0096, "JohnnySitUpFlag"                            )}, // ジョニー|起きたかフラグ
+            {0x060, new EventFlagLand(0 , 1    , 0096, "JohnnySitUpFlag"                            )}, // ジョニー|起きたかフラグ(海賊ジョニーでも使用)
             {0x062, new EventFlagLand(0 , 1    , 0098, "AllowNpcInterestActivity"                   )}, // NPCの認識行動が許可されたか
             {0x067, new EventFlagLand(0 , 1    , 0103, "RcoBuildCampsiteOngoing"                    )}, // たぬきち|キャンプ場設置の依頼を島の誰かが引き受けた
             {0x068, new EventFlagLand(0 , 1    , 0104, "RcoBuildCampsiteComplete"                   )}, // たぬきち|キャンプ場設置の依頼で、誰かが予定地を建てた
@@ -115,7 +115,7 @@ namespace NHSE.Core
             {0x06E, new EventFlagLand(0 , 1    , 0110, "RcoBuildFirstVisitorsHousingKitComplete"    )}, // たぬきち|1人目の客のハウジングキットを、島の誰かが設置した
             {0x072, new EventFlagLand(15, 15   , 0114, "DonationAmountForMuseum"                    )}, // 博物館建設のために必要な寄贈の残り数
             {0x073, new EventFlagLand(0 , 1    , 0115, "OfficeConstruction1"                        )}, // 役場|工事中→役場
-            {0x074, new EventFlagLand(0 , 1    , 0116, "JohnnyTalkAnyPlayerFlag"                    )}, // ジョニー|村の誰か話しかけたか
+            {0x074, new EventFlagLand(0 , 1    , 0116, "JohnnyTalkAnyPlayerFlag"                    )}, // ジョニー|村の誰か話しかけたか(海賊ジョニー不使用)
             {0x076, new EventFlagLand(0 , 1    , 0118, "TkkReturn"                                  )}, // とたけけ|帰ったか？
             {0x077, new EventFlagLand(0 , 1    , 0119, "FlightBalloonEnable"                        )}, // 空飛ぶ風船|発生してよいか？
             {0x078, new EventFlagLand(0 , 1    , 0120, "ConfirmedFruit"                             )}, // フルーツの品種が特定された
@@ -164,7 +164,7 @@ namespace NHSE.Core
             {0x0A6, new EventFlagLand(0 , 1    , 0166, "RcmImmQuestOpen"                            )}, // たぬきち|移住Quest開始できる
             {0x0A7, new EventFlagLand(0 , 1    , 0167, "RcmImmQuestRunning"                         )}, // たぬきち|移住Quest実施中
             {0x0A8, new EventFlagLand(0 , 1    , 0168, "RcmImmQuestComplete"                        )}, // たぬきち|移住Quest完了
-            {0x0A9, new EventFlagLand(0 , 9    , 0169, "JohnnyRequirePartsNum"                      )}, // ジョニー|必要なパーツの個数
+            {0x0A9, new EventFlagLand(0 , 9    , 0169, "JohnnyRequirePartsNum"                      )}, // ジョニー|必要なパーツの個数(海賊ジョニー不使用)
             {0x0AA, new EventFlagLand(0 , 1    , 0170, "ImmQ_A_InteriorDonateNow"                   )}, // 移住Quest|住宅A|屋内家具を今寄贈した
             {0x0AB, new EventFlagLand(0 , 1    , 0171, "ImmQ_B_InteriorDonateNow"                   )}, // 移住Quest|住宅B|屋内家具の今寄贈した
             {0x0AC, new EventFlagLand(0 , 1    , 0172, "ImmQ_C_InteriorDonateNow"                   )}, // 移住Quest|住宅C|屋内家具の今寄贈した
@@ -237,20 +237,20 @@ namespace NHSE.Core
             {0x0F9, new EventFlagLand(0 , 1    , 0249, "IslandLocalFruitCherry"                     )}, // 島の特産フルーツがサクランボならON
             {0x0FA, new EventFlagLand(0 , 1    , 0250, "HghPeddlerPurchaceToday"                    )}, // きぬよ行商|今回の来訪で島の誰かが商品購入した？
             {0x0FB, new EventFlagLand(0 , 1    , 0251, "PAnnounceKkProject"                         )}, // 島内放送|とたけけプロジェクトの予告発生した？
-            {0x0FC, new EventFlagLand(0 , 1    , 0252, "TownNewsHeardEventStarted"                  )}, // 村内放送|イベント開始済み村内放送を聞いた？
+            {0x0FC, new EventFlagLand(0 , 1    , 0252, "TownNewsHeardEventStarted"                  )}, // 島内放送|イベント開始済み村内放送を聞いた？
             {0x0FD, new EventFlagLand(0 , 999  , 0253, "SzaIslandEvaluationBeforeLife"              )}, // しずえ|島の環境：前回の「生活」ポイント
             {0x0FE, new EventFlagLand(0 , 999  , 0254, "SzaIslandEvaluationBeforeNatural"           )}, // しずえ|島の環境：前回の「自然」ポイント
             {0x0FF, new EventFlagLand(0 , 5000 , 0255, "FishNetHostCatchNumResult"                  )}, // 通信開始時にネットホストのプレイヤーが今まで捕まえたサカナの数
             {0x100, new EventFlagLand(0 , 10   , 0256, "SzaIslandEvaluationBeforeDevelopment"       )}, // しずえ|島の環境：前回の「発展」要素
             {0x101, new EventFlagLand(0 , 1    , 0257, "SzaIslandEvaluationTodayRankUpdate"         )}, // しずえ|島の環境：今日のポイント更新したらON
-            {0x102, new EventFlagLand(0 , 1    , 0258, "SzaIslandEvaluationImprovementLifeToday"    )}, // しずえ|島の環境：前回村内放送より「生活」ポイント向上
-            {0x103, new EventFlagLand(0 , 1    , 0259, "SzaIslandEvaluationImprovementNaturalToday" )}, // しずえ|島の環境：前回村内放送より「自然」ポイント向上
-            {0x104, new EventFlagLand(0 , 1    , 0260, "SzaIslandEvaluationImprovementDevelopToday" )}, // しずえ|島の環境：前回村内放送より発展要素が増えた
+            {0x102, new EventFlagLand(0 , 1    , 0258, "SzaIslandEvaluationImprovementLifeToday"    )}, // しずえ|島の環境：前回島内放送より「生活」ポイント向上
+            {0x103, new EventFlagLand(0 , 1    , 0259, "SzaIslandEvaluationImprovementNaturalToday" )}, // しずえ|島の環境：前回島内放送より「自然」ポイント向上
+            {0x104, new EventFlagLand(0 , 1    , 0260, "SzaIslandEvaluationImprovementDevelopToday" )}, // しずえ|島の環境：前回島内放送より発展要素が増えた
             {0x105, new EventFlagLand(0 , 1    , 0261, "AppE_WelcomoMigrants_AN"                    )}, // AppE_WelcomoMigrants_AN発生した
             {0x106, new EventFlagLand(0 , 1    , 0262, "AppE_WelcomoMigrants_HA"                    )}, // AppE_WelcomoMigrants_HA発生した
             {0x107, new EventFlagLand(0 , 1    , 0263, "TkkFirstLiveSubPlayer"                      )}, // とたけけ|2人目以降のプレイヤーが初ライブを見られる？
             {0x108, new EventFlagLand(0 , 1    , 0264, "PortableRadioControl"                       )}, // けいたいラジオ挙動制御用フラグ
-            {0x109, new EventFlagLand(0 , 1    , 0265, "Market2Built"                               )}, // まめつぶ商店が倉庫になった
+            {0x109, new EventFlagLand(0 , 1    , 0265, "Market2Built"                               )}, // まめつぶ商店が大になった
             {0x10A, new EventFlagLand(0 , 1    , 0266, "OwlTentExplainFor1P"                        )}, // フータ|誰かに棒高跳び＆スコップレシピ提供済
             {0x10B, new EventFlagLand(0 , 1    , 0267, "MuseumConstructionToday"                    )}, // 今日、博物館工事当日であるか？
             {0x10C, new EventFlagLand(0 , 1    , 0268, "ShopUnlockAxe"                              )}, // お店|ショボいオノの店売りを解禁する
@@ -272,7 +272,7 @@ namespace NHSE.Core
             {0x11D, new EventFlagLand(0 , 1    , 0285, "PynVisitToday"                              )}, // ぴょんたろうが今日来訪NPCとして来訪する
             {0x11E, new EventFlagLand(0 , -1   , 0286, "CatchInsectFesGetTotalNum"                  )}, // ムシ取り大会|全員のムシ取得数
             {0x11F, new EventFlagLand(0 , -1   , 0287, "CatchFishFesGetTotalNum"                    )}, // つり大会|全員のサカナ取得数
-            {0x120, new EventFlagLand(0 , 1    , 0288, "JohnnyQuestFinishFlagIsland"                )}, // ジョニー|その日に村で誰かがジョニーを助けたか？
+            {0x120, new EventFlagLand(0 , 1    , 0288, "JohnnyQuestFinishFlagIsland"                )}, // ジョニー|その日に村で誰かがジョニーを助けたか？(海賊ジョニーでも使用)
             {0x121, new EventFlagLand(0 , 10   , 0289, "CampRandomSelectMoveOutNpc"                 )}, // キャンプ場|ランダム選出転出NPCが何番目の住人か？(0:未抽選/抽選対象なし)
             {0x122, new EventFlagLand(0 , 1    , 0290, "CampFireRemoved"                            )}, // 広場のキャンプファイアー撤去
             {0x125, new EventFlagLand(0 , 1    , 0293, "UnlockEaster"                               )}, // BCATにてイースター解禁
@@ -286,7 +286,10 @@ namespace NHSE.Core
             {0x135, new EventFlagLand(0 , 1    , 0309, "Museum2ConstructionToday"                   )}, // 今日、博物館②工事当日であるか？
             {0x136, new EventFlagLand(0 , 1    , 0310, "GrowUpAfterPatch1_1"                        )}, // 1.1適用して成長処理をした
             {0x137, new EventFlagLand(0 , 1    , 0311, "GrowUpAfterPatch1_2"                        )}, // 1.2適用して成長処理をした
+            {0x138, new EventFlagLand(0 , 1    , 0312, "GrowUpAfterPatch1_3"                        )}, // 1.3適用して成長処理をした
+            {0x139, new EventFlagLand(0 , 1    , 0313, "GrowUpAfterPatch1_4"                        )}, // 1.4適用して成長処理をした
             {0x13B, new EventFlagLand(0 , 1    , 0315, "EarthdaySloFirstVisit"                      )}, // アースデーの初回レイジを予約した
+            {0x13C, new EventFlagLand(0 , 1    , 0316, "OwlFoundDiveFish"                           )}, // フータ|誰かが海の幸を見せたことがある
             {0x13D, new EventFlagLand(0 , 1    , 0317, "SloPeddlerPurchaceToday"                    )}, // レイジ行商|今回の来訪で島の誰かが商品購入した？
             {0x13E, new EventFlagLand(0 , 1    , 0318, "FoxPreVisitToday"                           )}, // つねきちが今日事前来訪する
             {0x13F, new EventFlagLand(0 , 1    , 0319, "AnyPlayerHouseBuilt"                        )}, // 住人の誰かのマイホームが１度でも建ったことがある
@@ -311,6 +314,7 @@ namespace NHSE.Core
             {0x157, new EventFlagLand(0 , 1    , 0343, "FoxPreVisit1Today"                          )}, // つねきち1回目の事前来訪当日
             {0x158, new EventFlagLand(0 , 1    , 0344, "FoxPreVisit2Today"                          )}, // つねきち2回目の事前来訪当日
             {0x159, new EventFlagLand(0 , 1    , 0345, "EarthdaySloFirstVisitToday"                 )}, // 今日がアースデーの初回レイジ来訪日
+            {0x15A, new EventFlagLand(0 , 1    , 0346, "IsDreamingBed"                              )}, // ゆめみ用ベッドある？
             {0x15B, new EventFlagLand(0 , 1    , 0347, "UnlockJuneBrideSeq"                         )}, // ゲーム進行的にジューンブライド解禁
             {0x15C, new EventFlagLand(0 , -1   , 0348, "RandomKey1"                                 )}, // ランダムキーa
             {0x15D, new EventFlagLand(0 , -1   , 0349, "RandomKey2"                                 )}, // ランダムキーb
@@ -318,6 +322,16 @@ namespace NHSE.Core
             {0x15F, new EventFlagLand(0 , -1   , 0351, "RandomKey4"                                 )}, // ランダムキーd
             {0x160, new EventFlagLand(0 , 1    , 0352, "FoxPreVisitAlreadyBuyToday"                 )}, // つねきち|今日誰かが事前来訪中に美術品を買った
             {0x161, new EventFlagLand(0 , 1    , 0353, "RcoHasResolvedMoveKitBug"                   )}, // いせつキットバグを解消したか
+            {0x162, new EventFlagLand(0 , 1    , 0354, "TapDreamEnable"                             )}, // ゆめみ|ゆめみ機能解禁か？
+            {0x164, new EventFlagLand(0 , 1    , 0356, "MyDesignPro2"                               )}, // 追加型マイデザインPro解禁
+            {0x165, new EventFlagLand(0 , 1    , 0357, "GulBVisitEnable"                            )}, // 海賊ジョニーが来訪する条件を満たしたか
+            {0x167, new EventFlagLand(0 , 9999 , 0359, "FireworksAddBbsYear"                        )}, // 花火大会予告の掲示板書き込みをした年
+            {0x16A, new EventFlagLand(0 , 1    , 0362, "EnableMyDream"                              )}, // ゆめみ|現在、自分の島の夢を提供中か？
+            {0x16B, new EventFlagLand(0 , 1    , 0363, "JohnnyInvisible"                            )}, // ジョニー非表示状態か
+            {0x16C, new EventFlagLand(0 , 1    , 0364, "DreamUploadPlayerHaveCreaterID"             )}, // ゆめみ|夢の最終更新者がMyDesignショーケースの作者IDを持ってるか？
+            {0x16D, new EventFlagLand(0 , 5000 , 0365, "DiveFishNetHostCatchNumResult"              )}, // 通信開始時にネットホストのプレイヤーが今までに捕まえた海の幸の数
+            {0x172, new EventFlagLand(0 , 1    , 0370, "NeedUpdatePassword"                         )}, // セーブデータ復元後のパスワード更新必要
+            {0x176, new EventFlagLand(0 , 1    , 0374, "EventObjFlag0"                              )}, // イベントオブジェフラグ0
         };
 
         private const string Unknown = "???";

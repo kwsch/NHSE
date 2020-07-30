@@ -2609,7 +2609,7 @@ cama individual de madera
 
 lazo (Verde)
 lazo (Rojo)
-
+diadema estrellas (Amarillo)
 
 
 bici de montaña
@@ -3332,8 +3332,8 @@ camisa con jersey (Rosa)
 cronómetro
 
 tele LCD de 20"
-sudadera urbana (Azul marino)
-pantalón de chándal (Azul marino)
+sudadera de chándal urbana (Azul marino)
+pantalón de chándal urbano (Azul marino)
 vestido nupcial (Blanco)
 kilt (Rojo)
 
@@ -4384,7 +4384,7 @@ balón de fútbol americano
 
 
 
-
+lanzapompas
 
 
 
@@ -5317,7 +5317,7 @@ gorro bellota (Castaña)
 casco de soldado (Verde bosque)
 sudadera compañía de baile (Negro)
 
-
+paipay
 ocarina
 
 pañuelo anudado en la nariz (Verde)
@@ -5605,7 +5605,7 @@ Bricolaje para principiantes
 Bricolaje para expertos
 Bricolaje para epatar
 zapato muñequita (Rosa)
-
+máscara egipcia (Dorado)
 zapatilla de ballet (Rosa)
 bota punk (Negro)
 traje de rumba (Rojo)
@@ -5740,9 +5740,9 @@ pompa de chicle (Rosa)
 gafa de sol floral (Rojo)
 
 vara de luz
-
-
-
+matasuegras
+bengala roja
+molinete
 corona cosmos adorable
 corona anémona refinada
 corona rosa pomposa
@@ -7609,12 +7609,12 @@ sudadera semiabierta (Celeste)
 sudadera semiabierta (Azul marino)
 sudadera semiabierta (Púrpura)
 sudadera semiabierta (Salmón)
-sudadera urbana (Gris)
-sudadera urbana (Blanco)
-sudadera urbana (Rojo)
-sudadera urbana (Celeste)
-sudadera urbana (Verde)
-sudadera urbana (Azul)
+sudadera de chándal urbana (Gris)
+sudadera de chándal urbana (Blanco)
+sudadera de chándal urbana (Rojo)
+sudadera de chándal urbana (Celeste)
+sudadera de chándal urbana (Verde)
+sudadera de chándal urbana (Azul)
 sudadera compañía de baile (Blanco)
 sudadera compañía de baile (Púrpura)
 sudadera compañía de baile (Rojo)
@@ -7867,7 +7867,7 @@ expositor de kimonos lujoso
 
 poste indicador oblicuo
 tabla de surf
-
+globo azul
 
 
 
@@ -9855,9 +9855,9 @@ manoletina con bordado (Rojo)
 clip flor (Rosa)
 clip corazón (Rosa)
 clip estrella (Amarillo)
-
-
-
+diadema luciérnagas (Verde)
+diadema florecillas (Azul)
+diadema corazones (Rosa)
 pasador (Rosa)
 maxilazo (Rojo)
 casco estrella (Amarillo)
@@ -11282,12 +11282,12 @@ pantalón de vestir (Azul marino)
 pantalón de vestir (Beis)
 pantalón de vestir (Blanco)
 acuario de artemias
-pantalón de chándal (Gris)
-pantalón de chándal (Blanco)
-pantalón de chándal (Rojo)
-pantalón de chándal (Celeste)
-pantalón de chándal (Verde)
-pantalón de chándal (Azul)
+pantalón de chándal urbano (Gris)
+pantalón de chándal urbano (Blanco)
+pantalón de chándal urbano (Rojo)
+pantalón de chándal urbano (Celeste)
+pantalón de chándal urbano (Verde)
+pantalón de chándal urbano (Azul)
 pantalón de polipiel (Marrón)
 pantalón de polipiel (Beis)
 pantalón de polipiel (Rojo)
@@ -12795,7 +12795,7 @@ seto
 
 
 
-
+mochila vendimia (Marrón)
 
 
 
@@ -12919,7 +12919,7 @@ valla de boda
 
 
 
-
+balancín de muelle vaquero
 
 
 
@@ -12972,7 +12972,7 @@ traje de buceo de Nook Inc. (Verde)
 
 
 
-
+bengala azul
 
 
 
@@ -13104,6 +13104,8 @@ traje de buceo a rayas (Amarillo)
 traje de buceo a rayas (Negro)
 
 comunicador
+bengala de tubo
+bengala de tubo usada
 
 
 
@@ -13119,14 +13121,12 @@ comunicador
 
 
 
+globo rojo
+globo amarillo
+globo verde
+globo rosa
 
-
-
-
-
-
-
-
+banderín Nook Inc. portátil
 
 
 
@@ -13214,3 +13214,75 @@ comunicador
 
 
 gafa de buceo Nook Inc. (Verde)
+
+
+
+
+
+cama de Alakama
+
+
+
+
+
+
+cupón de bayas onírico
+
+pared fuegos artificiales
+
+
+
+
+
+
+
+
+atuendo de Orihime (Rojo)
+atuendo de Hikoboshi (Azul)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+alfombra luna

@@ -601,6 +601,7 @@ namespace NHSE.Core
             {0x2C9, 12758}, // hedge
             {0x2CA, 12894}, // wedding fence
             {0x2CB, 12695}, // wedding wand
+            {0x2CC, 05607}, // 
             {0x2CD, 12552}, // mermaid table
             {0x2CE, 12553}, // mermaid shelf
             {0x2CF, 12554}, // mermaid vanity

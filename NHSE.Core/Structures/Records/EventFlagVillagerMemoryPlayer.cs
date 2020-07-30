@@ -24,7 +24,7 @@ namespace NHSE.Core
             {0x01, new EventFlagVillagerMemoryPlayer(0 , 7  , 001, "ContinuousTalkDays"                         )}, // 何日連続で話しかけられたか
             {0x02, new EventFlagVillagerMemoryPlayer(0 , 1  , 002, "SameLand"                                   )}, // 同じ村に住んでいたことがあるか
             {0x03, new EventFlagVillagerMemoryPlayer(0 , 1  , 003, "SetGreeting"                                )}, // 挨拶を設定したことがある
-            {0x04, new EventFlagVillagerMemoryPlayer(0 , 1  , 004, "EasterGetRecipeFlag"                        )}, // イースター|このNPCからリアクション会話でレシピを受け取った
+            {0x04, new EventFlagVillagerMemoryPlayer(0 , 1  , 004, "EasterGetRecipeFlag"                        )}, // イースター|今日このNPCからレシピを受け取った
             {0x05, new EventFlagVillagerMemoryPlayer(0 , 1  , 005, "TalkProgressMuseumBuilt2"                   )}, // 博物館2への拡張に関するFreeH_Progressを聞いたか？
             {0x06, new EventFlagVillagerMemoryPlayer(0 , 1  , 006, "NextMoveOutTalk"                            )}, // 引越ししたい会話したか
             {0x07, new EventFlagVillagerMemoryPlayer(0 , 1  , 007, "TalkMoveOut"                                )}, // 引越していく状態で会話したか
@@ -35,6 +35,8 @@ namespace NHSE.Core
             {0x0C, new EventFlagVillagerMemoryPlayer(0 , 7  , 012, "TalkCountInNpcHouseToday"                   )}, // 今日NPCの家での会話回数
             {0x0D, new EventFlagVillagerMemoryPlayer(0 , 1  , 013, "HasAcquaintanceship"                        )}, // 面識ありか
             {0x0E, new EventFlagVillagerMemoryPlayer(0 , 1  , 014, "SitBenchFlag"                               )}, // NPCをベンチに座らせる
+            {0x0F, new EventFlagVillagerMemoryPlayer(0 , 1  , 015, "TalkInDream"                                )}, // 今回の夢の中への訪問で話をしたか
+            {0x11, new EventFlagVillagerMemoryPlayer(0 , 255, 017, "PastCountFromLastVisitPlayerHouse"          )}, // 最後にP宅を訪問してからの経過日数
             {0x12, new EventFlagVillagerMemoryPlayer(0 , 1  , 018, "TalkedAsSameVillageResident"                )}, // 同じ村の住人として会話した
             {0x13, new EventFlagVillagerMemoryPlayer(0 , 1  , 019, "InputGreeting"                              )}, // 挨拶を設定した
             {0x14, new EventFlagVillagerMemoryPlayer(0 , 1  , 020, "InputPhraseMemory"                          )}, // 口癖を設定した
@@ -94,7 +96,7 @@ namespace NHSE.Core
             {0x4C, new EventFlagVillagerMemoryPlayer(0 , 1  , 076, "TalkSpotNow"                                )}, // 今、Spotを聞いたか？
             {0x4E, new EventFlagVillagerMemoryPlayer(0 , 1  , 078, "TalkItemNNow"                               )}, // 今、ItemNを聞いたか？
             {0x4F, new EventFlagVillagerMemoryPlayer(0 , 1  , 079, "TalkItemPNow"                               )}, // 今、ItemPを聞いたか？
-            {0x50, new EventFlagVillagerMemoryPlayer(0 , 1  , 080, "TalkRumorOActionToday"                      )}, // 今日RumorOP_Action（同じ島の住人P）を聞いたか？
+            {0x50, new EventFlagVillagerMemoryPlayer(0 , 1  , 080, "TalkRumorOActionToday"                      )}, // （ボツ）今日RumorOP_Action（同じ島の住人P）を聞いたか？
             {0x51, new EventFlagVillagerMemoryPlayer(0 , 1  , 081, "TalkRumorVActionToday"                      )}, // 今日RumorOP_Action（ビジター）を聞いたか？
             {0x52, new EventFlagVillagerMemoryPlayer(0 , 1  , 082, "TalkRumorOFavoriteToday"                    )}, // 今日RumorO_Favoriteを聞いたか？
             {0x53, new EventFlagVillagerMemoryPlayer(0 , 1  , 083, "TalkRumorNToday"                            )}, // 今日このNPCからRumorN1を聞いたか？
@@ -103,6 +105,7 @@ namespace NHSE.Core
             {0x56, new EventFlagVillagerMemoryPlayer(0 , 1  , 086, "TalkSnpcNow"                                )}, // 今日Snpcを聞いたか？
             {0x57, new EventFlagVillagerMemoryPlayer(0 , 1  , 087, "TalkFreeFNow"                               )}, // 今、FreeFを聞いたか？
             {0x58, new EventFlagVillagerMemoryPlayer(0 , 1  , 088, "TalkFreeGNow"                               )}, // 今、FreeGを聞いたか？
+            {0x59, new EventFlagVillagerMemoryPlayer(0 , 1  , 089, "FireworksCannotGetNnpcItemFlag"             )}, // 花火大会|このNPCから受け取り損ねたアイテムがある？
             {0x5A, new EventFlagVillagerMemoryPlayer(0 , 1  , 090, "TalkHHAToday"                               )}, // 今日FreeE_HHAを聞いたか？ 
             {0x5B, new EventFlagVillagerMemoryPlayer(0 , 5  , 091, "TalkReSelectLast"                           )}, // 再抽選前に聞いたファイル識別番号
             {0x5C, new EventFlagVillagerMemoryPlayer(0 , 1  , 092, "HHABuildCelebraition"                       )}, // 増築祝いの手紙を出した
@@ -122,7 +125,7 @@ namespace NHSE.Core
             {0x6A, new EventFlagVillagerMemoryPlayer(0 , 1  , 106, "TalkProgressBridgeBuilt"                    )}, // 初めての橋の完成に関するFreeH_Progressを聞いたか？
             {0x6B, new EventFlagVillagerMemoryPlayer(0 , 1  , 107, "TalkProgressSlopeBuilt"                     )}, // 初めての坂の完成に関するFreeH_Progressを聞いたか？
             {0x6C, new EventFlagVillagerMemoryPlayer(0 , 1  , 108, "TalkProgressOtherPlayerMoveIn"              )}, // 他プレイヤーの移住に関するFreeH_Progressを聞いたか？
-            {0x6D, new EventFlagVillagerMemoryPlayer(0 , 1  , 109, "TalkRumorPActionToday"                      )}, // 今日RumorP_Action（現在プレイヤー）を聞いたか？
+            {0x6D, new EventFlagVillagerMemoryPlayer(0 , 1  , 109, "TalkRumorPActionToday"                      )}, // （ボツ）今日RumorP_Action（現在プレイヤー）を聞いたか？
             {0x6E, new EventFlagVillagerMemoryPlayer(0 , 1  , 110, "FirstNpcEarlyAcquaintanceFlag"              )}, // NPC宅がテントだった頃からの知り合い？
             {0x6F, new EventFlagVillagerMemoryPlayer(0 , 1  , 111, "TalkSickCured"                              )}, // Curedを聞いたか？
             {0x70, new EventFlagVillagerMemoryPlayer(0 , 1  , 112, "StandingUpFlag"                             )}, // NPCを立たせる
@@ -141,6 +144,7 @@ namespace NHSE.Core
             {0x7D, new EventFlagVillagerMemoryPlayer(0 , 1  , 125, "FriendshipBecomeAcqH"                       )}, // 親密度が知人（高）に到達済み
             {0x7E, new EventFlagVillagerMemoryPlayer(0 , 3  , 126, "DC_NPCBirthdayFlag"                         )}, // NPC誕生日|おでかけ先の村でもらうお返しの種類
             {0x7F, new EventFlagVillagerMemoryPlayer(0 , 1  , 127, "EasterCannotGetNnpcRecipeFlag"              )}, // イースター|このNPCから受け取り損ねたレシピがある？
+            {0x83, new EventFlagVillagerMemoryPlayer(0 , 1  , 131, "FireworksGetItemFlag"                       )}, // 花火大会|このNPCからリアクション会話で花火を受け取った
         };
 
         private const string Unknown = "???";

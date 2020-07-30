@@ -2609,7 +2609,7 @@ wooden simple bed
 
 ribbon (Green)
 ribbon (Red)
-
+star bopper (Yellow)
 
 
 mountain bike
@@ -4384,7 +4384,7 @@ football
 
 
 
-
+bubble blower
 
 
 
@@ -5317,7 +5317,7 @@ acorn knit cap (Chestnut)
 combat helmet (Avocado)
 dance-team jacket (Black)
 
-
+uchiwa fan
 ocarina
 
 headkerchief (Green)
@@ -5605,7 +5605,7 @@ DIY for Beginners
 Test Your DIY Skills
 Wildest Dreams DIY
 shiny bow platform shoes (Pink)
-
+King Tut mask (Gold)
 ballet slippers (Pink)
 visual-punk boots (Black)
 rumba costume (Red)
@@ -5740,9 +5740,9 @@ bubblegum (Pink)
 flower sunglasses (Red)
 
 light stick
-
-
-
+tweeter
+red sparkler
+pinwheel
 pretty cosmos wreath
 cool windflower wreath
 fancy rose wreath
@@ -7867,7 +7867,7 @@ elaborate kimono stand
 
 angled signpost
 surfboard
-
+blue balloon
 
 
 
@@ -9855,9 +9855,9 @@ embroidered shoes (Red)
 floral hairpin (Pink)
 heart hairpin (Pink)
 star hairpin (Yellow)
-
-
-
+bulb bopper (Green)
+flower bopper (Blue)
+heart bopper (Pink)
 barrette (Pink)
 giant ribbon (Red)
 star head (Yellow)
@@ -12171,12 +12171,12 @@ star hairpin (Pink)
 star hairpin (Purple)
 star hairpin (Mint)
 star hairpin (Black)
-polka-dot mini skirt (Beige)
+polka-dot miniskirt (Beige)
 dotted knee-high socks (Black)
 simple knee-high socks (Pink)
-polka-dot mini skirt (Pink)
-polka-dot mini skirt (Blue)
-polka-dot mini skirt (Gray)
+polka-dot miniskirt (Pink)
+polka-dot miniskirt (Blue)
+polka-dot miniskirt (Gray)
 dotted knee-high socks (Yellow)
 dotted knee-high socks (Cyan)
 dotted knee-high socks (Gray)
@@ -12795,7 +12795,7 @@ hedge
 
 
 
-
+grape-harvest basket (Brown)
 
 
 
@@ -12919,7 +12919,7 @@ wedding fence
 
 
 
-
+rodeo-style springy ride-on
 
 
 
@@ -12972,7 +12972,7 @@ Nook Inc. wet suit (Green)
 
 
 
-
+blue sparkler
 
 
 
@@ -13104,6 +13104,8 @@ horizontal-striped wet suit (Yellow)
 horizontal-striped wet suit (Black)
 
 communicator
+fountain firework
+used fountain firework
 
 
 
@@ -13119,14 +13121,12 @@ communicator
 
 
 
+red balloon
+yellow balloon
+green balloon
+pink balloon
 
-
-
-
-
-
-
-
+Nook Inc. handheld pennant
 
 
 
@@ -13214,3 +13214,75 @@ communicator
 
 
 Nook Inc. snorkel (Green)
+
+
+
+
+
+Luna's bed
+
+
+
+
+
+
+Dream Bell exchange ticket
+
+fireworks-show wall
+
+
+
+
+
+
+
+
+Orihime outfit (Red)
+Hikoboshi outfit (Blue)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+moon rug

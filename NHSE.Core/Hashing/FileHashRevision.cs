@@ -111,6 +111,10 @@
             }),
         });
 
+        #endregion
+
+        #region REVISION 1.2.0
+
         private const uint REVISION_120_ID = 2;
         private const int REV_120_MAIN_SAVE_SIZE = 0xACECD0;
         private const int REV_120_PERSONAL_SAVE_SIZE = 0x6D6C0;
@@ -161,6 +165,10 @@
             }),
         });
 
+        #endregion
+
+        #region REVISION 1.3.0
+
         private const uint REVISION_130_ID = 3;
         private const int REV_130_MAIN_SAVE_SIZE = 0xACED80;
         private const int REV_130_PERSONAL_SAVE_SIZE = 0x6D6D0;
@@ -206,6 +214,60 @@
                 new FileHashRegion(0x000100, 0x2C8BC)
             }),
             new FileHashDetails("profile.dat", REV_130_PROFILE_SIZE, new[]
+            {
+                new FileHashRegion(0x000100, 0x6945C)
+            }),
+        });
+
+        #endregion
+
+        #region REVISION 1.4.0
+
+        private const uint REVISION_140_ID = 4;
+        private const int REV_140_MAIN_SAVE_SIZE = 0xB05790;
+        private const int REV_140_PERSONAL_SAVE_SIZE = 0x74420;
+        private const int REV_140_POSTBOX_SAVE_SIZE = REV_110_POSTBOX_SAVE_SIZE;
+        private const int REV_140_PHOTO_STUDIO_ISLAND_SIZE = REV_120_PHOTO_STUDIO_ISLAND_SIZE;
+        private const int REV_140_PROFILE_SIZE = REV_110_PROFILE_SIZE;
+
+        public static readonly FileHashInfo REV_140 = new FileHashInfo(REVISION_140_ID, new[]
+        {
+            new FileHashDetails("main.dat", REV_140_MAIN_SAVE_SIZE, new[]
+            {
+                new FileHashRegion(0x000110, 0x1d6d5c),
+                new FileHashRegion(0x1d6e70, 0x323f2c),
+                new FileHashRegion(0x4faeb0, 0x035d2c),
+                new FileHashRegion(0x530be0, 0x03e5dc),
+                new FileHashRegion(0x56f2d0, 0x035d2c),
+                new FileHashRegion(0x5a5000, 0x03e5dc),
+                new FileHashRegion(0x5e36f0, 0x035d2c),
+                new FileHashRegion(0x619420, 0x03e5dc),
+                new FileHashRegion(0x657b10, 0x035d2c),
+                new FileHashRegion(0x68d840, 0x03e5dc),
+                new FileHashRegion(0x6cbf30, 0x035d2c),
+                new FileHashRegion(0x701c60, 0x03e5dc),
+                new FileHashRegion(0x740350, 0x035d2c),
+                new FileHashRegion(0x776080, 0x03e5dc),
+                new FileHashRegion(0x7b4770, 0x035d2c),
+                new FileHashRegion(0x7ea4a0, 0x03e5dc),
+                new FileHashRegion(0x828b90, 0x035d2c),
+                new FileHashRegion(0x85e8c0, 0x03e5dc),
+                new FileHashRegion(0x89cea0, 0x2688ec)
+            }),
+            new FileHashDetails("personal.dat", REV_140_PERSONAL_SAVE_SIZE, new[]
+            {
+                new FileHashRegion(0x00110, 0x35D2C),
+                new FileHashRegion(0x35E40, 0x3E5DC)
+            }),
+            new FileHashDetails("postbox.dat", REV_140_POSTBOX_SAVE_SIZE, new[]
+            {
+                new FileHashRegion(0x000100, 0xB4448C)
+            }),
+            new FileHashDetails("photo_studio_island.dat", REV_140_PHOTO_STUDIO_ISLAND_SIZE, new[]
+            {
+                new FileHashRegion(0x000100, 0x2C8BC)
+            }),
+            new FileHashDetails("profile.dat", REV_140_PROFILE_SIZE, new[]
             {
                 new FileHashRegion(0x000100, 0x6945C)
             }),

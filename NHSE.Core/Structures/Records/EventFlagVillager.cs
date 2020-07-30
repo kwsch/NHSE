@@ -59,6 +59,7 @@ namespace NHSE.Core
             {0x02B, new EventFlagVillager(0 , 10  , 0043, "ForceMoveOutVillagerIndex"                  )}, // 強制転出に指定した住人番号
             {0x02C, new EventFlagVillager(0 , 1   , 0044, "DisplayJuneBridePresent"                    )}, // ジューンブライド | 絵皿を飾るか？
             {0x02D, new EventFlagVillager(0 , 7   , 0045, "ProgressDaysJuneBrideParty"                 )}, // ジューンブライド | 結婚パーティに参加してからの経過日数
+            {0x031, new EventFlagVillager(0 , 5   , 0049, "EnableConvTalkDaysCount"                    )}, // 会話のフリを解禁するまでの日数
         };
 
         private const string Unknown = "???";

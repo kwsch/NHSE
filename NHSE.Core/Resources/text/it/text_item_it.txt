@@ -2609,7 +2609,7 @@ letto singolo di legno
 
 fiocco (Verde)
 fiocco (Rosso)
-
+paio antenne stelle (Giallo)
 
 
 mountain bike
@@ -4384,7 +4384,7 @@ palla da football
 
 
 
-
+sparabolle
 
 
 
@@ -4665,7 +4665,7 @@ eustenottero
 acantostega
 juramaia
 
-mascherina fucsia (Viola)
+mascherina festosa (Viola)
 tunica a canottiera (Bianco)
 montatura di legno (Marrone)
 
@@ -4682,7 +4682,7 @@ felpa di pile con stampa (Verde muschio)
 giacca da detective (Marrone)
 foglia (Verde)
 montatura con strass (Rosso)
-maschera nera (Nero)
+maschera da eroe (Nero)
 montatura steampunk (Verde)
 vestito dolce (Bianco)
 cassetta degli attrezzi
@@ -5317,7 +5317,7 @@ cappellino ghianda di lana (Castagna)
 elmetto (Avocado)
 felpa danza (Nero)
 
-
+ventaglio uchiwa
 ocarina
 
 fazzoletto giapponese (Verde)
@@ -5605,7 +5605,7 @@ Fai da te per principianti
 Fai da te per appassionati
 Fai da te per esperti
 paio di scarpette bambolina (Rosa)
-
+maschera Re Tut (Dorato)
 paio di scarpette da punta (Rosa)
 paio di stivali visual kei (Nero)
 costume da rumba (Rosso)
@@ -5740,9 +5740,9 @@ gomma con palloncino (Rosa)
 montatura a fiori (Rosso)
 
 bastoncino luminoso
-
-
-
+trombetta di Capodanno
+stella filante rossa
+girandola
 ghirlanda cosmee carina
 ghirlanda anemoni spavalda
 ghirlanda rose sbarazzina
@@ -5768,7 +5768,7 @@ ghirlanda rose cupa
 ghirlanda viole spavalda
 ghirl. crisantemi naturale
 ghirlanda giacinti viola
-ghirlanda viole cupa
+ghirlanda gigli cupa
 ghirlanda tulipani cupa
 ghirlanda rose blu
 montatura a cannuccia (Verde)
@@ -7867,7 +7867,7 @@ portakimono elaborato
 
 segnale direzionale obliquo
 tavola da surf
-
+palloncino blu
 
 
 
@@ -9855,9 +9855,9 @@ paio di scarpe ricamate (Rosso)
 molletta floreale (Rosa)
 molletta cuore (Rosa)
 molletta stella (Giallo)
-
-
-
+paio antenne fluo (Verde)
+paio antenne fiori (Blu)
+paio antenne cuori (Rosa)
 barretta per capelli (Rosa)
 fiocco gigante (Rosso)
 cappuccio stella (Giallo)
@@ -11159,11 +11159,11 @@ mascherina per dormire (Arancio)
 mascherina per dormire (Rosso)
 
 maschera antigas (Avocado)
-mascherina fucsia (Nero)
-mascherina fucsia (Blu)
-mascherina fucsia (Rosso)
-mascherina fucsia (Verde)
-mascherina fucsia (Dorato)
+mascherina festosa (Nero)
+mascherina festosa (Blu)
+mascherina festosa (Rosso)
+mascherina festosa (Verde)
+mascherina festosa (Dorato)
 maschera da giullare (Rosso)
 maschera da giullare (Verde)
 maschera da giullare (Blu)
@@ -12795,7 +12795,7 @@ siepe
 
 
 
-
+canestro da vendemmia (Marrone)
 
 
 
@@ -12919,7 +12919,7 @@ recinzione nuziale
 
 
 
-
+cavallo a molla cowboy
 
 
 
@@ -12972,7 +12972,7 @@ muta Nook Inc. (Verde)
 
 
 
-
+stella filante blu
 
 
 
@@ -13104,6 +13104,8 @@ muta a righe orizzontali (Giallo)
 muta a righe orizzontali (Nero)
 
 comunicatore
+fuoco d'artificio
+fuoco d'artificio esaurito
 
 
 
@@ -13119,14 +13121,12 @@ comunicatore
 
 
 
+palloncino rosso
+palloncino giallo
+palloncino verde
+palloncino rosa
 
-
-
-
-
-
-
-
+gagliardetto Nook Inc.
 
 
 
@@ -13214,3 +13214,75 @@ comunicatore
 
 
 maschera mare Nook Inc. (Verde)
+
+
+
+
+
+letto di Sonia
+
+
+
+
+
+
+coupon onirico
+
+muro fuochi d'artificio
+
+
+
+
+
+
+
+
+vestito Orihime (Rosso)
+vestito Hikoboshi (Blu)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tappeto luna

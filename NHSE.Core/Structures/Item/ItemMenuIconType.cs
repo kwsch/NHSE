@@ -7,6 +7,13 @@ namespace NHSE.Core
     public enum ItemMenuIconType : ushort
 #pragma warning restore CA1027 // Mark enums with FlagsAttribute
     {
+        _0x07D286A1,
+        _0x4FBCED5B,
+        _0x6483FF79,
+        _0x9E09D2F8,
+        _0x9E8AA063,
+        _0xDEDC1916,
+        _0xF3E89B01,
         Akoyagai,
         Amaebi,
         Anemone0,
@@ -23,6 +30,7 @@ namespace NHSE.Core
         BadKabu,
         Bag,
         Baigai,
+        Balloon,
         BanbooShoot,
         BdayCupcake,
         BellExchangeTicket,
@@ -501,6 +509,7 @@ namespace NHSE.Core
         Weed,
         WetSuit,
         Wig,
+        Windmill,
         WPaperBlack,
         WPaperBlue,
         WPaperBrown,
