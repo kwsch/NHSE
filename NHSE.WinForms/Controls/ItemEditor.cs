@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
@@ -370,6 +371,19 @@ namespace NHSE.WinForms
 
         private void PB_Item_Click(object sender, EventArgs e)
         {
+            // Import if requested
+            if (ModifierKeys == Keys.Shift && Clipboard.ContainsText())
+            {
+                var text = Clipboard.GetText();
+                if (!ulong.TryParse(text, NumberStyles.AllowHexSpecifier, CultureInfo.CurrentCulture, out var val))
+                    return;
+                var import = BitConverter.GetBytes(val).ToClass<Item>();
+                LoadItem(import);
+                System.Media.SystemSounds.Asterisk.Play();
+                return;
+            }
+
+            // Otherwise, export
             var item = SetItem(new Item());
             var data = item.ToBytesClass();
             var u64 = BitConverter.ToUInt64(data, 0);
