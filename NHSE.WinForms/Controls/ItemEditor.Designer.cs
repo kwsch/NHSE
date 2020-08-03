@@ -40,7 +40,7 @@
             this.NUD_Flag1 = new System.Windows.Forms.NumericUpDown();
             this.CB_Recipe = new System.Windows.Forms.ComboBox();
             this.FLP_Controls = new System.Windows.Forms.FlowLayoutPanel();
-            this.PB_Item = new InterpolatingPictureBox();
+            this.PB_Item = new NHSE.WinForms.InterpolatingPictureBox();
             this.FLP_Meta = new System.Windows.Forms.FlowLayoutPanel();
             this.CHK_IsExtension = new System.Windows.Forms.CheckBox();
             this.PAN_DummyExtension = new System.Windows.Forms.Panel();
@@ -264,6 +264,7 @@
             this.PB_Item.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB_Item.TabIndex = 28;
             this.PB_Item.TabStop = false;
+            this.PB_Item.Click += new System.EventHandler(this.PB_Item_Click);
             // 
             // FLP_Meta
             // 
@@ -1006,7 +1007,6 @@
         private System.Windows.Forms.NumericUpDown NUD_ExtensionY;
         private System.Windows.Forms.FlowLayoutPanel FLP_Item;
         private System.Windows.Forms.FlowLayoutPanel FLP_Flower;
-        private System.Windows.Forms.PictureBox PB_Item;
         private System.Windows.Forms.CheckBox CHK_IsExtension;
         private System.Windows.Forms.Panel PAN_DummyCount;
         private System.Windows.Forms.Panel PAN_DummyExtension;
@@ -1020,5 +1020,6 @@
         private System.Windows.Forms.CheckBox CHK_WrapShowName;
         private System.Windows.Forms.CheckBox CHK_Wrap80;
         private System.Windows.Forms.ToolTip TT_Search;
+        private InterpolatingPictureBox PB_Item;
     }
 }

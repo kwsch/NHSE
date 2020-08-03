@@ -367,5 +367,14 @@ namespace NHSE.WinForms
             var itemCount = (ushort)NUD_Count.Value;
             ChangeItem(itemID, itemCount);
         }
+
+        private void PB_Item_Click(object sender, EventArgs e)
+        {
+            var item = SetItem(new Item());
+            var data = item.ToBytesClass();
+            var u64 = BitConverter.ToUInt64(data, 0);
+            Clipboard.SetText($"{u64:X16}");
+            System.Media.SystemSounds.Asterisk.Play();
+        }
     }
 }
