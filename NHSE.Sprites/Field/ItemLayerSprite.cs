@@ -190,6 +190,8 @@ namespace NHSE.Sprites
         {
             var eX = tile.ExtensionX;
             var eY = tile.ExtensionY;
+            if (eX == 0 && eY == 0)
+                return;
             var sum = eX + eY;
             var start = scale / (sum + 1);
             var startX = eX >= eY ? 0 : start;

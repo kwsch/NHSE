@@ -78,7 +78,7 @@ namespace NHSE.Core
             if (c0 == (byte) ItemCustomColor.None)
             {
                 if (c1 == (byte) ItemCustomColor.None)
-                    return "Invalid";
+                    return Invalid;
                 return GetColorText(c1);
             }
 
