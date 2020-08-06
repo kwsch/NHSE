@@ -55,6 +55,7 @@ namespace NHSE.Core
                 8 => new PersonalOffsets13(),
                 9 => new PersonalOffsets13(),
                 10 => new PersonalOffsets14(),
+                11 => new PersonalOffsets14(),
                 _ => throw new IndexOutOfRangeException("Unknown revision!"),
             };
         }
