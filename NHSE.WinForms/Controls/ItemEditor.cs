@@ -82,21 +82,20 @@ namespace NHSE.WinForms
                 NUD_Count.Value = item.Count;
                 NUD_Uses.Value = item.UseCount;
                 NUD_Flag0.Value = item.SystemParam;
+            }
 
-                if (kind == ItemKind.Kind_MessageBottle || id >= 60_000)
-                {
-                    NUD_Flag1.Value = item.AdditionalParam;
-                }
-                else
-                {
-                    CHK_Wrapped.Checked = item.WrappingType != 0;
-                    CB_WrapType.SelectedIndex = (int)item.WrappingType;
-                    CB_WrapColor.SelectedIndex = (int)item.WrappingPaper;
-                    CHK_WrapShowName.Checked = item.WrappingShowItem;
-                    CHK_Wrap80.Checked = item.Wrapping80;
-                }
-
-                LoadItemTypeValues(kind, id);
+            LoadItemTypeValues(kind, id);
+            if (kind == ItemKind.Kind_MessageBottle || id >= 60_000)
+            {
+                NUD_Flag1.Value = item.AdditionalParam;
+            }
+            else
+            {
+                CHK_Wrapped.Checked = item.WrappingType != 0;
+                CB_WrapType.SelectedIndex = (int)item.WrappingType;
+                CB_WrapColor.SelectedIndex = (int)item.WrappingPaper;
+                CHK_WrapShowName.Checked = item.WrappingShowItem;
+                CHK_Wrap80.Checked = item.Wrapping80;
             }
 
             Loading = false;
@@ -138,25 +137,25 @@ namespace NHSE.WinForms
                 item.Count = (ushort)NUD_Count.Value;
                 item.UseCount = (ushort)NUD_Uses.Value;
                 item.SystemParam = (byte)NUD_Flag0.Value;
+            }
 
-                if (kind == ItemKind.Kind_MessageBottle)
+            if (kind == ItemKind.Kind_MessageBottle || id >= 60_000)
+            {
+                item.AdditionalParam = (byte)NUD_Flag1.Value;
+            }
+            else
+            {
+                if (!CHK_Wrapped.Checked)
                 {
-                    item.AdditionalParam = (byte)NUD_Flag1.Value;
+                    item.SetWrapping(0, 0);
                 }
                 else
                 {
-                    if (!CHK_Wrapped.Checked)
-                    {
-                        item.SetWrapping(0, 0);
-                    }
-                    else
-                    {
-                        var type = (ItemWrapping) CB_WrapType.SelectedIndex;
-                        var color = (ItemWrappingPaper) CB_WrapColor.SelectedIndex;
-                        var show = CHK_WrapShowName.Checked;
-                        var flag = CHK_Wrap80.Checked;
-                        item.SetWrapping(type, color, show, flag);
-                    }
+                    var type = (ItemWrapping)CB_WrapType.SelectedIndex;
+                    var color = (ItemWrappingPaper)CB_WrapColor.SelectedIndex;
+                    var show = CHK_WrapShowName.Checked;
+                    var flag = CHK_Wrap80.Checked;
+                    item.SetWrapping(type, color, show, flag);
                 }
             }
             return item;
@@ -204,7 +203,7 @@ namespace NHSE.WinForms
 
         private void LoadItemTypeValues(ItemKind k, ushort index)
         {
-            if (index >= 60_000)
+            if (k == ItemKind.Kind_MessageBottle || index >= 60_000)
             {
                 CHK_Wrapped.Checked = false;
                 CHK_Wrapped.Visible = CHK_Wrapped.Checked = false;
@@ -224,7 +223,6 @@ namespace NHSE.WinForms
 
                 case ItemKind.Kind_MessageBottle:
                     CB_Recipe.SelectedValue = (int) NUD_Count.Value;
-                    CHK_Wrapped.Checked = false;
                     CHK_Wrapped.Visible = CHK_Wrapped.Checked = false;
                     FLP_Flag1.Visible = true;
                     return;
