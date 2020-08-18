@@ -148,7 +148,7 @@
             // 
             this.B_MoveOutAllVillagers.Name = "B_MoveOutAllVillagers";
             this.B_MoveOutAllVillagers.Size = new System.Drawing.Size(185, 22);
-            this.B_MoveOutAllVillagers.Text = "Move Out All Villagers";
+            this.B_MoveOutAllVillagers.Text = "Box All Villagers";
             this.B_MoveOutAllVillagers.Click += new System.EventHandler(this.B_MoveOutAllVillagers_Click);
             // 
             // B_LoadVillager
