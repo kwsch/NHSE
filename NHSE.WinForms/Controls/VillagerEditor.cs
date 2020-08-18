@@ -239,6 +239,9 @@ namespace NHSE.WinForms
 
         private void B_MoveOutAllVillagers_Click(object sender, EventArgs e)
         {
+            if (Loading)
+                return;
+
             var prompt = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgMoveOutAll, MessageStrings.MsgMoveOutAllConfirm);
             if (prompt != DialogResult.Yes)
                 return;
