@@ -247,7 +247,8 @@ namespace NHSE.WinForms
                 return;
 
             foreach (var villager in Villagers)
-                return; // to write
+                villager.MovingOut = true;
+            CHK_VillagerMovingOut.Checked = true;
 
             System.Media.SystemSounds.Asterisk.Play();
             return;
