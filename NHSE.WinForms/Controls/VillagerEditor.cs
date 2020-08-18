@@ -237,6 +237,11 @@ namespace NHSE.WinForms
             { } // editor saves our changes
         }
 
+        private void B_MoveOutAllVillagers_Click(object sender, EventArgs e)
+        {
+            
+        }
+
         private void B_SetPhraseOriginal_Click(object sender, EventArgs e)
         {
             var internalName = GetCurrentVillagerInternalName();
