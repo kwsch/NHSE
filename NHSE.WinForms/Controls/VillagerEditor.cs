@@ -239,7 +239,13 @@ namespace NHSE.WinForms
 
         private void B_MoveOutAllVillagers_Click(object sender, EventArgs e)
         {
-            
+            var prompt = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgMoveOutAll, MessageStrings.MsgMoveOutAllConfirm);
+            if (prompt != DialogResult.Yes)
+                return;
+            foreach (var villager in Villagers)
+                return; // to write
+            System.Media.SystemSounds.Asterisk.Play();
+            return;
         }
 
         private void B_SetPhraseOriginal_Click(object sender, EventArgs e)
