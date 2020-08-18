@@ -38,6 +38,7 @@
             this.B_EditVillagerRoom = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditVillagerDesign = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditVillagerPlayerMemories = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSS_toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.B_MoveOutAllVillagers = new System.Windows.Forms.ToolStripMenuItem();
             this.B_LoadVillager = new System.Windows.Forms.Button();
             this.B_DumpVillager = new System.Windows.Forms.Button();
@@ -103,6 +104,7 @@
             this.B_EditVillagerRoom,
             this.B_EditVillagerDesign,
             this.B_EditVillagerPlayerMemories,
+            this.TSS_toolStripSeparator1,
             this.B_MoveOutAllVillagers});
             this.CM_EditVillager.Name = "CM_EditPlayer";
             this.CM_EditVillager.Size = new System.Drawing.Size(186, 114);
@@ -381,6 +383,7 @@
         private System.Windows.Forms.ToolStripMenuItem B_EditVillagerRoom;
         private System.Windows.Forms.ToolStripMenuItem B_EditVillagerDesign;
         private System.Windows.Forms.ToolStripMenuItem B_EditVillagerPlayerMemories;
+        private System.Windows.Forms.ToolStripSeparator TSS_toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem B_MoveOutAllVillagers;
         private System.Windows.Forms.ToolStripMenuItem B_EditWear;
         private System.Windows.Forms.Button B_SetPhraseOriginal;
