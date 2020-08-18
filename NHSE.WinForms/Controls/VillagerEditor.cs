@@ -242,8 +242,8 @@ namespace NHSE.WinForms
             if (Loading)
                 return;
 
-            var prompt = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgMoveOutAll, MessageStrings.MsgMoveOutAllConfirm);
-            if (prompt != DialogResult.Yes)
+            var prompt = WinFormsUtil.Prompt(MessageBoxButtons.OKCancel, MessageStrings.MsgMoveOutAll);
+            if (prompt != DialogResult.OK)
                 return;
 
             foreach (var villager in Villagers)
