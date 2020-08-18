@@ -245,8 +245,10 @@ namespace NHSE.WinForms
             var prompt = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgMoveOutAll, MessageStrings.MsgMoveOutAllConfirm);
             if (prompt != DialogResult.Yes)
                 return;
+
             foreach (var villager in Villagers)
                 return; // to write
+
             System.Media.SystemSounds.Asterisk.Play();
             return;
         }
