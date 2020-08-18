@@ -38,6 +38,8 @@
             this.B_EditVillagerRoom = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditVillagerDesign = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditVillagerPlayerMemories = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSS_toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.B_MoveOutAllVillagers = new System.Windows.Forms.ToolStripMenuItem();
             this.B_LoadVillager = new System.Windows.Forms.Button();
             this.B_DumpVillager = new System.Windows.Forms.Button();
             this.L_ExternalName = new System.Windows.Forms.Label();
@@ -101,7 +103,9 @@
             this.B_EditWear,
             this.B_EditVillagerRoom,
             this.B_EditVillagerDesign,
-            this.B_EditVillagerPlayerMemories});
+            this.B_EditVillagerPlayerMemories,
+            this.TSS_toolStripSeparator1,
+            this.B_MoveOutAllVillagers});
             this.CM_EditVillager.Name = "CM_EditPlayer";
             this.CM_EditVillager.Size = new System.Drawing.Size(186, 114);
             // 
@@ -139,6 +143,13 @@
             this.B_EditVillagerPlayerMemories.Size = new System.Drawing.Size(185, 22);
             this.B_EditVillagerPlayerMemories.Text = "Edit Player Memories";
             this.B_EditVillagerPlayerMemories.Click += new System.EventHandler(this.B_EditVillagerPlayerMemories_Click);
+            // 
+            // B_MoveOutAllVillagers
+            // 
+            this.B_MoveOutAllVillagers.Name = "B_MoveOutAllVillagers";
+            this.B_MoveOutAllVillagers.Size = new System.Drawing.Size(185, 22);
+            this.B_MoveOutAllVillagers.Text = "Box All Villagers";
+            this.B_MoveOutAllVillagers.Click += new System.EventHandler(this.B_MoveOutAllVillagers_Click);
             // 
             // B_LoadVillager
             // 
@@ -372,6 +383,8 @@
         private System.Windows.Forms.ToolStripMenuItem B_EditVillagerRoom;
         private System.Windows.Forms.ToolStripMenuItem B_EditVillagerDesign;
         private System.Windows.Forms.ToolStripMenuItem B_EditVillagerPlayerMemories;
+        private System.Windows.Forms.ToolStripSeparator TSS_toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem B_MoveOutAllVillagers;
         private System.Windows.Forms.ToolStripMenuItem B_EditWear;
         private System.Windows.Forms.Button B_SetPhraseOriginal;
     }

@@ -237,6 +237,23 @@ namespace NHSE.WinForms
             { } // editor saves our changes
         }
 
+        private void B_MoveOutAllVillagers_Click(object sender, EventArgs e)
+        {
+            if (Loading)
+                return;
+
+            var prompt = WinFormsUtil.Prompt(MessageBoxButtons.OKCancel, MessageStrings.MsgMoveOutAll);
+            if (prompt != DialogResult.OK)
+                return;
+
+            foreach (var villager in Villagers)
+                villager.MovingOut = true;
+            CHK_VillagerMovingOut.Checked = true;
+
+            System.Media.SystemSounds.Asterisk.Play();
+            return;
+        }
+
         private void B_SetPhraseOriginal_Click(object sender, EventArgs e)
         {
             var internalName = GetCurrentVillagerInternalName();

@@ -28,6 +28,7 @@ namespace NHSE.WinForms
 
         public static string MsgMoveOut { get; set; } = "Are you trying to make the Villager move out?";
         public static string MsgMoveOutSuggest { get; set; } = "If so, set the Event Flag (024 - ForceMoveOut) to 1 so that the Villager is removed by the game.";
+        public static string MsgMoveOutAll { get; set; } = "This will check the 'Moving Out' box for all Villagers.";
 
         public static string MsgFieldItemRemoveAsk { get; set; } = "Are you sure you want to remove {0}?";
         public static string MsgFieldItemRemoveNone { get; set; } = "Nothing removed (none found).";
