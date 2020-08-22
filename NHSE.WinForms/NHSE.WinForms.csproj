@@ -12,6 +12,7 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <LangVersion>8</LangVersion>
     <Nullable>enable</Nullable>
+    <Platforms>AnyCPU;x86</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
