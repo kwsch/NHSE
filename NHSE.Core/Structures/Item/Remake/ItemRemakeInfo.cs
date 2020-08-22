@@ -110,9 +110,7 @@ namespace NHSE.Core
                     sb.Append(i).Append('=').Append(desc).Append(" (").Append(cd).AppendLine(")");
                 else if (hasBody)
                     sb.Append(i).Append('=').AppendLine(desc);
-                else
-                    continue;
-
+                // else don't add anything
             }
             return sb.ToString();
         }
