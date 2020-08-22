@@ -103,16 +103,16 @@ namespace NHSE.Core
             for (int i = 0; i < 8; i++)
             {
                 var cd = GetBodyDescription(i);
-                if (cd == Invalid)
+                var name = $"{ItemUniqueID:00000}_{i}";
+                var hasBody = str.BodyColor.TryGetValue(name, out var desc);
+
+                if (hasBody && cd != Invalid)
+                    sb.Append(i).Append('=').Append(desc).Append(" (").Append(cd).AppendLine(")");
+                else if (hasBody)
+                    sb.Append(i).Append('=').AppendLine(desc);
+                else
                     continue;
 
-                sb.Append(i).Append('=');
-
-                var name = $"{ItemUniqueID:00000}_{i}";
-                if (str.BodyColor.TryGetValue(name, out var desc))
-                    sb.Append(desc).Append(" (").Append(cd).AppendLine(")");
-                else
-                    sb.AppendLine(cd);
             }
             return sb.ToString();
         }
