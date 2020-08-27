@@ -1,4 +1,4 @@
-﻿namespace NHSE.WinForms
+﻿    namespace NHSE.WinForms
 {
     partial class ItemGridEditor
     {
@@ -39,6 +39,7 @@
             this.Menu_Set = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.B_Clear = new System.Windows.Forms.Button();
+            this.B_Sort = new System.Windows.Forms.Button();
             this.CM_Remove = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.B_ClearAll = new System.Windows.Forms.ToolStripMenuItem();
             this.B_ClearClothing = new System.Windows.Forms.ToolStripMenuItem();
@@ -165,6 +166,20 @@
             this.B_Clear.Text = "Clear";
             this.B_Clear.UseVisualStyleBackColor = true;
             this.B_Clear.Click += new System.EventHandler(this.B_Clear_Click);
+            //
+            // B_Sort
+            //
+            this.B_Sort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.B_Sort.ContextMenuStrip = this.CM_Sort;
+            this.B_Sort.Location = new System.Drawing.Point(4, 197);
+            this.B_Sort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.B_Sort.Name = "B_Sort";
+            this.B_Sort.Size = new System.Drawing.Size(85, 36);
+            this.B_Sort.TabIndex = 8;
+            this.B_Sort.Text = "Sort...";
+            this.B_Sort.UseVisualStyleBackColor = true;
+            this.B_Sort.Click += new System.EventHandler(this.B_Sort_Click);
             // 
             // CM_Remove
             // 
@@ -286,6 +301,7 @@
         private System.Windows.Forms.ToolStripMenuItem Menu_Set;
         private System.Windows.Forms.ToolStripMenuItem Menu_Delete;
         private System.Windows.Forms.Button B_Clear;
+        private System.Windows.Forms.Button B_Sort;
         private System.Windows.Forms.FlowLayoutPanel FLP_Controls;
         private System.Windows.Forms.Panel PAN_Navigation;
         private System.Windows.Forms.ToolTip HoverTip;
