@@ -302,6 +302,10 @@
         private System.Windows.Forms.ToolStripMenuItem Menu_Delete;
         private System.Windows.Forms.Button B_Clear;
         private System.Windows.Forms.Button B_Sort;
+        private System.Windows.Forms.ContextMenuStrip CM_Sort;
+        private System.Windows.Forms.ToolStripMenuItem B_SortAlpha;
+        private System.Windows.Forms.ToolStripMenuItem B_SortType;
+        private System.Windows.Forms.ToolStripMenuItem B_SortNew;
         private System.Windows.Forms.FlowLayoutPanel FLP_Controls;
         private System.Windows.Forms.Panel PAN_Navigation;
         private System.Windows.Forms.ToolTip HoverTip;
