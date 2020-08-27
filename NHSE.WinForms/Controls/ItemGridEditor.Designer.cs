@@ -40,6 +40,10 @@
             this.Menu_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.B_Clear = new System.Windows.Forms.Button();
             this.B_Sort = new System.Windows.Forms.Button();
+            this.CM_Sort = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.B_SortAlpha = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_SortType = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_SortNew = new System.Windows.Forms.ToolStripMenuItem();
             this.CM_Remove = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.B_ClearAll = new System.Windows.Forms.ToolStripMenuItem();
             this.B_ClearClothing = new System.Windows.Forms.ToolStripMenuItem();
