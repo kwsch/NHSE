@@ -180,6 +180,38 @@
             this.B_Sort.Text = "Sort...";
             this.B_Sort.UseVisualStyleBackColor = true;
             this.B_Sort.Click += new System.EventHandler(this.B_Sort_Click);
+            //
+            // CM_Sort
+            //
+            this.CM_Sort.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.CM_Sort.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.B_SortAlpha,
+            this.B_SortType,
+            this.B_SortNew});
+            this.CM_Sort.Name = "CM_Sort";
+            this.CM_Sort.ShowImageMargin = false;
+            this.CM_Sort.Size = new System.Drawing.Size(186, 200);
+            //
+            // B_SortAlpha
+            //
+            this.B_SortAlpha.Name = "B_SortAlpha";
+            this.B_SortAlpha.Size = new System.Drawing.Size(185, 24);
+            this.B_SortAlpha.Text = "Alphabetical";
+            this.B_SortAlpha.Click += new System.EventHandler(this.B_SortAlpha_Click);
+            //
+            // B_SortType
+            //
+            this.B_SortType.Name = "B_SortType";
+            this.B_SortType.Size = new System.Drawing.Size(185, 24);
+            this.B_SortType.Text = "Type";
+            this.B_SortType.Click += new System.EventHandler(this.B_SortType_Click);
+            //
+            // B_SortAlpha
+            //
+            this.B_SortNew.Name = "B_SortNew";
+            this.B_SortNew.Size = new System.Drawing.Size(185, 24);
+            this.B_SortNew.Text = "New";
+            this.B_SortNew.Click += new System.EventHandler(this.B_SortNew_Click);
             // 
             // CM_Remove
             // 
