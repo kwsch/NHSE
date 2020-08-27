@@ -244,6 +244,12 @@ namespace NHSE.WinForms
             System.Media.SystemSounds.Asterisk.Play();
         }
 
+        private void B_Sort_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_Sort, B_Sort);
+        private void B_SortAlpha_Click(object sender, EventArgs e) { }
+        private void B_SortType_Click(object sender, EventArgs e) { }
+        private void B_SortNew_Click(object sender, EventArgs e) { }
+
+
         private void B_ClearAll_Click(object sender, EventArgs e) => ClearItemIf(_ => true);
         private void B_ClearClothing_Click(object sender, EventArgs e) => ClearItemIf(z => ItemInfo.GetItemKind(z).IsClothing());
         private void B_ClearCrafting_Click(object sender, EventArgs e) => ClearItemIf(z => ItemInfo.GetItemKind(z).IsCrafting());
