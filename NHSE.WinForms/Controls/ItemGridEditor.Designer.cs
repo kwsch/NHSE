@@ -248,7 +248,7 @@
             this.FLP_Controls.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.FLP_Controls.Name = "FLP_Controls";
             this.FLP_Controls.Size = new System.Drawing.Size(321, 242);
-            this.FLP_Controls.TabIndex = 8;
+            this.FLP_Controls.TabIndex = 9;
             // 
             // PAN_Navigation
             // 
@@ -260,7 +260,7 @@
             this.PAN_Navigation.Margin = new System.Windows.Forms.Padding(0);
             this.PAN_Navigation.Name = "PAN_Navigation";
             this.PAN_Navigation.Size = new System.Drawing.Size(93, 175);
-            this.PAN_Navigation.TabIndex = 9;
+            this.PAN_Navigation.TabIndex = 10;
             // 
             // HoverTip
             // 
