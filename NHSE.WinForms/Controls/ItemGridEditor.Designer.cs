@@ -56,6 +56,7 @@
             this.HoverTip = new System.Windows.Forms.ToolTip(this.components);
             this.B_ClearDive = new System.Windows.Forms.ToolStripMenuItem();
             this.CM_Hand.SuspendLayout();
+            this.CM_Sort.SuspendLayout();
             this.CM_Remove.SuspendLayout();
             this.FLP_Controls.SuspendLayout();
             this.PAN_Navigation.SuspendLayout();
@@ -176,7 +177,7 @@
             this.B_Sort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.B_Sort.ContextMenuStrip = this.CM_Sort;
-            this.B_Sort.Location = new System.Drawing.Point(4, 197);
+            this.B_Sort.Location = new System.Drawing.Point(4, 165);
             this.B_Sort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.B_Sort.Name = "B_Sort";
             this.B_Sort.Size = new System.Drawing.Size(85, 36);
@@ -292,6 +293,7 @@
             this.PAN_Navigation.Controls.Add(this.L_Page);
             this.PAN_Navigation.Controls.Add(this.B_Down);
             this.PAN_Navigation.Controls.Add(this.B_Clear);
+            this.PAN_Navigation.Controls.Add(this.B_Sort);
             this.PAN_Navigation.Location = new System.Drawing.Point(217, 30);
             this.PAN_Navigation.Margin = new System.Windows.Forms.Padding(0);
             this.PAN_Navigation.Name = "PAN_Navigation";
@@ -318,6 +320,7 @@
             this.Name = "ItemGridEditor";
             this.Size = new System.Drawing.Size(321, 242);
             this.CM_Hand.ResumeLayout(false);
+            this.CM_Sort.ResumeLayout(false);
             this.CM_Remove.ResumeLayout(false);
             this.FLP_Controls.ResumeLayout(false);
             this.PAN_Navigation.ResumeLayout(false);
