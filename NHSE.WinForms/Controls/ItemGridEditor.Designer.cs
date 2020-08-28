@@ -182,7 +182,7 @@
             this.B_Sort.Name = "B_Sort";
             this.B_Sort.Size = new System.Drawing.Size(85, 36);
             this.B_Sort.TabIndex = 8;
-            this.B_Sort.Text = "Sort...";
+            this.B_Sort.Text = "Sort";
             this.B_Sort.UseVisualStyleBackColor = true;
             this.B_Sort.Click += new System.EventHandler(this.B_Sort_Click);
             //
