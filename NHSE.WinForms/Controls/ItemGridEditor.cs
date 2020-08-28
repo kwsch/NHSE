@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using NHSE.Core;
 using NHSE.Sprites;
 
@@ -245,10 +248,35 @@ namespace NHSE.WinForms
         }
 
         private void B_Sort_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_Sort, B_Sort);
-        private void B_SortAlpha_Click(object sender, EventArgs e) { }
+        private void B_SortAlpha_Click(object sender, EventArgs e) {
+            IEnumerable<Item> sortedItems = Items.Where(item => item.ItemId != Item.NONE).OrderBy(item => GetItemText(item).ToLower());
+            IList<Item> sortedItemsCopy = new List<Item>(); // to prevent object reference issues
+
+            foreach(Item item in sortedItems) {
+                Item itemCopy = new Item();
+                itemCopy.CopyFrom(item);
+                sortedItemsCopy.Add(itemCopy);
+            }
+
+            SetEditorItems(sortedItemsCopy);
+        }
         private void B_SortType_Click(object sender, EventArgs e) { }
         private void B_SortNew_Click(object sender, EventArgs e) { }
+        private void SetEditorItems(IList<Item> items) {
+            for (int i = 0; i < Items.Count; i++) {
+                if (i < items.Count) {
+                    GetItem(i).CopyFrom(items[i]);
+                }
+                else {
+                    GetItem(i).CopyFrom(Item.NO_ITEM);
+                }
+                ItemUpdated();
+            }
 
+            LoadItems();
+            Editor.LoadItem(Item.NO_ITEM);
+            System.Media.SystemSounds.Asterisk.Play();
+        }
 
         private void B_ClearAll_Click(object sender, EventArgs e) => ClearItemIf(_ => true);
         private void B_ClearClothing_Click(object sender, EventArgs e) => ClearItemIf(z => ItemInfo.GetItemKind(z).IsClothing());
