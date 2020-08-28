@@ -6,18 +6,18 @@ NHSE
 
 ![License](https://img.shields.io/badge/License-GPLv3-blue.svg)
 
-Save Editor for Animal Crossing: New Horizons
+「あつまれ どうぶつの森」のセーブエディター
 
-Edits savedata dumped from the Nintendo Switch. 
-* Bring your own save file data; this program does not dump it from your console.
+Nintendo Switch から抽出したセーブデータを編集します。
+* 自分のセーブデータを用意してください。このプログラムはコンソールからセーブデータを抽出しません。
 
-## See Also
+## 参考
 
 [MyHorizons](https://github.com/Cuyler36/MyHorizons) by [Cuyler36](https://github.com/Cuyler36/)
-* Some portions of code are liberally adapted from Cuyler36's project above.
+* コードの一部は上記の Cuyler36 のプロジェクトから大いに翻案されています。
 
-## Other
+## その他
 
-Refer to the [Wiki](https://github.com/kwsch/NHSE/wiki) for more information.
+詳しくは [Wiki](https://github.com/kwsch/NHSE/wiki) を参照してください。
 
-**We do not support or condone cheating at the expense of others.** Please be responsible!
+**私たちは他人を犠牲にするチート行為を支持または容認していません。** 自己責任でお願いします！
