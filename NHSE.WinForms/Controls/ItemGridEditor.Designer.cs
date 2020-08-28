@@ -297,7 +297,7 @@
             this.PAN_Navigation.Location = new System.Drawing.Point(217, 30);
             this.PAN_Navigation.Margin = new System.Windows.Forms.Padding(0);
             this.PAN_Navigation.Name = "PAN_Navigation";
-            this.PAN_Navigation.Size = new System.Drawing.Size(93, 175);
+            this.PAN_Navigation.Size = new System.Drawing.Size(93, 235);
             this.PAN_Navigation.TabIndex = 10;
             // 
             // HoverTip
