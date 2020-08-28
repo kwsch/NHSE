@@ -261,7 +261,7 @@ namespace NHSE.WinForms
             SetEditorItems(sortedItemsCopy);
         }
         private void B_SortType_Click(object sender, EventArgs e) {
-            IEnumerable<Item> sortedItems = Items.Where(item => item.ItemId != Item.NONE).OrderBy(item => ItemInfo.GetItemKind(item));
+            IEnumerable<Item> sortedItems = Items.Where(item => item.ItemId != Item.NONE).OrderBy(item => GetItemText(item).ToLower()).OrderBy(item => ItemInfo.GetItemKind(item));
             IList<Item> sortedItemsCopy = new List<Item>(); // to prevent object reference issues
 
             foreach(Item item in sortedItems) {
