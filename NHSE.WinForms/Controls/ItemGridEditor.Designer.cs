@@ -177,7 +177,7 @@
             this.B_Sort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.B_Sort.ContextMenuStrip = this.CM_Sort;
-            this.B_Sort.Location = new System.Drawing.Point(4, 165);
+            this.B_Sort.Location = new System.Drawing.Point(4, 197);
             this.B_Sort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.B_Sort.Name = "B_Sort";
             this.B_Sort.Size = new System.Drawing.Size(85, 36);
