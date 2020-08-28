@@ -260,7 +260,18 @@ namespace NHSE.WinForms
 
             SetEditorItems(sortedItemsCopy);
         }
-        private void B_SortType_Click(object sender, EventArgs e) { }
+        private void B_SortType_Click(object sender, EventArgs e) {
+            IEnumerable<Item> sortedItems = Items.Where(item => item.ItemId != Item.NONE).OrderBy(item => ItemInfo.GetItemKind(item));
+            IList<Item> sortedItemsCopy = new List<Item>(); // to prevent object reference issues
+
+            foreach(Item item in sortedItems) {
+                Item itemCopy = new Item();
+                itemCopy.CopyFrom(item);
+                sortedItemsCopy.Add(itemCopy);
+            }
+
+            SetEditorItems(sortedItemsCopy);
+        }
         private void B_SortNew_Click(object sender, EventArgs e) { }
         private void SetEditorItems(IList<Item> items) {
             for (int i = 0; i < Items.Count; i++) {
