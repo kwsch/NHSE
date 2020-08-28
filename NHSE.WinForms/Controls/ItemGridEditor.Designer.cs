@@ -43,7 +43,6 @@
             this.CM_Sort = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.B_SortAlpha = new System.Windows.Forms.ToolStripMenuItem();
             this.B_SortType = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_SortNew = new System.Windows.Forms.ToolStripMenuItem();
             this.CM_Remove = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.B_ClearAll = new System.Windows.Forms.ToolStripMenuItem();
             this.B_ClearClothing = new System.Windows.Forms.ToolStripMenuItem();
@@ -191,8 +190,7 @@
             this.CM_Sort.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.CM_Sort.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.B_SortAlpha,
-            this.B_SortType,
-            this.B_SortNew});
+            this.B_SortType});
             this.CM_Sort.Name = "CM_Sort";
             this.CM_Sort.ShowImageMargin = false;
             this.CM_Sort.Size = new System.Drawing.Size(186, 200);
@@ -210,13 +208,6 @@
             this.B_SortType.Size = new System.Drawing.Size(185, 24);
             this.B_SortType.Text = "Type";
             this.B_SortType.Click += new System.EventHandler(this.B_SortType_Click);
-            //
-            // B_SortAlpha
-            //
-            this.B_SortNew.Name = "B_SortNew";
-            this.B_SortNew.Size = new System.Drawing.Size(185, 24);
-            this.B_SortNew.Text = "New";
-            this.B_SortNew.Click += new System.EventHandler(this.B_SortNew_Click);
             // 
             // CM_Remove
             // 
@@ -344,7 +335,6 @@
         private System.Windows.Forms.ContextMenuStrip CM_Sort;
         private System.Windows.Forms.ToolStripMenuItem B_SortAlpha;
         private System.Windows.Forms.ToolStripMenuItem B_SortType;
-        private System.Windows.Forms.ToolStripMenuItem B_SortNew;
         private System.Windows.Forms.FlowLayoutPanel FLP_Controls;
         private System.Windows.Forms.Panel PAN_Navigation;
         private System.Windows.Forms.ToolTip HoverTip;

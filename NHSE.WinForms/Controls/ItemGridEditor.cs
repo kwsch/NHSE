@@ -272,7 +272,6 @@ namespace NHSE.WinForms
 
             SetEditorItems(sortedItemsCopy);
         }
-        private void B_SortNew_Click(object sender, EventArgs e) { }
         private void SetEditorItems(IList<Item> items) {
             if (items.Count > Items.Count)
                 return;
