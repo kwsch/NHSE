@@ -1,4 +1,4 @@
-﻿namespace NHSE.WinForms
+﻿    namespace NHSE.WinForms
 {
     partial class ItemGridEditor
     {
@@ -39,6 +39,10 @@
             this.Menu_Set = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.B_Clear = new System.Windows.Forms.Button();
+            this.B_Sort = new System.Windows.Forms.Button();
+            this.CM_Sort = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.B_SortAlpha = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_SortType = new System.Windows.Forms.ToolStripMenuItem();
             this.CM_Remove = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.B_ClearAll = new System.Windows.Forms.ToolStripMenuItem();
             this.B_ClearClothing = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,6 +55,7 @@
             this.HoverTip = new System.Windows.Forms.ToolTip(this.components);
             this.B_ClearDive = new System.Windows.Forms.ToolStripMenuItem();
             this.CM_Hand.SuspendLayout();
+            this.CM_Sort.SuspendLayout();
             this.CM_Remove.SuspendLayout();
             this.FLP_Controls.SuspendLayout();
             this.PAN_Navigation.SuspendLayout();
@@ -165,6 +170,44 @@
             this.B_Clear.Text = "Clear";
             this.B_Clear.UseVisualStyleBackColor = true;
             this.B_Clear.Click += new System.EventHandler(this.B_Clear_Click);
+            //
+            // B_Sort
+            //
+            this.B_Sort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.B_Sort.ContextMenuStrip = this.CM_Sort;
+            this.B_Sort.Location = new System.Drawing.Point(4, 197);
+            this.B_Sort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.B_Sort.Name = "B_Sort";
+            this.B_Sort.Size = new System.Drawing.Size(85, 36);
+            this.B_Sort.TabIndex = 8;
+            this.B_Sort.Text = "Sort";
+            this.B_Sort.UseVisualStyleBackColor = true;
+            this.B_Sort.Click += new System.EventHandler(this.B_Sort_Click);
+            //
+            // CM_Sort
+            //
+            this.CM_Sort.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.CM_Sort.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.B_SortAlpha,
+            this.B_SortType});
+            this.CM_Sort.Name = "CM_Sort";
+            this.CM_Sort.ShowImageMargin = false;
+            this.CM_Sort.Size = new System.Drawing.Size(186, 200);
+            //
+            // B_SortAlpha
+            //
+            this.B_SortAlpha.Name = "B_SortAlpha";
+            this.B_SortAlpha.Size = new System.Drawing.Size(185, 24);
+            this.B_SortAlpha.Text = "Alphabetical";
+            this.B_SortAlpha.Click += new System.EventHandler(this.B_SortAlpha_Click);
+            //
+            // B_SortType
+            //
+            this.B_SortType.Name = "B_SortType";
+            this.B_SortType.Size = new System.Drawing.Size(185, 24);
+            this.B_SortType.Text = "Type";
+            this.B_SortType.Click += new System.EventHandler(this.B_SortType_Click);
             // 
             // CM_Remove
             // 
@@ -233,7 +276,7 @@
             this.FLP_Controls.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.FLP_Controls.Name = "FLP_Controls";
             this.FLP_Controls.Size = new System.Drawing.Size(321, 242);
-            this.FLP_Controls.TabIndex = 8;
+            this.FLP_Controls.TabIndex = 9;
             // 
             // PAN_Navigation
             // 
@@ -241,11 +284,12 @@
             this.PAN_Navigation.Controls.Add(this.L_Page);
             this.PAN_Navigation.Controls.Add(this.B_Down);
             this.PAN_Navigation.Controls.Add(this.B_Clear);
+            this.PAN_Navigation.Controls.Add(this.B_Sort);
             this.PAN_Navigation.Location = new System.Drawing.Point(217, 30);
             this.PAN_Navigation.Margin = new System.Windows.Forms.Padding(0);
             this.PAN_Navigation.Name = "PAN_Navigation";
-            this.PAN_Navigation.Size = new System.Drawing.Size(93, 175);
-            this.PAN_Navigation.TabIndex = 9;
+            this.PAN_Navigation.Size = new System.Drawing.Size(93, 235);
+            this.PAN_Navigation.TabIndex = 10;
             // 
             // HoverTip
             // 
@@ -267,6 +311,7 @@
             this.Name = "ItemGridEditor";
             this.Size = new System.Drawing.Size(321, 242);
             this.CM_Hand.ResumeLayout(false);
+            this.CM_Sort.ResumeLayout(false);
             this.CM_Remove.ResumeLayout(false);
             this.FLP_Controls.ResumeLayout(false);
             this.PAN_Navigation.ResumeLayout(false);
@@ -286,6 +331,10 @@
         private System.Windows.Forms.ToolStripMenuItem Menu_Set;
         private System.Windows.Forms.ToolStripMenuItem Menu_Delete;
         private System.Windows.Forms.Button B_Clear;
+        private System.Windows.Forms.Button B_Sort;
+        private System.Windows.Forms.ContextMenuStrip CM_Sort;
+        private System.Windows.Forms.ToolStripMenuItem B_SortAlpha;
+        private System.Windows.Forms.ToolStripMenuItem B_SortType;
         private System.Windows.Forms.FlowLayoutPanel FLP_Controls;
         private System.Windows.Forms.Panel PAN_Navigation;
         private System.Windows.Forms.ToolTip HoverTip;
