@@ -57,7 +57,7 @@ namespace NHSE.WinForms
 
         private void Main_DragDrop(object sender, DragEventArgs e)
         {
-            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            var files = (string[]?)e.Data.GetData(DataFormats.FileDrop);
             if (files == null || files.Length == 0)
                 return;
             Open(files[0]);

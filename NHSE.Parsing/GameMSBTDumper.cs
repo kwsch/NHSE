@@ -12,18 +12,16 @@ namespace NHSE.Parsing
         {
             var list = GetItemList(msgPath);
             var max = list.Max(z => z.Key);
-            var result = new string[max + 1];
+            var result = new string?[max + 1];
 
             foreach (var item in list)
                 result[item.Key] = item.Value;
             for (int i = 0; i < result.Length; i++)
-            {
-                if (result[i] == null)
-                    result[i] = string.Empty;
-            }
+                result[i] ??= string.Empty;
+
             result[0] = "(None)";
             result[5794] = "DIY recipe";
-            return result;
+            return result!;
         }
 
         public static string[] GetArtList(string msgPath)

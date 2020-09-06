@@ -65,11 +65,11 @@ namespace NHSE.Parsing
 
         private static void DumpRemake(string corePath, string langID, string msbtFolder, string langFolderCode)
         {
-            Dump("body_color", "STR_Remake_BodyColor.msbt");
-            Dump("body_parts", "STR_Remake_BodyParts.msbt");
-            Dump("fabric_color", "STR_Remake_FabricColor.msbt");
-            Dump("fabric_parts", "STR_Remake_FabricParts.msbt");
-            void Dump(string name, string msbt)
+            DumpMSBT("body_color", "STR_Remake_BodyColor.msbt");
+            DumpMSBT("body_parts", "STR_Remake_BodyParts.msbt");
+            DumpMSBT("fabric_color", "STR_Remake_FabricColor.msbt");
+            DumpMSBT("fabric_parts", "STR_Remake_FabricParts.msbt");
+            void DumpMSBT(string name, string msbt)
             {
                 var dest = Path.Combine(corePath, langID, $"text_{name}_{langID}.txt");
                 var folder = string.Format(msbtFolder, langFolderCode);
