@@ -93,6 +93,8 @@ namespace NHSE.WinForms
             if (exist != null)
             {
                 exist.Show();
+				exist.BringToFront();
+				exist.CenterToForm(this);
                 return;
             }
 
