@@ -70,7 +70,7 @@ namespace NHSE.WinForms
         }
 
         private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e) => PBar_MultiUse.Value = e.ProgressPercentage;
-        
+
         private void Completed(object sender, AsyncCompletedEventArgs e)
         {
             if (e.Error != null)
@@ -80,7 +80,7 @@ namespace NHSE.WinForms
                 return;
             }
 
-            PBar_MultiUse.Value = 100; 
+            PBar_MultiUse.Value = 100;
             L_Status.Text = "Unzipping...";
             UnzipFile();
         }
@@ -96,7 +96,7 @@ namespace NHSE.WinForms
 
                 Directory.CreateDirectory(outputFolderPath);
 
-                await Task.Run(() => ZipFile.ExtractToDirectory(ZipFilePath, outputFolderPath));
+                await Task.Run(() => ZipFile.ExtractToDirectory(ZipFilePath, outputFolderPath)).ConfigureAwait(false);
 
                 SetUIDownloadState(true, true);
             }
@@ -137,7 +137,7 @@ namespace NHSE.WinForms
             try
             {
                 using var webClient = new WebClient();
-                await webClient.OpenReadTaskAsync(new Uri(AllHosts[CB_HostSelect.SelectedIndex], UriKind.Absolute));
+                await webClient.OpenReadTaskAsync(new Uri(AllHosts[CB_HostSelect.SelectedIndex], UriKind.Absolute)).ConfigureAwait(false);
 
                 var totalSizeBytes = Convert.ToInt64(webClient.ResponseHeaders["Content-Length"]);
                 var totalSizeMb = totalSizeBytes / 1e+6;

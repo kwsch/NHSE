@@ -251,7 +251,6 @@ namespace NHSE.WinForms
             CHK_VillagerMovingOut.Checked = true;
 
             System.Media.SystemSounds.Asterisk.Play();
-            return;
         }
 
         private void B_SetPhraseOriginal_Click(object sender, EventArgs e)

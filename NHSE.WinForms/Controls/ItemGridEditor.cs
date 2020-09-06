@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Text;
 using System.Linq;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 using NHSE.Core;
 using NHSE.Sprites;
 
@@ -227,7 +224,6 @@ namespace NHSE.WinForms
         private static void ShowContextMenuBelow(ToolStripDropDown c, Control n) => c.Show(n.PointToScreen(new Point(0, n.Height)));
         private void B_Clear_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_Remove, B_Clear);
 
-
         private void ClearItemIf(Func<Item, bool> criteria)
         {
             bool all = ModifierKeys == Keys.Shift;
@@ -248,41 +244,48 @@ namespace NHSE.WinForms
         }
 
         private void B_Sort_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_Sort, B_Sort);
-        private void B_SortAlpha_Click(object sender, EventArgs e) {
-            IEnumerable<Item> sortedItems = Items.Where(item => item.ItemId != Item.NONE).OrderBy(item => GetItemText(item).ToLower());
-            IList<Item> sortedItemsCopy = new List<Item>(); // to prevent object reference issues
+        private void B_SortAlpha_Click(object sender, EventArgs e)
+        {
+            var sortedItems = Items.Where(item => item.ItemId != Item.NONE)
+                .OrderBy(item => GetItemText(item).ToLower());
+            var sortedItemsCopy = new List<Item>(); // to prevent object reference issues
 
-            foreach(Item item in sortedItems) {
-                Item itemCopy = new Item();
+            foreach(var item in sortedItems)
+            {
+                var itemCopy = new Item();
                 itemCopy.CopyFrom(item);
                 sortedItemsCopy.Add(itemCopy);
             }
 
             SetEditorItems(sortedItemsCopy);
         }
-        private void B_SortType_Click(object sender, EventArgs e) {
-            IEnumerable<Item> sortedItems = Items.Where(item => item.ItemId != Item.NONE).OrderBy(item => GetItemText(item).ToLower()).OrderBy(item => ItemInfo.GetItemKind(item));
-            IList<Item> sortedItemsCopy = new List<Item>(); // to prevent object reference issues
 
-            foreach(Item item in sortedItems) {
-                Item itemCopy = new Item();
+        private void B_SortType_Click(object sender, EventArgs e)
+        {
+            var sortedItems = Items.Where(item => item.ItemId != Item.NONE)
+                .OrderBy(item => GetItemText(item).ToLower())
+                .ThenBy(ItemInfo.GetItemKind);
+            var sortedItemsCopy = new List<Item>(); // to prevent object reference issues
+
+            foreach (var item in sortedItems)
+            {
+                var itemCopy = new Item();
                 itemCopy.CopyFrom(item);
                 sortedItemsCopy.Add(itemCopy);
             }
 
             SetEditorItems(sortedItemsCopy);
         }
-        private void SetEditorItems(IList<Item> items) {
+
+        private void SetEditorItems(IReadOnlyList<Item> items)
+        {
             if (items.Count > Items.Count)
                 return;
 
-            for (int i = 0; i < Items.Count; i++) {
-                if (i < items.Count) {
-                    GetItem(i).CopyFrom(items[i]);
-                }
-                else {
-                    GetItem(i).CopyFrom(Item.NO_ITEM);
-                }
+            for (int i = 0; i < Items.Count; i++)
+            {
+                var src = i < items.Count ? items[i] : Item.NO_ITEM;
+                GetItem(i).CopyFrom(src);
                 ItemUpdated();
             }
 

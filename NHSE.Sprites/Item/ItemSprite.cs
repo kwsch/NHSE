@@ -70,7 +70,7 @@ namespace NHSE.Sprites
             // the 1 stops the original "leaf" being overwritten
             var name = iconType == ItemMenuIconType.Leaf ? $"{iconType}1" : iconType.ToString();
 
-            img = (Image?)Resources.ResourceManager.GetObject(name); 
+            img = (Image?)Resources.ResourceManager.GetObject(name);
             return img != null;
         }
 
@@ -83,10 +83,7 @@ namespace NHSE.Sprites
                 return true;
 
             name = $"{id:00000}_0"; // fallback to no variation
-            if (SpriteFileExists(name, out path))
-                return true;
-
-            return false;
+            return SpriteFileExists(name, out path);
         }
 
         private static bool SpriteFileExists(string filename, out string path)

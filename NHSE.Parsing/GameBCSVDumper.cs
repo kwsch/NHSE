@@ -56,7 +56,6 @@ namespace NHSE.Parsing
                 Console.WriteLine($"Created {fn}");
             }
 
-
             DumpS("bcsv_map.txt", BCSV.EnumLookup.Dump());
             DumpS("lifeSupportAchievement.txt", GetLifeSupportAchievementList(pathBCSV));
             DumpS("recipeDictionary.txt", GetRecipeList(pathBCSV));
