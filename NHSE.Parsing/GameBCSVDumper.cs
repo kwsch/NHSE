@@ -266,9 +266,12 @@ namespace NHSE.Parsing
             for (int i = 0; i < bcsv.EntryCount; i++)
             {
                 var stack = bcsv.ReadValue(i, fStack);
-                // for some reason turnips have a stack value of -1, should be 10...
-                if (stack == "-1")
+
+                if (stack == "-1") // for some reason turnips have a stack value of -1, should be 10...
                     stack = "10";
+                else if (stack == "0") // the game stores non-stackable items as 0, so technically they stack to 1
+                    stack = "1";
+
                 var stackval = ushort.Parse(stack);
                 var kind = bcsv.ReadValue(i, fKind).TrimEnd('\0');
                 if (skipLabels.Contains(kind))
