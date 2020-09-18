@@ -47,7 +47,6 @@
     <None Remove="Resources\text\fr\text_item_fr.txt" />
     <None Remove="Resources\text\fr\text_phrase_fr.txt" />
     <None Remove="Resources\text\fr\text_villager_fr.txt" />
-    <None Remove="Resources\text\item_counts_json.txt" />
     <None Remove="Resources\text\it\internal_it.txt" />
     <None Remove="Resources\text\it\MessageStrings_it.txt" />
     <None Remove="Resources\text\it\text_body_color_it.txt" />
@@ -100,7 +99,6 @@
     <EmbeddedResource Include="Resources\byte\item_menuicon.bin" />
     <EmbeddedResource Include="Resources\byte\item_size.bin" />
     <EmbeddedResource Include="Resources\byte\outside.bin" />
-    <EmbeddedResource Include="Resources\text\item_counts_json.txt" />
     <EmbeddedResource Include="Resources\text\de\internal_de.txt" />
     <EmbeddedResource Include="Resources\text\de\MessageStrings_de.txt" />
     <EmbeddedResource Include="Resources\text\de\text_body_color_de.txt" />
