@@ -93,6 +93,8 @@ namespace NHSE.Parsing
             DumpS("DoorKind.txt", GetNumberedEnumValues(pathBCSV, "StructureHouseDoorParam.bcsv", 0x39B5A93D, 0x54706054));
             DumpS("WallKind.txt", GetNumberedEnumValues(pathBCSV, "StructureHouseWallParam.bcsv", 0x39B5A93D, 0x54706054));
 
+            DumpD("ItemStack.json.txt", GetItemStackDict(pathBCSV));
+
             DumpB("item_kind.bin", GetItemKindArray(pathBCSV));
             DumpB("item_size.bin", GetItemSizeArray(pathBCSV));
             DumpU("item_menuicon.bin", GetItemMenuIconArray(pathBCSV));
@@ -237,34 +239,46 @@ namespace NHSE.Parsing
             return result;
         }
 
-        public static byte[] GetItemStackArray(string pathBCSV, string fn = "ItemKind.bcsv")
+        public static Dictionary<ItemKind, ushort> GetItemStackDict(string pathBCSV, string fn = "ItemKind.bcsv")
         {
             var path = Path.Combine(pathBCSV, fn);
             var data = File.ReadAllBytes(path);
             var bcsv = new BCSV(data);
 
             var dict = bcsv.GetFieldDictionary();
-            var fType = dict[0x4C9BA961];
-            var fID = dict[0x612BC6CF];
+            var fStack = dict[0x4C9BA961]; // MultiHoldMaxNum
+            var fKind = dict[0x87BF00E8]; // Label
 
-            var types = new Dictionary<ushort, ushort>();
-            ushort max = 0;
+            // clothing is split out more granularly in ItemKind and would cause errors
+            // since it's not likely to ever be stackable, we can skip
+            // none-type can be skipped and doesn't exist in ItemKind either
+            List<string> skipLabels = new List<String>();
+            skipLabels.Add("TopsDefault");
+            skipLabels.Add("Tops");
+            skipLabels.Add("OnePiece");
+            skipLabels.Add("MarineSuit");
+            skipLabels.Add("BottomsDefault");
+            skipLabels.Add("Bottoms");
+            skipLabels.Add("Shoes");
+            skipLabels.Add("None");
+
+            var result = new Dictionary<ItemKind, ushort>();
             for (int i = 0; i < bcsv.EntryCount; i++)
             {
-                var id = bcsv.ReadValue(i, fID);
-                var ival = ushort.Parse(id);
-                var type = bcsv.ReadValue(i, fType).TrimEnd('\0');
-                var typeval = ushort.Parse(type);
+                var stack = bcsv.ReadValue(i, fStack);
+                // for some reason turnips have a stack value of -1, should be 10...
+                if (stack == "-1")
+                    stack = "10";
+                var stackval = ushort.Parse(stack);
+                var kind = bcsv.ReadValue(i, fKind).TrimEnd('\0');
+                if (skipLabels.Contains(kind))
+                    continue;
 
-                types.Add(ival, typeval);
-
-                if (ival > max)
-                    max = ival;
+                kind = "Kind_" + kind;
+                if (!Enum.TryParse<ItemKind>(kind, out var k))
+                    throw new InvalidEnumArgumentException($"{kind} is not a known enum value @ index {i}. Update the enum index first.");
+                result.Add(k, stackval);
             }
-
-            byte[] result = new byte[max + 1];
-            foreach (var kvp in types)
-                result[kvp.Key] = (byte)kvp.Value;
 
             return result;
         }
