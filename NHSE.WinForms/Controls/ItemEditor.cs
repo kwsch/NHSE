@@ -283,15 +283,17 @@ namespace NHSE.WinForms
         private void L_Count_DoubleClick(object sender, EventArgs e)
         {
             Item currentItem = SetItem(new Item());
+            var itemKind = ItemInfo.GetItemKind(currentItem);
 
-            var json = String.Join("", NHSE.Core.ResourceUtil.GetStringList("item_counts_json"));
-            var itemStacks = JsonConvert.DeserializeObject<Dictionary<ushort, ushort>>(json);
-            if(!itemStacks.ContainsKey(currentItem.ItemId)) {
+            var json = String.Join("", NHSE.Core.ResourceUtil.GetStringList("ItemStack.json.txt"));
+            var itemStacks = JsonConvert.DeserializeObject<Dictionary<ItemKind, ushort>>(json);
+
+            if(!itemStacks.ContainsKey(itemKind)) {
                 // we don't have data for this item, so let's just leave it alone
                 return;
             }
 
-            currentItem.Count = (ushort)(itemStacks[currentItem.ItemId] - 1);
+            currentItem.Count = (ushort)(itemStacks[itemKind] - 1);
             LoadItem(currentItem);
         }
 
