@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 using NHSE.Core;
 using NHSE.Sprites;
 
@@ -280,6 +282,11 @@ namespace NHSE.WinForms
 
         private void L_Count_Click(object sender, EventArgs e)
         {
+            var json = String.Join("", NHSE.Core.ResourceUtil.GetStringList("item_counts_json"));
+
+            // deserialize json into dictionary
+            var itemStacks = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+
             
         }
 
