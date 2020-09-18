@@ -11,6 +11,7 @@
     <None Remove="Resources\byte\item_menuicon.bin" />
     <None Remove="Resources\byte\item_size.bin" />
     <None Remove="Resources\byte\outside.bin" />
+    <None Remove="Resources\text\ItemStack.json.txt" />
     <None Remove="Resources\text\de\internal_de.txt" />
     <None Remove="Resources\text\de\MessageStrings_de.txt" />
     <None Remove="Resources\text\de\text_body_color_de.txt" />
@@ -99,6 +100,7 @@
     <EmbeddedResource Include="Resources\byte\item_menuicon.bin" />
     <EmbeddedResource Include="Resources\byte\item_size.bin" />
     <EmbeddedResource Include="Resources\byte\outside.bin" />
+    <EmbeddedResource Include="Resources\text\ItemStack.json.txt" />
     <EmbeddedResource Include="Resources\text\de\internal_de.txt" />
     <EmbeddedResource Include="Resources\text\de\MessageStrings_de.txt" />
     <EmbeddedResource Include="Resources\text\de\text_body_color_de.txt" />
