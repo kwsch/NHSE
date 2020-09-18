@@ -136,8 +136,4 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="System.Web.Extensions" />
-  </ItemGroup>
-
 </Project>
