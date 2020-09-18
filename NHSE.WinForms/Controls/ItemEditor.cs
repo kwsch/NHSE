@@ -280,7 +280,7 @@ namespace NHSE.WinForms
             }
         }
 
-        private void L_Count_Click(object sender, EventArgs e)
+        private void L_Count_DoubleClick(object sender, EventArgs e)
         {
             Item currentItem = SetItem(new Item());
 
