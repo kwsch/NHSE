@@ -154,6 +154,7 @@
             this.L_Count.TabIndex = 7;
             this.L_Count.Text = "Count:";
             this.L_Count.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_Count.Click += new System.EventHandler(this.L_Count_Click);
             // 
             // L_Uses
             // 
