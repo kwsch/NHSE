@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using Newtonsoft.Json;
 using NHSE.Core;
 
 namespace NHSE.Parsing
@@ -53,6 +55,14 @@ namespace NHSE.Parsing
                 byte[] bytes = new byte[ushorts.Length * 2];
                 Buffer.BlockCopy(ushorts, 0, bytes, 0, ushorts.Length * 2);
                 File.WriteAllBytes(Path.Combine(dest, dir, fn), bytes);
+                Console.WriteLine($"Created {fn}");
+            }
+
+            void DumpD<T, S>(string fn, Dictionary<T, S> dict, string dir = "text")
+            {
+                Directory.CreateDirectory(Path.Combine(dest, dir));
+                var json = JsonConvert.SerializeObject(dict);
+                File.WriteAllText(Path.Combine(dest, dir, fn), json);
                 Console.WriteLine($"Created {fn}");
             }
 
