@@ -278,6 +278,11 @@ namespace NHSE.WinForms
             }
         }
 
+        private void L_Count_Click(object sender, EventArgs e)
+        {
+            
+        }
+
         private void CB_CountAlias_SelectedValueChanged(object sender,EventArgs e)
         {
             var val = WinFormsUtil.GetIndex((ComboBox)sender);
