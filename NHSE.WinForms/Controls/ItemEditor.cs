@@ -282,12 +282,17 @@ namespace NHSE.WinForms
 
         private void L_Count_Click(object sender, EventArgs e)
         {
+            Item currentItem = SetItem(new Item());
+
             var json = String.Join("", NHSE.Core.ResourceUtil.GetStringList("item_counts_json"));
+            var itemStacks = JsonConvert.DeserializeObject<Dictionary<ushort, ushort>>(json);
+            if(!itemStacks.ContainsKey(currentItem.ItemId)) {
+                // we don't have data for this item, so let's just leave it alone
+                return;
+            }
 
-            // deserialize json into dictionary
-            var itemStacks = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
-
-            
+            currentItem.Count = (ushort)(itemStacks[currentItem.ItemId] - 1);
+            LoadItem(currentItem);
         }
 
         private void CB_CountAlias_SelectedValueChanged(object sender,EventArgs e)
