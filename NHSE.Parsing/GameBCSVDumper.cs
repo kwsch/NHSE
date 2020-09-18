@@ -227,6 +227,38 @@ namespace NHSE.Parsing
             return result;
         }
 
+        public static byte[] GetItemStackArray(string pathBCSV, string fn = "ItemKind.bcsv")
+        {
+            var path = Path.Combine(pathBCSV, fn);
+            var data = File.ReadAllBytes(path);
+            var bcsv = new BCSV(data);
+
+            var dict = bcsv.GetFieldDictionary();
+            var fType = dict[0x4C9BA961];
+            var fID = dict[0x612BC6CF];
+
+            var types = new Dictionary<ushort, ushort>();
+            ushort max = 0;
+            for (int i = 0; i < bcsv.EntryCount; i++)
+            {
+                var id = bcsv.ReadValue(i, fID);
+                var ival = ushort.Parse(id);
+                var type = bcsv.ReadValue(i, fType).TrimEnd('\0');
+                var typeval = ushort.Parse(type);
+
+                types.Add(ival, typeval);
+
+                if (ival > max)
+                    max = ival;
+            }
+
+            byte[] result = new byte[max + 1];
+            foreach (var kvp in types)
+                result[kvp.Key] = (byte)kvp.Value;
+
+            return result;
+        }
+
         public static ushort[] GetItemMenuIconArray(string pathBCSV, string fn = "ItemParam.bcsv")
         {
             var path = Path.Combine(pathBCSV, fn);
