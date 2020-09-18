@@ -285,7 +285,7 @@ namespace NHSE.WinForms
             Item currentItem = SetItem(new Item());
             var itemKind = ItemInfo.GetItemKind(currentItem);
 
-            var json = String.Join("", NHSE.Core.ResourceUtil.GetStringList("ItemStack.json.txt"));
+            var json = String.Join("", NHSE.Core.ResourceUtil.GetStringList("ItemStack.json"));
             var itemStacks = JsonConvert.DeserializeObject<Dictionary<ItemKind, ushort>>(json);
 
             if(!itemStacks.ContainsKey(itemKind)) {
