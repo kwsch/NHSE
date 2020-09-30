@@ -330,8 +330,13 @@ namespace NHSE.Core
             {0x16B, new EventFlagLand(0 , 1    , 0363, "JohnnyInvisible"                            )}, // ジョニー非表示状態か
             {0x16C, new EventFlagLand(0 , 1    , 0364, "DreamUploadPlayerHaveCreaterID"             )}, // ゆめみ|夢の最終更新者がMyDesignショーケースの作者IDを持ってるか？
             {0x16D, new EventFlagLand(0 , 5000 , 0365, "DiveFishNetHostCatchNumResult"              )}, // 通信開始時にネットホストのプレイヤーが今までに捕まえた海の幸の数
+            {0x16E, new EventFlagLand(0 , 9999 , 0366, "HalloweenSloVisitYear"                      )}, // ハロウィンの初回レイジを予約した年
+            {0x16F, new EventFlagLand(0 , 1    , 0367, "HalloweenSloVisitToday"                     )}, // 今日がハロウィンのレイジ来訪日
+            {0x171, new EventFlagLand(0 , 1    , 0369, "GrowUpAfterPatch1_5"                        )}, // 1.5適用して成長処理をした
             {0x172, new EventFlagLand(0 , 1    , 0370, "NeedUpdatePassword"                         )}, // セーブデータ復元後のパスワード更新必要
+            {0x173, new EventFlagLand(0 , 1    , 0371, "IsHalloweenLessThanThreeDays"               )}, // ハロウィン３日前以内か？
             {0x176, new EventFlagLand(0 , 1    , 0374, "EventObjFlag0"                              )}, // イベントオブジェフラグ0
+            {0x17B, new EventFlagLand(0 , 1    , 0379, "SecondPublicAnnouncement"                   )}, // 2回目島内放送の発生が必要か？
         };
 
         private const string Unknown = "???";
