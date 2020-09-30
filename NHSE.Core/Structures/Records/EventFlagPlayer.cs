@@ -849,7 +849,7 @@ namespace NHSE.Core
             {0x407, new EventFlagPlayer(0 , 1   , 1031, "SpnJuneBrideNotGetFenceTodayFrag"           )}, // パニエル/ジューンブライド|今日柵もらえなかった？
             {0x408, new EventFlagPlayer(0 , 1   , 1032, "JuneBrideBGMHasUnlocked"                    )}, // ジューンブライド|今年BGMが解禁されているか？
             {0x40A, new EventFlagPlayer(0 , 1   , 1034, "XctFirstTalk"                               )}, // みしらぬネコ/メーデー|面識ある？
-            {0x40B, new EventFlagPlayer(0 , 1   , 1035, "PAnnounceJuneBride"                         )}, // 島内放送|ジューンブライド初回ログイン時の放送を聞いた？
+            {0x40B, new EventFlagPlayer(0 , 1   , 1035, "PAnnounceJuneBride"                         )}, // 島内放送|今年ジューンブライド初回ログイン時の放送を聞いた？
             {0x40C, new EventFlagPlayer(0 , 1   , 1036, "StandByPhoneCallJuneBrideSpn"               )}, // 電話デモ|今年パニエルからジューンブライド告知された？
             {0x40D, new EventFlagPlayer(0 , 1   , 1037, "AlpJuneBrideGetStickFrag"                   )}, // カイゾー/ジューンブライド|今年ステッキもらった？
             {0x40F, new EventFlagPlayer(0 , 10  , 1039, "LastApproachVillagerIndex"                  )}, // 最後にアプローチ会話をしたNPCの住人番号
@@ -902,8 +902,15 @@ namespace NHSE.Core
             {0x447, new EventFlagPlayer(0 , 1   , 1095, "TapULFirstExplain"                          )}, // ゆめみ|ULの初回説明読んだ？
             {0x449, new EventFlagPlayer(0 , 1   , 1097, "TapDreamUploadToday"                        )}, // ゆめみ|今日夢をアップロードした
             {0x44A, new EventFlagPlayer(0 , 1   , 1098, "TapDreamDeleteToday"                        )}, // ゆめみ|今日夢を削除した
+            {0x44B, new EventFlagPlayer(0 , 1   , 1099, "PknTalkBeforeFlag"                          )}, // パンプキング/ハロウィン|面識ある？
+            {0x44C, new EventFlagPlayer(0 , 1   , 1100, "PknTalkTodayFlag"                           )}, // パンプキング/ハロウィン|今日会話した？
+            {0x44D, new EventFlagPlayer(0 , 64  , 1101, "PknGiveCandyCount"                          )}, // パンプキング/ハロウィン|アメをあげた回数
+            {0x44E, new EventFlagPlayer(0 , 1   , 1102, "PknGetCarriageFlag"                         )}, // パンプキング/ハロウィン|かぼちゃのばしゃもらった？
+            {0x44F, new EventFlagPlayer(0 , 1   , 1103, "PknGetBromideFlag"                          )}, // パンプキング/ハロウィン|ブロマイドもらった？
+            {0x450, new EventFlagPlayer(0 , 1   , 1104, "PknGetCarriageRecipeFlag"                   )}, // パンプキング/ハロウィン|かぼちゃのばしゃのレシピもらった？
             {0x451, new EventFlagPlayer(0 , 1   , 1105, "OwlPaintingDiveFish"                        )}, // フータのうみのさちチュートリアル聞いた？
             {0x452, new EventFlagPlayer(0 , 1   , 1106, "PAnnounceFireworksSza1"                     )}, // 島内放送|花火大会しずえ1回目の放送を聞いた？
+            {0x454, new EventFlagPlayer(0 , 1   , 1108, "RcmBoughtCandyTodayFlag"                    )}, // まめきち/ハロウィン|今日アメ買った？
             {0x457, new EventFlagPlayer(0 , 1   , 1111, "FoxFirstTalkFireworksFlag"                  )}, // つねきち|花火大会で会話したことある？
             {0x458, new EventFlagPlayer(0 , 1   , 1112, "CharacterCreationFlag"                      )}, // 夏パッチ以降でキャラメイク完了したか？
             {0x459, new EventFlagPlayer(0 , 1   , 1113, "PublicAnnouncement_DiveFish"                )}, // 泳ぎ解禁の島内放送聞いたか？手紙だす？
@@ -917,21 +924,65 @@ namespace NHSE.Core
             {0x461, new EventFlagPlayer(0 , 1   , 1121, "PlayerHouseBuiltToday"                      )}, // 今日自宅が完成した（今日テント→家になった）
             {0x462, new EventFlagPlayer(0 , 1   , 1122, "ReceiveTapBedLetter"                        )}, // ゆめみからベッド付き手紙を受け取った
             {0x463, new EventFlagPlayer(0 , 1   , 1123, "FoxTalkOnlyStandShopFlag"                   )}, // つねきち|屋台でしか会話したことがない？
+            {0x464, new EventFlagPlayer(0 , 1   , 1124, "NpcGetCandyTodayFlag"                       )}, // 一般NPC/ハロウィン|今日アメもらった？
             {0x465, new EventFlagPlayer(0 , 1   , 1125, "DiveFish_FirstDonation"                     )}, // 海の幸を初寄贈した
             {0x466, new EventFlagPlayer(0 , 1   , 1126, "TapSendThankyouLetter"                      )}, // ゆめみ|翌日、夢をアップしたお礼の手紙が届くか？
             {0x467, new EventFlagPlayer(0 , 9999, 1127, "PickUpDIYGoldCount"                         )}, // ver1.4.0以降、拾われたことがない金鉱石を拾った回数
             {0x468, new EventFlagPlayer(0 , 1   , 1128, "FireworkCannotGetNnpcItemFlag"              )}, // 花火大会|一般NPCから受け取り損ねたアイテムがある？
             {0x46B, new EventFlagPlayer(0 , 7   , 1131, "SurpriseVisitCount"                         )}, // 突撃訪問発生までのカウント
             {0x46C, new EventFlagPlayer(0 , 1   , 1132, "SurpriseVisitDone"                          )}, // 突撃訪問された事があるか
+            {0x46D, new EventFlagPlayer(0 , 1   , 1133, "GetHalloweenRag"                            )}, // 一般NPC/ハロウィン|ラグもらった？
+            {0x46E, new EventFlagPlayer(0 , 1   , 1134, "GetHalloweenWallPaper"                      )}, // 一般NPC/ハロウィン|かべがみもらった？
+            {0x46F, new EventFlagPlayer(0 , 1   , 1135, "GetHalloweenFloor"                          )}, // 一般NPC/ハロウィン|ゆかもらった？
+            {0x470, new EventFlagPlayer(0 , 1   , 1136, "GetHalloweenStickRecipe"                    )}, // パンプキング/ハロウィン|ステッキ(レシピ)もらった？
+            {0x471, new EventFlagPlayer(0 , 1   , 1137, "GetHalloweenGarland"                        )}, // 一般NPC/ハロウィン|ガーランドもらった？
+            {0x473, new EventFlagPlayer(0 , 1   , 1139, "GetHalloweenTableSetting"                   )}, // 一般NPC/ハロウィン|テーブルセッティングもらった？
+            {0x475, new EventFlagPlayer(0 , 1   , 1141, "GetHalloweenBag"                            )}, // 今年ハロウィンのはねをもらった
+            {0x476, new EventFlagPlayer(0 , 1   , 1142, "AddBodyColor"                               )}, // タヌポート|追加ボディカラー解禁
+            {0x477, new EventFlagPlayer(0 , 1   , 1143, "AddEyeColor"                                )}, // タヌポート|追加アイカラー解禁
+            {0x478, new EventFlagPlayer(0 , 1   , 1144, "AddCheekColor"                              )}, // タヌポート|追加チークカラー解禁
             {0x479, new EventFlagPlayer(0 , 1   , 1145, "SaveDataRestoringSettingNotice"             )}, // セーブデータ復元|設定異常検知
             {0x47A, new EventFlagPlayer(0 , 1   , 1146, "TapTalkAboutMydesignShowcase"               )}, // ゆめみ|マイデザインショーケースについて説明聞いた
+            {0x47B, new EventFlagPlayer(0 , 1   , 1147, "NpcHalloweenTrickFlag"                      )}, // ハロウィン|今日イタズラされた？
             {0x47C, new EventFlagPlayer(0 , 1   , 1148, "TapFirstDreamIn"                            )}, // ゆめみ|夢の中に入ったことがある？
             {0x47D, new EventFlagPlayer(0 , 1   , 1149, "TapFirstCheckMydesingShowcase"              )}, // ゆめみ|夢の中のマイデザインショーケース端末にアクセスしたことがある？
+            {0x47E, new EventFlagPlayer(0 , 1   , 1150, "SeekingQuestFirst"                          )}, // かくれんぼ｜かくれんをした事がある
+            {0x47F, new EventFlagPlayer(0 , 1   , 1151, "SpecialMakeChanged"                         )}, // プレイヤが特殊メイクに変更した
+            {0x480, new EventFlagPlayer(0 , 1   , 1152, "TalkMakeTodayAnyone"                        )}, // 今日誰かにメイク会話を聞いたか
+            {0x481, new EventFlagPlayer(0 , 1   , 1153, "RcmExplainCandyFlag"                        )}, // まめきち/ハロウィン|今年アメの説明聞いた？
+            {0x482, new EventFlagPlayer(0 , 1   , 1154, "RcmExplainPumpkinFlag"                      )}, // まめきち/ハロウィン|今日かぼちゃの苗の説明聞いた？
             {0x483, new EventFlagPlayer(0 , 1   , 1155, "SzaFireworksSubmitMyDesignToday"            )}, // 花火大会しずえ｜今日マイデザイン花火を提出した？
+            {0x484, new EventFlagPlayer(0 , 1   , 1156, "PAnnounceHalloween"                         )}, // 島内放送|今年ハロウィン期間初回ログイン時の放送を聞いた？
+            {0x486, new EventFlagPlayer(0 , 1   , 1158, "ExplainPumpkinColorFlag"                    )}, // ハロウィン|今年かぼちゃの苗の説明聞いた？
+            {0x487, new EventFlagPlayer(0 , 1   , 1159, "SloExplainPumpkinSeedingFlag"               )}, // レイジ/ハロウィン|今日かぼちゃの苗の特別価格の説明きいた？
             {0x488, new EventFlagPlayer(0 , 1   , 1160, "CalcPastDays"                               )}, // 経過日数の計算をした
             {0x48A, new EventFlagPlayer(0 , 3000, 1162, "FireworksLastApproachYear"                  )}, // 花火大会|最後にアプローチ挙動をした年
+            {0x48D, new EventFlagPlayer(0 , 1   , 1165, "SloExplainAddVegetable"                     )}, // レイジ/ハロウィン|今日かぼちゃの苗販売の説明聞いた？
+            {0x492, new EventFlagPlayer(0 , 1   , 1170, "PknTalkLastNoCandyFlag"                     )}, // パンプキング/ハロウィン|最後の会話時アメ持ってなかった？
+            {0x49B, new EventFlagPlayer(0 , 64  , 1179, "PknGiveLollipopCount"                       )}, // パンプキング/ハロウィン|ロリポップをあげた回数
             {0x49C, new EventFlagPlayer(0 , 1   , 1180, "TapSelWhereAreHere"                         )}, // ゆめみ|ここはどこ？を１度選んだらON
+            {0x49D, new EventFlagPlayer(0 , 1   , 1181, "PknTalkLastNotGetFlag"                      )}, // パンプキング/ハロウィン|最後の会話でアイテムもらえなかった？
+            {0x49E, new EventFlagPlayer(0 , 1   , 1182, "PknLastGiveCandyFlag"                       )}, // パンプキング/ハロウィン|前回渡したのはアメ？
+            {0x49F, new EventFlagPlayer(0 , 1   , 1183, "PknCompItemCandyFlag"                       )}, // パンプキング/ハロウィン|アメ報酬コンプした？
+            {0x4A0, new EventFlagPlayer(0 , 1   , 1184, "PknCompItemLollipopFlag"                    )}, // パンプキング/ハロウィン|ロリポップ報酬コンプした？
+            {0x4A1, new EventFlagPlayer(0 , 1   , 1185, "PknPumpkingLookChatFlag"                    )}, // パンプキング/ハロウィン|パンプキング装備の雑談した？
             {0x4A2, new EventFlagPlayer(0 , 1   , 1186, "Mobile1stBoot_Camera_UnlockKeyGuideOff"     )}, // スマホアプリ初起動|カメラアプリにキーガイドOFF追加
+            {0x4A3, new EventFlagPlayer(0 , 1   , 1187, "GetHalloweenRobe"                           )}, // パンプキング/ハロウィン|ローブをもらった
+            {0x4A4, new EventFlagPlayer(0 , 1   , 1188, "GetHalloweenMask"                           )}, // パンプキング/ハロウィン|かぶりものをもらった
+            {0x4A5, new EventFlagPlayer(0 , 1   , 1189, "PknSendLetterFlag"                          )}, // パンプキング/ハロウィン|今年手紙送った？
+            {0x4A7, new EventFlagPlayer(0 , 8   , 1191, "NpcGiveCandyCount"                          )}, // 一般NPC/ハロウィン|アメのお礼もらった回数
+            {0x4A8, new EventFlagPlayer(0 , 1   , 1192, "GetHalloweenGarlandRecipe"                  )}, // 一般NPC/ハロウィン|ガーランドのレシピをもらった
+            {0x4A9, new EventFlagPlayer(0 , 1   , 1193, "GetHalloweenTableSettingRecipe"             )}, // 一般NPC/ハロウィン|テーブルセッティングのレシピをもらった
+            {0x4AA, new EventFlagPlayer(0 , 1   , 1194, "NpcTalkLastNotGetFlag"                      )}, // 一般NPC/ハロウィン|イベント中、誰かと話した？
+            {0x4AB, new EventFlagPlayer(0 , 1   , 1195, "EnabledEmoticonIrregular"                   )}, // 漫符UI解禁済みかつ漫符入手会話が未発生
+            {0x4B2, new EventFlagPlayer(0 , 1   , 1202, "TapUnlockFavorite"                          )}, // ゆめみ|「前に見た夢を見る」解禁
+            {0x4B3, new EventFlagPlayer(0 , 9999, 1203, "LastPlayHalloweenYear"                      )}, // ハロウィン|最後に遊んだハロウィンの年
+            {0x4BA, new EventFlagPlayer(0 , 1   , 1210, "AnnounceHalloween"                          )}, // ハロウィンを島内放送で告知した
+            {0x4BF, new EventFlagPlayer(0 , 1   , 1215, "MilageSendLetterFlag"                       )}, // タヌポート/ハロウィン|新規肌・目の色の追加手紙送った？
+            {0x4C0, new EventFlagPlayer(0 , 1   , 1216, "NpcHalloweenGetMirrorFlag"                  )}, // ハロウィン|今日NPCからミラーもらった？
+            {0x4C1, new EventFlagPlayer(0 , 1   , 1217, "NpcHalloweenCandyHelpFlag"                  )}, // ハロウィン|今日NPCから救済用アメもらった？
+            {0x4C7, new EventFlagPlayer(0 , 8   , 1223, "PknGetItem"                                 )}, // パンプキング/ハロウィン|報酬アイテムは？
+            {0x4D2, new EventFlagPlayer(0 , 1   , 1234, "RewindDays"                                 )}, // 日付を巻き戻した
         };
 
         private const string Unknown = "???";

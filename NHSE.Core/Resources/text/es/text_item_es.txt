@@ -3050,8 +3050,8 @@ acebo adulto
 
 
 
-
-
+calabaza joven
+calabaza pequeña
 vestido lunares y cinturón (Celeste)
 camiseta marinera (Azul marino)
 sudadera con capucha (Gris)
@@ -4081,16 +4081,16 @@ barra de pesas
 bañera estrecha
 cama de campaña
 
+arco calabaza
+espantapájaros calabaza
 
+torre calabaza
+carruaje calabaza
+farol calabaza
+taburete calabaza
+mesa grande calabaza
 
-
-
-
-
-
-
-
-
+set de faroles calabaza
 xilófono de bambú
 minibiotopo flotante
 
@@ -4360,7 +4360,7 @@ valla puntiaguda
 pijama de lana (Rosa)
 gabardina de polipiel (Negro)
 toalla de baño (Rosa)
-
+calabaza mediana
 americana de negocios (Negro)
 pantalón acampanado (Naranja)
 chaqueta escolar (Negro)
@@ -4523,26 +4523,26 @@ sudadera semiabierta (Rojo)
 pantalón corto muay thai (Azul)
 minipantalón topos (Negro)
 chaleco de tweed (Verde)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+calabaza naranja
+calabaza amarilla
+calabaza verde
+calabaza blanca
+calabaza naranja joven
+calabaza naranja pequeña
+calabaza naranja mediana
+calabaza naranja madura
+calabaza amarilla joven
+calabaza amarilla pequeña
+calabaza amarilla mediana
+calabaza amarilla madura
+calabaza verde joven
+calabaza verde pequeña
+calabaza verde mediana
+calabaza verde madura
+calabaza blanca joven
+calabaza blanca pequeña
+calabaza blanca mediana
+calabaza blanca madura
 falda envolvente tartán (Amarillo)
 cama pera
 falda flores bordadas (Verde)
@@ -4709,7 +4709,7 @@ pértiga
 banqueta hongo
 
 jersey holgado (Gris)
-disfraz de demonio (Negro)
+disfraz de diablillo (Negro)
 
 
 chancla de piscina (Negro)
@@ -5882,7 +5882,7 @@ falda limones (Celeste)
 
 
 
-とたけけのスツール
+
 
 
 
@@ -6811,7 +6811,7 @@ foto de Cornelio
 
 camisa vichy (Rojo)
 
-とたけけライブのイス
+
 
 
 
@@ -7543,7 +7543,7 @@ alfombra sencilla naranja P
 alfombra sencilla lila P
 alfombra sencilla negra P
 
-
+alfombra calabaza
 alfombra Caza del Huevo
 
 chaqueta escolar (Burdeos)
@@ -8770,7 +8770,7 @@ paraguas peces
 varita bicho
 varita pez
 
-たぬきかいはつヘルメット
+
 permiso camino empedrado
 permiso camino de ladrillo
 permiso camino tierra negra
@@ -9495,7 +9495,7 @@ mono de superhéroe (Rojo)
 mono de superhéroe (Negro)
 mono de superhéroe (Verde)
 vestido adorable (Púrpura)
-disfraz de demonio (Rojo)
+disfraz de diablillo (Rojo)
 camiseta topos (Celeste)
 camiseta topos (Rojo)
 camiseta topos (Verde)
@@ -12199,7 +12199,7 @@ falda vichy (Púrpura)
 falda vichy (Celeste)
 camiseta calavera (Beis)
 camiseta calavera (Púrpura)
-ひろばのベンチ
+
 
 
 
@@ -12207,8 +12207,8 @@ camiseta calavera (Púrpura)
 roca plana
 taburete apilable
 roca con musgo
-パニエルのせんたくおけ
-パニエルのものほしロープ
+
+
 
 デモ用たぬきマイルカード
 
@@ -12227,7 +12227,7 @@ alfombra bolsa de bayas
 
 
 
-パニエルのいしがま
+
 juego de peonzas festivo
 
 
@@ -12283,7 +12283,7 @@ juego de peonzas festivo
 
 
 
-コミューン島専用柵
+
 
 
 
@@ -12947,9 +12947,9 @@ balancín de muelle vaquero
 
 
 
+farol colgante calabaza
 
-
-
+bandeja chuches calabaza
 
 
 
@@ -12985,6 +12985,10 @@ cam. aloha Nook Inc. verde (Verde)
 
 
 traje de buceo a rayas (Rojo)
+túnica de Soponcio (Púrpura)
+traje andrajoso (Naranja)
+vestido de hechicería (Naranja)
+disfraz de animal (Naranja)
 
 
 
@@ -12996,6 +13000,8 @@ traje de buceo a rayas (Rojo)
 
 
 
+máscara de Soponcio (Naranja)
+capucha escuela de magia (Naranja)
 
 
 
@@ -13004,30 +13010,24 @@ traje de buceo a rayas (Rojo)
 
 
 
+sombrero hechicería rayas (Naranja)
+
+
+par de alas de diablillo (Naranja)
+bota de animal (Naranja)
+bota de hechicería (Naranja)
+nariz de animal (Negro)
+
+
+
+par de cuernos de diablillo (Naranja)
+gorro orejas puntiagudas (Naranja)
+gorro orejas redondeadas (Naranja)
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+media rayas horizontales (Naranja)
 
 
 
@@ -13194,8 +13194,8 @@ banderín Nook Inc. portátil
 
 
 
-
-
+piruleta
+chuche
 
 
 
@@ -13220,12 +13220,12 @@ gafa de buceo Nook Inc. (Verde)
 
 
 cama de Alakama
+guirnalda calabaza
+servicio de mesa calabaza
+pared calabaza
+suelo calabaza
 
-
-
-
-
-
+calabaza de vivero
 cupón de bayas onírico
 
 pared fuegos artificiales
@@ -13235,7 +13235,7 @@ pared fuegos artificiales
 
 
 
-
+varita calabaza
 
 atuendo de Orihime (Rojo)
 atuendo de Hikoboshi (Azul)
@@ -13254,6 +13254,8 @@ atuendo de Hikoboshi (Azul)
 
 
 
+Trucos de pintura corporal
+Guía de lentillas de colores
 
 
 
@@ -13271,9 +13273,7 @@ atuendo de Hikoboshi (Azul)
 
 
 
-
-
-
+valla calabaza
 
 
 
@@ -13286,3 +13286,211 @@ atuendo de Hikoboshi (Azul)
 
 
 alfombra luna
+
+
+
+
+
+Ring-Con
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+retrato de Soponcio
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+media rayas horizontales (Púrpura)
+media rayas horizontales (Blanco)
+media rayas horizontales (Verde)
+media rayas horizontales (Rojo)
+media rayas horizontales (Negro)
+disfraz de animal (Púrpura)
+disfraz de animal (Blanco)
+disfraz de animal (Verde)
+disfraz de animal (Rojo)
+disfraz de animal (Negro)
+vestido de hechicería (Púrpura)
+vestido de hechicería (Blanco)
+vestido de hechicería (Verde)
+vestido de hechicería (Rojo)
+vestido de hechicería (Negro)
+túnica escuela de magia (Naranja)
+traje andrajoso (Púrpura)
+traje andrajoso (Blanco)
+traje andrajoso (Verde)
+traje andrajoso (Rojo)
+traje andrajoso (Negro)
+par de cuernos de diablillo (Púrpura)
+par de cuernos de diablillo (Blanco)
+par de cuernos de diablillo (Verde)
+par de cuernos de diablillo (Rojo)
+par de cuernos de diablillo (Negro)
+capucha escuela de magia (Púrpura)
+capucha escuela de magia (Blanco)
+capucha escuela de magia (Verde)
+capucha escuela de magia (Rojo)
+capucha escuela de magia (Negro)
+sombrero hechicería rayas (Púrpura)
+sombrero hechicería rayas (Blanco)
+sombrero hechicería rayas (Verde)
+sombrero hechicería rayas (Rojo)
+sombrero hechicería rayas (Negro)
+par de alas de diablillo (Púrpura)
+par de alas de diablillo (Blanco)
+par de alas de diablillo (Verde)
+par de alas de diablillo (Rojo)
+par de alas de diablillo (Negro)
+bota de animal (Púrpura)
+bota de animal (Blanco)
+bota de animal (Verde)
+bota de animal (Rojo)
+bota de animal (Negro)
+gorro orejas puntiagudas (Púrpura)
+gorro orejas puntiagudas (Blanco)
+gorro orejas puntiagudas (Verde)
+gorro orejas puntiagudas (Rojo)
+gorro orejas puntiagudas (Negro)
+gorro orejas redondeadas (Púrpura)
+gorro orejas redondeadas (Blanco)
+gorro orejas redondeadas (Verde)
+gorro orejas redondeadas (Rojo)
+gorro orejas redondeadas (Negro)
+bota de hechicería (Púrpura)
+bota de hechicería (Blanco)
+bota de hechicería (Verde)
+bota de hechicería (Rojo)
+bota de hechicería (Negro)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+túnica escuela de magia (Púrpura)
+túnica escuela de magia (Blanco)
+túnica escuela de magia (Verde)
+túnica escuela de magia (Rojo)
+túnica escuela de magia (Negro)

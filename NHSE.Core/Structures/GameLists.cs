@@ -192,7 +192,8 @@ namespace NHSE.Core
         };
 
         public static readonly IReadOnlyList<ushort> Fossils = new ushort[]
-        {00169, // ankylo skull
+        {
+            00169, // ankylo skull
             00170, // ankylo torso
             00171, // ankylo tail
             00177, // archelon skull
@@ -233,7 +234,7 @@ namespace NHSE.Core
             00227, // stego torso
             00228, // stego tail
             00234, // plesio skull
-            00235, // plesio body
+            00235, // plesio torso
             00236, // plesio tail
             00238, // T. rex skull
             00239, // T. rex torso

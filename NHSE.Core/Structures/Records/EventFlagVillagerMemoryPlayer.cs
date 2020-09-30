@@ -36,6 +36,7 @@ namespace NHSE.Core
             {0x0D, new EventFlagVillagerMemoryPlayer(0 , 1  , 013, "HasAcquaintanceship"                        )}, // 面識ありか
             {0x0E, new EventFlagVillagerMemoryPlayer(0 , 1  , 014, "SitBenchFlag"                               )}, // NPCをベンチに座らせる
             {0x0F, new EventFlagVillagerMemoryPlayer(0 , 1  , 015, "TalkInDream"                                )}, // 今回の夢の中への訪問で話をしたか
+            {0x10, new EventFlagVillagerMemoryPlayer(0 , 64 , 016, "HalloweenGiveCandyCount"                    )}, // ハロウィン|今日このNPCにアメをあげた回数
             {0x11, new EventFlagVillagerMemoryPlayer(0 , 255, 017, "PastCountFromLastVisitPlayerHouse"          )}, // 最後にP宅を訪問してからの経過日数
             {0x12, new EventFlagVillagerMemoryPlayer(0 , 1  , 018, "TalkedAsSameVillageResident"                )}, // 同じ村の住人として会話した
             {0x13, new EventFlagVillagerMemoryPlayer(0 , 1  , 019, "InputGreeting"                              )}, // 挨拶を設定した
@@ -76,6 +77,7 @@ namespace NHSE.Core
             {0x37, new EventFlagVillagerMemoryPlayer(0 , 255, 055, "ContinuousTalkCount"                        )}, // 連続会話回数
             {0x38, new EventFlagVillagerMemoryPlayer(0 , 255, 056, "Again2Count"                                )}, // XX_Again2を聞いた回数
             {0x39, new EventFlagVillagerMemoryPlayer(0 , 1  , 057, "TalkDIY"                                    )}, // DIY会話をした
+            {0x3A, new EventFlagVillagerMemoryPlayer(0 , 2  , 058, "HalloweenDIYGetItem"                        )}, // ハロウィン|DIYしている時の報酬アイテムは？
             {0x3B, new EventFlagVillagerMemoryPlayer(0 , 1  , 059, "NewYearGreetingFlag"                        )}, // 新年（1月1日）のあいさつをした
             {0x3C, new EventFlagVillagerMemoryPlayer(0 , 1  , 060, "GotRecipeorMaterial"                        )}, // DIYレシピか素材をもらった
             {0x3D, new EventFlagVillagerMemoryPlayer(0 , 1  , 061, "GotMaterialItemFull"                        )}, // 素材をもらうときもちものがいっぱいだった
@@ -144,7 +146,14 @@ namespace NHSE.Core
             {0x7D, new EventFlagVillagerMemoryPlayer(0 , 1  , 125, "FriendshipBecomeAcqH"                       )}, // 親密度が知人（高）に到達済み
             {0x7E, new EventFlagVillagerMemoryPlayer(0 , 3  , 126, "DC_NPCBirthdayFlag"                         )}, // NPC誕生日|おでかけ先の村でもらうお返しの種類
             {0x7F, new EventFlagVillagerMemoryPlayer(0 , 1  , 127, "EasterCannotGetNnpcRecipeFlag"              )}, // イースター|このNPCから受け取り損ねたレシピがある？
+            {0x81, new EventFlagVillagerMemoryPlayer(0 , 1  , 129, "HalloweenTerrifyFlag"                       )}, // ハロウィン|今日パンプキングの恰好で脅かした？
+            {0x82, new EventFlagVillagerMemoryPlayer(0 , 1  , 130, "HalloweenGetCandyFlag"                      )}, // ハロウィン|今日このNPCからアメもらった？
             {0x83, new EventFlagVillagerMemoryPlayer(0 , 1  , 131, "FireworksGetItemFlag"                       )}, // 花火大会|このNPCからリアクション会話で花火を受け取った
+            {0x84, new EventFlagVillagerMemoryPlayer(0 , 1  , 132, "HaloweenTalkThisSceneFalg"                  )}, // ハロウィン|このシーンで会話した？
+            {0x85, new EventFlagVillagerMemoryPlayer(0 , 1  , 133, "HaloweenGetCandyThisSceneFalg"              )}, // ハロウィン|このシーンでアメもらった？
+            {0x86, new EventFlagVillagerMemoryPlayer(0 , 1  , 134, "FollowQuestAfter"                           )}, // 追従｜追従クエスト後か？ 
+            {0x88, new EventFlagVillagerMemoryPlayer(0 , 1  , 136, "HalloweenLastNotGetFlag"                    )}, // ハロウィン|最後の会話で報酬アイテムもらえなかった？
+            {0x89, new EventFlagVillagerMemoryPlayer(0 , 16 , 137, "HalloweenLastNotGetItem"                    )}, // ハロウィン|最後の会話でもらえなかった報酬アイテム
         };
 
         private const string Unknown = "???";

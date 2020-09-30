@@ -169,7 +169,7 @@
             this.RamOffset.Name = "RamOffset";
             this.RamOffset.Size = new System.Drawing.Size(83, 23);
             this.RamOffset.TabIndex = 20;
-            this.RamOffset.Text = "ABADD888";
+            this.RamOffset.Text = "ABC25840";
             this.RamOffset.TextChanged += new System.EventHandler(this.RamOffset_TextChanged);
             // 
             // L_Offset
@@ -232,7 +232,7 @@
             this.RamOffsetUSB.Name = "RamOffsetUSB";
             this.RamOffsetUSB.Size = new System.Drawing.Size(83, 23);
             this.RamOffsetUSB.TabIndex = 24;
-            this.RamOffsetUSB.Text = "ABADD888";
+            this.RamOffsetUSB.Text = "ABC25840";
             this.RamOffsetUSB.TextChanged += new System.EventHandler(this.RamOffsetUSB_TextChanged);
             // 
             // L_OffsetUSB

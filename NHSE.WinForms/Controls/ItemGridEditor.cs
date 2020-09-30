@@ -263,8 +263,8 @@ namespace NHSE.WinForms
         private void B_SortType_Click(object sender, EventArgs e)
         {
             var sortedItems = Items.Where(item => item.ItemId != Item.NONE)
-                .OrderBy(item => GetItemText(item).ToLower())
-                .ThenBy(ItemInfo.GetItemKind);
+                .OrderBy(item => ItemInfo.GetItemKind(item))
+                .ThenBy(item => GetItemText(item).ToLower());
             var sortedItemsCopy = new List<Item>(); // to prevent object reference issues
 
             foreach (var item in sortedItems)
