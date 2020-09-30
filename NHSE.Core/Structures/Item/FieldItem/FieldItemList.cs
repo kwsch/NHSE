@@ -375,6 +375,22 @@ namespace NHSE.Core
             {0xEC9E, new FieldItemDefinition(60574, 4438 , 65534, "PltTreeMoney2"         , FieldItemKind.PltTreeOak          )}, // 金のなるの木（成長２）
             {0xEC9F, new FieldItemDefinition(60575, 4436 , 65534, "PltTreeMoney0"         , FieldItemKind.PltTreeOak          )}, // 金のなるの木（苗）
             {0xECA0, new FieldItemDefinition(60576, 4437 , 65534, "PltTreeMoney1"         , FieldItemKind.PltTreeOak          )}, // 金のなるの木（成長１）
+            {0xECA1, new FieldItemDefinition(60577, 4544 , 4528 , "PltVgtSquash3White"    , FieldItemKind.PltVgtPumpkin       )}, // カボチャ白（成木）
+            {0xECA2, new FieldItemDefinition(60578, 4543 , 65534, "PltVgtSquash2White"    , FieldItemKind.PltVgtPumpkin       )}, // カボチャ白（成長２）
+            {0xECA3, new FieldItemDefinition(60579, 4542 , 65534, "PltVgtSquash1White"    , FieldItemKind.PltVgtPumpkin       )}, // カボチャ白（成長１）
+            {0xECA4, new FieldItemDefinition(60580, 4541 , 65534, "PltVgtSquash0White"    , FieldItemKind.PltVgtPumpkin       )}, // カボチャ白（苗）
+            {0xECA5, new FieldItemDefinition(60581, 4538 , 65534, "PltVgtSquash1Green"    , FieldItemKind.PltVgtPumpkin       )}, // カボチャ緑（成長１）
+            {0xECA6, new FieldItemDefinition(60582, 4539 , 65534, "PltVgtSquash2Green"    , FieldItemKind.PltVgtPumpkin       )}, // カボチャ緑（成長２）
+            {0xECA7, new FieldItemDefinition(60583, 4540 , 4527 , "PltVgtSquash3Green"    , FieldItemKind.PltVgtPumpkin       )}, // カボチャ緑（成木）
+            {0xECA9, new FieldItemDefinition(60585, 4532 , 4525 , "PltVgtSquash3Orange"   , FieldItemKind.PltVgtPumpkin       )}, // カボチャオレンジ（成木）
+            {0xECAA, new FieldItemDefinition(60586, 4533 , 65534, "PltVgtSquash0Yellow"   , FieldItemKind.PltVgtPumpkin       )}, // カボチャ黄（苗）
+            {0xECAB, new FieldItemDefinition(60587, 4534 , 65534, "PltVgtSquash1Yellow"   , FieldItemKind.PltVgtPumpkin       )}, // カボチャ黄（成長１）
+            {0xECAC, new FieldItemDefinition(60588, 4535 , 65534, "PltVgtSquash2Yellow"   , FieldItemKind.PltVgtPumpkin       )}, // カボチャ黄（成長２）
+            {0xECAD, new FieldItemDefinition(60589, 4536 , 4526 , "PltVgtSquash3Yellow"   , FieldItemKind.PltVgtPumpkin       )}, // カボチャ黄（成木）
+            {0xECAE, new FieldItemDefinition(60590, 4537 , 65534, "PltVgtSquash0Green"    , FieldItemKind.PltVgtPumpkin       )}, // カボチャ緑（苗）
+            {0xECAF, new FieldItemDefinition(60591, 4529 , 65534, "PltVgtSquash0Orange"   , FieldItemKind.PltVgtPumpkin       )}, // カボチャオレンジ（苗）
+            {0xECB0, new FieldItemDefinition(60592, 4530 , 65534, "PltVgtSquash1Orange"   , FieldItemKind.PltVgtPumpkin       )}, // カボチャオレンジ（成長１）
+            {0xECB1, new FieldItemDefinition(60593, 4531 , 65534, "PltVgtSquash2Orange"   , FieldItemKind.PltVgtPumpkin       )}, // カボチャオレンジ（成長２）
             {0xECB2, new FieldItemDefinition(60594, 65534, 5213 , "FenceBarbedWire"       , FieldItemKind.FenceBarbedWire     )}, // ゆうしてっせん
             {0xECB6, new FieldItemDefinition(60598, 65534, 5207 , "FenceJapanese"         , FieldItemKind.FenceJapanese       )}, // 和風のさく
             {0xECB7, new FieldItemDefinition(60599, 65534, 5206 , "FenceIronAndStone"     , FieldItemKind.FenceIronAndStone   )}, // 鉄と石の柵
@@ -385,7 +401,7 @@ namespace NHSE.Core
             {0xECC1, new FieldItemDefinition(60609, 7651 , 65534, "PltFlwLily3"           , FieldItemKind.PltFlwLily          )}, // スズラン（花）
             {0xECC2, new FieldItemDefinition(60610, 65534, 11711, "FenceWoodNatural"      , FieldItemKind.FenceWoodWhite      )}, // ナチュラルな柵
             {0xECC3, new FieldItemDefinition(60611, 65534, 11712, "FenceLattice3"         , FieldItemKind.FenceLattice        )}, // ラティスナチュラル
-            {0xECC4, new FieldItemDefinition(60612, 65534, 12285, "FenceCommune"          , FieldItemKind.FenceHorizontalLog  )}, // コミューン島専用柵
+            {0xECC4, new FieldItemDefinition(60612, 65534, 65534, "FenceCommune"          , FieldItemKind.FenceHorizontalLog  )}, // コミューン島専用柵
             {0xECF4, new FieldItemDefinition(60660, 12478, 65534, "PltBushOsmathus5Yello" , FieldItemKind.PltBushOsmanthus    )}, // キンモクセイ黄（成木花なし）
             {0xECF5, new FieldItemDefinition(60661, 12478, 65534, "PltBushOsmathus4Yello" , FieldItemKind.PltBushOsmanthus    )}, // キンモクセイ黄（成木花）
             {0xECF6, new FieldItemDefinition(60662, 12477, 65534, "PltBushOsmathus2Yello" , FieldItemKind.PltBushOsmanthus    )}, // キンモクセイ黄（成長１）
@@ -413,6 +429,10 @@ namespace NHSE.Core
             {0xED0E, new FieldItemDefinition(60686, 65534, 2213 , "FenceJuneBride1"       , FieldItemKind.FenceJuneBride      )}, // ジューンブライドな柵ピンク
             {0xED16, new FieldItemDefinition(60694, 2799 , 65534, "PltTreeEasterEgg"      , FieldItemKind.PltTreeOak          )}, // イースターのタマゴの木
             {0xED21, new FieldItemDefinition(60705, 65534, 2213 , "FenceMermaid"          , FieldItemKind.FenceMermaid        )}, // マーメイドな柵
+            {0xED25, new FieldItemDefinition(60709, 65534, 13275, "FenceHalloween"        , FieldItemKind.FenceHalloween      )}, // ハロウィンのさく
+            {0xED3F, new FieldItemDefinition(60735, 3052 , 65534, "PltVgtSquash0"         , FieldItemKind.PltVgtPumpkin       )}, // カボチャ（苗）
+            {0xED40, new FieldItemDefinition(60736, 3053 , 65534, "PltVgtSquash1"         , FieldItemKind.PltVgtPumpkin       )}, // カボチャ（成長１）
+            {0xED41, new FieldItemDefinition(60737, 4362 , 65534, "PltVgtSquash2"         , FieldItemKind.PltVgtPumpkin       )}, // カボチャ（成長２）
         };
     }
 }
