@@ -7,7 +7,7 @@ namespace NHSE.WinForms
 {
     public partial class VillagerMemoryEditor : Form
     {
-        private readonly Villager Villager;
+        private readonly IVillager Villager;
         private readonly GSaveMemory[] Memories;
 
         private int PlayerIndex = -1;
@@ -16,7 +16,7 @@ namespace NHSE.WinForms
 
         private readonly TextBox[] Greetings;
 
-        public VillagerMemoryEditor(Villager villager)
+        public VillagerMemoryEditor(IVillager villager)
         {
             InitializeComponent();
             this.TranslateInterface(GameInfo.CurrentLanguage);

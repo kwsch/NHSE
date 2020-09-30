@@ -46,5 +46,8 @@
         public override int LostItemBox => GSaveLandOtherStart + 0x5CF3F0;
         public override int LastSavedTime => GSaveLandOtherStart + 0x5D3D48;
         #endregion
+
+        public override int VillagerSize => Villager1.SIZE;
+        public override IVillager ReadVillager(byte[] data) => new Villager1(data);
     }
 }

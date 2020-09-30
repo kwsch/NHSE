@@ -7,7 +7,7 @@ namespace NHSE.WinForms
 {
     public static class MiscDumpHelper
     {
-        public static void DumpVillagerMemoryPlayer(Villager v, GSaveMemory memory)
+        public static void DumpVillagerMemoryPlayer(IVillager v, GSaveMemory memory)
         {
             using var sfd = new SaveFileDialog
             {
@@ -21,7 +21,7 @@ namespace NHSE.WinForms
             File.WriteAllBytes(sfd.FileName, data);
         }
 
-        public static bool LoadVillagerMemoryPlayer(Villager v, GSaveMemory[] memories, int index)
+        public static bool LoadVillagerMemoryPlayer(IVillager v, GSaveMemory[] memories, int index)
         {
             using var ofd = new OpenFileDialog
             {

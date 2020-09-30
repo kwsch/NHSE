@@ -8,13 +8,13 @@ namespace NHSE.WinForms
 {
     public partial class VillagerEditor : UserControl
     {
-        public Villager[] Villagers;
+        public IVillager[] Villagers;
         public IVillagerOrigin Origin;
         private readonly MainSave SAV;
         private int VillagerIndex = -1;
         private bool Loading;
 
-        public VillagerEditor(Villager[] villagers, IVillagerOrigin origin, MainSave sav, bool hasHouses)
+        public VillagerEditor(IVillager[] villagers, IVillagerOrigin origin, MainSave sav, bool hasHouses)
         {
             InitializeComponent();
             Villagers = villagers;
@@ -52,7 +52,7 @@ namespace NHSE.WinForms
             VillagerIndex = index;
         }
 
-        private void LoadVillager(Villager v)
+        private void LoadVillager(IVillager v)
         {
             Loading = true;
             NUD_Species.Value = v.Species;
@@ -103,15 +103,17 @@ namespace NHSE.WinForms
             var name = L_ExternalName.Text;
             using var sfd = new SaveFileDialog
             {
-                Filter = "New Horizons Villager (*.nhv)|*.nhv|All files (*.*)|*.*",
-                FileName = $"{name}.nhv",
+                Filter = "New Horizons Villager (*.nhv)|*.nhv|" +
+                         "New Horizons Villager (*.nhv2)|*.nhv2|" +
+                         "All files (*.*)|*.*",
+                FileName = $"{name}.{Villagers[VillagerIndex].Extension}",
             };
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
             SaveVillager(VillagerIndex);
             var v = Villagers[VillagerIndex];
-            File.WriteAllBytes(sfd.FileName, v.Data);
+            File.WriteAllBytes(sfd.FileName, v.Write());
         }
 
         private void B_LoadVillager_Click(object sender, EventArgs e)
@@ -119,15 +121,16 @@ namespace NHSE.WinForms
             var name = L_ExternalName.Text;
             using var ofd = new OpenFileDialog
             {
-                Filter = "New Horizons Villager (*.nhv)|*.nhv|All files (*.*)|*.*",
-                FileName = $"{name}.nhv",
+                Filter = "New Horizons Villager (*.nhv)|*.nhv|" +
+                         "New Horizons Villager (*.nhv2)|*.nhv2|" +
+                         "All files (*.*)|*.*",
+                FileName = $"{name}.{Villagers[VillagerIndex].Extension}",
             };
             if (ofd.ShowDialog() != DialogResult.OK)
                 return;
 
             var path = ofd.FileName;
-            var original = Villagers[VillagerIndex];
-            var expectLength = original.Data.Length;
+            var expectLength = SAV.Offsets.VillagerSize;
             var fi = new FileInfo(path);
             if (fi.Length != expectLength)
             {
@@ -136,7 +139,7 @@ namespace NHSE.WinForms
             }
 
             var data = File.ReadAllBytes(ofd.FileName);
-            var v = new Villager(data);
+            var v = SAV.Offsets.ReadVillager(data);
             var player0 = Origin;
             if (!v.IsOriginatedFrom(player0))
             {
@@ -145,7 +148,7 @@ namespace NHSE.WinForms
                 if (result == DialogResult.Cancel)
                     return;
                 if (result == DialogResult.Yes)
-                    v.ChangeOrigins(player0, v.Data);
+                    v.ChangeOrigins(player0, v.Write());
             }
 
             LoadVillager(Villagers[VillagerIndex] = v);

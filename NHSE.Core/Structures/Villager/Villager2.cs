@@ -3,30 +3,18 @@ using System.Collections.Generic;
 
 namespace NHSE.Core
 {
-    public class Villager : IVillagerOrigin
+    public sealed class Villager2 : IVillager
     {
-        public const int SIZE = 0x12AB0;
+        public const int SIZE = 0x13230; // + 160*0xC (0x780) -- GSaveLightMemory increased size.
+        public string Extension => "nhv2";
 
         public readonly byte[] Data;
-        public Villager(byte[] data) => Data = data;
+        public Villager2(byte[] data) => Data = data;
+        public byte[] Write() => Data;
 
-        public byte Species
-        {
-            get => Data[0];
-            set => Data[0] = value;
-        }
-
-        public byte Variant
-        {
-            get => Data[1];
-            set => Data[1] = value;
-        }
-
-        public VillagerPersonality Personality
-        {
-            get => (VillagerPersonality)Data[2];
-            set => Data[2] = (byte)value;
-        }
+        public byte Species { get => Data[0]; set => Data[0] = value; }
+        public byte Variant { get => Data[1]; set => Data[1] = value; }
+        public VillagerPersonality Personality { get => (VillagerPersonality)Data[2]; set => Data[2] = (byte)value; }
 
         public string TownName => GetMemory(0).TownName;
         public byte[] GetTownIdentity() => GetMemory(0).GetTownIdentity();
@@ -37,7 +25,7 @@ namespace NHSE.Core
 
         public GSaveMemory GetMemory(int index)
         {
-            if ((uint) index >= PlayerMemoryCount)
+            if ((uint)index >= PlayerMemoryCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
 
             var bytes = Data.Slice(0x4 + (index * GSaveMemory.SIZE), GSaveMemory.SIZE);
@@ -68,30 +56,30 @@ namespace NHSE.Core
 
         public string CatchPhrase
         {
-            get => StringUtil.GetString(Data, 0x10014, 2 * 12);
-            set => StringUtil.GetBytes(value, 2 * 12).CopyTo(Data, 0x10014);
+            get => StringUtil.GetString(Data, 0x10768 + 0x2C, 2 * 12);
+            set => StringUtil.GetBytes(value, 2 * 12).CopyTo(Data, 0x10768 + 0x2C);
         }
 
         private const int WearCount = 24;
 
         public IReadOnlyList<VillagerItem> WearStockList
         {
-            get => VillagerItem.GetArray(Data.Slice(0x101CC, WearCount * VillagerItem.SIZE));
-            set => VillagerItem.SetArray(value).CopyTo(Data, 0x101CC);
+            get => VillagerItem.GetArray(Data.Slice(0x1094c, WearCount * VillagerItem.SIZE));
+            set => VillagerItem.SetArray(value).CopyTo(Data, 0x1094c);
         }
 
         private const int FurnitureCount = 32;
 
         public IReadOnlyList<VillagerItem> FtrStockList
         {
-            get => VillagerItem.GetArray(Data.Slice(0x105EC, FurnitureCount * VillagerItem.SIZE));
-            set => VillagerItem.SetArray(value).CopyTo(Data, 0x105EC);
+            get => VillagerItem.GetArray(Data.Slice(0x10d6c, FurnitureCount * VillagerItem.SIZE));
+            set => VillagerItem.SetArray(value).CopyTo(Data, 0x10d6c);
         }
 
         // State Flags
-        public byte BirthType { get => Data[0x11EF8]; set => Data[0x11EF8] = value; }
-        public byte InducementType { get => Data[0x11EF9]; set => Data[0x11EF9] = value; }
-        public byte MoveType { get => Data[0x11EFA]; set => Data[0x11EFA] = value; }
+        public byte BirthType { get => Data[0x12678]; set => Data[0x12678] = value; }
+        public byte InducementType { get => Data[0x12679]; set => Data[0x12679] = value; }
+        public byte MoveType { get => Data[0x1267a]; set => Data[0x1267a] = value; }
         public bool MovingOut { get => (MoveType & 2) == 2; set => MoveType = (byte)((MoveType & ~2) | (value ? 2 : 0)); }
 
         // EventFlagsNPCSaveParam
@@ -100,29 +88,29 @@ namespace NHSE.Core
         public ushort[] GetEventFlagsSave()
         {
             var value = new ushort[EventFlagsSaveCount];
-            Buffer.BlockCopy(Data, 0x11EFC, value, 0, sizeof(ushort) * value.Length);
+            Buffer.BlockCopy(Data, 0x1267c, value, 0, sizeof(ushort) * value.Length);
             return value;
         }
 
         public void SetEventFlagsSave(ushort[] value)
         {
-            Buffer.BlockCopy(value, 0, Data, 0x11EFC, sizeof(ushort) * value.Length);
+            Buffer.BlockCopy(value, 0, Data, 0x1267c, sizeof(ushort) * value.Length);
         }
 
         public override string ToString() => InternalName;
-        public string InternalName => VillagerUtil.GetInternalVillagerName((VillagerSpecies) Species, Variant);
+        public string InternalName => VillagerUtil.GetInternalVillagerName((VillagerSpecies)Species, Variant);
         public int Gender => ((int)Personality / 4) & 1; // 0 = M, 1 = F
 
         public GSaveRoomFloorWall Room
         {
-            get => Data.Slice(0x12100, GSaveRoomFloorWall.SIZE).ToStructure<GSaveRoomFloorWall>();
-            set => value.ToBytes().CopyTo(Data, 0x12100);
+            get => Data.Slice(0x12880, GSaveRoomFloorWall.SIZE).ToStructure<GSaveRoomFloorWall>();
+            set => value.ToBytes().CopyTo(Data, 0x12880);
         }
 
         public DesignPatternPRO Design
         {
-            get => new DesignPatternPRO(Data.Slice(0x12128, DesignPatternPRO.SIZE));
-            set => value.Data.CopyTo(Data, 0x12128);
+            get => new DesignPatternPRO(Data.Slice(0x128a8, DesignPatternPRO.SIZE));
+            set => value.Data.CopyTo(Data, 0x128a8);
         }
 
         public void SetFriendshipAll(byte value = byte.MaxValue)

@@ -108,7 +108,7 @@ namespace NHSE.Core
             }
         }
 
-        private static void Dump(this VillagerHouse h, string path, Villager v)
+        private static void Dump(this VillagerHouse h, string path, IVillager v)
         {
             var name = GameInfo.Strings.GetVillager(v.InternalName);
             var dest = Path.Combine(path, $"{name}.nhvh");
@@ -121,17 +121,17 @@ namespace NHSE.Core
         /// </summary>
         /// <param name="villagers">Data to dump from</param>
         /// <param name="path">Path to dump to</param>
-        public static void Dump(this IEnumerable<Villager> villagers, string path)
+        public static void Dump(this IEnumerable<IVillager> villagers, string path)
         {
             foreach (var v in villagers)
                 v.Dump(path);
         }
 
-        private static void Dump(this Villager v, string path)
+        private static void Dump(this IVillager v, string path)
         {
             var name = GameInfo.Strings.GetVillager(v.InternalName);
-            var dest = Path.Combine(path, $"{name}.nhv");
-            File.WriteAllBytes(dest, v.Data);
+            var dest = Path.Combine(path, $"{name}.{v.Extension}");
+            File.WriteAllBytes(dest, v.Write());
         }
 
         /// <summary>

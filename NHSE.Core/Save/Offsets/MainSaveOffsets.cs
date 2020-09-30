@@ -44,6 +44,9 @@ namespace NHSE.Core
         public abstract int LostItemBox { get; }
         public abstract int LastSavedTime { get; }
 
+        public abstract int VillagerSize { get; }
+        public abstract IVillager ReadVillager(byte[] data);
+
         public static MainSaveOffsets GetOffsets(FileHeaderInfo Info)
         {
             var rev = Info.GetKnownRevisionIndex();
@@ -108,19 +111,22 @@ namespace NHSE.Core
             p.Data.CopyTo(data, PatternsPRO + (index * DesignPatternPRO.SIZE));
         }
 
-        public Villager ReadVillager(byte[] data, int index)
+        public IVillager ReadVillager(byte[] data, int index)
         {
             if ((uint)index >= VillagerCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
-            var v = data.Slice(Animal + (index * Villager.SIZE), Villager.SIZE);
-            return new Villager(v);
+
+            var size = VillagerSize;
+            var v = data.Slice(Animal + (index * size), size);
+            return ReadVillager(v);
         }
 
-        public void WriteVillager(Villager v, byte[] data, int index)
+        public void WriteVillager(IVillager v, byte[] data, int index)
         {
             if ((uint)index >= VillagerCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
-            v.Data.CopyTo(data, Animal + (index * Villager.SIZE));
+            var size = VillagerSize;
+            v.Write().CopyTo(data, Animal + (index * size));
         }
     }
 }
