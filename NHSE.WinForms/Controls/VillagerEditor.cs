@@ -132,7 +132,7 @@ namespace NHSE.WinForms
             var path = ofd.FileName;
             var expectLength = SAV.Offsets.VillagerSize;
             var fi = new FileInfo(path);
-            if (VillagerConverter.IsCompatible((int)fi.Length, expectLength))
+            if (!VillagerConverter.IsCompatible((int)fi.Length, expectLength))
             {
                 WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength), path);
                 return;
