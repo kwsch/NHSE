@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace NHSE.Core
 {
     /// <summary>
-    /// Villager object format starting from release thru update 1.4
+    /// Villager object format from 1.0 to update 1.4
     /// </summary>
     public sealed class Villager1 : IVillager
     {
