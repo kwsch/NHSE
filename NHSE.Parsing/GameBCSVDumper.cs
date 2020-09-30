@@ -4,8 +4,6 @@ using System.ComponentModel;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Reflection;
-using Newtonsoft.Json;
 using NHSE.Core;
 
 namespace NHSE.Parsing
@@ -61,8 +59,8 @@ namespace NHSE.Parsing
             void DumpD<T, S>(string fn, Dictionary<T, S> dict, string dir = "text")
             {
                 Directory.CreateDirectory(Path.Combine(dest, dir));
-                var json = JsonConvert.SerializeObject(dict);
-                File.WriteAllText(Path.Combine(dest, dir, fn), json);
+                var lines = dict.Select(z => $"{{{z.Key}, {z.Value:00000}}},");
+                File.WriteAllLines(Path.Combine(dest, dir, fn), lines);
                 Console.WriteLine($"Created {fn}");
             }
 
@@ -93,7 +91,7 @@ namespace NHSE.Parsing
             DumpS("DoorKind.txt", GetNumberedEnumValues(pathBCSV, "StructureHouseDoorParam.bcsv", 0x39B5A93D, 0x54706054));
             DumpS("WallKind.txt", GetNumberedEnumValues(pathBCSV, "StructureHouseWallParam.bcsv", 0x39B5A93D, 0x54706054));
 
-            DumpD("ItemStack.json.txt", GetItemStackDict(pathBCSV));
+            DumpD("ItemStack.txt", GetItemStackDict(pathBCSV));
 
             DumpB("item_kind.bin", GetItemKindArray(pathBCSV));
             DumpB("item_size.bin", GetItemSizeArray(pathBCSV));
@@ -252,25 +250,31 @@ namespace NHSE.Parsing
             // clothing is split out more granularly in ItemKind and would cause errors
             // since it's not likely to ever be stackable, we can skip
             // none-type can be skipped and doesn't exist in ItemKind either
-            List<string> skipLabels = new List<String>();
-            skipLabels.Add("TopsDefault");
-            skipLabels.Add("Tops");
-            skipLabels.Add("OnePiece");
-            skipLabels.Add("MarineSuit");
-            skipLabels.Add("BottomsDefault");
-            skipLabels.Add("Bottoms");
-            skipLabels.Add("Shoes");
-            skipLabels.Add("None");
+            List<string> skipLabels = new List<string>
+            {
+                "TopsDefault",
+                "Tops",
+                "OnePiece",
+                "MarineSuit",
+                "BottomsDefault",
+                "Bottoms",
+                "Shoes",
+                "None"
+            };
 
             var result = new Dictionary<ItemKind, ushort>();
             for (int i = 0; i < bcsv.EntryCount; i++)
             {
                 var stack = bcsv.ReadValue(i, fStack);
-
-                if (stack == "-1") // for some reason turnips have a stack value of -1, should be 10...
-                    stack = "10";
-                else if (stack == "0") // the game stores non-stackable items as 0, so technically they stack to 1
-                    stack = "1";
+                switch (stack)
+                {
+                    case "-1": // for some reason turnips have a stack value of -1, should be 10...
+                        stack = "10";
+                        break;
+                    case "0": // the game stores items that cannot be stacked as 0, so technically they stack to 1
+                        stack = "1";
+                        break;
+                }
 
                 var stackval = ushort.Parse(stack);
                 var kind = bcsv.ReadValue(i, fKind).TrimEnd('\0');

@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-using Newtonsoft.Json;
 using NHSE.Core;
 using NHSE.Sprites;
 
@@ -283,17 +281,10 @@ namespace NHSE.WinForms
         private void L_Count_DoubleClick(object sender, EventArgs e)
         {
             Item currentItem = SetItem(new Item());
-            var itemKind = ItemInfo.GetItemKind(currentItem);
-
-            var json = String.Join("", NHSE.Core.ResourceUtil.GetStringList("ItemStack.json"));
-            var itemStacks = JsonConvert.DeserializeObject<Dictionary<ItemKind, ushort>>(json);
-
-            if(!itemStacks.ContainsKey(itemKind)) {
-                // we don't have data for this item, so let's just leave it alone
+            var result = ItemInfo.TryGetMaxStackCount(currentItem, out var max);
+            if (!result)
                 return;
-            }
-
-            currentItem.Count = (ushort)(itemStacks[itemKind] - 1);
+            currentItem.Count = (ushort)(max - 1);
             LoadItem(currentItem);
         }
 
