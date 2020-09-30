@@ -3050,8 +3050,8 @@ holly bush
 
 
 
-
-
+small pumpkin sprout
+medium pumpkin sprout
 belted dotted dress (Light blue)
 sailor's tee (Navy blue)
 simple parka (Gray)
@@ -4081,16 +4081,16 @@ barbell
 long bathtub
 camping cot
 
+spooky arch
+spooky scarecrow
 
+spooky tower
+spooky carriage
+spooky lantern
+spooky chair
+spooky table
 
-
-
-
-
-
-
-
-
+spooky lantern set
 bamboo drum
 floating-biotope planter
 
@@ -4360,7 +4360,7 @@ spiky fence
 fleece pj's (Pink)
 long pleather coat (Black)
 bath-towel wrap (Pink)
-
+large pumpkin sprout
 business suitcoat (Black)
 bell-bottoms (Orange)
 school jacket (Black)
@@ -4523,26 +4523,26 @@ pullover jacket (Red)
 muay-thai shorts (Blue)
 dotted shorts (Black)
 tweed vest (Green)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+orange pumpkin
+yellow pumpkin
+green pumpkin
+white pumpkin
+s. orange-pumpkin sprout
+m. orange-pumpkin sprout
+lg. orange-pumpkin sprout
+ripe orange-pumpkin plant
+s. yellow-pumpkin sprout
+m. yellow-pumpkin sprout
+lg. yellow-pumpkin sprout
+ripe yellow-pumpkin plant
+s. green-pumpkin sprout
+m. green-pumpkin sprout
+lg. green-pumpkin sprout
+ripe green-pumpkin plant
+s. white-pumpkin sprout
+m. white-pumpkin sprout
+lg. white-pumpkin sprout
+ripe white-pumpkin plant
 belted wraparound skirt (Yellow)
 pear bed
 embroidered floral skirt (Green)
@@ -5882,7 +5882,7 @@ lemon skirt (Light blue)
 
 
 
-とたけけのスツール
+
 
 
 
@@ -6811,7 +6811,7 @@ Bam's photo
 
 gingham picnic shirt (Red)
 
-とたけけライブのイス
+
 
 
 
@@ -7543,7 +7543,7 @@ simple small orange mat
 simple small purple mat
 simple small black mat
 
-
+spooky rug
 Bunny Day rug
 
 school jacket (Berry red)
@@ -8770,7 +8770,7 @@ fish umbrella
 bug wand
 fish wand
 
-たぬきかいはつヘルメット
+
 stone path permit
 brick path permit
 dark dirt path permit
@@ -12199,7 +12199,7 @@ gingham picnic skirt (Purple)
 gingham picnic skirt (Light blue)
 skull tee (Beige)
 skull tee (Purple)
-ひろばのベンチ
+
 
 
 
@@ -12207,8 +12207,8 @@ skull tee (Purple)
 flat garden rock
 arcade seat
 mossy garden rock
-パニエルのせんたくおけ
-パニエルのものほしロープ
+
+
 
 デモ用たぬきマイルカード
 
@@ -12227,7 +12227,7 @@ Bell-bag rug
 
 
 
-パニエルのいしがま
+
 festive top set
 
 
@@ -12283,7 +12283,7 @@ festive top set
 
 
 
-コミューン島専用柵
+
 
 
 
@@ -12531,8 +12531,8 @@ Bunny Day wreath
 
 
 
-rock-head statue 
-rock-head statue  (forgery)
+rock-head statue
+rock-head statue (forgery)
 informative statue
 informative statue (forgery)
 tremendous statue
@@ -12947,9 +12947,9 @@ rodeo-style springy ride-on
 
 
 
+spooky standing lamp
 
-
-
+spooky candy set
 
 
 
@@ -12985,6 +12985,10 @@ green Nook Inc. aloha shirt (Green)
 
 
 horizontal-striped wet suit (Red)
+Jack's robe (Purple)
+raggedy outfit (Orange)
+mage's dress (Orange)
+flashy animal costume (Orange)
 
 
 
@@ -12996,6 +13000,8 @@ horizontal-striped wet suit (Red)
 
 
 
+Jack's face (Orange)
+magic-academy hood (Orange)
 
 
 
@@ -13004,30 +13010,24 @@ horizontal-striped wet suit (Red)
 
 
 
+mage's striped hat (Orange)
+
+
+impish wings (Orange)
+flashy animal boots (Orange)
+mage's boots (Orange)
+animal nose (Black)
+
+
+
+impish horns (Orange)
+flashy pointy-ear animal hat (Orange)
+flashy round-ear animal hat (Orange)
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+horizontal-striped tights (Orange)
 
 
 
@@ -13194,8 +13194,8 @@ Nook Inc. handheld pennant
 
 
 
-
-
+lollipop
+candy
 
 
 
@@ -13220,12 +13220,12 @@ Nook Inc. snorkel (Green)
 
 
 Luna's bed
+spooky garland
+spooky table setting
+spooky wall
+spooky flooring
 
-
-
-
-
-
+pumpkin start
 Dream Bell exchange ticket
 
 fireworks-show wall
@@ -13235,7 +13235,7 @@ fireworks-show wall
 
 
 
-
+spooky wand
 
 Orihime outfit (Red)
 Hikoboshi outfit (Blue)
@@ -13254,6 +13254,8 @@ Hikoboshi outfit (Blue)
 
 
 
+Body-Paint Costume Tips
+Exploring New Eye Colors
 
 
 
@@ -13271,9 +13273,7 @@ Hikoboshi outfit (Blue)
 
 
 
-
-
-
+spooky fence
 
 
 
@@ -13286,3 +13286,211 @@ Hikoboshi outfit (Blue)
 
 
 moon rug
+
+
+
+
+
+Ring-Con
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Jack's portrait
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+horizontal-striped tights (Purple)
+horizontal-striped tights (White)
+horizontal-striped tights (Green)
+horizontal-striped tights (Red)
+horizontal-striped tights (Black)
+flashy animal costume (Purple)
+flashy animal costume (White)
+flashy animal costume (Green)
+flashy animal costume (Red)
+flashy animal costume (Black)
+mage's dress (Purple)
+mage's dress (White)
+mage's dress (Green)
+mage's dress (Red)
+mage's dress (Black)
+magic-academy robe (Orange)
+raggedy outfit (Purple)
+raggedy outfit (White)
+raggedy outfit (Green)
+raggedy outfit (Red)
+raggedy outfit (Black)
+impish horns (Purple)
+impish horns (White)
+impish horns (Green)
+impish horns (Red)
+impish horns (Black)
+magic-academy hood (Purple)
+magic-academy hood (White)
+magic-academy hood (Green)
+magic-academy hood (Red)
+magic-academy hood (Black)
+mage's striped hat (Purple)
+mage's striped hat (White)
+mage's striped hat (Green)
+mage's striped hat (Red)
+mage's striped hat (Black)
+impish wings (Purple)
+impish wings (White)
+impish wings (Green)
+impish wings (Red)
+impish wings (Black)
+flashy animal boots (Purple)
+flashy animal boots (White)
+flashy animal boots (Green)
+flashy animal boots (Red)
+flashy animal boots (Black)
+flashy pointy-ear animal hat (Purple)
+flashy pointy-ear animal hat (White)
+flashy pointy-ear animal hat (Green)
+flashy pointy-ear animal hat (Red)
+flashy pointy-ear animal hat (Black)
+flashy round-ear animal hat (Purple)
+flashy round-ear animal hat (White)
+flashy round-ear animal hat (Green)
+flashy round-ear animal hat (Red)
+flashy round-ear animal hat (Black)
+mage's boots (Purple)
+mage's boots (White)
+mage's boots (Green)
+mage's boots (Red)
+mage's boots (Black)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+magic-academy robe (Purple)
+magic-academy robe (White)
+magic-academy robe (Green)
+magic-academy robe (Red)
+magic-academy robe (Black)
