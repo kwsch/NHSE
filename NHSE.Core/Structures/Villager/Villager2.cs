@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace NHSE.Core
 {
+    /// <summary>
+    /// Villager object format starting with update 1.5
+    /// </summary>
     public sealed class Villager2 : IVillager
     {
         public const int SIZE = 0x13230; // + 160*0xC (0x780) -- GSaveLightMemory increased size.

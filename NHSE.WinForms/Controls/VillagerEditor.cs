@@ -132,13 +132,20 @@ namespace NHSE.WinForms
             var path = ofd.FileName;
             var expectLength = SAV.Offsets.VillagerSize;
             var fi = new FileInfo(path);
-            if (fi.Length != expectLength)
+            if (VillagerConverter.IsCompatible((int)fi.Length, expectLength))
             {
                 WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength), path);
                 return;
             }
 
             var data = File.ReadAllBytes(ofd.FileName);
+            data = VillagerConverter.GetCompatible(data, expectLength);
+            if (data.Length != expectLength)
+            {
+                WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength), path);
+                return;
+            }
+
             var v = SAV.Offsets.ReadVillager(data);
             var player0 = Origin;
             if (!v.IsOriginatedFrom(player0))
