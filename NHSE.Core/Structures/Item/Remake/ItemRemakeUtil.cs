@@ -308,7 +308,7 @@ namespace NHSE.Core
             {03581, 0188}, // fish-drying rack
             {03582, 0150}, // book
             {03583, 0207}, // fishing-boat flag
-            {03584, 0270}, // writing poster
+            {03584, 0270}, // study poster
             {03586, 0254}, // magazine
             {03587, 0362}, // fishing-rod stand
             {03588, 0160}, // signpost
@@ -335,8 +335,8 @@ namespace NHSE.Core
             {03692, 0356}, // plain wooden shop sign
             {03697, 0334}, // portable radio
             {03699, 0335}, // fish print
-            {03701, 0337}, // writing desk
-            {03702, 0336}, // writing chair
+            {03701, 0337}, // study desk
+            {03702, 0336}, // study chair
             {03773, 0375}, // terrarium
             {03775, 0376}, // hanging terrarium
             {03776, 0377}, // brick well
@@ -452,6 +452,14 @@ namespace NHSE.Core
             {04078, 0500}, // barbell
             {04080, 0499}, // long bathtub
             {04081, 0468}, // camping cot
+            {04083, 1155}, // spooky arch
+            {04084, 1156}, // spooky scarecrow
+            {04086, 1157}, // spooky tower
+            {04087, 1190}, // spooky carriage
+            {04088, 1191}, // spooky lantern
+            {04089, 1192}, // spooky chair
+            {04090, 1193}, // spooky table
+            {04092, 1194}, // spooky lantern set
             {04093, 0612}, // bamboo drum
             {04094, 0474}, // floating-biotope planter
             {04099, 0419}, // formal paper
@@ -1081,6 +1089,11 @@ namespace NHSE.Core
             {12411, 0927}, // wedding flower stand
             {12543, 0934}, // Nintendo Switch
             {12741, 1012}, // world map
+            {12949, 1168}, // spooky standing lamp
+            {12951, 1195}, // spooky candy set
+            {13222, 1153}, // spooky garland
+            {13223, 1154}, // spooky table setting
+            {13352, 1157}, // spooky tower
         };
     }
 }
