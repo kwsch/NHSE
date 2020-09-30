@@ -15,9 +15,9 @@
 
         public override int NowPoint => GSaveLifeSupport + 0x5498; // Nook Miles
         public override int TotalPoint => NowPoint + 8; // Total Nook Miles Earned
-        public override int Birthday => Player + 0x1168C;
+        public override int Birthday => Player + 0x1228c;
 
-        public override int ProfileMain => Player + 0x116A0;
+        public override int ProfileMain => Player + 0x122a0;
         public override int ProfilePhoto => ProfileMain + 0x14;
         public override int ProfileBirthday => ProfileMain + 0x23058;
         public override int ProfileFruit => ProfileMain + 0x2305C;
@@ -26,7 +26,7 @@
 
         // end player
 
-        private const int PlayerOther = 0x35E40;
+        private const int PlayerOther = 0x36a50;
 
         public override int Pockets1 => PlayerOther + 0x10;
         public override int Pockets2 => Pockets1 + (8 * Pockets1Count) + 0x18;
@@ -35,10 +35,10 @@
         public override int ItemCollectBit => PlayerOther + 0xA058;
         public override int ItemRemakeCollectBit => PlayerOther + 0xA7AC;
         public override int Manpu => PlayerOther + 0xAF7C;
-        public override int Bank => PlayerOther + 0x350C4;
+        public override int Bank => PlayerOther + 0x35244;
         public override int Recipes => Bank + 0x10;
 
-        public override int MaxRecipeID => 0x2DA;
+        public override int MaxRecipeID => 0x2E1;
         public override int MaxRemakeBitFlag => 0x7D0 * 32;
     }
 }
