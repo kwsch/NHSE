@@ -278,6 +278,16 @@ namespace NHSE.WinForms
             }
         }
 
+        private void L_Count_DoubleClick(object sender, EventArgs e)
+        {
+            Item currentItem = SetItem(new Item());
+            var result = ItemInfo.TryGetMaxStackCount(currentItem, out var max);
+            if (!result)
+                return;
+            currentItem.Count = (ushort)(max - 1);
+            LoadItem(currentItem);
+        }
+
         private void CB_CountAlias_SelectedValueChanged(object sender,EventArgs e)
         {
             var val = WinFormsUtil.GetIndex((ComboBox)sender);

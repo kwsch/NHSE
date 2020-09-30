@@ -147,6 +147,7 @@ namespace NHSE.Core
         Kind_WoodenStickTool,
         Kind_WrappingPaper,
         Kind_YutaroWisp,
+        Kind_XmasDeco,
         Onepiece_Dress,
         Onepiece_Long,
         Onepiece_Middle,

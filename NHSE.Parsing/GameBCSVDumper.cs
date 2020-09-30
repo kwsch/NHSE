@@ -56,6 +56,14 @@ namespace NHSE.Parsing
                 Console.WriteLine($"Created {fn}");
             }
 
+            void DumpD<T, S>(string fn, Dictionary<T, S> dict, string dir = "text")
+            {
+                Directory.CreateDirectory(Path.Combine(dest, dir));
+                var lines = dict.Select(z => $"{{{z.Key}, {z.Value:00000}}},");
+                File.WriteAllLines(Path.Combine(dest, dir, fn), lines);
+                Console.WriteLine($"Created {fn}");
+            }
+
             DumpS("bcsv_map.txt", BCSV.EnumLookup.Dump());
             DumpS("lifeSupportAchievement.txt", GetLifeSupportAchievementList(pathBCSV));
             DumpS("recipeDictionary.txt", GetRecipeList(pathBCSV));
@@ -82,6 +90,8 @@ namespace NHSE.Parsing
             DumpS("RoofKind.txt", GetNumberedEnumValues(pathBCSV, "StructureHouseRoofParam.bcsv", 0x39B5A93D, 0x54706054));
             DumpS("DoorKind.txt", GetNumberedEnumValues(pathBCSV, "StructureHouseDoorParam.bcsv", 0x39B5A93D, 0x54706054));
             DumpS("WallKind.txt", GetNumberedEnumValues(pathBCSV, "StructureHouseWallParam.bcsv", 0x39B5A93D, 0x54706054));
+
+            DumpD("ItemStack.txt", GetItemStackDict(pathBCSV));
 
             DumpB("item_kind.bin", GetItemKindArray(pathBCSV));
             DumpB("item_size.bin", GetItemSizeArray(pathBCSV));
@@ -223,6 +233,59 @@ namespace NHSE.Parsing
             byte[] result = new byte[max + 1];
             foreach (var kvp in types)
                 result[kvp.Key] = (byte)kvp.Value;
+
+            return result;
+        }
+
+        public static Dictionary<ItemKind, ushort> GetItemStackDict(string pathBCSV, string fn = "ItemKind.bcsv")
+        {
+            var path = Path.Combine(pathBCSV, fn);
+            var data = File.ReadAllBytes(path);
+            var bcsv = new BCSV(data);
+
+            var dict = bcsv.GetFieldDictionary();
+            var fStack = dict[0x4C9BA961]; // MultiHoldMaxNum
+            var fKind = dict[0x87BF00E8]; // Label
+
+            // clothing is split out more granularly in ItemKind and would cause errors
+            // since it's not likely to ever be stackable, we can skip
+            // none-type can be skipped and doesn't exist in ItemKind either
+            List<string> skipLabels = new List<string>
+            {
+                "TopsDefault",
+                "Tops",
+                "OnePiece",
+                "MarineSuit",
+                "BottomsDefault",
+                "Bottoms",
+                "Shoes",
+                "None"
+            };
+
+            var result = new Dictionary<ItemKind, ushort>();
+            for (int i = 0; i < bcsv.EntryCount; i++)
+            {
+                var stack = bcsv.ReadValue(i, fStack);
+                switch (stack)
+                {
+                    case "-1": // for some reason turnips have a stack value of -1, should be 10...
+                        stack = "10";
+                        break;
+                    case "0": // the game stores items that cannot be stacked as 0, so technically they stack to 1
+                        stack = "1";
+                        break;
+                }
+
+                var stackval = ushort.Parse(stack);
+                var kind = bcsv.ReadValue(i, fKind).TrimEnd('\0');
+                if (skipLabels.Contains(kind))
+                    continue;
+
+                kind = "Kind_" + kind;
+                if (!Enum.TryParse<ItemKind>(kind, out var k))
+                    throw new InvalidEnumArgumentException($"{kind} is not a known enum value @ index {i}. Update the enum index first.");
+                result.Add(k, stackval);
+            }
 
             return result;
         }
