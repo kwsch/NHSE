@@ -59,7 +59,7 @@ namespace NHSE.Parsing
         {
             var dest = Path.Combine(corePath, langID, $"text_item_{langID}.txt");
             var file = string.Format(msbtFolder, langFolderCode);
-            var items = GameMSBTDumper.GetItemListResource(file);
+            var items = GameMSBTDumper.GetItemListResource(file, langID);
             File.WriteAllLines(dest, items);
         }
 
