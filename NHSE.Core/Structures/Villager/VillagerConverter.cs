@@ -24,8 +24,8 @@ namespace NHSE.Core
 
             return expect switch
             {
-                Villager1.SIZE when data.Length == Villager2.SIZE => Convert12(data),
-                Villager2.SIZE when data.Length == Villager1.SIZE => Convert21(data),
+                Villager1.SIZE when data.Length == Villager2.SIZE => Convert21(data),
+                Villager2.SIZE when data.Length == Villager1.SIZE => Convert12(data),
                 _ => data
             };
         }
