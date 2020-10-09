@@ -19,6 +19,8 @@ namespace NHSE.Core
         /* 0x0C */ public ushort Unk2;
         /* 0x0E */ public ushort SaveRevision;
 
+        public override string ToString() => $"Major = 0x{Major:X}, Minor = 0x{Minor:X}, HeaderRevision = {HeaderRevision}, Unk1 = {Unk1}, SaveRevision = {SaveRevision}, Unk2 = {Unk2}";
+
         public bool Equals(FileHeaderInfo? other)
         {
             if (other is null)
