@@ -163,6 +163,14 @@
 04074	Color de las luces
 04075	Marco
 04078	Color de las pesas
+04083	Color de la calabaza
+04084	Color de la calabaza
+04086	Color de la calabaza
+04087	Color de la calabaza
+04088	Color de la calabaza
+04089	Color de la calabaza
+04090	Color de la calabaza
+04092	Color de la calabaza
 04093	Bambú
 04104	Contenido
 04108	Color de las luces
@@ -292,3 +300,7 @@
 12411	Diseño
 12543	Joy-Con
 12741	Centro del mapa
+12949	Color de la calabaza
+12951	Color
+13222	Color
+13223	Color

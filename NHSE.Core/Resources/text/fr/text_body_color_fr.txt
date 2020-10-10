@@ -2098,6 +2098,38 @@
 04081_5	Camouflage
 04081_6	Simple
 04081_7	Pop
+04083_0	Orange
+04083_1	Jaune
+04083_2	Vert
+04083_3	Monochrome
+04084_0	Orange
+04084_1	Jaune
+04084_2	Vert
+04084_3	Monochrome
+04086_0	Orange
+04086_1	Jaune
+04086_2	Vert
+04086_3	Monochrome
+04087_0	Orange
+04087_1	Jaune
+04087_2	Vert
+04087_3	Monochrome
+04088_0	Orange
+04088_1	Jaune
+04088_2	Vert
+04088_3	Monochrome
+04089_0	Orange
+04089_1	Jaune
+04089_2	Vert
+04089_3	Monochrome
+04090_0	Orange
+04090_1	Jaune
+04090_2	Vert
+04090_3	Monochrome
+04092_0	Orange
+04092_1	Jaune
+04092_2	Vert
+04092_3	Monochrome
 04093_0	Bambou vert
 04093_1	Bambou sec
 04093_2	Bambou fumé
@@ -3226,3 +3258,19 @@
 12543_1	Gris
 12741_0	Océan Pacifique
 12741_1	Océan Atlantique
+12949_0	Orange
+12949_1	Jaune
+12949_2	Vert
+12949_3	Monochrome
+12951_0	Orange
+12951_1	Jaune
+12951_2	Vert
+12951_3	Monochrome
+13222_0	Orange
+13222_1	Jaune
+13222_2	Vert
+13222_3	Monochrome
+13223_0	Orange
+13223_1	Jaune
+13223_2	Vert
+13223_3	Monochrome

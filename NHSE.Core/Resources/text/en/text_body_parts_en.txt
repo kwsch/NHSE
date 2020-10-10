@@ -163,6 +163,14 @@
 04074	Light color
 04075	Frame
 04078	Plate color
+04083	Pumpkin color
+04084	Pumpkin color
+04086	Pumpkin color
+04087	Pumpkin color
+04088	Pumpkin color
+04089	Pumpkin color
+04090	Pumpkin color
+04092	Pumpkin color
 04093	Bamboo
 04104	Dish
 04108	Light color
@@ -292,3 +300,7 @@
 12411	Design
 12543	Joy-Con
 12741	Map center
+12949	Pumpkin color
+12951	Color
+13222	Color
+13223	Color

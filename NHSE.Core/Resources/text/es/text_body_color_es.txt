@@ -2098,6 +2098,38 @@
 04081_5	Camuflaje
 04081_6	Estampado sencillo
 04081_7	Estampado pop
+04083_0	Naranja
+04083_1	Amarillo
+04083_2	Verde
+04083_3	Blanco
+04084_0	Naranja
+04084_1	Amarillo
+04084_2	Verde
+04084_3	Blanco
+04086_0	Naranja
+04086_1	Amarillo
+04086_2	Verde
+04086_3	Blanco
+04087_0	Naranja
+04087_1	Amarillo
+04087_2	Verde
+04087_3	Blanco
+04088_0	Naranja
+04088_1	Amarillo
+04088_2	Verde
+04088_3	Blanco
+04089_0	Naranja
+04089_1	Amarillo
+04089_2	Verde
+04089_3	Blanco
+04090_0	Naranja
+04090_1	Amarillo
+04090_2	Verde
+04090_3	Blanco
+04092_0	Naranja
+04092_1	Amarillo
+04092_2	Verde
+04092_3	Blanco
 04093_0	Verde
 04093_1	Seco
 04093_2	Ahumado
@@ -3226,3 +3258,19 @@
 12543_1	Gris
 12741_0	Océano Pacífico
 12741_1	Océano Atlántico
+12949_0	Naranja
+12949_1	Amarillo
+12949_2	Verde
+12949_3	Blanco
+12951_0	Naranja
+12951_1	Amarillo
+12951_2	Verde
+12951_3	Blanco
+13222_0	Naranja
+13222_1	Amarillo
+13222_2	Verde
+13222_3	Blanco
+13223_0	Naranja
+13223_1	Amarillo
+13223_2	Verde
+13223_3	Blanco

@@ -2098,6 +2098,38 @@
 04081_5	Mimetico
 04081_6	Motivo semplice
 04081_7	Motivo sgargiante
+04083_0	Arancio
+04083_1	Giallo
+04083_2	Verde
+04083_3	Monocromo
+04084_0	Arancio
+04084_1	Giallo
+04084_2	Verde
+04084_3	Monocromo
+04086_0	Arancio
+04086_1	Giallo
+04086_2	Verde
+04086_3	Monocromo
+04087_0	Arancio
+04087_1	Giallo
+04087_2	Verde
+04087_3	Monocromo
+04088_0	Arancio
+04088_1	Giallo
+04088_2	Verde
+04088_3	Monocromo
+04089_0	Arancio
+04089_1	Giallo
+04089_2	Verde
+04089_3	Monocromo
+04090_0	Arancio
+04090_1	Giallo
+04090_2	Verde
+04090_3	Monocromo
+04092_0	Arancio
+04092_1	Giallo
+04092_2	Verde
+04092_3	Monocromo
 04093_0	Bambù verde
 04093_1	Bambù essiccato
 04093_2	Bambù affumicato
@@ -3226,3 +3258,19 @@
 12543_1	Grigio
 12741_0	Oceano Pacifico
 12741_1	Oceano Atlantico
+12949_0	Arancio
+12949_1	Giallo
+12949_2	Verde
+12949_3	Monocromo
+12951_0	Arancio
+12951_1	Giallo
+12951_2	Verde
+12951_3	Monocromo
+13222_0	Arancio
+13222_1	Giallo
+13222_2	Verde
+13222_3	Monocromo
+13223_0	Arancio
+13223_1	Giallo
+13223_2	Verde
+13223_3	Monocromo

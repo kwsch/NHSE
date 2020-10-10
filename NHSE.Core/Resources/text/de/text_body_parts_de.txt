@@ -163,6 +163,14 @@
 04074	Beleuchtung
 04075	Rahmen
 04078	Farbe der Gewichte
+04083	Kürbisfarbe
+04084	Kürbisfarbe
+04086	Kürbisfarbe
+04087	Kürbisfarbe
+04088	Kürbisfarbe
+04089	Kürbisfarbe
+04090	Kürbisfarbe
+04092	Kürbisfarbe
 04093	Bambusart
 04104	Pfanneninhalt
 04108	Beleuchtung
@@ -292,3 +300,7 @@
 12411	Design
 12543	Joy-Con
 12741	Kartenzentrierung
+12949	Kürbisfarbe
+12951	Farbe
+13222	Farbe
+13223	Farbe

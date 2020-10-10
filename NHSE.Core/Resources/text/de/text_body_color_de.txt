@@ -2098,6 +2098,38 @@
 04081_5	Tarnfarbe
 04081_6	Schlicht
 04081_7	Pop
+04083_0	Orange
+04083_1	Gelb
+04083_2	Grün
+04083_3	Einfarbig
+04084_0	Orange
+04084_1	Gelb
+04084_2	Grün
+04084_3	Einfarbig
+04086_0	Orange
+04086_1	Gelb
+04086_2	Grün
+04086_3	Einfarbig
+04087_0	Orange
+04087_1	Gelb
+04087_2	Grün
+04087_3	Einfarbig
+04088_0	Orange
+04088_1	Gelb
+04088_2	Grün
+04088_3	Einfarbig
+04089_0	Orange
+04089_1	Gelb
+04089_2	Grün
+04089_3	Einfarbig
+04090_0	Orange
+04090_1	Gelb
+04090_2	Grün
+04090_3	Einfarbig
+04092_0	Orange
+04092_1	Gelb
+04092_2	Grün
+04092_3	Einfarbig
 04093_0	Grüner Bambus
 04093_1	Getrockneter Bambus
 04093_2	Rußbambus
@@ -3226,3 +3258,19 @@
 12543_1	Grau
 12741_0	Pazifischer Ozean
 12741_1	Atlantischer Ozean
+12949_0	Orange
+12949_1	Gelb
+12949_2	Grün
+12949_3	Einfarbig
+12951_0	Orange
+12951_1	Gelb
+12951_2	Grün
+12951_3	Einfarbig
+13222_0	Orange
+13222_1	Gelb
+13222_2	Grün
+13222_3	Einfarbig
+13223_0	Orange
+13223_1	Gelb
+13223_2	Grün
+13223_3	Einfarbig

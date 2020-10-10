@@ -163,6 +163,14 @@
 04074	Lumière
 04075	Cadre
 04078	Couleur des poids
+04083	Couleur de citrouille
+04084	Couleur de citrouille
+04086	Couleur de citrouille
+04087	Couleur de citrouille
+04088	Couleur de citrouille
+04089	Couleur de citrouille
+04090	Couleur de citrouille
+04092	Couleur de citrouille
 04093	Type de bambou
 04104	Contenu
 04108	Lumière
@@ -292,3 +300,7 @@
 12411	Modèle
 12543	Joy-Con
 12741	Centre de la carte
+12949	Couleur de citrouille
+12951	Couleur
+13222	Couleur
+13223	Couleur

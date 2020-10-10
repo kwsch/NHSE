@@ -163,6 +163,14 @@
 04074	Colore della luce
 04075	Tipo
 04078	Colore dei pesi
+04083	Colore della zucca
+04084	Colore della zucca
+04086	Colore della zucca
+04087	Colore della zucca
+04088	Colore della zucca
+04089	Colore della zucca
+04090	Colore della zucca
+04092	Colore della zucca
 04093	Tipo di bambù
 04104	Contenuto
 04108	Colore della luce
@@ -292,3 +300,7 @@
 12411	Design
 12543	Joy-Con
 12741	Centro del planisfero
+12949	Colore della zucca
+12951	Colore
+13222	Colore
+13223	Colore
