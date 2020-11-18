@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
@@ -9,6 +11,7 @@ namespace NHSE.WinForms
     public partial class BulkSpawn : Form
     {
         private readonly IItemLayerEditor Editor;
+        private string NHIFilePath = "";
 
         public BulkSpawn(IItemLayerEditor editor, int x = 0, int y = 0)
         {
@@ -47,6 +50,23 @@ namespace NHSE.WinForms
                     .Select(z => new Item(Item.DIYRecipe) {FreeParam = z});
 
                 items = Enumerable.Repeat(diy, count).SelectMany(z => z);
+                sizeX = sizeY = 2;
+            }
+            else if (type == SpawnType.ItemsFromNHI)
+            {
+                if (this.NHIFilePath == "")
+                    return; // throw msg box at some point
+
+                // read non-empty slots into item array
+                var data = File.ReadAllBytes(this.NHIFilePath);
+                var array = data.GetArray<Item>(Item.SIZE).Where(item => !item.IsNone);
+                items = Enumerable.Repeat(array, count).SelectMany(x => x);
+
+                // set flag0 = 0x20 for each item to ensure it gets placed
+                // this also forces a 2x2 item size
+                foreach (Item item in items)
+                    item.SystemParam = 0x20;
+
                 sizeX = sizeY = 2;
             }
             else
@@ -118,17 +138,40 @@ namespace NHSE.WinForms
         {
             var index = (SpawnType)CB_SpawnType.SelectedIndex;
             L_DIYStart.Visible = L_DIYStop.Visible = NUD_DIYStart.Visible = NUD_DIYStop.Visible = index == SpawnType.SequentialDIY;
+            L_NHI.Visible = L_NHIFileName.Visible = index == SpawnType.ItemsFromNHI;
             NUD_SpawnCount.Value = index switch
             {
                 SpawnType.SequentialDIY => 1,
+                SpawnType.ItemsFromNHI => 1,
                 _ => 8,
             };
+
+            if (index == SpawnType.ItemsFromNHI)
+            {
+                L_NHIFileName_Click(null, null);
+            }
+        }
+
+        private void L_NHIFileName_Click(object sender, EventArgs e)
+        {
+            using var ofd = new OpenFileDialog
+            {
+                Filter = "New Horizons Inventory (*.nhi)|*.nhi|All files (*.*)|*.*",
+                FileName = "items.nhi",
+            };
+
+            if (ofd.ShowDialog() != DialogResult.OK)
+                return;
+
+            L_NHIFileName.Text = ofd.SafeFileName;
+            this.NHIFilePath = ofd.FileName;
         }
 
         private enum SpawnType
         {
             ItemFromEditor,
             SequentialDIY,
+            ItemsFromNHI,
         }
 
         private enum SpawnArrangement
