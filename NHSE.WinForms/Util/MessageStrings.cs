@@ -37,6 +37,7 @@ namespace NHSE.WinForms
         public static string MsgFieldItemModifyNone { get; set; } = "Nothing modified (none found).";
         public static string MsgFieldItemModifyCount { get; set; } = "Modified {0} tiles on the map.";
         public static string MsgFieldItemUnsupportedLayer2Tile { get; set; } = "Unsupported Layer2 items detected.";
+        public static string MsgFieldItemNoNHI { get; set; } = "No .nhi file selected to import!";
 
         public static string MsgSysBotInfo { get; set; } = "This SysBot reads and writes RAM directly to your game when called to Read/Write.";
         public static string MsgSysBotRequired { get; set; } = "Using this functionality requires the sys-botbase sysmodule running on the console. Your console must be on the same network as the PC running this program.";
