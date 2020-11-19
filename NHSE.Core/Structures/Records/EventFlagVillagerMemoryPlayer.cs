@@ -154,6 +154,19 @@ namespace NHSE.Core
             {0x86, new EventFlagVillagerMemoryPlayer(0 , 1  , 134, "FollowQuestAfter"                           )}, // 追従｜追従クエスト後か？ 
             {0x88, new EventFlagVillagerMemoryPlayer(0 , 1  , 136, "HalloweenLastNotGetFlag"                    )}, // ハロウィン|最後の会話で報酬アイテムもらえなかった？
             {0x89, new EventFlagVillagerMemoryPlayer(0 , 16 , 137, "HalloweenLastNotGetItem"                    )}, // ハロウィン|最後の会話でもらえなかった報酬アイテム
+            {0x8A, new EventFlagVillagerMemoryPlayer(0 , 1  , 138, "HarvestItemExchangeToday"                   )}, // ハーベスト｜物々交換を１度でも行ったか？
+            {0x8B, new EventFlagVillagerMemoryPlayer(0 , 1  , 139, "ChristmasSantaPresentsFlag"                 )}, // サンタミッションのプレゼントを受け取ったか？
+            {0x8C, new EventFlagVillagerMemoryPlayer(0 , 1  , 140, "ChristmasSantaPresentsNoGetFlag"            )}, // サンタミッションのお返しが持ち物一杯で受け取れなかった？
+            {0x8D, new EventFlagVillagerMemoryPlayer(0 , 1  , 141, "ChristmasSantaPresentsReturnFlag"           )}, // サンタミッションでプレゼント渡したらお返しくれたか？
+            {0x8E, new EventFlagVillagerMemoryPlayer(0 , 1  , 142, "ChristmasGiftExchangeFlag"                  )}, // そのNPCとプレゼント交換をしたか？
+            {0x8F, new EventFlagVillagerMemoryPlayer(0 , 8  , 143, "ChristmasExchangeItemType"                  )}, // クリスマス｜プレゼント交換であげたプレゼントの種類
+            {0x90, new EventFlagVillagerMemoryPlayer(0 , 1  , 144, "ChristmasCosJudgeFlag"                      )}, // イブにサンタの恰好をしているか？
+            {0x91, new EventFlagVillagerMemoryPlayer(0 , 1  , 145, "ChristmasCannotGetNnpcItemFlag"             )}, // クリスマス|このNPCから受け取り損ねたアイテムがある？
+            {0x92, new EventFlagVillagerMemoryPlayer(0 , 1  , 146, "ChristmasAfterMesFlag"                      )}, // クリスマス（25日）に専用会話を聞いた？
+            {0x93, new EventFlagVillagerMemoryPlayer(0 , 1  , 147, "ChristmasWrappingGiftNoGetFlag"             )}, // クリスマス|持ち物一杯でラッピングペーパーを受け取り損ねた？
+            {0x94, new EventFlagVillagerMemoryPlayer(0 , 8  , 148, "ChristmasSantaPresentItemType"              )}, // クリスマス｜サンタミッションであげたプレゼントの種類
+            {0x95, new EventFlagVillagerMemoryPlayer(0 , 8  , 149, "ChristmasExchangeRemakeId"                  )}, // クリスマス｜プレゼント交換であげたプレゼントのリメイクID
+            {0x96, new EventFlagVillagerMemoryPlayer(0 , 8  , 150, "ChristmasSantaPresentRemakeId"              )}, // クリスマス｜サンタミッションであげたプレゼントのリメイクID
         };
 
         private const string Unknown = "???";

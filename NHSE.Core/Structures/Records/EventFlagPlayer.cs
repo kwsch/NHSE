@@ -956,9 +956,16 @@ namespace NHSE.Core
             {0x486, new EventFlagPlayer(0 , 1   , 1158, "ExplainPumpkinColorFlag"                    )}, // ハロウィン|今年かぼちゃの苗の説明聞いた？
             {0x487, new EventFlagPlayer(0 , 1   , 1159, "SloExplainPumpkinSeedingFlag"               )}, // レイジ/ハロウィン|今日かぼちゃの苗の特別価格の説明きいた？
             {0x488, new EventFlagPlayer(0 , 1   , 1160, "CalcPastDays"                               )}, // 経過日数の計算をした
+            {0x489, new EventFlagPlayer(0 , 1   , 1161, "PlayerProducedByPlayerMoving"               )}, // プレイヤーだけ引越し|プレイヤーだけ引越しによって作られたプレイヤーか？
             {0x48A, new EventFlagPlayer(0 , 3000, 1162, "FireworksLastApproachYear"                  )}, // 花火大会|最後にアプローチ挙動をした年
+            {0x48B, new EventFlagPlayer(0 , 1   , 1163, "RcoTalkAboutMovingBelongings"               )}, // プレイヤーだけ引越し|たぬきちと所持品について話した
+            {0x48C, new EventFlagPlayer(0 , 1   , 1164, "RcmRctTalkAboutMovingBelongings"            )}, // プレイヤーだけ引越し|まめきち、つぶきちと所持品について話した
             {0x48D, new EventFlagPlayer(0 , 1   , 1165, "SloExplainAddVegetable"                     )}, // レイジ/ハロウィン|今日かぼちゃの苗販売の説明聞いた？
+            {0x48E, new EventFlagPlayer(0 , 1   , 1166, "PocketItemSendRecycleBoxByMoving"           )}, // プレイヤーだけ引越し|ポケットの所持品がリサイクルBOXに送られた
+            {0x48F, new EventFlagPlayer(0 , 1   , 1167, "TentItemSendRecycleBoxByMoving"             )}, // プレイヤーだけ引越し|テントの配置物がリサイクルBOXに送られた
             {0x492, new EventFlagPlayer(0 , 1   , 1170, "PknTalkLastNoCandyFlag"                     )}, // パンプキング/ハロウィン|最後の会話時アメ持ってなかった？
+            {0x499, new EventFlagPlayer(0 , 1   , 1177, "NotBuilt2PMyHomeAfterMoving"                )}, // プレイヤーだけ引越し|（2P限定）引越し後、まだ家の場所を決めてない
+            {0x49A, new EventFlagPlayer(0 , 4   , 1178, "HarvestProgress"                            )}, // ハーベスト｜完成した料理の数（プレイヤー単位）
             {0x49B, new EventFlagPlayer(0 , 64  , 1179, "PknGiveLollipopCount"                       )}, // パンプキング/ハロウィン|ロリポップをあげた回数
             {0x49C, new EventFlagPlayer(0 , 1   , 1180, "TapSelWhereAreHere"                         )}, // ゆめみ|ここはどこ？を１度選んだらON
             {0x49D, new EventFlagPlayer(0 , 1   , 1181, "PknTalkLastNotGetFlag"                      )}, // パンプキング/ハロウィン|最後の会話でアイテムもらえなかった？
@@ -970,19 +977,91 @@ namespace NHSE.Core
             {0x4A3, new EventFlagPlayer(0 , 1   , 1187, "GetHalloweenRobe"                           )}, // パンプキング/ハロウィン|ローブをもらった
             {0x4A4, new EventFlagPlayer(0 , 1   , 1188, "GetHalloweenMask"                           )}, // パンプキング/ハロウィン|かぶりものをもらった
             {0x4A5, new EventFlagPlayer(0 , 1   , 1189, "PknSendLetterFlag"                          )}, // パンプキング/ハロウィン|今年手紙送った？
+            {0x4A6, new EventFlagPlayer(0 , 1   , 1190, "PlayerMovingwithNoBelongings"               )}, // プレイヤーだけ引越し|所持品(手荷物)なしで引越してきた
             {0x4A7, new EventFlagPlayer(0 , 8   , 1191, "NpcGiveCandyCount"                          )}, // 一般NPC/ハロウィン|アメのお礼もらった回数
             {0x4A8, new EventFlagPlayer(0 , 1   , 1192, "GetHalloweenGarlandRecipe"                  )}, // 一般NPC/ハロウィン|ガーランドのレシピをもらった
             {0x4A9, new EventFlagPlayer(0 , 1   , 1193, "GetHalloweenTableSettingRecipe"             )}, // 一般NPC/ハロウィン|テーブルセッティングのレシピをもらった
             {0x4AA, new EventFlagPlayer(0 , 1   , 1194, "NpcTalkLastNotGetFlag"                      )}, // 一般NPC/ハロウィン|イベント中、誰かと話した？
             {0x4AB, new EventFlagPlayer(0 , 1   , 1195, "EnabledEmoticonIrregular"                   )}, // 漫符UI解禁済みかつ漫符入手会話が未発生
+            {0x4AC, new EventFlagPlayer(0 , 1   , 1196, "CanGetMileTicketTrialForMoving"             )}, // プレイヤーだけ引越し|引越しで来たプレイヤーに旅行券渡してよい？
+            {0x4AD, new EventFlagPlayer(0 , 1   , 1197, "PlayerMovingOrderHouseBuilt"                )}, // たぬきち|家建築、増築申し込み当日にPだけ引越しした？
+            {0x4AE, new EventFlagPlayer(0 , 1   , 1198, "PlayerMovingOrderChangeHouseDesign"         )}, // たぬきち|家外観変更申し込み当日にPだけ引越しした？
+            {0x4AF, new EventFlagPlayer(0 , 1   , 1199, "PlayerMovingOrderHouseMoveInIsland"         )}, // たぬきち|自宅移設申し込み当日にPだけ引越しした？
+            {0x4B0, new EventFlagPlayer(0 , 1   , 1200, "PlayerMovingAfterHouseRemodel"              )}, // たぬきち|家増築後説明の発生予約中にPだけ引越しした？
+            {0x4B1, new EventFlagPlayer(0 , 1   , 1201, "PlayerMovingAfterLoanFinish"                )}, // たぬきち|ローン完済会話の発生予約中にPだけ引越しした？
             {0x4B2, new EventFlagPlayer(0 , 1   , 1202, "TapUnlockFavorite"                          )}, // ゆめみ|「前に見た夢を見る」解禁
             {0x4B3, new EventFlagPlayer(0 , 9999, 1203, "LastPlayHalloweenYear"                      )}, // ハロウィン|最後に遊んだハロウィンの年
+            {0x4B5, new EventFlagPlayer(0 , 1   , 1205, "PlayerMovingDefaultHouseHasBasement"        )}, // プレイヤーだけ引越し|引越し時点で家に地下室がある
+            {0x4B6, new EventFlagPlayer(0 , 1   , 1206, "PlayerMovingEnable"                         )}, // プレイヤーだけ引越し|プレイヤーだけ引越しが可能か？（自宅完成済みか？）
+            {0x4B7, new EventFlagPlayer(0 , 1   , 1207, "RemakeWithRcoOfficeBeforeWS"                )}, // プレイヤーだけ引越し|リメイクWS前に案内所でリメイクした
+            {0x4B8, new EventFlagPlayer(0 , 1   , 1208, "RemakeWithRcoTentBeforeWS"                  )}, // プレイヤーだけ引越し|リメイクWS前にたぬきちテントでリメイクした
+            {0x4B9, new EventFlagPlayer(0 , 1   , 1209, "IslandCreaterUnlockMoving"                  )}, // プレイヤーだけ引越し|引越しのタイミングで島クリエイター解禁した？
             {0x4BA, new EventFlagPlayer(0 , 1   , 1210, "AnnounceHalloween"                          )}, // ハロウィンを島内放送で告知した
+            {0x4BB, new EventFlagPlayer(0 , 1   , 1211, "AnnounceHarvest"                            )}, // ハーベスト｜当日島内放送で告知した
             {0x4BF, new EventFlagPlayer(0 , 1   , 1215, "MilageSendLetterFlag"                       )}, // タヌポート/ハロウィン|新規肌・目の色の追加手紙送った？
             {0x4C0, new EventFlagPlayer(0 , 1   , 1216, "NpcHalloweenGetMirrorFlag"                  )}, // ハロウィン|今日NPCからミラーもらった？
             {0x4C1, new EventFlagPlayer(0 , 1   , 1217, "NpcHalloweenCandyHelpFlag"                  )}, // ハロウィン|今日NPCから救済用アメもらった？
+            {0x4C2, new EventFlagPlayer(0 , 1   , 1218, "PlayerMovingWithEmoticonUI"                 )}, // プレイヤーだけ引越し｜引越しを漫符解禁状態でやったか？
+            {0x4C3, new EventFlagPlayer(0 , 1   , 1219, "AddHairStyle4"                              )}, // 『ホットなヘアアレンジ』解禁
             {0x4C7, new EventFlagPlayer(0 , 8   , 1223, "PknGetItem"                                 )}, // パンプキング/ハロウィン|報酬アイテムは？
+            {0x4C9, new EventFlagPlayer(0 , 1   , 1225, "XctGetRewardThisIsland"                     )}, // メーデー|みしらぬネコから「今住んでる島で」報酬もらった？
+            {0x4CA, new EventFlagPlayer(0 , 1   , 1226, "HarvestHQDish1P"                            )}, // ハーベスト｜Pが料理１クラムチャウダーの隠し食材納めた？
+            {0x4CB, new EventFlagPlayer(0 , 1   , 1227, "HarvestHQDish2P"                            )}, // ハーベスト｜Pが料理２パンプキンパイの隠し食材納めた？
+            {0x4CC, new EventFlagPlayer(0 , 1   , 1228, "HarvestHQDish3P"                            )}, // ハーベスト｜Pが料理３グラタンの隠し食材納めた？
+            {0x4CD, new EventFlagPlayer(0 , 1   , 1229, "HarvestHQDish4P"                            )}, // ハーベスト｜Pが料理４サカナのムニエルの隠し食材納めた？
+            {0x4CE, new EventFlagPlayer(0 , 1   , 1230, "TukTalkFirst"                               )}, // ハーベスト｜フランクリンとの面識あるか？
+            {0x4CF, new EventFlagPlayer(0 , 4   , 1231, "HarvestTalkAboutNextDishProgress"           )}, // ハーベスト｜次の料理の話を聞いたか？
+            {0x4D0, new EventFlagPlayer(0 , 1   , 1232, "TapUnlockLeaveTap"                          )}, // ゆめみ|「おまかせ」解禁
+            {0x4D1, new EventFlagPlayer(0 , 8   , 1233, "HarvestKeepReward"                          )}, // ハーベスト｜渡す報酬の種類情報
             {0x4D2, new EventFlagPlayer(0 , 1   , 1234, "RewindDays"                                 )}, // 日付を巻き戻した
+            {0x4D3, new EventFlagPlayer(0 , 1   , 1235, "TukTalkBeforeEvent"                         )}, // ハーベスト｜フランクリンとイベント開始前に会話した
+            {0x4D4, new EventFlagPlayer(0 , 1   , 1236, "TukTalkAfterEvent"                          )}, // ハーベスト｜フランクリンとイベント終了後に会話した
+            {0x4D5, new EventFlagPlayer(0 , 1   , 1237, "AnnounceBeforeHarvest"                      )}, // ハーベスト｜５日前～２日前に島内放送で告知した
+            {0x4D6, new EventFlagPlayer(0 , 1   , 1238, "PasswordIsOld"                              )}, // パスワードが古いのでPOPID使用不可
+            {0x4D7, new EventFlagPlayer(0 , 3   , 1239, "FishExchangeLoseCount"                      )}, // ハーベスト｜物々交換でハズレをもらった回数
+            {0x4D8, new EventFlagPlayer(0 , 1   , 1240, "ReiTalkFirst"                               )}, // クリスマス｜ジングルとの面識あるか？
+            {0x4D9, new EventFlagPlayer(0 , 1   , 1241, "ReiGetReward1"                              )}, // クリスマス｜ジングルからくつしたのかざり受け取った？
+            {0x4DA, new EventFlagPlayer(0 , 1   , 1242, "ReiGetReward2"                              )}, // クリスマス｜ジングルからプレゼントのやまレシピ受け取った？
+            {0x4DB, new EventFlagPlayer(0 , 1   , 1243, "ReiGetReward3"                              )}, // クリスマス｜ジングルからクリスマスのソリ受け取った？
+            {0x4DC, new EventFlagPlayer(0 , 1   , 1244, "ReiStartQuest1"                             )}, // クリスマス｜ジングルからラッピングDIYクエスト受注した？
+            {0x4DD, new EventFlagPlayer(0 , 1   , 1245, "ReiStartQuest2"                             )}, // クリスマス｜ジングルからプレゼント配布クエスト受注した？
+            {0x4DF, new EventFlagPlayer(0 , 1   , 1247, "ReiFinishQuest1"                            )}, // クリスマス｜ジングルのDIYクエスト完了した？
+            {0x4E0, new EventFlagPlayer(0 , 1   , 1248, "AnnouncePreChristmas"                       )}, // クリスマス｜事前期間に島内放送で告知した？
+            {0x4E3, new EventFlagPlayer(0 , 10  , 1251, "SantaMissionNpcIndex1"                      )}, // クリスマス｜サンタミッションでお返しをくれるNPC1
+            {0x4E4, new EventFlagPlayer(0 , 10  , 1252, "SantaMissionNpcIndex2"                      )}, // クリスマス｜サンタミッションでお返しをくれるNPC2
+            {0x4E5, new EventFlagPlayer(0 , 10  , 1253, "SantaMissionNpcIndex3"                      )}, // クリスマス｜サンタミッションでお返しをくれるNPC3
+            {0x4E6, new EventFlagPlayer(0 , 1   , 1254, "ReceiveLeaveTapLetter"                      )}, // ゆめみ|おまかせ解禁の手紙を受け取った
+            {0x4E7, new EventFlagPlayer(0 , 1   , 1255, "RcmExplainToy"                              )}, // クリスマス｜おもちゃ家具陳列の案内を受けた？
+            {0x4E9, new EventFlagPlayer(0 , 9999, 1257, "ChristmasWreathGetYear"                     )}, // クリスマス｜クリスマスリースをNPCから貰った年
+            {0x4EA, new EventFlagPlayer(0 , 9   , 1258, "TukSecretRewardType"                        )}, // ハーベスト｜フランクリンの隠し食材報酬抽選結果
+            {0x4EE, new EventFlagPlayer(0 , 1   , 1262, "TapUpdatedDreamFirstTalk"                   )}, // ゆめみ|初回会話を1.6.0以降に行った？
+            {0x4EF, new EventFlagPlayer(0 , 1   , 1263, "SzaChristmasOrnament"                       )}, // クリスマス｜しずえからオーナメント素材もらった？
+            {0x4F1, new EventFlagPlayer(0 , 1   , 1265, "CheckHarvestFtrInStore"                     )}, // ハーベスト｜ハーベスト家具をお店でチェックしたことがあるか？
+            {0x4F2, new EventFlagPlayer(0 , 9999, 1266, "ChristmasPresentYear"                       )}, // クリスマス|自宅プレゼントをもらった年
+            {0x4F3, new EventFlagPlayer(0 , 2   , 1267, "InputApproachBanCount"                      )}, // アプローチ｜入力系アプローチ禁止カウント
+            {0x4F5, new EventFlagPlayer(0 , 1   , 1269, "TukCancel1stRequest"                        )}, // ハーベスト｜フランクリン１品目で「大変ですね」を選択した
+            {0x4F6, new EventFlagPlayer(0 , 1   , 1270, "ChristmasWrappingGiftFlag"                  )}, // クリスマス｜プレゼント交換初回でラッピングもらった？
+            {0x4F8, new EventFlagPlayer(0 , 1   , 1272, "HarvestRefuseGiveHQFood1"                   )}, // ハーベスト｜料理１の隠し食材を渡すのを拒んだ
+            {0x4F9, new EventFlagPlayer(0 , 1   , 1273, "HarvestRefuseGiveHQFood2"                   )}, // ハーベスト｜料理２の隠し食材を渡すのを拒んだ
+            {0x4FA, new EventFlagPlayer(0 , 1   , 1274, "HarvestRefuseGiveHQFood3"                   )}, // ハーベスト｜料理３の隠し食材を渡すのを拒んだ
+            {0x4FB, new EventFlagPlayer(0 , 1   , 1275, "HarvestRefuseGiveHQFood4"                   )}, // ハーベスト｜料理４の隠し食材を渡すのを拒んだ
+            {0x4FC, new EventFlagPlayer(0 , 2   , 1276, "HarvestGetHint1"                            )}, // ハーベスト｜料理１の隠し食材ヒント聞いた
+            {0x4FD, new EventFlagPlayer(0 , 2   , 1277, "HarvestGetHint2"                            )}, // ハーベスト｜料理２の隠し食材ヒント聞いた
+            {0x4FE, new EventFlagPlayer(0 , 2   , 1278, "HarvestGetHint3"                            )}, // ハーベスト｜料理３の隠し食材ヒント聞いた
+            {0x4FF, new EventFlagPlayer(0 , 2   , 1279, "HarvestGetHint4"                            )}, // ハーベスト｜料理４の隠し食材ヒント聞いた
+            {0x500, new EventFlagPlayer(0 , 1   , 1280, "ChristmasWrappingPresentFlag"               )}, // クリスマス｜ラッピングを誰かくれようとしたか？
+            {0x502, new EventFlagPlayer(0 , 1   , 1282, "RcoStorageExpansionReserved"                )}, // たぬきち|収納の拡張を予約している
+            {0x503, new EventFlagPlayer(0 , 1   , 1283, "RcoStorageExpansionLevel"                   )}, // たぬきち|収納の拡張段階
+            {0x504, new EventFlagPlayer(0 , 1   , 1284, "PlayerMovingReservedStorageExpand"          )}, // たぬきち|収納の拡張申し込み当日にPだけ引越しした？
+            {0x505, new EventFlagPlayer(0 , 1   , 1285, "MailSend_NoticeStorageExpansion"            )}, // たぬきち|収納の拡張のお知らせ手紙の判定処理したか？
+            {0x506, new EventFlagPlayer(0 , 1   , 1286, "RcoStandbyNoticeStorageExpansion"           )}, // たぬきち|収納の拡張について強制会話するか？
+            {0x507, new EventFlagPlayer(0 , 1   , 1287, "ChristmasWreathNoGetFlag"                   )}, // クリスマス|このNPCからリース受け取り損ねた
+            {0x518, new EventFlagPlayer(0 , 1   , 1304, "SloExplainPumpkinColorFlag"                 )}, // レイジ|かぼちゃの苗説明聞いたことある？
+            {0x519, new EventFlagPlayer(0 , 1   , 1305, "SloExplainAddPumpkinFlag"                   )}, // レイジ|かぼちゃの苗販売開始の説明聞いた？
+            {0x51B, new EventFlagPlayer(0 , 1   , 1307, "TukSecretRewardType3rd"                     )}, // ハーベスト｜フランクリンの隠し食材報酬抽選結果（３回目）
+            {0x51D, new EventFlagPlayer(0 , 1   , 1309, "SendNNPCConversationPlayReport"             )}, // 会話のフリのプレイレポートがその日送信されたか
+            {0x51F, new EventFlagPlayer(0 , 8   , 1311, "ChristmasPrevPresentItemType"               )}, // クリスマス｜直前にNPCにもらったアイテムの種類
+            {0x522, new EventFlagPlayer(0 , 1   , 1314, "AnnounceChristmasEve"                       )}, // クリスマス｜当日に島内放送で告知した？
         };
 
         private const string Unknown = "???";

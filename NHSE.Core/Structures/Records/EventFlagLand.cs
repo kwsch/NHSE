@@ -274,7 +274,7 @@ namespace NHSE.Core
             {0x11F, new EventFlagLand(0 , -1   , 0287, "CatchFishFesGetTotalNum"                    )}, // つり大会|全員のサカナ取得数
             {0x120, new EventFlagLand(0 , 1    , 0288, "JohnnyQuestFinishFlagIsland"                )}, // ジョニー|その日に村で誰かがジョニーを助けたか？(海賊ジョニーでも使用)
             {0x121, new EventFlagLand(0 , 10   , 0289, "CampRandomSelectMoveOutNpc"                 )}, // キャンプ場|ランダム選出転出NPCが何番目の住人か？(0:未抽選/抽選対象なし)
-            {0x122, new EventFlagLand(0 , 1    , 0290, "CampFireRemoved"                            )}, // 広場のキャンプファイアー撤去
+            {0x122, new EventFlagLand(0 , 1    , 0290, "CampFireRemoved"                            )}, // 広場のキャンプファイアー撤去（実際の撤去とは連動してません）
             {0x125, new EventFlagLand(0 , 1    , 0293, "UnlockEaster"                               )}, // BCATにてイースター解禁
             {0x126, new EventFlagLand(0 , 5    , 0294, "MuseumConstruction2"                        )}, // 博物館1→2への工事中
             {0x127, new EventFlagLand(0 , 1    , 0295, "MuseumGrowupEnable2"                        )}, // 博物館2への成長条件達成
@@ -308,7 +308,7 @@ namespace NHSE.Core
             {0x14D, new EventFlagLand(0 , 1    , 0333, "FoxMovedToMarket"                           )}, // つねきち|来訪時にフィールドから船へ移動した
             {0x14E, new EventFlagLand(0 , 1    , 0334, "FoxAndShipReserve"                          )}, // つねきち船＋フィールドを予約する
             {0x14F, new EventFlagLand(0 , 1    , 0335, "BCAT_EventFlag_002"                         )}, // 国際ミュージアム解禁
-            {0x150, new EventFlagLand(0 , 1    , 0336, "BCAT_EventFlag_004"                         )}, // x)ジューンブライド解禁
+            {0x150, new EventFlagLand(0 , 1    , 0336, "BCAT_EventFlag_004"                         )}, // ハーベスト解禁
             {0x151, new EventFlagLand(0 , 1    , 0337, "BCAT_EventFlag_001"                         )}, // メーデー解禁
             {0x152, new EventFlagLand(0 , 1    , 0338, "BCAT_EventFlag_003"                         )}, // ジューンブライド解禁
             {0x157, new EventFlagLand(0 , 1    , 0343, "FoxPreVisit1Today"                          )}, // つねきち1回目の事前来訪当日
@@ -335,8 +335,38 @@ namespace NHSE.Core
             {0x171, new EventFlagLand(0 , 1    , 0369, "GrowUpAfterPatch1_5"                        )}, // 1.5適用して成長処理をした
             {0x172, new EventFlagLand(0 , 1    , 0370, "NeedUpdatePassword"                         )}, // セーブデータ復元後のパスワード更新必要
             {0x173, new EventFlagLand(0 , 1    , 0371, "IsHalloweenLessThanThreeDays"               )}, // ハロウィン３日前以内か？
+            {0x174, new EventFlagLand(0 , 1    , 0372, "GrowUpAfterPatch1_6"                        )}, // 1.6適用して成長処理をした
+            {0x175, new EventFlagLand(0 , 1    , 0373, "IslandProducedByPlayerMoving"               )}, // プレイヤーだけ引越し|プレイヤーだけ引越しによって作られた島か？
             {0x176, new EventFlagLand(0 , 1    , 0374, "EventObjFlag0"                              )}, // イベントオブジェフラグ0
+            {0x179, new EventFlagLand(0 , 4    , 0377, "HarvestProgress"                            )}, // ハーベスト｜完成した料理の数（島単位）
+            {0x17A, new EventFlagLand(0 , 1    , 0378, "PlayerMovingEnableShopMaterialCollect"      )}, // プレイヤーだけ引越し|お店の資材集め解禁していいか？
             {0x17B, new EventFlagLand(0 , 1    , 0379, "SecondPublicAnnouncement"                   )}, // 2回目島内放送の発生が必要か？
+            {0x17C, new EventFlagLand(0 , 1    , 0380, "HarvestAfterTerm"                           )}, // ハーベスト｜アフター期間か？
+            {0x17D, new EventFlagLand(0 , 1    , 0381, "FinishTreasureQuestByRollback"              )}, // 宝探しクエストが通信ロールバックで終了した
+            {0x17E, new EventFlagLand(0 , 1    , 0382, "HarvestHQDish1Island"                       )}, // ハーベスト｜島の誰かが料理１クラムチャウダーの隠し食材納めた？
+            {0x17F, new EventFlagLand(0 , 1    , 0383, "HarvestHQDish2Island"                       )}, // ハーベスト｜島の誰かが料理２パンプキンパイの隠し食材納めた？
+            {0x180, new EventFlagLand(0 , 1    , 0384, "HarvestHQDish3Island"                       )}, // ハーベスト｜島の誰かが料理３グラタンの隠し食材納めた？
+            {0x181, new EventFlagLand(0 , 1    , 0385, "HarvestHQDish4Island"                       )}, // ハーベスト｜島の誰かが料理４サカナのムニエルの隠し食材納めた？
+            {0x182, new EventFlagLand(0 , 1    , 0386, "IsDisclosedMyDream"                         )}, // ゆめみ|現在、自分の島の夢をおまかせに公開中か？
+            {0x183, new EventFlagLand(0 , 19   , 0387, "HarvestTukIngredient2_2"                    )}, // ハーベスト｜必要食材２－２
+            {0x184, new EventFlagLand(0 , 19   , 0388, "HarvestTukIngredient3_1"                    )}, // ハーベスト｜必要食材３－１
+            {0x185, new EventFlagLand(0 , 19   , 0389, "HarvestTukIngredient3_2"                    )}, // ハーベスト｜必要食材３－２
+            {0x186, new EventFlagLand(0 , 19   , 0390, "HarvestTukIngredient4_2"                    )}, // ハーベスト｜必要食材４－２
+            {0x187, new EventFlagLand(0 , 19   , 0391, "HarvestTukHideIngredient2_1"                )}, // ハーベスト｜隠し食材２－１
+            {0x188, new EventFlagLand(0 , 19   , 0392, "HarvestTukHideIngredient2_2"                )}, // ハーベスト｜隠し食材２－２
+            {0x189, new EventFlagLand(0 , 5    , 0393, "ReputaionMyIsland"                          )}, // ゆめみ｜現在の自分の島の評判値
+            {0x18C, new EventFlagLand(0 , 9999 , 0396, "LastPlayXmasYear"                           )}, // 最後にプレイしたクリスマスの年
+            {0x18D, new EventFlagLand(0 , 1    , 0397, "ShopSelectChristmasFtr"                     )}, // クリスマスおもちゃ家具抽選を今日したか
+            {0x18E, new EventFlagLand(0 , 1    , 0398, "IsUploadDisclosedMyDream"                   )}, // ゆめみ|オマカセ公開で初回更新しなかったか？
+            {0x18F, new EventFlagLand(0 , 1    , 0399, "TkkFirstLiveNow"                            )}, // とたけけ|初ライブステージか？
+            {0x190, new EventFlagLand(0 , 1    , 0400, "ChristmasFtrFirstRound"                     )}, // クリスマス｜おもちゃ家具の商品抽選が1巡したか
+            {0x191, new EventFlagLand(0 , 9999 , 0401, "HarvestFestivalAddBbsYear"                  )}, // ハーベストフェスティバル予告の掲示板書き込みをした年
+            {0x193, new EventFlagLand(0 , 9999 , 0403, "XmasEveAddBbsYear"                          )}, // クリスマス予告の掲示板書き込みをした年
+            {0x194, new EventFlagLand(0 , 1    , 0404, "BCAT_EventFlag_005"                         )}, // クリスマス準備期間解禁
+            {0x195, new EventFlagLand(0 , -1   , 0405, "RandomKey5"                                 )}, // ランダムキーe
+            {0x196, new EventFlagLand(0 , 1    , 0406, "ShopSocksFlag"                              )}, // かべかけソックス当選済み
+            {0x199, new EventFlagLand(0 , -1   , 0409, "RandomKey6"                                 )}, // ランダムキーf
+            {0x19C, new EventFlagLand(0 , 1    , 0412, "BCAT_EventFlag_006"                         )}, // クリスマスイブ解禁
         };
 
         private const string Unknown = "???";

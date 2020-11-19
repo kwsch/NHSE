@@ -630,6 +630,19 @@ namespace NHSE.Core
             {0x2DF, 13223}, // spooky table setting
             {0x2E0, 13237}, // spooky wand
             {0x2E1, 13275}, // spooky fence
+            {0x2E4, 13447}, // Turkey Day garden stand
+            {0x2E5, 13448}, // Turkey Day hearth
+            {0x2E6, 13449}, // Turkey Day decorations
+            {0x2E7, 13450}, // Turkey Day chair
+            {0x2E9, 13453}, // Turkey Day table
+            {0x2EA, 07544}, // festive rug
+            {0x2EB, 13818}, // Turkey Day casserole
+            {0x2EC, 13819}, // Turkey Day wheat decor
+            {0x2ED, 13820}, // Turkey Day table setting
+            {0x2EE, 13244}, // gift pile
+            {0x2EF, 13792}, // festive wrapping paper
+            {0x2F0, 13603}, // falling-snow wall
+            {0x2F5, 12217}, // summer-shell rug
         };
     }
 }

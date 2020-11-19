@@ -7,6 +7,11 @@ namespace NHSE.Core
     public enum ItemMenuIconType : ushort
 #pragma warning restore CA1027 // Mark enums with FlagsAttribute
     {
+        _0x033F3564,
+        _0x08198D95,
+        _0x204F6F8F,
+        _0x5AE26E45,
+        _0x8D95A26C,
         Akoyagai,
         Amaebi,
         Anemone0,

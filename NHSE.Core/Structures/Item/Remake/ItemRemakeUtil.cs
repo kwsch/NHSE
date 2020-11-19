@@ -1094,6 +1094,27 @@ namespace NHSE.Core
             {13222, 1153}, // spooky garland
             {13223, 1154}, // spooky table setting
             {13352, 1157}, // spooky tower
+            {13242, 1211}, // RC helicopter
+            {13243, 1198}, // puppy plushie
+            {13244, 1209}, // gift pile
+            {13245, 1207}, // Yule log
+            {13246, 1204}, // pop-up book
+            {13247, 1208}, // tin robot
+            {13249, 1201}, // kids' tent
+            {13250, 1210}, // mini circuit
+            {13251, 1200}, // dinosaur toy
+            {13252, 1205}, // dollhouse
+            {13352, 1157}, // 
+            {13447, 1295}, // Turkey Day garden stand
+            {13448, 1296}, // Turkey Day hearth
+            {13449, 1293}, // Turkey Day decorations
+            {13450, 1292}, // Turkey Day chair
+            {13453, 1297}, // Turkey Day table
+            {13818, 1509}, // Turkey Day casserole
+            {13819, 1510}, // Turkey Day wheat decor
+            {13820, 1508}, // Turkey Day table setting
+            {13862, 0652}, // Jingle's photo
+            {13930, 1524}, // set of stockings
         };
     }
 }
