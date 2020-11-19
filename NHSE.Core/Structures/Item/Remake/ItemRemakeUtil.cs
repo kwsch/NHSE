@@ -1104,7 +1104,6 @@ namespace NHSE.Core
             {13250, 1210}, // mini circuit
             {13251, 1200}, // dinosaur toy
             {13252, 1205}, // dollhouse
-            {13352, 1157}, // 
             {13447, 1295}, // Turkey Day garden stand
             {13448, 1296}, // Turkey Day hearth
             {13449, 1293}, // Turkey Day decorations
