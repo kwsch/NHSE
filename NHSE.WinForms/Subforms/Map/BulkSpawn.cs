@@ -66,7 +66,7 @@ namespace NHSE.WinForms
                 var array = data.GetArray<Item>(Item.SIZE).Where(item => !item.IsNone);
                 items = Enumerable.Repeat(array, count).SelectMany(x => x);
 
-                // set flag0 = 0x20 for each item to ensure it gets placed
+                // set flag0 = 0x20 for each item to ensure it gets dropped
                 // this also forces a 2x2 item size
                 foreach (Item item in items)
                     item.SystemParam = 0x20;
