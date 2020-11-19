@@ -325,8 +325,8 @@
 
         #region REVISION 1.6.0
 
-        private const int REV_160_MAIN_SAVE_SIZE = 0xB20750;
-        private const int REV_160_PERSONAL_SAVE_SIZE = 0x76390;
+        private const int REV_160_MAIN_SAVE_SIZE = 0xB258E0;
+        private const int REV_160_PERSONAL_SAVE_SIZE = 0x76CF0;
         private const int REV_160_POSTBOX_SAVE_SIZE = REV_110_POSTBOX_SAVE_SIZE;
         private const int REV_160_PHOTO_STUDIO_ISLAND_SIZE = REV_120_PHOTO_STUDIO_ISLAND_SIZE;
         private const int REV_160_PROFILE_SIZE = REV_110_PROFILE_SIZE;
