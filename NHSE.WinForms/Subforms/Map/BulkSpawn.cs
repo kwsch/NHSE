@@ -55,7 +55,11 @@ namespace NHSE.WinForms
             else if (type == SpawnType.ItemsFromNHI)
             {
                 if (this.NHIFilePath == "")
-                    return; // throw msg box at some point
+                {
+                    WinFormsUtil.Alert(MessageStrings.MsgFieldItemNoNHI);
+                    return;
+                }
+                    
 
                 // read non-empty slots into item array
                 var data = File.ReadAllBytes(this.NHIFilePath);
