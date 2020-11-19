@@ -1093,7 +1093,6 @@ namespace NHSE.Core
             {12951, 1195}, // spooky candy set
             {13222, 1153}, // spooky garland
             {13223, 1154}, // spooky table setting
-            {13352, 1157}, // spooky tower
             {13242, 1211}, // RC helicopter
             {13243, 1198}, // puppy plushie
             {13244, 1209}, // gift pile
@@ -1104,7 +1103,7 @@ namespace NHSE.Core
             {13250, 1210}, // mini circuit
             {13251, 1200}, // dinosaur toy
             {13252, 1205}, // dollhouse
-            {13352, 1157}, // 
+            {13352, 1157}, // spooky tower
             {13447, 1295}, // Turkey Day garden stand
             {13448, 1296}, // Turkey Day hearth
             {13449, 1293}, // Turkey Day decorations
