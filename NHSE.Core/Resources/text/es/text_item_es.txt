@@ -929,7 +929,7 @@ molinillo de café
 portacacerolas
 aire acondicionado
 
-
+cornucopia
 
 
 
@@ -1002,8 +1002,8 @@ isla de cocina
 
 
 
-
-
+kadomatsu
+kagamimochi
 
 
 
@@ -3388,8 +3388,8 @@ vestido camisero (Azul marino)
 vestido camisero sisa (Azul)
 esmoquin (Negro)
 
-
-
+chaquetón Papá Noel (Rojo)
+pantalón Papá Noel (Rojo)
 
 
 
@@ -4490,7 +4490,7 @@ chaleco paz y amor (Naranja)
 vestido de punto con chal (Negro)
 pantalón con rodilleras (Marrón)
 mascarilla de pepino (Verde)
-
+barba Papá Noel (Blanco)
 
 
 
@@ -4509,7 +4509,7 @@ chaleco Chimayó (Azul marino)
 
 
 gafa de cumpleaños (Amarillo)
-
+disfraz de reno (Marrón)
 mascarilla facial (Blanco)
 gafa graciosa (Marrón)
 pantalón corto de ciclista (Azul y rojo)
@@ -5304,7 +5304,7 @@ fedora (Beis)
 
 gorro de dormir (Celeste)
 gorra deportiva (Rojo)
-
+gorro Papá Noel (Rojo)
 corona imperial (Rojo)
 
 placa corazón
@@ -5444,7 +5444,7 @@ traje de país nórdico (Azul)
 casco de carreras (Rojo)
 calcetín Chimayó (Amarillo)
 
-
+gorro de reno (Marrón)
 casco con cuernos (Blanco)
 falda pata de gallo (Rojo)
 falda de supraciclaje (Beis)
@@ -7542,7 +7542,7 @@ alfombra sencilla roja M
 alfombra sencilla naranja P
 alfombra sencilla lila P
 alfombra sencilla negra P
-
+alfombra festiva
 alfombra calabaza
 alfombra Caza del Huevo
 
@@ -12215,7 +12215,7 @@ roca con musgo
 alfombra bolsa de bayas
 
 
-
+alfombra concha veraniega
 
 
 
@@ -12957,7 +12957,7 @@ bandeja chuches calabaza
 
 vestido princesa sirena (Rosa)
 vestido cola de sirena (Rosa)
-jersey solsticio de invierno (Beis)
+jersey invernal (Beis)
 
 
 
@@ -13239,18 +13239,18 @@ varita calabaza
 
 atuendo de Orihime (Rojo)
 atuendo de Hikoboshi (Azul)
-
-
-
-
-
-
-
-
-
-
-
-
+trineo de Renato
+helicóptero teledirigido
+cachorro de peluche
+montón de regalos
+tronco dulce festivo
+libro animado
+robot de hojalata
+lote de calcetines Renato
+tienda de campaña infantil
+circuito en miniatura
+dinosaurio de juguete
+casa de muñecas
 
 
 
@@ -13316,6 +13316,8 @@ Ring-Con
 
 
 
+pared Día del Pavo
+suelo Día del Pavo
 
 
 
@@ -13342,9 +13344,7 @@ Ring-Con
 
 
 
-
-
-
+kit de transferencia
 
 
 
@@ -13355,7 +13355,7 @@ retrato de Soponcio
 
 
 
-
+corona festiva
 
 
 
@@ -13437,6 +13437,31 @@ bota de hechicería (Negro)
 
 
 
+funda móvil Pocket Camp
+
+
+
+
+
+
+
+pedestal Día del Pavo
+chimenea Día del Pavo
+decoración Día del Pavo
+silla Día del Pavo
+
+
+mesa comedor Día del Pavo
+
+
+
+
+
+juego del iut
+
+
+plato con doce uvas
+plato de berlinesas
 
 
 
@@ -13463,34 +13488,444 @@ bota de hechicería (Negro)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+figura zodiacal de buey
 túnica escuela de magia (Púrpura)
 túnica escuela de magia (Blanco)
 túnica escuela de magia (Verde)
 túnica escuela de magia (Rojo)
 túnica escuela de magia (Negro)
+
+
+
+
+
+shimekazari de Año Nuevo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+alfombra Día del Pavo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+arco de bienvenida al 2021
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+alfombra girasol
+
+
+
+
+
+
+pared noche nevada
+
+
+
+
+
+pared aurora
+Emociones y actividades
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6 peinados revolucionarios
+
+
+
+
+
+
+
+
+
+
+
+
+pescado a la molinera
+gratinado
+sopa de almejas
+pastel de calabaza
+
+
+
+
+Bricolaje Día del Pavo
+
+
+
+
+papel de regalo festivo
+regalo
+
+
+
+sopa de Año Nuevo
+
+ensalada Olivier
+クラムチャウダーHaPu
+パンプキンパイHaPu
+サカナのムニエルHaPu
+グラタンHaPu
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cazuela Día del Pavo
+adorno trigo Día del Pavo
+servicio mesa Día del Pavo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+zumo de manzana
+saco de regalos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+foto de Renato
+
+
+
+
+
+
+regalo de alguien
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+lote de calcetines de pared

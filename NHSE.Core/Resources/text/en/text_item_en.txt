@@ -929,7 +929,7 @@ coffee grinder
 pot rack
 air conditioner
 
-
+cornucopia
 
 
 
@@ -1002,8 +1002,8 @@ kitchen island
 
 
 
-
-
+kadomatsu
+kagamimochi
 
 
 
@@ -3388,8 +3388,8 @@ shirtdress (Navy blue)
 sleeveless shirtdress (Blue)
 tuxedo jacket (Black)
 
-
-
+Santa coat (Red)
+Santa pants (Red)
 
 
 
@@ -4490,7 +4490,7 @@ groovy tunic (Orange)
 shawl-and-dress combo (Black)
 patched-knee pants (Brown)
 cucumber pack (Green)
-
+Santa beard (White)
 
 
 
@@ -4509,7 +4509,7 @@ Chimayo vest (Navy blue)
 
 
 birthday shades (Yellow)
-
+reindeer costume (Brown)
 facial mask (White)
 funny glasses (Brown)
 cycling shorts (Blue & red)
@@ -5304,7 +5304,7 @@ fedora (Beige)
 
 terry-cloth nightcap (Light blue)
 sports cap (Red)
-
+Santa hat (Red)
 royal crown (Red)
 
 heart doorplate
@@ -5444,7 +5444,7 @@ cold-country bunad (Blue)
 racing helmet (Red)
 geometric-print socks (Yellow)
 
-
+reindeer hat (Brown)
 imitation cow skull (White)
 plover skirt (Red)
 upcycled skirt (Beige)
@@ -7542,7 +7542,7 @@ simple medium red mat
 simple small orange mat
 simple small purple mat
 simple small black mat
-
+festive rug
 spooky rug
 Bunny Day rug
 
@@ -12215,7 +12215,7 @@ mossy garden rock
 Bell-bag rug
 
 
-
+summer-shell rug
 
 
 
@@ -12575,7 +12575,7 @@ pirate-treasure chest
 pirate barrel
 handmade cape (Red)
 handmade crown (Red)
-summer-solstice crown (Yellow)
+sunflower crown (Yellow)
 Bunny Day wand
 ACNH Nintendo Switch
 
@@ -12957,7 +12957,7 @@ spooky candy set
 
 mermaid princess dress (Pink)
 mermaid fishy dress (Pink)
-winter-solstice sweater (Beige)
+midwinter sweater (Beige)
 
 
 
@@ -13239,18 +13239,18 @@ spooky wand
 
 Orihime outfit (Red)
 Hikoboshi outfit (Blue)
-
-
-
-
-
-
-
-
-
-
-
-
+Toy Day sleigh
+RC helicopter
+puppy plushie
+gift pile
+Yule log
+pop-up book
+tin robot
+Toy Day stockings
+kids' tent
+mini circuit
+dinosaur toy
+dollhouse
 
 
 
@@ -13316,6 +13316,8 @@ Ring-Con
 
 
 
+Turkey Day wall
+Turkey Day flooring
 
 
 
@@ -13342,9 +13344,7 @@ Ring-Con
 
 
 
-
-
-
+transfer kit
 
 
 
@@ -13355,7 +13355,7 @@ Jack's portrait
 
 
 
-
+festive wreath
 
 
 
@@ -13437,6 +13437,31 @@ mage's boots (Black)
 
 
 
+Pocket Camp phone case
+
+
+
+
+
+
+
+Turkey Day garden stand
+Turkey Day hearth
+Turkey Day decorations
+Turkey Day chair
+
+
+Turkey Day table
+
+
+
+
+
+Yut Nori
+
+
+twelve-grape dish
+berliner
 
 
 
@@ -13463,34 +13488,444 @@ mage's boots (Black)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+zodiac ox figurine
 magic-academy robe (Purple)
 magic-academy robe (White)
 magic-academy robe (Green)
 magic-academy robe (Red)
 magic-academy robe (Black)
+
+
+
+
+
+New Year's shimekazari
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Turkey Day rug
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2021 celebratory arch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sunflower rug
+
+
+
+
+
+
+falling-snow wall
+
+
+
+
+
+aurora wall
+Hip Reaction Collection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Top 6 Stylish Hairstyles
+
+
+
+
+
+
+
+
+
+
+
+
+fish meunière
+gratin
+clam chowder
+pumpkin pie
+
+
+
+
+Cozy Turkey Day DIY
+
+
+
+
+festive wrapping paper
+gift
+
+
+
+New Year's noodles
+
+Olivier salad
+クラムチャウダーHaPu
+パンプキンパイHaPu
+サカナのムニエルHaPu
+グラタンHaPu
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Turkey Day casserole
+Turkey Day wheat decor
+Turkey Day table setting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sparkling cider
+magic bag
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Jingle's photo
+
+
+
+
+
+
+someone's gift
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+set of stockings
