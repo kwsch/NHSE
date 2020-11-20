@@ -4198,7 +4198,7 @@ Lauf-Shorts (Rosa)
 
 Prinzenhemd (Weiß)
 
-
+k.k. slider's guitar (internal)
 Sardelle
 Goldmakrele
 Schiffshalter
@@ -5792,7 +5792,7 @@ Kescher
 
 
 Flaschenpost
-DIY recipe
+(DIY recipe)
 Chimayo-Hose (Blau)
 Fantasiekleid (Rosa)
 Prunkkimono (Grün)

@@ -1,35 +1,35 @@
-(None)
+(Ningun)
 
 cuadro invernal
 
 
-retrato oriental (forgery)
+retrato oriental (falsificación)
 retrato oriental
 
 
-retrato holandés (forgery)
+retrato holandés (falsificación)
 retrato holandés
 
 
-retrato heroico (forgery)
+retrato heroico (falsificación)
 retrato heroico
 
 
-retrato italiano (forgery)
+retrato italiano (falsificación)
 retrato italiano
 
 bodegón
 
 
-retrato regio (forgery)
+retrato regio (falsificación)
 retrato regio
 
 
-retrato perla (forgery)
+retrato perla (falsificación)
 retrato perla
 
 
-cuadro alegórico (forgery)
+cuadro alegórico (falsificación)
 cuadro alegórico
 
 cuadro clásico
@@ -39,7 +39,7 @@ cuadro clásico
 cuadro ola
 
 
-cuadro orgánico (forgery)
+cuadro orgánico (falsificación)
 cuadro orgánico
 
 cuadro segadoras
@@ -53,7 +53,7 @@ cuadro flores
 retrato joven
 
 
-cuadro holandés (forgery)
+cuadro holandés (falsificación)
 cuadro holandés
 
 
@@ -63,17 +63,17 @@ cuadro holandés
 
 
 
-cuadro japonés (forgery)
+cuadro japonés (falsificación)
 cuadro japonés
 
 cuadro romántico
 
 
-cuadro español (forgery)
+cuadro español (falsificación)
 cuadro español
 
 
-cuadro naturaleza (dcha.) (forgery)
+cuadro naturaleza (dcha.) (falsificación)
 cuadro naturaleza (dcha.)
 
 paisaje francés
@@ -1330,21 +1330,21 @@ mesa escolar
 escritorio de profe
 mesa de maestro
 figura materna
-figura materna (forgery)
+figura materna (falsificación)
 estatua majestuosa
-estatua majestuosa (forgery)
+estatua majestuosa (falsificación)
 estatua atlética
-estatua atlética (forgery)
+estatua atlética (falsificación)
 estatua primitiva
-estatua primitiva (forgery)
+estatua primitiva (falsificación)
 estatua triunfante
 
 estatua femenina
-estatua femenina (forgery)
+estatua femenina (falsificación)
 busto antiguo
-busto antiguo (forgery)
+busto antiguo (falsificación)
 estatua alada
-estatua alada (forgery)
+estatua alada (falsificación)
 
 jaula de hámster
 
@@ -4198,7 +4198,7 @@ minipantalón jogging (Rosa)
 
 camisa de aristócrata (Blanco)
 
-
+k.k. slider's guitar (internal)
 boquerón
 lampuga
 rémora
@@ -5792,7 +5792,7 @@ red
 
 
 botella con mensaje
-DIY recipe
+(DIY recipe)
 pantalón étnico (Azul)
 vestido fantasía (Rosa)
 kimono vistoso (Verde)
@@ -12532,13 +12532,13 @@ corona Caza del Huevo
 
 
 cabeza colosal
-cabeza colosal (forgery)
+cabeza colosal (falsificación)
 piedra políglota
-piedra políglota (forgery)
+piedra políglota (falsificación)
 urna imponente
-urna imponente (forgery)
+urna imponente (falsificación)
 escultura guerrera
-escultura guerrera (forgery)
+escultura guerrera (falsificación)
 estatua pensativa
 
 Nintendo Switch
@@ -12569,7 +12569,7 @@ pared pirata
 suelo sirena
 suelo pirata
 cuadro naturaleza (izda.)
-cuadro naturaleza (izda.) (forgery)
+cuadro naturaleza (izda.) (falsificación)
 tonel pirata tumbado
 cofre del tesoro pirata
 tonel pirata
@@ -12618,16 +12618,16 @@ hacha maltrecha
 
 paisaje estrellado
 cuadro anatómico
-cuadro anatómico (forgery)
+cuadro anatómico (falsificación)
 cuadro literario
 cuadro detallado
-cuadro detallado (forgery)
+cuadro detallado (falsificación)
 cuadro vespertino
 cuadro tenebroso
 
 
 
-cuadro invernal (forgery)
+cuadro invernal (falsificación)
 valla Caza del Huevo
 
 

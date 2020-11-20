@@ -116,14 +116,14 @@ namespace NHSE.Parsing
         {
             return language switch
             {
-                "de" => "Leer",
-                "es" => "Ningun",
-                "fr" => "Aucun",
-                "it" => "Nessuna",
-                "ko" => "없음",
-                "ja" => "無し",
-                "chs" => "没有",
-                "cht" => "沒有",
+                "de" => "DIY recipe",
+                "es" => "DIY recipe",
+                "fr" => "DIY recipe",
+                "it" => "DIY recipe",
+                "ko" => "DIY recipe",
+                "ja" => "DIY recipe",
+                "chs" => "DIY recipe",
+                "cht" => "DIY recipe",
                 _ => "DIY recipe",
             };
         }

@@ -27,8 +27,8 @@ namespace NHSE.Parsing
 
         public static void Dump(
             string repoPath = @"C:\Users\Kurt\Documents\GitHub",
-            string messageStringPath = @"D:\Kurt\Desktop\v12\romSARC\",
-            string unpackedMessageFormat = @"Message\String_{0}.sarc.zs\String_{0}.sarc"
+            string messageStringPath = @"D:\Kurt\Desktop\v16\",
+            string unpackedMessageFormat = @"Message\String_{0}.sarc"
             )
         {
             string corePath = Path.Combine(repoPath, @"NHSE\NHSE.Core\Resources\text\");

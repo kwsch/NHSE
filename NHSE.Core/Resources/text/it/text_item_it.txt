@@ -1,35 +1,35 @@
-(None)
+(Nessuna)
 
 quadro invernale
 
 
-quadro armonioso (forgery)
+quadro armonioso (falsificazione)
 quadro armonioso
 
 
-quadro buffo (forgery)
+quadro buffo (falsificazione)
 quadro buffo
 
 
-quadro semplice (forgery)
+quadro semplice (falsificazione)
 quadro semplice
 
 
-quadro famoso (forgery)
+quadro famoso (falsificazione)
 quadro famoso
 
 quadro perfetto
 
 
-quadro simbolico (forgery)
+quadro simbolico (falsificazione)
 quadro simbolico
 
 
-quadro realista (forgery)
+quadro realista (falsificazione)
 quadro realista
 
 
-quadro colorato (forgery)
+quadro colorato (falsificazione)
 quadro colorato
 
 quadro classico
@@ -39,7 +39,7 @@ quadro classico
 quadro marino
 
 
-quadro organico (forgery)
+quadro organico (falsificazione)
 quadro organico
 
 quadro povero
@@ -53,7 +53,7 @@ quadro fiorito
 quadro possente
 
 
-quadro stupendo (forgery)
+quadro stupendo (falsificazione)
 quadro stupendo
 
 
@@ -63,17 +63,17 @@ quadro stupendo
 
 
 
-quadro spaventoso (forgery)
+quadro spaventoso (falsificazione)
 quadro spaventoso
 
 quadro prezioso
 
 
-quadro solenne (forgery)
+quadro solenne (falsificazione)
 quadro solenne
 
 
-quadro intenso (metà dx) (forgery)
+quadro intenso (metà dx) (falsificazione)
 quadro intenso (metà dx)
 
 quadro riposante
@@ -1330,21 +1330,21 @@ banco di scuola
 cattedra antica
 cattedra da professore
 statua leggendaria
-statua leggendaria (forgery)
+statua leggendaria (falsificazione)
 statua maestosa
-statua maestosa (forgery)
+statua maestosa (falsificazione)
 statua atletica
-statua atletica (forgery)
+statua atletica (falsificazione)
 statua antica
-statua antica (forgery)
+statua antica (falsificazione)
 statua trionfante
 
 statua aggraziata
-statua aggraziata (forgery)
+statua aggraziata (falsificazione)
 statua enigmatica
-statua enigmatica (forgery)
+statua enigmatica (falsificazione)
 statua eroica
-statua eroica (forgery)
+statua eroica (falsificazione)
 
 gabbia per criceti
 
@@ -4198,7 +4198,7 @@ pantaloncino da jogging (Rosa)
 
 camicia principesca (Bianco)
 
-
+k.k. slider's guitar (internal)
 acciuga
 lampuga
 remora
@@ -5792,7 +5792,7 @@ retino
 
 
 bottiglia con messaggio
-DIY recipe
+(DIY recipe)
 pantalone stile geometrico (Blu)
 vestito sognante (Rosa)
 kimono appariscente (Verde)
@@ -12532,13 +12532,13 @@ ghirlanda caccia all'uovo
 
 
 testa di roccia
-testa di roccia (forgery)
+testa di roccia (falsificazione)
 pietra informativa
-pietra informativa (forgery)
+pietra informativa (falsificazione)
 scultura imponente
-scultura imponente (forgery)
+scultura imponente (falsificazione)
 statua guerriera
-statua guerriera (forgery)
+statua guerriera (falsificazione)
 statua pensierosa
 
 Nintendo Switch
@@ -12569,7 +12569,7 @@ muro pirata
 pavimento sirena
 pavimento pirata
 quadro intenso (metà sx)
-quadro intenso (metà sx) (forgery)
+quadro intenso (metà sx) (falsificazione)
 barile pirata in orizzontale
 forziere pirata
 barile pirata in verticale
@@ -12618,16 +12618,16 @@ ascia consumata
 
 quadro sfavillante
 quadro accademico
-quadro accademico (forgery)
+quadro accademico (falsificazione)
 quadro acquatico
 quadro dettagliato
-quadro dettagliato (forgery)
+quadro dettagliato (falsificazione)
 quadro abbagliante
 quadro misterioso
 
 
 
-quadro invernale (forgery)
+quadro invernale (falsificazione)
 recinzione caccia all'uovo
 
 
