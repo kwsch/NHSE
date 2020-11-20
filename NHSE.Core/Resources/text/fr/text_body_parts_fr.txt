@@ -304,3 +304,22 @@
 12951	Couleur
 13222	Couleur
 13223	Couleur
+13242	Couleur principale
+13243	Type de fourrure
+13244	Modèle
+13245	Variation
+13246	Variation
+13247	Couleur principale
+13249	Variation
+13250	Couleur des bolides
+13251	Couleur principale
+13252	Couleur du toit
+13447	Modèle
+13448	Modèle
+13449	Modèle
+13450	Modèle
+13453	Modèle
+13818	Modèle
+13819	Modèle
+13820	Modèle
+13930	Modèle

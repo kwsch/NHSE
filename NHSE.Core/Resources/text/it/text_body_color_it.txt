@@ -3274,3 +3274,88 @@
 13223_1	Giallo
 13223_2	Verde
 13223_3	Monocromo
+13242_0	Blu
+13242_1	Rosso
+13242_2	Giallo
+13242_3	Verde
+13242_4	Rosa
+13242_5	Blu chiaro
+13242_6	Viola
+13243_0	Beige
+13243_1	Rosso
+13243_2	Bianco e marroncino
+13243_3	Punteggiato
+13243_4	Nero
+13243_5	Tre colori
+13243_6	Grigio e bianco
+13243_7	Rosa
+13244_0	Rosso e verde
+13244_1	Variopinto
+13244_2	Grazioso
+13244_3	Spavaldo
+13244_4	Chic
+13244_5	Elegante
+13244_6	Naturale
+13245_0	Cioccolato
+13245_1	Castagna
+13245_2	Panna montata
+13245_3	Fragola
+13245_4	Tè verde
+13246_0	L'oceano sconfinato
+13246_1	Il mondo del mesozoico
+13246_2	La savana
+13246_3	Campo di fiori
+13247_0	Argentato
+13247_1	Blu
+13247_2	Rosso
+13247_3	Arancio
+13247_4	Giallo
+13247_5	Verde
+13247_6	Rosa
+13247_7	Nero
+13249_0	Bianco
+13249_1	Rosa
+13249_2	Nero
+13249_3	A strisce
+13249_4	Floreale
+13249_5	Blu
+13249_6	Marrone
+13249_7	Variopinto
+13250_0	Rosso e bianco
+13250_1	Blu e giallo
+13250_2	Nero e argento
+13250_3	Rosa e viola
+13251_0	Grigio
+13251_1	Marrone
+13251_2	Verde
+13251_3	Blu
+13251_4	Rosso
+13252_0	Rosso
+13252_1	Marrone
+13252_2	Blu
+13252_3	Arancio
+13252_4	Verde
+13252_5	Rosa
+13252_6	Viola
+13447_0	Raccolto autunnale
+13447_1	Fioritura primaverile
+13448_0	Raccolto autunnale
+13448_1	Fioritura primaverile
+13449_0	Raccolto autunnale
+13449_1	Fioritura primaverile
+13450_0	Raccolto autunnale
+13450_1	Fioritura primaverile
+13453_0	Raccolto autunnale
+13453_1	Fioritura primaverile
+13818_0	Raccolto autunnale
+13818_1	Fioritura primaverile
+13819_0	Raccolto autunnale
+13819_1	Fioritura primaverile
+13820_0	Raccolto autunnale
+13820_1	Fioritura primaverile
+13930_0	Variopinto
+13930_1	Grazioso
+13930_2	Spavaldo
+13930_3	Chic
+13930_4	Elegante
+13930_5	Naturale

@@ -3274,3 +3274,88 @@
 13223_1	Jaune
 13223_2	Vert
 13223_3	Monochrome
+13242_0	Bleu
+13242_1	Rouge
+13242_2	Jaune
+13242_3	Vert
+13242_4	Rose
+13242_5	Bleu clair
+13242_6	Violet
+13243_0	Beige
+13243_1	Rouge
+13243_2	Rousse & blanche
+13243_3	Tachetée
+13243_4	Noir
+13243_5	Tricolore
+13243_6	Grise & blanche
+13243_7	Rose
+13244_0	Rouge & vert
+13244_1	Multicolore
+13244_2	Adorable
+13244_3	Cool
+13244_4	Chic
+13244_5	Élégant
+13244_6	Naturel
+13245_0	Chocolat
+13245_1	Châtaigne
+13245_2	Nappage crème chantilly
+13245_3	Fraise
+13245_4	Thé vert
+13246_0	Le vaste océan
+13246_1	Le monde des dinosaures
+13246_2	La savane
+13246_3	Les fleurs
+13247_0	Argent
+13247_1	Bleu
+13247_2	Rouge
+13247_3	Orange
+13247_4	Jaune
+13247_5	Vert
+13247_6	Rose
+13247_7	Noir
+13249_0	Blanc
+13249_1	Rose
+13249_2	Noir
+13249_3	À rayures
+13249_4	À fleurs
+13249_5	Bleu
+13249_6	Brun
+13249_7	Multicolore
+13250_0	Rouge & blanc
+13250_1	Bleu & jaune
+13250_2	Noir et argenté
+13250_3	Rose & violet
+13251_0	Gris
+13251_1	Brun
+13251_2	Vert
+13251_3	Bleu
+13251_4	Rouge
+13252_0	Rouge
+13252_1	Brun
+13252_2	Bleu
+13252_3	Orange
+13252_4	Vert
+13252_5	Rose
+13252_6	Violet
+13447_0	Récolte d'automne
+13447_1	Floraison printanière
+13448_0	Récolte d'automne
+13448_1	Floraison printanière
+13449_0	Récolte d'automne
+13449_1	Floraison printanière
+13450_0	Récolte d'automne
+13450_1	Floraison printanière
+13453_0	Récolte d'automne
+13453_1	Floraison printanière
+13818_0	Récolte d'automne
+13818_1	Floraison printanière
+13819_0	Récolte d'automne
+13819_1	Floraison printanière
+13820_0	Récolte d'automne
+13820_1	Floraison printanière
+13930_0	Multicolore
+13930_1	Adorable
+13930_2	Cool
+13930_3	Chic
+13930_4	Élégant
+13930_5	Naturel

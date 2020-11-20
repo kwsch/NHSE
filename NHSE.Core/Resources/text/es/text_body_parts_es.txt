@@ -304,3 +304,22 @@
 12951	Color
 13222	Color
 13223	Color
+13242	Color principal
+13243	Tela
+13244	Diseño
+13245	Variación
+13246	Variación
+13247	Color principal
+13249	Variación
+13250	Color de los coches
+13251	Color principal
+13252	Tejado
+13447	Diseño
+13448	Diseño
+13449	Diseño
+13450	Diseño
+13453	Diseño
+13818	Diseño
+13819	Diseño
+13820	Diseño
+13930	Diseño

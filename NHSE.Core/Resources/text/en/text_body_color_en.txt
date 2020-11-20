@@ -3274,3 +3274,88 @@
 13223_1	Yellow
 13223_2	Green
 13223_3	Monochrome
+13242_0	Blue
+13242_1	Red
+13242_2	Yellow
+13242_3	Green
+13242_4	Pink
+13242_5	Light blue
+13242_6	Purple
+13243_0	Beige
+13243_1	Red
+13243_2	Lemon & white
+13243_3	Spotted
+13243_4	Black
+13243_5	Tricolored
+13243_6	Gray & white
+13243_7	Pink
+13244_0	Red & green
+13244_1	Colorful
+13244_2	Cute
+13244_3	Cool
+13244_4	Chic
+13244_5	Elegant
+13244_6	Natural
+13245_0	Chocolate
+13245_1	Chestnut
+13245_2	Whipped-cream topping
+13245_3	Strawberry
+13245_4	Green tea
+13246_0	The ocean blue
+13246_1	The Mesozoic world
+13246_2	Savannah
+13246_3	Flowers
+13247_0	Silver
+13247_1	Blue
+13247_2	Red
+13247_3	Orange
+13247_4	Yellow
+13247_5	Green
+13247_6	Pink
+13247_7	Black
+13249_0	White
+13249_1	Pink
+13249_2	Black
+13249_3	Stripes
+13249_4	Floral
+13249_5	Blue
+13249_6	Brown
+13249_7	Colorful
+13250_0	Red & white
+13250_1	Blue & yellow
+13250_2	Black & silver
+13250_3	Pink & purple
+13251_0	Gray
+13251_1	Brown
+13251_2	Green
+13251_3	Blue
+13251_4	Red
+13252_0	Red
+13252_1	Brown
+13252_2	Blue
+13252_3	Orange
+13252_4	Green
+13252_5	Pink
+13252_6	Purple
+13447_0	Fall harvest
+13447_1	Spring blooming
+13448_0	Fall harvest
+13448_1	Spring blooming
+13449_0	Fall harvest
+13449_1	Spring blooming
+13450_0	Fall harvest
+13450_1	Spring blooming
+13453_0	Fall harvest
+13453_1	Spring blooming
+13818_0	Fall harvest
+13818_1	Spring blooming
+13819_0	Fall harvest
+13819_1	Spring blooming
+13820_0	Fall harvest
+13820_1	Spring blooming
+13930_0	Colorful
+13930_1	Cute
+13930_2	Cool
+13930_3	Chic
+13930_4	Elegant
+13930_5	Natural

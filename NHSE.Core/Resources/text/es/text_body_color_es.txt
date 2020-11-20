@@ -3274,3 +3274,88 @@
 13223_1	Amarillo
 13223_2	Verde
 13223_3	Blanco
+13242_0	Azul
+13242_1	Rojo
+13242_2	Amarillo
+13242_3	Verde
+13242_4	Rosa
+13242_5	Celeste
+13242_6	Púrpura
+13243_0	Beis
+13243_1	Rojo
+13243_2	Pardo y blanco
+13243_3	A topos
+13243_4	Negro
+13243_5	Tricolor
+13243_6	Gris y blanco
+13243_7	Rosa
+13244_0	Rojo y verde
+13244_1	Multicolor
+13244_2	Adorable
+13244_3	Moderno
+13244_4	Chic
+13244_5	Elegante
+13244_6	Natural
+13245_0	Chocolate
+13245_1	Avellana
+13245_2	Nata montada
+13245_3	Fresa
+13245_4	Té verde
+13246_0	El amplio océano
+13246_1	La era mesozoica
+13246_2	La sabana
+13246_3	El mundo de las flores
+13247_0	Plateado
+13247_1	Azul
+13247_2	Rojo
+13247_3	Naranja
+13247_4	Amarillo
+13247_5	Verde
+13247_6	Rosa
+13247_7	Negro
+13249_0	Blanco
+13249_1	Rosa
+13249_2	Negro
+13249_3	Rayas
+13249_4	Floral
+13249_5	Azul
+13249_6	Marrón
+13249_7	Multicolor
+13250_0	Rojo y blanco
+13250_1	Azul y amarillo
+13250_2	Negro y plateado
+13250_3	Rosa y morado
+13251_0	Gris
+13251_1	Marrón
+13251_2	Verde
+13251_3	Azul
+13251_4	Rojo
+13252_0	Rojo
+13252_1	Marrón
+13252_2	Azul
+13252_3	Naranja
+13252_4	Verde
+13252_5	Rosa
+13252_6	Púrpura
+13447_0	Otoñal
+13447_1	Primaveral
+13448_0	Otoñal
+13448_1	Primaveral
+13449_0	Otoñal
+13449_1	Primaveral
+13450_0	Otoñal
+13450_1	Primaveral
+13453_0	Otoñal
+13453_1	Primaveral
+13818_0	Otoñal
+13818_1	Primaveral
+13819_0	Otoñal
+13819_1	Primaveral
+13820_0	Otoñal
+13820_1	Primaveral
+13930_0	Multicolor
+13930_1	Adorable
+13930_2	Moderno
+13930_3	Chic
+13930_4	Elegante
+13930_5	Natural

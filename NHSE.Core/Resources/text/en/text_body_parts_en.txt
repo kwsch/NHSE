@@ -304,3 +304,22 @@
 12951	Color
 13222	Color
 13223	Color
+13242	Body color
+13243	Fabric
+13244	Design
+13245	Variation
+13246	Variation
+13247	Body color
+13249	Variation
+13250	Race-car colors
+13251	Body color
+13252	Roof color
+13447	Design
+13448	Design
+13449	Design
+13450	Design
+13453	Design
+13818	Design
+13819	Design
+13820	Design
+13930	Design

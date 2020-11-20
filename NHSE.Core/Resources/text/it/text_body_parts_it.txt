@@ -304,3 +304,22 @@
 12951	Colore
 13222	Colore
 13223	Colore
+13242	Colore
+13243	Tessuto
+13244	Design
+13245	Colore
+13246	Colore
+13247	Colore
+13249	Colore
+13250	Colore delle macchinine
+13251	Colore
+13252	Colore del tetto
+13447	Design
+13448	Design
+13449	Design
+13450	Design
+13453	Design
+13818	Design
+13819	Design
+13820	Design
+13930	Design
