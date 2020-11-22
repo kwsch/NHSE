@@ -64,14 +64,25 @@
         UNUSED_56, // Talking (Unused)
         UNUSED_57, // Clapping with no expression (Makes you stand up if sitting down) (Unused)
         Bewilderment, // Pardon
-
         UNUSED_59, // Greetings with no sound or expression (Unused)
-        UNUSED_60, // Fainting (Unused)
-        UNUSED_61, // Genuinely no clue. Could be bee sting? If anyone knows please tell me. (Unused)
-        UNUSED_62, // Scratching Forehead (Unused)
-        UNUSED_63, // Orville's thing idk what it's called (Unused)
-        UNUSED_64, // K.K. Slider Sitting (Unused)
-        UNUSED_65, // K.K. nodding while sitting (Unused)
-        UNUSED_66, // K.K. thinking while sitting (Unused)
+
+        Scare, // AddPrank 
+        Haunt, // AddScaring 
+        SitDown, // AddSitDown 
+        Yoga, // AddYoga 
+        HereYouGo, // AddHereYouGo 
+        WorkOut, // AddGymnastics
+        TakeAPicture, // AddTakePictures 
+        SniffSniff, // AddSmell 
+        Tada, // AddPraise 
+        WaveGoodbye, // AddWaveHands 
+        Excited, // AddExcited 
+        UNUSED_71, // Gullivar about to come alive (Unused)
+        UNUSED_72, // Intense shake action (Unused)
+        UNUSED_73, // Literally the "roll safe" meme (google it) (Unused)
+        UNUSED_74, // Leave it to me! (Unused)
+        UNUSED_75, // K.K. Slider Sitting (Unused)
+        UNUSED_76, // K.K. nodding while sitting (Unused)
+        UNUSED_77, // K.K. thinking while sitting (Unused)
     }
 }
