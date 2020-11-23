@@ -100,6 +100,12 @@ namespace NHSE.Core
             set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.ItemChest + (Offsets.ItemChestCount * Item.SIZE));
         }
 
+        public IReactionStore Reactions
+        {
+            get => Offsets.ReadReactions(Data);
+            set => Offsets.SetReactions(Data, value);
+        }
+
         public AchievementList Achievements
         {
             get => Data.Slice(Offsets.CountAchievement, AchievementList.SIZE).ToStructure<AchievementList>();

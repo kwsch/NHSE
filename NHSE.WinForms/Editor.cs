@@ -270,8 +270,8 @@ namespace NHSE.WinForms
 
         private void B_EditPlayerReactions_Click(object sender, EventArgs e)
         {
-            var player = SAV.Players[PlayerIndex].Personal;
-            using var editor = new ReactionEditor(player);
+            var player = SAV.Players[PlayerIndex];
+            using var editor = new ReactionEditor(player.Personal);
             editor.ShowDialog();
         }
 

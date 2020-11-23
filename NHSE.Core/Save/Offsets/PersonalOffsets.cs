@@ -63,5 +63,8 @@ namespace NHSE.Core
                 _ => throw new IndexOutOfRangeException("Unknown revision!" + Environment.NewLine + Info),
             };
         }
+
+        public abstract IReactionStore ReadReactions(byte[] data);
+        public abstract void SetReactions(byte[] data, IReactionStore value);
     }
 }

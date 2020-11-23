@@ -40,5 +40,8 @@
 
         public override int MaxRecipeID => 0x2E1;
         public override int MaxRemakeBitFlag => 0x7D0 * 32;
+
+        public override IReactionStore ReadReactions(byte[] data) => data.Slice(Manpu, GSavePlayerManpu15.SIZE).ToStructure<GSavePlayerManpu15>();
+        public override void SetReactions(byte[] data, IReactionStore value) => ((GSavePlayerManpu15)value).ToBytes().CopyTo(data, Manpu);
     }
 }

@@ -14,7 +14,7 @@ namespace NHSE.WinForms
             this.TranslateInterface(GameInfo.CurrentLanguage);
 
             Personal = p;
-            var manpu = p.Data.Slice(p.Offsets.Manpu, GSavePlayerManpu.SIZE).ToStructure<GSavePlayerManpu>();
+            var manpu = p.Reactions;
 
             PG_Manpu.SelectedObject = manpu;
         }
@@ -24,15 +24,14 @@ namespace NHSE.WinForms
         private void B_Save_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
-            var val = (GSavePlayerManpu) PG_Manpu.SelectedObject;
-            var bytes = val.ToBytes();
-            bytes.CopyTo(Personal.Data, Personal.Offsets.Manpu);
+            var val = (IReactionStore) PG_Manpu.SelectedObject;
+            Personal.Reactions = val;
             Close();
         }
 
         private void B_GiveAll_Click(object sender, EventArgs e)
         {
-            var val = (GSavePlayerManpu)PG_Manpu.SelectedObject;
+            var val = (IReactionStore)PG_Manpu.SelectedObject;
             val.AddMissingReactions();
             PG_Manpu.SelectedObject = val;
             System.Media.SystemSounds.Asterisk.Play();
