@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -37,7 +36,7 @@ namespace NHSE.WinForms
             var y = (int)NUD_SpawnY.Value;
             var count = (int)NUD_SpawnCount.Value;
 
-            IEnumerable<Item> items;
+            IReadOnlyList<Item> items;
             int sizeX;
             int sizeY;
             if (type == SpawnType.SequentialDIY)
@@ -49,22 +48,21 @@ namespace NHSE.WinForms
                     .Select(z => z.Key)
                     .Select(z => new Item(Item.DIYRecipe) {FreeParam = z});
 
-                items = Enumerable.Repeat(diy, count).SelectMany(z => z);
+                items = Enumerable.Repeat(diy, count).SelectMany(z => z).ToArray();
                 sizeX = sizeY = 2;
             }
             else if (type == SpawnType.ItemsFromNHI)
             {
-                if (this.NHIFilePath == "")
+                if (string.IsNullOrEmpty(NHIFilePath) || !File.Exists(NHIFilePath))
                 {
                     WinFormsUtil.Alert(MessageStrings.MsgFieldItemNoNHI);
                     return;
                 }
-                    
 
                 // read non-empty slots into item array
                 var data = File.ReadAllBytes(this.NHIFilePath);
                 var array = data.GetArray<Item>(Item.SIZE).Where(item => !item.IsNone);
-                items = Enumerable.Repeat(array, count).SelectMany(x => x);
+                items = Enumerable.Repeat(array, count).SelectMany(z => z).ToArray();
 
                 // set flag0 = 0x20 for each item to ensure it gets dropped
                 // this also forces a 2x2 item size
@@ -76,7 +74,7 @@ namespace NHSE.WinForms
             else
             {
                 var item = Editor.ItemProvider.SetItem(new Item());
-                items = Enumerable.Repeat(item, count);
+                items = Enumerable.Repeat(item, count).ToArray();
                 var size = ItemInfo.GetItemSize(item);
                 sizeX = size.GetWidth();
                 sizeY = size.GetHeight();
@@ -87,7 +85,7 @@ namespace NHSE.WinForms
             if (sizeY % 2 == 1)
                 sizeY++;
 
-            var ctr = SpawnItems(Editor.SpawnLayer, items.ToArray(), x, y, arrange, sizeX, sizeY, true);
+            var ctr = SpawnItems(Editor.SpawnLayer, items, x, y, arrange, sizeX, sizeY, true);
             if (ctr == 0)
             {
                 WinFormsUtil.Alert(MessageStrings.MsgFieldItemModifyNone);
@@ -152,7 +150,7 @@ namespace NHSE.WinForms
 
             if (index == SpawnType.ItemsFromNHI)
             {
-                L_NHIFileName_Click(null, null);
+                L_NHIFileName_Click(sender, e);
             }
         }
 
