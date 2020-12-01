@@ -57,6 +57,7 @@
             this.NUD_Villager = new System.Windows.Forms.NumericUpDown();
             this.B_EditHouses = new System.Windows.Forms.Button();
             this.B_SetPhraseOriginal = new System.Windows.Forms.Button();
+            this.B_EditDIYTimer = new System.Windows.Forms.ToolStripMenuItem();
             this.CM_EditVillager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Variant)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Species)).BeginInit();
@@ -104,10 +105,11 @@
             this.B_EditVillagerRoom,
             this.B_EditVillagerDesign,
             this.B_EditVillagerPlayerMemories,
+            this.B_EditDIYTimer,
             this.TSS_toolStripSeparator1,
             this.B_MoveOutAllVillagers});
             this.CM_EditVillager.Name = "CM_EditPlayer";
-            this.CM_EditVillager.Size = new System.Drawing.Size(186, 114);
+            this.CM_EditVillager.Size = new System.Drawing.Size(186, 186);
             // 
             // B_EditFurniture
             // 
@@ -143,6 +145,11 @@
             this.B_EditVillagerPlayerMemories.Size = new System.Drawing.Size(185, 22);
             this.B_EditVillagerPlayerMemories.Text = "Edit Player Memories";
             this.B_EditVillagerPlayerMemories.Click += new System.EventHandler(this.B_EditVillagerPlayerMemories_Click);
+            // 
+            // TSS_toolStripSeparator1
+            // 
+            this.TSS_toolStripSeparator1.Name = "TSS_toolStripSeparator1";
+            this.TSS_toolStripSeparator1.Size = new System.Drawing.Size(182, 6);
             // 
             // B_MoveOutAllVillagers
             // 
@@ -321,6 +328,13 @@
             this.B_SetPhraseOriginal.UseVisualStyleBackColor = true;
             this.B_SetPhraseOriginal.Click += new System.EventHandler(this.B_SetPhraseOriginal_Click);
             // 
+            // B_EditDIYTimer
+            // 
+            this.B_EditDIYTimer.Name = "B_EditDIYTimer";
+            this.B_EditDIYTimer.Size = new System.Drawing.Size(185, 22);
+            this.B_EditDIYTimer.Text = "Edit DIY Timer";
+            this.B_EditDIYTimer.Click += new System.EventHandler(this.B_EditDIYTimer_Click);
+            // 
             // VillagerEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -387,5 +401,6 @@
         private System.Windows.Forms.ToolStripMenuItem B_MoveOutAllVillagers;
         private System.Windows.Forms.ToolStripMenuItem B_EditWear;
         private System.Windows.Forms.Button B_SetPhraseOriginal;
+        private System.Windows.Forms.ToolStripMenuItem B_EditDIYTimer;
     }
 }

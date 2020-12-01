@@ -247,6 +247,14 @@ namespace NHSE.WinForms
             { } // editor saves our changes
         }
 
+        private void B_EditDIYTimer_Click(object sender, EventArgs e)
+        {
+            var v = Villagers[VillagerIndex];
+            using var editor = new VillagerDIYTimerEditor(v);
+            if (editor.ShowDialog() == DialogResult.OK)
+            { } // editor saves our changes
+        }
+
         private void B_MoveOutAllVillagers_Click(object sender, EventArgs e)
         {
             if (Loading)

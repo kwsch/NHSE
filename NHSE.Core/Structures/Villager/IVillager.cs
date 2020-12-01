@@ -25,6 +25,11 @@ namespace NHSE.Core
         GSaveRoomFloorWall Room { get; set; }
         DesignPatternPRO Design { get; set; }
 
+        public byte DIYEndHour { get; set; }
+        public byte DIYEndMinute { get; set; }
+        public byte DIYEndSecond { get; set; }
+        public ushort DIYRecipeIndex { get; set; }
+
         GSaveMemory GetMemory(int index);
         GSaveMemory[] GetMemories();
         void SetMemory(GSaveMemory memory, int index);

@@ -116,6 +116,11 @@ namespace NHSE.Core
             set => value.Data.CopyTo(Data, 0x12128);
         }
 
+        public byte DIYEndHour { get => Data[0x129D1]; set => Data[0x129D1] = value; }
+        public byte DIYEndMinute { get => Data[0x129D2]; set => Data[0x129D2] = value; }
+        public byte DIYEndSecond { get => Data[0x129D3]; set => Data[0x129D3] = value; }
+        public ushort DIYRecipeIndex { get => Data[0x129D4]; set => value.ToBytes().CopyTo(Data, 0x129D4); }
+
         public void SetFriendshipAll(byte value = byte.MaxValue)
         {
             for (int i = 0; i < PlayerMemoryCount; i++)
