@@ -119,7 +119,7 @@ namespace NHSE.Core
         public byte DIYEndHour { get => Data[0x13151]; set => Data[0x13151] = value; }
         public byte DIYEndMinute { get => Data[0x13152]; set => Data[0x13152] = value; }
         public byte DIYEndSecond { get => Data[0x13153]; set => Data[0x13153] = value; }
-        public ushort DIYRecipeIndex { get => Data.Slice(0x13154, sizeof(ushort)).ToStructure<ushort>(); set => value.ToBytes().CopyTo(Data, 0x13154); }
+        public ushort DIYRecipeIndex { get => BitConverter.ToUInt16(Data, 0x13154); set => BitConverter.GetBytes(value).CopyTo(Data, 0x13154); }
 
         public void SetFriendshipAll(byte value = byte.MaxValue)
         {
