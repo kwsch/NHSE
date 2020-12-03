@@ -71,7 +71,7 @@ namespace NHSE.WinForms
 
         private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e) => PBar_MultiUse.Value = e.ProgressPercentage;
 
-        private void Completed(object sender, AsyncCompletedEventArgs e)
+        private void Completed(object? sender, AsyncCompletedEventArgs e)
         {
             if (e.Error != null)
             {
@@ -138,8 +138,13 @@ namespace NHSE.WinForms
             {
                 using var webClient = new WebClient();
                 await webClient.OpenReadTaskAsync(new Uri(AllHosts[CB_HostSelect.SelectedIndex], UriKind.Absolute)).ConfigureAwait(false);
-
-                var totalSizeBytes = Convert.ToInt64(webClient.ResponseHeaders["Content-Length"]);
+                var hdr = webClient.ResponseHeaders?["Content-Length"];
+                if (hdr == null)
+                {
+                    L_FileSize.Text = "Failed.";
+                    return;
+                }
+                var totalSizeBytes = Convert.ToInt64(hdr);
                 var totalSizeMb = totalSizeBytes / 1e+6;
                 L_FileSize.Text = $"{totalSizeMb:0.##}MB";
             }

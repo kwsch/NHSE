@@ -3,9 +3,7 @@
     /// <summary>
     /// Building model &amp; interior that is loaded when the <see cref="Building"/> is entered.
     /// </summary>
-#pragma warning disable CA1027 // Mark enums with FlagsAttribute
     public enum BuildingType : ushort
-#pragma warning restore CA1027 // Mark enums with FlagsAttribute
     {
         None = 0,
         PlayerHouse1 = 1,

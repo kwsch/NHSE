@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Resources.NeutralResourcesLanguage("en")]
 namespace NHSE.WinForms.Properties {
     using System;
     

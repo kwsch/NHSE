@@ -3,9 +3,7 @@ namespace NHSE.Core
     /// <summary>
     /// Menu icons (image shown in the inventory) of Items
     /// </summary>
-#pragma warning disable CA1027 // Mark enums with FlagsAttribute
     public enum ItemMenuIconType : ushort
-#pragma warning restore CA1027 // Mark enums with FlagsAttribute
     {
         Akoyagai,
         Amaebi,

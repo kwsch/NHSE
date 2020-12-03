@@ -3,9 +3,7 @@
     /// <summary>
     /// Sizes of Items
     /// </summary>
-#pragma warning disable CA1027 // Mark enums with FlagsAttribute
     public enum ItemSizeType : byte
-#pragma warning restore CA1027 // Mark enums with FlagsAttribute
     {
         S_0_5x1_0_Wall,
         S_1_0x0_5,

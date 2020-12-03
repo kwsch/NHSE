@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Resources.NeutralResourcesLanguage("en")]
 namespace NHSE.Parsing.Properties {
     using System;
     

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net46;netcoreapp3.1</TargetFrameworks>
+    <TargetFrameworks>net46;net5.0-windows</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
     <AssemblyName>NHSE</AssemblyName>
     <PackageId>NHSE</PackageId>

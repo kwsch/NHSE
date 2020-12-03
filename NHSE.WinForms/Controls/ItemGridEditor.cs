@@ -53,7 +53,7 @@ namespace NHSE.WinForms
             ChangePage();
         }
 
-        private void Slot_MouseWheel(object sender, MouseEventArgs e)
+        private void Slot_MouseWheel(object? sender, MouseEventArgs e)
         {
             var delta = e.Delta < 0 ? 1 : -1; // scrolling down increases page #
             var newpage = Math.Min(PageCount - 1, Math.Max(0, Page + delta));
@@ -85,8 +85,10 @@ namespace NHSE.WinForms
 
         public static string GetItemText(Item item) => GameInfo.Strings.GetItemName(item);
 
-        public void Slot_MouseClick(object sender, MouseEventArgs e)
+        public void Slot_MouseClick(object? sender, MouseEventArgs e)
         {
+            if (sender == null)
+                return;
             switch (ModifierKeys)
             {
                 case Keys.Control | Keys.Alt: ClickClone(sender, e); break;
@@ -171,7 +173,7 @@ namespace NHSE.WinForms
             pb.Image = ItemSprite.GetItemMarkup(item, font, dw, dh, backing);
         }
 
-        private int GetPageJump()
+        private static int GetPageJump()
         {
             return ModifierKeys switch
             {
