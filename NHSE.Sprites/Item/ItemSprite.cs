@@ -14,7 +14,7 @@ namespace NHSE.Sprites
         // %appdata%/NHSE
         public static string PlatformAppDataPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), nameof(NHSE));
         public static string PlatformAppDataImagePath { get; } = Path.Combine(PlatformAppDataPath, "img");
-        public static bool SingleSpriteExists { get => Directory.EnumerateFileSystemEntries(PlatformAppDataImagePath).Any(); }
+        public static bool SingleSpriteExists => Directory.EnumerateFileSystemEntries(PlatformAppDataImagePath).Any();
 
         public static void Initialize(string[] itemNames)
         {
@@ -103,8 +103,7 @@ namespace NHSE.Sprites
             return remap >= length ? id : remap;
         }
 
-        private static readonly StringFormat Center = new StringFormat
-        { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+        private static readonly StringFormat Center = new() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
 
         private static Bitmap CreateFake(Item item, Font font, int width, int height, Bitmap bmp)
         {

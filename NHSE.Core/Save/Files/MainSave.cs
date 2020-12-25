@@ -178,7 +178,7 @@ namespace NHSE.Core
 
         public Museum Museum
         {
-            get => new Museum(Data.Slice(Offsets.Museum, Museum.SIZE));
+            get => new(Data.Slice(Offsets.Museum, Museum.SIZE));
             set => value.Data.CopyTo(Data, Offsets.Museum);
         }
 

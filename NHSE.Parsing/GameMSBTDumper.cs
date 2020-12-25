@@ -144,7 +144,7 @@ namespace NHSE.Parsing
             };
         }
 
-        private static readonly Dictionary<int, string> InternalItemList = new Dictionary<int, string>
+        private static readonly Dictionary<int, string> InternalItemList = new()
         {
             {4200, "k.k. slider's guitar (internal)"},
         };

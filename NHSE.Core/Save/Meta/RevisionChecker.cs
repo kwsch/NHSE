@@ -11,33 +11,33 @@ namespace NHSE.Core
         // Patches where the sizes of individual files changed
         private static readonly SaveFileSizes[] SizesByRevision =
         {
-            new SaveFileSizes(0xAC0938, 0x6BC50, 0x263B4, 0xB44580, 0x69508), // 1.0.0
-            new SaveFileSizes(0xAC2AA0, 0x6BED0, 0x263C0, 0xB44590, 0x69560), // 1.1.0
-            new SaveFileSizes(0xACECD0, 0x6D6C0, 0x2C9C0, 0xB44590, 0x69560), // 1.2.0
-            new SaveFileSizes(0xACED80, 0x6D6D0, 0x2C9C0, 0xB44590, 0x69560), // 1.3.0
-            new SaveFileSizes(0xB05790, 0x74420, 0x2C9C0, 0xB44590, 0x69560), // 1.4.0
-            new SaveFileSizes(0xB20750, 0x76390, 0x2C9C0, 0xB44590, 0x69560), // 1.5.0
-            new SaveFileSizes(0xB258E0, 0x76CF0, 0x2C9C0, 0xB44590, 0x69560), // 1.6.0
+            new(0xAC0938, 0x6BC50, 0x263B4, 0xB44580, 0x69508), // 1.0.0
+            new(0xAC2AA0, 0x6BED0, 0x263C0, 0xB44590, 0x69560), // 1.1.0
+            new(0xACECD0, 0x6D6C0, 0x2C9C0, 0xB44590, 0x69560), // 1.2.0
+            new(0xACED80, 0x6D6D0, 0x2C9C0, 0xB44590, 0x69560), // 1.3.0
+            new(0xB05790, 0x74420, 0x2C9C0, 0xB44590, 0x69560), // 1.4.0
+            new(0xB20750, 0x76390, 0x2C9C0, 0xB44590, 0x69560), // 1.5.0
+            new(0xB258E0, 0x76CF0, 0x2C9C0, 0xB44590, 0x69560), // 1.6.0
         };
 
         private static readonly FileHeaderInfo[] RevisionInfo =
         {
-            new FileHeaderInfo { Major = 0x67, Minor = 0x6F, HeaderRevision = 0, Unk1 = 2, SaveRevision = 0, Unk2 = 2 }, // 1.0.0
-            new FileHeaderInfo { Major = 0x6D, Minor = 0x78, HeaderRevision = 0, Unk1 = 2, SaveRevision = 1, Unk2 = 2 }, // 1.1.0
-            new FileHeaderInfo { Major = 0x6D, Minor = 0x78, HeaderRevision = 0, Unk1 = 2, SaveRevision = 2, Unk2 = 2 }, // 1.1.1
-            new FileHeaderInfo { Major = 0x6D, Minor = 0x78, HeaderRevision = 0, Unk1 = 2, SaveRevision = 3, Unk2 = 2 }, // 1.1.2
-            new FileHeaderInfo { Major = 0x6D, Minor = 0x78, HeaderRevision = 0, Unk1 = 2, SaveRevision = 4, Unk2 = 2 }, // 1.1.3
-            new FileHeaderInfo { Major = 0x6D, Minor = 0x78, HeaderRevision = 0, Unk1 = 2, SaveRevision = 5, Unk2 = 2 }, // 1.1.4
-            new FileHeaderInfo { Major = 0x20006, Minor = 0x20008, HeaderRevision = 0, Unk1 = 2, SaveRevision = 6, Unk2 = 2 }, // 1.2.0
-            new FileHeaderInfo { Major = 0x20006, Minor = 0x20008, HeaderRevision = 0, Unk1 = 2, SaveRevision = 7, Unk2 = 2 }, // 1.2.1
-            new FileHeaderInfo { Major = 0x40002, Minor = 0x40008, HeaderRevision = 0, Unk1 = 2, SaveRevision = 8, Unk2 = 2 }, // 1.3.0
-            new FileHeaderInfo { Major = 0x40002, Minor = 0x40008, HeaderRevision = 0, Unk1 = 2, SaveRevision = 9, Unk2 = 2 }, // 1.3.1
-            new FileHeaderInfo { Major = 0x50001, Minor = 0x5000B, HeaderRevision = 0, Unk1 = 2, SaveRevision = 10, Unk2 = 2 }, // 1.4.0
-            new FileHeaderInfo { Major = 0x50001, Minor = 0x5000B, HeaderRevision = 0, Unk1 = 2, SaveRevision = 11, Unk2 = 2 }, // 1.4.1
-            new FileHeaderInfo { Major = 0x50001, Minor = 0x5000B, HeaderRevision = 0, Unk1 = 2, SaveRevision = 12, Unk2 = 2 }, // 1.4.2
-            new FileHeaderInfo { Major = 0x60001, Minor = 0x6000C, HeaderRevision = 0, Unk1 = 2, SaveRevision = 13, Unk2 = 2 }, // 1.5.0
-            new FileHeaderInfo { Major = 0x60001, Minor = 0x6000C, HeaderRevision = 0, Unk1 = 2, SaveRevision = 14, Unk2 = 2 }, // 1.5.1
-            new FileHeaderInfo { Major = 0x70001, Minor = 0x70006, HeaderRevision = 0, Unk1 = 2, SaveRevision = 15, Unk2 = 2 }, // 1.6.0
+            new() { Major = 0x67, Minor = 0x6F, HeaderRevision = 0, Unk1 = 2, SaveRevision = 0, Unk2 = 2 }, // 1.0.0
+            new() { Major = 0x6D, Minor = 0x78, HeaderRevision = 0, Unk1 = 2, SaveRevision = 1, Unk2 = 2 }, // 1.1.0
+            new() { Major = 0x6D, Minor = 0x78, HeaderRevision = 0, Unk1 = 2, SaveRevision = 2, Unk2 = 2 }, // 1.1.1
+            new() { Major = 0x6D, Minor = 0x78, HeaderRevision = 0, Unk1 = 2, SaveRevision = 3, Unk2 = 2 }, // 1.1.2
+            new() { Major = 0x6D, Minor = 0x78, HeaderRevision = 0, Unk1 = 2, SaveRevision = 4, Unk2 = 2 }, // 1.1.3
+            new() { Major = 0x6D, Minor = 0x78, HeaderRevision = 0, Unk1 = 2, SaveRevision = 5, Unk2 = 2 }, // 1.1.4
+            new() { Major = 0x20006, Minor = 0x20008, HeaderRevision = 0, Unk1 = 2, SaveRevision = 6, Unk2 = 2 }, // 1.2.0
+            new() { Major = 0x20006, Minor = 0x20008, HeaderRevision = 0, Unk1 = 2, SaveRevision = 7, Unk2 = 2 }, // 1.2.1
+            new() { Major = 0x40002, Minor = 0x40008, HeaderRevision = 0, Unk1 = 2, SaveRevision = 8, Unk2 = 2 }, // 1.3.0
+            new() { Major = 0x40002, Minor = 0x40008, HeaderRevision = 0, Unk1 = 2, SaveRevision = 9, Unk2 = 2 }, // 1.3.1
+            new() { Major = 0x50001, Minor = 0x5000B, HeaderRevision = 0, Unk1 = 2, SaveRevision = 10, Unk2 = 2 }, // 1.4.0
+            new() { Major = 0x50001, Minor = 0x5000B, HeaderRevision = 0, Unk1 = 2, SaveRevision = 11, Unk2 = 2 }, // 1.4.1
+            new() { Major = 0x50001, Minor = 0x5000B, HeaderRevision = 0, Unk1 = 2, SaveRevision = 12, Unk2 = 2 }, // 1.4.2
+            new() { Major = 0x60001, Minor = 0x6000C, HeaderRevision = 0, Unk1 = 2, SaveRevision = 13, Unk2 = 2 }, // 1.5.0
+            new() { Major = 0x60001, Minor = 0x6000C, HeaderRevision = 0, Unk1 = 2, SaveRevision = 14, Unk2 = 2 }, // 1.5.1
+            new() { Major = 0x70001, Minor = 0x70006, HeaderRevision = 0, Unk1 = 2, SaveRevision = 15, Unk2 = 2 }, // 1.6.0
         };
 
         public static readonly IReadOnlyList<SaveFileSizes> SizeInfo = new[]

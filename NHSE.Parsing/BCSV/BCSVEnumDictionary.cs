@@ -7,7 +7,7 @@ namespace NHSE.Parsing
 {
     public class BCSVEnumDictionary
     {
-        private readonly Dictionary<uint, string> Lookup = new Dictionary<uint, string>();
+        private readonly Dictionary<uint, string> Lookup = new();
 
         public BCSVEnumDictionary(IEnumerable<string> lines)
         {

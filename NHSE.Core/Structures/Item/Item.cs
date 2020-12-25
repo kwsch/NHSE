@@ -7,7 +7,7 @@ namespace NHSE.Core
     [StructLayout(LayoutKind.Explicit, Size = SIZE, Pack = 1)]
     public class Item : ICopyableItem<Item>
     {
-        public static readonly Item NO_ITEM = new Item {ItemId = NONE};
+        public static readonly Item NO_ITEM = new() {ItemId = NONE};
         public const ushort NONE = 0xFFFE;
         public const ushort EXTENSION = 0xFFFD;
         public const ushort FieldItemMin = 60_000;

@@ -77,7 +77,7 @@ namespace NHSE.Core
     {
         private readonly byte[] _counter;
         private readonly ICryptoTransform _counterEncryptor;
-        private readonly Queue<byte> _xorMask = new Queue<byte>();
+        private readonly Queue<byte> _xorMask = new();
         private readonly SymmetricAlgorithm _symmetricAlgorithm;
 
         public CounterModeCryptoTransform(SymmetricAlgorithm symmetricAlgorithm, byte[] key, byte[] counter)

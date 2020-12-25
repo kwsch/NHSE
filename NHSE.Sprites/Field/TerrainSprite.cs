@@ -11,8 +11,7 @@ namespace NHSE.Sprites
         private static readonly Brush Text = Brushes.White;
         private static readonly Brush Tile = Brushes.Black;
         private static readonly Brush Plaza = Brushes.RosyBrown;
-        private static readonly StringFormat BuildingTextFormat = new StringFormat
-            { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+        private static readonly StringFormat BuildingTextFormat = new() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
 
         private const int PlazaWidth = 6 * 2;
         private const int PlazaHeight = 5 * 2;

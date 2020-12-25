@@ -16,7 +16,7 @@ namespace NHSE.Core
         public readonly Dictionary<string, string> VillagerMap;
         public readonly Dictionary<string, string> VillagerDefaultPhraseMap;
         public readonly List<ComboItem> ItemDataSource;
-        public readonly Dictionary<string, string> InternalNameTranslation = new Dictionary<string, string>();
+        public readonly Dictionary<string, string> InternalNameTranslation = new();
 
         public IReadOnlyDictionary<string, string> BodyParts { get; }
         public IReadOnlyDictionary<string, string> BodyColor { get; }

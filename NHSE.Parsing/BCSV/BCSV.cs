@@ -8,7 +8,7 @@ namespace NHSE.Parsing
 {
     public class BCSV
     {
-        public static readonly BCSVEnumDictionary EnumLookup = new BCSVEnumDictionary(Resources.specs_130.Split('\n'));
+        public static readonly BCSVEnumDictionary EnumLookup = new(Resources.specs_130.Split('\n'));
         public static bool DecodeColumnNames { private get; set; } = true;
 
         public const int MAGIC = 0x42435356; // BCSV

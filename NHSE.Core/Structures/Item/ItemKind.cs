@@ -175,7 +175,7 @@ namespace NHSE.Core
 
     public static class ItemKindExtensions
     {
-        private static readonly HashSet<ItemKind> Clothing = new HashSet<ItemKind>
+        private static readonly HashSet<ItemKind> Clothing = new()
         {
             Bottoms_Long,
             Bottoms_Middle,
@@ -198,7 +198,7 @@ namespace NHSE.Core
             Top_Short,
         };
 
-        private static readonly HashSet<ItemKind> Furniture = new HashSet<ItemKind>
+        private static readonly HashSet<ItemKind> Furniture = new()
         {
             Ftr_1x1_Chair,
             Ftr_1x1_Floor,

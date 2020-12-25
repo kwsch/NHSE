@@ -802,7 +802,7 @@ namespace NHSE.WinForms
 
         private void NUD_BuildingType_ValueChanged(object sender, EventArgs e)
         {
-            if (Loading || !(sender is NumericUpDown n))
+            if (Loading || sender is not NumericUpDown n)
                 return;
 
             var b = Map.Buildings[SelectedBuildingIndex];

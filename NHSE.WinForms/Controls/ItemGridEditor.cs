@@ -10,7 +10,7 @@ namespace NHSE.WinForms
 {
     public partial class ItemGridEditor : UserControl
     {
-        private static readonly GridSize Sprites = new GridSize();
+        private static readonly GridSize Sprites = new();
         private readonly ItemEditor Editor;
         private readonly IReadOnlyList<Item> Items;
 
@@ -65,7 +65,7 @@ namespace NHSE.WinForms
 
         public void Slot_MouseEnter(object? sender, EventArgs e)
         {
-            if (!(sender is PictureBox pb))
+            if (sender is not PictureBox pb)
                 return;
             var index = SlotPictureBoxes.IndexOf(pb);
             var item = GetItem(index);
@@ -77,7 +77,7 @@ namespace NHSE.WinForms
 
         public void Slot_MouseLeave(object? sender, EventArgs e)
         {
-            if (!(sender is PictureBox))
+            if (sender is not PictureBox)
                 return;
             L_ItemName.Text = string.Empty;
             HoverTip.RemoveAll();
@@ -265,7 +265,7 @@ namespace NHSE.WinForms
         private void B_SortType_Click(object sender, EventArgs e)
         {
             var sortedItems = Items.Where(item => item.ItemId != Item.NONE)
-                .OrderBy(item => ItemInfo.GetItemKind(item))
+                .OrderBy(ItemInfo.GetItemKind)
                 .ThenBy(item => GetItemText(item).ToLower());
             var sortedItemsCopy = new List<Item>(); // to prevent object reference issues
 

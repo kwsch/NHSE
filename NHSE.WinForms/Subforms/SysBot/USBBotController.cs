@@ -5,7 +5,7 @@ namespace NHSE.WinForms
 {
     public class USBBotController
     {
-        public readonly USBBot Bot = new USBBot();
+        public readonly USBBot Bot = new();
 
         public bool Connect()
         {

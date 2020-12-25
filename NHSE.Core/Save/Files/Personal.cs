@@ -112,7 +112,7 @@ namespace NHSE.Core
             set => value.ToBytes().CopyTo(Data, Offsets.CountAchievement);
         }
 
-        public RecipeBook GetRecipeBook() => new RecipeBook(Data.Slice(Offsets.Recipes, RecipeBook.SIZE));
+        public RecipeBook GetRecipeBook() => new(Data.Slice(Offsets.Recipes, RecipeBook.SIZE));
         public void SetRecipeBook(RecipeBook book) => book.Save(Data, Offsets.Recipes);
 
         public short[] GetEventFlagsPlayer()
@@ -164,7 +164,7 @@ namespace NHSE.Core
         public bool ProfileIsMakeVillage
         {
             get => Data[Offsets.ProfileIsMakeVillage] != 0;
-            set => Data[Offsets.ProfileIsMakeVillage] = (byte)(value ? 1 : 0);
+            set => Data[Offsets.ProfileIsMakeVillage] = value ? 1 : 0;
         }
 
         #endregion

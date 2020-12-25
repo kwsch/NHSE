@@ -39,7 +39,7 @@ namespace NHSE.Parsing
 
         public string PeekString(int length = 4)
         {
-            List<byte> bytes = new List<byte>();
+            List<byte> bytes = new();
             long startOffset = BaseStream.Position;
 
             for (int i = 0; i < length; i++)

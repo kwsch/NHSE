@@ -13,7 +13,7 @@ namespace NHSE.WinForms
     public sealed partial class ImageFetcher : Form
     {
         private const string Filename = "image.zip";
-        private static string ZipFilePath { get => Path.Combine(ItemSprite.PlatformAppDataPath, Filename); }
+        private static string ZipFilePath => Path.Combine(ItemSprite.PlatformAppDataPath, Filename);
 
         private readonly IReadOnlyList<string> AllHosts;
 

@@ -7,8 +7,8 @@ namespace NHSE.Parsing
     {
         public uint NumberOfGroups;
 
-        public readonly List<MSBTGroup> Groups = new List<MSBTGroup>();
-        public readonly List<MSBTLabel> Labels = new List<MSBTLabel>();
+        public readonly List<MSBTGroup> Groups = new();
+        public readonly List<MSBTLabel> Labels = new();
 
         public LBL1() : base(string.Empty, Array.Empty<byte>())
         {

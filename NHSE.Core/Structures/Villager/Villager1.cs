@@ -112,7 +112,7 @@ namespace NHSE.Core
 
         public DesignPatternPRO Design
         {
-            get => new DesignPatternPRO(Data.Slice(0x12128, DesignPatternPRO.SIZE));
+            get => new(Data.Slice(0x12128, DesignPatternPRO.SIZE));
             set => value.Data.CopyTo(Data, 0x12128);
         }
 

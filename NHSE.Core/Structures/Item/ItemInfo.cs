@@ -52,7 +52,7 @@ namespace NHSE.Core
             return MaxCountByKind.TryGetValue(kind, out max);
         }
 
-        private static readonly Dictionary<ItemKind, ushort> MaxCountByKind = new Dictionary<ItemKind, ushort>
+        private static readonly Dictionary<ItemKind, ushort> MaxCountByKind = new()
         {
             {Kind_Ftr, 00001},
             {Kind_RoomWall, 00001},

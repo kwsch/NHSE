@@ -10,7 +10,7 @@ namespace NHSE.WinForms
         public SysBotController(InjectionType type) => Type = type;
 
         private readonly InjectionType Type;
-        public readonly SysBot Bot = new SysBot();
+        public readonly SysBot Bot = new();
         private readonly Settings Settings = Settings.Default;
 
         public string IP => Settings.SysBotIP;

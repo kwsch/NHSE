@@ -8,8 +8,8 @@ namespace NHSE.Parsing
     public class MSBT
 	{
 		public readonly MSBTHeader Header;
-		public readonly LBL1 LBL1 = new LBL1();
-		public readonly TXT2 TXT2 = new TXT2();
+		public readonly LBL1 LBL1 = new();
+		public readonly TXT2 TXT2 = new();
 		public readonly Encoding FileEncoding;
 		public readonly List<string> SectionOrder;
 		public bool HasLabels;

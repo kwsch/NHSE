@@ -250,7 +250,7 @@ namespace NHSE.Parsing
             // clothing is split out more granularly in ItemKind and would cause errors
             // since it's not likely to ever be stackable, we can skip
             // none-type can be skipped and doesn't exist in ItemKind either
-            List<string> skipLabels = new List<string>
+            List<string> skipLabels = new()
             {
                 "TopsDefault",
                 "Tops",

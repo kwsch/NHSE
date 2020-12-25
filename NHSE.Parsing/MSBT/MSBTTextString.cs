@@ -8,7 +8,7 @@ namespace NHSE.Parsing
         public readonly byte[] Value;
         public readonly uint Index;
 
-        public static readonly MSBTTextString Empty = new MSBTTextString(Array.Empty<byte>(), 0);
+        public static readonly MSBTTextString Empty = new(Array.Empty<byte>(), 0);
 
         public MSBTTextString(byte[] v, uint i)
         {

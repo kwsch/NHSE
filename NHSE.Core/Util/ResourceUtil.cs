@@ -12,9 +12,9 @@ namespace NHSE.Core
     {
         private static readonly Assembly thisAssembly = typeof(ResourceUtil).GetTypeInfo().Assembly;
         private static readonly string[] manifestResourceNames = thisAssembly.GetManifestResourceNames();
-        private static readonly Dictionary<string, string> resourceNameMap = new Dictionary<string, string>();
-        private static readonly Dictionary<string, string[]> stringListCache = new Dictionary<string, string[]>();
-        private static readonly object getStringListLoadLock = new object();
+        private static readonly Dictionary<string, string> resourceNameMap = new();
+        private static readonly Dictionary<string, string[]> stringListCache = new();
+        private static readonly object getStringListLoadLock = new();
 
         public static string[] GetStringList(string fileName)
         {

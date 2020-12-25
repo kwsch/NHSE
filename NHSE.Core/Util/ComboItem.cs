@@ -83,7 +83,7 @@ namespace NHSE.Core
         public static void SortByText(this List<ComboItem> arr) => arr.Sort(Comparer);
 
         private static readonly FunctorComparer<ComboItem> Comparer =
-            new FunctorComparer<ComboItem>((a, b) => string.CompareOrdinal(a.Text, b.Text));
+            new((a, b) => string.CompareOrdinal(a.Text, b.Text));
 
         private sealed class FunctorComparer<T> : IComparer<T>
         {

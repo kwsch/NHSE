@@ -25,17 +25,13 @@ namespace NHSE.Core
         /// <returns>True if can be converted, false if no conversion available.</returns>
         public static bool IsCompatible(int size, int expect)
         {
-            switch (expect)
+            return expect switch
             {
                 // Can convert to any format
-                case Villager1.SIZE:
-                case Villager2.SIZE:
-                    return IsVillager(size);
-
+                Villager1.SIZE or Villager2.SIZE => IsVillager(size),
                 // No conversion available
-                default:
-                    return false;
-            }
+                _ => false,
+            };
         }
 
         /// <summary>

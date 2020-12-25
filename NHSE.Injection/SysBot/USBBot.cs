@@ -13,7 +13,7 @@ namespace NHSE.Injection
 
         public bool Connected { get; private set; }
 
-        private readonly object _sync = new object();
+        private readonly object _sync = new();
 
         public bool Connect()
         {
