@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 using static NHSE.Core.ItemKind;
 
 namespace NHSE.Core
@@ -189,5 +190,133 @@ namespace NHSE.Core
             {Kind_NnpcRoomMarker, 00001},
             {Kind_PhotoStudioList, 00001},
         };
+
+        /// <summary>
+        /// Lists the customization options for the requested <see cref="itemID"/>
+        /// </summary>
+        /// <param name="itemID">Item ID</param>
+        public static string GetItemInfo(ushort itemID)
+        {
+            var remake = ItemRemakeUtil.GetRemakeIndex(itemID);
+            if (remake < 0)
+                return string.Empty;
+
+            var info = ItemRemakeInfoData.List[remake];
+            return GetItemInfo(info, GameInfo.Strings);
+        }
+
+        /// <summary>
+        /// Lists the customization options for the requested <see cref="info"/>
+        /// </summary>
+        /// <param name="info">Item customization possibilities</param>
+        /// <param name="str">Game strings</param>
+        public static string GetItemInfo(ItemRemakeInfo info, IRemakeString str)
+        {
+            var sb = new StringBuilder();
+            var body = info.GetBodySummary(str);
+            if (body.Length > 0)
+                sb.AppendLine(body);
+
+            var fabric = info.GetFabricSummary(str);
+            if (fabric.Length > 0)
+                sb.AppendLine(fabric);
+
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Calculates the position the "Drop" option shows up in the item's interaction menu.
+        /// </summary>
+        /// <param name="item">Item object to drop</param>
+        /// <returns>How many times the down button has to be pressed to reach the "Drop" option.</returns>
+        public static int GetItemDropOption(this Item item)
+        {
+            if (Item.DIYRecipe == item.ItemId)
+                return 1;
+            if (item.IsWrapped)
+                return 0;
+
+            var kind = GetItemKind(item);
+            return kind switch
+            {
+                Kind_DIYRecipe => 1,
+
+                Kind_Flower => 2,
+                _ => 1,
+            };
+        }
+
+        /// <summary>
+        /// Determines if wrapping the <see cref="item"/> is possible.
+        /// </summary>
+        /// <param name="item">Item object to drop</param>
+        /// <returns>True if can be wrapped</returns>
+        public static bool ShouldWrapItem(this Item item)
+        {
+            if (Item.DIYRecipe == item.ItemId)
+                return false;
+
+            var kind = GetItemKind(item);
+            return kind switch
+            {
+                Kind_DIYRecipe => false,
+
+                Kind_Flower => false,
+                _ => true,
+            };
+        }
+
+        /// <summary>
+        /// Checks if the <see cref="item"/> is able to be dropped by the player character.
+        /// </summary>
+        /// <param name="item">Item object to drop</param>
+        /// <returns>True if can be dropped</returns>
+        public static bool IsDroppable(Item item)
+        {
+            if (item.IsFieldItem)
+                return false;
+            if (item.IsExtension)
+                return false;
+            if (item.IsNone)
+                return false;
+            if (item.SystemParam > 3)
+                return false; // buried, dropped, etc
+
+            var kind = GetItemKind(item);
+            return kind switch
+            {
+                Kind_Insect => false,
+
+                Kind_DummyPresentbox => false,
+
+                Kind_Fish => false,
+                Kind_DiveFish => false,
+                Kind_FlowerBud => false,
+                Kind_Bush => false,
+                Kind_Tree => false,
+
+                _ => true,
+            };
+        }
+
+        /// <summary>
+        /// Checks if the item can be dropped, and sanitizes up any erroneous values if it can be.
+        /// </summary>
+        /// <param name="item">Requested item to drop.</param>
+        /// <returns>True if can be dropped, false if cannot be dropped.</returns>
+        public static bool IsSaneItemForDrop(Item item)
+        {
+            if (!IsDroppable(item))
+                return false;
+
+            // Sanitize Values
+            if (item.ItemId == Item.MessageBottle || item.ItemId == Item.MessageBottleEgg)
+            {
+                item.ItemId = Item.DIYRecipe;
+                item.FreeParam = 0;
+            }
+
+            return true;
+        }
     }
 }
