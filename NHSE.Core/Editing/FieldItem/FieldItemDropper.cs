@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace NHSE.Core
@@ -14,16 +13,26 @@ namespace NHSE.Core
 
         // Each dropped item is a 2x2 square, with the top left tile being the root node, and the other 3 being extensions pointing back to the root.
 
-        public static bool CanFitDropped(int x, int y, int count, int vStride)
+        /// <summary>
+        /// Checks if the requested <see cref="totalCount"/> of items can be dropped on the field item layer. Does not check terrain or existing items.
+        /// </summary>
+        /// <remarks>Coordinates should be 32x32 style instead of 16x16.</remarks>
+        /// <param name="x">Raw X coordinate for the top-left item root tile.</param>
+        /// <param name="y">Raw Y coordinate for the top-left item root tile.</param>
+        /// <param name="totalCount">Total count of items to be dropped (not tiles).</param>
+        /// <param name="yCount">Count of items tall the overall spawn-rectangle is.</param>
+        /// <param name="borderX">Excluded outer tile count. Useful for enforcing that beach acre tiles are skipped.</param>
+        /// <param name="borderY">Excluded outer tile count. Useful for enforcing that beach acre tiles are skipped.</param>
+        /// <returns>True if can fit, false if not.</returns>
+        public static bool CanFitDropped(int x, int y, int totalCount, int yCount, int borderX, int borderY)
         {
-            if (2 * (Math.Max(16, y) + vStride) > MapHeight - 32)
+            var xCount = totalCount / yCount;
+            if (x < borderX || (x + (xCount * 2)) > MapWidth - borderX)
+                return false;
+            if (y < borderY || (y + (yCount * 2)) > MapHeight - borderX)
                 return false;
 
-            var xStride = count / vStride;
-            if (2 * (Math.Max(16, x) + xStride) > MapWidth - 32)
-                return false;
-
-            return count < (MapHeight * MapWidth / 32);
+            return totalCount < (MapHeight * MapWidth / 32);
         }
 
         public static IReadOnlyList<FieldItemColumn> InjectItemsAsDropped(int mapX, int mapY, IReadOnlyList<Item> item)
