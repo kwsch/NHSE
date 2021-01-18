@@ -23,13 +23,14 @@ namespace NHSE.Core
         [field: FieldOffset(3)] public byte AdditionalParam { get; set; }
         [field: FieldOffset(4)] public int FreeParam { get; set; }
 
-        public int Rotation => SystemParam & 3;
-        public bool IsBuried => (SystemParam & 4) != 0;
-        public bool Is_08 => (SystemParam & 0x08) != 0;
-        public bool Is_10 => (SystemParam & 0x10) != 0;
-        public bool IsDropped => (SystemParam & 0x20) != 0;
-        public bool Is_40 => (SystemParam & 0x40) != 0;
-        public bool Is_80 => (SystemParam & 0x80) != 0;
+        public void ClearFlags() => SystemParam = 0;
+        public int Rotation   { get => SystemParam & 3; set => SystemParam = (byte)((SystemParam & ~3) | (value & 3)); }
+        public bool IsBuried  { get => (SystemParam & 0x04) != 0; set => SystemParam = (byte) ((SystemParam & ~0x04) | (value ? 0x04 : 0)); }
+        public bool Is_08     { get => (SystemParam & 0x08) != 0; set => SystemParam = (byte) ((SystemParam & ~0x08) | (value ? 0x08 : 0)); }
+        public bool Is_10     { get => (SystemParam & 0x10) != 0; set => SystemParam = (byte) ((SystemParam & ~0x10) | (value ? 0x10 : 0)); }
+        public bool IsDropped { get => (SystemParam & 0x20) != 0; set => SystemParam = (byte) ((SystemParam & ~0x20) | (value ? 0x20 : 0)); }
+        public bool Is_40     { get => (SystemParam & 0x40) != 0; set => SystemParam = (byte) ((SystemParam & ~0x40) | (value ? 0x40 : 0)); }
+        public bool Is_80     { get => (SystemParam & 0x80) != 0; set => SystemParam = (byte) ((SystemParam & ~0x80) | (value ? 0x80 : 0)); }
 
         #region Flag1 (Wrapping / Etc)
         public bool IsWrapped
