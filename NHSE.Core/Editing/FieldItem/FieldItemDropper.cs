@@ -13,6 +13,18 @@ namespace NHSE.Core
 
         // Each dropped item is a 2x2 square, with the top left tile being the root node, and the other 3 being extensions pointing back to the root.
 
+        /// <inheritdoc cref="CanFitDropped(int,int,int,int,int,int,int,int)"/>
+        /// <param name="x">Raw X coordinate for the top-left item root tile.</param>
+        /// <param name="y">Raw Y coordinate for the top-left item root tile.</param>
+        /// <param name="totalCount">Total count of items to be dropped (not tiles).</param>
+        /// <param name="yCount">Count of items tall the overall spawn-rectangle is.</param>
+        /// <param name="borderX">Excluded outer tile count. Useful for enforcing that beach acre tiles are skipped.</param>
+        /// <param name="borderY">Excluded outer tile count. Useful for enforcing that beach acre tiles are skipped.</param>
+        public static bool CanFitDropped(int x, int y, int totalCount, int yCount, int borderX, int borderY)
+        {
+            return CanFitDropped(x, y, totalCount, yCount, borderX, borderX, borderY, borderY);
+        }
+
         /// <summary>
         /// Checks if the requested <see cref="totalCount"/> of items can be dropped on the field item layer. Does not check terrain or existing items.
         /// </summary>
@@ -21,15 +33,17 @@ namespace NHSE.Core
         /// <param name="y">Raw Y coordinate for the top-left item root tile.</param>
         /// <param name="totalCount">Total count of items to be dropped (not tiles).</param>
         /// <param name="yCount">Count of items tall the overall spawn-rectangle is.</param>
-        /// <param name="borderX">Excluded outer tile count. Useful for enforcing that beach acre tiles are skipped.</param>
-        /// <param name="borderY">Excluded outer tile count. Useful for enforcing that beach acre tiles are skipped.</param>
+        /// <param name="leftX">Excluded outer tile count. Useful for enforcing that beach acre tiles are skipped.</param>
+        /// <param name="rightX">Excluded outer tile count. Useful for enforcing that beach acre tiles are skipped.</param>
+        /// <param name="topY">Excluded outer tile count. Useful for enforcing that beach acre tiles are skipped.</param>
+        /// <param name="botY">Excluded outer tile count. Useful for enforcing that beach acre tiles are skipped.</param>
         /// <returns>True if can fit, false if not.</returns>
-        public static bool CanFitDropped(int x, int y, int totalCount, int yCount, int borderX, int borderY)
+        public static bool CanFitDropped(int x, int y, int totalCount, int yCount, int leftX, int rightX, int topY, int botY)
         {
             var xCount = totalCount / yCount;
-            if (x < borderX || (x + (xCount * 2)) > MapWidth - borderX)
+            if (x < leftX || (x + (xCount * 2)) > MapWidth - rightX)
                 return false;
-            if (y < borderY || (y + (yCount * 2)) > MapHeight - borderX)
+            if (y < topY || (y + (yCount * 2)) > MapHeight - botY)
                 return false;
 
             return totalCount < (MapHeight * MapWidth / 32);
