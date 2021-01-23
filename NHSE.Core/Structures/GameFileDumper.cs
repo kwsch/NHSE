@@ -165,6 +165,33 @@ namespace NHSE.Core
         }
 
         /// <summary>
+        /// Loads all designs from the requested <see cref="path"/>.
+        /// </summary>
+        /// <param name="patterns">Patterns to load</param>
+        /// <param name="path">Path to load from</param>
+        public static void Load(this DesignPattern[] patterns, string path)
+        {
+            if (patterns.Length == 0)
+                return;
+
+            var files = Directory.GetFiles(path, "*.nhd", SearchOption.TopDirectoryOnly);
+            int ctr = 0;
+            foreach (var f in files)
+            {
+                var fi = new FileInfo(f);
+                if (fi.Length != DesignPattern.SIZE)
+                    continue;
+
+                var data = File.ReadAllBytes(f);
+                var p = new DesignPattern(data);
+                p.ChangeOrigins(patterns[ctr], data);
+                patterns[ctr] = p;
+                if (++ctr >= patterns.Length)
+                    break;
+            }
+        }
+
+        /// <summary>
         /// Dumps all designs to the requested <see cref="path"/>.
         /// </summary>
         /// <param name="sav">Save Data to dump from</param>
@@ -184,6 +211,33 @@ namespace NHSE.Core
         {
             foreach (var dp in patterns)
                 dp.Dump(path);
+        }
+
+        /// <summary>
+        /// Loads all designs from the requested <see cref="path"/>.
+        /// </summary>
+        /// <param name="patterns">Patterns to load</param>
+        /// <param name="path">Path to load from</param>
+        public static void Load(this DesignPatternPRO[] patterns, string path)
+        {
+            if (patterns.Length == 0)
+                return;
+
+            var files = Directory.GetFiles(path, "*.nhpd", SearchOption.TopDirectoryOnly);
+            int ctr = 0;
+            foreach (var f in files)
+            {
+                var fi = new FileInfo(f);
+                if (fi.Length != DesignPatternPRO.SIZE)
+                    continue;
+
+                var data = File.ReadAllBytes(f);
+                var p = new DesignPatternPRO(data);
+                p.ChangeOrigins(patterns[ctr], data);
+                patterns[ctr] = p;
+                if (++ctr >= patterns.Length)
+                    break;
+            }
         }
 
         private static void Dump(this DesignPatternPRO dp, string path)
