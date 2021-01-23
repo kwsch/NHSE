@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
@@ -912,6 +913,38 @@ namespace NHSE.WinForms
         private void B_ClearPlacedDesigns_Click(object sender, EventArgs e)
         {
             MapManager.ClearDesignTiles(SAV);
+            System.Media.SystemSounds.Asterisk.Play();
+        }
+
+        private void B_ExportPlacedDesigns_Click(object sender, EventArgs e)
+        {
+            using var sfd = new SaveFileDialog
+            {
+                Filter = "nhmd file (*.nhmd)",
+                FileName = "Island MyDesignMap.nhmd",
+            };
+            if (sfd.ShowDialog() != DialogResult.OK)
+                return;
+
+            string path = sfd.FileName;
+            var tiles = MapManager.ExportDesignTiles(SAV);
+            File.WriteAllBytes(path, tiles);
+            System.Media.SystemSounds.Asterisk.Play();
+        }
+
+        private void B_ImportPlacedDesigns_Click(object sender, EventArgs e)
+        {
+            using var ofd = new OpenFileDialog
+            {
+                Filter = "nhmd file (*.nhmd)",
+                FileName = "Island MyDesignMap.nhmd",
+            };
+            if (ofd.ShowDialog() != DialogResult.OK)
+                return;
+
+            string path = ofd.FileName;
+            var tiles = File.ReadAllBytes(path);
+            MapManager.ImportDesignTiles(SAV, tiles);
             System.Media.SystemSounds.Asterisk.Play();
         }
 
