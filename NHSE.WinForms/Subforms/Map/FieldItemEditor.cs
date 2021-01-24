@@ -920,7 +920,7 @@ namespace NHSE.WinForms
         {
             using var sfd = new SaveFileDialog
             {
-                Filter = "nhmd file (*.nhmd)",
+                Filter = "nhmd file (*.nhmd)|*.nhmd",
                 FileName = "Island MyDesignMap.nhmd",
             };
             if (sfd.ShowDialog() != DialogResult.OK)
@@ -936,7 +936,7 @@ namespace NHSE.WinForms
         {
             using var ofd = new OpenFileDialog
             {
-                Filter = "nhmd file (*.nhmd)",
+                Filter = "nhmd file (*.nhmd)|*.nhmd",
                 FileName = "Island MyDesignMap.nhmd",
             };
             if (ofd.ShowDialog() != DialogResult.OK)
