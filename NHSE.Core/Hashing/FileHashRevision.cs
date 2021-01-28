@@ -384,9 +384,9 @@
 
         #region REVISION 1.7.0
 
-        internal const int REV_170_MAIN = 0xB258E0;
-        internal const int REV_170_PERSONAL = 0x76CF0;
-        internal const int REV_170_POSTBOX = REV_110_POSTBOX;
+        internal const int REV_170_MAIN = 0x849C30; // reduced size
+        internal const int REV_170_PERSONAL = 0x64140; // reduced size
+        internal const int REV_170_POSTBOX = 0x47430; // reduced size
         internal const int REV_170_PHOTO = REV_120_PHOTO;
         internal const int REV_170_PROFILE = REV_110_PROFILE;
 

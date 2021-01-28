@@ -42,7 +42,7 @@ namespace NHSE.Core
             new() { Major = 0x60001, Minor = 0x6000C, HeaderRevision = 0, Unk1 = 2, SaveRevision = 13, Unk2 = 2 }, // 1.5.0
             new() { Major = 0x60001, Minor = 0x6000C, HeaderRevision = 0, Unk1 = 2, SaveRevision = 14, Unk2 = 2 }, // 1.5.1
             new() { Major = 0x70001, Minor = 0x70006, HeaderRevision = 0, Unk1 = 2, SaveRevision = 15, Unk2 = 2 }, // 1.6.0
-            new() { Major = 0x80001, Minor = 0x80007, HeaderRevision = 0, Unk1 = 2, SaveRevision = 16, Unk2 = 2 }, // 1.7.0
+            new() { Major = 0x74001, Minor = 0x74005, HeaderRevision = 0, Unk1 = 2, SaveRevision = 16, Unk2 = 2 }, // 1.7.0
         };
 
         public static readonly IReadOnlyList<SaveFileSizes> SizeInfo = new[]
