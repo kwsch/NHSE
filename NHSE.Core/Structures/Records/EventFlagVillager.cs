@@ -69,6 +69,11 @@ namespace NHSE.Core
             {0x039, new EventFlagVillager(0 , 2   , 0057, "HarvestGiveHint2"                           )}, // ハーベスト｜2品目の隠し食材ヒント出したら1か2をセット
             {0x03A, new EventFlagVillager(0 , 2   , 0058, "HarvestGiveHint3"                           )}, // ハーベスト｜3品目の隠し食材ヒント出したら1か2をセット
             {0x03B, new EventFlagVillager(0 , 2   , 0059, "HarvestGiveHint4"                           )}, // ハーベスト｜4品目の隠し食材ヒント出したら1か2をセット
+            {0x03D, new EventFlagVillager(0 , 3   , 0061, "CarnivalFeatherColor"                       )}, // カーニバル｜欲しがる羽の色
+            {0x03E, new EventFlagVillager(0 , 10  , 0062, "DisplayValentinePresent"                    )}, // バレンタインデー｜飾られるブーケの種類
+            {0x040, new EventFlagVillager(0 , 1   , 0064, "HarvestDemoEndWait"                         )}, // ハーベスト｜デモ終了待機中か？
+            {0x041, new EventFlagVillager(0 , 1   , 0065, "WoreNewYearHat"                             )}, // カウントダウン｜ニューイヤーハットを被った
+            {0x042, new EventFlagVillager(0 , 1   , 0066, "HarvestDemoStateNow"                        )}, // ハーベスト｜デモ参加状態か？
         };
 
         private const string Unknown = "???";

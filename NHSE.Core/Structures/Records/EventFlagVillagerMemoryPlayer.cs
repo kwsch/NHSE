@@ -31,7 +31,7 @@ namespace NHSE.Core
             {0x08, new EventFlagVillagerMemoryPlayer(0 , 7  , 008, "VisitCount"                                 )}, // そのプレイヤーの家に行った回数
             {0x09, new EventFlagVillagerMemoryPlayer(0 , 7  , 009, "VisitedCount"                               )}, // そのプレイヤーが家に来た回数
             {0x0A, new EventFlagVillagerMemoryPlayer(25, 255, 010, "Friendship"                                 )}, // 親密度
-            {0x0B, new EventFlagVillagerMemoryPlayer(0 , 7  , 011, "TalkCountToday"                             )}, // 今日の会話回数（通算）
+            {0x0B, new EventFlagVillagerMemoryPlayer(0 , 9  , 011, "TalkCountToday"                             )}, // 今日の会話回数（通算）
             {0x0C, new EventFlagVillagerMemoryPlayer(0 , 7  , 012, "TalkCountInNpcHouseToday"                   )}, // 今日NPCの家での会話回数
             {0x0D, new EventFlagVillagerMemoryPlayer(0 , 1  , 013, "HasAcquaintanceship"                        )}, // 面識ありか
             {0x0E, new EventFlagVillagerMemoryPlayer(0 , 1  , 014, "SitBenchFlag"                               )}, // NPCをベンチに座らせる
@@ -151,7 +151,6 @@ namespace NHSE.Core
             {0x83, new EventFlagVillagerMemoryPlayer(0 , 1  , 131, "FireworksGetItemFlag"                       )}, // 花火大会|このNPCからリアクション会話で花火を受け取った
             {0x84, new EventFlagVillagerMemoryPlayer(0 , 1  , 132, "HaloweenTalkThisSceneFalg"                  )}, // ハロウィン|このシーンで会話した？
             {0x85, new EventFlagVillagerMemoryPlayer(0 , 1  , 133, "HaloweenGetCandyThisSceneFalg"              )}, // ハロウィン|このシーンでアメもらった？
-            {0x86, new EventFlagVillagerMemoryPlayer(0 , 1  , 134, "FollowQuestAfter"                           )}, // 追従｜追従クエスト後か？ 
             {0x88, new EventFlagVillagerMemoryPlayer(0 , 1  , 136, "HalloweenLastNotGetFlag"                    )}, // ハロウィン|最後の会話で報酬アイテムもらえなかった？
             {0x89, new EventFlagVillagerMemoryPlayer(0 , 16 , 137, "HalloweenLastNotGetItem"                    )}, // ハロウィン|最後の会話でもらえなかった報酬アイテム
             {0x8A, new EventFlagVillagerMemoryPlayer(0 , 1  , 138, "HarvestItemExchangeToday"                   )}, // ハーベスト｜物々交換を１度でも行ったか？
@@ -167,6 +166,11 @@ namespace NHSE.Core
             {0x94, new EventFlagVillagerMemoryPlayer(0 , 8  , 148, "ChristmasSantaPresentItemType"              )}, // クリスマス｜サンタミッションであげたプレゼントの種類
             {0x95, new EventFlagVillagerMemoryPlayer(0 , 8  , 149, "ChristmasExchangeRemakeId"                  )}, // クリスマス｜プレゼント交換であげたプレゼントのリメイクID
             {0x96, new EventFlagVillagerMemoryPlayer(0 , 8  , 150, "ChristmasSantaPresentRemakeId"              )}, // クリスマス｜サンタミッションであげたプレゼントのリメイクID
+            {0x97, new EventFlagVillagerMemoryPlayer(0 , 1  , 151, "CarnvalTalkWithoutFeatherFlag"              )}, // 一般NPC/カーニバル|はねを持たずに会話した？
+            {0x98, new EventFlagVillagerMemoryPlayer(0 , 1  , 152, "CarnvalExchangeFeatherFlag"                 )}, // 一般NPC/カーニバル|このNPCとはね交換した？
+            {0x99, new EventFlagVillagerMemoryPlayer(0 , 1  , 153, "CarnvalTalkOutdoorFlag"                     )}, // 一般NPC/カーニバル|今日屋外で会話した？
+            {0x9A, new EventFlagVillagerMemoryPlayer(0 , 1  , 154, "CarnvalExchangeFeatherTalkFlag"             )}, // 一般NPC/カーニバル|このNPCとはね交換の会話をした？
+            {0x9B, new EventFlagVillagerMemoryPlayer(0 , 1  , 155, "ValentinePresentFlag"                       )}, // バレンタイン|バレンタインのプレゼント渡した？
         };
 
         private const string Unknown = "???";
