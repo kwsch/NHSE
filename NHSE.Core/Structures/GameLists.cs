@@ -95,6 +95,11 @@ namespace NHSE.Core
             03487, // rosalia batesi beetle
             03539, // snowflake
             03540, // large snowflake
+            03541, // red feather
+            03542, // blue feather
+            03543, // green feather
+            03545, // purple feather
+            03548, // rainbow feather
             04702, // Wisp spirit piece
             05157, // giant water bug
             05339, // damselfly
