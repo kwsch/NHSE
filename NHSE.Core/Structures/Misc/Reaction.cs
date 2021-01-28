@@ -77,12 +77,18 @@
         Tada, // AddPraise 
         WaveGoodbye, // AddWaveHands 
         Excited, // AddExcited 
-        UNUSED_71, // Gullivar about to come alive (Unused)
-        UNUSED_72, // Intense shake action (Unused)
-        UNUSED_73, // Literally the "roll safe" meme (google it) (Unused)
-        UNUSED_74, // Leave it to me! (Unused)
-        UNUSED_75, // K.K. Slider Sitting (Unused)
-        UNUSED_76, // K.K. nodding while sitting (Unused)
-        UNUSED_77, // K.K. thinking while sitting (Unused)
+        
+        Confetti, // (Festivale DLC)
+        Viva, // (Festivale DLC)
+        LetsGo, // (Festivale DLC)
+        FeelinIt, // (Festivale DLC)
+        
+        UNUSED_75, // Gullivar about to come alive (Unused)
+        UNUSED_76, // Intense shake action (Unused)
+        UNUSED_77, // Literally the "roll safe" meme (google it) (Unused)
+        UNUSED_78, // Leave it to me! (Unused)
+        UNUSED_79, // K.K. Slider Sitting (Unused)
+        UNUSED_80, // K.K. nodding while sitting (Unused)
+        UNUSED_81, // K.K. thinking while sitting (Unused)
     }
 }
