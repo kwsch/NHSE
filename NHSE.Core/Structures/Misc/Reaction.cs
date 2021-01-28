@@ -77,12 +77,12 @@
         Tada, // AddPraise 
         WaveGoodbye, // AddWaveHands 
         Excited, // AddExcited 
-        
+
         Confetti, // (Festivale DLC)
         Viva, // (Festivale DLC)
         LetsGo, // (Festivale DLC)
         FeelinIt, // (Festivale DLC)
-        
+
         UNUSED_75, // Gullivar about to come alive (Unused)
         UNUSED_76, // Intense shake action (Unused)
         UNUSED_77, // Literally the "roll safe" meme (google it) (Unused)
