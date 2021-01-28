@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using static NHSE.Core.FileHashRevision;
 
 namespace NHSE.Core
 {
@@ -8,36 +9,40 @@ namespace NHSE.Core
     /// </summary>
     public static class RevisionChecker
     {
-        // Patches where the sizes of individual files changed
+        /// <summary>
+        /// Unique save file size list by patch.
+        /// </summary>
         private static readonly SaveFileSizes[] SizesByRevision =
         {
-            new(0xAC0938, 0x6BC50, 0x263B4, 0xB44580, 0x69508), // 1.0.0
-            new(0xAC2AA0, 0x6BED0, 0x263C0, 0xB44590, 0x69560), // 1.1.0
-            new(0xACECD0, 0x6D6C0, 0x2C9C0, 0xB44590, 0x69560), // 1.2.0
-            new(0xACED80, 0x6D6D0, 0x2C9C0, 0xB44590, 0x69560), // 1.3.0
-            new(0xB05790, 0x74420, 0x2C9C0, 0xB44590, 0x69560), // 1.4.0
-            new(0xB20750, 0x76390, 0x2C9C0, 0xB44590, 0x69560), // 1.5.0
-            new(0xB258E0, 0x76CF0, 0x2C9C0, 0xB44590, 0x69560), // 1.6.0
+            new(REV_100_MAIN, REV_100_PERSONAL, REV_100_PHOTO, REV_100_POSTBOX, REV_100_PROFILE), // 1.0.0
+            new(REV_110_MAIN, REV_110_PERSONAL, REV_110_PHOTO, REV_110_POSTBOX, REV_110_PROFILE), // 1.1.0
+            new(REV_120_MAIN, REV_120_PERSONAL, REV_120_PHOTO, REV_120_POSTBOX, REV_120_PROFILE), // 1.2.0
+            new(REV_130_MAIN, REV_130_PERSONAL, REV_130_PHOTO, REV_130_POSTBOX, REV_130_PROFILE), // 1.3.0
+            new(REV_140_MAIN, REV_140_PERSONAL, REV_140_PHOTO, REV_140_POSTBOX, REV_140_PROFILE), // 1.4.0
+            new(REV_150_MAIN, REV_150_PERSONAL, REV_150_PHOTO, REV_150_POSTBOX, REV_150_PROFILE), // 1.5.0
+            new(REV_160_MAIN, REV_160_PERSONAL, REV_160_PHOTO, REV_160_POSTBOX, REV_160_PROFILE), // 1.6.0
+            new(REV_170_MAIN, REV_170_PERSONAL, REV_170_PHOTO, REV_170_POSTBOX, REV_170_PROFILE), // 1.7.0
         };
 
         private static readonly FileHeaderInfo[] RevisionInfo =
         {
-            new() { Major = 0x67, Minor = 0x6F, HeaderRevision = 0, Unk1 = 2, SaveRevision = 0, Unk2 = 2 }, // 1.0.0
-            new() { Major = 0x6D, Minor = 0x78, HeaderRevision = 0, Unk1 = 2, SaveRevision = 1, Unk2 = 2 }, // 1.1.0
-            new() { Major = 0x6D, Minor = 0x78, HeaderRevision = 0, Unk1 = 2, SaveRevision = 2, Unk2 = 2 }, // 1.1.1
-            new() { Major = 0x6D, Minor = 0x78, HeaderRevision = 0, Unk1 = 2, SaveRevision = 3, Unk2 = 2 }, // 1.1.2
-            new() { Major = 0x6D, Minor = 0x78, HeaderRevision = 0, Unk1 = 2, SaveRevision = 4, Unk2 = 2 }, // 1.1.3
-            new() { Major = 0x6D, Minor = 0x78, HeaderRevision = 0, Unk1 = 2, SaveRevision = 5, Unk2 = 2 }, // 1.1.4
-            new() { Major = 0x20006, Minor = 0x20008, HeaderRevision = 0, Unk1 = 2, SaveRevision = 6, Unk2 = 2 }, // 1.2.0
-            new() { Major = 0x20006, Minor = 0x20008, HeaderRevision = 0, Unk1 = 2, SaveRevision = 7, Unk2 = 2 }, // 1.2.1
-            new() { Major = 0x40002, Minor = 0x40008, HeaderRevision = 0, Unk1 = 2, SaveRevision = 8, Unk2 = 2 }, // 1.3.0
-            new() { Major = 0x40002, Minor = 0x40008, HeaderRevision = 0, Unk1 = 2, SaveRevision = 9, Unk2 = 2 }, // 1.3.1
+            new() { Major = 0x00067, Minor = 0x0006F, HeaderRevision = 0, Unk1 = 2, SaveRevision = 00, Unk2 = 2 }, // 1.0.0
+            new() { Major = 0x0006D, Minor = 0x00078, HeaderRevision = 0, Unk1 = 2, SaveRevision = 01, Unk2 = 2 }, // 1.1.0
+            new() { Major = 0x0006D, Minor = 0x00078, HeaderRevision = 0, Unk1 = 2, SaveRevision = 02, Unk2 = 2 }, // 1.1.1
+            new() { Major = 0x0006D, Minor = 0x00078, HeaderRevision = 0, Unk1 = 2, SaveRevision = 03, Unk2 = 2 }, // 1.1.2
+            new() { Major = 0x0006D, Minor = 0x00078, HeaderRevision = 0, Unk1 = 2, SaveRevision = 04, Unk2 = 2 }, // 1.1.3
+            new() { Major = 0x0006D, Minor = 0x00078, HeaderRevision = 0, Unk1 = 2, SaveRevision = 05, Unk2 = 2 }, // 1.1.4
+            new() { Major = 0x20006, Minor = 0x20008, HeaderRevision = 0, Unk1 = 2, SaveRevision = 06, Unk2 = 2 }, // 1.2.0
+            new() { Major = 0x20006, Minor = 0x20008, HeaderRevision = 0, Unk1 = 2, SaveRevision = 07, Unk2 = 2 }, // 1.2.1
+            new() { Major = 0x40002, Minor = 0x40008, HeaderRevision = 0, Unk1 = 2, SaveRevision = 08, Unk2 = 2 }, // 1.3.0
+            new() { Major = 0x40002, Minor = 0x40008, HeaderRevision = 0, Unk1 = 2, SaveRevision = 09, Unk2 = 2 }, // 1.3.1
             new() { Major = 0x50001, Minor = 0x5000B, HeaderRevision = 0, Unk1 = 2, SaveRevision = 10, Unk2 = 2 }, // 1.4.0
             new() { Major = 0x50001, Minor = 0x5000B, HeaderRevision = 0, Unk1 = 2, SaveRevision = 11, Unk2 = 2 }, // 1.4.1
             new() { Major = 0x50001, Minor = 0x5000B, HeaderRevision = 0, Unk1 = 2, SaveRevision = 12, Unk2 = 2 }, // 1.4.2
             new() { Major = 0x60001, Minor = 0x6000C, HeaderRevision = 0, Unk1 = 2, SaveRevision = 13, Unk2 = 2 }, // 1.5.0
             new() { Major = 0x60001, Minor = 0x6000C, HeaderRevision = 0, Unk1 = 2, SaveRevision = 14, Unk2 = 2 }, // 1.5.1
             new() { Major = 0x70001, Minor = 0x70006, HeaderRevision = 0, Unk1 = 2, SaveRevision = 15, Unk2 = 2 }, // 1.6.0
+            new() { Major = 0x80001, Minor = 0x80007, HeaderRevision = 0, Unk1 = 2, SaveRevision = 16, Unk2 = 2 }, // 1.7.0
         };
 
         public static readonly IReadOnlyList<SaveFileSizes> SizeInfo = new[]
@@ -58,26 +63,28 @@ namespace NHSE.Core
             SizesByRevision[5], // 1.5.0
             SizesByRevision[5], // 1.5.1
             SizesByRevision[6], // 1.6.0
+            SizesByRevision[7], // 1.7.0
         };
 
         public static readonly IReadOnlyList<FileHashInfo> HashInfo = new[]
         {
-            FileHashRevision.REV_100, // 1.0.0
-            FileHashRevision.REV_110, // 1.1.0
-            FileHashRevision.REV_110, // 1.1.1
-            FileHashRevision.REV_110, // 1.1.2
-            FileHashRevision.REV_110, // 1.1.3
-            FileHashRevision.REV_110, // 1.1.4
-            FileHashRevision.REV_120, // 1.2.0
-            FileHashRevision.REV_120, // 1.2.1
-            FileHashRevision.REV_130, // 1.3.0
-            FileHashRevision.REV_130, // 1.3.1
-            FileHashRevision.REV_140, // 1.4.0
-            FileHashRevision.REV_140, // 1.4.1
-            FileHashRevision.REV_140, // 1.4.2
-            FileHashRevision.REV_150, // 1.5.0
-            FileHashRevision.REV_150, // 1.5.1
-            FileHashRevision.REV_160, // 1.6.0
+            REV_100, // 1.0.0
+            REV_110, // 1.1.0
+            REV_110, // 1.1.1
+            REV_110, // 1.1.2
+            REV_110, // 1.1.3
+            REV_110, // 1.1.4
+            REV_120, // 1.2.0
+            REV_120, // 1.2.1
+            REV_130, // 1.3.0
+            REV_130, // 1.3.1
+            REV_140, // 1.4.0
+            REV_140, // 1.4.1
+            REV_140, // 1.4.2
+            REV_150, // 1.5.0
+            REV_150, // 1.5.1
+            REV_160, // 1.6.0
+            REV_170, // 1.7.0
         };
 
         public static bool IsRevisionKnown(this FileHeaderInfo info) => info.GetKnownRevisionIndex() >= 0;

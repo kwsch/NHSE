@@ -8,6 +8,7 @@ namespace NHSE.Core
     public class ItemRemakeInfo
     {
         public const int BodyColorCountMax = 8;
+        public const int NoColor = (int)ItemCustomColor.None; // 14
 
         public readonly short Index;
         public readonly ushort ItemUniqueID;
@@ -38,8 +39,8 @@ namespace NHSE.Core
 
         private const string Invalid = nameof(Invalid);
 
-        public bool HasBodyColor(int variant) => ReBodyPatternColors0[variant] != 14 || ReBodyPatternColors1[variant] != 14;
-        public bool HasFabricColor(int variant) => ReFabricPatternColors0[variant] != 14 || ReFabricPatternColors1[variant] != 14;
+        public bool HasBodyColor(int variant) => ReBodyPatternColors0[variant] != NoColor || ReBodyPatternColors1[variant] != NoColor;
+        public bool HasFabricColor(int variant) => ReFabricPatternColors0[variant] != NoColor || ReFabricPatternColors1[variant] != NoColor;
 
         public string GetBodyDescription(int colorIndex, IRemakeString str)
         {

@@ -15,17 +15,28 @@ namespace NHSE.Core
         public readonly PostBox PostBox;
         public readonly Profile Profile;
 
+        /// <summary>
+        /// Directory Name where the player data was loaded from. Not the full path.
+        /// </summary>
         public readonly string DirectoryName;
+
+        #region Override Implementations
         public IEnumerator<EncryptedFilePair> GetEnumerator() => new EncryptedFilePair[] {Personal, Photo, PostBox, Profile}.AsEnumerable().GetEnumerator();
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
         public override string ToString() => Personal.PlayerName;
+        #endregion
 
+        /// <summary>
+        /// Imports Player data from the requested <see cref="folder"/>.
+        /// </summary>
+        /// <param name="folder">Folder that contains the Player Villager sub-folders.</param>
+        /// <returns>Player object array loaded from the <see cref="folder"/>.</returns>
         public static Player[] ReadMany(string folder)
         {
             var dirs = Directory.GetDirectories(folder, "Villager*", SearchOption.TopDirectoryOnly);
             var result = new Player[dirs.Length];
-            for (int i = 0; i <result.Length; i++)
+            for (int i = 0; i < result.Length; i++)
                 result[i] = new Player(dirs[i]);
             return result;
         }

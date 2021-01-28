@@ -12,7 +12,7 @@ namespace NHSE.Parsing
         /// <summary>
         /// NHSE language code -> Game Language identifier
         /// </summary>
-        private static readonly IReadOnlyDictionary<string, string> Languages = new Dictionary<string, string>
+        public static readonly IReadOnlyDictionary<string, string> Languages = new Dictionary<string, string>
         {
             {"en", "USen"},
             {"jp", "JPja"},
@@ -25,11 +25,7 @@ namespace NHSE.Parsing
             {"ko", "KRko"},
         };
 
-        public static void Dump(
-            string repoPath = @"C:\Users\Kurt\Documents\GitHub",
-            string messageStringPath = @"D:\Kurt\Desktop\v16\",
-            string unpackedMessageFormat = @"Message\String_{0}.sarc"
-            )
+        public static void Dump(string repoPath, string messageStringPath, string unpackedMessageFormat)
         {
             string corePath = Path.Combine(repoPath, @"NHSE\NHSE.Core\Resources\text\");
             string folder = Path.Combine(messageStringPath, unpackedMessageFormat);

@@ -1,38 +1,30 @@
-﻿using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using NHSE.Parsing;
 using Xunit;
+using static NHSE.Parsing.GameMSBTDumperNHSE;
 
 namespace NHSE.Tests
 {
     public static class DumpTests
     {
-        private const string ver = "v16";
+        private const string RepoPath = @"C:\Users\Kurt\Documents\GitHub";
+        private const string PatchDumpPath = @"D:\Kurt\Desktop\" + PatchFolderName;
+        private const string PatchFolderName = "v17";
+        private const string MessageDumpFormat = @"\Message\String_{0}.sarc";
 
         [Fact]
         public static void DumpBCSV()
         {
-            var folder = $@"D:\Kurt\Desktop\{ver}\bcsv";
+            const string folder = PatchDumpPath + @"\bcsv";
             GameBCSVDumper.UpdateDumps(folder, folder, true);
         }
 
         [Fact]
         public static void DumpMSBT()
         {
-            const string cs = @"C:\Users\Kurt\Documents\GitHub\NHSE\NHSE.Core\Resources\text\";
-            string folder = $@"D:\Kurt\Desktop\{ver}\Message\String_{{0}}.sarc";
-            var langs = new Dictionary<string, string>
-            {
-                {"en", "USen"},
-                {"jp", "JPja"},
-                {"zhs", "CNzh"},
-                {"zht", "TWzh"},
-                {"de", "EUde"},
-                {"fr", "EUfr"},
-                {"it", "EUit"},
-                {"es", "EUes"},
-                {"ko", "KRko"},
-            };
+            const string cs = RepoPath + @"\NHSE\NHSE.Core\Resources\text\";
+            const string folder = PatchDumpPath + MessageDumpFormat;
+            var langs = Languages;
 
             foreach (var (code, langName) in langs)
             {
