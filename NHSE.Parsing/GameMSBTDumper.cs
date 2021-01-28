@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -193,12 +194,14 @@ namespace NHSE.Parsing
             var label = lbl.Name;
 
             var index = (int)lbl.Index;
-            var text = txt[index].ToString(Encoding.Unicode);
-            if (text.StartsWith("\u000e")) // string formatting present; discard formatting!
+            var bytes = txt[index];
+            var text = bytes.ToString(Encoding.Unicode);
+            var raw = text.ToCharArray();
+            int format = Array.FindIndex(raw, z => z == '\u000e');
+            if (format == 0) // string formatting present; discard formatting!
                 text = text.Substring(6);
 
-            const char germanJunk = '\u000e';
-            int junk = text.IndexOf(germanJunk);
+            int junk = Array.FindIndex(text.ToCharArray(), z => z == '\u000e');
             if (junk != -1) // string formatting present; discard formatting! (german)
                 text = text.Substring(0, junk);
 

@@ -28,7 +28,6 @@ namespace NHSE.Core
             {0x009, new EventFlagPlayer(0 , 1   , 0009, "JohnnyQuestFinishFlag"                      )}, // ジョニークエスト完了フラグ(海賊ジョニーは別フラグ)
             {0x00A, new EventFlagPlayer(0 , 8   , 0010, "JonnyTalkCount"                             )}, // 寝ているジョニーに話しかけた回数(海賊ジョニー共用)
             {0x00B, new EventFlagPlayer(0 , 1   , 0011, "HasPlayedTreasureHunt"                      )}, // 宝探しクエストをした事がある
-            {0x00C, new EventFlagPlayer(0 , 1   , 0012, "HasPlayedHideAndSeek"                       )}, // かくれんぼクエストをした事がある
             {0x00D, new EventFlagPlayer(0 , 1   , 0013, "ShizueCmnExplanationTowntune"               )}, // しずえ|メロ説明聞いたか？
             {0x00E, new EventFlagPlayer(0 , 1   , 0014, "ShizueCmnExplanationTownflag"               )}, // しずえ|村の旗説明聞いたか？
             {0x00F, new EventFlagPlayer(0 , 1   , 0015, "ShizueCmnExplanationComplaint"              )}, // しずえ|『村民のこと』の説明聞いたか？
@@ -946,7 +945,6 @@ namespace NHSE.Core
             {0x47B, new EventFlagPlayer(0 , 1   , 1147, "NpcHalloweenTrickFlag"                      )}, // ハロウィン|今日イタズラされた？
             {0x47C, new EventFlagPlayer(0 , 1   , 1148, "TapFirstDreamIn"                            )}, // ゆめみ|夢の中に入ったことがある？
             {0x47D, new EventFlagPlayer(0 , 1   , 1149, "TapFirstCheckMydesingShowcase"              )}, // ゆめみ|夢の中のマイデザインショーケース端末にアクセスしたことがある？
-            {0x47E, new EventFlagPlayer(0 , 1   , 1150, "SeekingQuestFirst"                          )}, // かくれんぼ｜かくれんをした事がある
             {0x47F, new EventFlagPlayer(0 , 1   , 1151, "SpecialMakeChanged"                         )}, // プレイヤが特殊メイクに変更した
             {0x480, new EventFlagPlayer(0 , 1   , 1152, "TalkMakeTodayAnyone"                        )}, // 今日誰かにメイク会話を聞いたか
             {0x481, new EventFlagPlayer(0 , 1   , 1153, "RcmExplainCandyFlag"                        )}, // まめきち/ハロウィン|今年アメの説明聞いた？
@@ -1032,6 +1030,7 @@ namespace NHSE.Core
             {0x4E5, new EventFlagPlayer(0 , 10  , 1253, "SantaMissionNpcIndex3"                      )}, // クリスマス｜サンタミッションでお返しをくれるNPC3
             {0x4E6, new EventFlagPlayer(0 , 1   , 1254, "ReceiveLeaveTapLetter"                      )}, // ゆめみ|おまかせ解禁の手紙を受け取った
             {0x4E7, new EventFlagPlayer(0 , 1   , 1255, "RcmExplainToy"                              )}, // クリスマス｜おもちゃ家具陳列の案内を受けた？
+            {0x4E8, new EventFlagPlayer(0 , 1   , 1256, "PckTalkTodayFlag"                           )}, // カーニバル/べルリーナ|今日すでに会話した？
             {0x4E9, new EventFlagPlayer(0 , 9999, 1257, "ChristmasWreathGetYear"                     )}, // クリスマス｜クリスマスリースをNPCから貰った年
             {0x4EA, new EventFlagPlayer(0 , 9   , 1258, "TukSecretRewardType"                        )}, // ハーベスト｜フランクリンの隠し食材報酬抽選結果
             {0x4EE, new EventFlagPlayer(0 , 1   , 1262, "TapUpdatedDreamFirstTalk"                   )}, // ゆめみ|初回会話を1.6.0以降に行った？
@@ -1039,6 +1038,7 @@ namespace NHSE.Core
             {0x4F1, new EventFlagPlayer(0 , 1   , 1265, "CheckHarvestFtrInStore"                     )}, // ハーベスト｜ハーベスト家具をお店でチェックしたことがあるか？
             {0x4F2, new EventFlagPlayer(0 , 9999, 1266, "ChristmasPresentYear"                       )}, // クリスマス|自宅プレゼントをもらった年
             {0x4F3, new EventFlagPlayer(0 , 2   , 1267, "InputApproachBanCount"                      )}, // アプローチ｜入力系アプローチ禁止カウント
+            {0x4F4, new EventFlagPlayer(0 , 1   , 1268, "PckLookChatFlag"                            )}, // カーニバル/べルリーナ|カーニバル装備の雑談した？
             {0x4F5, new EventFlagPlayer(0 , 1   , 1269, "TukCancel1stRequest"                        )}, // ハーベスト｜フランクリン１品目で「大変ですね」を選択した
             {0x4F6, new EventFlagPlayer(0 , 1   , 1270, "ChristmasWrappingGiftFlag"                  )}, // クリスマス｜プレゼント交換初回でラッピングもらった？
             {0x4F8, new EventFlagPlayer(0 , 1   , 1272, "HarvestRefuseGiveHQFood1"                   )}, // ハーベスト｜料理１の隠し食材を渡すのを拒んだ
@@ -1050,18 +1050,46 @@ namespace NHSE.Core
             {0x4FE, new EventFlagPlayer(0 , 2   , 1278, "HarvestGetHint3"                            )}, // ハーベスト｜料理３の隠し食材ヒント聞いた
             {0x4FF, new EventFlagPlayer(0 , 2   , 1279, "HarvestGetHint4"                            )}, // ハーベスト｜料理４の隠し食材ヒント聞いた
             {0x500, new EventFlagPlayer(0 , 1   , 1280, "ChristmasWrappingPresentFlag"               )}, // クリスマス｜ラッピングを誰かくれようとしたか？
+            {0x501, new EventFlagPlayer(0 , 1   , 1281, "PckRecipeFlag"                              )}, // カーニバル/べルリーナ|にじいろのはねのレシピもらった？
             {0x502, new EventFlagPlayer(0 , 1   , 1282, "RcoStorageExpansionReserved"                )}, // たぬきち|収納の拡張を予約している
             {0x503, new EventFlagPlayer(0 , 1   , 1283, "RcoStorageExpansionLevel"                   )}, // たぬきち|収納の拡張段階
             {0x504, new EventFlagPlayer(0 , 1   , 1284, "PlayerMovingReservedStorageExpand"          )}, // たぬきち|収納の拡張申し込み当日にPだけ引越しした？
             {0x505, new EventFlagPlayer(0 , 1   , 1285, "MailSend_NoticeStorageExpansion"            )}, // たぬきち|収納の拡張のお知らせ手紙の判定処理したか？
             {0x506, new EventFlagPlayer(0 , 1   , 1286, "RcoStandbyNoticeStorageExpansion"           )}, // たぬきち|収納の拡張について強制会話するか？
             {0x507, new EventFlagPlayer(0 , 1   , 1287, "ChristmasWreathNoGetFlag"                   )}, // クリスマス|このNPCからリース受け取り損ねた
+            {0x508, new EventFlagPlayer(0 , 3   , 1288, "PckGetItem"                                 )}, // カーニバル/べルリーナ|報酬アイテムは？
+            {0x50A, new EventFlagPlayer(0 , 1   , 1290, "GetCarnivalLight"                           )}, // カーニバル/べルリーナ|カーニバルなライトもらった？
+            {0x50B, new EventFlagPlayer(0 , 1   , 1291, "GetCarnivalFoodStand"                       )}, // カーニバル/べルリーナ|カーニバルな屋台もらった？
+            {0x50C, new EventFlagPlayer(0 , 1   , 1292, "GetCarnivalstage"                           )}, // カーニバル/べルリーナ|カーニバルなステージもらった？
+            {0x50D, new EventFlagPlayer(0 , 1   , 1293, "GetCarnivalConfettiMachine"                 )}, // カーニバル/べルリーナ|カーニバルなかみふぶきマシンもらった？
+            {0x50E, new EventFlagPlayer(0 , 1   , 1294, "GetCarnivalPercussion"                      )}, // カーニバル/べルリーナ|カーニバルなパーカッションもらった？
+            {0x50F, new EventFlagPlayer(0 , 1   , 1295, "GetCarnivalBalloonLight"                    )}, // カーニバル/べルリーナ|カーニバルバルーンライトもらった？
+            {0x510, new EventFlagPlayer(0 , 1   , 1296, "GetCarnivalUmbrellas"                       )}, // カーニバル/べルリーナ|カーニバルなパラソルもらった？
+            {0x511, new EventFlagPlayer(0 , 1   , 1297, "GetCarnivalFlag"                            )}, // カーニバル/べルリーナ|カーニバルなフラッグもらった？
+            {0x512, new EventFlagPlayer(0 , 1   , 1298, "GetCarnivalGarland"                         )}, // カーニバル/べルリーナ|カーニバルなガーランドもらった？
+            {0x513, new EventFlagPlayer(0 , 1   , 1299, "GetCarnivalFloat"                           )}, // カーニバル/べルリーナ|カーニバルなフロートもらった？
+            {0x515, new EventFlagPlayer(0 , 10  , 1301, "PckGiveFurnitureCount"                      )}, // カーニバル/べルリーナ|家具をもらった回数
             {0x518, new EventFlagPlayer(0 , 1   , 1304, "SloExplainPumpkinColorFlag"                 )}, // レイジ|かぼちゃの苗説明聞いたことある？
             {0x519, new EventFlagPlayer(0 , 1   , 1305, "SloExplainAddPumpkinFlag"                   )}, // レイジ|かぼちゃの苗販売開始の説明聞いた？
             {0x51B, new EventFlagPlayer(0 , 1   , 1307, "TukSecretRewardType3rd"                     )}, // ハーベスト｜フランクリンの隠し食材報酬抽選結果（３回目）
+            {0x51C, new EventFlagPlayer(0 , 1   , 1308, "PckTalkBeforeFlag"                          )}, // カーニバル/べルリーナ|面識ある？
             {0x51D, new EventFlagPlayer(0 , 1   , 1309, "SendNNPCConversationPlayReport"             )}, // 会話のフリのプレイレポートがその日送信されたか
             {0x51F, new EventFlagPlayer(0 , 8   , 1311, "ChristmasPrevPresentItemType"               )}, // クリスマス｜直前にNPCにもらったアイテムの種類
+            {0x520, new EventFlagPlayer(0 , 1   , 1312, "ValentineLetterFlag"                        )}, // バレンタイン|手紙送った？
             {0x522, new EventFlagPlayer(0 , 1   , 1314, "AnnounceChristmasEve"                       )}, // クリスマス｜当日に島内放送で告知した？
+            {0x526, new EventFlagPlayer(0 , 511 , 1318, "GetCarnivalFurniture"                       )}, // カーニバル/ベルリーナ|どのカーニバル家具をもらったか？
+            {0x52C, new EventFlagPlayer(0 , 9999, 1324, "LastPlayValentineYear"                      )}, // バレンタイン|最後に遊んだバレンタインの年
+            {0x52D, new EventFlagPlayer(0 , 1   , 1325, "PckRecipeTalkFlag"                          )}, // カーニバル/べルリーナ|にじいろのはねのレシピもらう会話した？
+            {0x530, new EventFlagPlayer(0 , 1   , 1328, "BuyReactionBook17"                          )}, // カーニバル用リアクション本を購入した
+            {0x531, new EventFlagPlayer(0 , 511 , 1329, "GetCarnivalFurnitureRed"                    )}, // カーニバル/ベルリーナ|どの赤色カーニバル家具をもらったか？
+            {0x532, new EventFlagPlayer(0 , 511 , 1330, "GetCarnivalFurnitureBlue"                   )}, // カーニバル/ベルリーナ|どの青色カーニバル家具をもらったか？
+            {0x533, new EventFlagPlayer(0 , 511 , 1331, "GetCarnivalFurnitureGreen"                  )}, // カーニバル/ベルリーナ|どの緑色カーニバル家具をもらったか？
+            {0x534, new EventFlagPlayer(0 , 511 , 1332, "GetCarnivalFurniturePurple"                 )}, // カーニバル/ベルリーナ|どの紫色カーニバル家具をもらったか？
+            {0x535, new EventFlagPlayer(0 , 511 , 1333, "GetCarnivalFurnitureRainbow"                )}, // カーニバル/ベルリーナ|どの虹色カーニバル家具をもらったか？
+            {0x536, new EventFlagPlayer(0 , 1   , 1334, "PckColorLotteryFlag"                        )}, // カーニバル/ベルリーナ|色ごとにカーニバル家具の抽選をするか？
+            {0x537, new EventFlagPlayer(0 , 1   , 1335, "RcmChkReactionBook"                         )}, // カーニバル用リアクション本をチェックした
+            {0x538, new EventFlagPlayer(0 , 1   , 1336, "RcmChkCarnivalFtr"                          )}, // まめきち|カーニバル家具チェックした？
+            {0x539, new EventFlagPlayer(0 , 1   , 1337, "AnnounceCarnival"                           )}, // カーニバル｜当日に島内放送で告知した？
         };
 
         private const string Unknown = "???";

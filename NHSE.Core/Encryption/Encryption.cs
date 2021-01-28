@@ -6,16 +6,16 @@ namespace NHSE.Core
     {
         private static byte[] GetParam(uint[] data, in int index)
         {
-            var sead = new SEADRandom(data[data[index] & 0x7F]);
+            var rand = new XorShift128(data[data[index] & 0x7F]);
             var prms = data[data[index + 1] & 0x7F] & 0x7F;
 
             var rndRollCount = (prms & 0xF) + 1;
             for (var i = 0; i < rndRollCount; i++)
-                sead.GetU64();
+                rand.GetU64();
 
             var result = new byte[0x10];
             for (var i = 0; i < result.Length; i++)
-                result[i] = (byte)(sead.GetU32() >> 24);
+                result[i] = (byte)(rand.GetU32() >> 24);
 
             return result;
         }
@@ -47,7 +47,7 @@ namespace NHSE.Core
         private static CryptoFile GenerateHeaderFile(uint seed, byte[] versionData)
         {
             // Generate 128 Random uints which will be used for params
-            var random = new SEADRandom(seed);
+            var random = new XorShift128(seed);
             var encryptData = new uint[128];
             for (var i = 0; i < encryptData.Length; i++)
                 encryptData[i] = random.GetU32();

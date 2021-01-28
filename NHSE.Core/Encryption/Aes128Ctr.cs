@@ -29,48 +29,22 @@ namespace NHSE.Core
     public sealed class Aes128CounterMode : SymmetricAlgorithm
     {
         private readonly byte[] _counter;
-        private readonly AesManaged _aes;
+        private readonly AesManaged _aes = new() {Mode = CipherMode.ECB, Padding = PaddingMode.None};
 
         public Aes128CounterMode(byte[] counter)
         {
-            if (counter == null)
-                throw new ArgumentNullException(nameof(counter));
-            if (counter.Length != 16)
-                throw new ArgumentException($"Counter size must be same as block size (actual: {counter.Length}, expected: {16})");
-
-            _aes = new AesManaged
-            {
-                Mode = CipherMode.ECB,
-                Padding = PaddingMode.None
-            };
-
+            const int expect = 0x10;
+            if (counter.Length != expect)
+                throw new ArgumentException($"Counter size must be same as block size (actual: {counter.Length}, expected: {expect})");
             _counter = counter;
         }
 
-        public override ICryptoTransform CreateEncryptor(byte[] rgbKey, byte[] ignoredParameter)
-        {
-            return new CounterModeCryptoTransform(_aes, rgbKey, _counter);
-        }
+        public override ICryptoTransform CreateEncryptor(byte[] rgbKey, byte[] ignoredParameter) => new CounterModeCryptoTransform(_aes, rgbKey, _counter);
+        public override ICryptoTransform CreateDecryptor(byte[] rgbKey, byte[] ignoredParameter) => new CounterModeCryptoTransform(_aes, rgbKey, _counter);
 
-        public override ICryptoTransform CreateDecryptor(byte[] rgbKey, byte[] ignoredParameter)
-        {
-            return new CounterModeCryptoTransform(_aes, rgbKey, _counter);
-        }
-
-        public override void GenerateKey()
-        {
-            _aes.GenerateKey();
-        }
-
-        public override void GenerateIV()
-        {
-            // IV not needed in Counter Mode
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            _aes.Dispose();
-        }
+        public override void GenerateKey() => _aes.GenerateKey();
+        public override void GenerateIV() { /* IV not needed in Counter Mode */ }
+        protected override void Dispose(bool disposing) => _aes.Dispose();
     }
 
     public sealed class CounterModeCryptoTransform : ICryptoTransform
@@ -82,19 +56,14 @@ namespace NHSE.Core
 
         public CounterModeCryptoTransform(SymmetricAlgorithm symmetricAlgorithm, byte[] key, byte[] counter)
         {
-            if (symmetricAlgorithm == null)
-                throw new ArgumentNullException(nameof(symmetricAlgorithm));
-            if (key == null)
-                throw new ArgumentNullException(nameof(key));
-            if (counter == null)
-                throw new ArgumentNullException(nameof(counter));
             if (counter.Length != symmetricAlgorithm.BlockSize / 8)
                 throw new ArgumentException($"Counter size must be same as block size (actual: {counter.Length}, expected: {symmetricAlgorithm.BlockSize / 8})");
 
             _symmetricAlgorithm = symmetricAlgorithm;
+            _encryptOutput = new byte[counter.Length];
             _counter = counter;
 
-            var zeroIv = new byte[_symmetricAlgorithm.BlockSize / 8];
+            var zeroIv = new byte[counter.Length];
             _counterEncryptor = symmetricAlgorithm.CreateEncryptor(key, zeroIv);
         }
 
@@ -107,40 +76,39 @@ namespace NHSE.Core
 
         public int TransformBlock(byte[] inputBuffer, int inputOffset, int inputCount, byte[] outputBuffer, int outputOffset)
         {
+            var xm = _xorMask;
             for (var i = 0; i < inputCount; i++)
             {
-                if (NeedMoreXorMaskBytes()) EncryptCounterThenIncrement();
+                if (xm.Count == 0)
+                    EncryptCounterThenIncrement();
 
-                var mask = _xorMask.Dequeue();
+                var mask = xm.Dequeue();
                 outputBuffer[outputOffset + i] = (byte)(inputBuffer[inputOffset + i] ^ mask);
             }
 
             return inputCount;
         }
 
-        private bool NeedMoreXorMaskBytes()
-        {
-            return _xorMask.Count == 0;
-        }
+        private readonly byte[] _encryptOutput;
 
         private void EncryptCounterThenIncrement()
         {
-            var counterModeBlock = new byte[_symmetricAlgorithm.BlockSize / 8];
+            var counterModeBlock = _encryptOutput;
 
             _counterEncryptor.TransformBlock(_counter, 0, _counter.Length, counterModeBlock, 0);
             IncrementCounter();
 
+            var xm = _xorMask;
             foreach (var b in counterModeBlock)
-            {
-                _xorMask.Enqueue(b);
-            }
+                xm.Enqueue(b);
         }
 
         private void IncrementCounter()
         {
-            for (var i = _counter.Length - 1; i >= 0; i--)
+            var ctr = _counter;
+            for (var i = ctr.Length - 1; i >= 0; i--)
             {
-                if (++_counter[i] != 0)
+                if (++ctr[i] != 0)
                     break;
             }
         }
@@ -150,9 +118,6 @@ namespace NHSE.Core
         public bool CanTransformMultipleBlocks => true;
         public bool CanReuseTransform => false;
 
-        public void Dispose()
-        {
-            _counterEncryptor.Dispose();
-        }
+        public void Dispose() => _counterEncryptor.Dispose();
     }
 }

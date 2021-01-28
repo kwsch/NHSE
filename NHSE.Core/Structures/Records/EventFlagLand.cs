@@ -323,7 +323,6 @@ namespace NHSE.Core
             {0x160, new EventFlagLand(0 , 1    , 0352, "FoxPreVisitAlreadyBuyToday"                 )}, // つねきち|今日誰かが事前来訪中に美術品を買った
             {0x161, new EventFlagLand(0 , 1    , 0353, "RcoHasResolvedMoveKitBug"                   )}, // いせつキットバグを解消したか
             {0x162, new EventFlagLand(0 , 1    , 0354, "TapDreamEnable"                             )}, // ゆめみ|ゆめみ機能解禁か？
-            {0x164, new EventFlagLand(0 , 1    , 0356, "MyDesignPro2"                               )}, // 追加型マイデザインPro解禁
             {0x165, new EventFlagLand(0 , 1    , 0357, "GulBVisitEnable"                            )}, // 海賊ジョニーが来訪する条件を満たしたか
             {0x167, new EventFlagLand(0 , 9999 , 0359, "FireworksAddBbsYear"                        )}, // 花火大会予告の掲示板書き込みをした年
             {0x16A, new EventFlagLand(0 , 1    , 0362, "EnableMyDream"                              )}, // ゆめみ|現在、自分の島の夢を提供中か？
@@ -361,12 +360,21 @@ namespace NHSE.Core
             {0x18F, new EventFlagLand(0 , 1    , 0399, "TkkFirstLiveNow"                            )}, // とたけけ|初ライブステージか？
             {0x190, new EventFlagLand(0 , 1    , 0400, "ChristmasFtrFirstRound"                     )}, // クリスマス｜おもちゃ家具の商品抽選が1巡したか
             {0x191, new EventFlagLand(0 , 9999 , 0401, "HarvestFestivalAddBbsYear"                  )}, // ハーベストフェスティバル予告の掲示板書き込みをした年
+            {0x192, new EventFlagLand(0 , 1    , 0402, "GrowUpAfterPatch1_7"                        )}, // 1.7適用して成長処理をした
             {0x193, new EventFlagLand(0 , 9999 , 0403, "XmasEveAddBbsYear"                          )}, // クリスマス予告の掲示板書き込みをした年
             {0x194, new EventFlagLand(0 , 1    , 0404, "BCAT_EventFlag_005"                         )}, // クリスマス準備期間解禁
             {0x195, new EventFlagLand(0 , -1   , 0405, "RandomKey5"                                 )}, // ランダムキーe
             {0x196, new EventFlagLand(0 , 1    , 0406, "ShopSocksFlag"                              )}, // かべかけソックス当選済み
+            {0x197, new EventFlagLand(0 , -1   , 0407, "ShopHeartChocoSelect"                       )}, // ハートのチョコレート抽選済みカラバリ
+            {0x198, new EventFlagLand(0 , -1   , 0408, "ShopHeartFlowerSelect"                      )}, // ハートのバラブーケ抽選済みカラバリ
             {0x199, new EventFlagLand(0 , -1   , 0409, "RandomKey6"                                 )}, // ランダムキーf
+            {0x19A, new EventFlagLand(0 , -1   , 0410, "RandomKey7"                                 )}, // ランダムキーg
             {0x19C, new EventFlagLand(0 , 1    , 0412, "BCAT_EventFlag_006"                         )}, // クリスマスイブ解禁
+            {0x19D, new EventFlagLand(0 , 1    , 0413, "BCAT_EventFlag_007"                         )}, // カーニバル本番、バレンタイン本番解禁
+            {0x1A3, new EventFlagLand(0 , 9999 , 0419, "ValentineAddBbsYear"                        )}, // バレンタイン予告の掲示板書き込みをした年
+            {0x1A4, new EventFlagLand(0 , 9999 , 0420, "CarnivalAddBbsYear"                         )}, // カーニバル予告の掲示板書き込みをした年
+            {0x1A5, new EventFlagLand(0 , 1    , 0421, "CarnivalNpcFeatherColorDecided"             )}, // カーニバル｜NPCが欲しがる羽の色決定済み
+            {0x1A6, new EventFlagLand(0 , 1    , 0422, "CarnivalEventPlazaNpcWander"                )}, // カーニバル｜広場行動NPCがぶらつくか
         };
 
         private const string Unknown = "???";

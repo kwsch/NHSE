@@ -5,17 +5,23 @@
     /// </summary>
     public static class FileHashRevision
     {
+        private const string FN_MAIN = "main.dat";
+        private const string FN_PERSONAL = "personal.dat";
+        private const string FN_POSTBOX = "postbox.dat";
+        private const string FN_PHOTO = "photo_studio_island.dat";
+        private const string FN_PROFILE = "profile.dat";
+
         #region REVISION 1.0.0
 
-        private const int MAIN_SAVE_SIZE = 0xAC0938;
-        private const int PERSONAL_SAVE_SIZE = 0x6BC50;
-        private const int POSTBOX_SAVE_SIZE = 0xB44580;
-        private const int PHOTO_STUDIO_ISLAND_SIZE = 0x263B4;
-        private const int PROFILE_SIZE = 0x69508;
+        internal const int REV_100_MAIN = 0xAC0938;
+        internal const int REV_100_PERSONAL = 0x6BC50;
+        internal const int REV_100_POSTBOX = 0xB44580;
+        internal const int REV_100_PHOTO = 0x263B4;
+        internal const int REV_100_PROFILE = 0x69508;
 
         public static readonly FileHashInfo REV_100 = new(new FileHashDetails[]
         {
-            new("main.dat", MAIN_SAVE_SIZE, new FileHashRegion[]
+            new(FN_MAIN, REV_100_MAIN, new FileHashRegion[]
             {
                 new(0x000108, 0x1D6D4C),
                 new(0x1D6E58, 0x323384),
@@ -37,20 +43,20 @@
                 new(0x8223E0, 0x03607C),
                 new(0x858460, 0x2684D4)
             }),
-            new("personal.dat", PERSONAL_SAVE_SIZE, new FileHashRegion[]
+            new(FN_PERSONAL, REV_100_PERSONAL, new FileHashRegion[]
             {
                 new(0x00108, 0x35AC4),
                 new(0x35BD0, 0x3607C)
             }),
-            new("postbox.dat", POSTBOX_SAVE_SIZE, new FileHashRegion[]
+            new(FN_POSTBOX, REV_100_POSTBOX, new FileHashRegion[]
             {
                 new(0x000100, 0xB4447C)
             }),
-            new("photo_studio_island.dat", PHOTO_STUDIO_ISLAND_SIZE, new FileHashRegion[]
+            new(FN_PHOTO, REV_100_PHOTO, new FileHashRegion[]
             {
                 new(0x000100, 0x262B0)
             }),
-            new("profile.dat", PROFILE_SIZE, new FileHashRegion[]
+            new(FN_PROFILE, REV_100_PROFILE, new FileHashRegion[]
             {
                 new(0x000100, 0x69404)
             }),
@@ -60,15 +66,15 @@
 
         #region REVISION 1.1.0
 
-        private const int REV_110_MAIN_SAVE_SIZE = 0xAC2AA0;
-        private const int REV_110_PERSONAL_SAVE_SIZE = 0x6BED0;
-        private const int REV_110_POSTBOX_SAVE_SIZE = 0xB44590;
-        private const int REV_110_PHOTO_STUDIO_ISLAND_SIZE = 0x263C0;
-        private const int REV_110_PROFILE_SIZE = 0x69560;
+        internal const int REV_110_MAIN = 0xAC2AA0;
+        internal const int REV_110_PERSONAL = 0x6BED0;
+        internal const int REV_110_POSTBOX = 0xB44590;
+        internal const int REV_110_PHOTO = 0x263C0;
+        internal const int REV_110_PROFILE = 0x69560;
 
         public static readonly FileHashInfo REV_110 = new(new FileHashDetails[]
         {
-            new("main.dat", REV_110_MAIN_SAVE_SIZE, new FileHashRegion[]
+            new(FN_MAIN, REV_110_MAIN, new FileHashRegion[]
             {
                 new(0x000110, 0x1D6D5C),
                 new(0x1D6E70, 0x323C0C),
@@ -90,20 +96,20 @@
                 new(0x823E40, 0x0362BC),
                 new(0x85A100, 0x26899C)
             }),
-            new("personal.dat", REV_110_PERSONAL_SAVE_SIZE, new FileHashRegion[]
+            new(FN_PERSONAL, REV_110_PERSONAL, new FileHashRegion[]
             {
                 new(0x00110, 0x35AFC),
                 new(0x35C10, 0x362BC)
             }),
-            new("postbox.dat", REV_110_POSTBOX_SAVE_SIZE, new FileHashRegion[]
+            new(FN_POSTBOX, REV_110_POSTBOX, new FileHashRegion[]
             {
                 new(0x000100, 0xB4448C)
             }),
-            new("photo_studio_island.dat", REV_110_PHOTO_STUDIO_ISLAND_SIZE, new FileHashRegion[]
+            new(FN_PHOTO, REV_110_PHOTO, new FileHashRegion[]
             {
                 new(0x000100, 0x262BC)
             }),
-            new("profile.dat", REV_110_PROFILE_SIZE, new FileHashRegion[]
+            new(FN_PROFILE, REV_110_PROFILE, new FileHashRegion[]
             {
                 new(0x000100, 0x6945C)
             }),
@@ -113,15 +119,15 @@
 
         #region REVISION 1.2.0
 
-        private const int REV_120_MAIN_SAVE_SIZE = 0xACECD0;
-        private const int REV_120_PERSONAL_SAVE_SIZE = 0x6D6C0;
-        private const int REV_120_POSTBOX_SAVE_SIZE = REV_110_POSTBOX_SAVE_SIZE;
-        private const int REV_120_PHOTO_STUDIO_ISLAND_SIZE = 0x2C9C0;
-        private const int REV_120_PROFILE_SIZE = REV_110_PROFILE_SIZE;
+        internal const int REV_120_MAIN = 0xACECD0;
+        internal const int REV_120_PERSONAL = 0x6D6C0;
+        internal const int REV_120_POSTBOX = REV_110_POSTBOX;
+        internal const int REV_120_PHOTO = 0x2C9C0;
+        internal const int REV_120_PROFILE = REV_110_PROFILE;
 
         public static readonly FileHashInfo REV_120 = new(new FileHashDetails[]
         {
-            new("main.dat", REV_120_MAIN_SAVE_SIZE, new FileHashRegion[]
+            new(FN_MAIN, REV_120_MAIN, new FileHashRegion[]
             {
                 new(0x000110, 0x1D6D5C),
                 new(0x1D6E70, 0x323EBC),
@@ -143,20 +149,20 @@
                 new(0x82EAB0, 0x03787C),
                 new(0x866330, 0x26899C)
             }),
-            new("personal.dat", REV_120_PERSONAL_SAVE_SIZE, new FileHashRegion[]
+            new(FN_PERSONAL, REV_120_PERSONAL, new FileHashRegion[]
             {
                 new(0x00110, 0x35D2C),
                 new(0x35E40, 0x3787C)
             }),
-            new("postbox.dat", REV_120_POSTBOX_SAVE_SIZE, new FileHashRegion[]
+            new(FN_POSTBOX, REV_120_POSTBOX, new FileHashRegion[]
             {
                 new(0x000100, 0xB4448C)
             }),
-            new("photo_studio_island.dat", REV_120_PHOTO_STUDIO_ISLAND_SIZE, new FileHashRegion[]
+            new(FN_PHOTO, REV_120_PHOTO, new FileHashRegion[]
             {
                 new(0x000100, 0x2C8BC)
             }),
-            new("profile.dat", REV_120_PROFILE_SIZE, new FileHashRegion[]
+            new(FN_PROFILE, REV_120_PROFILE, new FileHashRegion[]
             {
                 new(0x000100, 0x6945C)
             }),
@@ -166,15 +172,15 @@
 
         #region REVISION 1.3.0
 
-        private const int REV_130_MAIN_SAVE_SIZE = 0xACED80;
-        private const int REV_130_PERSONAL_SAVE_SIZE = 0x6D6D0;
-        private const int REV_130_POSTBOX_SAVE_SIZE = REV_110_POSTBOX_SAVE_SIZE;
-        private const int REV_130_PHOTO_STUDIO_ISLAND_SIZE = REV_120_PHOTO_STUDIO_ISLAND_SIZE;
-        private const int REV_130_PROFILE_SIZE = REV_110_PROFILE_SIZE;
+        internal const int REV_130_MAIN = 0xACED80;
+        internal const int REV_130_PERSONAL = 0x6D6D0;
+        internal const int REV_130_POSTBOX = REV_110_POSTBOX;
+        internal const int REV_130_PHOTO = REV_120_PHOTO;
+        internal const int REV_130_PROFILE = REV_110_PROFILE;
 
         public static readonly FileHashInfo REV_130 = new(new FileHashDetails[]
         {
-            new("main.dat", REV_130_MAIN_SAVE_SIZE, new FileHashRegion[]
+            new(FN_MAIN, REV_130_MAIN, new FileHashRegion[]
             {
                 new(0x000110, 0x1D6D5C),
                 new(0x1D6E70, 0x323EEC),
@@ -196,20 +202,20 @@
                 new(0x82EB50, 0x03788C),
                 new(0x8663E0, 0x26899C)
             }),
-            new("personal.dat", REV_130_PERSONAL_SAVE_SIZE, new FileHashRegion[]
+            new(FN_PERSONAL, REV_130_PERSONAL, new FileHashRegion[]
             {
                 new(0x00110, 0x35D2C),
                 new(0x35E40, 0x3788C)
             }),
-            new("postbox.dat", REV_130_POSTBOX_SAVE_SIZE, new FileHashRegion[]
+            new(FN_POSTBOX, REV_130_POSTBOX, new FileHashRegion[]
             {
                 new(0x000100, 0xB4448C)
             }),
-            new("photo_studio_island.dat", REV_130_PHOTO_STUDIO_ISLAND_SIZE, new FileHashRegion[]
+            new(FN_PHOTO, REV_130_PHOTO, new FileHashRegion[]
             {
                 new(0x000100, 0x2C8BC)
             }),
-            new("profile.dat", REV_130_PROFILE_SIZE, new FileHashRegion[]
+            new(FN_PROFILE, REV_130_PROFILE, new FileHashRegion[]
             {
                 new(0x000100, 0x6945C)
             }),
@@ -219,15 +225,15 @@
 
         #region REVISION 1.4.0
 
-        private const int REV_140_MAIN_SAVE_SIZE = 0xB05790;
-        private const int REV_140_PERSONAL_SAVE_SIZE = 0x74420;
-        private const int REV_140_POSTBOX_SAVE_SIZE = REV_110_POSTBOX_SAVE_SIZE;
-        private const int REV_140_PHOTO_STUDIO_ISLAND_SIZE = REV_120_PHOTO_STUDIO_ISLAND_SIZE;
-        private const int REV_140_PROFILE_SIZE = REV_110_PROFILE_SIZE;
+        internal const int REV_140_MAIN = 0xB05790;
+        internal const int REV_140_PERSONAL = 0x74420;
+        internal const int REV_140_POSTBOX = REV_110_POSTBOX;
+        internal const int REV_140_PHOTO = REV_120_PHOTO;
+        internal const int REV_140_PROFILE = REV_110_PROFILE;
 
         public static readonly FileHashInfo REV_140 = new(new FileHashDetails[]
         {
-            new("main.dat", REV_140_MAIN_SAVE_SIZE, new FileHashRegion[]
+            new(FN_MAIN, REV_140_MAIN, new FileHashRegion[]
             {
                 new(0x000110, 0x1d6d5c),
                 new(0x1d6e70, 0x323f2c),
@@ -249,20 +255,20 @@
                 new(0x85e8c0, 0x03e5dc),
                 new(0x89cea0, 0x2688ec)
             }),
-            new("personal.dat", REV_140_PERSONAL_SAVE_SIZE, new FileHashRegion[]
+            new(FN_PERSONAL, REV_140_PERSONAL, new FileHashRegion[]
             {
                 new(0x00110, 0x35D2C),
                 new(0x35E40, 0x3E5DC)
             }),
-            new("postbox.dat", REV_140_POSTBOX_SAVE_SIZE, new FileHashRegion[]
+            new(FN_POSTBOX, REV_140_POSTBOX, new FileHashRegion[]
             {
                 new(0x000100, 0xB4448C)
             }),
-            new("photo_studio_island.dat", REV_140_PHOTO_STUDIO_ISLAND_SIZE, new FileHashRegion[]
+            new(FN_PHOTO, REV_140_PHOTO, new FileHashRegion[]
             {
                 new(0x000100, 0x2C8BC)
             }),
-            new("profile.dat", REV_140_PROFILE_SIZE, new FileHashRegion[]
+            new(FN_PROFILE, REV_140_PROFILE, new FileHashRegion[]
             {
                 new(0x000100, 0x6945C)
             }),
@@ -272,15 +278,15 @@
 
         #region REVISION 1.5.0
 
-        private const int REV_150_MAIN_SAVE_SIZE = 0xB20750;
-        private const int REV_150_PERSONAL_SAVE_SIZE = 0x76390;
-        private const int REV_150_POSTBOX_SAVE_SIZE = REV_110_POSTBOX_SAVE_SIZE;
-        private const int REV_150_PHOTO_STUDIO_ISLAND_SIZE = REV_120_PHOTO_STUDIO_ISLAND_SIZE;
-        private const int REV_150_PROFILE_SIZE = REV_110_PROFILE_SIZE;
+        internal const int REV_150_MAIN = 0xB20750;
+        internal const int REV_150_PERSONAL = 0x76390;
+        internal const int REV_150_POSTBOX = REV_110_POSTBOX;
+        internal const int REV_150_PHOTO = REV_120_PHOTO;
+        internal const int REV_150_PROFILE = REV_110_PROFILE;
 
         public static readonly FileHashInfo REV_150 = new(new FileHashDetails[]
         {
-            new("main.dat", REV_150_MAIN_SAVE_SIZE, new FileHashRegion[]
+            new(FN_MAIN, REV_150_MAIN, new FileHashRegion[]
             {
                 new(0x000110, 0x1e215c),
                 new(0x1e2270, 0x323f6c),
@@ -302,20 +308,20 @@
                 new(0x878520, 0x03f93c),
                 new(0x8b7e60, 0x2688ec)
             }),
-            new("personal.dat", REV_150_PERSONAL_SAVE_SIZE, new FileHashRegion[]
+            new(FN_PERSONAL, REV_150_PERSONAL, new FileHashRegion[]
             {
                 new(0x00110, 0x3693c),
                 new(0x36a50, 0x3f93c)
             }),
-            new("postbox.dat", REV_150_POSTBOX_SAVE_SIZE, new FileHashRegion[]
+            new(FN_POSTBOX, REV_150_POSTBOX, new FileHashRegion[]
             {
                 new(0x000100, 0xB4448C)
             }),
-            new("photo_studio_island.dat", REV_150_PHOTO_STUDIO_ISLAND_SIZE, new FileHashRegion[]
+            new(FN_PHOTO, REV_150_PHOTO, new FileHashRegion[]
             {
                 new(0x000100, 0x2C8BC)
             }),
-            new("profile.dat", REV_150_PROFILE_SIZE, new FileHashRegion[]
+            new(FN_PROFILE, REV_150_PROFILE, new FileHashRegion[]
             {
                 new(0x000100, 0x6945C)
             }),
@@ -325,15 +331,15 @@
 
         #region REVISION 1.6.0
 
-        private const int REV_160_MAIN_SAVE_SIZE = 0xB258E0;
-        private const int REV_160_PERSONAL_SAVE_SIZE = 0x76CF0;
-        private const int REV_160_POSTBOX_SAVE_SIZE = REV_110_POSTBOX_SAVE_SIZE;
-        private const int REV_160_PHOTO_STUDIO_ISLAND_SIZE = REV_120_PHOTO_STUDIO_ISLAND_SIZE;
-        private const int REV_160_PROFILE_SIZE = REV_110_PROFILE_SIZE;
+        internal const int REV_160_MAIN = 0xB258E0;
+        internal const int REV_160_PERSONAL = 0x76CF0;
+        internal const int REV_160_POSTBOX = REV_110_POSTBOX;
+        internal const int REV_160_PHOTO = REV_120_PHOTO;
+        internal const int REV_160_PROFILE = REV_110_PROFILE;
 
         public static readonly FileHashInfo REV_160 = new(new FileHashDetails[]
         {
-            new("main.dat", REV_160_MAIN_SAVE_SIZE, new FileHashRegion[]
+            new(FN_MAIN, REV_160_MAIN, new FileHashRegion[]
             {
                 new(0x000110, 0x1e215c),
                 new(0x1e2270, 0x32403c),
@@ -355,20 +361,73 @@
                 new(0x87c790, 0x04029c),
                 new(0x8bca30, 0x268eac)
             }),
-            new("personal.dat", REV_160_PERSONAL_SAVE_SIZE, new FileHashRegion[]
+            new(FN_PERSONAL, REV_160_PERSONAL, new FileHashRegion[]
             {
                 new(0x00110, 0x3693c),
                 new(0x36a50, 0x4029c)
             }),
-            new("postbox.dat", REV_160_POSTBOX_SAVE_SIZE, new FileHashRegion[]
+            new(FN_POSTBOX, REV_160_POSTBOX, new FileHashRegion[]
             {
                 new(0x000100, 0xB4448C)
             }),
-            new("photo_studio_island.dat", REV_160_PHOTO_STUDIO_ISLAND_SIZE, new FileHashRegion[]
+            new(FN_PHOTO, REV_160_PHOTO, new FileHashRegion[]
             {
                 new(0x000100, 0x2C8BC)
             }),
-            new("profile.dat", REV_160_PROFILE_SIZE, new FileHashRegion[]
+            new(FN_PROFILE, REV_160_PROFILE, new FileHashRegion[]
+            {
+                new(0x000100, 0x6945C)
+            }),
+        });
+
+        #endregion
+
+        #region REVISION 1.7.0
+
+        internal const int REV_170_MAIN = 0x849C30; // reduced size
+        internal const int REV_170_PERSONAL = 0x64140; // reduced size
+        internal const int REV_170_POSTBOX = 0x47430; // reduced size
+        internal const int REV_170_PHOTO = REV_120_PHOTO;
+        internal const int REV_170_PROFILE = REV_110_PROFILE;
+
+        public static readonly FileHashInfo REV_170 = new(new FileHashDetails[]
+        {
+            new(FN_MAIN, REV_170_MAIN, new FileHashRegion[]
+            {
+                new(0x000110, 0x1e215c),
+                new(0x1e2270, 0x3221fc),
+                new(0x504580, 0x03693c),
+                new(0x53aec0, 0x02d6ec),
+                new(0x5686c0, 0x03693c),
+                new(0x59f000, 0x02d6ec),
+                new(0x5cc800, 0x03693c),
+                new(0x603140, 0x02d6ec),
+                new(0x630940, 0x03693c),
+                new(0x667280, 0x02d6ec),
+                new(0x694a80, 0x03693c),
+                new(0x6cb3c0, 0x02d6ec),
+                new(0x6f8bc0, 0x03693c),
+                new(0x72f500, 0x02d6ec),
+                new(0x75cd00, 0x03693c),
+                new(0x793640, 0x02d6ec),
+                new(0x7c0e40, 0x03693c),
+                new(0x7f7780, 0x02d6ec),
+                new(0x824e70, 0x024dbc),
+            }),
+            new(FN_PERSONAL, REV_170_PERSONAL, new FileHashRegion[]
+            {
+                new(0x00110, 0x3693c),
+                new(0x36a50, 0x2d6ec),
+            }),
+            new(FN_POSTBOX, REV_170_POSTBOX, new FileHashRegion[]
+            {
+                new(0x000100, 0x4732c)
+            }),
+            new(FN_PHOTO, REV_170_PHOTO, new FileHashRegion[]
+            {
+                new(0x000100, 0x2C8BC)
+            }),
+            new(FN_PROFILE, REV_170_PROFILE, new FileHashRegion[]
             {
                 new(0x000100, 0x6945C)
             }),

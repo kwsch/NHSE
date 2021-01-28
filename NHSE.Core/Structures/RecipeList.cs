@@ -642,7 +642,9 @@ namespace NHSE.Core
             {0x2EE, 13244}, // gift pile
             {0x2EF, 13792}, // festive wrapping paper
             {0x2F0, 13603}, // falling-snow wall
+            {0x2F3, 03548}, // rainbow feather
             {0x2F5, 12217}, // summer-shell rug
+            {0x308, 14278}, // mermaid fence
         };
     }
 }

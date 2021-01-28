@@ -1109,11 +1109,22 @@ namespace NHSE.Core
             {13449, 1293}, // Turkey Day decorations
             {13450, 1292}, // Turkey Day chair
             {13453, 1297}, // Turkey Day table
+            {13488, 1516}, // chocolate heart
+            {13767, 1495}, // Festivale garland
+            {13770, 1500}, // Festivale parasol
+            {13772, 1501}, // Festivale balloon lamp
+            {13773, 1504}, // Festivale stall
+            {13774, 1498}, // Festivale drum
+            {13775, 1497}, // Festivale stage
+            {13776, 1496}, // Festivale confetti machine
+            {13777, 1505}, // Festivale lamp
+            {13778, 1506}, // Festivale flag
             {13818, 1509}, // Turkey Day casserole
             {13819, 1510}, // Turkey Day wheat decor
             {13820, 1508}, // Turkey Day table setting
             {13862, 0652}, // Jingle's photo
             {13930, 1524}, // set of stockings
+            {14029, 1546}, // heart-shaped bouquet
         };
     }
 }

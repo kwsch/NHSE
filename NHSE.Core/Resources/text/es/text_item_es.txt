@@ -2610,7 +2610,7 @@ cama individual de madera
 lazo (Verde)
 lazo (Rojo)
 diadema estrellas (Amarillo)
-
+tocado de Carnaval (Azul)
 
 bici de montaña
 escalera de mano
@@ -3539,14 +3539,14 @@ mandil añejo (Azul oscuro)
 vestido coreano (Bermellón)
 copo de nieve
 copo de nieve XL
+pluma roja
+pluma azul
+pluma verde
+
+pluma morada
 
 
-
-
-
-
-
-
+pluma arcoíris
 pico (Amarillo)
 bigote inglés (Color del pelo)
 estante de bambú
@@ -4665,7 +4665,7 @@ eustenopteron
 acantostega
 juramaia
 
-antifaz de carnaval (Púrpura)
+antifaz baile de máscaras (Púrpura)
 top largo (Blanco)
 montura de madera (Marrón)
 
@@ -5131,7 +5131,7 @@ sombrero de copa (Negro)
 coraza de samurái (Rojo)
 vestido de seda sin mangas (Rojo)
 delantal con protectores (Rosa)
-
+disfraz de ogro (Azul)
 disfraz de maleante (Negro)
 vestido corto futurista (Azul)
 sombrero de exploración (Pardo)
@@ -5343,7 +5343,7 @@ pantalón compañía de baile (Negro)
 buzón cuadrado
 buzón de madera
 buzón para paquetes
-
+careta de ogro (Azul)
 yelmo dorado (Dorado)
 
 
@@ -8647,8 +8647,8 @@ traje térmico (Dorado)
 traje térmico (Plateado)
 maillot de lucha deportiva (Azul)
 maillot de lucha deportiva (Verde)
-
-
+disfraz de ogro (Rojo)
+disfraz de ogro (Verde)
 disfraz de musculitos (Verde)
 disfraz de musculitos (Celeste)
 disfraz de musculitos (Naranja)
@@ -9730,9 +9730,9 @@ pantalón de pana (Gris claro)
 pantalón de pana (Negro)
 
 
-
-
-
+tocado de Carnaval (Rojo)
+tocado de Carnaval (Púrpura)
+tocado de Carnaval (Verde)
 
 
 
@@ -10909,7 +10909,7 @@ kimono ainu (Azul)
 kimono bingata (Amarillo)
 abrigo con chal de peluche (Naranja)
 mono de trabajo de pintor (Beis)
-
+vestido de Carnaval (Azul)
 
 tubeteika (Rojo)
 matanpushi (Azul)
@@ -11159,11 +11159,11 @@ antifaz para dormir (Naranja)
 antifaz para dormir (Rojo)
 
 máscara de gas (Verde bosque)
-antifaz de carnaval (Negro)
-antifaz de carnaval (Azul)
-antifaz de carnaval (Rojo)
-antifaz de carnaval (Verde)
-antifaz de carnaval (Dorado)
+antifaz baile de máscaras (Negro)
+antifaz baile de máscaras (Azul)
+antifaz baile de máscaras (Rojo)
+antifaz baile de máscaras (Verde)
+antifaz baile de máscaras (Dorado)
 careta de bufón (Rojo)
 careta de bufón (Verde)
 careta de bufón (Azul)
@@ -11884,8 +11884,8 @@ velo princesa desierto (Rosa)
 velo princesa desierto (Amarillo)
 sombrero tirolés (Azul)
 sombrero tirolés (Rojo)
-
-
+careta de ogro (Rojo)
+careta de ogro (Verde)
 moño (Azul)
 moño (Mostaza)
 moño (Blanco)
@@ -12021,9 +12021,9 @@ mochila saco (Negro)
 abrigo con chal de peluche (Rosa)
 mono de trabajo de pintor (Verde)
 mono de trabajo de pintor (Blanco)
-
-
-
+vestido de Carnaval (Rojo)
+vestido de Carnaval (Púrpura)
+vestido de Carnaval (Verde)
 
 
 
@@ -13486,7 +13486,7 @@ plato de berlinesas
 
 
 
-
+caja bombones Enamorados
 
 figura zodiacal de buey
 túnica escuela de magia (Púrpura)
@@ -13765,18 +13765,18 @@ Emociones y actividades
 
 
 6 peinados revolucionarios
+guirnalda de Carnaval
 
 
-
-
-
-
-
-
-
-
-
-
+parasol de Carnaval
+carroza de Carnaval
+lámpara globo de Carnaval
+tenderete de Carnaval
+tambor de Carnaval
+escenario de Carnaval
+cañón de confeti Carnaval
+lamparita de Carnaval
+estandarte de Carnaval
 pescado a la molinera
 gratinado
 sopa de almejas
@@ -13865,7 +13865,7 @@ foto de Renato
 
 
 
-
+mini Rese T. Ado
 
 regalo de alguien
 
@@ -13902,17 +13902,17 @@ regalo de alguien
 
 
 
+alfombra final deportiva
 
 
 
 
 
+máscara de Okame (Blanco)
 
 
-
-
-
-
+megáfono fútbol americano
+caja habichuelas para lanzar
 
 
 
@@ -13929,3 +13929,351 @@ regalo de alguien
 
 
 lote de calcetines de pared
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sobre rojo de la suerte
+bolsita de la suerte
+
+
+par de maracas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+megáfono ánimo encendido
+megáfono de las estrellas
+megáfono deslumbrante
+traje de Carnaval (Azul)
+
+
+
+
+
+
+
+
+
+
+
+
+ramo de flores Enamorados
+Set de emociones Carnaval
+
+adorno Año Nuevo Lunar
+
+
+
+
+
+
+
+
+
+aguinaldo Año Nuevo Lunar
+aguinaldo de Seollal
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+traje de Carnaval (Rojo)
+traje de Carnaval (Púrpura)
+traje de Carnaval (Verde)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+valla sirena
