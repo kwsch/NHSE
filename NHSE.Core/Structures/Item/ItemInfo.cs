@@ -93,6 +93,9 @@ namespace NHSE.Core
             {Kind_HandheldPennant, 00001},
             {Kind_BigbagPresent, 00001},
             {Kind_JuiceFuzzyapple, 00001},
+            {Kind_Megaphone, 00001},
+            {Kind_SoySet, 00001},
+            {Kind_MaracasCarnival, 00001},
             {Kind_TreeSeedling, 00010},
             {Kind_Tree, 00001},
             {Kind_BushSeedling, 00010},
@@ -147,6 +150,7 @@ namespace NHSE.Core
             {Kind_DIYRecipe, 00001},
             {Kind_MessageBottle, 00001},
             {Kind_WrappingPaper, 00010},
+            {Kind_Otoshidama, 00010},
             {Kind_HousingKit, 00001},
             {Kind_HousingKitRcoQuest, 00001},
             {Kind_HousingKitBirdge, 00001},
@@ -170,6 +174,8 @@ namespace NHSE.Core
             {Kind_LoveCrystal, 00030},
             {Kind_Candy, 00030},
             {Kind_HarvestDish, 00001},
+            {Kind_Feather, 00003},
+            {Kind_RainbowFeather, 00001},
             {Kind_Giftbox, 00001},
             {Kind_PinataStick, 00001},
             {Kind_NpcOutfit, 00001},
@@ -189,6 +195,7 @@ namespace NHSE.Core
             {Kind_EventObjFtr, 00001},
             {Kind_NnpcRoomMarker, 00001},
             {Kind_PhotoStudioList, 00001},
+            {Kind_DummyWrappingOtoshidama, 00001},
         };
 
         /// <summary>
