@@ -32,7 +32,7 @@
         public override int NpcHouseList => GSaveLandStart + 0x417634;
 
         public const int GSaveShop = GSaveLandStart + 0x41887c;
-        public override int ShopKabu => GSaveShop + 0x2be0; // part of shop; tailor increased size
+        public override int ShopKabu => GSaveShop + 0x2cb0; // part of shop; tailor increased size
         public override int Museum => GSaveLandStart + 0x41bba0;
         public override int Visitor => GSaveLandStart + 0x41efa4;
         public override int SaveFg => GSaveLandStart + 0x41f1d4;
