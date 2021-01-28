@@ -394,16 +394,34 @@
         {
             new(FN_MAIN, REV_170_MAIN, new FileHashRegion[]
             {
-                new(0x00110, 0x3693c),
+                new(0x000110, 0x1e215c),
+                new(0x1e2270, 0x3221fc),
+                new(0x504580, 0x03693c),
+                new(0x53aec0, 0x02d6ec),
+                new(0x5686c0, 0x03693c),
+                new(0x59f000, 0x02d6ec),
+                new(0x5cc800, 0x03693c),
+                new(0x603140, 0x02d6ec),
+                new(0x630940, 0x03693c),
+                new(0x667280, 0x02d6ec),
+                new(0x694a80, 0x03693c),
+                new(0x6cb3c0, 0x02d6ec),
+                new(0x6f8bc0, 0x03693c),
+                new(0x72f500, 0x02d6ec),
+                new(0x75cd00, 0x03693c),
+                new(0x793640, 0x02d6ec),
+                new(0x7c0e40, 0x03693c),
+                new(0x7f7780, 0x02d6ec),
+                new(0x824e70, 0x024dbc),
             }),
             new(FN_PERSONAL, REV_170_PERSONAL, new FileHashRegion[]
             {
                 new(0x00110, 0x3693c),
-                new(0x36a50, 0x4029c)
+                new(0x36a50, 0x2d6ec),
             }),
             new(FN_POSTBOX, REV_170_POSTBOX, new FileHashRegion[]
             {
-                new(0x000100, 0xB4448C)
+                new(0x000100, 0x4732c)
             }),
             new(FN_PHOTO, REV_170_PHOTO, new FileHashRegion[]
             {
