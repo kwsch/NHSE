@@ -772,6 +772,21 @@
   <data name="elp12" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\elp12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="FeatherBlu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FeatherBlu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FeatherGrn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FeatherGrn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FeatherPpl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FeatherPpl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FeatherRainbow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FeatherRainbow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FeatherRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FeatherRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Fence" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIcon\Fence.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -1678,8 +1693,14 @@
   <data name="Love" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIcon\Love.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MaracasCarnival" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\MaracasCarnival.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Medicine" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIcon\Medicine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Megaphone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Megaphone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Mendako" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIcon\Mendako.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1875,6 +1896,18 @@
   </data>
   <data name="ost10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\ost10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OtoshidamaOpenCh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\OtoshidamaOpenCh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OtoshidamaOpenKr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\OtoshidamaOpenKr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OtoshidamaSealCh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\OtoshidamaSealCh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OtoshidamaSealKr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\OtoshidamaSealKr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Oumugai" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIcon\Oumugai.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -2538,6 +2571,9 @@
   </data>
   <data name="Socks" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIcon\Socks.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Soy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Soy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SparklingSoda" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIcon\SparklingSoda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

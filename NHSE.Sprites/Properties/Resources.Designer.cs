@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Resources.NeutralResourcesLanguage("en")]
 namespace NHSE.Sprites.Properties {
     using System;
     
@@ -2237,6 +2236,56 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap elp12 {
             get {
                 object obj = ResourceManager.GetObject("elp12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FeatherBlu {
+            get {
+                object obj = ResourceManager.GetObject("FeatherBlu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FeatherGrn {
+            get {
+                object obj = ResourceManager.GetObject("FeatherGrn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FeatherPpl {
+            get {
+                object obj = ResourceManager.GetObject("FeatherPpl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FeatherRainbow {
+            get {
+                object obj = ResourceManager.GetObject("FeatherRainbow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FeatherRed {
+            get {
+                object obj = ResourceManager.GetObject("FeatherRed", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -5264,9 +5313,29 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MaracasCarnival {
+            get {
+                object obj = ResourceManager.GetObject("MaracasCarnival", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Medicine {
             get {
                 object obj = ResourceManager.GetObject("Medicine", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Megaphone {
+            get {
+                object obj = ResourceManager.GetObject("Megaphone", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -5917,6 +5986,46 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap ost10 {
             get {
                 object obj = ResourceManager.GetObject("ost10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OtoshidamaOpenCh {
+            get {
+                object obj = ResourceManager.GetObject("OtoshidamaOpenCh", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OtoshidamaOpenKr {
+            get {
+                object obj = ResourceManager.GetObject("OtoshidamaOpenKr", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OtoshidamaSealCh {
+            get {
+                object obj = ResourceManager.GetObject("OtoshidamaSealCh", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OtoshidamaSealKr {
+            get {
+                object obj = ResourceManager.GetObject("OtoshidamaSealKr", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -8127,6 +8236,16 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap Socks {
             get {
                 object obj = ResourceManager.GetObject("Socks", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Soy {
+            get {
+                object obj = ResourceManager.GetObject("Soy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
