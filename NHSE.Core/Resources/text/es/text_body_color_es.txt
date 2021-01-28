@@ -3347,6 +3347,55 @@
 13450_1	Primaveral
 13453_0	Otoñal
 13453_1	Primaveral
+13488_0	Chocolate con leche
+13488_1	Chocolate negro
+13488_2	Chocolate blanco
+13488_3	Chocolate con fresas
+13767_0	Verde
+13767_1	Rojo
+13767_2	Azul
+13767_3	Púrpura
+13767_4	Arcoíris
+13770_0	Verde
+13770_1	Rojo
+13770_2	Azul
+13770_3	Púrpura
+13770_4	Arcoíris
+13772_0	Verde
+13772_1	Rojo
+13772_2	Azul
+13772_3	Púrpura
+13772_4	Arcoíris
+13773_0	Verde
+13773_1	Rojo
+13773_2	Azul
+13773_3	Púrpura
+13773_4	Arcoíris
+13774_0	Verde
+13774_1	Rojo
+13774_2	Azul
+13774_3	Púrpura
+13774_4	Arcoíris
+13775_0	Verde
+13775_1	Rojo
+13775_2	Azul
+13775_3	Púrpura
+13775_4	Arcoíris
+13776_0	Verde
+13776_1	Rojo
+13776_2	Azul
+13776_3	Púrpura
+13776_4	Arcoíris
+13777_0	Verde
+13777_1	Rojo
+13777_2	Azul
+13777_3	Púrpura
+13777_4	Arcoíris
+13778_0	Verde
+13778_1	Rojo
+13778_2	Azul
+13778_3	Púrpura
+13778_4	Arcoíris
 13818_0	Otoñal
 13818_1	Primaveral
 13819_0	Otoñal
@@ -3359,3 +3408,9 @@
 13930_3	Chic
 13930_4	Elegante
 13930_5	Natural
+14029_0	Rojo
+14029_1	Rosa
+14029_2	Amarillo
+14029_3	Púrpura
+14029_4	Blanco
+14029_5	Negro

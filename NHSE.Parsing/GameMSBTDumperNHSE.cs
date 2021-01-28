@@ -12,7 +12,7 @@ namespace NHSE.Parsing
         /// <summary>
         /// NHSE language code -> Game Language identifier
         /// </summary>
-        public static readonly IReadOnlyDictionary<string, string> Languages = new Dictionary<string, string>
+        private static readonly IReadOnlyDictionary<string, string> Languages = new Dictionary<string, string>
         {
             {"en", "USen"},
             {"jp", "JPja"},

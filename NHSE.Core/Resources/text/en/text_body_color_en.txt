@@ -3347,6 +3347,55 @@
 13450_1	Spring blooming
 13453_0	Fall harvest
 13453_1	Spring blooming
+13488_0	Milk chocolate
+13488_1	Dark chocolate
+13488_2	White chocolate
+13488_3	Strawberry chocolate
+13767_0	Green
+13767_1	Red
+13767_2	Blue
+13767_3	Purple
+13767_4	Rainbow
+13770_0	Green
+13770_1	Red
+13770_2	Blue
+13770_3	Purple
+13770_4	Rainbow
+13772_0	Green
+13772_1	Red
+13772_2	Blue
+13772_3	Purple
+13772_4	Rainbow
+13773_0	Green
+13773_1	Red
+13773_2	Blue
+13773_3	Purple
+13773_4	Rainbow
+13774_0	Green
+13774_1	Red
+13774_2	Blue
+13774_3	Purple
+13774_4	Rainbow
+13775_0	Green
+13775_1	Red
+13775_2	Blue
+13775_3	Purple
+13775_4	Rainbow
+13776_0	Green
+13776_1	Red
+13776_2	Blue
+13776_3	Purple
+13776_4	Rainbow
+13777_0	Green
+13777_1	Red
+13777_2	Blue
+13777_3	Purple
+13777_4	Rainbow
+13778_0	Green
+13778_1	Red
+13778_2	Blue
+13778_3	Purple
+13778_4	Rainbow
 13818_0	Fall harvest
 13818_1	Spring blooming
 13819_0	Fall harvest
@@ -3359,3 +3408,9 @@
 13930_3	Chic
 13930_4	Elegant
 13930_5	Natural
+14029_0	Red
+14029_1	Pink
+14029_2	Yellow
+14029_3	Purple
+14029_4	White
+14029_5	Black

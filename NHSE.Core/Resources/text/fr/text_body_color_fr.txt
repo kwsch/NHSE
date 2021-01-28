@@ -3347,6 +3347,55 @@
 13450_1	Floraison printanière
 13453_0	Récolte d'automne
 13453_1	Floraison printanière
+13488_0	Chocolat au lait
+13488_1	Chocolat noir
+13488_2	Chocolat blanc
+13488_3	Chocolat à la fraise
+13767_0	Vert
+13767_1	Rouge
+13767_2	Bleu
+13767_3	Violet
+13767_4	Arc-en-ciel
+13770_0	Vert
+13770_1	Rouge
+13770_2	Bleu
+13770_3	Violet
+13770_4	Arc-en-ciel
+13772_0	Vert
+13772_1	Rouge
+13772_2	Bleu
+13772_3	Violet
+13772_4	Arc-en-ciel
+13773_0	Vert
+13773_1	Rouge
+13773_2	Bleu
+13773_3	Violet
+13773_4	Arc-en-ciel
+13774_0	Vert
+13774_1	Rouge
+13774_2	Bleu
+13774_3	Violet
+13774_4	Arc-en-ciel
+13775_0	Vert
+13775_1	Rouge
+13775_2	Bleu
+13775_3	Violet
+13775_4	Arc-en-ciel
+13776_0	Vert
+13776_1	Rouge
+13776_2	Bleu
+13776_3	Violet
+13776_4	Arc-en-ciel
+13777_0	Vert
+13777_1	Rouge
+13777_2	Bleu
+13777_3	Violet
+13777_4	Arc-en-ciel
+13778_0	Vert
+13778_1	Rouge
+13778_2	Bleu
+13778_3	Violet
+13778_4	Arc-en-ciel
 13818_0	Récolte d'automne
 13818_1	Floraison printanière
 13819_0	Récolte d'automne
@@ -3359,3 +3408,9 @@
 13930_3	Chic
 13930_4	Élégant
 13930_5	Naturel
+14029_0	Rouge
+14029_1	Rose
+14029_2	Jaune
+14029_3	Violet
+14029_4	Blanc
+14029_5	Noir

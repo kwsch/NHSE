@@ -3347,6 +3347,55 @@
 13450_1	Fioritura primaverile
 13453_0	Raccolto autunnale
 13453_1	Fioritura primaverile
+13488_0	Cioccolato al latte
+13488_1	Cioccolato fondente
+13488_2	Cioccolato bianco
+13488_3	Cioccolato alla fragola
+13767_0	Verde
+13767_1	Rosso
+13767_2	Blu
+13767_3	Viola
+13767_4	Arcobaleno
+13770_0	Verde
+13770_1	Rosso
+13770_2	Blu
+13770_3	Viola
+13770_4	Arcobaleno
+13772_0	Verde
+13772_1	Rosso
+13772_2	Blu
+13772_3	Viola
+13772_4	Arcobaleno
+13773_0	Verde
+13773_1	Rosso
+13773_2	Blu
+13773_3	Viola
+13773_4	Arcobaleno
+13774_0	Verde
+13774_1	Rosso
+13774_2	Blu
+13774_3	Viola
+13774_4	Arcobaleno
+13775_0	Verde
+13775_1	Rosso
+13775_2	Blu
+13775_3	Viola
+13775_4	Arcobaleno
+13776_0	Verde
+13776_1	Rosso
+13776_2	Blu
+13776_3	Viola
+13776_4	Arcobaleno
+13777_0	Verde
+13777_1	Rosso
+13777_2	Blu
+13777_3	Viola
+13777_4	Arcobaleno
+13778_0	Verde
+13778_1	Rosso
+13778_2	Blu
+13778_3	Viola
+13778_4	Arcobaleno
 13818_0	Raccolto autunnale
 13818_1	Fioritura primaverile
 13819_0	Raccolto autunnale
@@ -3359,3 +3408,9 @@
 13930_3	Chic
 13930_4	Elegante
 13930_5	Naturale
+14029_0	Rosso
+14029_1	Rosa
+14029_2	Giallo
+14029_3	Viola
+14029_4	Bianco
+14029_5	Nero
