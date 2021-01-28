@@ -2610,7 +2610,7 @@ wooden simple bed
 ribbon (Green)
 ribbon (Red)
 star bopper (Yellow)
-
+Festivale accessory (Blue)
 
 mountain bike
 ladder
@@ -3539,14 +3539,14 @@ pinafore (Dark blue)
 chima jeogori (Vermilion)
 snowflake
 large snowflake
+red feather
+blue feather
+green feather
+
+purple feather
 
 
-
-
-
-
-
-
+rainbow feather
 beak (Yellow)
 handlebar mustache (Hair Color)
 bamboo shelf
@@ -5131,7 +5131,7 @@ top hat (Black)
 samurai shirt (Red)
 sleeveless silk dress (Red)
 sleeved apron (Pink)
-
+ogre costume (Blue)
 thief's costume (Black)
 astro dress (Blue)
 explorer's hat (Camel)
@@ -5343,7 +5343,7 @@ dance warm-up pants (Black)
 square mailbox
 wooden mailbox
 large mailbox
-
+horned-ogre mask (Blue)
 gold helmet (Gold)
 
 
@@ -8647,8 +8647,8 @@ full-body tights (Gold)
 full-body tights (Silver)
 wrestling singlet (Blue)
 wrestling singlet (Green)
-
-
+ogre costume (Red)
+ogre costume (Green)
 instant-muscles suit (Green)
 instant-muscles suit (Light blue)
 instant-muscles suit (Orange)
@@ -9730,9 +9730,9 @@ corduroy pants (Light gray)
 corduroy pants (Black)
 
 
-
-
-
+Festivale accessory (Red)
+Festivale accessory (Purple)
+Festivale accessory (Green)
 
 
 
@@ -10909,7 +10909,7 @@ attus robe (Blue)
 bingata dress (Yellow)
 plushie-muffler coat (Orange)
 painter's coverall (Beige)
-
+Festivale tank dress (Blue)
 
 tubeteika (Red)
 matanpushi (Blue)
@@ -11884,8 +11884,8 @@ veil (Pink)
 veil (Yellow)
 alpinist hat (Blue)
 alpinist hat (Red)
-
-
+horned-ogre mask (Red)
+horned-ogre mask (Green)
 bun wig (Blue)
 bun wig (Mustard)
 bun wig (White)
@@ -12021,9 +12021,9 @@ knapsack (Black)
 plushie-muffler coat (Pink)
 painter's coverall (Green)
 painter's coverall (White)
-
-
-
+Festivale tank dress (Red)
+Festivale tank dress (Purple)
+Festivale tank dress (Green)
 
 
 
@@ -13486,7 +13486,7 @@ berliner
 
 
 
-
+chocolate heart
 
 zodiac ox figurine
 magic-academy robe (Purple)
@@ -13765,18 +13765,18 @@ Hip Reaction Collection
 
 
 Top 6 Stylish Hairstyles
+Festivale garland
 
 
-
-
-
-
-
-
-
-
-
-
+Festivale parasol
+Festivale float
+Festivale balloon lamp
+Festivale stall
+Festivale drum
+Festivale stage
+Festivale confetti machine
+Festivale lamp
+Festivale flag
 fish meunière
 gratin
 clam chowder
@@ -13865,7 +13865,7 @@ Jingle's photo
 
 
 
-
+Resetti model
 
 someone's gift
 
@@ -13902,17 +13902,17 @@ someone's gift
 
 
 
+football rug
 
 
 
 
 
+okame mask (White)
 
 
-
-
-
-
+football cheer megaphone
+bean-tossing kit
 
 
 
@@ -13929,3 +13929,351 @@ someone's gift
 
 
 set of stockings
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+lucky red envelope
+bokjumeoni lucky pouch
+
+
+maracas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fiery cheer megaphone
+starry cheer megaphone
+glittery cheer megaphone
+Festivale costume (Blue)
+
+
+
+
+
+
+
+
+
+
+
+
+heart-shaped bouquet
+Viva Festivale Reaction Set
+
+Lunar New Year decoration
+
+
+
+
+
+
+
+
+
+lucky money
+sebaetdon
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Festivale costume (Red)
+Festivale costume (Purple)
+Festivale costume (Green)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mermaid fence
