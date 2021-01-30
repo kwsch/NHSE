@@ -17,7 +17,8 @@ namespace NHSE.Core
             RecipeList.Recipes.ToDictionary(z => z.Value, z => z.Key);
 
         // Users can put spaces between item codes, or newlines. Recognize both!
-        private static readonly string[] Splitters = {" ", "\n", "\r\n"};
+        private static readonly string[] SplittersHex = {" ", "\n", "\r\n"};
+        private static readonly string[] SplittersName = {",", "\n", "\r\n"};
 
         /// <summary>
         /// Gets a list of items from the requested hex string(s).
@@ -29,16 +30,17 @@ namespace NHSE.Core
         /// <param name="cfg">Options for packaging items</param>
         public static IReadOnlyCollection<Item> GetItemsFromUserInput(string requestHex, IConfigItem cfg)
         {
-            var split = requestHex.Split(Splitters, StringSplitOptions.RemoveEmptyEntries);
             try
             {
                 // having a language 2char code will cause an exception in parsing; this is fine and is handled by our catch statement.
+                var split = requestHex.Split(SplittersHex, StringSplitOptions.RemoveEmptyEntries);
                 return GetItemsHexCode(split, cfg);
             }
 #pragma warning disable CA1031 // Do not catch general exception types
             catch
 #pragma warning restore CA1031 // Do not catch general exception types
             {
+                var split = requestHex.Split(SplittersName, StringSplitOptions.RemoveEmptyEntries);
                 return GetItemsLanguage(split, cfg, GameLanguage.DefaultLanguage);
             }
         }
@@ -52,16 +54,17 @@ namespace NHSE.Core
         /// <param name="requestHex">8 byte hex item values (u64 format)</param>
         public static IReadOnlyCollection<Item> GetDIYsFromUserInput(string requestHex)
         {
-            var split = requestHex.Split(Splitters, StringSplitOptions.RemoveEmptyEntries);
             try
             {
                 // having a language 2char code will cause an exception in parsing; this is fine and is handled by our catch statement.
+                var split = requestHex.Split(SplittersHex, StringSplitOptions.RemoveEmptyEntries);
                 return GetDIYItemsHexCode(split);
             }
 #pragma warning disable CA1031 // Do not catch general exception types
             catch
 #pragma warning restore CA1031 // Do not catch general exception types
             {
+                var split = requestHex.Split(SplittersName, StringSplitOptions.RemoveEmptyEntries);
                 return GetDIYItemsLanguage(split);
             }
         }
