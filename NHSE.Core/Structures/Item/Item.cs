@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 namespace NHSE.Core
 {
     [StructLayout(LayoutKind.Explicit, Size = SIZE, Pack = 1)]
-    public class Item : ICopyableItem<Item>
+    public class Item : ICopyableItem<Item>, IEquatable<Item>
     {
         public static readonly Item NO_ITEM = new() {ItemId = NONE};
         public const ushort NONE = 0xFFFE;
@@ -197,12 +197,7 @@ namespace NHSE.Core
         public Item(ulong raw) => RawValue = raw;
         public Item(ushort itemId = NONE) => ItemId = itemId;
 
-        public void Delete()
-        {
-            ItemId = NONE;
-            SystemParam = AdditionalParam = 0;
-            FreeParam = 0;
-        }
+        public void Delete() => RawValue = NONE; // clears & sets the two lowest byte as ItemID
 
         public virtual int Size => SIZE;
 
@@ -227,5 +222,24 @@ namespace NHSE.Core
                 _ => ItemId,
             };
         }
+
+        public bool Equals(Item? other)
+        {
+            if (other is null) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return RawValue == other.RawValue;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != GetType()) return false;
+            return Equals((Item) obj);
+        }
+
+        public override int GetHashCode() => RawValue.GetHashCode();
+        public static bool operator ==(Item? left, Item? right) => Equals(left, right);
+        public static bool operator !=(Item? left, Item? right) => !Equals(left, right);
     }
 }
