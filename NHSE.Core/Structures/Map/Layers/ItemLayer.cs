@@ -142,5 +142,34 @@ namespace NHSE.Core
 
             return PlacedItemPermission.NoCollision;
         }
+
+        public int ReplaceAll(Item oldItem, Item newItem, in int xmin, in int ymin, in int width, in int height)
+        {
+            var sizeOld = ItemInfo.GetItemSize(oldItem);
+            var sizeNew = ItemInfo.GetItemSize(newItem);
+
+            if (sizeOld != sizeNew)
+                return -1;
+
+            int count = 0;
+            for (int x = xmin; x < xmin + width; x++)
+            {
+                for (int y = ymin; y < ymin + height; y++)
+                {
+                    var t = GetTile(x, y);
+                    if (!t.IsRoot)
+                        continue;
+
+                    if (!t.Equals(oldItem))
+                        continue;
+
+                    DeleteExtensionTiles(t, x, y);
+                    t.CopyFrom(newItem);
+                    SetExtensionTiles(t, x, y);
+                    count++;
+                }
+            }
+            return count;
+        }
     }
 }

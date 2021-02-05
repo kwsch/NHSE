@@ -189,6 +189,10 @@ namespace NHSE.WinForms
                 default:
                     ViewTile(tile, x, y);
                     return;
+                case Keys.Alt | Keys.Control:
+                case Keys.Alt | Keys.Control | Keys.Shift:
+                    ReplaceTile(tile, x, y);
+                    return;
                 case Keys.Shift:
                     SetTile(tile, x, y);
                     return;
@@ -360,6 +364,39 @@ namespace NHSE.WinForms
             tile.CopyFrom(pgt);
 
             ReloadItems();
+        }
+
+        private void ReplaceTile(Item tile, int x, int y)
+        {
+            var l = Map.CurrentLayer;
+            var pgt = new Item();
+            ItemEdit.SetItem(pgt);
+
+            if (pgt.IsFieldItem && CHK_FieldItemSnap.Checked)
+            {
+                // coordinates must be even (not odd-half)
+                x &= 0xFFFE;
+                y &= 0xFFFE;
+                tile = l.GetTile(x, y);
+            }
+
+            var permission = l.IsOccupied(pgt, x, y);
+            switch (permission)
+            {
+                case PlacedItemPermission.OutOfBounds:
+                    System.Media.SystemSounds.Asterisk.Play();
+                    return;
+            }
+
+            bool wholeMap = (ModifierKeys & Keys.Shift) != 0;
+            var count = View.ReplaceFieldItems(tile, pgt, wholeMap);
+            if (count == 0)
+            {
+                WinFormsUtil.Alert(MessageStrings.MsgFieldItemModifyNone);
+                return;
+            }
+            LoadItemGridAcre();
+            WinFormsUtil.Alert(string.Format(MessageStrings.MsgFieldItemModifyCount, count));
         }
 
         private void RotateTile(TerrainTile tile)
