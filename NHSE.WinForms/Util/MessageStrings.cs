@@ -47,5 +47,9 @@ namespace NHSE.WinForms
         public static string MsgTerrainSetAllSkipExterior { get; set; } = "Do you want to skip the tiles in exterior acres (beach/rocks)?";
 
         public static string MsgVillagerFriendshipMax { get; set; } = "Do you want to set all Villager Friendship memories to 255?";
+
+        public static string MsgVillagerReplaceNoText { get; set; } = "Clipboard: No text found! Expected internal villager name.";
+        public static string MsgVillagerReplaceOutdatedSaveFormat { get; set; } = "Save file is not up to date with latest villager format. Please update in-game.";
+        public static string MsgVillagerReplaceUnknownName { get; set; } = "Clipboard: {0} is not a valid internal villager name.";
     }
 }

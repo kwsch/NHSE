@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Sprites;
+using NHSE.Villagers;
 
 namespace NHSE.WinForms
 {
@@ -275,6 +276,40 @@ namespace NHSE.WinForms
         {
             var internalName = GetCurrentVillagerInternalName();
             TB_Catchphrase.Text = GameInfo.Strings.GetVillagerDefaultPhrase(internalName);
+        }
+
+        private void B_ReplaceVillager_Click(object sender, EventArgs e)
+        {
+            if (!Clipboard.ContainsText())
+            {
+                WinFormsUtil.Error(MessageStrings.MsgVillagerReplaceNoText);
+                return;
+            }
+
+            var internalName = Clipboard.GetText();
+            if (!VillagerResources.IsVillagerDataKnown(internalName))
+            {
+                WinFormsUtil.Error(string.Format(MessageStrings.MsgVillagerReplaceUnknownName, internalName));
+                return;
+            }
+
+            var index = VillagerIndex;
+            var villager = Villagers[index];
+            if (villager is not Villager2 v2)
+            {
+                WinFormsUtil.Error(MessageStrings.MsgVillagerReplaceOutdatedSaveFormat);
+                return;
+            }
+
+            var houses = SAV.GetVillagerHouses();
+            var houseIndex = Array.FindIndex(houses, z => z.NPC1 == index);
+            var exist = new VillagerInfo(v2, houses[houseIndex]);
+            var replace = VillagerSwap.GetReplacementVillager(exist, internalName);
+
+            var nh = new VillagerHouse(replace.House);
+            SAV.SetVillagerHouse(nh, houseIndex);
+            var nv = new Villager2(replace.Villager);
+            LoadVillager(Villagers[index] = nv);
         }
     }
 }

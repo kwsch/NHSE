@@ -38,6 +38,7 @@
             this.B_EditVillagerRoom = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditVillagerDesign = new System.Windows.Forms.ToolStripMenuItem();
             this.B_EditVillagerPlayerMemories = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_EditDIYTimer = new System.Windows.Forms.ToolStripMenuItem();
             this.TSS_toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.B_MoveOutAllVillagers = new System.Windows.Forms.ToolStripMenuItem();
             this.B_LoadVillager = new System.Windows.Forms.Button();
@@ -57,7 +58,7 @@
             this.NUD_Villager = new System.Windows.Forms.NumericUpDown();
             this.B_EditHouses = new System.Windows.Forms.Button();
             this.B_SetPhraseOriginal = new System.Windows.Forms.Button();
-            this.B_EditDIYTimer = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_ReplaceVillager = new System.Windows.Forms.Button();
             this.CM_EditVillager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Variant)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Species)).BeginInit();
@@ -109,7 +110,7 @@
             this.TSS_toolStripSeparator1,
             this.B_MoveOutAllVillagers});
             this.CM_EditVillager.Name = "CM_EditPlayer";
-            this.CM_EditVillager.Size = new System.Drawing.Size(186, 186);
+            this.CM_EditVillager.Size = new System.Drawing.Size(186, 164);
             // 
             // B_EditFurniture
             // 
@@ -145,6 +146,13 @@
             this.B_EditVillagerPlayerMemories.Size = new System.Drawing.Size(185, 22);
             this.B_EditVillagerPlayerMemories.Text = "Edit Player Memories";
             this.B_EditVillagerPlayerMemories.Click += new System.EventHandler(this.B_EditVillagerPlayerMemories_Click);
+            // 
+            // B_EditDIYTimer
+            // 
+            this.B_EditDIYTimer.Name = "B_EditDIYTimer";
+            this.B_EditDIYTimer.Size = new System.Drawing.Size(185, 22);
+            this.B_EditDIYTimer.Text = "Edit DIY Timer";
+            this.B_EditDIYTimer.Click += new System.EventHandler(this.B_EditDIYTimer_Click);
             // 
             // TSS_toolStripSeparator1
             // 
@@ -328,17 +336,21 @@
             this.B_SetPhraseOriginal.UseVisualStyleBackColor = true;
             this.B_SetPhraseOriginal.Click += new System.EventHandler(this.B_SetPhraseOriginal_Click);
             // 
-            // B_EditDIYTimer
+            // B_ReplaceVillager
             // 
-            this.B_EditDIYTimer.Name = "B_EditDIYTimer";
-            this.B_EditDIYTimer.Size = new System.Drawing.Size(185, 22);
-            this.B_EditDIYTimer.Text = "Edit DIY Timer";
-            this.B_EditDIYTimer.Click += new System.EventHandler(this.B_EditDIYTimer_Click);
+            this.B_ReplaceVillager.Location = new System.Drawing.Point(139, 119);
+            this.B_ReplaceVillager.Name = "B_ReplaceVillager";
+            this.B_ReplaceVillager.Size = new System.Drawing.Size(92, 40);
+            this.B_ReplaceVillager.TabIndex = 49;
+            this.B_ReplaceVillager.Text = "Replace Villager";
+            this.B_ReplaceVillager.UseVisualStyleBackColor = true;
+            this.B_ReplaceVillager.Click += new System.EventHandler(this.B_ReplaceVillager_Click);
             // 
             // VillagerEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.B_ReplaceVillager);
             this.Controls.Add(this.B_SetPhraseOriginal);
             this.Controls.Add(this.B_EditHouses);
             this.Controls.Add(this.B_EditVillagerFlags);
@@ -402,5 +414,6 @@
         private System.Windows.Forms.ToolStripMenuItem B_EditWear;
         private System.Windows.Forms.Button B_SetPhraseOriginal;
         private System.Windows.Forms.ToolStripMenuItem B_EditDIYTimer;
+        private System.Windows.Forms.Button B_ReplaceVillager;
     }
 }
