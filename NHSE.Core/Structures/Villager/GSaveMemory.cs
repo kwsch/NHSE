@@ -10,7 +10,11 @@ namespace NHSE.Core
 
         public GSaveMemory(byte[] data) => Data = data;
 
-        public GSavePlayerId PlayerId => Data.Slice(0, GSavePlayerId.SIZE).ToStructure<GSavePlayerId>();
+        public GSavePlayerId PlayerId
+        {
+            get => Data.Slice(0, GSavePlayerId.SIZE).ToStructure<GSavePlayerId>();
+            set => value.ToBytes().CopyTo(Data, 0);
+        }
 
         public uint TownID
         {
