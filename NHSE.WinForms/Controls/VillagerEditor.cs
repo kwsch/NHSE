@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Sprites;
@@ -289,8 +290,12 @@ namespace NHSE.WinForms
             var internalName = Clipboard.GetText();
             if (!VillagerResources.IsVillagerDataKnown(internalName))
             {
-                WinFormsUtil.Error(string.Format(MessageStrings.MsgVillagerReplaceUnknownName, internalName));
-                return;
+                internalName = GameInfo.Strings.VillagerMap.First(z => string.Equals(z.Value, internalName, StringComparison.InvariantCultureIgnoreCase)).Key;
+                if (string.IsNullOrWhiteSpace(internalName))
+                {
+                    WinFormsUtil.Error(string.Format(MessageStrings.MsgVillagerReplaceUnknownName, internalName));
+                    return;
+                }
             }
 
             var index = VillagerIndex;
@@ -310,6 +315,7 @@ namespace NHSE.WinForms
             SAV.SetVillagerHouse(nh, houseIndex);
             var nv = new Villager2(replace.Villager);
             LoadVillager(Villagers[index] = nv);
+            System.Media.SystemSounds.Asterisk.Play();
         }
     }
 }
