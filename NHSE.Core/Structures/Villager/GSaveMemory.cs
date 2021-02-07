@@ -58,7 +58,7 @@ namespace NHSE.Core
         public string GetGreeting(in int index)
         {
             var offset = GetGreetingOffset(index);
-            return StringUtil.GetString(Data, offset, 10);
+            return StringUtil.GetString(Data, offset, 22); // s_f6bf402b char16[48]. Render limit in-game is 22 char16s
         }
 
         private static int GetGreetingOffset(in int index)
