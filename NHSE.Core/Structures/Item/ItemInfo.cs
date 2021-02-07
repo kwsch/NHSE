@@ -50,6 +50,8 @@ namespace NHSE.Core
         public static bool TryGetMaxStackCount(ushort id, out ushort max)
         {
             var kind = GetItemKind(id);
+            if (kind.IsFlowerPicked())
+                kind = Kind_Flower;
             return MaxCountByKind.TryGetValue(kind, out max);
         }
 
