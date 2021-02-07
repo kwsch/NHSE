@@ -31,13 +31,23 @@ namespace NHSE.WinForms
             Villager = villager;
             Memories = villager.GetMemories();
 
-            for (int i = 0; i < Memories.Length; i++)
-                LB_Players.Items.Add($"{i} - {Memories[i].PlayerName} ({Memories[i].TownName})");
+            UpdatePlayerIslandStrings();
 
             LB_Players.SelectedIndex = 0;
 
             DialogResult = DialogResult.Cancel;
             LB_Counts.SelectedIndex = 0;
+        }
+
+        private void UpdatePlayerIslandStrings()
+        {
+            if (LB_Players.Items.Count < 1)
+                for (int i = 0; i < Memories.Length; i++)
+                    LB_Players.Items.Add($"{i} - {Memories[i].PlayerName} ({Memories[i].TownName})");
+            else
+                for (int i = 0; i < LB_Players.Items.Count; i++)
+                    LB_Players.Items[i] = $"{i} - {Memories[i].PlayerName} ({Memories[i].TownName})";
+                
         }
 
         private void B_Cancel_Click(object sender, EventArgs e) => Close();
@@ -77,7 +87,8 @@ namespace NHSE.WinForms
         {
             SavePlayer(PlayerIndex);
             PlayerIndex = LB_Players.SelectedIndex;
-            LoadPlayer(PlayerIndex);
+            if (PlayerIndex >= 0)
+                LoadPlayer(PlayerIndex);
         }
 
         private void LoadPlayer(in int playerIndex)
@@ -103,6 +114,9 @@ namespace NHSE.WinForms
             if (date < CAL_GreetDate.MinDate)
                 date = CAL_GreetDate.MinDate;
             CAL_GreetDate.Value = date;
+
+            TB_NamePlayer.Text = memory.PlayerName;
+            TB_Island.Text = memory.TownName;
         }
 
         private void SavePlayer(in int playerIndex)
@@ -131,6 +145,22 @@ namespace NHSE.WinForms
                 return;
             LoadPlayer(PlayerIndex);
             System.Media.SystemSounds.Asterisk.Play();
+        }
+
+        private void TB_NamePlayer_TextChanged(object sender, EventArgs e)
+        {
+            if (LB_Players.SelectedIndex < 0)
+                return;
+            Memories[LB_Players.SelectedIndex].PlayerName = TB_NamePlayer.Text; // this should be enough for player name changes within NHSE as identities are never changed by the end-user
+            UpdatePlayerIslandStrings();
+        }
+
+        private void TB_Island_TextChanged(object sender, EventArgs e)
+        {
+            if (LB_Players.SelectedIndex < 0)
+                return;
+            Memories[LB_Players.SelectedIndex].TownName = TB_Island.Text; // as above
+            UpdatePlayerIslandStrings();
         }
     }
 }
