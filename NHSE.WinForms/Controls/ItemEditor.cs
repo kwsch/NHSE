@@ -68,7 +68,7 @@ namespace NHSE.WinForms
             CB_ItemID.SelectedValue = (int)id;
             var kind = ItemInfo.GetItemKind(id);
 
-            if (kind.IsFlower())
+            if (kind.IsFlowerGene())
             {
                 LoadGenes(item.Genes);
                 CHK_Gold.Checked = item.IsWateredGold;
@@ -120,7 +120,7 @@ namespace NHSE.WinForms
             var kind = ItemInfo.GetItemKind(id);
 
             item.ItemId = id;
-            if (kind.IsFlower())
+            if (kind.IsFlowerGene())
             {
                 item.Genes = SaveGenes();
                 item.DaysWatered = (int) NUD_WaterDays.Value;
@@ -234,7 +234,7 @@ namespace NHSE.WinForms
 
         private void ToggleEditorVisibility(ItemKind k)
         {
-            if (k.IsFlower())
+            if (k.IsFlowerGene())
             {
                 CB_Recipe.Visible = false;
                 FLP_Uses.Visible = FLP_Count.Visible = false;
