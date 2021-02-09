@@ -290,8 +290,8 @@ namespace NHSE.WinForms
             var internalName = Clipboard.GetText();
             if (!VillagerResources.IsVillagerDataKnown(internalName))
             {
-                internalName = GameInfo.Strings.VillagerMap.First(z => string.Equals(z.Value, internalName, StringComparison.InvariantCultureIgnoreCase)).Key;
-                if (string.IsNullOrWhiteSpace(internalName))
+                internalName = GameInfo.Strings.VillagerMap.FirstOrDefault(z => string.Equals(z.Value, internalName, StringComparison.InvariantCultureIgnoreCase)).Key;
+                if (internalName == default)
                 {
                     WinFormsUtil.Error(string.Format(MessageStrings.MsgVillagerReplaceUnknownName, internalName));
                     return;
