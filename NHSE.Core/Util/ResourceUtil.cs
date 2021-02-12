@@ -34,7 +34,7 @@ namespace NHSE.Core
         {
             if (txt == null)
                 return Array.Empty<string>();
-            string[] rawlist = txt.Split('\n');
+            string[] rawlist = txt.TrimEnd('\r', '\n').Split('\n');
             for (int i = 0; i < rawlist.Length; i++)
                 rawlist[i] = rawlist[i].TrimEnd('\r');
 
