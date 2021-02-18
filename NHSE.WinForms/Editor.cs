@@ -207,6 +207,9 @@ namespace NHSE.WinForms
         #region Player Editing
         private void LoadPlayers()
         {
+            if (SAV.Players.Length == 0)
+                throw new Exception("No players found in the loaded directory.");
+
             CB_Players.Items.Clear();
             var playerList = SAV.Players.Select(z => z.DirectoryName);
             foreach (var p in playerList)
