@@ -185,8 +185,17 @@ namespace NHSE.WinForms
             var remake = ItemRemakeUtil.GetRemakeIndex(itemID);
             if (remake < 0)
             {
-                L_RemakeBody.Visible = false;
-                L_RemakeFabric.Visible = false;
+                var closeItems = GameInfo.Strings.GetAssociatedItems(itemID, out var bse);
+                if (closeItems.Count > 1) // ignore if we are the only parenthesised item
+                {
+                    L_RemakeBody.Text = $"{bse.Trim()}:\n" + closeItems.ToStringList(false);
+                    L_RemakeBody.Visible = true;
+                }
+                else
+                {
+                    L_RemakeBody.Visible = false;
+                    L_RemakeFabric.Visible = false;
+                }
             }
             else
             {

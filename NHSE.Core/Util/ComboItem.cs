@@ -80,6 +80,14 @@ namespace NHSE.Core
             storage.Sort(initial, storage.Count - initial, Comparer);
         }
 
+        public static string ToStringList(this List<ComboItem> arr, bool includeValues)
+        {
+            string format = string.Empty;
+            foreach (var ci in arr)
+                format += includeValues ? $"{ci.Text} ({ci.Value:X})\n" : $"{ci.Text}\n";
+            return format;
+        }
+
         public static void SortByText(this List<ComboItem> arr) => arr.Sort(Comparer);
 
         private static readonly FunctorComparer<ComboItem> Comparer =
