@@ -1090,6 +1090,7 @@ namespace NHSE.Core
             {0x537, new EventFlagPlayer(0 , 1   , 1335, "RcmChkReactionBook"                         )}, // カーニバル用リアクション本をチェックした
             {0x538, new EventFlagPlayer(0 , 1   , 1336, "RcmChkCarnivalFtr"                          )}, // まめきち|カーニバル家具チェックした？
             {0x539, new EventFlagPlayer(0 , 1   , 1337, "AnnounceCarnival"                           )}, // カーニバル｜当日に島内放送で告知した？
+            {0x53A, new EventFlagPlayer(0 , 1   , 1338, "ShootDownShamrockRecipeBalloon"             )}, // シャムロックデー|今日、シャムロックステッキのレシピ風船を撃ち落としたか
         };
 
         private const string Unknown = "???";

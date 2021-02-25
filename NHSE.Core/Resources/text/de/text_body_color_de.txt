@@ -3402,6 +3402,14 @@
 13819_1	Frühlingserwachen
 13820_0	Herbstlaune
 13820_1	Frühlingserwachen
+13829_0	Grün
+13829_1	Rot
+13831_0	Rot
+13831_1	Blau
+13831_2	Grün
+13832_0	Gelb
+13832_1	Rosa
+13832_2	Grün
 13930_0	Bunt
 13930_1	Süß
 13930_2	Cool

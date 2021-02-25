@@ -3402,6 +3402,14 @@
 13819_1	Primaveral
 13820_0	Otoñal
 13820_1	Primaveral
+13829_0	Verde
+13829_1	Rojo
+13831_0	Rojo
+13831_1	Azul
+13831_2	Verde
+13832_0	Amarillo
+13832_1	Rosa
+13832_2	Verde
 13930_0	Multicolor
 13930_1	Adorable
 13930_2	Moderno

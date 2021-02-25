@@ -423,12 +423,10 @@ namespace NHSE.Core
             {0xED06, new FieldItemDefinition(60678, 12489, 65534, "PltBushCamellia4Red"   , FieldItemKind.PltBushCamellia     )}, // ツバキ赤（成木花）
             {0xED07, new FieldItemDefinition(60679, 12489, 65534, "PltBushCamellia5Red"   , FieldItemKind.PltBushCamellia     )}, // ツバキ赤（成木花なし）
             {0xED08, new FieldItemDefinition(60680, 65534, 12758, "FenceIkegaki"          , FieldItemKind.FenceIkegaki        )}, // いけがきの柵
-            {0xED0B, new FieldItemDefinition(60683, 65534, 2213 , "FenceJuneBride3"       , FieldItemKind.FenceJuneBride      )}, // ジューンブライドな柵緑
             {0xED0C, new FieldItemDefinition(60684, 65534, 12630, "FenceEasterEgg"        , FieldItemKind.FenceEasterEgg      )}, // イースターの柵
             {0xED0D, new FieldItemDefinition(60685, 65534, 12894, "FenceJuneBride"        , FieldItemKind.FenceJuneBride      )}, // ジューンブライドな柵
-            {0xED0E, new FieldItemDefinition(60686, 65534, 2213 , "FenceJuneBride1"       , FieldItemKind.FenceJuneBride      )}, // ジューンブライドな柵ピンク
             {0xED16, new FieldItemDefinition(60694, 2799 , 65534, "PltTreeEasterEgg"      , FieldItemKind.PltTreeOak          )}, // イースターのタマゴの木
-            {0xED21, new FieldItemDefinition(60705, 65534, 2213 , "FenceMermaid"          , FieldItemKind.FenceMermaid        )}, // マーメイドな柵
+            {0xED21, new FieldItemDefinition(60705, 65534, 14278, "FenceMermaid"          , FieldItemKind.FenceMermaid        )}, // マーメイドな柵
             {0xED25, new FieldItemDefinition(60709, 65534, 13275, "FenceHalloween"        , FieldItemKind.FenceHalloween      )}, // ハロウィンのさく
             {0xED3F, new FieldItemDefinition(60735, 3052 , 65534, "PltVgtSquash0"         , FieldItemKind.PltVgtPumpkin       )}, // カボチャ（苗）
             {0xED40, new FieldItemDefinition(60736, 3053 , 65534, "PltVgtSquash1"         , FieldItemKind.PltVgtPumpkin       )}, // カボチャ（成長１）

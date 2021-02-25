@@ -3402,6 +3402,14 @@
 13819_1	Floraison printanière
 13820_0	Récolte d'automne
 13820_1	Floraison printanière
+13829_0	Vert
+13829_1	Rouge
+13831_0	Rouge
+13831_1	Bleu
+13831_2	Vert
+13832_0	Jaune
+13832_1	Rose
+13832_2	Vert
 13930_0	Multicolore
 13930_1	Adorable
 13930_2	Cool

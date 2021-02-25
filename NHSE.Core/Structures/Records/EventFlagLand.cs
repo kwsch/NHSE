@@ -369,8 +369,11 @@ namespace NHSE.Core
             {0x198, new EventFlagLand(0 , -1   , 0408, "ShopHeartFlowerSelect"                      )}, // ハートのバラブーケ抽選済みカラバリ
             {0x199, new EventFlagLand(0 , -1   , 0409, "RandomKey6"                                 )}, // ランダムキーf
             {0x19A, new EventFlagLand(0 , -1   , 0410, "RandomKey7"                                 )}, // ランダムキーg
+            {0x19B, new EventFlagLand(0 , -1   , 0411, "RandomKey8"                                 )}, // ランダムキーh
             {0x19C, new EventFlagLand(0 , 1    , 0412, "BCAT_EventFlag_006"                         )}, // クリスマスイブ解禁
             {0x19D, new EventFlagLand(0 , 1    , 0413, "BCAT_EventFlag_007"                         )}, // カーニバル本番、バレンタイン本番解禁
+            {0x19E, new EventFlagLand(0 , 1    , 0414, "BCAT_EventFlag_008"                         )}, // マリオコラボ解禁
+            {0x19F, new EventFlagLand(0 , 1    , 0415, "GrowUpAfterPatch1_8"                        )}, // 1.8適用して成長処理をした
             {0x1A3, new EventFlagLand(0 , 9999 , 0419, "ValentineAddBbsYear"                        )}, // バレンタイン予告の掲示板書き込みをした年
             {0x1A4, new EventFlagLand(0 , 9999 , 0420, "CarnivalAddBbsYear"                         )}, // カーニバル予告の掲示板書き込みをした年
             {0x1A5, new EventFlagLand(0 , 1    , 0421, "CarnivalNpcFeatherColorDecided"             )}, // カーニバル｜NPCが欲しがる羽の色決定済み

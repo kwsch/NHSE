@@ -865,7 +865,7 @@ billiard table
 bingo wheel
 birdcage
 
-
+blossom lantern
 
 
 book stands
@@ -986,7 +986,7 @@ go board
 
 
 harp
-
+hinaningyo
 
 
 
@@ -7545,7 +7545,7 @@ simple small black mat
 festive rug
 spooky rug
 Bunny Day rug
-
+shamrock rug
 school jacket (Berry red)
 school jacket (Green)
 school jacket (White)
@@ -7728,7 +7728,7 @@ yodel sweater (Off-white)
 
 
 
-coin
+Bell coin
 Bell bag
 bivalve
 spiral shell
@@ -13544,25 +13544,25 @@ Turkey Day rug
 2021 celebratory arch
 
 
+Mario hat (Red)
+Luigi hat (Green)
+Wario hat (Yellow)
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+Mario outfit (Blue)
+Luigi outfit (Navy blue)
+Wario outfit (Purple)
+Mario 'stache (Black)
+Luigi 'stache (Black)
+Wario 'stache (Black)
+Mario shoes (Brown)
+Wario shoes (Green)
+Princess Peach crown (Gold)
+Princess Peach dress (Pink)
 
 
 
@@ -13600,7 +13600,7 @@ sunflower rug
 
 
 
-
+Princess Peach shoes (Red)
 falling-snow wall
 
 
@@ -13802,8 +13802,8 @@ Olivier salad
 パンプキンパイHaPu
 サカナのムニエルHaPu
 グラタンHaPu
-
-
+block flooring
+mushroom mural
 
 
 
@@ -13819,19 +13819,19 @@ Olivier salad
 Turkey Day casserole
 Turkey Day wheat decor
 Turkey Day table setting
-
-
-
-
-
-
-
-
-
-
-
-
-
+? Block
+block
+pipe
+Goal Pole
+Super Star
+Fire Flower
+Super Mushroom
+1-Up Mushroom
+Shell
+coin
+large Mushroom Platform
+small Mushroom Platform
+Thwomp
 
 sparkling cider
 magic bag
@@ -13870,8 +13870,8 @@ Resetti model
 someone's gift
 
 
-
-
+Yoshi's Egg rug
+Lakitu's Cloud rug
 
 
 
@@ -14026,10 +14026,10 @@ Festivale costume (Blue)
 
 
 
-
+shamrock soda
 heart-shaped bouquet
 Viva Festivale Reaction Set
-
+shamrock doorplate
 Lunar New Year decoration
 
 
@@ -14233,14 +14233,15 @@ sebaetdon
 
 
 
-
-
-
-
-
+shamrock hat (Green)
+shamrock suit (Green)
+shamrock shoes (Green)
+shamrock sunglasses (Green)
+shamrock wand
 Festivale costume (Red)
 Festivale costume (Purple)
 Festivale costume (Green)
+Luigi shoes (Brown)
 
 
 
@@ -14263,8 +14264,7 @@ Festivale costume (Green)
 
 
 
-
-
+floating block
 
 
 
@@ -14277,3 +14277,64 @@ Festivale costume (Green)
 
 
 mermaid fence
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+きゅうりのうま
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+つきみだんご
+なすびのうし
