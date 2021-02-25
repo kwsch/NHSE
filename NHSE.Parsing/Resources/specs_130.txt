@@ -5342,3 +5342,4 @@
 	('FeatherGrn'             , 'みどりのはね'),
 	('FeatherPpl'             , 'むらさきのはね'),
 	('FeatherRainbow'         , 'にじいろのはね'),
+	('JuiceShamrock'          , 'シャムロックソーダ'),
