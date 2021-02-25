@@ -865,7 +865,7 @@ tavolo da biliardo
 urna per estrazioni
 gabbia
 
-
+lanterna floreale
 
 
 coppia di fermalibri
@@ -986,7 +986,7 @@ tavola da go
 
 
 arpa
-
+hinaningyo
 
 
 
@@ -7545,7 +7545,7 @@ tappetino nero S
 tappeto festivo
 tappeto brividi
 tappeto caccia all'uovo
-
+tappeto trifoglio
 giacca da scolaro (Rosso lampone)
 giacca da scolaro (Verde)
 giacca da scolaro (Bianco)
@@ -7728,7 +7728,7 @@ maglione yodel (Bianco panna)
 
 
 
-moneta
+stellina (moneta)
 sacco di stelline
 conchiglia bivalve
 conchiglia a spirale
@@ -13544,25 +13544,25 @@ tappeto primizie
 arco buon anno 2021
 
 
+cappello di Mario (Rosso)
+cappello di Luigi (Verde)
+cappello di Wario (Giallo)
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+tuta di Mario (Blu)
+tuta di Luigi (Blu marino)
+tuta di Wario (Viola)
+baffo di Mario (Nero)
+baffo di Luigi (Nero)
+baffo di Wario (Nero)
+paio di scarpe di Mario (Marrone)
+paio di scarpe di Wario (Verde)
+corona di Peach (Dorato)
+vestito di Peach (Rosa)
 
 
 
@@ -13600,7 +13600,7 @@ tappeto girasole
 
 
 
-
+paio di scarpe di Peach (Rosso)
 muro nevicata
 
 
@@ -13802,8 +13802,8 @@ insalata russa
 パンプキンパイHaPu
 サカナのムニエルHaPu
 グラタンHaPu
-
-
+pavimento mattoni
+muro dei funghi
 
 
 
@@ -13819,19 +13819,19 @@ insalata russa
 casseruola primizie
 ornamento primizie
 set da tavola primizie
-
-
-
-
-
-
-
-
-
-
-
-
-
+blocco ?
+blocco
+tubo
+asta della bandiera
+super stella
+fiore di fuoco
+super fungo
+fungo 1-UP
+guscio
+moneta
+piattaforma fungo grande
+piattaforma fungo piccola
+Twomp
 
 cocktail alla frutta
 sacco dei regali
@@ -13870,8 +13870,8 @@ modellino di Resetti
 regalo da qualcuno
 
 
-
-
+tappeto uovo di Yoshi
+tappeto nuvola di Lakitu
 
 
 
@@ -14018,6 +14018,7 @@ costume Carnevale (Blu)
 
 
 
+torta del Pi greco
 
 
 
@@ -14025,11 +14026,10 @@ costume Carnevale (Blu)
 
 
 
-
-
+succo di trifoglio
 bouquet a cuore
 Set di emozioni Carnevale
-
+targa da porta trifoglio
 decoraz. Capodanno lunare
 
 
@@ -14233,14 +14233,15 @@ sebaetdon
 
 
 
-
-
-
-
-
+cappello trifoglio (Verde)
+vestito trifoglio (Verde)
+paio di scarpe trifoglio (Verde)
+montatura trifoglio (Verde)
+bacchetta trifoglio
 costume Carnevale (Rosso)
 costume Carnevale (Viola)
 costume Carnevale (Verde)
+paio di scarpe di Luigi (Marrone)
 
 
 
@@ -14263,8 +14264,7 @@ costume Carnevale (Verde)
 
 
 
-
-
+blocco fluttuante
 
 
 
@@ -14277,3 +14277,64 @@ costume Carnevale (Verde)
 
 
 recinzione sirena
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+きゅうりのうま
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+つきみだんご
+なすびのうし

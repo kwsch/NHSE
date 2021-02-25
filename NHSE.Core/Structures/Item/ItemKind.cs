@@ -128,6 +128,7 @@ namespace NHSE.Core
         Kind_SequenceOnly,
         Kind_ShellDrift,
         Kind_ShellFish,
+        Kind_Shoes,
         Kind_Shovel,
         Kind_Slingshot,
         Kind_SlopeItem,

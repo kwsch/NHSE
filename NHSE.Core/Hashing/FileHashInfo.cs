@@ -7,6 +7,8 @@ namespace NHSE.Core
     {
         private readonly IReadOnlyDictionary<uint, FileHashDetails> List;
 
+        public FileHashInfo(FileHashInfo dupe) : this(dupe.List.Values) { }
+
         public FileHashInfo(IEnumerable<FileHashDetails> hashSets)
         {
             var list = new Dictionary<uint, FileHashDetails>();

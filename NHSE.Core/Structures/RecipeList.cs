@@ -644,6 +644,7 @@ namespace NHSE.Core
             {0x2F0, 13603}, // falling-snow wall
             {0x2F3, 03548}, // rainbow feather
             {0x2F5, 12217}, // summer-shell rug
+            {0x306, 14239}, // shamrock wand
             {0x308, 14278}, // mermaid fence
         };
     }

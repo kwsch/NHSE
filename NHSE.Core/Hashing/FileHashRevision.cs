@@ -434,5 +434,17 @@
         });
 
         #endregion
+
+        #region REVISION 1.8.0 // Same as 1.7.0
+
+        internal const int REV_180_MAIN = REV_170_MAIN;
+        internal const int REV_180_PERSONAL = REV_170_PERSONAL;
+        internal const int REV_180_POSTBOX = REV_170_POSTBOX;
+        internal const int REV_180_PHOTO = REV_120_PHOTO;
+        internal const int REV_180_PROFILE = REV_110_PROFILE;
+
+        public static readonly FileHashInfo REV_180 = new(REV_170);
+
+        #endregion
     }
 }

@@ -332,5 +332,8 @@
 13818	Design
 13819	Design
 13820	Design
+13829	Variation
+13831	Color
+13832	Color
 13930	Design
 14029	Variation

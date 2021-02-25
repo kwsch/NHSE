@@ -1122,6 +1122,9 @@ namespace NHSE.Core
             {13818, 1509}, // Turkey Day casserole
             {13819, 1510}, // Turkey Day wheat decor
             {13820, 1508}, // Turkey Day table setting
+            {13829, 1511}, // Shell
+            {13831, 1522}, // large Mushroom Platform
+            {13832, 1523}, // small Mushroom Platform
             {13862, 0652}, // Jingle's photo
             {13930, 1524}, // set of stockings
             {14029, 1546}, // heart-shaped bouquet

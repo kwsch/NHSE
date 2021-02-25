@@ -865,7 +865,7 @@ mesa de billar
 bombo de bingo
 jaula de pájaros
 
-
+lámpara bonbori
 
 
 sujetalibros
@@ -986,7 +986,7 @@ tablero de go
 
 
 arpa
-
+hinaningyo
 
 
 
@@ -7545,7 +7545,7 @@ alfombra sencilla negra P
 alfombra festiva
 alfombra calabaza
 alfombra Caza del Huevo
-
+alfombra trébol
 chaqueta escolar (Burdeos)
 chaqueta escolar (Verde)
 chaqueta escolar (Blanco)
@@ -7728,7 +7728,7 @@ jersey nórdico (Blanco crudo)
 
 
 
-moneda
+moneda baya
 bolsa de bayas
 bivalvo
 concha en espiral
@@ -13544,25 +13544,25 @@ alfombra Día del Pavo
 arco de bienvenida al 2021
 
 
+gorra de Mario (Rojo)
+gorra de Luigi (Verde)
+gorra de Wario (Amarillo)
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+traje de Mario (Azul)
+traje de Luigi (Azul marino)
+traje de Wario (Púrpura)
+bigote de Mario (Negro)
+bigote de Luigi (Negro)
+bigote de Wario (Negro)
+zapato de Mario (Marrón)
+zapato de Wario (Verde)
+corona de Peach (Dorado)
+vestido de Peach (Rosa)
 
 
 
@@ -13600,7 +13600,7 @@ alfombra girasol
 
 
 
-
+zapato de Peach (Rojo)
 pared noche nevada
 
 
@@ -13802,8 +13802,8 @@ ensalada Olivier
 パンプキンパイHaPu
 サカナのムニエルHaPu
 グラタンHaPu
-
-
+suelo bloques
+pared champiñón
 
 
 
@@ -13819,19 +13819,19 @@ ensalada Olivier
 cazuela Día del Pavo
 adorno trigo Día del Pavo
 servicio mesa Día del Pavo
-
-
-
-
-
-
-
-
-
-
-
-
-
+bloque ?
+bloque
+tubería
+banderín
+superestrella
+flor de fuego
+superchampiñón
+champiñón vida extra
+caparazón
+moneda
+plataforma champiñón XL
+plataforma champiñón
+Roca Picuda
 
 zumo de manzana
 saco de regalos
@@ -13870,8 +13870,8 @@ mini Rese T. Ado
 regalo de alguien
 
 
-
-
+alfombra huevo de Yoshi
+alfombra nube de Lakitu
 
 
 
@@ -14018,6 +14018,7 @@ traje de Carnaval (Azul)
 
 
 
+pastel de 
 
 
 
@@ -14025,11 +14026,10 @@ traje de Carnaval (Azul)
 
 
 
-
-
+refresco trébol
 ramo de flores Enamorados
 Set de emociones Carnaval
-
+placa trébol
 adorno Año Nuevo Lunar
 
 
@@ -14233,14 +14233,15 @@ aguinaldo de Seollal
 
 
 
-
-
-
-
-
+sombrero trébol (Verde)
+traje trébol (Verde)
+botín trébol (Verde)
+gafa de sol trébol (Verde)
+varita trébol
 traje de Carnaval (Rojo)
 traje de Carnaval (Púrpura)
 traje de Carnaval (Verde)
+zapato de Luigi (Marrón)
 
 
 
@@ -14263,8 +14264,7 @@ traje de Carnaval (Verde)
 
 
 
-
-
+bloque elevado
 
 
 
@@ -14277,3 +14277,64 @@ traje de Carnaval (Verde)
 
 
 valla sirena
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+きゅうりのうま
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+つきみだんご
+なすびのうし
