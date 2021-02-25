@@ -9,6 +9,8 @@ namespace NHSE.Tests
     {
         [Theory]
         [InlineData("diner sofa", 0x102D)]
+        [InlineData("? block", 0x35FD)]
+        [InlineData("block", 0x35FE)]
         public static void ParseItem(string name, ushort id)
         {
             // single

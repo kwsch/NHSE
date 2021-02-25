@@ -239,7 +239,15 @@ namespace NHSE.Core
         }
 
         private static readonly CompareInfo Comparer = CultureInfo.InvariantCulture.CompareInfo;
-        private const CompareOptions opt = CompareOptions.IgnoreCase | CompareOptions.IgnoreNonSpace | CompareOptions.IgnoreSymbols | CompareOptions.IgnoreWidth;
+        private const CompareOptions optIncludeSymbols = CompareOptions.IgnoreCase | CompareOptions.IgnoreNonSpace | CompareOptions.IgnoreWidth;
+        private const CompareOptions optIgnoreSymbols = CompareOptions.IgnoreCase | CompareOptions.IgnoreNonSpace | CompareOptions.IgnoreSymbols | CompareOptions.IgnoreWidth;
+
+        /// <summary>
+        /// Gets a sensitive compare option, depending on the input string's qualities.
+        /// </summary>
+        /// <param name="str">Input string</param>
+        /// <returns>Default options if no symbols,</returns>
+        private static CompareOptions GetCompareOption(string str) => str.Any(ch => !char.IsLetterOrDigit(ch) && !char.IsWhiteSpace(ch)) ? optIgnoreSymbols & ~CompareOptions.IgnoreSymbols : optIgnoreSymbols;
 
         /// <summary>
         /// Gets the first item name-value that contains the <see cref="itemName"/> (case insensitive).
@@ -259,7 +267,7 @@ namespace NHSE.Core
         /// <param name="itemName">Requested Item</param>
         /// <param name="strings">Game strings</param>
         /// <returns>Returns <see cref="Item.NO_ITEM"/> if no match found.</returns>
-        public static Item GetItem(string itemName, IEnumerable<ComboItem> strings)
+        public static Item GetItem(string itemName, ICollection<ComboItem> strings)
         {
             if (TryGetItem(itemName, strings, out var id))
                 return new Item(id);
@@ -273,7 +281,14 @@ namespace NHSE.Core
         /// <param name="strings">List of item name-values</param>
         /// <param name="value">Item ID, if found. Otherwise, 0</param>
         /// <returns>True if found, false if none.</returns>
-        public static bool TryGetItem(string itemName, IEnumerable<ComboItem> strings, out ushort value)
+        public static bool TryGetItem(string itemName, ICollection<ComboItem> strings, out ushort value)
+        {
+            if (TryGetItem(itemName, strings, out value, optIncludeSymbols))
+                return true;
+            return TryGetItem(itemName, strings, out value, optIgnoreSymbols);
+        }
+
+        private static bool TryGetItem(string itemName, IEnumerable<ComboItem> strings, out ushort value, CompareOptions opt)
         {
             foreach (var item in strings)
             {
@@ -294,8 +309,9 @@ namespace NHSE.Core
         /// </summary>
         /// <param name="itemName">Item name</param>
         /// <param name="strings">Item names (and their Item ID values)</param>
-        public static IEnumerable<ComboItem> GetItemsMatching(string itemName, IReadOnlyList<ComboItem> strings)
+        public static IEnumerable<ComboItem> GetItemsMatching(string itemName, IEnumerable<ComboItem> strings)
         {
+            var opt = GetCompareOption(itemName);
             foreach (var item in strings)
             {
                 var result = Comparer.IndexOf(item.Text, itemName, opt);
@@ -313,7 +329,7 @@ namespace NHSE.Core
         /// </remarks>
         /// <param name="itemName">Item name</param>
         /// <param name="strings">Item names (and their Item ID values)</param>
-        public static IEnumerable<ComboItem> GetItemsMatchingOrdered(string itemName, IReadOnlyList<ComboItem> strings)
+        public static IEnumerable<ComboItem> GetItemsMatchingOrdered(string itemName, IEnumerable<ComboItem> strings)
         {
             var matches = GetItemsMatching(itemName, strings);
             return GetItemsClosestOrdered(itemName, matches);
