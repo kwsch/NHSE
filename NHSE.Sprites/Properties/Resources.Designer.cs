@@ -4963,6 +4963,16 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap JuiceShamrock {
+            get {
+                object obj = ResourceManager.GetObject("JuiceShamrock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Kabu {
             get {
                 object obj = ResourceManager.GetObject("Kabu", resourceCulture);
