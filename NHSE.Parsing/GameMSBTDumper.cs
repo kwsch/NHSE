@@ -192,21 +192,9 @@ namespace NHSE.Parsing
         private static (string Label, string Text) GetCleanLabelText(MSBTLabel lbl, IList<MSBTTextString> txt)
         {
             var label = lbl.Name;
-
             var index = (int)lbl.Index;
-            var bytes = txt[index];
-            var text = bytes.ToString(Encoding.Unicode);
-            var raw = text.ToCharArray();
-            int format = Array.FindIndex(raw, z => z == '\u000e');
-            if (format == 0) // string formatting present; discard formatting!
-                text = text.Substring(6);
-
-            int junk = Array.FindIndex(text.ToCharArray(), z => z == '\u000e');
-            if (junk != -1) // string formatting present; discard formatting! (german)
-                text = text.Substring(0, junk);
-
-            text = StringUtil.TrimFromZero(text);
-
+            var strObj = txt[index];
+            var text = strObj.ToStringNoAtoms();
             return (label, text);
         }
 

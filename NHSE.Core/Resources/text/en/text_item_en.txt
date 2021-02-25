@@ -2755,7 +2755,7 @@ party popper
 simple well
 Blathers's tent marker
 shop construction kit
- tent
+'s tent
 
 
 
@@ -5355,7 +5355,7 @@ elegant hat (Purple)
 
 
 
- kit
+'s kit
 moving kit
 tailors moving kit
 shop moving kit
@@ -14018,7 +14018,7 @@ Festivale costume (Blue)
 
 
 
-
+π pie
 
 
 
