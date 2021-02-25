@@ -267,7 +267,7 @@ namespace NHSE.Core
         /// <param name="itemName">Requested Item</param>
         /// <param name="strings">Game strings</param>
         /// <returns>Returns <see cref="Item.NO_ITEM"/> if no match found.</returns>
-        public static Item GetItem(string itemName, ICollection<ComboItem> strings)
+        public static Item GetItem(string itemName, IReadOnlyList<ComboItem> strings)
         {
             if (TryGetItem(itemName, strings, out var id))
                 return new Item(id);
@@ -281,7 +281,7 @@ namespace NHSE.Core
         /// <param name="strings">List of item name-values</param>
         /// <param name="value">Item ID, if found. Otherwise, 0</param>
         /// <returns>True if found, false if none.</returns>
-        public static bool TryGetItem(string itemName, ICollection<ComboItem> strings, out ushort value)
+        public static bool TryGetItem(string itemName, IReadOnlyList<ComboItem> strings, out ushort value)
         {
             if (TryGetItem(itemName, strings, out value, optIncludeSymbols))
                 return true;
