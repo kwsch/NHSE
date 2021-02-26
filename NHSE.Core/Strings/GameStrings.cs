@@ -214,16 +214,17 @@ namespace NHSE.Core
         /// <returns>Map of ItemID, ItemName</returns>
         public List<ComboItem> GetAssociatedItems(ushort id, out string baseItemName)
         {
+            baseItemName = string.Empty;
             var stringMatch = GetItemName(id);
             var index = stringMatch.IndexOf('(');
             if (index < 0)
-            {
-                baseItemName = string.Empty;
                 return new List<ComboItem>();
-            }
 
             var search = baseItemName = stringMatch.Substring(0, index);
-            return ItemDataSource.FindAll(x => x.Text.StartsWith(search));
+            if (!string.IsNullOrWhiteSpace(search))
+                return ItemDataSource.FindAll(x => x.Text.StartsWith(search));
+            else
+                return new List<ComboItem>();
         }
     }
 
