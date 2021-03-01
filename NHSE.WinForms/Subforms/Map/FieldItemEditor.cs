@@ -389,7 +389,8 @@ namespace NHSE.WinForms
             }
 
             bool wholeMap = (ModifierKeys & Keys.Shift) != 0;
-            var count = View.ReplaceFieldItems(tile, pgt, wholeMap);
+            var copy = new Item(tile.RawValue);
+            var count = View.ReplaceFieldItems(copy, pgt, wholeMap);
             if (count == 0)
             {
                 WinFormsUtil.Alert(MessageStrings.MsgFieldItemModifyNone);
