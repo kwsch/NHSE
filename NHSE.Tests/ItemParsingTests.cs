@@ -37,6 +37,7 @@ namespace NHSE.Tests
         {
             public bool WrapAllItems { get; } = true;
             public ItemWrappingPaper WrappingPaper { get; } = ItemWrappingPaper.Black;
+            public bool SkipDropCheck { get; } = false;
         }
     }
 }

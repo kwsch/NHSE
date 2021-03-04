@@ -227,7 +227,7 @@ namespace NHSE.Core
         {
             if (type == ItemDestination.PlayerDropped)
             {
-                if (!ItemInfo.IsSaneItemForDrop(item))
+                if (!ItemInfo.IsSaneItemForDrop(item) && !config.SkipDropCheck)
                     throw new Exception($"Unsupported item: (index {requestIndex}).");
                 if (config.WrapAllItems && item.ShouldWrapItem())
                     item.SetWrapping(ItemWrapping.WrappingPaper, config.WrappingPaper, true);

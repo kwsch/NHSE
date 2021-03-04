@@ -14,5 +14,10 @@
         /// Wrapping paper type applied if <see cref="WrapAllItems"/> is set.
         /// </summary>
         ItemWrappingPaper WrappingPaper { get; }
+
+        /// <summary>
+        /// Checks if the Drop Compatibility check should be skipped.
+        /// </summary>
+        bool SkipDropCheck { get; }
     }
 }

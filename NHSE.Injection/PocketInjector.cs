@@ -12,6 +12,8 @@ namespace NHSE.Injection
 
         public uint WriteOffset { private get; set; }
         public bool ValidateEnabled { get; set; } = true;
+        public bool SpoofInventoryWrite { get; set; } = false;
+        private static readonly Item DroppableOnlyItem = new(0x9C9); // Gold nugget
 
         public PocketInjector(IReadOnlyList<Item> items, IRAMReadWriter bot)
         {
@@ -50,7 +52,9 @@ namespace NHSE.Injection
 
             var orig = (byte[])data.Clone();
 
-            PlayerItemSet.WritePlayerInventory(data, Items);
+            var items = !SpoofInventoryWrite ? Items : Enumerable.Repeat(DroppableOnlyItem, Items.Count).ToArray();
+
+            PlayerItemSet.WritePlayerInventory(data, items);
 
             if (data.SequenceEqual(orig))
                 return InjectionResult.Same;

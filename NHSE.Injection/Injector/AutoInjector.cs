@@ -5,7 +5,7 @@ namespace NHSE.Injection
 {
     public class AutoInjector
     {
-        private readonly IDataInjector Injector;
+        public readonly IDataInjector Injector;
         private readonly Action<InjectionResult> AfterRead;
         private readonly Action<InjectionResult> AfterWrite;
 
