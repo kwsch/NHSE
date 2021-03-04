@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Injection;
@@ -29,6 +30,10 @@ namespace NHSE.WinForms
             DialogResult = DialogResult.Cancel;
             LoadItems = () => Editor.LoadItems();
             B_Inject.Visible = sysbot;
+
+            EnableDragDrop(this, ItemEditor_DragEnter, PlayerItemEditor_DragDrop);
+            EnableDragDrop(PAN_Items, ItemEditor_DragEnter, PlayerItemEditor_DragDrop);
+            EnableDragDrop(ItemEditor, ItemEditor_DragEnter, PlayerItemEditor_DragDrop);
         }
 
         private void B_Cancel_Click(object sender, EventArgs e) => Close();
@@ -120,6 +125,51 @@ namespace NHSE.WinForms
             ItemGrid.ItemChanged = () => ai.Write();
             var sysbot = new SysBotUI(ai, sb, aiUSB, ub);
             sysbot.Show();
+        }
+
+        private void ItemEditor_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.Copy;
+        }
+
+        private void PlayerItemEditor_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+            if (files.Length != 1 || Directory.Exists(files[0]))
+                return;
+
+            string path = files[0]; // open first D&D
+            var fi = new FileInfo(path);
+            if (fi.Length > ItemArray.TotalSize || fi.Length % Item.SIZE != 0)
+                return;
+
+            System.Media.SystemSounds.Asterisk.Play();
+            var data = File.ReadAllBytes(path);
+            if (sender == ItemEditor)
+            {
+                var item = new Item(BitConverter.ToUInt64(data, 0));
+                ItemEditor.LoadItem(item);
+            }
+            else
+            {
+                bool skipOccupiedSlots = (ModifierKeys & Keys.Alt) != 0;
+                ImportItemData(data, skipOccupiedSlots);
+            }
+        }
+
+        public void EnableDragDrop(Control parent, DragEventHandler enter, DragEventHandler drop)
+        {
+            parent.AllowDrop = true;
+            parent.DragEnter += enter;
+            parent.DragDrop += drop;
+            foreach (var control in parent.Controls.OfType<PictureBox>())
+            {
+                control.AllowDrop = true;
+                control.DragEnter += enter;
+                control.DragDrop += drop;
+            }
         }
     }
 }
