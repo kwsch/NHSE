@@ -257,8 +257,17 @@ namespace NHSE.Core
         /// <returns>Returns <see cref="Item.NO_ITEM"/> if no match found.</returns>
         public static Item GetItem(string itemName, string lang = "en")
         {
-            var strings = GameInfo.GetStrings(lang).ItemDataSource;
-            return GetItem(itemName, strings);
+            var gStrings = GameInfo.GetStrings(lang);
+            var strings = gStrings.ItemDataSource;
+            var parsedItem = GetItem(itemName, strings);
+            if (parsedItem != Item.NO_ITEM)
+                return parsedItem;
+
+            if (gStrings.HasAssociatedItems(itemName, out var items))
+                if (items != null && items.Count == 1)
+                    return new Item((ushort)items[0].Value);
+
+            return Item.NO_ITEM;
         }
 
         /// <summary>

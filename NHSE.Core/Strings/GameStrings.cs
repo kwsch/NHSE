@@ -226,6 +226,24 @@ namespace NHSE.Core
             else
                 return new List<ComboItem>();
         }
+
+
+        public bool HasAssociatedItems(string baseName, out List<ComboItem>? items)
+        {
+            if (string.IsNullOrWhiteSpace(baseName))
+            {
+                items = null;
+                return false;
+            }
+
+            baseName = baseName.Trim().ToLower();
+            if (!baseName.EndsWith(" "))
+                baseName += " ";
+            baseName += "(";
+
+            items = ItemDataSource.FindAll(x => x.Text.ToLower().StartsWith(baseName));
+            return items.Count > 0;
+        }
     }
 
     public interface IRemakeString

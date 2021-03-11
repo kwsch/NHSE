@@ -11,6 +11,7 @@ namespace NHSE.Tests
         [InlineData("diner sofa", 0x102D)]
         [InlineData("? block", 0x35FD)]
         [InlineData("block", 0x35FE)]
+        [InlineData("dal apron", 0x2F5E)]
         public static void ParseItem(string name, ushort id)
         {
             // single
@@ -31,6 +32,18 @@ namespace NHSE.Tests
                 hex.Count.Should().Be(1);
                 hex.ToList()[0].ItemId.Should().Be(id);
             }
+        }
+
+        [Theory]
+        [InlineData("royal Crown", 0x14BB)]
+        [InlineData("royal crown (red)", 0x14BB)]
+        [InlineData("bug aloha shirt ", 0x223C)]
+        [InlineData("quaint painting", 0xA)]
+        [InlineData("(none)", Item.NONE)]
+        public static void ParseAssociatedItem(string nameNoParenthesis, ushort id)
+        {
+            var parse = ItemParser.GetItem(nameNoParenthesis);
+            parse.ItemId.Should().Be(id);
         }
 
         private class ConfigWrapFake : IConfigItem
