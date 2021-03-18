@@ -24,7 +24,7 @@ namespace NHSE.Core
             {0x01, new EventFlagVillagerMemoryPlayer(0 , 7  , 001, "ContinuousTalkDays"                         )}, // 何日連続で話しかけられたか
             {0x02, new EventFlagVillagerMemoryPlayer(0 , 1  , 002, "SameLand"                                   )}, // 同じ村に住んでいたことがあるか
             {0x03, new EventFlagVillagerMemoryPlayer(0 , 1  , 003, "SetGreeting"                                )}, // 挨拶を設定したことがある
-            {0x04, new EventFlagVillagerMemoryPlayer(0 , 1  , 004, "EasterGetRecipeFlag"                        )}, // イースター|今日このNPCからレシピを受け取った
+            {0x04, new EventFlagVillagerMemoryPlayer(0 , 1  , 004, "EasterGetRecipeFlag"                        )}, // イースター|今日このNPCからアイテムを受け取った
             {0x05, new EventFlagVillagerMemoryPlayer(0 , 1  , 005, "TalkProgressMuseumBuilt2"                   )}, // 博物館2への拡張に関するFreeH_Progressを聞いたか？
             {0x06, new EventFlagVillagerMemoryPlayer(0 , 1  , 006, "NextMoveOutTalk"                            )}, // 引越ししたい会話したか
             {0x07, new EventFlagVillagerMemoryPlayer(0 , 1  , 007, "TalkMoveOut"                                )}, // 引越していく状態で会話したか
@@ -145,7 +145,7 @@ namespace NHSE.Core
             {0x7C, new EventFlagVillagerMemoryPlayer(0 , 1  , 124, "FriendshipBecomeAcqHToday"                  )}, // 今日親密度が知人（高）に到達した
             {0x7D, new EventFlagVillagerMemoryPlayer(0 , 1  , 125, "FriendshipBecomeAcqH"                       )}, // 親密度が知人（高）に到達済み
             {0x7E, new EventFlagVillagerMemoryPlayer(0 , 3  , 126, "DC_NPCBirthdayFlag"                         )}, // NPC誕生日|おでかけ先の村でもらうお返しの種類
-            {0x7F, new EventFlagVillagerMemoryPlayer(0 , 1  , 127, "EasterCannotGetNnpcRecipeFlag"              )}, // イースター|このNPCから受け取り損ねたレシピがある？
+            {0x7F, new EventFlagVillagerMemoryPlayer(0 , 1  , 127, "EasterCannotGetNnpcRecipeFlag"              )}, // イースター|このNPCから受け取り損ねたアイテムがある？
             {0x81, new EventFlagVillagerMemoryPlayer(0 , 1  , 129, "HalloweenTerrifyFlag"                       )}, // ハロウィン|今日パンプキングの恰好で脅かした？
             {0x82, new EventFlagVillagerMemoryPlayer(0 , 1  , 130, "HalloweenGetCandyFlag"                      )}, // ハロウィン|今日このNPCからアメもらった？
             {0x83, new EventFlagVillagerMemoryPlayer(0 , 1  , 131, "FireworksGetItemFlag"                       )}, // 花火大会|このNPCからリアクション会話で花火を受け取った
@@ -171,6 +171,10 @@ namespace NHSE.Core
             {0x99, new EventFlagVillagerMemoryPlayer(0 , 1  , 153, "CarnvalTalkOutdoorFlag"                     )}, // 一般NPC/カーニバル|今日屋外で会話した？
             {0x9A, new EventFlagVillagerMemoryPlayer(0 , 1  , 154, "CarnvalExchangeFeatherTalkFlag"             )}, // 一般NPC/カーニバル|このNPCとはね交換の会話をした？
             {0x9B, new EventFlagVillagerMemoryPlayer(0 , 1  , 155, "ValentinePresentFlag"                       )}, // バレンタイン|バレンタインのプレゼント渡した？
+            {0x9C, new EventFlagVillagerMemoryPlayer(0 , 1  , 156, "EasterTalkOutdoorFlag"                      )}, // 一般NPC/イースター|今日屋外で会話した？
+            {0x9D, new EventFlagVillagerMemoryPlayer(0 , 1  , 157, "EasterExchangeEggFlag"                      )}, // 一般NPC/イースターこのNPCとたまご交換した？
+            {0x9E, new EventFlagVillagerMemoryPlayer(0 , 1  , 158, "EasterExchangeEggTalkFlag"                  )}, // 一般NPC/イースター|このNPCとたまご交換の会話をした？
+            {0x9F, new EventFlagVillagerMemoryPlayer(0 , 1  , 159, "EasterCannotGetNnpcIsRecipeFlag"            )}, // イースター|このNPCから受け取り損ねたのはレシピか
         };
 
         private const string Unknown = "???";

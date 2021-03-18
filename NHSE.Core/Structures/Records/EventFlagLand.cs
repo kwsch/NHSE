@@ -33,7 +33,7 @@ namespace NHSE.Core
             {0x00A, new EventFlagLand(0 , -1   , 0010, "RandomKey"                                  )}, // ランダムキー
             {0x00B, new EventFlagLand(0 , 1    , 0011, "DoneMuseumConstruction"                     )}, // 博物館建築工事完了
             {0x00C, new EventFlagLand(0 , 1    , 0012, "Prologue4BuiltPlayer"                       )}, // 序盤プレイヤーテント設置したか？
-            {0x00D, new EventFlagLand(0 , 1    , 0013, "Plorogue4BuiltMuseum"                       )}, // フータテント予定地設置したか？
+            {0x00D, new EventFlagLand(0 , 1    , 0013, "Plorogue4BuiltMuseum"                       )}, // 博物館|フータテント予定地設置したか？
             {0x00E, new EventFlagLand(0 , 1    , 0014, "Prologue4BuiltShop"                         )}, // 商店の工事看板設置したか？
             {0x00F, new EventFlagLand(0 , 1    , 0015, "Prologue4BuiltNpcAN"                        )}, // 序盤ANテント設置したか？
             {0x010, new EventFlagLand(0 , 1    , 0016, "Prologue4BuiltNpcHA"                        )}, // 序盤HAテント設置したか？
@@ -276,14 +276,14 @@ namespace NHSE.Core
             {0x121, new EventFlagLand(0 , 10   , 0289, "CampRandomSelectMoveOutNpc"                 )}, // キャンプ場|ランダム選出転出NPCが何番目の住人か？(0:未抽選/抽選対象なし)
             {0x122, new EventFlagLand(0 , 1    , 0290, "CampFireRemoved"                            )}, // 広場のキャンプファイアー撤去（実際の撤去とは連動してません）
             {0x125, new EventFlagLand(0 , 1    , 0293, "UnlockEaster"                               )}, // BCATにてイースター解禁
-            {0x126, new EventFlagLand(0 , 5    , 0294, "MuseumConstruction2"                        )}, // 博物館1→2への工事中
-            {0x127, new EventFlagLand(0 , 1    , 0295, "MuseumGrowupEnable2"                        )}, // 博物館2への成長条件達成
+            {0x126, new EventFlagLand(0 , 5    , 0294, "MuseumConstruction2"                        )}, // 博物館1→2(美術部屋追加)への工事中
+            {0x127, new EventFlagLand(0 , 1    , 0295, "MuseumGrowupEnable2"                        )}, // 博物館2(美術部屋追加)への成長条件達成
             {0x130, new EventFlagLand(0 , 1    , 0304, "OwlWantsPainting"                           )}, // フータの絵画クエストを開始した
             {0x131, new EventFlagLand(0 , 10   , 0305, "CampTodaySelectMoveOutNpc"                  )}, // キャンプ場|強制転出NPCが何番目の住人か？(0:未抽選/抽選対象なし)
-            {0x132, new EventFlagLand(0 , 1    , 0306, "Museum3Built"                               )}, // 博物館②完成
-            {0x133, new EventFlagLand(0 , 1    , 0307, "Museum3BuiltToday"                          )}, // 博物館②完成当日か？
-            {0x134, new EventFlagLand(0 , 10000, 0308, "CountMuseum2AfterBuild"                     )}, // 博物館②|オープンして何日目か
-            {0x135, new EventFlagLand(0 , 1    , 0309, "Museum2ConstructionToday"                   )}, // 今日、博物館②工事当日であるか？
+            {0x132, new EventFlagLand(0 , 1    , 0306, "Museum3Built"                               )}, // 博物館②(美術部屋追加)完成
+            {0x133, new EventFlagLand(0 , 1    , 0307, "Museum3BuiltToday"                          )}, // 博物館②(美術部屋追加)完成当日か？
+            {0x134, new EventFlagLand(0 , 10000, 0308, "CountMuseum2AfterBuild"                     )}, // 博物館②(美術部屋追加)|オープンして何日目か
+            {0x135, new EventFlagLand(0 , 1    , 0309, "Museum2ConstructionToday"                   )}, // 今日、博物館②(美術部屋追加)工事当日であるか？
             {0x136, new EventFlagLand(0 , 1    , 0310, "GrowUpAfterPatch1_1"                        )}, // 1.1適用して成長処理をした
             {0x137, new EventFlagLand(0 , 1    , 0311, "GrowUpAfterPatch1_2"                        )}, // 1.2適用して成長処理をした
             {0x138, new EventFlagLand(0 , 1    , 0312, "GrowUpAfterPatch1_3"                        )}, // 1.3適用して成長処理をした
@@ -374,10 +374,16 @@ namespace NHSE.Core
             {0x19D, new EventFlagLand(0 , 1    , 0413, "BCAT_EventFlag_007"                         )}, // カーニバル本番、バレンタイン本番解禁
             {0x19E, new EventFlagLand(0 , 1    , 0414, "BCAT_EventFlag_008"                         )}, // マリオコラボ解禁
             {0x19F, new EventFlagLand(0 , 1    , 0415, "GrowUpAfterPatch1_8"                        )}, // 1.8適用して成長処理をした
+            {0x1A0, new EventFlagLand(0 , 1    , 0416, "GrowUpAfterPatch1_9"                        )}, // 1.9適用して成長処理をした
+            {0x1A1, new EventFlagLand(0 , -1   , 0417, "RandomKey9"                                 )}, // ランダムキーi
+            {0x1A2, new EventFlagLand(0 , 1    , 0418, "BCAT_EventFlag_009"                         )}, // イースター2年目準備解禁
             {0x1A3, new EventFlagLand(0 , 9999 , 0419, "ValentineAddBbsYear"                        )}, // バレンタイン予告の掲示板書き込みをした年
             {0x1A4, new EventFlagLand(0 , 9999 , 0420, "CarnivalAddBbsYear"                         )}, // カーニバル予告の掲示板書き込みをした年
             {0x1A5, new EventFlagLand(0 , 1    , 0421, "CarnivalNpcFeatherColorDecided"             )}, // カーニバル｜NPCが欲しがる羽の色決定済み
             {0x1A6, new EventFlagLand(0 , 1    , 0422, "CarnivalEventPlazaNpcWander"                )}, // カーニバル｜広場行動NPCがぶらつくか
+            {0x1AD, new EventFlagLand(0 , 1    , 0429, "BCAT_EventFlag_010"                         )}, // イースター2年目本番解禁
+            {0x1AE, new EventFlagLand(0 , -1   , 0430, "RandomKey10"                                )}, // ランダムキーj
+            {0x1B5, new EventFlagLand(0 , 1    , 0437, "AOC_EventFlag_002"                          )}, // AOC同期フラグ| 002 1.9.0NSO加入特典
         };
 
         private const string Unknown = "???";

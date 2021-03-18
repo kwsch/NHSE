@@ -74,6 +74,7 @@ namespace NHSE.Core
             {0x040, new EventFlagVillager(0 , 1   , 0064, "HarvestDemoEndWait"                         )}, // ハーベスト｜デモ終了待機中か？
             {0x041, new EventFlagVillager(0 , 1   , 0065, "WoreNewYearHat"                             )}, // カウントダウン｜ニューイヤーハットを被った
             {0x042, new EventFlagVillager(0 , 1   , 0066, "HarvestDemoStateNow"                        )}, // ハーベスト｜デモ参加状態か？
+            {0x046, new EventFlagVillager(0 , 36  , 0070, "WearItemLayer1LayoutLimit"                  )}, // 成長処理家具入替時の装備品の二層目配置候補上限数
         };
 
         private const string Unknown = "???";
