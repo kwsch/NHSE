@@ -457,9 +457,8 @@
 
         public static readonly FileHashInfo REV_190 = new(new FileHashDetails[]
         {
-            new(FN_MAIN, REV_170_MAIN, new FileHashRegion[]
+            new(FN_MAIN, REV_190_MAIN, new FileHashRegion[]
             {
-                
                 new(0x000110, 0x1e215c),
                 new(0x1e2270, 0x34582c),
                 new(0x527bb0, 0x03693c),
@@ -480,20 +479,20 @@
                 new(0x81ae90, 0x02d70c),
                 new(0x8485a0, 0x024fbc),
             }),
-            new(FN_PERSONAL, REV_170_PERSONAL, new FileHashRegion[]
+            new(FN_PERSONAL, REV_190_PERSONAL, new FileHashRegion[]
             {
                 new(0x00110, 0x3693c),
                 new(0x36a50, 0x2d70c),
             }),
-            new(FN_POSTBOX, REV_170_POSTBOX, new FileHashRegion[]
+            new(FN_POSTBOX, REV_190_POSTBOX, new FileHashRegion[]
             {
                 new(0x000100, 0x4732c)
             }),
-            new(FN_PHOTO, REV_170_PHOTO, new FileHashRegion[]
+            new(FN_PHOTO, REV_190_PHOTO, new FileHashRegion[]
             {
                 new(0x000100, 0x2C8BC)
             }),
-            new(FN_PROFILE, REV_170_PROFILE, new FileHashRegion[]
+            new(FN_PROFILE, REV_190_PROFILE, new FileHashRegion[]
             {
                 new(0x000100, 0x6945C)
             }),
