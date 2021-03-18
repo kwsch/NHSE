@@ -451,6 +451,9 @@
   <data name="cbr17" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\cbr17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cbr18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villagers\cbr18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="cbr19" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\cbr19.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -591,6 +594,9 @@
   </data>
   <data name="der09" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\der09.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="der10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villagers\der10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DIYAcorn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIcon\DIYAcorn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -768,6 +774,9 @@
   </data>
   <data name="elp10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\elp10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="elp11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villagers\elp11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="elp12" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\elp12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1179,6 +1188,9 @@
   </data>
   <data name="gor10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\gor10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gor11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villagers\gor11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GPachinko" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIcon\GPachinko.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -2389,6 +2401,9 @@
   <data name="rbt19" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\rbt19.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="rbt20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villagers\rbt20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="RemakeKit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIcon\RemakeKit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -2550,6 +2565,9 @@
   </data>
   <data name="shp13" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\shp13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shp14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villagers\shp14.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="shp15" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\shp15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

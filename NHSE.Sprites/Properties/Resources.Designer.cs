@@ -1173,6 +1173,16 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cbr18 {
+            get {
+                object obj = ResourceManager.GetObject("cbr18", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cbr19 {
             get {
                 object obj = ResourceManager.GetObject("cbr19", resourceCulture);
@@ -1636,6 +1646,16 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap der09 {
             get {
                 object obj = ResourceManager.GetObject("der09", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap der10 {
+            get {
+                object obj = ResourceManager.GetObject("der10", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2226,6 +2246,16 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap elp10 {
             get {
                 object obj = ResourceManager.GetObject("elp10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap elp11 {
+            get {
+                object obj = ResourceManager.GetObject("elp11", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -3596,6 +3626,16 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap gor10 {
             get {
                 object obj = ResourceManager.GetObject("gor10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gor11 {
+            get {
+                object obj = ResourceManager.GetObject("gor11", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -7633,6 +7673,16 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap rbt20 {
+            get {
+                object obj = ResourceManager.GetObject("rbt20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RemakeKit {
             get {
                 object obj = ResourceManager.GetObject("RemakeKit", resourceCulture);
@@ -8166,6 +8216,16 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap shp13 {
             get {
                 object obj = ResourceManager.GetObject("shp13", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shp14 {
+            get {
+                object obj = ResourceManager.GetObject("shp14", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
