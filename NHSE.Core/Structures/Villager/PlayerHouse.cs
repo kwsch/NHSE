@@ -69,7 +69,7 @@ namespace NHSE.Core
             set => value.ToBytesClass().CopyTo(Data, 0x263D4);
         }
 
-        public bool PlayerHouseFlag { get => Data[0x263DC] != 0; set => Data[0x263DC] = value ? 1 : 0; }
+        public bool PlayerHouseFlag { get => Data[0x263DC] != 0; set => Data[0x263DC] = (byte)(value ? 1 : 0); }
 
         public Item PostItemName
         {

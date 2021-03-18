@@ -446,5 +446,59 @@
         public static readonly FileHashInfo REV_180 = new(REV_170);
 
         #endregion
+
+        #region REVISION 1.9.0
+
+        internal const int REV_190_MAIN = 0x86D560;
+        internal const int REV_190_PERSONAL = 0x64160;
+        internal const int REV_190_POSTBOX = REV_170_POSTBOX;
+        internal const int REV_190_PHOTO = REV_120_PHOTO;
+        internal const int REV_190_PROFILE = REV_110_PROFILE;
+
+        public static readonly FileHashInfo REV_190 = new(new FileHashDetails[]
+        {
+            new(FN_MAIN, REV_170_MAIN, new FileHashRegion[]
+            {
+                
+                new(0x000110, 0x1e215c),
+                new(0x1e2270, 0x34582c),
+                new(0x527bb0, 0x03693c),
+                new(0x55e4f0, 0x02d70c),
+                new(0x58bd10, 0x03693c),
+                new(0x5c2650, 0x02d70c),
+                new(0x5efe70, 0x03693c),
+                new(0x6267b0, 0x02d70c),
+                new(0x653fd0, 0x03693c),
+                new(0x68a910, 0x02d70c),
+                new(0x6b8130, 0x03693c),
+                new(0x6eea70, 0x02d70c),
+                new(0x71c290, 0x03693c),
+                new(0x752bd0, 0x02d70c),
+                new(0x7803f0, 0x03693c),
+                new(0x7b6d30, 0x02d70c),
+                new(0x7e4550, 0x03693c),
+                new(0x81ae90, 0x02d70c),
+                new(0x8485a0, 0x024fbc),
+            }),
+            new(FN_PERSONAL, REV_170_PERSONAL, new FileHashRegion[]
+            {
+                new(0x00110, 0x3693c),
+                new(0x36a50, 0x2d70c),
+            }),
+            new(FN_POSTBOX, REV_170_POSTBOX, new FileHashRegion[]
+            {
+                new(0x000100, 0x4732c)
+            }),
+            new(FN_PHOTO, REV_170_PHOTO, new FileHashRegion[]
+            {
+                new(0x000100, 0x2C8BC)
+            }),
+            new(FN_PROFILE, REV_170_PROFILE, new FileHashRegion[]
+            {
+                new(0x000100, 0x6945C)
+            }),
+        });
+
+        #endregion
     }
 }

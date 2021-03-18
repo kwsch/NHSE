@@ -3,8 +3,8 @@
     /// <summary>
     /// <inheritdoc cref="PersonalOffsets"/>
     /// </summary>
-    /// <remarks>Same as <see cref="PersonalOffsets17"/>.</remarks>
-    public sealed class PersonalOffsets18 : PersonalOffsets
+    /// <remarks>Same as <see cref="PersonalOffsets18"/>.</remarks>
+    public sealed class PersonalOffsets19 : PersonalOffsets
     {
         private const int Player = 0x110;
 

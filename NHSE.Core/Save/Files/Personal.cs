@@ -164,7 +164,7 @@ namespace NHSE.Core
         public bool ProfileIsMakeVillage
         {
             get => Data[Offsets.ProfileIsMakeVillage] != 0;
-            set => Data[Offsets.ProfileIsMakeVillage] = value ? 1 : 0;
+            set => Data[Offsets.ProfileIsMakeVillage] = (byte)(value ? 1 : 0);
         }
 
         #endregion
