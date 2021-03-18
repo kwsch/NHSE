@@ -3410,6 +3410,10 @@
 13832_0	Yellow
 13832_1	Pink
 13832_2	Green
+13927_0	Turquoise
+13927_1	Gray
+13927_2	Coral
+13927_3	Yellow
 13930_0	Colorful
 13930_1	Cute
 13930_2	Cool
@@ -3422,3 +3426,6 @@
 14029_3	Purple
 14029_4	White
 14029_5	Black
+14340_0	Red
+14340_1	Green
+14340_2	Yellow

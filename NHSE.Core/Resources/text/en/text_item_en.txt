@@ -3657,7 +3657,7 @@ racing outfit (Red)
 
 
 bamboo basket
-
+sequin dress (Pink)
 skirt with suspenders (Red)
 
 box-skirt uniform (Navy blue)
@@ -4262,7 +4262,7 @@ long chino skirt (Beige)
 
 striped dress (Black)
 double-bridge glasses (Gold)
-
+bubble-skirt party dress (Pink)
 linen dress (Black)
 down skirt (Blue)
 muscle tank (Gray)
@@ -4559,7 +4559,7 @@ retro A-line dress (Pink)
 hip-wrap shirt (Yellow)
 tee dress (Black)
 sparkly embroidered tank (Red)
-
+ballroom mask (White)
 
 visual-punk outfit (Black)
 
@@ -4585,7 +4585,7 @@ house-print dress (White)
 forest-print dress (Green)
 
 rugby uniform (Red & white)
-
+slip dress (Blue)
 iron armor (Gray)
 long down coat (Black)
 gold armor (Gold)
@@ -6055,7 +6055,7 @@ stagehand hat (Black)
 pom casquette (Brown)
 tam-o'-shanter (Red)
 
-
+elegant masquerade mask (Red)
 ちず
 
 
@@ -7868,13 +7868,13 @@ elaborate kimono stand
 angled signpost
 surfboard
 blue balloon
-
-
-
-
-
-
-
+sequin dress (Red)
+sequin dress (Black)
+sequin dress (Yellow)
+sequin dress (White)
+sequin dress (Blue)
+sequin dress (Purple)
+sequin dress (Green)
 retro sleeveless dress (Green)
 retro sleeveless dress (Red)
 retro sleeveless dress (Pink)
@@ -7890,13 +7890,13 @@ flapper dress (Pink)
 flapper dress (Green)
 astro dress (Green)
 astro dress (Pink)
-
-
-
-
-
-
-
+bubble-skirt party dress (Purple)
+bubble-skirt party dress (Blue)
+bubble-skirt party dress (Light blue)
+bubble-skirt party dress (Green)
+bubble-skirt party dress (Yellow)
+bubble-skirt party dress (Orange)
+bubble-skirt party dress (Red)
 
 
 rad power skirt suit (Pink)
@@ -7928,11 +7928,11 @@ marble-print dress (Pink)
 marble-print dress (Green)
 marble-print dress (Orange)
 marble-print dress (Purple)
-
-
-
-
-
+slip dress (Black)
+slip dress (Orange)
+slip dress (Yellow)
+slip dress (Gray)
+slip dress (Red)
 
 
 
@@ -10169,19 +10169,19 @@ mary janes (Green)
 mary janes (Pink)
 flip-flops (Yellow)
 lace socks (Beige)
-
-
-
-
-
-
+Hello Kitty wall
+Cinnamoroll wall
+My Melody wall
+Pompompurin wall
+Kerokerokeroppi wall
+Kiki & Lala wall
 water shoes (Light blue)
-
-
-
-
-
-
+Kerokerokeroppi flooring
+Kiki & Lala flooring
+My Melody flooring
+Pompompurin flooring
+Cinnamoroll flooring
+Hello Kitty flooring
 hard-shell backpack (Red)
 camo pants (Avocado)
 camo pants (Pink)
@@ -11113,12 +11113,12 @@ baseball uniform (Yellow)
 
 light bamboo rug
 dark bamboo rug
-
-
-
-
-
-
+Rilla's photo
+Marty's photo
+Étoile's photo
+Chai's photo
+Chelsea's photo
+Toby's photo
 Hello Kitty poster
 Pompompurin poster
 Kiki & Lala poster
@@ -11157,7 +11157,7 @@ eye mask (Gray)
 eye mask (Green)
 eye mask (Orange)
 eye mask (Red)
-
+ballroom mask (Black)
 gas mask (Avocado)
 masquerade mask (Black)
 masquerade mask (Blue)
@@ -11173,7 +11173,7 @@ fox mask (Black)
 
 
 
-
+elegant masquerade mask (Blue)
 chic tearoom wall
 soothing tearoom wall
 modern tearoom wall
@@ -12239,6 +12239,40 @@ festive top set
 
 
 
+Hello Kitty drawers
+Kiki & Lala clock
+Kiki & Lala table
+Kiki & Lala sofa
+Kiki & Lala cloud maker
+Cinnamoroll table
+Cinnamoroll parasol
+Cinnamoroll signage
+Kerokerokeroppi hallway
+Cinnamoroll stool
+Cinnamoroll tray
+Kerokerokeroppi tray
+Kerokerokeroppi snack
+Kerokerokeroppi lantern
+Kerokerokeroppi bridge
+Kiki & Lala bed
+Pompompurin TV
+Pompompurin pudding
+Pompompurin table
+Pompompurin rack
+Pompompurin chair
+Pompompurin bed
+My Melody table
+My Melody dresser
+My Melody chair
+My Melody clock
+My Melody bed
+Hello Kitty clock
+Hello Kitty chair
+Hello Kitty table
+Hello Kitty bed
+Hello Kitty planter
+Cinnamoroll sofa
+Kerokerokeroppi doll
 
 
 
@@ -12252,46 +12286,12 @@ festive top set
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Cinnamoroll rug
+Kerokerokeroppi rug
+Kiki & Lala rug
+Hello Kitty rug
+My Melody rug
+Pompompurin rug
 Flimsy Axe Recipe
 
 
@@ -13031,12 +13031,12 @@ horizontal-striped tights (Orange)
 
 
 
-
-
-
-
-
-
+Rilla's poster
+Marty's poster
+Étoile's poster
+Chai's poster
+Chelsea's poster
+Toby's poster
 
 
 
@@ -13163,6 +13163,26 @@ Nook Inc. handheld pennant
 
 
 
+Hello Kitty hat (White)
+Hello Kitty tee (Blue)
+Hello Kitty shoes (White)
+My Melody hood (Pink)
+My Melody boots (Pink)
+Kiki & Lala pin (Yellow)
+Kiki & Lala tee (Pink)
+Kiki & Lala socks (Pink)
+Kiki & Lala wand
+Kiki & Lala shoes (Pink)
+Pompompurin hat (Yellow)
+Pompompurin tee (Yellow)
+Pompompurin boots (Yellow)
+Cinnamoroll jacket (Light blue)
+Cinnamoroll sneakers (Light blue)
+Kerokerokeroppi outfit (Green)
+Kerokerokeroppi tank top (Red)
+Kerokerokeroppi pin (White)
+Kerokerokeroppi socks (Red)
+Kerokerokeroppi boots (Green)
 
 
 
@@ -13173,27 +13193,7 @@ Nook Inc. handheld pennant
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Custom Design Pro Editor+
 lollipop
 candy
 
@@ -13274,7 +13274,7 @@ Exploring New Eye Colors
 
 
 spooky fence
-
+Hello Kitty dress (Blue)
 
 
 
@@ -13295,6 +13295,8 @@ Ring-Con
 
 
 
+Cinnamoroll hat (White)
+Cinnamoroll puffy blouse (Light blue)
 
 
 
@@ -13311,9 +13313,7 @@ Ring-Con
 
 
 
-
-
-
+Nook Inc. poster
 
 
 Turkey Day wall
@@ -13431,7 +13431,7 @@ mage's boots (White)
 mage's boots (Green)
 mage's boots (Red)
 mage's boots (Black)
-
+Kiki & Lala dress (Pink)
 
 
 
@@ -13484,7 +13484,7 @@ berliner
 
 
 
-
+Pompompurin outfit (Yellow)
 
 chocolate heart
 
@@ -13756,8 +13756,8 @@ Hip Reaction Collection
 
 
 
-
-
+My Melody dress (Pink)
+My Melody shirt (Pink)
 
 
 
@@ -13925,7 +13925,7 @@ bean-tossing kit
 
 
 
-
+Nintendo Switch Lite
 
 
 set of stockings
@@ -14003,11 +14003,11 @@ maracas
 
 
 
-
-
-
-
-
+Bunny Day topiary
+Bunny Day tree
+Bunny Day garden flag
+Bunny Day planter box
+Bunny Day candy
 
 
 
@@ -14021,7 +14021,7 @@ Festivale costume (Blue)
 π pie
 
 
-
+cool globe
 
 
 
@@ -14039,7 +14039,7 @@ Lunar New Year decoration
 
 
 
-
+forsythia
 lucky money
 sebaetdon
 
@@ -14140,6 +14140,7 @@ sebaetdon
 
 
 
+first-anniversary cake
 
 
 
@@ -14155,8 +14156,7 @@ sebaetdon
 
 
 
-
-
+Custom Designs Portal
 
 
 
@@ -14248,22 +14248,22 @@ Luigi shoes (Brown)
 
 
 
+Nook Inc. doorplate
+
+prom wall
+prom flooring
+Tom Nook's photo
+Timmy and Tommy's photo
+Isabelle's photo
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+vibrant tuxedo (Red)
+prom sash (Red)
+dance shoes (Black)
+prom crown (Gold)
+prom tiara (Gold)
 floating block
 
 
@@ -14296,10 +14296,7 @@ mermaid fence
 
 
 
-
-
-きゅうりのうま
-
+aloha-edition carrying case
 
 
 
@@ -14336,5 +14333,78 @@ mermaid fence
 
 
 
-つきみだんご
-なすびのうし
+
+
+
+
+
+whoopee cushion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dance shoes (Gold)
+dance shoes (Orange)
+dance shoes (Silver)
+dance shoes (Blue)
+dance shoes (Pink)
+dance shoes (Green)
+dance shoes (Purple)
+
+
+
+
+
+
+
+prom sash (Blue)
+prom sash (Green)
+prom sash (Purple)
+prom sash (White)
+prom sash (Black)
+prom sash (Gold)
+prom crown (Silver)
+prom tiara (Silver)
+vibrant tuxedo (Blue)
+vibrant tuxedo (Green)
+vibrant tuxedo (Yellow)
+vibrant tuxedo (Orange)
+vibrant tuxedo (Purple)
+vibrant tuxedo (Brown)
+vibrant tuxedo (Monotone)

@@ -3657,7 +3657,7 @@ Polo衫 (海军蓝)
 
 
 竹篮
-
+亮片连身裙 (粉红)
 交叉背带裙 (红色)
 
 制服背心裙 (海军蓝)
@@ -4262,7 +4262,7 @@ k.k. slider's guitar (internal)
 
 粗横纹连身裙 (黑色)
 双梁眼镜 (金色)
-
+怀旧洋装 (粉红)
 棉麻连身裙 (黑色)
 羽绒短裙 (蓝色)
 运动坦克背心 (灰色)
@@ -4559,7 +4559,7 @@ MA-1飞行外套 (卡其色)
 绑腰衬衫 (黄色)
 T恤连身裙 (黑色)
 亮片刺绣无袖上衣 (红色)
-
+舞会面具 (白色)
 
 视觉系服装 (黑色)
 
@@ -4585,7 +4585,7 @@ T恤连身裙 (黑色)
 森林图案连身裙 (绿色)
 
 橄榄球制服 (红色×白色)
-
+吊带长裙 (蓝色)
 铁盔甲 (灰色)
 长羽绒外套 (黑色)
 金盔甲 (金色)
@@ -6055,7 +6055,7 @@ Nook Inc.地板
 毛球报童帽 (棕色)
 苏格兰帽 (红色)
 
-
+化装舞会面具 (红色)
 ちず
 
 
@@ -7868,13 +7868,13 @@ Nook Inc.地毯
 倾斜路标
 冲浪板
 蓝色气球
-
-
-
-
-
-
-
+亮片连身裙 (红色)
+亮片连身裙 (黑色)
+亮片连身裙 (黄色)
+亮片连身裙 (白色)
+亮片连身裙 (蓝色)
+亮片连身裙 (紫色)
+亮片连身裙 (绿色)
 摩登少女连身裙 (绿色)
 摩登少女连身裙 (红色)
 摩登少女连身裙 (粉红)
@@ -7890,13 +7890,13 @@ Nook Inc.地毯
 新潮女郎洋装 (绿色)
 未来感连身裙 (绿色)
 未来感连身裙 (粉红)
-
-
-
-
-
-
-
+怀旧洋装 (紫色)
+怀旧洋装 (蓝色)
+怀旧洋装 (浅蓝色)
+怀旧洋装 (绿色)
+怀旧洋装 (黄色)
+怀旧洋装 (橘色)
+怀旧洋装 (红色)
 
 
 奢华套装 (粉红)
@@ -7928,11 +7928,11 @@ Nook Inc.地毯
 大理石纹连身裙 (绿色)
 大理石纹连身裙 (橘色)
 大理石纹连身裙 (紫色)
-
-
-
-
-
+吊带长裙 (黑色)
+吊带长裙 (橘色)
+吊带长裙 (黄色)
+吊带长裙 (灰色)
+吊带长裙 (红色)
 
 
 
@@ -10169,19 +10169,19 @@ Nook Inc.团扇
 扣带鞋 (粉红)
 沙滩拖鞋 (黄色)
 蕾丝袜 (米色)
-
-
-
-
-
-
+Hello Kitty墙
+Cinnamoroll墙
+My Melody墙
+Pompompurin墙
+Kerokerokeroppi墙
+Kiki & Lala墙
 水上运动鞋 (浅蓝色)
-
-
-
-
-
-
+Kerokerokeroppi地板
+Kiki & Lala地板
+My Melody地板
+Pompompurin地板
+Cinnamoroll地板
+Hello Kitty地板
 硬壳双肩包 (红色)
 迷彩裤 (卡其色)
 迷彩裤 (粉红)
@@ -11113,18 +11113,18 @@ DJ KK的海报
 
 浅色竹子地垫
 深色竹子地垫
-
-
-
-
-
-
-凯蒂猫的海报
-布丁狗的海报
-双星仙子的海报
-大耳狗宝贝喜拿的海报
-美乐蒂的海报
-大眼蛙的海报
+莉拉的照片
+玛丁的照片
+彩星的照片
+啡卡的照片
+雀儿喜的照片
+咚比的照片
+Hello Kitty的海报
+Pompompurin的海报
+Kiki & Lala的海报
+Cinnamoroll的海报
+My Melody的海报
+Kerokerokeroppi的海报
 壁挂式黑鲈鱼
 壁挂式旗鱼
 
@@ -11157,7 +11157,7 @@ DJ KK的海报
 眼罩 (绿色)
 眼罩 (橘色)
 眼罩 (红色)
-
+舞会面具 (黑色)
 防毒面具 (卡其色)
 威尼斯面具 (黑色)
 威尼斯面具 (蓝色)
@@ -11173,7 +11173,7 @@ DJ KK的海报
 
 
 
-
+化装舞会面具 (蓝色)
 典雅茶室墙
 稳重茶室墙
 摩登茶室墙
@@ -12239,6 +12239,40 @@ DAL飞机模型
 
 
 
+Hello Kitty抽屉柜
+Kiki & Lala时钟
+Kiki & Lala桌
+Kiki & Lala沙发
+Kiki & Lala云朵制造机
+Cinnamoroll桌
+Cinnamoroll伞
+Cinnamoroll板
+Kerokerokeroppi走廊
+Cinnamoroll凳子
+Cinnamoroll托盘
+Kerokerokeroppi饭桌
+Kerokerokeroppi甜点
+Kerokerokeroppi灯
+Kerokerokeroppi桥梁
+Kiki & Lala床铺
+Pompompurin电视
+Pompompurin布丁
+Pompompurin桌
+Pompompurin架子
+Pompompurin椅子
+Pompompurin床铺
+My Melody桌
+My Melody梳妆台
+My Melody椅子
+My Melody时钟
+My Melody床铺
+Hello Kitty时钟
+Hello Kitty椅子
+Hello Kitty桌
+Hello Kitty床铺
+Hello Kitty盆栽
+Cinnamoroll沙发
+晴天娃娃
 
 
 
@@ -12252,46 +12286,12 @@ DAL飞机模型
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Cinnamoroll地毯
+Kerokerokeroppi地毯
+Kiki & Lala地毯
+Hello Kitty地毯
+My Melody地毯
+Pompompurin地毯
 简陋斧头的DIY手册
 
 
@@ -13031,12 +13031,12 @@ Nook Inc.夏威夷衬衫·绿色 (绿色)
 
 
 
-
-
-
-
-
-
+莉拉的海报
+玛丁的海报
+彩星的海报
+啡卡的海报
+雀儿喜的海报
+咚比的海报
 
 
 
@@ -13163,6 +13163,26 @@ Nook Inc.手持三角旗
 
 
 
+Hello Kitty帽子 (白色)
+Hello Kitty T恤 (蓝色)
+Hello Kitty鞋 (白色)
+My Melody头巾 (粉红)
+My Melody靴子 (粉红)
+Kiki & Lala发饰 (黄色)
+Kiki & Lala T恤 (粉红)
+Kiki & Lala袜 (粉红)
+Kiki & Lala棒
+Kiki & Lala扣带鞋 (粉红)
+Pompompurin头 (黄色)
+Pompompurin T恤 (黄色)
+Pompompurin靴子 (黄色)
+Cinnamoroll外套 (浅蓝色)
+Cinnamoroll运动鞋 (浅蓝色)
+Kerokerokeroppi套装 (绿色)
+Kerokerokeroppi无袖上衣 (红色)
+Kerokerokeroppi发饰 (白色)
+Kerokerokeroppi膝上袜 (红色)
+Kerokerokeroppi靴子 (绿色)
 
 
 
@@ -13173,27 +13193,7 @@ Nook Inc.手持三角旗
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+我的设计专业版＋
 棒棒糖
 糖果
 
@@ -13274,7 +13274,7 @@ Nook Inc.潜水镜附呼吸管 (绿色)
 
 
 万圣节栅栏
-
+Hello Kitty连身裙 (蓝色)
 
 
 
@@ -13295,6 +13295,8 @@ Ring-Con
 
 
 
+Cinnamoroll帽子 (白色)
+Cinnamoroll蓬蓬袖上衣 (浅蓝色)
 
 
 
@@ -13311,9 +13313,7 @@ Ring-Con
 
 
 
-
-
-
+Nook Inc.的海报
 
 
 感恩节墙
@@ -13431,7 +13431,7 @@ Ring-Con
 魔法师靴子 (绿色)
 魔法师靴子 (红色)
 魔法师靴子 (黑色)
-
+Kiki & Lala连身裙 (粉红)
 
 
 
@@ -13484,7 +13484,7 @@ Ring-Con
 
 
 
-
+Pompompurin套装 (黄色)
 
 心形巧克力
 
@@ -13756,8 +13756,8 @@ Ring-Con
 
 
 
-
-
+My Melody连身裙 (粉红)
+My Melody衬衫 (粉红)
 
 
 
@@ -13925,7 +13925,7 @@ Ring-Con
 
 
 
-
+Nintendo Switch Lite
 
 
 壁挂式袜子
@@ -14003,11 +14003,11 @@ Ring-Con
 
 
 
-
-
-
-
-
+复活节绿雕
+复活节树
+复活节花园旗
+复活节盆栽
+复活节甜点
 
 
 
@@ -14021,7 +14021,7 @@ Ring-Con
 圆周率派
 
 
-
+帅气地球仪
 
 
 
@@ -14039,7 +14039,7 @@ Ring-Con
 
 
 
-
+连翘
 春节红包
 韩国新年红包
 
@@ -14140,6 +14140,7 @@ Ring-Con
 
 
 
+一周年蛋糕
 
 
 
@@ -14155,8 +14156,7 @@ Ring-Con
 
 
 
-
-
+“我的设计”展示柜
 
 
 
@@ -14248,22 +14248,22 @@ Ring-Con
 
 
 
+Nook Inc.门牌
+
+毕业舞会墙
+毕业舞会地板
+狸克的照片
+豆狸&粒狸的照片
+西施惠的照片
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+彩色无尾礼服 (红色)
+毕业舞会绶带 (红色)
+舞鞋 (黑色)
+毕业舞会王冠 (金色)
+毕业舞会后冠 (金色)
 空中砖块
 
 
@@ -14296,10 +14296,7 @@ Ring-Con
 
 
 
-
-
-きゅうりのうま
-
+Nook夏威夷花纹便携包
 
 
 
@@ -14336,5 +14333,78 @@ Ring-Con
 
 
 
-つきみだんご
-なすびのうし
+
+
+
+
+
+放屁坐垫
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+舞鞋 (金色)
+舞鞋 (橘色)
+舞鞋 (银色)
+舞鞋 (蓝色)
+舞鞋 (粉红)
+舞鞋 (绿色)
+舞鞋 (紫色)
+
+
+
+
+
+
+
+毕业舞会绶带 (蓝色)
+毕业舞会绶带 (绿色)
+毕业舞会绶带 (紫色)
+毕业舞会绶带 (白色)
+毕业舞会绶带 (黑色)
+毕业舞会绶带 (金色)
+毕业舞会王冠 (银色)
+毕业舞会后冠 (银色)
+彩色无尾礼服 (蓝色)
+彩色无尾礼服 (绿色)
+彩色无尾礼服 (黄色)
+彩色无尾礼服 (橘色)
+彩色无尾礼服 (紫色)
+彩色无尾礼服 (棕色)
+彩色无尾礼服 (单色配色)

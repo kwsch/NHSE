@@ -3657,7 +3657,7 @@ Rennfahrer-Outfit (Rot)
 
 
 Bambuskorb
-
+Paillettenkleid (Rosa)
 Hosenträgerrock (Rot)
 
 Bundfaltenkleid (Marineblau)
@@ -3842,7 +3842,7 @@ Viridifloratulpe (Pflanze)
 
 Grengjer-Tulpe (Pflanze)
 
-Korallentulpe (Pflanze)
+Flachlandtulpe (Pflanze)
 
 Wildtulpe (Pflanze)
 
@@ -4262,7 +4262,7 @@ Maxi-Chinorock (Beige)
 
 Ringelkleid (Schwarz)
 Doppelstegbrille (Gold)
-
+Cocktailkleid (Rosa)
 Leinenkleid (Schwarz)
 Thermorock (Blau)
 Muskelshirt (Grau)
@@ -4559,7 +4559,7 @@ A-Linien-Kleid (Rosa)
 Grunge-Outfit (Gelb)
 Shirtkleid (Schwarz)
 Lamé-Top (Rot)
-
+Maskenballmaske (Weiß)
 
 Visual-Kei-Outfit (Schwarz)
 
@@ -4585,7 +4585,7 @@ Häuschenkleid (Weiß)
 Waldkleid (Grün)
 
 Rugby-Outfit (Rot-weiß)
-
+Satin-Abendkleid (Blau)
 Eisenrüstung (Grau)
 Thermomantel (Schwarz)
 Goldrüstung (Gold)
@@ -6055,7 +6055,7 @@ Kabuki-Hut (Schwarz)
 Bommelhut (Braun)
 Schottenmütze (Rot)
 
-
+Elegantmaske (Rot)
 ちず
 
 
@@ -7868,13 +7868,13 @@ Prunk-Kimonostand
 Diagonal-Wegweiser
 Surfbrett
 Ballon (blau)
-
-
-
-
-
-
-
+Paillettenkleid (Rot)
+Paillettenkleid (Schwarz)
+Paillettenkleid (Gelb)
+Paillettenkleid (Weiß)
+Paillettenkleid (Blau)
+Paillettenkleid (Lila)
+Paillettenkleid (Grün)
 Charlestonkleid (Grün)
 Charlestonkleid (Rot)
 Charlestonkleid (Rosa)
@@ -7890,13 +7890,13 @@ Flapper-Kleid (Rosa)
 Flapper-Kleid (Grün)
 Astro-Kleid (Grün)
 Astro-Kleid (Rosa)
-
-
-
-
-
-
-
+Cocktailkleid (Lila)
+Cocktailkleid (Blau)
+Cocktailkleid (Hellblau)
+Cocktailkleid (Grün)
+Cocktailkleid (Gelb)
+Cocktailkleid (Orange)
+Cocktailkleid (Rot)
 
 
 80er-Businesskostüm (Rosa)
@@ -7928,11 +7928,11 @@ Murmelkleid (Rosa)
 Murmelkleid (Grün)
 Murmelkleid (Orange)
 Murmelkleid (Lila)
-
-
-
-
-
+Satin-Abendkleid (Schwarz)
+Satin-Abendkleid (Orange)
+Satin-Abendkleid (Gelb)
+Satin-Abendkleid (Grau)
+Satin-Abendkleid (Rot)
 
 
 
@@ -10169,19 +10169,19 @@ Paar Riemchenschuhe (Grün)
 Paar Riemchenschuhe (Rosa)
 Paar Badesandalen (Gelb)
 Paar Spitzensöckchen (Beige)
-
-
-
-
-
-
+Hello-Kitty-Tapete
+Cinnamoroll-Tapete
+My-Melody-Tapete
+Pompompurin-Tapete
+Kerokerokeroppi-Wand
+Kiki-&-Lala-Tapete
 Paar Wassersportschuhe (Hellblau)
-
-
-
-
-
-
+Kerokerokeroppi-Boden
+Kiki-&-Lala-Boden
+My-Melody-Boden
+Pompompurin-Boden
+Cinnamoroll-Boden
+Hello-Kitty-Boden
 Hartschalenrucksack (Rot)
 Tarnhose (Avocado)
 Tarnhose (Rosa)
@@ -11113,18 +11113,18 @@ Baseball-Outfit (Gelb)
 
 Hell-Bambusmatte
 Dunkel-Bambusmatte
-
-
-
-
-
-
+Foto von Rilla
+Foto von Marty
+Foto von Etoile
+Foto von Chai
+Foto von Chelsea
+Foto von Toby
 Hello-Kitty-Poster
 Pompompurin-Poster
 Kiki-&-Lala-Poster
 Cinnamoroll-Poster
 My-Melody-Poster
-Teich-Poster
+Kerokerokeroppi-Poster
 Barsch-Wandschmuck
 Marlin-Wandschmuck
 
@@ -11157,7 +11157,7 @@ Augenmaske (Grau)
 Augenmaske (Grün)
 Augenmaske (Orange)
 Augenmaske (Rot)
-
+Maskenballmaske (Schwarz)
 Gasmaske (Avocado)
 Ballmaske (Schwarz)
 Ballmaske (Blau)
@@ -11173,7 +11173,7 @@ Fuchsmaske (Schwarz)
 
 
 
-
+Elegantmaske (Blau)
 Schick-Teezimmerwand
 Relax-Teezimmerwand
 Modern-Teezimmerwand
@@ -12239,6 +12239,40 @@ Dreidelspiel
 
 
 
+Hello-Kitty-Kommode
+Kiki-&-Lala-Uhr
+Kiki-&-Lala-Tisch
+Kiki-&-Lala-Sofa
+Kiki-&-Lala-Wolkenapparat
+Cinnamoroll-Tisch
+Cinnamoroll-Schirm
+Cinnamoroll-Aufsteller
+Kerokerokeroppi-Veranda
+Cinnamoroll-Hocker
+Cinnamoroll-Tablett
+Keroppi-Tischchen
+Kerokerokeroppi-Nascherei
+Kerokerokeroppi-Leuchte
+Keroppi-Bogenbrücke
+Kiki-&-Lala-Bett
+Pompompurin-TV
+Pompompurin-Pudding
+Pompompurin-Tisch
+Pompompurin-Regal
+Pompompurin-Stuhl
+Pompompurin-Bett
+My-Melody-Tisch
+My-Melody-Spiegel
+My-Melody-Stuhl
+My-Melody-Uhr
+My-Melody-Bett
+Hello-Kitty-Uhr
+Hello-Kitty-Stuhl
+Hello-Kitty-Tisch
+Hello-Kitty-Bett
+Hello-Kitty-Bäumchen
+Cinnamoroll-Sofa
+Kerokerokeroppis Puppe
 
 
 
@@ -12252,46 +12286,12 @@ Dreidelspiel
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Cinnamoroll-Teppich
+Kerokerokeroppi-Teppich
+Kiki-&-Lala-Teppich
+Hello-Kitty-Teppich
+My-Melody-Teppich
+Pompompurin-Teppich
 Anleitung (Wackelaxt)
 
 
@@ -13031,12 +13031,12 @@ Paar Ringel-Kniestrümpfe (Orange)
 
 
 
-
-
-
-
-
-
+Poster von Rilla
+Poster von Marty
+Poster von Etoile
+Poster von Chai
+Poster von Chelsea
+Poster von Toby
 
 
 
@@ -13163,6 +13163,26 @@ Nook-Inc.-Fähnchen
 
 
 
+Hello-Kitty-Hut (Weiß)
+Hello-Kitty-Hemdchen (Blau)
+Paar Hello-Kitty-Schuhe (Weiß)
+My-Melody-Kapuze (Rosa)
+Paar My-Melody-Schuhe (Rosa)
+Kiki-&-Lala-Pin (Gelb)
+Kiki-&-Lala-Shirt (Rosa)
+Paar Kiki-&-Lala-Söckchen (Rosa)
+Kiki-&-Lala-Stab
+Paar Kiki-&-Lala-Schuhe (Rosa)
+Pompompurin-Hut (Gelb)
+Pompompurin-Shirt (Gelb)
+Paar Pompompurin-Schuhe (Gelb)
+Cinnamoroll-Jacke (Hellblau)
+Paar Cinnamoroll-Sneaker (Hellblau)
+Kerokerokeroppi-Kostüm (Grün)
+Kerokerokeroppi-Top (Rot)
+Keroppi-Spangen-Set (Weiß)
+Paar Keroppi-Socken (Rot)
+Paar Keroppi-Stiefel (Grün)
 
 
 
@@ -13173,27 +13193,7 @@ Nook-Inc.-Fähnchen
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Designs: Profi-Edition+
 Lolli
 Bonbon
 
@@ -13274,7 +13274,7 @@ Augenfarben für Gewinner
 
 
 Kürbiszaun
-
+Hello-Kitty-Kleid (Blau)
 
 
 
@@ -13295,6 +13295,8 @@ Ring-Con
 
 
 
+Cinnamoroll-Hut (Weiß)
+Cinnamoroll-Puffärmelbluse (Hellblau)
 
 
 
@@ -13311,9 +13313,7 @@ Ring-Con
 
 
 
-
-
-
+Nook-Inc.-Poster
 
 
 Schlemmfest-Tapete
@@ -13431,7 +13431,7 @@ Paar Zauberschuhe (Weiß)
 Paar Zauberschuhe (Grün)
 Paar Zauberschuhe (Rot)
 Paar Zauberschuhe (Schwarz)
-
+Kiki-&-Lala-Kleid (Rosa)
 
 
 
@@ -13484,7 +13484,7 @@ Berliner-Teller
 
 
 
-
+Pompompurin-Ensemble (Gelb)
 
 Schokoladenherz
 
@@ -13756,8 +13756,8 @@ Hippe Emotionen
 
 
 
-
-
+My-Melody-Kleid (Rosa)
+My-Melody-Bluse (Rosa)
 
 
 
@@ -13925,7 +13925,7 @@ Setsubun-Set
 
 
 
-
+Nintendo Switch Lite
 
 
 Wunschsocken-Set
@@ -14003,11 +14003,11 @@ Maracas
 
 
 
-
-
-
-
-
+Häschentag-Buchsbaum
+Häschentag-Baum
+Häschentag-Flagge
+Häschentag-Blumenkasten
+Häschentag-Naschteller
 
 
 
@@ -14021,7 +14021,7 @@ Karnevalstracht (Blau)
 Pi-Kuchen
 
 
-
+Globus (cool)
 
 
 
@@ -14039,7 +14039,7 @@ Mondneujahr-Dekoration
 
 
 
-
+Forsythie
 Glücksgeschenk
 Sebaetdon
 
@@ -14140,6 +14140,7 @@ Sebaetdon
 
 
 
+1.-Jubiläum-Kuchen
 
 
 
@@ -14155,8 +14156,7 @@ Sebaetdon
 
 
 
-
-
+Designtausch-Terminal
 
 
 
@@ -14248,22 +14248,22 @@ Paar Luigi-Schuhe (Braun)
 
 
 
+Nook-Inc.-Türschild
+
+Abschlussball-Tapete
+Abschlussball-Boden
+Foto von Tom Nook
+Foto von Nepp & Schlepp
+Foto von Melinda
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+Lebhaft-Smoking (Rot)
+Abschlussball-Schärpe (Rot)
+Paar Tanzschuhe (Schwarz)
+Abschlussball-Krone (Gold)
+Abschlussball-Diadem (Gold)
 Schwebeblock
 
 
@@ -14296,10 +14296,7 @@ Nixenzaun
 
 
 
-
-
-きゅうりのうま
-
+ACNH-Edition-Tasche
 
 
 
@@ -14336,5 +14333,78 @@ Nixenzaun
 
 
 
-つきみだんご
-なすびのうし
+
+
+
+
+
+Pupskissen
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Paar Tanzschuhe (Gold)
+Paar Tanzschuhe (Orange)
+Paar Tanzschuhe (Silber)
+Paar Tanzschuhe (Blau)
+Paar Tanzschuhe (Rosa)
+Paar Tanzschuhe (Grün)
+Paar Tanzschuhe (Lila)
+
+
+
+
+
+
+
+Abschlussball-Schärpe (Blau)
+Abschlussball-Schärpe (Grün)
+Abschlussball-Schärpe (Lila)
+Abschlussball-Schärpe (Weiß)
+Abschlussball-Schärpe (Schwarz)
+Abschlussball-Schärpe (Gold)
+Abschlussball-Krone (Silber)
+Abschlussball-Diadem (Silber)
+Lebhaft-Smoking (Blau)
+Lebhaft-Smoking (Grün)
+Lebhaft-Smoking (Gelb)
+Lebhaft-Smoking (Orange)
+Lebhaft-Smoking (Lila)
+Lebhaft-Smoking (Braun)
+Lebhaft-Smoking (Monochrom)

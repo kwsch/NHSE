@@ -3657,7 +3657,7 @@ mono de carreras (Rojo)
 
 
 cesta de bambú
-
+vestido de lentejuelas (Rosa)
 falda con tirantes (Rojo)
 
 uniforme de recepción (Azul marino)
@@ -4262,7 +4262,7 @@ falda chino (Beis)
 
 vestido a rayas (Negro)
 gafa de doble puente (Dorado)
-
+vestido de fiesta vistoso (Rosa)
 vestido de lino (Negro)
 falda corta acolchada (Azul)
 top pesas (Gris)
@@ -4559,7 +4559,7 @@ vestido retro llamativo (Rosa)
 camiseta con camisa atada (Amarillo)
 vestido camiseta (Negro)
 top labio de lentejuelas (Rojo)
-
+máscara de baile (Blanco)
 
 traje punk (Negro)
 
@@ -4585,7 +4585,7 @@ vestido casitas (Blanco)
 vestido bosque (Verde)
 
 uniforme de rugby (Rojo y blanco)
-
+vestido lencero (Azul)
 armadura de hierro (Gris)
 abrigo largo acolchado (Negro)
 armadura de oro (Dorado)
@@ -6055,7 +6055,7 @@ velo de tramoyista (Negro)
 gorra con pompón (Marrón)
 boina escocesa (Rojo)
 
-
+antifaz elegante (Rojo)
 ちず
 
 
@@ -7868,13 +7868,13 @@ expositor de kimonos lujoso
 poste indicador oblicuo
 tabla de surf
 globo azul
-
-
-
-
-
-
-
+vestido de lentejuelas (Rojo)
+vestido de lentejuelas (Negro)
+vestido de lentejuelas (Amarillo)
+vestido de lentejuelas (Blanco)
+vestido de lentejuelas (Azul)
+vestido de lentejuelas (Púrpura)
+vestido de lentejuelas (Verde)
 vestido de día retro (Verde)
 vestido de día retro (Rojo)
 vestido de día retro (Rosa)
@@ -7890,13 +7890,13 @@ vestido años 20 (Rosa)
 vestido años 20 (Verde)
 vestido corto futurista (Verde)
 vestido corto futurista (Rosa)
-
-
-
-
-
-
-
+vestido de fiesta vistoso (Púrpura)
+vestido de fiesta vistoso (Azul)
+vestido de fiesta vistoso (Celeste)
+vestido de fiesta vistoso (Verde)
+vestido de fiesta vistoso (Amarillo)
+vestido de fiesta vistoso (Naranja)
+vestido de fiesta vistoso (Rojo)
 
 
 uniforme ci-fi retro (Rosa)
@@ -7928,11 +7928,11 @@ vestido olas marinas (Rosa)
 vestido olas marinas (Verde)
 vestido olas marinas (Naranja)
 vestido olas marinas (Púrpura)
-
-
-
-
-
+vestido lencero (Negro)
+vestido lencero (Naranja)
+vestido lencero (Amarillo)
+vestido lencero (Gris)
+vestido lencero (Rojo)
 
 
 
@@ -9812,7 +9812,7 @@ malla de colores neón (Verde)
 malla de colores neón (Púrpura)
 
 
-gato suerte oro
+gato de la suerte dorado
 delantal café años 50 (Rosa)
 
 
@@ -10169,19 +10169,19 @@ mercedita (Verde)
 mercedita (Rosa)
 chancla (Amarillo)
 calcetín encaje (Beis)
-
-
-
-
-
-
+pared Hello Kitty
+pared Cinnamoroll
+pared My Melody
+pared Pompompurin
+pared Kerokerokeroppi
+pared Kiki & Lala
 zapato acuático (Celeste)
-
-
-
-
-
-
+suelo Kerokerokeroppi
+suelo Kiki & Lala
+suelo My Melody
+suelo Pompompurin
+suelo Cinnamoroll
+suelo Hello Kitty
 mochila rígida (Rojo)
 pantalón camuflaje (Verde bosque)
 pantalón camuflaje (Rosa)
@@ -11113,12 +11113,12 @@ uniforme de béisbol (Amarillo)
 
 alfombra bambú clara
 alfombra bambú oscura
-
-
-
-
-
-
+foto de Rila
+foto de Marty
+foto de Etoile
+foto de Chai
+foto de Chelsea
+foto de Toby
 póster de Hello Kitty
 póster de Pompompurin
 póster de Kiki & Lala
@@ -11157,7 +11157,7 @@ antifaz para dormir (Gris)
 antifaz para dormir (Verde)
 antifaz para dormir (Naranja)
 antifaz para dormir (Rojo)
-
+máscara de baile (Negro)
 máscara de gas (Verde bosque)
 antifaz baile de máscaras (Negro)
 antifaz baile de máscaras (Azul)
@@ -11173,7 +11173,7 @@ máscara de zorro (Negro)
 
 
 
-
+antifaz elegante (Azul)
 pared sala de té chic
 pared sala de té relajante
 pared sala de té moderna
@@ -12239,6 +12239,40 @@ juego de peonzas festivo
 
 
 
+cómoda Hello Kitty
+reloj Kiki & Lala
+mesa Kiki & Lala
+sofá Kiki & Lala
+máquina nubes Kiki & Lala
+mesita Cinnamoroll
+parasol Cinnamoroll
+cartel Cinnamoroll
+tarima Kerokerokeroppi
+taburete Cinnamoroll
+bandeja Cinnamoroll
+bandeja Kerokerokeroppi
+pastelito Kerokerokeroppi
+farol Kerokerokeroppi
+puente Kerokerokeroppi
+cama Kiki & Lala
+tele Pompompurin
+flan Pompompurin
+mesita Pompompurin
+estante Pompompurin
+silla Pompompurin
+cama Pompompurin
+mesita My Melody
+tocador My Melody
+mecedora My Melody
+reloj My Melody
+cama My Melody
+reloj Hello Kitty
+silla Hello Kitty
+mesa Hello Kitty
+cama Hello Kitty
+maceta Hello Kitty
+sofá Cinnamoroll
+muñeca Kerokerokeroppi
 
 
 
@@ -12252,46 +12286,12 @@ juego de peonzas festivo
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+alfombra Cinnamoroll
+alfombra Kerokerokeroppi
+alfombra Kiki & Lala
+alfombra Hello Kitty
+alfombra My Melody
+alfombra Pompompurin
 proyecto hacha endeble
 
 
@@ -13031,12 +13031,12 @@ media rayas horizontales (Naranja)
 
 
 
-
-
-
-
-
-
+póster de Rila
+póster de Marty
+póster de Etoile
+póster de Chai
+póster de Chelsea
+póster de Toby
 
 
 
@@ -13163,6 +13163,26 @@ banderín Nook Inc. portátil
 
 
 
+gorro Hello Kitty (Blanco)
+camiseta Hello Kitty (Azul)
+mercedita Hello Kitty (Blanco)
+capucha My Melody (Rosa)
+bota My Melody (Rosa)
+clip Kiki & Lala (Amarillo)
+camiseta Kiki & Lala (Rosa)
+calcetín Kiki & Lala (Rosa)
+varita Kiki & Lala
+mercedita Kiki & Lala (Rosa)
+gorro Pompompurin (Amarillo)
+camiseta Pompompurin (Amarillo)
+botín Pompompurin (Amarillo)
+chaqueta Cinnamoroll (Celeste)
+zapatilla Cinnamoroll (Celeste)
+conjunto Kerokerokeroppi (Verde)
+top Kerokerokeroppi (Rojo)
+clip Kerokerokeroppi (Blanco)
+calcetín Kerokerokeroppi (Rojo)
+bota Kerokerokeroppi (Verde)
 
 
 
@@ -13173,27 +13193,7 @@ banderín Nook Inc. portátil
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Mis diseños profesionales +
 piruleta
 chuche
 
@@ -13274,7 +13274,7 @@ Guía de lentillas de colores
 
 
 valla calabaza
-
+vestido Hello Kitty (Azul)
 
 
 
@@ -13295,6 +13295,8 @@ Ring-Con
 
 
 
+gorro Cinnamoroll (Blanco)
+blusa Cinnamoroll (Celeste)
 
 
 
@@ -13311,9 +13313,7 @@ Ring-Con
 
 
 
-
-
-
+cartel de Nook Inc.
 
 
 pared Día del Pavo
@@ -13431,7 +13431,7 @@ bota de hechicería (Blanco)
 bota de hechicería (Verde)
 bota de hechicería (Rojo)
 bota de hechicería (Negro)
-
+vestido Kiki & Lala (Rosa)
 
 
 
@@ -13484,7 +13484,7 @@ plato de berlinesas
 
 
 
-
+conjunto Pompompurin (Amarillo)
 
 caja bombones Enamorados
 
@@ -13756,8 +13756,8 @@ Emociones y actividades
 
 
 
-
-
+vestido My Melody (Rosa)
+polo My Melody (Rosa)
 
 
 
@@ -13925,7 +13925,7 @@ caja habichuelas para lanzar
 
 
 
-
+Nintendo Switch Lite
 
 
 lote de calcetines de pared
@@ -14003,11 +14003,11 @@ par de maracas
 
 
 
-
-
-
-
-
+seto Caza del Huevo
+árbol Caza del Huevo
+estandarte Caza del Huevo
+macetero Caza del Huevo
+plato dulces Caza del Huevo
 
 
 
@@ -14021,7 +14021,7 @@ traje de Carnaval (Azul)
 pastel de π
 
 
-
+globo terrestre
 
 
 
@@ -14039,7 +14039,7 @@ adorno Año Nuevo Lunar
 
 
 
-
+forsitia
 aguinaldo Año Nuevo Lunar
 aguinaldo de Seollal
 
@@ -14140,6 +14140,7 @@ aguinaldo de Seollal
 
 
 
+tarta primer aniversario
 
 
 
@@ -14155,8 +14156,7 @@ aguinaldo de Seollal
 
 
 
-
-
+Portal de diseños
 
 
 
@@ -14248,22 +14248,22 @@ zapato de Luigi (Marrón)
 
 
 
+placa Nook Inc.
+
+pared baile de fin de curso
+suelo baile de fin de curso
+foto de Tom Nook
+foto de Tendo y Nendo
+foto de Canela
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+esmoquin llamativo (Rojo)
+banda baile de fin de curso (Rojo)
+zapato baile de fin de curso (Negro)
+corona baile de fin de curso (Dorado)
+tiara baile de fin de curso (Dorado)
 bloque elevado
 
 
@@ -14296,10 +14296,7 @@ valla sirena
 
 
 
-
-
-きゅうりのうま
-
+funda edición ACNH
 
 
 
@@ -14336,5 +14333,78 @@ valla sirena
 
 
 
-つきみだんご
-なすびのうし
+
+
+
+
+
+cojín de broma
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+zapato baile de fin de curso (Dorado)
+zapato baile de fin de curso (Naranja)
+zapato baile de fin de curso (Plateado)
+zapato baile de fin de curso (Azul)
+zapato baile de fin de curso (Rosa)
+zapato baile de fin de curso (Verde)
+zapato baile de fin de curso (Púrpura)
+
+
+
+
+
+
+
+banda baile de fin de curso (Azul)
+banda baile de fin de curso (Verde)
+banda baile de fin de curso (Púrpura)
+banda baile de fin de curso (Blanco)
+banda baile de fin de curso (Negro)
+banda baile de fin de curso (Dorado)
+corona baile de fin de curso (Plateado)
+tiara baile de fin de curso (Plateado)
+esmoquin llamativo (Azul)
+esmoquin llamativo (Verde)
+esmoquin llamativo (Amarillo)
+esmoquin llamativo (Naranja)
+esmoquin llamativo (Púrpura)
+esmoquin llamativo (Marrón)
+esmoquin llamativo (Blanco y negro)

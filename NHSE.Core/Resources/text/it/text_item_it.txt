@@ -3534,7 +3534,7 @@ panchina da giardino
 
 
 
-vestito grembiulone (Blu scuro)
+vestito con grembiulone (Blu scuro)
 
 vestito coreano (Vermiglio)
 fiocco di neve
@@ -3657,7 +3657,7 @@ tuta da pilota (Rosso)
 
 
 canestro di bambù
-
+vestito con lustrini (Rosa)
 gonna con bretelline (Rosso)
 
 vestito con gonna a pieghe (Blu marino)
@@ -4262,7 +4262,7 @@ gonna chino lunga (Beige)
 
 vestito a righe (Nero)
 montatura a doppio ponte (Dorato)
-
+abito da sera vistoso (Rosa)
 vestito di lino (Nero)
 gonna imbottita (Blu)
 canotta da palestra (Grigio)
@@ -4559,7 +4559,7 @@ vestito rétro scampanato (Rosa)
 camicia legata in vita (Giallo)
 vestito a maglietta (Nero)
 canotta con lustrini (Rosso)
-
+mascherina da ballo (Bianco)
 
 abito visual kei (Nero)
 
@@ -4585,7 +4585,7 @@ vestito con casette (Bianco)
 vestito con alberelli (Verde)
 
 uniforme da rugby (Rosso e bianco)
-
+vestito di raso (Blu)
 armatura di ferro (Grigio)
 piumino lungo (Nero)
 armatura dorata (Dorato)
@@ -6055,7 +6055,7 @@ cappuccio in garza nera (Nero)
 berretto con pon-pon (Marrone)
 basco scozzese (Rosso)
 
-
+maschera decorata (Rosso)
 ちず
 
 
@@ -7868,13 +7868,13 @@ portakimono elaborato
 segnale direzionale obliquo
 tavola da surf
 palloncino blu
-
-
-
-
-
-
-
+vestito con lustrini (Rosso)
+vestito con lustrini (Nero)
+vestito con lustrini (Giallo)
+vestito con lustrini (Bianco)
+vestito con lustrini (Blu)
+vestito con lustrini (Viola)
+vestito con lustrini (Verde)
 vestito rétro smanicato (Verde)
 vestito rétro smanicato (Rosso)
 vestito rétro smanicato (Rosa)
@@ -7890,13 +7890,13 @@ vestito anni '20 (Rosa)
 vestito anni '20 (Verde)
 vestito futuristico (Verde)
 vestito futuristico (Rosa)
-
-
-
-
-
-
-
+abito da sera vistoso (Viola)
+abito da sera vistoso (Blu)
+abito da sera vistoso (Blu chiaro)
+abito da sera vistoso (Verde)
+abito da sera vistoso (Giallo)
+abito da sera vistoso (Arancio)
+abito da sera vistoso (Rosso)
 
 
 vestito sci-fi anni '80 (Rosa)
@@ -7928,11 +7928,11 @@ vestito marmorizzato (Rosa)
 vestito marmorizzato (Verde)
 vestito marmorizzato (Arancio)
 vestito marmorizzato (Viola)
-
-
-
-
-
+vestito di raso (Nero)
+vestito di raso (Arancio)
+vestito di raso (Giallo)
+vestito di raso (Grigio)
+vestito di raso (Rosso)
 
 
 
@@ -8976,8 +8976,8 @@ camicia a quadri (Arancio)
 camicia a quadri (Rosa)
 camicia a quadri (Viola)
 camicia a quadri (Blu chiaro)
-vestito grembiulone (Rosa)
-vestito grembiulone (Mussola)
+vestito con grembiulone (Rosa)
+vestito con grembiulone (Mussola)
 kimono floreale (Tè verde)
 tenuta da miko (Blu chiaro)
 hakama (Verde)
@@ -10169,19 +10169,19 @@ paio di scarpe con cinturino (Verde)
 paio di scarpe con cinturino (Rosa)
 paio di infradito (Giallo)
 paio di calzini merlettati (Beige)
-
-
-
-
-
-
+muro Hello Kitty
+muro Cinnamoroll
+muro My Melody
+muro Pompompurin
+muro Kerokerokeroppi
+muro Kiki & Lala
 paio di scarpe da scoglio (Blu chiaro)
-
-
-
-
-
-
+pavimento Kerokerokeroppi
+pavimento Kiki & Lala
+pavimento My Melody
+pavimento Pompompurin
+pavimento Cinnamoroll
+pavimento Hello Kitty
 zaino a guscio (Rosso)
 pantalone mimetico (Avocado)
 pantalone mimetico (Rosa)
@@ -11113,15 +11113,15 @@ uniforme da baseball (Giallo)
 
 tappeto di bambù chiaro
 tappeto di bambù scuro
-
-
-
-
-
-
+foto di Rilla
+foto di Marty
+foto di Étoile
+foto di Chai
+foto di Chelsea
+foto di Toby
 poster di Hello Kitty
 poster di Pompompurin
-poster di Kiki and Lala
+poster di Kiki & Lala
 poster di Cinnamoroll
 poster di My Melody
 poster di Kerokerokeroppi
@@ -11157,7 +11157,7 @@ mascherina per dormire (Grigio)
 mascherina per dormire (Verde)
 mascherina per dormire (Arancio)
 mascherina per dormire (Rosso)
-
+mascherina da ballo (Nero)
 maschera antigas (Avocado)
 mascherina festosa (Nero)
 mascherina festosa (Blu)
@@ -11173,7 +11173,7 @@ maschera da volpe (Nero)
 
 
 
-
+maschera decorata (Blu)
 muro sala da tè chic
 muro sala da tè rilassante
 muro sala da tè moderno
@@ -12239,6 +12239,40 @@ set di trottole festive
 
 
 
+comò Hello Kitty
+orologio Kiki & Lala
+tavolo Kiki & Lala
+sofà Kiki & Lala
+crea-nuvole Kiki & Lala
+tavolo Cinnamoroll
+parasole Cinnamoroll
+cartello Cinnamoroll
+porta Kerokerokeroppi
+sgabello Cinnamoroll
+vassoio Cinnamoroll
+tavolino Kerokerokeroppi
+dolcetto Kerokerokeroppi
+lanterna Kerokerokeroppi
+ponte Kerokerokeroppi
+letto Kiki & Lala
+TV Pompompurin
+budino Pompompurin
+tavolo Pompompurin
+scaffale Pompompurin
+sedia Pompompurin
+letto Pompompurin
+tavolo My Melody
+comò My Melody
+sedia My Melody
+orologio My Melody
+letto My Melody
+orologio Hello Kitty
+sedia Hello Kitty
+tavolo Hello Kitty
+letto Hello Kitty
+vaso Hello Kitty
+sofà Cinnamoroll
+amica di Kerokerokeroppi
 
 
 
@@ -12252,46 +12286,12 @@ set di trottole festive
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+tappeto Cinnamoroll
+tappeto Kerokerokeroppi
+tappeto Kiki & Lala
+tappeto Hello Kitty
+tappeto My Melody
+tappeto Pompompurin
 schema ascia fragile
 
 
@@ -13031,12 +13031,12 @@ paio di calze a righe oriz. (Arancio)
 
 
 
-
-
-
-
-
-
+poster di Rilla
+poster di Marty
+poster di Étoile
+poster di Chai
+poster di Chelsea
+poster di Toby
 
 
 
@@ -13163,6 +13163,26 @@ gagliardetto Nook Inc.
 
 
 
+cappello Hello Kitty (Bianco)
+maglietta Hello Kitty (Blu)
+paio di scarpe Hello Kitty (Bianco)
+cappuccio My Melody (Rosa)
+paio di stivali My Melody (Rosa)
+fermaglio Kiki & Lala (Giallo)
+maglietta Kiki & Lala (Rosa)
+paio di calzini Kiki & Lala (Rosa)
+bacchetta Kiki & Lala
+paio di scarpe Kiki & Lala (Rosa)
+cappello Pompompurin (Giallo)
+maglietta Pompompurin (Giallo)
+paio di stivali Pompompurin (Giallo)
+giacca Cinnamoroll (Blu chiaro)
+paio di sneaker Cinnamoroll (Blu chiaro)
+costume Kerokerokeroppi (Verde)
+canotta Kerokerokeroppi (Rosso)
+set mollet. Kerokerokeroppi (Bianco)
+paio calze Kerokerokeroppi (Rosso)
+paio stivali Kerokerokeroppi (Verde)
 
 
 
@@ -13173,27 +13193,7 @@ gagliardetto Nook Inc.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+I miei modelli: vers. pro +
 lecca-lecca
 dolcetto
 
@@ -13274,7 +13274,7 @@ Occhi dai mille colori
 
 
 recinzione brividi
-
+vestito Hello Kitty (Blu)
 
 
 
@@ -13295,6 +13295,8 @@ Ring-Con
 
 
 
+cappello Cinnamoroll (Bianco)
+camicetta Cinnamoroll (Blu chiaro)
 
 
 
@@ -13311,9 +13313,7 @@ Ring-Con
 
 
 
-
-
-
+poster della Nook Inc.
 
 
 muro primizie
@@ -13431,7 +13431,7 @@ paio di stivali stregoneschi (Bianco)
 paio di stivali stregoneschi (Verde)
 paio di stivali stregoneschi (Rosso)
 paio di stivali stregoneschi (Nero)
-
+vestito Kiki & Lala (Rosa)
 
 
 
@@ -13484,7 +13484,7 @@ piatto di krapfen
 
 
 
-
+completo Pompompurin (Giallo)
 
 ciocco-cuore
 
@@ -13756,8 +13756,8 @@ Collezione Gran Emozione
 
 
 
-
-
+vestito My Melody (Rosa)
+maglietta My Melody (Rosa)
 
 
 
@@ -13925,7 +13925,7 @@ set con fagioli da lanciare
 
 
 
-
+Nintendo Switch Lite
 
 
 set di calze per regali
@@ -14003,11 +14003,11 @@ paio di maracas
 
 
 
-
-
-
-
-
+scultura arb. caccia all'uovo
+albero caccia all'uovo
+bandiera caccia all'uovo
+fioriera caccia all'uovo
+set dolci caccia all'uovo
 
 
 
@@ -14021,7 +14021,7 @@ costume Carnevale (Blu)
 torta del Pi greco
 
 
-
+globo girevole
 
 
 
@@ -14039,7 +14039,7 @@ decoraz. Capodanno lunare
 
 
 
-
+forsizia
 denaro della fortuna
 sebaetdon
 
@@ -14140,6 +14140,7 @@ sebaetdon
 
 
 
+torta 1º anniversario
 
 
 
@@ -14155,8 +14156,7 @@ sebaetdon
 
 
 
-
-
+Portale modelli personaliz.
 
 
 
@@ -14248,22 +14248,22 @@ paio di scarpe di Luigi (Marrone)
 
 
 
+targa da porta Nook Inc.
+
+muro ballo scolastico
+pavimento ballo scolastico
+foto di Tom Nook
+foto di Mirco e Marco
+foto di Fuffi
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+smoking vivace (Rosso)
+fascia ballo scolastico (Rosso)
+paio di scarpe da ballo (Nero)
+corona ballo scolastico (Dorato)
+tiara ballo scolastico (Dorato)
 blocco fluttuante
 
 
@@ -14296,10 +14296,7 @@ recinzione sirena
 
 
 
-
-
-きゅうりのうま
-
+custodia edizione ACNH
 
 
 
@@ -14336,5 +14333,78 @@ recinzione sirena
 
 
 
-つきみだんご
-なすびのうし
+
+
+
+
+
+petofono
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+paio di scarpe da ballo (Dorato)
+paio di scarpe da ballo (Arancio)
+paio di scarpe da ballo (Argentato)
+paio di scarpe da ballo (Blu)
+paio di scarpe da ballo (Rosa)
+paio di scarpe da ballo (Verde)
+paio di scarpe da ballo (Viola)
+
+
+
+
+
+
+
+fascia ballo scolastico (Blu)
+fascia ballo scolastico (Verde)
+fascia ballo scolastico (Viola)
+fascia ballo scolastico (Bianco)
+fascia ballo scolastico (Nero)
+fascia ballo scolastico (Dorato)
+corona ballo scolastico (Argentato)
+tiara ballo scolastico (Argentato)
+smoking vivace (Blu)
+smoking vivace (Verde)
+smoking vivace (Giallo)
+smoking vivace (Arancio)
+smoking vivace (Viola)
+smoking vivace (Marrone)
+smoking vivace (Monocromo)

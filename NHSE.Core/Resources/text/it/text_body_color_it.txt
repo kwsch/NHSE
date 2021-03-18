@@ -3410,6 +3410,10 @@
 13832_0	Giallo
 13832_1	Rosa
 13832_2	Verde
+13927_0	Turchese
+13927_1	Grigio
+13927_2	Corallo
+13927_3	Giallo
 13930_0	Variopinto
 13930_1	Grazioso
 13930_2	Spavaldo
@@ -3422,3 +3426,6 @@
 14029_3	Viola
 14029_4	Bianco
 14029_5	Nero
+14340_0	Rosso
+14340_1	Verde
+14340_2	Giallo

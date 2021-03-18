@@ -3410,6 +3410,10 @@
 13832_0	Amarillo
 13832_1	Rosa
 13832_2	Verde
+13927_0	Turquesa
+13927_1	Gris
+13927_2	Coral
+13927_3	Amarilla
 13930_0	Multicolor
 13930_1	Adorable
 13930_2	Moderno
@@ -3422,3 +3426,6 @@
 14029_3	Púrpura
 14029_4	Blanco
 14029_5	Negro
+14340_0	Rojo
+14340_1	Verde
+14340_2	Amarillo

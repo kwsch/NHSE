@@ -3410,6 +3410,10 @@
 13832_0	Jaune
 13832_1	Rose
 13832_2	Vert
+13927_0	Turquoise
+13927_1	Grise
+13927_2	Corail
+13927_3	Jaune
 13930_0	Multicolore
 13930_1	Adorable
 13930_2	Cool
@@ -3422,3 +3426,6 @@
 14029_3	Violet
 14029_4	Blanc
 14029_5	Noir
+14340_0	Rouge
+14340_1	Vert
+14340_2	Jaune
