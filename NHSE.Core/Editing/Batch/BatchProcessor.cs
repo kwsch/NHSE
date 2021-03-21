@@ -71,5 +71,17 @@ namespace NHSE.Core
                     Process(pk, set.Filters, set.Instructions);
             }
         }
+
+        protected abstract void Initialize(StringInstructionSet[] sets);
+
+        public void Process(StringInstructionSet[] sets, IReadOnlyList<T> items)
+        {
+            Initialize(sets);
+            foreach (var s in sets)
+            {
+                foreach (var i in items)
+                    Process(i, s.Filters, s.Instructions);
+            }
+        }
     }
 }

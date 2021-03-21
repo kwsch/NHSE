@@ -116,13 +116,8 @@ namespace NHSE.WinForms
             {
                 if (finished)
                     return;
-
-                foreach (var s in sets)
-                {
-                    foreach (var i in Items)
-                        Processor.Process(i, s.Filters, s.Instructions);
-                }
-
+                // don't bother reporting progress...
+                Processor.Process(sets, Items);
                 finished = true;
             };
 
