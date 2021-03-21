@@ -159,7 +159,7 @@ namespace NHSE.WinForms
             }
         }
 
-        public void EnableDragDrop(Control parent, DragEventHandler enter, DragEventHandler drop)
+        public static void EnableDragDrop(Control parent, DragEventHandler enter, DragEventHandler drop)
         {
             parent.AllowDrop = true;
             parent.DragEnter += enter;

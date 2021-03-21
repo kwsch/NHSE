@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
@@ -113,7 +114,7 @@ namespace NHSE.Core
             }
         }
 
-        public static bool HasProperty(object obj, string name, out PropertyInfo? pi) => (pi = GetPropertyInfo(obj.GetType().GetTypeInfo(), name)) != null;
+        public static bool HasProperty(object obj, string name, [NotNullWhen(true)] out PropertyInfo? pi) => (pi = GetPropertyInfo(obj.GetType().GetTypeInfo(), name)) != null;
 
         public static PropertyInfo? GetPropertyInfo(this TypeInfo typeInfo, string name)
         {

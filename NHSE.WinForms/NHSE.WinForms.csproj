@@ -97,6 +97,9 @@
     <Compile Update="Subforms\Player\AchievementEditor.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Subforms\SysBot\BatchEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Subforms\SysBot\SysBotRAMEdit.cs">
       <SubType>Form</SubType>
     </Compile>

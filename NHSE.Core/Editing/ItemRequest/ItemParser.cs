@@ -264,8 +264,10 @@ namespace NHSE.Core
                 return parsedItem;
 
             if (gStrings.HasAssociatedItems(itemName, out var items))
-                if (items != null && items.Count == 1)
+            {
+                if (items?.Count == 1)
                     return new Item((ushort)items[0].Value);
+            }
 
             return Item.NO_ITEM;
         }

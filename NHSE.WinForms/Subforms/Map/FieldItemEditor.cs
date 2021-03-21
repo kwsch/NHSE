@@ -987,6 +987,14 @@ namespace NHSE.WinForms
         }
 
         private void Menu_Spawn_Click(object sender, EventArgs e) => new BulkSpawn(this, View.X, View.Y).ShowDialog();
+
+        private void Menu_Bulk_Click(object sender, EventArgs e)
+        {
+            var editor = new BatchEditor(SpawnLayer.Tiles, ItemEdit.SetItem(new Item()));
+            editor.ShowDialog();
+            SpawnLayer.ClearDanglingExtensions(0, 0, SpawnLayer.MaxWidth, SpawnLayer.MaxHeight);
+            LoadItemGridAcre();
+        }
     }
 
     public interface IItemLayerEditor
