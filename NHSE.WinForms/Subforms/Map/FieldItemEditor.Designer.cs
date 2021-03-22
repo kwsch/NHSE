@@ -146,6 +146,7 @@
             this.RB_Terrain = new System.Windows.Forms.RadioButton();
             this.L_TileMode = new System.Windows.Forms.Label();
             this.CHK_RedirectExtensionLoad = new System.Windows.Forms.CheckBox();
+            this.CHK_MoveOnDrag = new System.Windows.Forms.CheckBox();
             this.CHK_FieldItemSnap = new System.Windows.Forms.CheckBox();
             this.Menu_Batch = new System.Windows.Forms.ToolStripMenuItem();
             this.CM_Click.SuspendLayout();
@@ -1353,6 +1354,18 @@
             this.CHK_RedirectExtensionLoad.Text = "View Root instead of Extension";
             this.CHK_RedirectExtensionLoad.UseVisualStyleBackColor = true;
             // 
+            // CKH_MoveOnDrag
+            // 
+            this.CHK_MoveOnDrag.AutoSize = true;
+            this.CHK_MoveOnDrag.Checked = true;
+            this.CHK_MoveOnDrag.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CHK_MoveOnDrag.Location = new System.Drawing.Point(535, 423);
+            this.CHK_MoveOnDrag.Name = "CHK_MoveOnDrag";
+            this.CHK_MoveOnDrag.Size = new System.Drawing.Size(173, 17);
+            this.CHK_MoveOnDrag.TabIndex = 46;
+            this.CHK_MoveOnDrag.Text = "Move Field Item Editor on mouse drag";
+            this.CHK_MoveOnDrag.UseVisualStyleBackColor = true;
+            // 
             // CHK_FieldItemSnap
             // 
             this.CHK_FieldItemSnap.AutoSize = true;
@@ -1379,6 +1392,7 @@
             this.ClientSize = new System.Drawing.Size(1027, 537);
             this.Controls.Add(this.CHK_FieldItemSnap);
             this.Controls.Add(this.CHK_RedirectExtensionLoad);
+            this.Controls.Add(this.CHK_MoveOnDrag);
             this.Controls.Add(this.L_TileMode);
             this.Controls.Add(this.RB_Terrain);
             this.Controls.Add(this.RB_Item);
@@ -1554,6 +1568,7 @@
         private System.Windows.Forms.ToolStripMenuItem Menu_SavePNGItems;
         private System.Windows.Forms.ToolStripMenuItem Menu_SavePNGTerrain;
         private System.Windows.Forms.CheckBox CHK_RedirectExtensionLoad;
+        private System.Windows.Forms.CheckBox CHK_MoveOnDrag;
         private System.Windows.Forms.ToolStripMenuItem B_SetAllRoadTiles;
         private System.Windows.Forms.ToolStripMenuItem B_ClearPlacedDesigns;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
