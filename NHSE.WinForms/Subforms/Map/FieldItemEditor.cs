@@ -247,7 +247,7 @@ namespace NHSE.WinForms
         private void PB_Acre_MouseMove(object sender, MouseEventArgs e)
         {
             var l = Map.CurrentLayer;
-            if (e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left && CHK_MoveOnDrag.Checked)
             {
                 MoveDrag(e);
                 return;
