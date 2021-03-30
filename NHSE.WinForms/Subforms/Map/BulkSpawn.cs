@@ -97,8 +97,14 @@ namespace NHSE.WinForms
 
         private static int SpawnItems(ItemLayer layer, IReadOnlyList<Item> items, int x, int y, SpawnArrangement arrange, int sizeX, int sizeY, bool noOverwrite)
         {
+            // every {setting} tiles, we jump down to the next available row of tiles.
             int x0 = x;
-            var newline = arrange == SpawnArrangement.Square ? (int)Math.Sqrt(items.Count * sizeX * sizeY) : items.Count;
+            var newline = arrange switch
+            {
+                SpawnArrangement.Square => (int)Math.Sqrt(items.Count * sizeX * sizeY),
+                SpawnArrangement.Vertical => 1 * sizeY,
+                _ => items.Count * sizeX // Horizontal
+            };
 
             int ctr = 0;
             for (var i = 0; i < items.Count; i++)
@@ -180,6 +186,7 @@ namespace NHSE.WinForms
         {
             Square,
             Horizontal,
+            Vertical,
         }
     }
 }
