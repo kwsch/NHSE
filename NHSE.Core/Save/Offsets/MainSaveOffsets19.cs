@@ -5,6 +5,8 @@
     /// </summary>
     public class MainSaveOffsets19 : MainSaveOffsets
     {
+        public override int PatternCount => PatternCount2;
+
         #region GSaveLand
         public const int GSaveLandStart = 0x110;
         public override int Animal => GSaveLandStart + 0x10;

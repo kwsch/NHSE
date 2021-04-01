@@ -141,7 +141,7 @@ namespace NHSE.Core
         /// <param name="path">Path to dump to</param>
         public static void DumpDesigns(this MainSave sav, string path)
         {
-            for (int i = 0; i < MainSaveOffsets.PatternCount; i++)
+            for (int i = 0; i < sav.Offsets.PatternCount; i++)
             {
                 var dp = sav.GetDesign(i);
                 dp.Dump(path, i);
@@ -210,7 +210,7 @@ namespace NHSE.Core
         /// <param name="path">Path to dump to</param>
         public static void DumpDesignsPRO(this MainSave sav, string path)
         {
-            for (int i = 0; i < MainSaveOffsets.PatternCount; i++)
+            for (int i = 0; i < sav.Offsets.PatternCount; i++)
             {
                 var dp = sav.GetDesignPRO(i);
                 dp.Dump(path, i);

@@ -107,7 +107,7 @@ namespace NHSE.Core
 
         public DesignPattern[] GetDesigns()
         {
-            var result = new DesignPattern[MainSaveOffsets.PatternCount];
+            var result = new DesignPattern[Offsets.PatternCount];
             for (int i = 0; i <result.Length; i++)
                 result[i] = GetDesign(i);
             return result;
@@ -115,14 +115,14 @@ namespace NHSE.Core
 
         public void SetDesigns(IReadOnlyList<DesignPattern> value)
         {
-            var count = Math.Min(MainSaveOffsets.PatternCount, value.Count);
+            var count = Math.Min(Offsets.PatternCount, value.Count);
             for (int i = 0; i < count; i++)
                 SetDesign(value[i], i);
         }
 
         public DesignPatternPRO[] GetDesignsPRO()
         {
-            var result = new DesignPatternPRO[MainSaveOffsets.PatternCount];
+            var result = new DesignPatternPRO[Offsets.PatternCount];
             for (int i = 0; i < result.Length; i++)
                 result[i] = GetDesignPRO(i);
             return result;
@@ -130,7 +130,7 @@ namespace NHSE.Core
 
         public void SetDesignsPRO(IReadOnlyList<DesignPatternPRO> value)
         {
-            var count = Math.Min(MainSaveOffsets.PatternCount, value.Count);
+            var count = Math.Min(Offsets.PatternCount, value.Count);
             for (int i = 0; i < count; i++)
                 SetDesignPRO(value[i], i);
         }
@@ -151,7 +151,7 @@ namespace NHSE.Core
 
         public void SetDesignsTailor(IReadOnlyList<DesignPatternPRO> value)
         {
-            var count = Math.Min(MainSaveOffsets.PatternCount, value.Count);
+            var count = Math.Min(Offsets.PatternCount, value.Count);
             for (int i = 0; i < count; i++)
                 value[i].Data.CopyTo(Data, Offsets.PatternTailor + (i * DesignPatternPRO.SIZE));
         }
