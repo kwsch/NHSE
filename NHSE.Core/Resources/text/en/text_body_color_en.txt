@@ -2098,6 +2098,38 @@
 04081_5	Camouflage
 04081_6	Simple pattern
 04081_7	Pop pattern
+04083_0	Orange
+04083_1	Yellow
+04083_2	Green
+04083_3	Monochrome
+04084_0	Orange
+04084_1	Yellow
+04084_2	Green
+04084_3	Monochrome
+04086_0	Orange
+04086_1	Yellow
+04086_2	Green
+04086_3	Monochrome
+04087_0	Orange
+04087_1	Yellow
+04087_2	Green
+04087_3	Monochrome
+04088_0	Orange
+04088_1	Yellow
+04088_2	Green
+04088_3	Monochrome
+04089_0	Orange
+04089_1	Yellow
+04089_2	Green
+04089_3	Monochrome
+04090_0	Orange
+04090_1	Yellow
+04090_2	Green
+04090_3	Monochrome
+04092_0	Orange
+04092_1	Yellow
+04092_2	Green
+04092_3	Monochrome
 04093_0	Green bamboo
 04093_1	Dried bamboo
 04093_2	Smoke-cured bamboo
@@ -3226,3 +3258,174 @@
 12543_1	Gray
 12741_0	Pacific Ocean
 12741_1	Atlantic Ocean
+12949_0	Orange
+12949_1	Yellow
+12949_2	Green
+12949_3	Monochrome
+12951_0	Orange
+12951_1	Yellow
+12951_2	Green
+12951_3	Monochrome
+13222_0	Orange
+13222_1	Yellow
+13222_2	Green
+13222_3	Monochrome
+13223_0	Orange
+13223_1	Yellow
+13223_2	Green
+13223_3	Monochrome
+13242_0	Blue
+13242_1	Red
+13242_2	Yellow
+13242_3	Green
+13242_4	Pink
+13242_5	Light blue
+13242_6	Purple
+13243_0	Beige
+13243_1	Red
+13243_2	Lemon & white
+13243_3	Spotted
+13243_4	Black
+13243_5	Tricolored
+13243_6	Gray & white
+13243_7	Pink
+13244_0	Red & green
+13244_1	Colorful
+13244_2	Cute
+13244_3	Cool
+13244_4	Chic
+13244_5	Elegant
+13244_6	Natural
+13245_0	Chocolate
+13245_1	Chestnut
+13245_2	Whipped-cream topping
+13245_3	Strawberry
+13245_4	Green tea
+13246_0	The ocean blue
+13246_1	The Mesozoic world
+13246_2	Savannah
+13246_3	Flowers
+13247_0	Silver
+13247_1	Blue
+13247_2	Red
+13247_3	Orange
+13247_4	Yellow
+13247_5	Green
+13247_6	Pink
+13247_7	Black
+13249_0	White
+13249_1	Pink
+13249_2	Black
+13249_3	Stripes
+13249_4	Floral
+13249_5	Blue
+13249_6	Brown
+13249_7	Colorful
+13250_0	Red & white
+13250_1	Blue & yellow
+13250_2	Black & silver
+13250_3	Pink & purple
+13251_0	Gray
+13251_1	Brown
+13251_2	Green
+13251_3	Blue
+13251_4	Red
+13252_0	Red
+13252_1	Brown
+13252_2	Blue
+13252_3	Orange
+13252_4	Green
+13252_5	Pink
+13252_6	Purple
+13447_0	Fall harvest
+13447_1	Spring blooming
+13448_0	Fall harvest
+13448_1	Spring blooming
+13449_0	Fall harvest
+13449_1	Spring blooming
+13450_0	Fall harvest
+13450_1	Spring blooming
+13453_0	Fall harvest
+13453_1	Spring blooming
+13488_0	Milk chocolate
+13488_1	Dark chocolate
+13488_2	White chocolate
+13488_3	Strawberry chocolate
+13767_0	Green
+13767_1	Red
+13767_2	Blue
+13767_3	Purple
+13767_4	Rainbow
+13770_0	Green
+13770_1	Red
+13770_2	Blue
+13770_3	Purple
+13770_4	Rainbow
+13772_0	Green
+13772_1	Red
+13772_2	Blue
+13772_3	Purple
+13772_4	Rainbow
+13773_0	Green
+13773_1	Red
+13773_2	Blue
+13773_3	Purple
+13773_4	Rainbow
+13774_0	Green
+13774_1	Red
+13774_2	Blue
+13774_3	Purple
+13774_4	Rainbow
+13775_0	Green
+13775_1	Red
+13775_2	Blue
+13775_3	Purple
+13775_4	Rainbow
+13776_0	Green
+13776_1	Red
+13776_2	Blue
+13776_3	Purple
+13776_4	Rainbow
+13777_0	Green
+13777_1	Red
+13777_2	Blue
+13777_3	Purple
+13777_4	Rainbow
+13778_0	Green
+13778_1	Red
+13778_2	Blue
+13778_3	Purple
+13778_4	Rainbow
+13818_0	Fall harvest
+13818_1	Spring blooming
+13819_0	Fall harvest
+13819_1	Spring blooming
+13820_0	Fall harvest
+13820_1	Spring blooming
+13829_0	Green
+13829_1	Red
+13831_0	Red
+13831_1	Blue
+13831_2	Green
+13832_0	Yellow
+13832_1	Pink
+13832_2	Green
+13927_0	Turquoise
+13927_1	Gray
+13927_2	Coral
+13927_3	Yellow
+13930_0	Colorful
+13930_1	Cute
+13930_2	Cool
+13930_3	Chic
+13930_4	Elegant
+13930_5	Natural
+14029_0	Red
+14029_1	Pink
+14029_2	Yellow
+14029_3	Purple
+14029_4	White
+14029_5	Black
+14340_0	Red
+14340_1	Green
+14340_2	Yellow

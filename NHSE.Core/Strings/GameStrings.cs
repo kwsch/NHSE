@@ -12,9 +12,11 @@ namespace NHSE.Core
         public readonly string[] villagers;
         public readonly string[] itemlist;
         public readonly string[] itemlistdisplay;
+        public readonly string[] villagerDefaultPhrases;
         public readonly Dictionary<string, string> VillagerMap;
+        public readonly Dictionary<string, string> VillagerDefaultPhraseMap;
         public readonly List<ComboItem> ItemDataSource;
-        public readonly Dictionary<string, string> InternalNameTranslation = new Dictionary<string, string>();
+        public readonly Dictionary<string, string> InternalNameTranslation = new();
 
         public IReadOnlyDictionary<string, string> BodyParts { get; }
         public IReadOnlyDictionary<string, string> BodyColor { get; }
@@ -28,6 +30,8 @@ namespace NHSE.Core
             lang = l;
             villagers = Get("villager");
             VillagerMap = GetMap(villagers);
+            villagerDefaultPhrases = Get("phrase");
+            VillagerDefaultPhraseMap = GetMap(villagerDefaultPhrases);
             itemlist = Get("item");
             itemlistdisplay = GetItemDisplayList(itemlist);
             ItemDataSource = CreateItemDataSource(itemlistdisplay);
@@ -112,6 +116,11 @@ namespace NHSE.Core
             return VillagerMap.TryGetValue(name, out var result) ? result : name;
         }
 
+        public string GetVillagerDefaultPhrase(string name)
+        {
+            return VillagerDefaultPhraseMap.TryGetValue(name, out var result) ? result : name; // I know it shouldn't be name but I have to return something
+        }
+
         public static string[] GetItemDisplayList(string[] items)
         {
             items = (string[])items.Clone();
@@ -140,7 +149,7 @@ namespace NHSE.Core
 
             var kind = ItemInfo.GetItemKind(index);
 
-            if (kind.IsFlower())
+            if (kind.IsFlowerGene(index))
             {
                 var display = GetItemName(index);
                 if (item.Genes != 0)
@@ -195,6 +204,45 @@ namespace NHSE.Core
                 return "Lloyd";
 
             return "???";
+        }
+
+        /// <summary>
+        /// Returns clothing or item recolors not a part of ItemRemake with brackets in their names
+        /// </summary>
+        /// <param name="id">ItemID of the color variation search</param>
+        /// <param name="baseItemName">Item name without the associated recolors</param>
+        /// <returns>Map of ItemID, ItemName</returns>
+        public List<ComboItem> GetAssociatedItems(ushort id, out string baseItemName)
+        {
+            baseItemName = string.Empty;
+            var stringMatch = GetItemName(id);
+            var index = stringMatch.IndexOf('(');
+            if (index < 0)
+                return new List<ComboItem>();
+
+            var search = baseItemName = stringMatch.Substring(0, index);
+            if (!string.IsNullOrWhiteSpace(search))
+                return ItemDataSource.FindAll(x => x.Text.StartsWith(search));
+            else
+                return new List<ComboItem>();
+        }
+
+
+        public bool HasAssociatedItems(string baseName, out List<ComboItem>? items)
+        {
+            if (string.IsNullOrWhiteSpace(baseName))
+            {
+                items = null;
+                return false;
+            }
+
+            baseName = baseName.Trim().ToLower();
+            if (!baseName.EndsWith(" "))
+                baseName += " ";
+            baseName += "(";
+
+            items = ItemDataSource.FindAll(x => x.Text.ToLower().StartsWith(baseName));
+            return items.Count > 0;
         }
     }
 

@@ -59,6 +59,22 @@ namespace NHSE.Core
             {0x02B, new EventFlagVillager(0 , 10  , 0043, "ForceMoveOutVillagerIndex"                  )}, // 強制転出に指定した住人番号
             {0x02C, new EventFlagVillager(0 , 1   , 0044, "DisplayJuneBridePresent"                    )}, // ジューンブライド | 絵皿を飾るか？
             {0x02D, new EventFlagVillager(0 , 7   , 0045, "ProgressDaysJuneBrideParty"                 )}, // ジューンブライド | 結婚パーティに参加してからの経過日数
+            {0x031, new EventFlagVillager(0 , 6   , 0049, "EnableConvTalkDaysCount"                    )}, // 会話のフリを解禁するまでの日数
+            {0x032, new EventFlagVillager(0 , 29  , 0050, "WantIngredients"                            )}, // ハーベスト｜要求する食材
+            {0x033, new EventFlagVillager(0 , 29  , 0051, "BeforeGiveIngredients"                      )}, // ハーベスト｜直前にくれた食材
+            {0x034, new EventFlagVillager(0 , 29  , 0052, "BeforeWantIngredients"                      )}, // ハーベスト｜直前に要求した食材
+            {0x036, new EventFlagVillager(0 , 300 , 0054, "XmasEveWakeUpMinute"                        )}, // クリスマス|起床時刻制御用
+            {0x037, new EventFlagVillager(0 , 1   , 0055, "EquipChristmasWear"                         )}, // クリスマス用装備にする
+            {0x038, new EventFlagVillager(0 , 2   , 0056, "HarvestGiveHint1"                           )}, // ハーベスト｜1品目の隠し食材ヒント出したら1か2をセット
+            {0x039, new EventFlagVillager(0 , 2   , 0057, "HarvestGiveHint2"                           )}, // ハーベスト｜2品目の隠し食材ヒント出したら1か2をセット
+            {0x03A, new EventFlagVillager(0 , 2   , 0058, "HarvestGiveHint3"                           )}, // ハーベスト｜3品目の隠し食材ヒント出したら1か2をセット
+            {0x03B, new EventFlagVillager(0 , 2   , 0059, "HarvestGiveHint4"                           )}, // ハーベスト｜4品目の隠し食材ヒント出したら1か2をセット
+            {0x03D, new EventFlagVillager(0 , 3   , 0061, "CarnivalFeatherColor"                       )}, // カーニバル｜欲しがる羽の色
+            {0x03E, new EventFlagVillager(0 , 10  , 0062, "DisplayValentinePresent"                    )}, // バレンタインデー｜飾られるブーケの種類
+            {0x040, new EventFlagVillager(0 , 1   , 0064, "HarvestDemoEndWait"                         )}, // ハーベスト｜デモ終了待機中か？
+            {0x041, new EventFlagVillager(0 , 1   , 0065, "WoreNewYearHat"                             )}, // カウントダウン｜ニューイヤーハットを被った
+            {0x042, new EventFlagVillager(0 , 1   , 0066, "HarvestDemoStateNow"                        )}, // ハーベスト｜デモ参加状態か？
+            {0x046, new EventFlagVillager(0 , 36  , 0070, "WearItemLayer1LayoutLimit"                  )}, // 成長処理家具入替時の装備品の二層目配置候補上限数
         };
 
         private const string Unknown = "???";

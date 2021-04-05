@@ -22,11 +22,15 @@ namespace NHSE.Core
         Kind_AutumnLeaf,
         Kind_Axe,
         Kind_Bag,
+        Kind_Balloon,
         Kind_BdayCupcake,
+        Kind_BigbagPresent,
+        Kind_BlowBubble,
         Kind_BridgeItem,
         Kind_Bromide,
         Kind_Bush,
         Kind_BushSeedling,
+        Kind_Candy,
         Kind_Cap,
         Kind_ChangeStick,
         Kind_CliffMaker,
@@ -43,9 +47,13 @@ namespace NHSE.Core
         Kind_DummyPresentbox,
         Kind_DummyRecipe,
         Kind_DummyWrapping,
+        Kind_DummyWrappingOtoshidama,
         Kind_EasterEgg,
         Kind_EventObjFtr,
+        Kind_Feather,
         Kind_Fence,
+        Kind_FierworkHand,
+        Kind_FireworkM,
         Kind_Fish,
         Kind_FishBait,
         Kind_FishingRod,
@@ -59,6 +67,8 @@ namespace NHSE.Core
         Kind_Ftr,
         Kind_Giftbox,
         Kind_GroundMaker,
+        Kind_HandheldPennant,
+        Kind_HarvestDish,
         Kind_Helmet,
         Kind_Honeycomb,
         Kind_HousePost,
@@ -69,12 +79,15 @@ namespace NHSE.Core
         Kind_InsectToy,
         Kind_JohnnyQuest,
         Kind_JohnnyQuestDust,
+        Kind_JuiceFuzzyapple,
         Kind_Ladder,
         Kind_LicenseItem,
         Kind_LostQuest,
         Kind_LostQuestDust,
         Kind_LoveCrystal,
+        Kind_MaracasCarnival,
         Kind_Medicine,
+        Kind_Megaphone,
         Kind_MessageBottle,
         Kind_MilePlaneTicket,
         Kind_Money,
@@ -88,7 +101,9 @@ namespace NHSE.Core
         Kind_NpcOutfit,
         Kind_Ocarina,
         Kind_Ore,
+        Kind_Otoshidama,
         Kind_Panflute,
+        Kind_Partyhorn,
         Kind_PartyPopper,
         Kind_PhotoStudioList,
         Kind_Picture,
@@ -98,7 +113,9 @@ namespace NHSE.Core
         Kind_PitFallSeed,
         Kind_PlayerDemoOutfit,
         Kind_Poster,
+        Kind_QuestChristmasPresentbox,
         Kind_QuestWrapping,
+        Kind_RainbowFeather,
         Kind_RiverMaker,
         Kind_RollanTicket,
         Kind_RoomFloor,
@@ -111,12 +128,14 @@ namespace NHSE.Core
         Kind_SequenceOnly,
         Kind_ShellDrift,
         Kind_ShellFish,
+        Kind_Shoes,
         Kind_Shovel,
         Kind_Slingshot,
         Kind_SlopeItem,
         Kind_SmartPhone,
         Kind_SnowCrystal,
         Kind_Socks,
+        Kind_SoySet,
         Kind_StarPiece,
         Kind_StickLight,
         Kind_TailorTicket,
@@ -131,11 +150,15 @@ namespace NHSE.Core
         Kind_TurnipExpired,
         Kind_Uchiwa,
         Kind_Umbrella,
+        Kind_VegeSeedling,
         Kind_Vegetable,
+        Kind_VegeTree,
         Kind_Watering,
         Kind_Weed,
+        Kind_Windmill,
         Kind_WoodenStickTool,
         Kind_WrappingPaper,
+        Kind_XmasDeco,
         Kind_YutaroWisp,
         Onepiece_Dress,
         Onepiece_Long,
@@ -160,7 +183,7 @@ namespace NHSE.Core
 
     public static class ItemKindExtensions
     {
-        private static readonly HashSet<ItemKind> Clothing = new HashSet<ItemKind>
+        private static readonly HashSet<ItemKind> Clothing = new()
         {
             Bottoms_Long,
             Bottoms_Middle,
@@ -183,7 +206,7 @@ namespace NHSE.Core
             Top_Short,
         };
 
-        private static readonly HashSet<ItemKind> Furniture = new HashSet<ItemKind>
+        private static readonly HashSet<ItemKind> Furniture = new()
         {
             Ftr_1x1_Chair,
             Ftr_1x1_Floor,
@@ -196,6 +219,8 @@ namespace NHSE.Core
         };
 
         public static bool IsFlower(this ItemKind k) => (Kind_Flower <= k && k <= Kind_FlowerBud) || (UnitIcon_FlwAnemone <= k && k <= UnitIcon_FlwTulip);
+        public static bool IsFlowerPicked(this ItemKind k) => k == Kind_Flower || (UnitIcon_FlwAnemone <= k && k <= UnitIcon_FlwTulip);
+        public static bool IsFlowerGene(this ItemKind k, ushort id) => k.IsFlower() && (id >= 60_000 || !k.IsFlowerPicked());
         public static bool IsClothing(this ItemKind k) => Clothing.Contains(k);
         public static bool IsCrafting(this ItemKind k) => k == Kind_Ore || k == Kind_CraftMaterial || k == Kind_CraftPhoneCase || k == Kind_CraftRemake;
         public static bool IsFurniture(this ItemKind k) => Furniture.Contains(k);

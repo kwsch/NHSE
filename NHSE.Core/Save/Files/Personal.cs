@@ -100,13 +100,19 @@ namespace NHSE.Core
             set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.ItemChest + (Offsets.ItemChestCount * Item.SIZE));
         }
 
+        public IReactionStore Reactions
+        {
+            get => Offsets.ReadReactions(Data);
+            set => Offsets.SetReactions(Data, value);
+        }
+
         public AchievementList Achievements
         {
             get => Data.Slice(Offsets.CountAchievement, AchievementList.SIZE).ToStructure<AchievementList>();
             set => value.ToBytes().CopyTo(Data, Offsets.CountAchievement);
         }
 
-        public RecipeBook GetRecipeBook() => new RecipeBook(Data.Slice(Offsets.Recipes, RecipeBook.SIZE));
+        public RecipeBook GetRecipeBook() => new(Data.Slice(Offsets.Recipes, RecipeBook.SIZE));
         public void SetRecipeBook(RecipeBook book) => book.Save(Data, Offsets.Recipes);
 
         public short[] GetEventFlagsPlayer()

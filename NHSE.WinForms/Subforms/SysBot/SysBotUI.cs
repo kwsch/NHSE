@@ -72,7 +72,17 @@ namespace NHSE.WinForms
 
             try
             {
-                var result = Injector.Write(true);
+                InjectionResult result;
+                if (Injector.Injector is PocketInjector p)
+                {
+                    p.SpoofInventoryWrite = ModifierKeys == Keys.Control;
+                    result = Injector.Write(true);
+                    p.SpoofInventoryWrite = false;
+                }
+                else
+                {
+                    result = Injector.Write(true);
+                }
                 if (result == InjectionResult.Success)
                     return;
                 WinFormsUtil.Alert(result.ToString());

@@ -2098,6 +2098,38 @@
 04081_5	Mimetico
 04081_6	Motivo semplice
 04081_7	Motivo sgargiante
+04083_0	Arancio
+04083_1	Giallo
+04083_2	Verde
+04083_3	Monocromo
+04084_0	Arancio
+04084_1	Giallo
+04084_2	Verde
+04084_3	Monocromo
+04086_0	Arancio
+04086_1	Giallo
+04086_2	Verde
+04086_3	Monocromo
+04087_0	Arancio
+04087_1	Giallo
+04087_2	Verde
+04087_3	Monocromo
+04088_0	Arancio
+04088_1	Giallo
+04088_2	Verde
+04088_3	Monocromo
+04089_0	Arancio
+04089_1	Giallo
+04089_2	Verde
+04089_3	Monocromo
+04090_0	Arancio
+04090_1	Giallo
+04090_2	Verde
+04090_3	Monocromo
+04092_0	Arancio
+04092_1	Giallo
+04092_2	Verde
+04092_3	Monocromo
 04093_0	Bambù verde
 04093_1	Bambù essiccato
 04093_2	Bambù affumicato
@@ -3226,3 +3258,174 @@
 12543_1	Grigio
 12741_0	Oceano Pacifico
 12741_1	Oceano Atlantico
+12949_0	Arancio
+12949_1	Giallo
+12949_2	Verde
+12949_3	Monocromo
+12951_0	Arancio
+12951_1	Giallo
+12951_2	Verde
+12951_3	Monocromo
+13222_0	Arancio
+13222_1	Giallo
+13222_2	Verde
+13222_3	Monocromo
+13223_0	Arancio
+13223_1	Giallo
+13223_2	Verde
+13223_3	Monocromo
+13242_0	Blu
+13242_1	Rosso
+13242_2	Giallo
+13242_3	Verde
+13242_4	Rosa
+13242_5	Blu chiaro
+13242_6	Viola
+13243_0	Beige
+13243_1	Rosso
+13243_2	Bianco e marroncino
+13243_3	Punteggiato
+13243_4	Nero
+13243_5	Tre colori
+13243_6	Grigio e bianco
+13243_7	Rosa
+13244_0	Rosso e verde
+13244_1	Variopinto
+13244_2	Grazioso
+13244_3	Spavaldo
+13244_4	Chic
+13244_5	Elegante
+13244_6	Naturale
+13245_0	Cioccolato
+13245_1	Castagna
+13245_2	Panna montata
+13245_3	Fragola
+13245_4	Tè verde
+13246_0	L'oceano sconfinato
+13246_1	Il mondo del mesozoico
+13246_2	La savana
+13246_3	Campo di fiori
+13247_0	Argentato
+13247_1	Blu
+13247_2	Rosso
+13247_3	Arancio
+13247_4	Giallo
+13247_5	Verde
+13247_6	Rosa
+13247_7	Nero
+13249_0	Bianco
+13249_1	Rosa
+13249_2	Nero
+13249_3	A strisce
+13249_4	Floreale
+13249_5	Blu
+13249_6	Marrone
+13249_7	Variopinto
+13250_0	Rosso e bianco
+13250_1	Blu e giallo
+13250_2	Nero e argento
+13250_3	Rosa e viola
+13251_0	Grigio
+13251_1	Marrone
+13251_2	Verde
+13251_3	Blu
+13251_4	Rosso
+13252_0	Rosso
+13252_1	Marrone
+13252_2	Blu
+13252_3	Arancio
+13252_4	Verde
+13252_5	Rosa
+13252_6	Viola
+13447_0	Raccolto autunnale
+13447_1	Fioritura primaverile
+13448_0	Raccolto autunnale
+13448_1	Fioritura primaverile
+13449_0	Raccolto autunnale
+13449_1	Fioritura primaverile
+13450_0	Raccolto autunnale
+13450_1	Fioritura primaverile
+13453_0	Raccolto autunnale
+13453_1	Fioritura primaverile
+13488_0	Cioccolato al latte
+13488_1	Cioccolato fondente
+13488_2	Cioccolato bianco
+13488_3	Cioccolato alla fragola
+13767_0	Verde
+13767_1	Rosso
+13767_2	Blu
+13767_3	Viola
+13767_4	Arcobaleno
+13770_0	Verde
+13770_1	Rosso
+13770_2	Blu
+13770_3	Viola
+13770_4	Arcobaleno
+13772_0	Verde
+13772_1	Rosso
+13772_2	Blu
+13772_3	Viola
+13772_4	Arcobaleno
+13773_0	Verde
+13773_1	Rosso
+13773_2	Blu
+13773_3	Viola
+13773_4	Arcobaleno
+13774_0	Verde
+13774_1	Rosso
+13774_2	Blu
+13774_3	Viola
+13774_4	Arcobaleno
+13775_0	Verde
+13775_1	Rosso
+13775_2	Blu
+13775_3	Viola
+13775_4	Arcobaleno
+13776_0	Verde
+13776_1	Rosso
+13776_2	Blu
+13776_3	Viola
+13776_4	Arcobaleno
+13777_0	Verde
+13777_1	Rosso
+13777_2	Blu
+13777_3	Viola
+13777_4	Arcobaleno
+13778_0	Verde
+13778_1	Rosso
+13778_2	Blu
+13778_3	Viola
+13778_4	Arcobaleno
+13818_0	Raccolto autunnale
+13818_1	Fioritura primaverile
+13819_0	Raccolto autunnale
+13819_1	Fioritura primaverile
+13820_0	Raccolto autunnale
+13820_1	Fioritura primaverile
+13829_0	Verde
+13829_1	Rosso
+13831_0	Rosso
+13831_1	Blu
+13831_2	Verde
+13832_0	Giallo
+13832_1	Rosa
+13832_2	Verde
+13927_0	Turchese
+13927_1	Grigio
+13927_2	Corallo
+13927_3	Giallo
+13930_0	Variopinto
+13930_1	Grazioso
+13930_2	Spavaldo
+13930_3	Chic
+13930_4	Elegante
+13930_5	Naturale
+14029_0	Rosso
+14029_1	Rosa
+14029_2	Giallo
+14029_3	Viola
+14029_4	Bianco
+14029_5	Nero
+14340_0	Rosso
+14340_1	Verde
+14340_2	Giallo

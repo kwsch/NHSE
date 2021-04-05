@@ -6,24 +6,7 @@ namespace NHSE.Core
     /// <summary>
     /// Key Value pair for a displayed <see cref="T:System.String" /> and underlying <see cref="T:System.Int32" /> value.
     /// </summary>
-    public readonly struct ComboItem : IEquatable<int>
-    {
-        public string Text { get; }
-        public int Value { get; }
-
-        public ComboItem(string text, int value)
-        {
-            Text = text;
-            Value = value;
-        }
-
-        public bool Equals(ComboItem other) => Value == other.Value && string.Equals(Text, other.Text);
-        public bool Equals(int other) => Value == other;
-        public override bool Equals(object obj) => obj is ComboItem other && Equals(other);
-        public override int GetHashCode() => Value;
-        public static bool operator ==(ComboItem left, ComboItem right) => left.Equals(right);
-        public static bool operator !=(ComboItem left, ComboItem right) => !(left == right);
-    }
+    public record ComboItem(string Text, int Value);
 
     public static class ComboItemUtil
     {
@@ -80,10 +63,18 @@ namespace NHSE.Core
             storage.Sort(initial, storage.Count - initial, Comparer);
         }
 
+        public static string ToStringList(this List<ComboItem> arr, bool includeValues)
+        {
+            string format = string.Empty;
+            foreach (var ci in arr)
+                format += includeValues ? $"{ci.Text} ({ci.Value:X})\n" : $"{ci.Text}\n";
+            return format;
+        }
+
         public static void SortByText(this List<ComboItem> arr) => arr.Sort(Comparer);
 
         private static readonly FunctorComparer<ComboItem> Comparer =
-            new FunctorComparer<ComboItem>((a, b) => string.CompareOrdinal(a.Text, b.Text));
+            new((a, b) => string.CompareOrdinal(a.Text, b.Text));
 
         private sealed class FunctorComparer<T> : IComparer<T>
         {

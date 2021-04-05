@@ -56,7 +56,7 @@ namespace NHSE.WinForms
 
             Task.Run(() =>
             {
-                ItemSprite.Initialize(Main.ItemPath, GameInfo.GetStrings("en").itemlist);
+                ItemSprite.Initialize(GameInfo.GetStrings("en").itemlist);
                 TranslationUtil.SetLocalization(typeof(MessageStrings), lang);
                 TranslationUtil.SetLocalization(GameInfo.Strings.InternalNameTranslation, lang);
             });
@@ -144,6 +144,19 @@ namespace NHSE.WinForms
             sysbot.Show();
         }
 
+        private void Menu_ItemImages_Click(object sender, EventArgs e)
+        {
+            var exist = WinFormsUtil.FirstFormOfType<ImageFetcher>();
+            if (exist != null)
+            {
+                exist.Show();
+                return;
+            }
+
+            var imgfetcher = new ImageFetcher();
+            imgfetcher.Show();
+        }
+
         private void ReloadAll()
         {
             Villagers.Villagers = SAV.Main.GetVillagers();
@@ -194,6 +207,9 @@ namespace NHSE.WinForms
         #region Player Editing
         private void LoadPlayers()
         {
+            if (SAV.Players.Length == 0)
+                throw new Exception("No players found in the loaded directory.");
+
             CB_Players.Items.Clear();
             var playerList = SAV.Players.Select(z => z.DirectoryName);
             foreach (var p in playerList)
@@ -257,8 +273,8 @@ namespace NHSE.WinForms
 
         private void B_EditPlayerReactions_Click(object sender, EventArgs e)
         {
-            var player = SAV.Players[PlayerIndex].Personal;
-            using var editor = new ReactionEditor(player);
+            var player = SAV.Players[PlayerIndex];
+            using var editor = new ReactionEditor(player.Personal);
             editor.ShowDialog();
         }
 

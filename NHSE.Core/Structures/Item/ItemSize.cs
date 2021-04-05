@@ -20,7 +20,7 @@ namespace NHSE.Core
     {
         public const string EnumPrefix = "S_";
 
-        private static readonly Dictionary<ItemSizeType, ItemSize> Dictionary = new Dictionary<ItemSizeType, ItemSize>
+        private static readonly Dictionary<ItemSizeType, ItemSize> Dictionary = new()
         {
             {ItemSizeType.S_1_0x1_0     , new ItemSize( 2,  2)}, // 1x1
             {ItemSizeType.S_2_0x1_0     , new ItemSize( 4,  2)}, // 2x1

@@ -118,6 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Akoyagai" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Akoyagai.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Amaebi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Amaebi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Anemone0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Anemone0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Anemone1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Anemone1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Anemone2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Anemone2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Anemone3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Anemone3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Anemone4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Anemone4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Anemone5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Anemone5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ant00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\ant00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -138,6 +162,39 @@
   </data>
   <data name="ant09" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\ant09.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Apple" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Apple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AutumnLeaf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\AutumnLeaf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Awabi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Awabi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Axe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Axe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AxeDull" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\AxeDull.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BadKabu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\BadKabu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Bag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Baigai" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Baigai.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Balloon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Balloon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BanbooShoot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\BanbooShoot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BdayCupcake" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\BdayCupcake.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bea00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\bea00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,6 +241,27 @@
   <data name="bea15" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\bea15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BellExchangeTicket" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\BellExchangeTicket.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BlowRollItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\BlowRollItem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Book" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Book.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BookRecipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\BookRecipe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Boots" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Boots.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BottleRecipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\BottleRecipe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bottoms" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Bottoms.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="brd00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\brd00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -223,6 +301,9 @@
   <data name="brd18" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\brd18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Bridge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Bridge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bul00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\bul00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -240,6 +321,21 @@
   </data>
   <data name="bul08" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\bul08.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Can" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Can.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Candy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Candy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cap" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Cap.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cardboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Cardboard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Carpet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Carpet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cat00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\cat00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -355,8 +451,17 @@
   <data name="cbr17" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\cbr17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cbr18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villagers\cbr18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="cbr19" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\cbr19.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cherry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Cherry.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Chinanago" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Chinanago.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="chn00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\chn00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -385,6 +490,42 @@
   <data name="chn13" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\chn13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ChristmasOrnamentA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\ChristmasOrnamentA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ChristmasOrnamentB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\ChristmasOrnamentB.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ChristmasOrnamentC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\ChristmasOrnamentC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cinder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Cinder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Coconut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Coconut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Coin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Coin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cosmos0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Cosmos0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cosmos1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Cosmos1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cosmos2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Cosmos2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cosmos3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Cosmos3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cosmos4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Cosmos4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cosmos5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Cosmos5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="cow00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\cow00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -396,6 +537,9 @@
   </data>
   <data name="cow07" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\cow07.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cracker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Cracker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="crd00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\crd00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -417,6 +561,9 @@
   </data>
   <data name="crd08" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\crd08.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Daiougusokumushi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Daiougusokumushi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="der00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\der00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -447,6 +594,33 @@
   </data>
   <data name="der09" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\der09.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="der10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villagers\der10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DIYAcorn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\DIYAcorn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DIYBamboo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\DIYBamboo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DIYBambooSpring" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\DIYBambooSpring.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DIYBranch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\DIYBranch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DIYPinecone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\DIYPinecone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DIYWoodHard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\DIYWoodHard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DIYWoodNormal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\DIYWoodNormal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DIYWoodSoft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\DIYWoodSoft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dog00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\dog00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -495,6 +669,9 @@
   </data>
   <data name="dog18" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\dog18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DreamBellExchangeTicket" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\DreamBellExchangeTicket.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="duk00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\duk00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -547,6 +724,27 @@
   <data name="duk17" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\duk17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DungenessCrab" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\DungenessCrab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EggFish" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\EggFish.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EggForest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\EggForest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EggGround" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\EggGround.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EggLeaf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\EggLeaf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EggRock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\EggRock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EggSky" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\EggSky.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="elp00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\elp00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -577,8 +775,275 @@
   <data name="elp10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\elp10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="elp11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villagers\elp11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="elp12" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\elp12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FeatherBlu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FeatherBlu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FeatherGrn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FeatherGrn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FeatherPpl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FeatherPpl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FeatherRainbow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FeatherRainbow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FeatherRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FeatherRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fence" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Fence.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fish54" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Fish54.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishAji" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishAji.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishAngelfish" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishAngelfish.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishAntyobi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishAntyobi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishArowana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishArowana.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishAyu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishAyu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishBait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishBait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishBeta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishBeta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishBlackbass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishBlackbass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishBlueguill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishBlueguill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishChouchinankou" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishChouchinankou.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishChouchouuo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishChouchouuo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishDemekin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishDemekin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishDemenigisu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishDemenigisu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishDojou" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishDojou.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishDokutaafish" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishDokutaafish.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishDolado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishDolado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishDonko" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishDonko.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishEi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishEi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishEndorikerii" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishEndorikerii.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishFugu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishFugu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishFuna" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishFuna.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishGa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishGa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishGoldenTorauto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishGoldenTorauto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishGuppi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishGuppi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishHanahigeutubo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishHanahigeutubo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishHarisenbon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishHarisenbon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishHirame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishHirame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishIka" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishIka.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fishingrod" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Fishingrod.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishIshidai" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishIshidai.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishItou" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishItou.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishJinbeezame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishJinbeezame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishKaeru" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishKaeru.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishKajiki" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishKajiki.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishKamitsukigame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishKamitsukigame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishKarei" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishKarei.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishKingsalmon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishKingsalmon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishKingyo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishKingyo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishKobanzame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishKobanzame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishKoi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishKoi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishKumanomi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishKumanomi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishKurione" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishKurione.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishMaguro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishMaguro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishManbou" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishManbou.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishMedaka" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishMedaka.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishMinokasago" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishMinokasago.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishNamazu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishNamazu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishNanyouhagi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishNanyouhagi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishNaporeonfish" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishNaporeonfish.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishNeontetora" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishNeontetora.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishNishikigoi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishNishikigoi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishNokogirizame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishNokogirizame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishOikawa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishOikawa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishOoiwana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishOoiwana.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishOtamajakusi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishOtamajakusi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishPaiku" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishPaiku.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishPirania" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishPirania.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishPiraruku" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishPiraruku.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishRaigyo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishRaigyo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishRainbowfish" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishRainbowfish.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishRouninaji" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishRouninaji.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishRyuuguunotukai" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishRyuuguunotukai.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishSake" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishSake.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishSame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishSame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishShiira" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishShiira.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishShumokuzame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishShumokuzame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishSirakansu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishSirakansu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishSuppon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishSuppon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishSuzuki" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishSuzuki.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishSyanhaigani" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishSyanhaigani.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishTai" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishTai.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishTanago" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishTanago.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishTatsunootoshigo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishTatsunootoshigo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishThirapia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishThirapia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishTyouzame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishTyouzame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishUgui" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishUgui.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishUtsubo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishUtsubo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishWakasagi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishWakasagi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishYamame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishYamame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishYellowparch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishYellowparch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FishZarigani" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FishZarigani.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="flg00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\flg00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -634,6 +1099,42 @@
   <data name="flg19" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\flg19.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Floor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Floor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fossil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Fossil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FossilJ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FossilJ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FtrFishRanchu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FtrFishRanchu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FtrInsectTagame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\FtrInsectTagame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fujitsubo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Fujitsubo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GAxe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\GAxe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gazami" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Gazami.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GFishingrod" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\GFishingrod.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Glasses" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Glasses.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GlowStick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\GlowStick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GNet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\GNet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="goa00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\goa00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -657,6 +1158,9 @@
   </data>
   <data name="goa09" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\goa09.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GoldenRose" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\GoldenRose.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="gor00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\gor00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -685,6 +1189,18 @@
   <data name="gor10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\gor10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="gor11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villagers\gor11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GPachinko" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\GPachinko.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gscoop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Gscoop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GWatering" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\GWatering.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ham00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\ham00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -708,6 +1224,12 @@
   </data>
   <data name="ham07" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\ham07.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hanabi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Hanabi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Helmet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Helmet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hgc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\hgc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -738,6 +1260,30 @@
   </data>
   <data name="hip09" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\hip09.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hiramushi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Hiramushi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hitode" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Hitode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Honeycomb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Honeycomb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hotaruika" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Hotaruika.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hotate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Hotate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HowtoBookExpansion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\HowtoBookExpansion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HowtoBookHair" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\HowtoBookHair.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hoya" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Hoya.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hrs00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\hrs00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -783,6 +1329,291 @@
   </data>
   <data name="hrs16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\hrs16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hyacinth0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Hyacinth0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hyacinth1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Hyacinth1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hyacinth2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Hyacinth2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hyacinth3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Hyacinth3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hyacinth4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Hyacinth4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hyacinth5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Hyacinth5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hyacinth6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Hyacinth6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsAburazemi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsAburazemi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsAgehacho" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsAgehacho.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsAkaeri" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsAkaeri.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsAkiakane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsAkiakane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsAmenbo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsAmenbo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsAosuji" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsAosuji.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsArekisandora" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsArekisandora.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsAri" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsAri.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsBaiorinmushi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsBaiorinmushi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsDangomushi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsDangomushi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsFunamushi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsFunamushi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsFunkorogashi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsFunkorogashi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsGa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsGa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsGengorou" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsGengorou.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsGinyanma" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsGinyanma.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsGirafanokogiri" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsGirafanokogiri.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsGomadarakamikiri" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsGomadarakamikiri.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsGoraiasu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsGoraiasu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsHachi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsHachi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsHae" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsHae.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsHanakamakiri" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsHanakamakiri.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsHanmyou" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsHanmyou.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsHerakuresu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsHerakuresu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsHigurashi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsHigurashi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsHosoakakuwagata" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsHosoakakuwagata.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsHotaru" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsHotaru.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsHousekizoumushi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsHousekizoumushi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsInago" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsInago.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsJinmenkamemushi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsJinmenkamemushi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsKa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsKa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsKabutomushi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsKabutomushi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsKamakiri" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsKamakiri.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsKamemushi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsKamemushi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsKanabun" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsKanabun.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsKarasuageha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsKarasuageha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsKatatsumuri" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsKatatsumuri.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsKirigirisu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsKirigirisu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsKohkasasu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsKohkasasu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsKohrogi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsKohrogi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsKonohamushi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsKonohamushi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsKumazemi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsKumazemi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsKumo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsKumo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsMiirotateha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsMiirotateha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsMinminzemi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsMinminzemi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsMinomushi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsMinomushi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsMitsubachi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsMitsubachi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsMiyamakuwagata" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsMiyamakuwagata.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsMonkicho" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsMonkicho.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsMonshirocho" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsMonshirocho.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsMorufuocho" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsMorufuocho.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsMukade" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsMukade.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsNanafushi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsNanafushi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsNijiirokuwagata" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsNijiirokuwagata.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsNishikiohtsu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsNishikiohtsu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsNokogirikuwagata" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsNokogirikuwagata.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsNomi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsNomi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsOhgomamadara" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsOhgomamadara.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsOhkabamadara" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsOhkabamadara.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsOhkuwagata" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsOhkuwagata.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsOhmurasaki" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsOhmurasaki.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsOhsenchikogane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsOhsenchikogane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsOkera" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsOkera.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsOniyanma" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsOniyanma.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsOugononikuwa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsOugononikuwa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsPurachinakogane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsPurachinakogane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsRuriboshikamikiri" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsRuriboshikamikiri.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsSasori" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsSasori.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsSeminonukegara" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsSeminonukegara.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsShoryobatta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsShoryobatta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsSuzumushi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsSuzumushi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsTamamushi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsTamamushi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsTaranchura" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsTaranchura.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsTentoumushi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsTentoumushi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsTonosamabatta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsTonosamabatta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsTsukutsuku" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsTsukutsuku.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsYadokari" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsYadokari.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsYonagunisan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsYonagunisan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsZoukabuto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\InsZoukabuto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Iseebi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Iseebi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Isogintyaku" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Isogintyaku.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Itotonbo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Itotonbo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="JohnnyQuestDust1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\JohnnyQuestDust1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="JohnyParts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\JohnyParts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="JuiceShamrock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\JuiceShamrock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kabu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Kabu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kabutogani" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Kabutogani.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kairoudouketsu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Kairoudouketsu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaki" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Kaki.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="kal00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\kal00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -835,8 +1666,20 @@
   <data name="kgr10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\kgr10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Koumoridako" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Koumoridako.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kurumaebi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Kurumaebi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="leaf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Misc\leaf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Leaf1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Leaf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lollipop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Lollipop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lon00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\lon00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -858,6 +1701,30 @@
   </data>
   <data name="lon08" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\lon08.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LostQuestMemo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\LostQuestMemo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Love" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Love.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MaracasCarnival" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\MaracasCarnival.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Medicine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Medicine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Megaphone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Megaphone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mendako" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Mendako.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MessageBottleEgg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\MessageBottleEgg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mizukurage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Mizukurage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mnk01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\mnk01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -882,6 +1749,36 @@
   </data>
   <data name="mnk08" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\mnk08.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MoneyBag010" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\MoneyBag010.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MoneyBag039" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\MoneyBag039.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MoneyBag069" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\MoneyBag069.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Muhrugai" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Muhrugai.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mum0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Mum0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mum1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Mum1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mum2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Mum2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mum3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Mum3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mum4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Mum4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mum5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Mum5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mus00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\mus00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -928,6 +1825,36 @@
   <data name="mus18" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\mus18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Mush0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Mush0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mush1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Mush1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mush2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Mush2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mush3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Mush3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mush4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Mush4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Music" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Music.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MyDesignPro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\MyDesignPro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Namako" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Namako.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Net" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Net.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ocarina" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Ocarina.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ocp00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\ocp00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -936,6 +1863,24 @@
   </data>
   <data name="ocp02" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\ocp02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Onepiece" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Onepiece.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Orange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OreClay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\OreClay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OreGold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\OreGold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OreIron" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\OreIron.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OreStone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\OreStone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ost00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\ost00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -967,11 +1912,56 @@
   <data name="ost10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\ost10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="OtoshidamaOpenCh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\OtoshidamaOpenCh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OtoshidamaOpenKr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\OtoshidamaOpenKr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OtoshidamaSealCh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\OtoshidamaSealCh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OtoshidamaSealKr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\OtoshidamaSealKr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Oumugai" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Oumugai.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="owl" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\owl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ows" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\ows.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pachinko" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Pachinko.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Paipuuni" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Paipuuni.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Panflute" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Panflute.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pansi0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Pansi0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pansi1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Pansi1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pansi2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Pansi2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pansi3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Pansi3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pansi4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Pansi4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pansi5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Pansi5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PaperRecipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PaperRecipe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pbr00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\pbr00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -999,6 +1989,15 @@
   </data>
   <data name="pbr09" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\pbr09.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Peach" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Peach.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Pear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pearl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Pearl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pgn00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\pgn00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1084,6 +2083,264 @@
   <data name="pig17" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\pig17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PirateQuest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PirateQuest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PlaneTicket" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PlaneTicket.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltAnemone0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltAnemone0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltAnemone1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltAnemone1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltAnemone2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltAnemone2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltAnemone3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltAnemone3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltAnemone4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltAnemone4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltAnemone5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltAnemone5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltApple" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltApple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltAzaleaPink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltAzaleaPink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltAzaleaWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltAzaleaWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltBamboo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltBamboo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltBushCamelliaPink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltBushCamelliaPink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltBushCamelliaRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltBushCamelliaRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltBushOsmathusOrange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltBushOsmathusOrange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltBushOsmathusYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltBushOsmathusYellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltCherry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltCherry.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltConifer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltConifer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltCosmos0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltCosmos0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltCosmos1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltCosmos1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltCosmos2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltCosmos2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltCosmos3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltCosmos3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltCosmos4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltCosmos4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltCosmos5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltCosmos5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltGoldenRose" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltGoldenRose.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltHibiscusRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltHibiscusRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltHibiscusYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltHibiscusYellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltHolly" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltHolly.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltHyacinth0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltHyacinth0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltHyacinth1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltHyacinth1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltHyacinth2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltHyacinth2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltHyacinth3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltHyacinth3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltHyacinth4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltHyacinth4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltHyacinth5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltHyacinth5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltHyacinth6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltHyacinth6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltHydrangeaBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltHydrangeaBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltHydrangeaPink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltHydrangeaPink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltMoney" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltMoney.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltMum0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltMum0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltMum1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltMum1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltMum2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltMum2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltMum3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltMum3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltMum4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltMum4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltMum5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltMum5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltOak" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltOak.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltOrange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltOrange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltPalm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltPalm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltPansi0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltPansi0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltPansi1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltPansi1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltPansi2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltPansi2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltPansi3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltPansi3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltPansi4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltPansi4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltPansi5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltPansi5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltPeach" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltPeach.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltPear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltPear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltRose0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltRose0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltRose1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltRose1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltRose2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltRose2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltRose3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltRose3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltRose4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltRose4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltRose5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltRose5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltRose6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltRose6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltRose7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltRose7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltSquashGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltSquashGreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltSquashOrange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltSquashOrange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltSquashWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltSquashWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltSquashYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltSquashYellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltSuzuran" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltSuzuran.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltTurip0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltTurip0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltTurip1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltTurip1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltTurip2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltTurip2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltTurip3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltTurip3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltTurip4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltTurip4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltTurip5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltTurip5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltTurip6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltTurip6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltYuri0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltYuri0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltYuri1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltYuri1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltYuri2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltYuri2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltYuri3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltYuri3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltYuri4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltYuri4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PltYuri5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PltYuri5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Porch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Porch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Post.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Present" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Present.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Present2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Present2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PutHanabi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\PutHanabi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="rbt00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\rbt00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -1144,6 +2401,12 @@
   <data name="rbt19" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\rbt19.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="rbt20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villagers\rbt20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RemakeKit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\RemakeKit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="rhn00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\rhn00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -1161,6 +2424,111 @@
   </data>
   <data name="rhn08" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\rhn08.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RollanTicket" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\RollanTicket.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rose0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Rose0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rose1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Rose1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rose2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Rose2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rose3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Rose3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rose4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Rose4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rose5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Rose5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rose6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Rose6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rose7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Rose7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sakurapetal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Sakurapetal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SantaSack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\SantaSack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sazae" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Sazae.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Scoop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Scoop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Seedling" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Seedling.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SeedlingBush" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\SeedlingBush.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SeedlingConifer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\SeedlingConifer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SeedlingVegetable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\SeedlingVegetable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SeedPaperbag0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\SeedPaperbag0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SeedPaperbag1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\SeedPaperbag1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SeedPaperbag2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\SeedPaperbag2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SeedPaperbag3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\SeedPaperbag3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SeedPitfall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\SeedPitfall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Senjunamako" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Senjunamako.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Shako" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Shako.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Shakogai" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Shakogai.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Shell1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Shell1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Shell2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Shell2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Shell3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Shell3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Shell4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Shell4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Shell6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Shell6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Shell7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Shell7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Shell8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Shell8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ShellFIshAsari" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\ShellFIshAsari.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ShellSummer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\ShellSummer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Shoes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Shoes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="shp00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\shp00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1198,11 +2566,38 @@
   <data name="shp13" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\shp13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="shp14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villagers\shp14.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="shp15" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\shp15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="skk" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\skk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Slope" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Slope.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SmartphoneCase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\SmartphoneCase.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SmartphoneCaseComp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\SmartphoneCaseComp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SnowCrystal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\SnowCrystal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SnowCrystalLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\SnowCrystalLarge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Socks" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Socks.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Soy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Soy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SparklingSoda" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\SparklingSoda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="squ00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\squ00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1258,6 +2653,84 @@
   <data name="squ18" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\squ18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SquashGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\SquashGreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SquashOrange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\SquashOrange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SquashWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\SquashWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SquashYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\SquashYellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StarPiece" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\StarPiece.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StarpieceAquarius" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\StarpieceAquarius.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StarpieceAries" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\StarpieceAries.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StarpieceCancer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\StarpieceCancer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StarpieceCapricornus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\StarpieceCapricornus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StarpieceGemini" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\StarpieceGemini.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StarpieceLeo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\StarpieceLeo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StarpieceLibra" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\StarpieceLibra.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StarpiecePisces" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\StarpiecePisces.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StarPieceRare" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\StarPieceRare.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StarpieceSagittarius" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\StarpieceSagittarius.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StarpieceScorpio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\StarpieceScorpio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StarpieceTaurus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\StarpieceTaurus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StarpieceVirgo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\StarpieceVirgo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Syabon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Syabon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TailorTicket" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\TailorTicket.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Takaashigani" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Takaashigani.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tako" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Tako.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tambourine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Tambourine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tarabagani" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Tarabagani.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Tent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TentWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\TentWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="tig00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\tig00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -1278,6 +2751,144 @@
   </data>
   <data name="tig06" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\tig06.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Timer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Timer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tire" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Tire.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ToolChangeStick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\ToolChangeStick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ToolCliffMaker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\ToolCliffMaker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ToolGroundMaker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\ToolGroundMaker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ToolLadder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\ToolLadder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ToolPennantRcm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\ToolPennantRcm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ToolRiverJump" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\ToolRiverJump.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ToolRiverMaker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\ToolRiverMaker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tops" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Tops.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Turip0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Turip0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Turip1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Turip1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Turip2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Turip2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Turip3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Turip3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Turip4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Turip4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Turip5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Turip5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Turip6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Turip6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Uchiwa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Uchiwa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Umbrella" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Umbrella.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Umibudou" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Umibudou.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Umiushi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Umiushi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Uni" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Uni.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wakame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Wakame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Wall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Watering" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Watering.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WBagBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WBagBlack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WBagBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WBagBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WBagBrown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WBagBrown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WBagGary" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WBagGary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WBagGold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WBagGold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WBagGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WBagGreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WBagLightBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WBagLightBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WBagLightGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WBagLightGreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WBagMint" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WBagMint.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WBagNavy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WBagNavy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WBagOrange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WBagOrange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WBagOrnament" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WBagOrnament.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WBagPink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WBagPink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WBagPurple" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WBagPurple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WBagRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WBagRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WBagWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WBagWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WBagYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WBagYellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Weed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Weed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WetSuit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WetSuit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wig" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Wig.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Windmill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Windmill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="wol00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\wol00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1311,5 +2922,83 @@
   </data>
   <data name="wol12" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\wol12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WPaperBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WPaperBlack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WPaperBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WPaperBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WPaperBrown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WPaperBrown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WPaperGold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WPaperGold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WPaperGray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WPaperGray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WPaperGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WPaperGreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WPaperLightBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WPaperLightBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WPaperLightGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WPaperLightGreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WPaperMint" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WPaperMint.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WPaperNavy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WPaperNavy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WPaperOrange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WPaperOrange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WPaperOrnament" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WPaperOrnament.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WPaperPink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WPaperPink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WPaperPurple" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WPaperPurple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WPaperRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WPaperRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WPaperWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WPaperWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WPaperYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\WPaperYellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="YellowPaperBag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\YellowPaperBag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Yuri0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Yuri0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Yuri1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Yuri1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Yuri2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Yuri2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Yuri3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Yuri3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Yuri4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Yuri4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Yuri5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Yuri5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="YutaroWisp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\YutaroWisp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Zuwaigani" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Zuwaigani.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -308,7 +308,7 @@ namespace NHSE.Core
             {03581, 0188}, // fish-drying rack
             {03582, 0150}, // book
             {03583, 0207}, // fishing-boat flag
-            {03584, 0270}, // writing poster
+            {03584, 0270}, // study poster
             {03586, 0254}, // magazine
             {03587, 0362}, // fishing-rod stand
             {03588, 0160}, // signpost
@@ -335,8 +335,8 @@ namespace NHSE.Core
             {03692, 0356}, // plain wooden shop sign
             {03697, 0334}, // portable radio
             {03699, 0335}, // fish print
-            {03701, 0337}, // writing desk
-            {03702, 0336}, // writing chair
+            {03701, 0337}, // study desk
+            {03702, 0336}, // study chair
             {03773, 0375}, // terrarium
             {03775, 0376}, // hanging terrarium
             {03776, 0377}, // brick well
@@ -452,6 +452,14 @@ namespace NHSE.Core
             {04078, 0500}, // barbell
             {04080, 0499}, // long bathtub
             {04081, 0468}, // camping cot
+            {04083, 1155}, // spooky arch
+            {04084, 1156}, // spooky scarecrow
+            {04086, 1157}, // spooky tower
+            {04087, 1190}, // spooky carriage
+            {04088, 1191}, // spooky lantern
+            {04089, 1192}, // spooky chair
+            {04090, 1193}, // spooky table
+            {04092, 1194}, // spooky lantern set
             {04093, 0612}, // bamboo drum
             {04094, 0474}, // floating-biotope planter
             {04099, 0419}, // formal paper
@@ -1060,6 +1068,12 @@ namespace NHSE.Core
             {10244, 0880}, // fragrance sticks
             {10742, 0883}, // bamboo stool
             {10743, 0884}, // bamboo speaker
+            {11115, 0652}, // Rilla's photo
+            {11116, 0652}, // Marty's photo
+            {11117, 0652}, // Étoile's photo
+            {11118, 0652}, // Chai's photo
+            {11119, 0652}, // Chelsea's photo
+            {11120, 0652}, // Toby's photo
             {11941, 0889}, // stone arch
             {11942, 0897}, // street piano
             {11943, 0890}, // stone tablet
@@ -1081,6 +1095,50 @@ namespace NHSE.Core
             {12411, 0927}, // wedding flower stand
             {12543, 0934}, // Nintendo Switch
             {12741, 1012}, // world map
+            {12949, 1168}, // spooky standing lamp
+            {12951, 1195}, // spooky candy set
+            {13222, 1153}, // spooky garland
+            {13223, 1154}, // spooky table setting
+            {13242, 1211}, // RC helicopter
+            {13243, 1198}, // puppy plushie
+            {13244, 1209}, // gift pile
+            {13245, 1207}, // Yule log
+            {13246, 1204}, // pop-up book
+            {13247, 1208}, // tin robot
+            {13249, 1201}, // kids' tent
+            {13250, 1210}, // mini circuit
+            {13251, 1200}, // dinosaur toy
+            {13252, 1205}, // dollhouse
+            {13352, 1157}, // spooky tower
+            {13447, 1295}, // Turkey Day garden stand
+            {13448, 1296}, // Turkey Day hearth
+            {13449, 1293}, // Turkey Day decorations
+            {13450, 1292}, // Turkey Day chair
+            {13453, 1297}, // Turkey Day table
+            {13488, 1516}, // chocolate heart
+            {13767, 1495}, // Festivale garland
+            {13770, 1500}, // Festivale parasol
+            {13772, 1501}, // Festivale balloon lamp
+            {13773, 1504}, // Festivale stall
+            {13774, 1498}, // Festivale drum
+            {13775, 1497}, // Festivale stage
+            {13776, 1496}, // Festivale confetti machine
+            {13777, 1505}, // Festivale lamp
+            {13778, 1506}, // Festivale flag
+            {13818, 1509}, // Turkey Day casserole
+            {13819, 1510}, // Turkey Day wheat decor
+            {13820, 1508}, // Turkey Day table setting
+            {13829, 1511}, // Shell
+            {13831, 1522}, // large Mushroom Platform
+            {13832, 1523}, // small Mushroom Platform
+            {13862, 0652}, // Jingle's photo
+            {13927, 1521}, // Nintendo Switch Lite
+            {13930, 1524}, // set of stockings
+            {14029, 1546}, // heart-shaped bouquet
+            {14254, 0652}, // Tom Nook's photo
+            {14255, 0652}, // Timmy and Tommy's photo
+            {14256, 0652}, // Isabelle's photo
+            {14340, 1615}, // whoopee cushion
         };
     }
 }

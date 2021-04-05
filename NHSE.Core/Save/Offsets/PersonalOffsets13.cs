@@ -38,7 +38,10 @@
         public override int Bank => PlayerOther + 0x345E4;
         public override int Recipes => Bank + 0x10;
 
-        public override int MaxRecipeID => 0x2CB;
+        public override int MaxRecipeID => 0x2DA;
         public override int MaxRemakeBitFlag => 0x7D0 * 32;
+
+        public override IReactionStore ReadReactions(byte[] data) => data.Slice(Manpu, GSavePlayerManpu.SIZE).ToStructure<GSavePlayerManpu>();
+        public override void SetReactions(byte[] data, IReactionStore value) => ((GSavePlayerManpu)value).ToBytes().CopyTo(data, Manpu);
     }
 }

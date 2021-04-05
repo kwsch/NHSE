@@ -7,7 +7,7 @@ namespace NHSE.Parsing
     {
         public uint NumberOfStrings;
 
-        public readonly List<MSBTTextString> Strings = new List<MSBTTextString>();
+        public readonly List<MSBTTextString> Strings = new();
 
         public TXT2() : base(string.Empty, Array.Empty<byte>())
         {

@@ -12,9 +12,9 @@ namespace NHSE.Core
     {
         private static readonly Assembly thisAssembly = typeof(ResourceUtil).GetTypeInfo().Assembly;
         private static readonly string[] manifestResourceNames = thisAssembly.GetManifestResourceNames();
-        private static readonly Dictionary<string, string> resourceNameMap = new Dictionary<string, string>();
-        private static readonly Dictionary<string, string[]> stringListCache = new Dictionary<string, string[]>();
-        private static readonly object getStringListLoadLock = new object();
+        private static readonly Dictionary<string, string> resourceNameMap = new();
+        private static readonly Dictionary<string, string[]> stringListCache = new();
+        private static readonly object getStringListLoadLock = new();
 
         public static string[] GetStringList(string fileName)
         {
@@ -34,7 +34,7 @@ namespace NHSE.Core
         {
             if (txt == null)
                 return Array.Empty<string>();
-            string[] rawlist = txt.Split('\n');
+            string[] rawlist = txt.TrimEnd('\r', '\n').Split('\n');
             for (int i = 0; i < rawlist.Length; i++)
                 rawlist[i] = rawlist[i].TrimEnd('\r');
 
@@ -54,6 +54,15 @@ namespace NHSE.Core
             using var resource = thisAssembly.GetManifestResourceStream($"NHSE.Core.Resources.byte.{name}");
             var buffer = new byte[resource.Length];
             resource.Read(buffer, 0, (int)resource.Length);
+            return buffer;
+        }
+
+        public static ushort[] GetBinaryResourceAsUshort(string name)
+        {
+            var byteBuffer = GetBinaryResource(name);
+            var buffer = new ushort[byteBuffer.Length / 2];
+            for (int i = 0; i < byteBuffer.Length / 2; i++)
+                buffer[i] = BitConverter.ToUInt16(byteBuffer, i*2);
             return buffer;
         }
 

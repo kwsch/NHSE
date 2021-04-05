@@ -25,11 +25,7 @@ namespace NHSE.Parsing
             {"ko", "KRko"},
         };
 
-        public static void Dump(
-            string repoPath = @"C:\Users\Kurt\Documents\GitHub",
-            string messageStringPath = @"D:\Kurt\Desktop\v12\romSARC\",
-            string unpackedMessageFormat = @"Message\String_{0}.sarc.zs\String_{0}.sarc"
-            )
+        public static void Dump(string repoPath, string messageStringPath, string unpackedMessageFormat)
         {
             string corePath = Path.Combine(repoPath, @"NHSE\NHSE.Core\Resources\text\");
             string folder = Path.Combine(messageStringPath, unpackedMessageFormat);
@@ -59,17 +55,17 @@ namespace NHSE.Parsing
         {
             var dest = Path.Combine(corePath, langID, $"text_item_{langID}.txt");
             var file = string.Format(msbtFolder, langFolderCode);
-            var items = GameMSBTDumper.GetItemListResource(file);
+            var items = GameMSBTDumper.GetItemListResource(file, langID);
             File.WriteAllLines(dest, items);
         }
 
         private static void DumpRemake(string corePath, string langID, string msbtFolder, string langFolderCode)
         {
-            Dump("body_color", "STR_Remake_BodyColor.msbt");
-            Dump("body_parts", "STR_Remake_BodyParts.msbt");
-            Dump("fabric_color", "STR_Remake_FabricColor.msbt");
-            Dump("fabric_parts", "STR_Remake_FabricParts.msbt");
-            void Dump(string name, string msbt)
+            DumpMSBT("body_color", "STR_Remake_BodyColor.msbt");
+            DumpMSBT("body_parts", "STR_Remake_BodyParts.msbt");
+            DumpMSBT("fabric_color", "STR_Remake_FabricColor.msbt");
+            DumpMSBT("fabric_parts", "STR_Remake_FabricParts.msbt");
+            void DumpMSBT(string name, string msbt)
             {
                 var dest = Path.Combine(corePath, langID, $"text_{name}_{langID}.txt");
                 var folder = string.Format(msbtFolder, langFolderCode);

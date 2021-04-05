@@ -6,6 +6,7 @@
         Success,
         FailValidate,
         FailConnectionError,
+        FailBadSize,
         Same,
     }
 }

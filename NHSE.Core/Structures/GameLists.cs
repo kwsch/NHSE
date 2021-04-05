@@ -192,7 +192,8 @@ namespace NHSE.Core
         };
 
         public static readonly IReadOnlyList<ushort> Fossils = new ushort[]
-        {00169, // ankylo skull
+        {
+            00169, // ankylo skull
             00170, // ankylo torso
             00171, // ankylo tail
             00177, // archelon skull
@@ -233,7 +234,7 @@ namespace NHSE.Core
             00227, // stego torso
             00228, // stego tail
             00234, // plesio skull
-            00235, // plesio body
+            00235, // plesio torso
             00236, // plesio tail
             00238, // T. rex skull
             00239, // T. rex torso
@@ -385,7 +386,7 @@ namespace NHSE.Core
             07411, // mussel
         };
 
-        public static readonly HashSet<ushort> Shells = new HashSet<ushort>
+        public static readonly HashSet<ushort> Shells = new()
         {
             1374, // sea snail
             1375, // venus comb
@@ -400,7 +401,7 @@ namespace NHSE.Core
             12968, // pearl
         };
 
-        public static readonly HashSet<ushort> Terraforming = new HashSet<ushort>
+        public static readonly HashSet<ushort> Terraforming = new()
         {
             3075, // path construction permit
             3247, // waterscaping permit
@@ -416,7 +417,7 @@ namespace NHSE.Core
             9771, // custom design path permit
         };
 
-        public static readonly HashSet<ushort> NoCheckReceived = new HashSet<ushort>(Terraforming)
+        public static readonly HashSet<ushort> NoCheckReceived = new(Terraforming)
         {
             Item.DIYRecipe,
 

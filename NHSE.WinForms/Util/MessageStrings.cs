@@ -28,6 +28,7 @@ namespace NHSE.WinForms
 
         public static string MsgMoveOut { get; set; } = "Are you trying to make the Villager move out?";
         public static string MsgMoveOutSuggest { get; set; } = "If so, set the Event Flag (024 - ForceMoveOut) to 1 so that the Villager is removed by the game.";
+        public static string MsgMoveOutAll { get; set; } = "This will check the 'Moving Out' box for all Villagers.";
 
         public static string MsgFieldItemRemoveAsk { get; set; } = "Are you sure you want to remove {0}?";
         public static string MsgFieldItemRemoveNone { get; set; } = "Nothing removed (none found).";
@@ -36,6 +37,7 @@ namespace NHSE.WinForms
         public static string MsgFieldItemModifyNone { get; set; } = "Nothing modified (none found).";
         public static string MsgFieldItemModifyCount { get; set; } = "Modified {0} tiles on the map.";
         public static string MsgFieldItemUnsupportedLayer2Tile { get; set; } = "Unsupported Layer2 items detected.";
+        public static string MsgFieldItemNoNHI { get; set; } = "No .nhi file selected to import!";
 
         public static string MsgSysBotInfo { get; set; } = "This SysBot reads and writes RAM directly to your game when called to Read/Write.";
         public static string MsgSysBotRequired { get; set; } = "Using this functionality requires the sys-botbase sysmodule running on the console. Your console must be on the same network as the PC running this program.";
@@ -45,5 +47,9 @@ namespace NHSE.WinForms
         public static string MsgTerrainSetAllSkipExterior { get; set; } = "Do you want to skip the tiles in exterior acres (beach/rocks)?";
 
         public static string MsgVillagerFriendshipMax { get; set; } = "Do you want to set all Villager Friendship memories to 255?";
+
+        public static string MsgVillagerReplaceNoText { get; set; } = "Clipboard: No text found! Expected internal villager name.";
+        public static string MsgVillagerReplaceOutdatedSaveFormat { get; set; } = "Save file is not up to date with latest villager format. Please update in-game.";
+        public static string MsgVillagerReplaceUnknownName { get; set; } = "Clipboard: {0} is not a valid internal villager name.";
     }
 }

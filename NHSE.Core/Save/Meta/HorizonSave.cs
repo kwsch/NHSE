@@ -66,6 +66,8 @@ namespace NHSE.Core
             var sizes = RevisionChecker.SizeInfo[info];
             if (Main.Data.Length != sizes.Main)
                 return false;
+
+            // Each player present in the savedata must have been migrated to this revision.
             foreach (var p in Players)
             {
                 if (p.Personal.Data.Length != sizes.Personal)

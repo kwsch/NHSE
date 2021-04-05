@@ -3,22 +3,23 @@ using System.Linq;
 
 namespace NHSE.Core
 {
-#pragma warning disable CA2237 // Mark ISerializable types with serializable
-    public sealed class FileHashInfo : Dictionary<uint, FileHashDetails>
-#pragma warning restore CA2237 // Mark ISerializable types with serializable
+    public sealed class FileHashInfo
     {
-        public readonly uint RevisionId; // Custom to us
+        private readonly IReadOnlyDictionary<uint, FileHashDetails> List;
 
-        public FileHashInfo(uint revisionId, FileHashDetails[] hashSets)
+        public FileHashInfo(FileHashInfo dupe) : this(dupe.List.Values) { }
+
+        public FileHashInfo(IEnumerable<FileHashDetails> hashSets)
         {
-            RevisionId = revisionId;
+            var list = new Dictionary<uint, FileHashDetails>();
             foreach (var hashSet in hashSets)
-                this[hashSet.FileSize] = hashSet;
+                list[hashSet.FileSize] = hashSet;
+            List = list;
         }
 
         public FileHashDetails? GetFile(string nameData)
         {
-            return this.FirstOrDefault(z => z.Value.FileName == nameData).Value;
+            return List.Values.FirstOrDefault(z => z.FileName == nameData);
         }
     }
 }

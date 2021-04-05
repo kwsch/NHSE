@@ -126,7 +126,7 @@
 01850_0	Fond d'écran
 01850_1	Moteur de recherche
 01850_2	Statistiques
-01850_3	Navigateur internet
+01850_3	Navigateur Internet
 01850_4	Shopping en ligne
 01850_5	Messagerie instantanée
 01861_0	Jardinage
@@ -232,7 +232,7 @@
 03590_0	Fond d'écran
 03590_1	Moteur de recherche
 03590_2	Statistiques
-03590_3	Navigateur internet
+03590_3	Navigateur Internet
 03590_4	Programmation
 03590_5	Logiciel de dessin
 03590_6	Logiciel de mixage

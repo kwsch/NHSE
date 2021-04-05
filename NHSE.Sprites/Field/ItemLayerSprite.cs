@@ -88,8 +88,9 @@ namespace NHSE.Sprites
                     else if (tile.IsExtension)
                         DrawDirectional(data, tile, (x - x0) * scale, (y - y0) * scale, scale, w);
 
-                    var kind = ItemInfo.GetItemKind(tile.DisplayItemId);
-                    if (kind.IsFlower())
+                    var id = tile.DisplayItemId;
+                    var kind = ItemInfo.GetItemKind(id);
+                    if (kind.IsFlowerGene(id))
                     {
                         int geneIndex;
                         if (tile.IsRoot)
@@ -190,6 +191,8 @@ namespace NHSE.Sprites
         {
             var eX = tile.ExtensionX;
             var eY = tile.ExtensionY;
+            if (eX == 0 && eY == 0)
+                return;
             var sum = eX + eY;
             var start = scale / (sum + 1);
             var startX = eX >= eY ? 0 : start;

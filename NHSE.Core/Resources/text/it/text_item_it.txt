@@ -1,35 +1,35 @@
-(None)
+(Nessuna)
 
 quadro invernale
 
 
-quadro armonioso (forgery)
+quadro armonioso (falsificazione)
 quadro armonioso
 
 
-quadro buffo (forgery)
+quadro buffo (falsificazione)
 quadro buffo
 
 
-quadro semplice (forgery)
+quadro semplice (falsificazione)
 quadro semplice
 
 
-quadro famoso (forgery)
+quadro famoso (falsificazione)
 quadro famoso
 
 quadro perfetto
 
 
-quadro simbolico (forgery)
+quadro simbolico (falsificazione)
 quadro simbolico
 
 
-quadro realista (forgery)
+quadro realista (falsificazione)
 quadro realista
 
 
-quadro colorato (forgery)
+quadro colorato (falsificazione)
 quadro colorato
 
 quadro classico
@@ -39,7 +39,7 @@ quadro classico
 quadro marino
 
 
-quadro organico (forgery)
+quadro organico (falsificazione)
 quadro organico
 
 quadro povero
@@ -53,7 +53,7 @@ quadro fiorito
 quadro possente
 
 
-quadro stupendo (forgery)
+quadro stupendo (falsificazione)
 quadro stupendo
 
 
@@ -63,17 +63,17 @@ quadro stupendo
 
 
 
-quadro spaventoso (forgery)
+quadro spaventoso (falsificazione)
 quadro spaventoso
 
 quadro prezioso
 
 
-quadro solenne (forgery)
+quadro solenne (falsificazione)
 quadro solenne
 
 
-quadro intenso (metà dx) (forgery)
+quadro intenso (metà dx) (falsificazione)
 quadro intenso (metà dx)
 
 quadro riposante
@@ -865,7 +865,7 @@ tavolo da biliardo
 urna per estrazioni
 gabbia
 
-
+lanterna floreale
 
 
 coppia di fermalibri
@@ -929,7 +929,7 @@ macinino per caffè
 mensola da cucina
 condizionatore d'aria
 
-
+cornucopia
 
 
 
@@ -986,7 +986,7 @@ tavola da go
 
 
 arpa
-
+hinaningyo
 
 
 
@@ -1002,8 +1002,8 @@ isola da cucina
 
 
 
-
-
+kadomatsu
+kagamimochi
 
 
 
@@ -1330,21 +1330,21 @@ banco di scuola
 cattedra antica
 cattedra da professore
 statua leggendaria
-statua leggendaria (forgery)
+statua leggendaria (falsificazione)
 statua maestosa
-statua maestosa (forgery)
+statua maestosa (falsificazione)
 statua atletica
-statua atletica (forgery)
+statua atletica (falsificazione)
 statua antica
-statua antica (forgery)
+statua antica (falsificazione)
 statua trionfante
 
 statua aggraziata
-statua aggraziata (forgery)
+statua aggraziata (falsificazione)
 statua enigmatica
-statua enigmatica (forgery)
+statua enigmatica (falsificazione)
 statua eroica
-statua eroica (forgery)
+statua eroica (falsificazione)
 
 gabbia per criceti
 
@@ -2609,8 +2609,8 @@ letto singolo di legno
 
 fiocco (Verde)
 fiocco (Rosso)
-
-
+paio antenne stelle (Giallo)
+copricapo Carnevale (Blu)
 
 mountain bike
 scala a pioli
@@ -2769,7 +2769,7 @@ legno morbido
 legno normale
 legno duro
 scacchiera
-stufetta bianca cilindrica
+stufetta cilindrica
 violino di lusso
 
 
@@ -3050,8 +3050,8 @@ agrifoglio adulto
 
 
 
-
-
+pianta di zucca S
+pianta di zucca M
 vestito a pois con cintura (Blu chiaro)
 maglietta da marinaio (Blu marino)
 felpa semplice (Grigio)
@@ -3388,8 +3388,8 @@ camicione (Blu marino)
 camicione smanicato (Blu)
 giacca dello smoking (Nero)
 
-
-
+maglia da Babbo Natale (Rosso)
+pantalone da Babbo Natale (Rosso)
 
 
 
@@ -3422,7 +3422,7 @@ uniforme da pompiere (Nero)
 costume da anfibio (Verde)
 
 
-costume da tartaruga (Verde)
+costume da kappa (Verde)
 
 
 
@@ -3490,7 +3490,7 @@ coleottero rosalia batesi
 gilet di lana (Beige)
 cestino per rifiuti di legno
 
-vestito da illusionista (Nero)
+vestito stregonesco (Nero)
 vestito vietnamita (Bianco)
 
 
@@ -3534,19 +3534,19 @@ panchina da giardino
 
 
 
-vestito grembiulone (Blu scuro)
+vestito con grembiulone (Blu scuro)
 
 vestito coreano (Vermiglio)
 fiocco di neve
 fiocco di neve grande
+piuma rossa
+piuma blu
+piuma verde
+
+piuma viola
 
 
-
-
-
-
-
-
+piuma arcobaleno
 becco (Giallo)
 baffo a manubrio (Colore dei capelli)
 scaffale di bambù
@@ -3657,7 +3657,7 @@ tuta da pilota (Rosso)
 
 
 canestro di bambù
-
+vestito con lustrini (Rosa)
 gonna con bretelline (Rosso)
 
 vestito con gonna a pieghe (Blu marino)
@@ -4026,7 +4026,7 @@ pressa per pantaloni
 set da tavola non smaltato
 lavabo industriale
 addobbo floreale
-riscaldamento centralizzato
+termosifone
 telefono a disco
 portasciugamani da bagno
 
@@ -4081,16 +4081,16 @@ bilanciere
 vasca da bagno lunga
 branda da campeggio
 
+arco brividi
+spaventapasseri brividi
 
+torre brividi
+carro brividi
+lanterna brividi
+sedia brividi
+tavolo brividi
 
-
-
-
-
-
-
-
-
+set di lanterne brividi
 tamburo a fessura di bambù
 mini biotopo galleggiante
 
@@ -4198,7 +4198,7 @@ pantaloncino da jogging (Rosa)
 
 camicia principesca (Bianco)
 
-
+k.k. slider's guitar (internal)
 acciuga
 lampuga
 remora
@@ -4244,7 +4244,7 @@ montatura triangolare (Rosso)
 
 
 pacchetto
-gonna di jeans scura (Blu)
+gonna di jeans (Blu)
 blusa bucolica (Bianco)
 camicia da notte (Blu)
 tenuta da judo (Bianco)
@@ -4262,7 +4262,7 @@ gonna chino lunga (Beige)
 
 vestito a righe (Nero)
 montatura a doppio ponte (Dorato)
-
+abito da sera vistoso (Rosa)
 vestito di lino (Nero)
 gonna imbottita (Blu)
 canotta da palestra (Grigio)
@@ -4360,7 +4360,7 @@ recinzione appuntita
 pigiama di pile (Rosa)
 cappotto lungo in ecopelle (Nero)
 asciugamano (Rosa)
-
+pianta di zucca L
 giacca da impiegato (Nero)
 pantalone a zampa (Arancio)
 giacca da scolaro (Nero)
@@ -4384,7 +4384,7 @@ palla da football
 
 
 
-
+sparabolle
 
 
 
@@ -4490,7 +4490,7 @@ tunica hippy (Arancio)
 vestito con scialle (Nero)
 pantaloncino con toppe (Marrone)
 maschera al cetriolo (Verde)
-
+barba da Babbo Natale (Bianco)
 
 
 
@@ -4509,7 +4509,7 @@ gilet Chimayo (Blu marino)
 
 
 montatura da compleanno (Giallo)
-
+costume da renna (Marrone)
 maschera idratante (Bianco)
 montatura simpatica (Marrone)
 pantaloncino da ciclista (Blu e rosso)
@@ -4523,26 +4523,26 @@ giacca di maglia (Rosso)
 pantaloncino da muay thai (Blu)
 pantaloncino a pois (Nero)
 gilet di tweed (Verde)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+zucca arancione
+zucca gialla
+zucca verde
+zucca bianca
+pianta di zucca arancione S
+pianta di zucca arancione M
+pianta di zucca arancione L
+pianta zucca aranc. matura
+pianta di zucca gialla S
+pianta di zucca gialla M
+pianta di zucca gialla L
+pianta zucca gialla matura
+pianta di zucca verde S
+pianta di zucca verde M
+pianta di zucca verde L
+pianta zucca verde matura
+pianta di zucca bianca S
+pianta di zucca bianca M
+pianta di zucca bianca L
+pianta zucca bianca matura
 gonna portafoglio tartan (Giallo)
 letto pera
 gonna a ricami floreali (Verde)
@@ -4559,7 +4559,7 @@ vestito rétro scampanato (Rosa)
 camicia legata in vita (Giallo)
 vestito a maglietta (Nero)
 canotta con lustrini (Rosso)
-
+mascherina da ballo (Bianco)
 
 abito visual kei (Nero)
 
@@ -4585,7 +4585,7 @@ vestito con casette (Bianco)
 vestito con alberelli (Verde)
 
 uniforme da rugby (Rosso e bianco)
-
+vestito di raso (Blu)
 armatura di ferro (Grigio)
 piumino lungo (Nero)
 armatura dorata (Dorato)
@@ -4665,7 +4665,7 @@ eustenottero
 acantostega
 juramaia
 
-mascherina fucsia (Viola)
+mascherina festosa (Viola)
 tunica a canottiera (Bianco)
 montatura di legno (Marrone)
 
@@ -4682,7 +4682,7 @@ felpa di pile con stampa (Verde muschio)
 giacca da detective (Marrone)
 foglia (Verde)
 montatura con strass (Rosso)
-maschera nera (Nero)
+maschera da eroe (Nero)
 montatura steampunk (Verde)
 vestito dolce (Bianco)
 cassetta degli attrezzi
@@ -5131,7 +5131,7 @@ cilindro (Nero)
 armatura da samurai (Rosso)
 vestito di seta smanicato (Rosso)
 grembiule con maniche (Rosa)
-
+costume da orco (Blu)
 costume da ladro (Nero)
 vestito futuristico (Blu)
 cappello da esploratore (Cammello)
@@ -5299,12 +5299,12 @@ cappello di paglia largo (Nero)
 cuffia da doccia a pois (Rosa)
 cappello modesto (Marrone)
 
-borsalino (Beige)
+cappello di feltro (Beige)
 
 
 berretto di spugna (Blu chiaro)
 cappellino sportivo (Rosso)
-
+cappello da Babbo Natale (Rosso)
 corona reale (Rosso)
 
 targa da porta cuore
@@ -5317,7 +5317,7 @@ cappellino ghianda di lana (Castagna)
 elmetto (Avocado)
 felpa danza (Nero)
 
-
+ventaglio uchiwa
 ocarina
 
 fazzoletto giapponese (Verde)
@@ -5329,7 +5329,7 @@ passamontagna (Verde)
 copricapo scheletro (Bianco)
 cappellino basso di lana (Verde)
 cappello da orso (Marrone)
-cappello da tartaruga (Verde)
+cappello da kappa (Verde)
 cappello da capitano (Bianco)
 berretto da dandy (Cammello)
 elmo medievale (Grigio)
@@ -5343,7 +5343,7 @@ pantalone della tuta danza (Nero)
 cassetta posta cubica
 cassetta posta di legno
 cassetta posta grande
-
+maschera da orco (Blu)
 elmo d'oro (Dorato)
 
 
@@ -5444,7 +5444,7 @@ completo da paese nordico (Blu)
 casco da pilota (Rosso)
 paio calzini stile geometrico (Giallo)
 
-
+cappello da renna (Marrone)
 teschio di mucca (Bianco)
 gonna pied de poule (Rosso)
 gonna riciclata (Beige)
@@ -5605,7 +5605,7 @@ Fai da te per principianti
 Fai da te per appassionati
 Fai da te per esperti
 paio di scarpette bambolina (Rosa)
-
+maschera Re Tut (Dorato)
 paio di scarpette da punta (Rosa)
 paio di stivali visual kei (Nero)
 costume da rumba (Rosso)
@@ -5740,9 +5740,9 @@ gomma con palloncino (Rosa)
 montatura a fiori (Rosso)
 
 bastoncino luminoso
-
-
-
+trombetta di Capodanno
+stella filante rossa
+girandola
 ghirlanda cosmee carina
 ghirlanda anemoni spavalda
 ghirlanda rose sbarazzina
@@ -5768,7 +5768,7 @@ ghirlanda rose cupa
 ghirlanda viole spavalda
 ghirl. crisantemi naturale
 ghirlanda giacinti viola
-ghirlanda viole cupa
+ghirlanda gigli cupa
 ghirlanda tulipani cupa
 ghirlanda rose blu
 montatura a cannuccia (Verde)
@@ -5792,7 +5792,7 @@ retino
 
 
 bottiglia con messaggio
-DIY recipe
+(DIY recipe)
 pantalone stile geometrico (Blu)
 vestito sognante (Rosa)
 kimono appariscente (Verde)
@@ -5882,7 +5882,7 @@ gonna con limoni (Blu chiaro)
 
 
 
-とたけけのスツール
+
 
 
 
@@ -6055,7 +6055,7 @@ cappuccio in garza nera (Nero)
 berretto con pon-pon (Marrone)
 basco scozzese (Rosso)
 
-
+maschera decorata (Rosso)
 ちず
 
 
@@ -6811,7 +6811,7 @@ foto di Cornelio
 
 camicia a quadri (Rosso)
 
-とたけけライブのイス
+
 
 
 
@@ -7542,10 +7542,10 @@ tappetino rosso M
 tappetino arancione S
 tappetino viola S
 tappetino nero S
-
-
+tappeto festivo
+tappeto brividi
 tappeto caccia all'uovo
-
+tappeto trifoglio
 giacca da scolaro (Rosso lampone)
 giacca da scolaro (Verde)
 giacca da scolaro (Bianco)
@@ -7728,7 +7728,7 @@ maglione yodel (Bianco panna)
 
 
 
-moneta
+stellina (moneta)
 sacco di stelline
 conchiglia bivalve
 conchiglia a spirale
@@ -7867,14 +7867,14 @@ portakimono elaborato
 
 segnale direzionale obliquo
 tavola da surf
-
-
-
-
-
-
-
-
+palloncino blu
+vestito con lustrini (Rosso)
+vestito con lustrini (Nero)
+vestito con lustrini (Giallo)
+vestito con lustrini (Bianco)
+vestito con lustrini (Blu)
+vestito con lustrini (Viola)
+vestito con lustrini (Verde)
 vestito rétro smanicato (Verde)
 vestito rétro smanicato (Rosso)
 vestito rétro smanicato (Rosa)
@@ -7890,13 +7890,13 @@ vestito anni '20 (Rosa)
 vestito anni '20 (Verde)
 vestito futuristico (Verde)
 vestito futuristico (Rosa)
-
-
-
-
-
-
-
+abito da sera vistoso (Viola)
+abito da sera vistoso (Blu)
+abito da sera vistoso (Blu chiaro)
+abito da sera vistoso (Verde)
+abito da sera vistoso (Giallo)
+abito da sera vistoso (Arancio)
+abito da sera vistoso (Rosso)
 
 
 vestito sci-fi anni '80 (Rosa)
@@ -7928,11 +7928,11 @@ vestito marmorizzato (Rosa)
 vestito marmorizzato (Verde)
 vestito marmorizzato (Arancio)
 vestito marmorizzato (Viola)
-
-
-
-
-
+vestito di raso (Nero)
+vestito di raso (Arancio)
+vestito di raso (Giallo)
+vestito di raso (Grigio)
+vestito di raso (Rosso)
 
 
 
@@ -8647,8 +8647,8 @@ tuta aderente (Dorato)
 tuta aderente (Argentato)
 tuta da wrestling (Blu)
 tuta da wrestling (Verde)
-
-
+costume da orco (Rosso)
+costume da orco (Verde)
 costume muscoloso (Verde)
 costume muscoloso (Blu chiaro)
 costume muscoloso (Arancio)
@@ -8684,9 +8684,9 @@ toga da laurea (Blu)
 toga da laurea (Giallo)
 vestito pieghettato (Nero)
 vestito pieghettato (Rosso)
-vestito da illusionista (Blu)
-vestito da illusionista (Bianco)
-vestito da illusionista (Rosso)
+vestito stregonesco (Blu)
+vestito stregonesco (Bianco)
+vestito stregonesco (Rosso)
 vestito gotico (Nero)
 vestito gotico (Rosso)
 tunica da mago (Viola)
@@ -8770,7 +8770,7 @@ ombrello pesci
 bacchetta insetto
 bacchetta pesce
 
-たぬきかいはつヘルメット
+
 licenza selciato
 licenza strada di mattoni
 licenza strada sterrata
@@ -8976,8 +8976,8 @@ camicia a quadri (Arancio)
 camicia a quadri (Rosa)
 camicia a quadri (Viola)
 camicia a quadri (Blu chiaro)
-vestito grembiulone (Rosa)
-vestito grembiulone (Mussola)
+vestito con grembiulone (Rosa)
+vestito con grembiulone (Mussola)
 kimono floreale (Tè verde)
 tenuta da miko (Blu chiaro)
 hakama (Verde)
@@ -9632,7 +9632,7 @@ costume da orso (Blu)
 costume da anfibio (Blu)
 costume da anfibio (Rosso)
 costume da anfibio (Giallo)
-costume da tartaruga (Rosa)
+costume da kappa (Rosa)
 costume da montone (Rosa)
 costume da montone (Blu chiaro)
 costume da montone (Marrone)
@@ -9730,9 +9730,9 @@ pantalone di velluto a coste (Grigio chiaro)
 pantalone di velluto a coste (Nero)
 
 
-
-
-
+copricapo Carnevale (Rosso)
+copricapo Carnevale (Viola)
+copricapo Carnevale (Verde)
 
 
 
@@ -9855,9 +9855,9 @@ paio di scarpe ricamate (Rosso)
 molletta floreale (Rosa)
 molletta cuore (Rosa)
 molletta stella (Giallo)
-
-
-
+paio antenne fluo (Verde)
+paio antenne fiori (Blu)
+paio antenne cuori (Rosa)
 barretta per capelli (Rosa)
 fiocco gigante (Rosso)
 cappuccio stella (Giallo)
@@ -10169,19 +10169,19 @@ paio di scarpe con cinturino (Verde)
 paio di scarpe con cinturino (Rosa)
 paio di infradito (Giallo)
 paio di calzini merlettati (Beige)
-
-
-
-
-
-
+muro Hello Kitty
+muro Cinnamoroll
+muro My Melody
+muro Pompompurin
+muro Kerokerokeroppi
+muro Kiki & Lala
 paio di scarpe da scoglio (Blu chiaro)
-
-
-
-
-
-
+pavimento Kerokerokeroppi
+pavimento Kiki & Lala
+pavimento My Melody
+pavimento Pompompurin
+pavimento Cinnamoroll
+pavimento Hello Kitty
 zaino a guscio (Rosso)
 pantalone mimetico (Avocado)
 pantalone mimetico (Rosa)
@@ -10909,7 +10909,7 @@ kimono ainu (Blu)
 kimono bingata (Giallo)
 cappotto e sciarpa imbottita (Arancio)
 tuta da pittore (Beige)
-
+scamiciato Carnevale (Blu)
 
 tubeteika (Rosso)
 matanpushi (Blu)
@@ -11043,11 +11043,11 @@ cappello parasole (Giallo)
 cappello parasole (Blu chiaro)
 cappello parasole (Verde)
 cappello parasole (Beige)
-borsalino (Nero)
-borsalino (Verde)
-borsalino (Grigio)
-borsalino (Bianco)
-borsalino (Rosso)
+cappello di feltro (Nero)
+cappello di feltro (Verde)
+cappello di feltro (Grigio)
+cappello di feltro (Bianco)
+cappello di feltro (Rosso)
 cappello di palloncini (Arancio)
 cappello di palloncini (Blu)
 cappello di palloncini (Verde)
@@ -11113,15 +11113,15 @@ uniforme da baseball (Giallo)
 
 tappeto di bambù chiaro
 tappeto di bambù scuro
-
-
-
-
-
-
+foto di Rilla
+foto di Marty
+foto di Étoile
+foto di Chai
+foto di Chelsea
+foto di Toby
 poster di Hello Kitty
 poster di Pompompurin
-poster di Kiki and Lala
+poster di Kiki & Lala
 poster di Cinnamoroll
 poster di My Melody
 poster di Kerokerokeroppi
@@ -11157,13 +11157,13 @@ mascherina per dormire (Grigio)
 mascherina per dormire (Verde)
 mascherina per dormire (Arancio)
 mascherina per dormire (Rosso)
-
+mascherina da ballo (Nero)
 maschera antigas (Avocado)
-mascherina fucsia (Nero)
-mascherina fucsia (Blu)
-mascherina fucsia (Rosso)
-mascherina fucsia (Verde)
-mascherina fucsia (Dorato)
+mascherina festosa (Nero)
+mascherina festosa (Blu)
+mascherina festosa (Rosso)
+mascherina festosa (Verde)
+mascherina festosa (Dorato)
 maschera da giullare (Rosso)
 maschera da giullare (Verde)
 maschera da giullare (Blu)
@@ -11173,7 +11173,7 @@ maschera da volpe (Nero)
 
 
 
-
+maschera decorata (Blu)
 muro sala da tè chic
 muro sala da tè rilassante
 muro sala da tè moderno
@@ -11428,10 +11428,10 @@ gilet di jeans (Bianco)
 paio di jeans strappati (Blu)
 paio di jeans strappati (Bianco)
 paio di jeans strappati (Nero)
-gonna di jeans scura (Blu chiaro)
-gonna di jeans scura (Blu marino)
-gonna di jeans scura (Nero)
-gonna di jeans scura (Bianco)
+gonna di jeans (Blu chiaro)
+gonna di jeans (Blu marino)
+gonna di jeans (Nero)
+gonna di jeans (Bianco)
 paio di jeans corti strappati (Blu)
 paio di jeans corti strappati (Bianco)
 paio di jeans corti strappati (Nero)
@@ -11694,7 +11694,7 @@ paio di stivaletti pon-pon (Verde)
 paio di stivaletti pon-pon (Blu)
 paio di stivaletti pon-pon (Nero)
 
-cappello da tartaruga (Rosa)
+cappello da kappa (Rosa)
 cappello da rana (Blu)
 cappello da rana (Rosso)
 cappello da rana (Giallo)
@@ -11884,8 +11884,8 @@ velo da mille e una notte (Rosa)
 velo da mille e una notte (Giallo)
 cappello tirolese (Blu)
 cappello tirolese (Rosso)
-
-
+maschera da orco (Rosso)
+maschera da orco (Verde)
 parrucca con chignon (Blu)
 parrucca con chignon (Senape)
 parrucca con chignon (Bianco)
@@ -12021,9 +12021,9 @@ sacca morbida (Nero)
 cappotto e sciarpa imbottita (Rosa)
 tuta da pittore (Verde)
 tuta da pittore (Bianco)
-
-
-
+scamiciato Carnevale (Rosso)
+scamiciato Carnevale (Viola)
+scamiciato Carnevale (Verde)
 
 
 
@@ -12199,7 +12199,7 @@ gonna a quadri (Viola)
 gonna a quadri (Blu chiaro)
 maglietta teschio (Beige)
 maglietta teschio (Viola)
-ひろばのベンチ
+
 
 
 
@@ -12207,14 +12207,15 @@ maglietta teschio (Viola)
 pietra da giardino bassa
 sgabello da sala giochi
 pietra giardino muschiosa
-パニエルのせんたくおけ
-パニエルのものほしロープ
+
+
 
 デモ用たぬきマイルカード
 
 tappeto sacco di stelline
 
 
+tappeto conchiglia estivo
 
 
 
@@ -12227,7 +12228,6 @@ tappeto sacco di stelline
 
 
 
-パニエルのいしがま
 set di trottole festive
 
 
@@ -12239,6 +12239,40 @@ set di trottole festive
 
 
 
+comò Hello Kitty
+orologio Kiki & Lala
+tavolo Kiki & Lala
+sofà Kiki & Lala
+crea-nuvole Kiki & Lala
+tavolo Cinnamoroll
+parasole Cinnamoroll
+cartello Cinnamoroll
+porta Kerokerokeroppi
+sgabello Cinnamoroll
+vassoio Cinnamoroll
+tavolino Kerokerokeroppi
+dolcetto Kerokerokeroppi
+lanterna Kerokerokeroppi
+ponte Kerokerokeroppi
+letto Kiki & Lala
+TV Pompompurin
+budino Pompompurin
+tavolo Pompompurin
+scaffale Pompompurin
+sedia Pompompurin
+letto Pompompurin
+tavolo My Melody
+comò My Melody
+sedia My Melody
+orologio My Melody
+letto My Melody
+orologio Hello Kitty
+sedia Hello Kitty
+tavolo Hello Kitty
+letto Hello Kitty
+vaso Hello Kitty
+sofà Cinnamoroll
+amica di Kerokerokeroppi
 
 
 
@@ -12252,46 +12286,12 @@ set di trottole festive
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-コミューン島専用柵
-
-
-
-
-
-
-
-
+tappeto Cinnamoroll
+tappeto Kerokerokeroppi
+tappeto Kiki & Lala
+tappeto Hello Kitty
+tappeto My Melody
+tappeto Pompompurin
 schema ascia fragile
 
 
@@ -12532,13 +12532,13 @@ ghirlanda caccia all'uovo
 
 
 testa di roccia
-testa di roccia (forgery)
+testa di roccia (falsificazione)
 pietra informativa
-pietra informativa (forgery)
+pietra informativa (falsificazione)
 scultura imponente
-scultura imponente (forgery)
+scultura imponente (falsificazione)
 statua guerriera
-statua guerriera (forgery)
+statua guerriera (falsificazione)
 statua pensierosa
 
 Nintendo Switch
@@ -12569,13 +12569,13 @@ muro pirata
 pavimento sirena
 pavimento pirata
 quadro intenso (metà sx)
-quadro intenso (metà sx) (forgery)
+quadro intenso (metà sx) (falsificazione)
 barile pirata in orizzontale
 forziere pirata
 barile pirata in verticale
 mantello fatto a mano (Rosso)
 corona fatta a mano (Rosso)
-corona solstizio d'estate (Giallo)
+corona girasoli (Giallo)
 bacchetta caccia all'uovo
 Nintendo Switch ACNH
 
@@ -12618,16 +12618,16 @@ ascia consumata
 
 quadro sfavillante
 quadro accademico
-quadro accademico (forgery)
+quadro accademico (falsificazione)
 quadro acquatico
 quadro dettagliato
-quadro dettagliato (forgery)
+quadro dettagliato (falsificazione)
 quadro abbagliante
 quadro misterioso
 
 
 
-quadro invernale (forgery)
+quadro invernale (falsificazione)
 recinzione caccia all'uovo
 
 
@@ -12795,7 +12795,7 @@ siepe
 
 
 
-
+canestro da vendemmia (Marrone)
 
 
 
@@ -12919,6 +12919,7 @@ recinzione nuziale
 
 
 
+cavallo a molla cowboy
 
 
 
@@ -12946,10 +12947,9 @@ recinzione nuziale
 
 
 
+piantana brividi
 
-
-
-
+set di dolcetti brividi
 
 
 
@@ -12957,7 +12957,7 @@ recinzione nuziale
 
 abito principessa sirena (Rosa)
 abito a scaglie sirena (Rosa)
-maglione solstizio d'inverno (Beige)
+maglione cuore dell'inverno (Beige)
 
 
 
@@ -12972,7 +12972,7 @@ muta Nook Inc. (Verde)
 
 
 
-
+stella filante blu
 
 
 
@@ -12985,6 +12985,10 @@ cam. aloha Nook Inc. verde (Verde)
 
 
 muta a righe orizzontali (Rosso)
+tunica di Fifonio (Viola)
+costume cencioso (Arancio)
+costume stregonesco (Arancio)
+costume da animale (Arancio)
 
 
 
@@ -12996,6 +13000,8 @@ muta a righe orizzontali (Rosso)
 
 
 
+maschera di Fifonio (Arancio)
+cappuccio scuola di magia (Arancio)
 
 
 
@@ -13004,39 +13010,33 @@ muta a righe orizzontali (Rosso)
 
 
 
+capp. stregonesco a strisce (Arancio)
+
+
+paio di ali da diavoletto (Arancio)
+paio di stivali da animale (Arancio)
+paio di stivali stregoneschi (Arancio)
+muso animale (Nero)
+
+
+
+cappello corna diavoletto (Arancio)
+cappello orecchie a punta (Arancio)
+cappello orecchie tonde (Arancio)
 
 
 
 
+paio di calze a righe oriz. (Arancio)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+poster di Rilla
+poster di Marty
+poster di Étoile
+poster di Chai
+poster di Chelsea
+poster di Toby
 
 
 
@@ -13104,6 +13104,8 @@ muta a righe orizzontali (Giallo)
 muta a righe orizzontali (Nero)
 
 comunicatore
+fuoco d'artificio
+fuoco d'artificio esaurito
 
 
 
@@ -13119,7 +13121,12 @@ comunicatore
 
 
 
+palloncino rosso
+palloncino giallo
+palloncino verde
+palloncino rosa
 
+gagliardetto Nook Inc.
 
 
 
@@ -13156,6 +13163,26 @@ comunicatore
 
 
 
+cappello Hello Kitty (Bianco)
+maglietta Hello Kitty (Blu)
+paio di scarpe Hello Kitty (Bianco)
+cappuccio My Melody (Rosa)
+paio di stivali My Melody (Rosa)
+fermaglio Kiki & Lala (Giallo)
+maglietta Kiki & Lala (Rosa)
+paio di calzini Kiki & Lala (Rosa)
+bacchetta Kiki & Lala
+paio di scarpe Kiki & Lala (Rosa)
+cappello Pompompurin (Giallo)
+maglietta Pompompurin (Giallo)
+paio di stivali Pompompurin (Giallo)
+giacca Cinnamoroll (Blu chiaro)
+paio di sneaker Cinnamoroll (Blu chiaro)
+costume Kerokerokeroppi (Verde)
+canotta Kerokerokeroppi (Rosso)
+set mollet. Kerokerokeroppi (Bianco)
+paio calze Kerokerokeroppi (Rosso)
+paio stivali Kerokerokeroppi (Verde)
 
 
 
@@ -13166,36 +13193,9 @@ comunicatore
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+I miei modelli: vers. pro +
+lecca-lecca
+dolcetto
 
 
 
@@ -13214,3 +13214,1197 @@ comunicatore
 
 
 maschera mare Nook Inc. (Verde)
+
+
+
+
+
+letto di Sonia
+festone brividi
+set da tavola brividi
+muro brividi
+pavimento brividi
+
+piantina di zucca
+coupon onirico
+
+muro fuochi d'artificio
+
+
+
+
+
+
+bacchetta brividi
+
+vestito Orihime (Rosso)
+vestito Hikoboshi (Blu)
+slitta Giorno dei giocattoli
+elicottero telecomandato
+cagnolino di peluche
+mucchio di regali
+rotolo dolce
+libro 3D
+robot di latta
+set di calze Jingle
+tenda per bambini
+pista giocattolo
+dinosauro giocattolo
+casa delle bambole
+
+
+
+L'arte del body painting
+Occhi dai mille colori
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+recinzione brividi
+vestito Hello Kitty (Blu)
+
+
+
+
+
+
+
+
+
+
+tappeto luna
+
+
+
+
+
+Ring-Con
+
+
+
+cappello Cinnamoroll (Bianco)
+camicetta Cinnamoroll (Blu chiaro)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+poster della Nook Inc.
+
+
+muro primizie
+pavimento primizie
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+kit trasferimento
+
+
+
+
+
+
+ritratto di Fifonio
+
+
+
+ghirlanda festiva
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+paio di calze a righe oriz. (Viola)
+paio di calze a righe oriz. (Bianco)
+paio di calze a righe oriz. (Verde)
+paio di calze a righe oriz. (Rosso)
+paio di calze a righe oriz. (Nero)
+costume da animale (Viola)
+costume da animale (Bianco)
+costume da animale (Verde)
+costume da animale (Rosso)
+costume da animale (Nero)
+costume stregonesco (Viola)
+costume stregonesco (Bianco)
+costume stregonesco (Verde)
+costume stregonesco (Rosso)
+costume stregonesco (Nero)
+vestito da scuola di magia (Arancio)
+costume cencioso (Viola)
+costume cencioso (Bianco)
+costume cencioso (Verde)
+costume cencioso (Rosso)
+costume cencioso (Nero)
+cappello corna diavoletto (Viola)
+cappello corna diavoletto (Bianco)
+cappello corna diavoletto (Verde)
+cappello corna diavoletto (Rosso)
+cappello corna diavoletto (Nero)
+cappuccio scuola di magia (Viola)
+cappuccio scuola di magia (Bianco)
+cappuccio scuola di magia (Verde)
+cappuccio scuola di magia (Rosso)
+cappuccio scuola di magia (Nero)
+capp. stregonesco a strisce (Viola)
+capp. stregonesco a strisce (Bianco)
+capp. stregonesco a strisce (Verde)
+capp. stregonesco a strisce (Rosso)
+capp. stregonesco a strisce (Nero)
+paio di ali da diavoletto (Viola)
+paio di ali da diavoletto (Bianco)
+paio di ali da diavoletto (Verde)
+paio di ali da diavoletto (Rosso)
+paio di ali da diavoletto (Nero)
+paio di stivali da animale (Viola)
+paio di stivali da animale (Bianco)
+paio di stivali da animale (Verde)
+paio di stivali da animale (Rosso)
+paio di stivali da animale (Nero)
+cappello orecchie a punta (Viola)
+cappello orecchie a punta (Bianco)
+cappello orecchie a punta (Verde)
+cappello orecchie a punta (Rosso)
+cappello orecchie a punta (Nero)
+cappello orecchie tonde (Viola)
+cappello orecchie tonde (Bianco)
+cappello orecchie tonde (Verde)
+cappello orecchie tonde (Rosso)
+cappello orecchie tonde (Nero)
+paio di stivali stregoneschi (Viola)
+paio di stivali stregoneschi (Bianco)
+paio di stivali stregoneschi (Verde)
+paio di stivali stregoneschi (Rosso)
+paio di stivali stregoneschi (Nero)
+vestito Kiki & Lala (Rosa)
+
+
+
+
+
+custodia Pocket Camp
+
+
+
+
+
+
+
+piedistallo primizie
+caminetto primizie
+decorazione primizie
+sedia primizie
+
+
+tavolo primizie
+
+
+
+
+
+Yut nori
+
+
+piatto con dodici acini d'uva
+piatto di krapfen
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+completo Pompompurin (Giallo)
+
+ciocco-cuore
+
+statuetta del segno del bue
+vestito da scuola di magia (Viola)
+vestito da scuola di magia (Bianco)
+vestito da scuola di magia (Verde)
+vestito da scuola di magia (Rosso)
+vestito da scuola di magia (Nero)
+
+
+
+
+
+shimekazari di Capodanno
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tappeto primizie
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+arco buon anno 2021
+
+
+cappello di Mario (Rosso)
+cappello di Luigi (Verde)
+cappello di Wario (Giallo)
+
+
+
+
+
+
+tuta di Mario (Blu)
+tuta di Luigi (Blu marino)
+tuta di Wario (Viola)
+baffo di Mario (Nero)
+baffo di Luigi (Nero)
+baffo di Wario (Nero)
+paio di scarpe di Mario (Marrone)
+paio di scarpe di Wario (Verde)
+corona di Peach (Dorato)
+vestito di Peach (Rosa)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tappeto girasole
+
+
+
+
+
+paio di scarpe di Peach (Rosso)
+muro nevicata
+
+
+
+
+
+muro aurora boreale
+Collezione Gran Emozione
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+vestito My Melody (Rosa)
+maglietta My Melody (Rosa)
+
+
+
+
+
+
+I migliori 6 tagli top
+festone Carnevale
+
+
+parasole Carnevale
+carro Carnevale
+globo luminoso Carnevale
+bancarella Carnevale
+tamburo Carnevale
+palcoscenico Carnevale
+lanciacoriandoli Carnevale
+lampada Carnevale
+stendardo Carnevale
+pesce alla mugnaia
+sformato
+zuppa di vongole
+crostata di zucca
+
+
+
+
+Fai da te primizie
+
+
+
+
+carta da regalo festiva
+regalo
+
+
+
+zuppa di Capodanno
+
+insalata russa
+クラムチャウダーHaPu
+パンプキンパイHaPu
+サカナのムニエルHaPu
+グラタンHaPu
+pavimento mattoni
+muro dei funghi
+
+
+
+
+
+
+
+
+
+
+
+
+casseruola primizie
+ornamento primizie
+set da tavola primizie
+blocco ?
+blocco
+tubo
+asta della bandiera
+super stella
+fiore di fuoco
+super fungo
+fungo 1-UP
+guscio
+moneta
+piattaforma fungo grande
+piattaforma fungo piccola
+Twomp
+
+cocktail alla frutta
+sacco dei regali
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+foto di Jingle
+
+
+
+
+modellino di Resetti
+
+regalo da qualcuno
+
+
+tappeto uovo di Yoshi
+tappeto nuvola di Lakitu
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tappeto football
+
+
+
+
+
+maschera da Okame (Bianco)
+
+
+megafono fan football
+set con fagioli da lanciare
+
+
+
+
+
+
+
+
+
+
+
+
+Nintendo Switch Lite
+
+
+set di calze per regali
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+busta della fortuna rossa
+sacchettino bokjumeoni
+
+
+paio di maracas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+scultura arb. caccia all'uovo
+albero caccia all'uovo
+bandiera caccia all'uovo
+fioriera caccia all'uovo
+set dolci caccia all'uovo
+
+
+
+megafono fan con fiamme
+megafono fan con stelle
+megafono fan luccicante
+costume Carnevale (Blu)
+
+
+
+torta del Pi greco
+
+
+globo girevole
+
+
+
+
+succo di trifoglio
+bouquet a cuore
+Set di emozioni Carnevale
+targa da porta trifoglio
+decoraz. Capodanno lunare
+
+
+
+
+
+
+
+
+forsizia
+denaro della fortuna
+sebaetdon
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+torta 1º anniversario
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Portale modelli personaliz.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cappello trifoglio (Verde)
+vestito trifoglio (Verde)
+paio di scarpe trifoglio (Verde)
+montatura trifoglio (Verde)
+bacchetta trifoglio
+costume Carnevale (Rosso)
+costume Carnevale (Viola)
+costume Carnevale (Verde)
+paio di scarpe di Luigi (Marrone)
+
+
+
+
+
+
+targa da porta Nook Inc.
+
+muro ballo scolastico
+pavimento ballo scolastico
+foto di Tom Nook
+foto di Mirco e Marco
+foto di Fuffi
+
+
+
+
+smoking vivace (Rosso)
+fascia ballo scolastico (Rosso)
+paio di scarpe da ballo (Nero)
+corona ballo scolastico (Dorato)
+tiara ballo scolastico (Dorato)
+blocco fluttuante
+
+
+
+
+
+
+
+
+
+
+
+recinzione sirena
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+custodia edizione ACNH
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+petofono
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+paio di scarpe da ballo (Dorato)
+paio di scarpe da ballo (Arancio)
+paio di scarpe da ballo (Argentato)
+paio di scarpe da ballo (Blu)
+paio di scarpe da ballo (Rosa)
+paio di scarpe da ballo (Verde)
+paio di scarpe da ballo (Viola)
+
+
+
+
+
+
+
+fascia ballo scolastico (Blu)
+fascia ballo scolastico (Verde)
+fascia ballo scolastico (Viola)
+fascia ballo scolastico (Bianco)
+fascia ballo scolastico (Nero)
+fascia ballo scolastico (Dorato)
+corona ballo scolastico (Argentato)
+tiara ballo scolastico (Argentato)
+smoking vivace (Blu)
+smoking vivace (Verde)
+smoking vivace (Giallo)
+smoking vivace (Arancio)
+smoking vivace (Viola)
+smoking vivace (Marrone)
+smoking vivace (Monocromo)

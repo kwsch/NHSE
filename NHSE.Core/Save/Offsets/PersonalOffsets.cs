@@ -53,8 +53,21 @@ namespace NHSE.Core
                 6 => new PersonalOffsets12(),
                 7 => new PersonalOffsets12(),
                 8 => new PersonalOffsets13(),
-                _ => throw new IndexOutOfRangeException("Unknown revision!"),
+                9 => new PersonalOffsets13(),
+                10 => new PersonalOffsets14(),
+                11 => new PersonalOffsets14(),
+                12 => new PersonalOffsets14(),
+                13 => new PersonalOffsets15(),
+                14 => new PersonalOffsets15(),
+                15 => new PersonalOffsets16(),
+                16 => new PersonalOffsets17(),
+                17 => new PersonalOffsets18(),
+                18 => new PersonalOffsets19(),
+                _ => throw new IndexOutOfRangeException("Unknown revision!" + Environment.NewLine + Info),
             };
         }
+
+        public abstract IReactionStore ReadReactions(byte[] data);
+        public abstract void SetReactions(byte[] data, IReactionStore value);
     }
 }

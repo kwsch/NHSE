@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
@@ -113,7 +114,7 @@ namespace NHSE.Core
             }
         }
 
-        public static bool HasProperty(object obj, string name, out PropertyInfo? pi) => (pi = GetPropertyInfo(obj.GetType().GetTypeInfo(), name)) != null;
+        public static bool HasProperty(object obj, string name, [NotNullWhen(true)] out PropertyInfo? pi) => (pi = GetPropertyInfo(obj.GetType().GetTypeInfo(), name)) != null;
 
         public static PropertyInfo? GetPropertyInfo(this TypeInfo typeInfo, string name)
         {
@@ -125,14 +126,14 @@ namespace NHSE.Core
             return GetAllTypeInfo(typeInfo).SelectMany(_ => accessor(typeInfo));
         }
 
-        public static Dictionary<T, string> GetAllConstantsOfType<T>(this Type type)
+        public static Dictionary<T, string> GetAllConstantsOfType<T>(this Type type) where T : struct
         {
             var fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.FlattenHierarchy);
             var consts = fields.Where(fi => fi.IsLiteral && !fi.IsInitOnly && fi.FieldType == typeof(T));
             return consts.ToDictionary(x => (T)x.GetRawConstantValue(), z => z.Name);
         }
 
-        public static Dictionary<T, string> GetAllPropertiesOfType<T>(this Type type, object obj)
+        public static Dictionary<T, string> GetAllPropertiesOfType<T>(this Type type, object obj) where T : class
         {
             var props = type.GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly);
             var ofType = props.Where(fi => typeof(T).IsAssignableFrom(fi.PropertyType));

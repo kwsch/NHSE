@@ -168,7 +168,7 @@ namespace NHSE.Core
 
     public static class CollisionUtil
     {
-        public static readonly Dictionary<byte, Color> Dict = new Dictionary<byte, Color>
+        public static readonly Dictionary<byte, Color> Dict = new()
         {
             {00, Color.FromArgb( 70, 120,  64)}, // Grass
             {01, Color.FromArgb(128, 215, 195)}, // River

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace NHSE.Core
 {
@@ -20,6 +21,21 @@ namespace NHSE.Core
             var tiles = sav.GetMapDesignTiles();
             for (int i = 0; i < tiles.Length; i++)
                 tiles[i] = MainSave.MapDesignNone;
+            sav.SetMapDesignTiles(tiles);
+        }
+
+        public static byte[] ExportDesignTiles(MainSave sav)
+        {
+            var tiles = sav.GetMapDesignTiles();
+            var result = new byte[tiles.Length * 2];
+            Buffer.BlockCopy(tiles, 0, result, 0, result.Length);
+            return result;
+        }
+
+        public static void ImportDesignTiles(MainSave sav, byte[] result)
+        {
+            var tiles = sav.GetMapDesignTiles();
+            Buffer.BlockCopy(result, 0, tiles, 0, result.Length);
             sav.SetMapDesignTiles(tiles);
         }
     }

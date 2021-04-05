@@ -10,11 +10,11 @@ namespace NHSE.WinForms
     {
         private readonly MainSave SAV;
         private readonly VillagerHouse[] Houses;
-        private readonly IReadOnlyList<Villager> Villagers;
+        private readonly IReadOnlyList<IVillager> Villagers;
 
         private int Index;
 
-        public VillagerHouseEditor(VillagerHouse[] houses, IReadOnlyList<Villager> villagers, MainSave sav, int index)
+        public VillagerHouseEditor(VillagerHouse[] houses, IReadOnlyList<IVillager> villagers, MainSave sav, int index)
         {
             InitializeComponent();
             this.TranslateInterface(GameInfo.CurrentLanguage);

@@ -8,7 +8,7 @@ namespace NHSE.Parsing
 {
     public class BCSV
     {
-        public static readonly BCSVEnumDictionary EnumLookup = new BCSVEnumDictionary(Resources.specs_130.Split('\n'));
+        public static readonly BCSVEnumDictionary EnumLookup = new(Resources.specs_130.Split('\n'));
         public static bool DecodeColumnNames { private get; set; } = true;
 
         public const int MAGIC = 0x42435356; // BCSV
@@ -77,9 +77,17 @@ namespace NHSE.Parsing
                 1 => Data[offset].ToString(),
                 2 => BitConverter.ToInt16(Data, offset).ToString(),
                 4 => EnumLookup[BitConverter.ToUInt32(Data, offset)],
+                5 => $"0x{FiveByteLong(offset):X10}",
                 8 => $"0x{BitConverter.ToUInt64(Data, offset):X16}",
                 _ => Encoding.UTF8.GetString(Data, offset, length),
             };
+        }
+
+        private ulong FiveByteLong(in int offset)
+        {
+            var tmpBytes = new byte[8];
+            Array.Copy(Data, offset, tmpBytes, 0, 5);
+            return BitConverter.ToUInt64(tmpBytes, 0);
         }
 
         private int GetFieldLength(in int i)

@@ -5,9 +5,9 @@ using System.Runtime.InteropServices;
 namespace NHSE.Core
 {
     [StructLayout(LayoutKind.Explicit, Size = SIZE, Pack = 1)]
-    public class Item : ICopyableItem<Item>
+    public class Item : ICopyableItem<Item>, IEquatable<Item>
     {
-        public static readonly Item NO_ITEM = new Item {ItemId = NONE};
+        public static readonly Item NO_ITEM = new() {ItemId = NONE};
         public const ushort NONE = 0xFFFE;
         public const ushort EXTENSION = 0xFFFD;
         public const ushort FieldItemMin = 60_000;
@@ -18,18 +18,21 @@ namespace NHSE.Core
         public const ushort MessageBottleEgg = 0x3100;
         public const int SIZE = 8;
 
+        [field: FieldOffset(0)] public ulong RawValue { get; set; }
+
         [field: FieldOffset(0)] public ushort ItemId { get; set; }
         [field: FieldOffset(2)] public byte SystemParam { get; set; }
         [field: FieldOffset(3)] public byte AdditionalParam { get; set; }
         [field: FieldOffset(4)] public int FreeParam { get; set; }
 
-        public int Rotation => SystemParam & 3;
-        public bool IsBuried => (SystemParam & 4) != 0;
-        public bool Is_08 => (SystemParam & 0x08) != 0;
-        public bool Is_10 => (SystemParam & 0x10) != 0;
-        public bool IsDropped => (SystemParam & 0x20) != 0;
-        public bool Is_40 => (SystemParam & 0x40) != 0;
-        public bool Is_80 => (SystemParam & 0x80) != 0;
+        public void ClearFlags() => SystemParam = 0;
+        public int Rotation   { get => SystemParam & 3; set => SystemParam = (byte)((SystemParam & ~3) | (value & 3)); }
+        public bool IsBuried  { get => (SystemParam & 0x04) != 0; set => SystemParam = (byte) ((SystemParam & ~0x04) | (value ? 0x04 : 0)); }
+        public bool Is_08     { get => (SystemParam & 0x08) != 0; set => SystemParam = (byte) ((SystemParam & ~0x08) | (value ? 0x08 : 0)); }
+        public bool Is_10     { get => (SystemParam & 0x10) != 0; set => SystemParam = (byte) ((SystemParam & ~0x10) | (value ? 0x10 : 0)); }
+        public bool IsDropped { get => (SystemParam & 0x20) != 0; set => SystemParam = (byte) ((SystemParam & ~0x20) | (value ? 0x20 : 0)); }
+        public bool Is_40     { get => (SystemParam & 0x40) != 0; set => SystemParam = (byte) ((SystemParam & ~0x40) | (value ? 0x40 : 0)); }
+        public bool Is_80     { get => (SystemParam & 0x80) != 0; set => SystemParam = (byte) ((SystemParam & ~0x80) | (value ? 0x80 : 0)); }
 
         #region Flag1 (Wrapping / Etc)
         public bool IsWrapped
@@ -191,18 +194,10 @@ namespace NHSE.Core
         #endregion
 
         public Item() { } // marshalling
+        public Item(ulong raw) => RawValue = raw;
+        public Item(ushort itemId = NONE) => ItemId = itemId;
 
-        public Item(ushort itemId = NONE)
-        {
-            ItemId = itemId;
-        }
-
-        public void Delete()
-        {
-            ItemId = NONE;
-            SystemParam = AdditionalParam = 0;
-            FreeParam = 0;
-        }
+        public void Delete() => RawValue = NONE; // clears & sets the two lowest byte as ItemID
 
         public virtual int Size => SIZE;
 
@@ -227,5 +222,24 @@ namespace NHSE.Core
                 _ => ItemId,
             };
         }
+
+        public bool Equals(Item? other)
+        {
+            if (other is null) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return RawValue == other.RawValue;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != GetType()) return false;
+            return Equals((Item) obj);
+        }
+
+        public override int GetHashCode() => RawValue.GetHashCode();
+        public static bool operator ==(Item? left, Item? right) => Equals(left, right);
+        public static bool operator !=(Item? left, Item? right) => !Equals(left, right);
     }
 }

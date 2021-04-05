@@ -8,6 +8,7 @@ namespace NHSE.Core
     public class ItemRemakeInfo
     {
         public const int BodyColorCountMax = 8;
+        public const int NoColor = (int)ItemCustomColor.None; // 14
 
         public readonly short Index;
         public readonly ushort ItemUniqueID;
@@ -38,8 +39,8 @@ namespace NHSE.Core
 
         private const string Invalid = nameof(Invalid);
 
-        public bool HasBodyColor(int variant) => ReBodyPatternColors0[variant] != 14 || ReBodyPatternColors1[variant] != 14;
-        public bool HasFabricColor(int variant) => ReFabricPatternColors0[variant] != 14 || ReFabricPatternColors1[variant] != 14;
+        public bool HasBodyColor(int variant) => ReBodyPatternColors0[variant] != NoColor || ReBodyPatternColors1[variant] != NoColor;
+        public bool HasFabricColor(int variant) => ReFabricPatternColors0[variant] != NoColor || ReFabricPatternColors1[variant] != NoColor;
 
         public string GetBodyDescription(int colorIndex, IRemakeString str)
         {
@@ -78,7 +79,7 @@ namespace NHSE.Core
             if (c0 == (byte) ItemCustomColor.None)
             {
                 if (c1 == (byte) ItemCustomColor.None)
-                    return "Invalid";
+                    return Invalid;
                 return GetColorText(c1);
             }
 
@@ -103,16 +104,14 @@ namespace NHSE.Core
             for (int i = 0; i < 8; i++)
             {
                 var cd = GetBodyDescription(i);
-                if (cd == Invalid)
-                    continue;
-
-                sb.Append(i).Append('=');
-
                 var name = $"{ItemUniqueID:00000}_{i}";
-                if (str.BodyColor.TryGetValue(name, out var desc))
-                    sb.Append(desc).Append(" (").Append(cd).AppendLine(")");
-                else
-                    sb.AppendLine(cd);
+                var hasBody = str.BodyColor.TryGetValue(name, out var desc);
+
+                if (hasBody && cd != Invalid)
+                    sb.Append(i).Append('=').Append(desc).Append(" (").Append(cd).AppendLine(")");
+                else if (hasBody)
+                    sb.Append(i).Append('=').AppendLine(desc);
+                // else don't add anything
             }
             return sb.ToString();
         }

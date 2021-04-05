@@ -10,7 +10,11 @@ namespace NHSE.Core
 
         public GSaveMemory(byte[] data) => Data = data;
 
-        public GSavePlayerId PlayerId => Data.Slice(0, GSavePlayerId.SIZE).ToStructure<GSavePlayerId>();
+        public GSavePlayerId PlayerId
+        {
+            get => Data.Slice(0, GSavePlayerId.SIZE).ToStructure<GSavePlayerId>();
+            set => value.ToBytes().CopyTo(Data, 0);
+        }
 
         public uint TownID
         {
@@ -54,7 +58,7 @@ namespace NHSE.Core
         public string GetGreeting(in int index)
         {
             var offset = GetGreetingOffset(index);
-            return StringUtil.GetString(Data, offset, 10);
+            return StringUtil.GetString(Data, offset, 22); // s_f6bf402b char16[48]. Render limit in-game is 22 char16s
         }
 
         private static int GetGreetingOffset(in int index)

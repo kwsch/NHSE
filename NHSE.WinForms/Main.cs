@@ -57,7 +57,7 @@ namespace NHSE.WinForms
 
         private void Main_DragDrop(object sender, DragEventArgs e)
         {
-            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            var files = (string[]?)e.Data.GetData(DataFormats.FileDrop);
             if (files == null || files.Length == 0)
                 return;
             Open(files[0]);
@@ -177,7 +177,7 @@ namespace NHSE.WinForms
                 }
                 case Keys.I:
                 {
-                    ItemSprite.Initialize(ItemPath, GameInfo.GetStrings("en").itemlist);
+                    ItemSprite.Initialize(GameInfo.GetStrings("en").itemlist);
                     var items = new Item[40];
                     for (int i = 0; i < items.Length; i++)
                         items[i] = new Item(Item.NONE);

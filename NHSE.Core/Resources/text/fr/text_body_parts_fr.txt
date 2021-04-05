@@ -163,6 +163,14 @@
 04074	Lumière
 04075	Cadre
 04078	Couleur des poids
+04083	Couleur de citrouille
+04084	Couleur de citrouille
+04086	Couleur de citrouille
+04087	Couleur de citrouille
+04088	Couleur de citrouille
+04089	Couleur de citrouille
+04090	Couleur de citrouille
+04092	Couleur de citrouille
 04093	Type de bambou
 04104	Contenu
 04108	Lumière
@@ -292,3 +300,42 @@
 12411	Modèle
 12543	Joy-Con
 12741	Centre de la carte
+12949	Couleur de citrouille
+12951	Couleur
+13222	Couleur
+13223	Couleur
+13242	Couleur principale
+13243	Type de fourrure
+13244	Modèle
+13245	Variation
+13246	Variation
+13247	Couleur principale
+13249	Variation
+13250	Couleur des bolides
+13251	Couleur principale
+13252	Couleur du toit
+13447	Modèle
+13448	Modèle
+13449	Modèle
+13450	Modèle
+13453	Modèle
+13488	Variation
+13767	Variation
+13770	Variation
+13772	Variation
+13773	Variation
+13774	Variation
+13775	Variation
+13776	Variation
+13777	Variation
+13778	Variation
+13818	Modèle
+13819	Modèle
+13820	Modèle
+13829	Variation
+13831	Couleur
+13832	Couleur
+13927	Couleur
+13930	Modèle
+14029	Variation
+14340	Couleur

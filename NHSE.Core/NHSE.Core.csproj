@@ -2,12 +2,13 @@
 
   <PropertyGroup>
     <TargetFrameworks>net46;netstandard2.0</TargetFrameworks>
-    <LangVersion>8</LangVersion>
+    <LangVersion>9</LangVersion>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Resources\byte\item_kind.bin" />
+    <None Remove="Resources\byte\item_menuicon.bin" />
     <None Remove="Resources\byte\item_size.bin" />
     <None Remove="Resources\byte\outside.bin" />
     <None Remove="Resources\text\de\internal_de.txt" />
@@ -17,6 +18,7 @@
     <None Remove="Resources\text\de\text_fabric_color_de.txt" />
     <None Remove="Resources\text\de\text_fabric_parts_de.txt" />
     <None Remove="Resources\text\de\text_item_de.txt" />
+    <None Remove="Resources\text\de\text_phrase_de.txt" />
     <None Remove="Resources\text\de\text_villager_de.txt" />
     <None Remove="Resources\text\en\internal_en.txt" />
     <None Remove="Resources\text\en\MessageStrings_en.txt" />
@@ -25,6 +27,7 @@
     <None Remove="Resources\text\en\text_fabric_color_en.txt" />
     <None Remove="Resources\text\en\text_fabric_parts_en.txt" />
     <None Remove="Resources\text\en\text_item_en.txt" />
+    <None Remove="Resources\text\en\text_phrase_en.txt" />
     <None Remove="Resources\text\en\text_villager_en.txt" />
     <None Remove="Resources\text\es\internal_es.txt" />
     <None Remove="Resources\text\es\MessageStrings_es.txt" />
@@ -33,6 +36,7 @@
     <None Remove="Resources\text\es\text_fabric_color_es.txt" />
     <None Remove="Resources\text\es\text_fabric_parts_es.txt" />
     <None Remove="Resources\text\es\text_item_es.txt" />
+    <None Remove="Resources\text\es\text_phrase_es.txt" />
     <None Remove="Resources\text\es\text_villager_es.txt" />
     <None Remove="Resources\text\fr\internal_fr.txt" />
     <None Remove="Resources\text\fr\MessageStrings_fr.txt" />
@@ -41,6 +45,7 @@
     <None Remove="Resources\text\fr\text_fabric_color_fr.txt" />
     <None Remove="Resources\text\fr\text_fabric_parts_fr.txt" />
     <None Remove="Resources\text\fr\text_item_fr.txt" />
+    <None Remove="Resources\text\fr\text_phrase_fr.txt" />
     <None Remove="Resources\text\fr\text_villager_fr.txt" />
     <None Remove="Resources\text\it\internal_it.txt" />
     <None Remove="Resources\text\it\MessageStrings_it.txt" />
@@ -49,6 +54,7 @@
     <None Remove="Resources\text\it\text_fabric_color_it.txt" />
     <None Remove="Resources\text\it\text_fabric_parts_it.txt" />
     <None Remove="Resources\text\it\text_item_it.txt" />
+    <None Remove="Resources\text\it\text_phrase_it.txt" />
     <None Remove="Resources\text\it\text_villager_it.txt" />
     <None Remove="Resources\text\jp\internal_jp.txt" />
     <None Remove="Resources\text\jp\MessageStrings_jp.txt" />
@@ -57,6 +63,7 @@
     <None Remove="Resources\text\jp\text_fabric_color_jp.txt" />
     <None Remove="Resources\text\jp\text_fabric_parts_jp.txt" />
     <None Remove="Resources\text\jp\text_item_jp.txt" />
+    <None Remove="Resources\text\jp\text_phrase_jp.txt" />
     <None Remove="Resources\text\jp\text_villager_jp.txt" />
     <None Remove="Resources\text\ko\internal_ko.txt" />
     <None Remove="Resources\text\ko\MessageStrings_ko.txt" />
@@ -65,6 +72,7 @@
     <None Remove="Resources\text\ko\text_fabric_color_ko.txt" />
     <None Remove="Resources\text\ko\text_fabric_parts_ko.txt" />
     <None Remove="Resources\text\ko\text_item_ko.txt" />
+    <None Remove="Resources\text\ko\text_phrase_ko.txt" />
     <None Remove="Resources\text\ko\text_villager_ko.txt" />
     <None Remove="Resources\text\zhs\internal_zhs.txt" />
     <None Remove="Resources\text\zhs\MessageStrings_zhs.txt" />
@@ -73,6 +81,7 @@
     <None Remove="Resources\text\zhs\text_fabric_color_zhs.txt" />
     <None Remove="Resources\text\zhs\text_fabric_parts_zhs.txt" />
     <None Remove="Resources\text\zhs\text_item_zhs.txt" />
+    <None Remove="Resources\text\zhs\text_phrase_zhs.txt" />
     <None Remove="Resources\text\zhs\text_villager_zhs.txt" />
     <None Remove="Resources\text\zht\internal_zht.txt" />
     <None Remove="Resources\text\zht\MessageStrings_zht.txt" />
@@ -81,11 +90,13 @@
     <None Remove="Resources\text\zht\text_fabric_color_zht.txt" />
     <None Remove="Resources\text\zht\text_fabric_parts_zht.txt" />
     <None Remove="Resources\text\zht\text_item_zht.txt" />
+    <None Remove="Resources\text\zht\text_phrase_zht.txt" />
     <None Remove="Resources\text\zht\text_villager_zht.txt" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\byte\item_kind.bin" />
+    <EmbeddedResource Include="Resources\byte\item_menuicon.bin" />
     <EmbeddedResource Include="Resources\byte\item_size.bin" />
     <EmbeddedResource Include="Resources\byte\outside.bin" />
     <EmbeddedResource Include="Resources\text\de\internal_de.txt" />
@@ -95,6 +106,7 @@
     <EmbeddedResource Include="Resources\text\de\text_fabric_color_de.txt" />
     <EmbeddedResource Include="Resources\text\de\text_fabric_parts_de.txt" />
     <EmbeddedResource Include="Resources\text\de\text_item_de.txt" />
+    <EmbeddedResource Include="Resources\text\de\text_phrase_de.txt" />
     <EmbeddedResource Include="Resources\text\de\text_villager_de.txt" />
     <EmbeddedResource Include="Resources\text\en\internal_en.txt" />
     <EmbeddedResource Include="Resources\text\en\MessageStrings_en.txt" />
@@ -103,6 +115,7 @@
     <EmbeddedResource Include="Resources\text\en\text_fabric_color_en.txt" />
     <EmbeddedResource Include="Resources\text\en\text_fabric_parts_en.txt" />
     <EmbeddedResource Include="Resources\text\en\text_item_en.txt" />
+    <EmbeddedResource Include="Resources\text\en\text_phrase_en.txt" />
     <EmbeddedResource Include="Resources\text\en\text_villager_en.txt" />
     <EmbeddedResource Include="Resources\text\es\internal_es.txt" />
     <EmbeddedResource Include="Resources\text\es\MessageStrings_es.txt" />
@@ -111,6 +124,7 @@
     <EmbeddedResource Include="Resources\text\es\text_fabric_color_es.txt" />
     <EmbeddedResource Include="Resources\text\es\text_fabric_parts_es.txt" />
     <EmbeddedResource Include="Resources\text\es\text_item_es.txt" />
+    <EmbeddedResource Include="Resources\text\es\text_phrase_es.txt" />
     <EmbeddedResource Include="Resources\text\es\text_villager_es.txt" />
     <EmbeddedResource Include="Resources\text\fr\internal_fr.txt" />
     <EmbeddedResource Include="Resources\text\fr\MessageStrings_fr.txt" />
@@ -119,6 +133,7 @@
     <EmbeddedResource Include="Resources\text\fr\text_fabric_color_fr.txt" />
     <EmbeddedResource Include="Resources\text\fr\text_fabric_parts_fr.txt" />
     <EmbeddedResource Include="Resources\text\fr\text_item_fr.txt" />
+    <EmbeddedResource Include="Resources\text\fr\text_phrase_fr.txt" />
     <EmbeddedResource Include="Resources\text\fr\text_villager_fr.txt" />
     <EmbeddedResource Include="Resources\text\it\internal_it.txt" />
     <EmbeddedResource Include="Resources\text\it\MessageStrings_it.txt" />
@@ -127,6 +142,7 @@
     <EmbeddedResource Include="Resources\text\it\text_fabric_color_it.txt" />
     <EmbeddedResource Include="Resources\text\it\text_fabric_parts_it.txt" />
     <EmbeddedResource Include="Resources\text\it\text_item_it.txt" />
+    <EmbeddedResource Include="Resources\text\it\text_phrase_it.txt" />
     <EmbeddedResource Include="Resources\text\it\text_villager_it.txt" />
     <EmbeddedResource Include="Resources\text\jp\internal_jp.txt" />
     <EmbeddedResource Include="Resources\text\jp\MessageStrings_jp.txt" />
@@ -135,6 +151,7 @@
     <EmbeddedResource Include="Resources\text\jp\text_fabric_color_jp.txt" />
     <EmbeddedResource Include="Resources\text\jp\text_fabric_parts_jp.txt" />
     <EmbeddedResource Include="Resources\text\jp\text_item_jp.txt" />
+    <EmbeddedResource Include="Resources\text\jp\text_phrase_jp.txt" />
     <EmbeddedResource Include="Resources\text\jp\text_villager_jp.txt" />
     <EmbeddedResource Include="Resources\text\ko\internal_ko.txt" />
     <EmbeddedResource Include="Resources\text\ko\MessageStrings_ko.txt" />
@@ -143,6 +160,7 @@
     <EmbeddedResource Include="Resources\text\ko\text_fabric_color_ko.txt" />
     <EmbeddedResource Include="Resources\text\ko\text_fabric_parts_ko.txt" />
     <EmbeddedResource Include="Resources\text\ko\text_item_ko.txt" />
+    <EmbeddedResource Include="Resources\text\ko\text_phrase_ko.txt" />
     <EmbeddedResource Include="Resources\text\ko\text_villager_ko.txt" />
     <EmbeddedResource Include="Resources\text\zhs\internal_zhs.txt" />
     <EmbeddedResource Include="Resources\text\zhs\MessageStrings_zhs.txt" />
@@ -151,6 +169,7 @@
     <EmbeddedResource Include="Resources\text\zhs\text_fabric_color_zhs.txt" />
     <EmbeddedResource Include="Resources\text\zhs\text_fabric_parts_zhs.txt" />
     <EmbeddedResource Include="Resources\text\zhs\text_item_zhs.txt" />
+    <EmbeddedResource Include="Resources\text\zhs\text_phrase_zhs.txt" />
     <EmbeddedResource Include="Resources\text\zhs\text_villager_zhs.txt" />
     <EmbeddedResource Include="Resources\text\zht\internal_zht.txt" />
     <EmbeddedResource Include="Resources\text\zht\MessageStrings_zht.txt" />
@@ -159,6 +178,7 @@
     <EmbeddedResource Include="Resources\text\zht\text_fabric_color_zht.txt" />
     <EmbeddedResource Include="Resources\text\zht\text_fabric_parts_zht.txt" />
     <EmbeddedResource Include="Resources\text\zht\text_item_zht.txt" />
+    <EmbeddedResource Include="Resources\text\zht\text_phrase_zht.txt" />
     <EmbeddedResource Include="Resources\text\zht\text_villager_zht.txt" />
   </ItemGroup>
 

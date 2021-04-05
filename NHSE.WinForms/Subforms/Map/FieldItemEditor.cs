@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
@@ -188,6 +189,10 @@ namespace NHSE.WinForms
                 default:
                     ViewTile(tile, x, y);
                     return;
+                case Keys.Alt | Keys.Control:
+                case Keys.Alt | Keys.Control | Keys.Shift:
+                    ReplaceTile(tile, x, y);
+                    return;
                 case Keys.Shift:
                     SetTile(tile, x, y);
                     return;
@@ -242,7 +247,7 @@ namespace NHSE.WinForms
         private void PB_Acre_MouseMove(object sender, MouseEventArgs e)
         {
             var l = Map.CurrentLayer;
-            if (e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left && CHK_MoveOnDrag.Checked)
             {
                 MoveDrag(e);
                 return;
@@ -250,7 +255,7 @@ namespace NHSE.WinForms
 
             var oldTile = l.GetTile(View.X + HoverX, View.Y + HoverY);
             var tile = GetTile(l, e, out var x, out var y);
-            if (tile == oldTile)
+            if (ReferenceEquals(tile, oldTile))
                 return;
             var str = GameInfo.Strings;
             var name = str.GetItemName(tile);
@@ -359,6 +364,40 @@ namespace NHSE.WinForms
             tile.CopyFrom(pgt);
 
             ReloadItems();
+        }
+
+        private void ReplaceTile(Item tile, int x, int y)
+        {
+            var l = Map.CurrentLayer;
+            var pgt = new Item();
+            ItemEdit.SetItem(pgt);
+
+            if (pgt.IsFieldItem && CHK_FieldItemSnap.Checked)
+            {
+                // coordinates must be even (not odd-half)
+                x &= 0xFFFE;
+                y &= 0xFFFE;
+                tile = l.GetTile(x, y);
+            }
+
+            var permission = l.IsOccupied(pgt, x, y);
+            switch (permission)
+            {
+                case PlacedItemPermission.OutOfBounds:
+                    System.Media.SystemSounds.Asterisk.Play();
+                    return;
+            }
+
+            bool wholeMap = (ModifierKeys & Keys.Shift) != 0;
+            var copy = new Item(tile.RawValue);
+            var count = View.ReplaceFieldItems(copy, pgt, wholeMap);
+            if (count == 0)
+            {
+                WinFormsUtil.Alert(MessageStrings.MsgFieldItemModifyNone);
+                return;
+            }
+            LoadItemGridAcre();
+            WinFormsUtil.Alert(string.Format(MessageStrings.MsgFieldItemModifyCount, count));
         }
 
         private void RotateTile(TerrainTile tile)
@@ -802,7 +841,7 @@ namespace NHSE.WinForms
 
         private void NUD_BuildingType_ValueChanged(object sender, EventArgs e)
         {
-            if (Loading || !(sender is NumericUpDown n))
+            if (Loading || sender is not NumericUpDown n)
                 return;
 
             var b = Map.Buildings[SelectedBuildingIndex];
@@ -915,7 +954,47 @@ namespace NHSE.WinForms
             System.Media.SystemSounds.Asterisk.Play();
         }
 
+        private void B_ExportPlacedDesigns_Click(object sender, EventArgs e)
+        {
+            using var sfd = new SaveFileDialog
+            {
+                Filter = "nhmd file (*.nhmd)|*.nhmd",
+                FileName = "Island MyDesignMap.nhmd",
+            };
+            if (sfd.ShowDialog() != DialogResult.OK)
+                return;
+
+            string path = sfd.FileName;
+            var tiles = MapManager.ExportDesignTiles(SAV);
+            File.WriteAllBytes(path, tiles);
+            System.Media.SystemSounds.Asterisk.Play();
+        }
+
+        private void B_ImportPlacedDesigns_Click(object sender, EventArgs e)
+        {
+            using var ofd = new OpenFileDialog
+            {
+                Filter = "nhmd file (*.nhmd)|*.nhmd",
+                FileName = "Island MyDesignMap.nhmd",
+            };
+            if (ofd.ShowDialog() != DialogResult.OK)
+                return;
+
+            string path = ofd.FileName;
+            var tiles = File.ReadAllBytes(path);
+            MapManager.ImportDesignTiles(SAV, tiles);
+            System.Media.SystemSounds.Asterisk.Play();
+        }
+
         private void Menu_Spawn_Click(object sender, EventArgs e) => new BulkSpawn(this, View.X, View.Y).ShowDialog();
+
+        private void Menu_Bulk_Click(object sender, EventArgs e)
+        {
+            var editor = new BatchEditor(SpawnLayer.Tiles, ItemEdit.SetItem(new Item()));
+            editor.ShowDialog();
+            SpawnLayer.ClearDanglingExtensions(0, 0, SpawnLayer.MaxWidth, SpawnLayer.MaxHeight);
+            LoadItemGridAcre();
+        }
     }
 
     public interface IItemLayerEditor

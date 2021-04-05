@@ -15,18 +15,18 @@ namespace NHSE.Core
         public AirportColor AirportThemeColor { get => (AirportColor)Data[Offsets.AirportThemeColor]; set => Data[Offsets.AirportThemeColor] = (byte)value; }
         public uint WeatherSeed { get => BitConverter.ToUInt32(Data, Offsets.WeatherRandSeed); set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.WeatherRandSeed); }
 
-        public Villager GetVillager(int index) => Offsets.ReadVillager(Data, index);
-        public void SetVillager(Villager value, int index) => Offsets.WriteVillager(value, Data, index);
+        public IVillager GetVillager(int index) => Offsets.ReadVillager(Data, index);
+        public void SetVillager(IVillager value, int index) => Offsets.WriteVillager(value, Data, index);
 
-        public Villager[] GetVillagers()
+        public IVillager[] GetVillagers()
         {
-            var villagers = new Villager[MainSaveOffsets.VillagerCount];
+            var villagers = new IVillager[MainSaveOffsets.VillagerCount];
             for (int i = 0; i < villagers.Length; i++)
                 villagers[i] = GetVillager(i);
             return villagers;
         }
 
-        public void SetVillagers(IReadOnlyList<Villager> villagers)
+        public void SetVillagers(IReadOnlyList<IVillager> villagers)
         {
             for (int i = 0; i < villagers.Count; i++)
                 SetVillager(villagers[i], i);
@@ -107,7 +107,7 @@ namespace NHSE.Core
 
         public DesignPattern[] GetDesigns()
         {
-            var result = new DesignPattern[MainSaveOffsets.PatternCount];
+            var result = new DesignPattern[Offsets.PatternCount];
             for (int i = 0; i <result.Length; i++)
                 result[i] = GetDesign(i);
             return result;
@@ -115,14 +115,14 @@ namespace NHSE.Core
 
         public void SetDesigns(IReadOnlyList<DesignPattern> value)
         {
-            var count = Math.Min(MainSaveOffsets.PatternCount, value.Count);
+            var count = Math.Min(Offsets.PatternCount, value.Count);
             for (int i = 0; i < count; i++)
                 SetDesign(value[i], i);
         }
 
         public DesignPatternPRO[] GetDesignsPRO()
         {
-            var result = new DesignPatternPRO[MainSaveOffsets.PatternCount];
+            var result = new DesignPatternPRO[Offsets.PatternCount];
             for (int i = 0; i < result.Length; i++)
                 result[i] = GetDesignPRO(i);
             return result;
@@ -130,7 +130,7 @@ namespace NHSE.Core
 
         public void SetDesignsPRO(IReadOnlyList<DesignPatternPRO> value)
         {
-            var count = Math.Min(MainSaveOffsets.PatternCount, value.Count);
+            var count = Math.Min(Offsets.PatternCount, value.Count);
             for (int i = 0; i < count; i++)
                 SetDesignPRO(value[i], i);
         }
@@ -151,7 +151,7 @@ namespace NHSE.Core
 
         public void SetDesignsTailor(IReadOnlyList<DesignPatternPRO> value)
         {
-            var count = Math.Min(MainSaveOffsets.PatternCount, value.Count);
+            var count = Math.Min(Offsets.PatternCount, value.Count);
             for (int i = 0; i < count; i++)
                 value[i].Data.CopyTo(Data, Offsets.PatternTailor + (i * DesignPatternPRO.SIZE));
         }
@@ -178,7 +178,7 @@ namespace NHSE.Core
 
         public Museum Museum
         {
-            get => new Museum(Data.Slice(Offsets.Museum, Museum.SIZE));
+            get => new(Data.Slice(Offsets.Museum, Museum.SIZE));
             set => value.Data.CopyTo(Data, Offsets.Museum);
         }
 

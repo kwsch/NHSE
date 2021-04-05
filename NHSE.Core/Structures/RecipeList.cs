@@ -158,8 +158,16 @@ namespace NHSE.Core
             {0x0C7, 04104}, // frying pan
             {0x0C8, 05150}, // shell speaker
             {0x0C9, 03439}, // wooden table
+            {0x0CA, 04090}, // spooky table
             {0x0CB, 04066}, // illuminated tree
             {0x0CC, 03406}, // beekeeper's hive
+            {0x0CD, 04083}, // spooky arch
+            {0x0CE, 04084}, // spooky scarecrow
+            {0x0CF, 04086}, // spooky tower
+            {0x0D0, 04087}, // spooky carriage
+            {0x0D1, 04088}, // spooky lantern
+            {0x0D2, 04089}, // spooky chair
+            {0x0D4, 04092}, // spooky lantern set
             {0x0D5, 03588}, // signpost
             {0x0D6, 03785}, // potted ivy
             {0x0D7, 01058}, // music stand
@@ -601,6 +609,7 @@ namespace NHSE.Core
             {0x2C9, 12758}, // hedge
             {0x2CA, 12894}, // wedding fence
             {0x2CB, 12695}, // wedding wand
+            {0x2CC, 05607}, // King Tut mask (Gold)
             {0x2CD, 12552}, // mermaid table
             {0x2CE, 12553}, // mermaid shelf
             {0x2CF, 12554}, // mermaid vanity
@@ -615,6 +624,28 @@ namespace NHSE.Core
             {0x2D8, 12563}, // mermaid rug
             {0x2D9, 12566}, // mermaid wall
             {0x2DA, 12568}, // mermaid flooring
+            {0x2DC, 12951}, // spooky candy set
+            {0x2DD, 12949}, // spooky standing lamp
+            {0x2DE, 13222}, // spooky garland
+            {0x2DF, 13223}, // spooky table setting
+            {0x2E0, 13237}, // spooky wand
+            {0x2E1, 13275}, // spooky fence
+            {0x2E4, 13447}, // Turkey Day garden stand
+            {0x2E5, 13448}, // Turkey Day hearth
+            {0x2E6, 13449}, // Turkey Day decorations
+            {0x2E7, 13450}, // Turkey Day chair
+            {0x2E9, 13453}, // Turkey Day table
+            {0x2EA, 07544}, // festive rug
+            {0x2EB, 13818}, // Turkey Day casserole
+            {0x2EC, 13819}, // Turkey Day wheat decor
+            {0x2ED, 13820}, // Turkey Day table setting
+            {0x2EE, 13244}, // gift pile
+            {0x2EF, 13792}, // festive wrapping paper
+            {0x2F0, 13603}, // falling-snow wall
+            {0x2F3, 03548}, // rainbow feather
+            {0x2F5, 12217}, // summer-shell rug
+            {0x306, 14239}, // shamrock wand
+            {0x308, 14278}, // mermaid fence
         };
     }
 }

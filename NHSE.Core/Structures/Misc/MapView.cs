@@ -84,6 +84,14 @@ namespace NHSE.Core
                 : action(X, Y, layer.GridWidth, layer.GridHeight);
         }
 
+        public int ReplaceFieldItems(Item oldItem, Item newItem, in bool wholeMap)
+        {
+            var layer = Map.CurrentLayer;
+            return wholeMap
+                ? layer.ReplaceAll(oldItem, newItem, 0, 0, layer.MaxWidth, layer.MaxHeight)
+                : layer.ReplaceAll(oldItem, newItem, X, Y, layer.GridWidth, layer.GridHeight);
+        }
+
         public void GetCursorCoordinates(in int mX, in int mY, out int x, out int y)
         {
             x = mX / MapScale;

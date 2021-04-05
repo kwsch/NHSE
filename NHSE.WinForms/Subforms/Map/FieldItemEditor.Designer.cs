@@ -59,6 +59,7 @@
             this.B_RemoveItemDropDown = new System.Windows.Forms.Button();
             this.CM_Remove = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.B_RemoveAllWeeds = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_RemoveAllTrees = new System.Windows.Forms.ToolStripMenuItem();
             this.B_RemovePlants = new System.Windows.Forms.ToolStripMenuItem();
             this.B_RemoveObjects = new System.Windows.Forms.ToolStripMenuItem();
             this.B_RemovePlacedItems = new System.Windows.Forms.ToolStripMenuItem();
@@ -139,12 +140,15 @@
             this.B_SetAllTerrain = new System.Windows.Forms.ToolStripMenuItem();
             this.B_SetAllRoadTiles = new System.Windows.Forms.ToolStripMenuItem();
             this.B_ClearPlacedDesigns = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_ImportPlacedDesigns = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_ExportPlacedDesigns = new System.Windows.Forms.ToolStripMenuItem();
             this.RB_Item = new System.Windows.Forms.RadioButton();
             this.RB_Terrain = new System.Windows.Forms.RadioButton();
             this.L_TileMode = new System.Windows.Forms.Label();
             this.CHK_RedirectExtensionLoad = new System.Windows.Forms.CheckBox();
+            this.CHK_MoveOnDrag = new System.Windows.Forms.CheckBox();
             this.CHK_FieldItemSnap = new System.Windows.Forms.CheckBox();
-            this.B_RemoveAllTrees = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menu_Batch = new System.Windows.Forms.ToolStripMenuItem();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
@@ -470,10 +474,11 @@
             this.B_RemoveAll,
             this.toolStripSeparator1,
             this.B_WaterFlowers,
-            this.Menu_Spawn});
+            this.Menu_Spawn,
+            this.Menu_Batch});
             this.CM_Remove.Name = "CM_Picture";
             this.CM_Remove.ShowImageMargin = false;
-            this.CM_Remove.Size = new System.Drawing.Size(156, 318);
+            this.CM_Remove.Size = new System.Drawing.Size(156, 340);
             // 
             // B_RemoveAllWeeds
             // 
@@ -481,6 +486,13 @@
             this.B_RemoveAllWeeds.Size = new System.Drawing.Size(155, 22);
             this.B_RemoveAllWeeds.Text = "Weeds";
             this.B_RemoveAllWeeds.Click += new System.EventHandler(this.B_RemoveAllWeeds_Click);
+            // 
+            // B_RemoveAllTrees
+            // 
+            this.B_RemoveAllTrees.Name = "B_RemoveAllTrees";
+            this.B_RemoveAllTrees.Size = new System.Drawing.Size(155, 22);
+            this.B_RemoveAllTrees.Text = "Trees";
+            this.B_RemoveAllTrees.Click += new System.EventHandler(this.B_RemoveAllTrees_Click);
             // 
             // B_RemovePlants
             // 
@@ -1248,10 +1260,12 @@
             this.B_ZeroElevation,
             this.B_SetAllTerrain,
             this.B_SetAllRoadTiles,
-            this.B_ClearPlacedDesigns});
+            this.B_ClearPlacedDesigns,
+            this.B_ImportPlacedDesigns,
+            this.B_ExportPlacedDesigns});
             this.CM_Terrain.Name = "CM_Picture";
             this.CM_Terrain.ShowImageMargin = false;
-            this.CM_Terrain.Size = new System.Drawing.Size(225, 92);
+            this.CM_Terrain.Size = new System.Drawing.Size(225, 136);
             // 
             // B_ZeroElevation
             // 
@@ -1280,6 +1294,20 @@
             this.B_ClearPlacedDesigns.Size = new System.Drawing.Size(224, 22);
             this.B_ClearPlacedDesigns.Text = "Clear all Placed Designs";
             this.B_ClearPlacedDesigns.Click += new System.EventHandler(this.B_ClearPlacedDesigns_Click);
+            // 
+            // B_ImportPlacedDesigns
+            // 
+            this.B_ImportPlacedDesigns.Name = "B_ImportPlacedDesigns";
+            this.B_ImportPlacedDesigns.Size = new System.Drawing.Size(224, 22);
+            this.B_ImportPlacedDesigns.Text = "Import all Placed Design Choices";
+            this.B_ImportPlacedDesigns.Click += new System.EventHandler(this.B_ImportPlacedDesigns_Click);
+            // 
+            // B_ExportPlacedDesigns
+            // 
+            this.B_ExportPlacedDesigns.Name = "B_ExportPlacedDesigns";
+            this.B_ExportPlacedDesigns.Size = new System.Drawing.Size(224, 22);
+            this.B_ExportPlacedDesigns.Text = "Export all Placed Design Choices";
+            this.B_ExportPlacedDesigns.Click += new System.EventHandler(this.B_ExportPlacedDesigns_Click);
             // 
             // RB_Item
             // 
@@ -1326,6 +1354,18 @@
             this.CHK_RedirectExtensionLoad.Text = "View Root instead of Extension";
             this.CHK_RedirectExtensionLoad.UseVisualStyleBackColor = true;
             // 
+            // CKH_MoveOnDrag
+            // 
+            this.CHK_MoveOnDrag.AutoSize = true;
+            this.CHK_MoveOnDrag.Checked = true;
+            this.CHK_MoveOnDrag.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CHK_MoveOnDrag.Location = new System.Drawing.Point(535, 423);
+            this.CHK_MoveOnDrag.Name = "CHK_MoveOnDrag";
+            this.CHK_MoveOnDrag.Size = new System.Drawing.Size(173, 17);
+            this.CHK_MoveOnDrag.TabIndex = 46;
+            this.CHK_MoveOnDrag.Text = "Move Field Item Editor on mouse drag";
+            this.CHK_MoveOnDrag.UseVisualStyleBackColor = true;
+            // 
             // CHK_FieldItemSnap
             // 
             this.CHK_FieldItemSnap.AutoSize = true;
@@ -1338,12 +1378,12 @@
             this.CHK_FieldItemSnap.Text = "Snap Field Items to Grid on Set";
             this.CHK_FieldItemSnap.UseVisualStyleBackColor = true;
             // 
-            // B_RemoveAllTrees
+            // Menu_Batch
             // 
-            this.B_RemoveAllTrees.Name = "B_RemoveAllTrees";
-            this.B_RemoveAllTrees.Size = new System.Drawing.Size(155, 22);
-            this.B_RemoveAllTrees.Text = "Trees";
-            this.B_RemoveAllTrees.Click += new System.EventHandler(this.B_RemoveAllTrees_Click);
+            this.Menu_Batch.Name = "Menu_Batch";
+            this.Menu_Batch.Size = new System.Drawing.Size(155, 22);
+            this.Menu_Batch.Text = "Batch Editor";
+            this.Menu_Batch.Click += new System.EventHandler(this.Menu_Bulk_Click);
             // 
             // FieldItemEditor
             // 
@@ -1352,6 +1392,7 @@
             this.ClientSize = new System.Drawing.Size(1027, 537);
             this.Controls.Add(this.CHK_FieldItemSnap);
             this.Controls.Add(this.CHK_RedirectExtensionLoad);
+            this.Controls.Add(this.CHK_MoveOnDrag);
             this.Controls.Add(this.L_TileMode);
             this.Controls.Add(this.RB_Terrain);
             this.Controls.Add(this.RB_Item);
@@ -1527,6 +1568,7 @@
         private System.Windows.Forms.ToolStripMenuItem Menu_SavePNGItems;
         private System.Windows.Forms.ToolStripMenuItem Menu_SavePNGTerrain;
         private System.Windows.Forms.CheckBox CHK_RedirectExtensionLoad;
+        private System.Windows.Forms.CheckBox CHK_MoveOnDrag;
         private System.Windows.Forms.ToolStripMenuItem B_SetAllRoadTiles;
         private System.Windows.Forms.ToolStripMenuItem B_ClearPlacedDesigns;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -1534,5 +1576,8 @@
         private System.Windows.Forms.CheckBox CHK_FieldItemSnap;
         private System.Windows.Forms.ToolStripMenuItem Menu_Spawn;
         private System.Windows.Forms.ToolStripMenuItem B_RemoveAllTrees;
+        private System.Windows.Forms.ToolStripMenuItem B_ImportPlacedDesigns;
+        private System.Windows.Forms.ToolStripMenuItem B_ExportPlacedDesigns;
+        private System.Windows.Forms.ToolStripMenuItem Menu_Batch;
     }
 }

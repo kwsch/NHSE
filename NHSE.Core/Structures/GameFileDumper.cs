@@ -108,7 +108,7 @@ namespace NHSE.Core
             }
         }
 
-        private static void Dump(this VillagerHouse h, string path, Villager v)
+        private static void Dump(this VillagerHouse h, string path, IVillager v)
         {
             var name = GameInfo.Strings.GetVillager(v.InternalName);
             var dest = Path.Combine(path, $"{name}.nhvh");
@@ -121,17 +121,17 @@ namespace NHSE.Core
         /// </summary>
         /// <param name="villagers">Data to dump from</param>
         /// <param name="path">Path to dump to</param>
-        public static void Dump(this IEnumerable<Villager> villagers, string path)
+        public static void Dump(this IEnumerable<IVillager> villagers, string path)
         {
             foreach (var v in villagers)
                 v.Dump(path);
         }
 
-        private static void Dump(this Villager v, string path)
+        private static void Dump(this IVillager v, string path)
         {
             var name = GameInfo.Strings.GetVillager(v.InternalName);
-            var dest = Path.Combine(path, $"{name}.nhv");
-            File.WriteAllBytes(dest, v.Data);
+            var dest = Path.Combine(path, $"{name}.{v.Extension}");
+            File.WriteAllBytes(dest, v.Write());
         }
 
         /// <summary>
@@ -141,8 +141,11 @@ namespace NHSE.Core
         /// <param name="path">Path to dump to</param>
         public static void DumpDesigns(this MainSave sav, string path)
         {
-            for (int i = 0; i < MainSaveOffsets.PatternCount; i++)
-                sav.GetDesign(i).Dump(path);
+            for (int i = 0; i < sav.Offsets.PatternCount; i++)
+            {
+                var dp = sav.GetDesign(i);
+                dp.Dump(path, i);
+            }
         }
 
         /// <summary>
@@ -150,18 +153,54 @@ namespace NHSE.Core
         /// </summary>
         /// <param name="patterns">Patterns to dump</param>
         /// <param name="path">Path to dump to</param>
-        public static void Dump(this IEnumerable<DesignPattern> patterns, string path)
+        public static void Dump(this IReadOnlyList<DesignPattern> patterns, string path)
         {
-            foreach (var dp in patterns)
-                dp.Dump(path);
+            for (var index = 0; index < patterns.Count; index++)
+            {
+                var dp = patterns[index];
+                dp.Dump(path, index);
+            }
         }
 
-        private static void Dump(this DesignPattern dp, string path)
+        private static void Dump(this DesignPattern dp, string path, int index)
         {
+            // Dump without index
             var name = dp.DesignName;
             var fn = StringUtil.CleanFileName($"{name}.nhd");
             var dest = Path.Combine(path, fn);
             File.WriteAllBytes(dest, dp.Data);
+
+            // Dump with index
+            fn = StringUtil.CleanFileName($"{index:00} - {name}.nhd");
+            dest = Path.Combine(path, fn);
+            File.WriteAllBytes(dest, dp.Data);
+        }
+
+        /// <summary>
+        /// Loads all designs from the requested <see cref="path"/>.
+        /// </summary>
+        /// <param name="patterns">Patterns to load</param>
+        /// <param name="path">Path to load from</param>
+        public static void Load(this DesignPattern[] patterns, string path)
+        {
+            if (patterns.Length == 0)
+                return;
+
+            var files = Directory.GetFiles(path, "*.nhd", SearchOption.TopDirectoryOnly);
+            int ctr = 0;
+            foreach (var f in files)
+            {
+                var fi = new FileInfo(f);
+                if (fi.Length != DesignPattern.SIZE)
+                    continue;
+
+                var data = File.ReadAllBytes(f);
+                var p = new DesignPattern(data);
+                p.ChangeOrigins(patterns[ctr], data);
+                patterns[ctr] = p;
+                if (++ctr >= patterns.Length)
+                    break;
+            }
         }
 
         /// <summary>
@@ -171,8 +210,11 @@ namespace NHSE.Core
         /// <param name="path">Path to dump to</param>
         public static void DumpDesignsPRO(this MainSave sav, string path)
         {
-            for (int i = 0; i < MainSaveOffsets.PatternCount; i++)
-                sav.GetDesignPRO(i).Dump(path);
+            for (int i = 0; i < sav.Offsets.PatternCount; i++)
+            {
+                var dp = sav.GetDesignPRO(i);
+                dp.Dump(path, i);
+            }
         }
 
         /// <summary>
@@ -180,17 +222,53 @@ namespace NHSE.Core
         /// </summary>
         /// <param name="patterns">Patterns to dump</param>
         /// <param name="path">Path to dump to</param>
-        public static void Dump(this IEnumerable<DesignPatternPRO> patterns, string path)
+        public static void Dump(this IReadOnlyList<DesignPatternPRO> patterns, string path)
         {
-            foreach (var dp in patterns)
-                dp.Dump(path);
+            for (var index = 0; index < patterns.Count; index++)
+            {
+                var dp = patterns[index];
+                dp.Dump(path, index);
+            }
         }
 
-        private static void Dump(this DesignPatternPRO dp, string path)
+        /// <summary>
+        /// Loads all designs from the requested <see cref="path"/>.
+        /// </summary>
+        /// <param name="patterns">Patterns to load</param>
+        /// <param name="path">Path to load from</param>
+        public static void Load(this DesignPatternPRO[] patterns, string path)
         {
+            if (patterns.Length == 0)
+                return;
+
+            var files = Directory.GetFiles(path, "*.nhpd", SearchOption.TopDirectoryOnly);
+            int ctr = 0;
+            foreach (var f in files)
+            {
+                var fi = new FileInfo(f);
+                if (fi.Length != DesignPatternPRO.SIZE)
+                    continue;
+
+                var data = File.ReadAllBytes(f);
+                var p = new DesignPatternPRO(data);
+                p.ChangeOrigins(patterns[ctr], data);
+                patterns[ctr] = p;
+                if (++ctr >= patterns.Length)
+                    break;
+            }
+        }
+
+        private static void Dump(this DesignPatternPRO dp, string path, int index)
+        {
+            // Dump without index
             var name = dp.DesignName;
             var fn = StringUtil.CleanFileName($"{name}.nhpd");
             var dest = Path.Combine(path, fn);
+            File.WriteAllBytes(dest, dp.Data);
+
+            // Dump with index
+            fn = StringUtil.CleanFileName($"{index:00} - {name}.nhpd");
+            dest = Path.Combine(path, fn);
             File.WriteAllBytes(dest, dp.Data);
         }
     }

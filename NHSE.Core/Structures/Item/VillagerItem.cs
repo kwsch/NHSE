@@ -7,7 +7,7 @@ namespace NHSE.Core
     public sealed class VillagerItem : Item, ICopyableItem<VillagerItem>
     {
         public new const int SIZE = 0x2C;
-        public new static readonly VillagerItem NO_ITEM = new VillagerItem { ItemId = NONE };
+        public new static readonly VillagerItem NO_ITEM = new() { ItemId = NONE };
 
         public uint U08;
         public uint U0C;

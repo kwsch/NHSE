@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net46;netcoreapp3.1</TargetFrameworks>
+    <TargetFrameworks>net46;net5.0-windows</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
     <AssemblyName>NHSE</AssemblyName>
     <PackageId>NHSE</PackageId>
@@ -10,14 +10,16 @@
     <Description>Animal Crossing - New Horizons Save Editor</Description>
     <StartupObject>NHSE.WinForms.Program</StartupObject>
     <ApplicationIcon>icon.ico</ApplicationIcon>
-    <LangVersion>8</LangVersion>
+    <LangVersion>9</LangVersion>
     <Nullable>enable</Nullable>
+    <Platforms>AnyCPU;x86</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\NHSE.Core\NHSE.Core.csproj" />
     <ProjectReference Include="..\NHSE.Injection\NHSE.Injection.csproj" />
     <ProjectReference Include="..\NHSE.Sprites\NHSE.Sprites.csproj" />
+    <ProjectReference Include="..\NHSE.Villagers\NHSE.Villagers.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -95,6 +97,9 @@
     <Compile Update="Subforms\Player\AchievementEditor.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Subforms\SysBot\BatchEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Subforms\SysBot\SysBotRAMEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +130,10 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\network\" />
   </ItemGroup>
 
 </Project>

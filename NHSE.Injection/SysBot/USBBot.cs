@@ -13,7 +13,7 @@ namespace NHSE.Injection
 
         public bool Connected { get; private set; }
 
-        private readonly object _sync = new object();
+        private readonly object _sync = new();
 
         public bool Connect()
         {
@@ -77,9 +77,8 @@ namespace NHSE.Injection
                 {
                     if (SwDevice.IsOpen)
                     {
-                        IUsbDevice? wholeUsbDevice = SwDevice as IUsbDevice;
-                        if (wholeUsbDevice != null)
-                            wholeUsbDevice?.ReleaseInterface(0);
+                        if (SwDevice is IUsbDevice wholeUsbDevice)
+                            wholeUsbDevice.ReleaseInterface(0);
                         SwDevice.Close();
                     }
                 }

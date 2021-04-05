@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
@@ -67,7 +68,7 @@ namespace NHSE.WinForms
             CB_ItemID.SelectedValue = (int)id;
             var kind = ItemInfo.GetItemKind(id);
 
-            if (kind.IsFlower())
+            if (kind.IsFlowerGene(id))
             {
                 LoadGenes(item.Genes);
                 CHK_Gold.Checked = item.IsWateredGold;
@@ -81,21 +82,20 @@ namespace NHSE.WinForms
                 NUD_Count.Value = item.Count;
                 NUD_Uses.Value = item.UseCount;
                 NUD_Flag0.Value = item.SystemParam;
+            }
 
-                if (kind == ItemKind.Kind_MessageBottle || id >= 60_000)
-                {
-                    NUD_Flag1.Value = item.AdditionalParam;
-                }
-                else
-                {
-                    CHK_Wrapped.Checked = item.WrappingType != 0;
-                    CB_WrapType.SelectedIndex = (int)item.WrappingType;
-                    CB_WrapColor.SelectedIndex = (int)item.WrappingPaper;
-                    CHK_WrapShowName.Checked = item.WrappingShowItem;
-                    CHK_Wrap80.Checked = item.Wrapping80;
-                }
-
-                LoadItemTypeValues(kind, id);
+            LoadItemTypeValues(kind, id);
+            if (kind == ItemKind.Kind_MessageBottle || id >= 60_000)
+            {
+                NUD_Flag1.Value = item.AdditionalParam;
+            }
+            else
+            {
+                CHK_Wrapped.Checked = item.WrappingType != 0;
+                CB_WrapType.SelectedIndex = (int)item.WrappingType;
+                CB_WrapColor.SelectedIndex = (int)item.WrappingPaper;
+                CHK_WrapShowName.Checked = item.WrappingShowItem;
+                CHK_Wrap80.Checked = item.Wrapping80;
             }
 
             Loading = false;
@@ -120,7 +120,7 @@ namespace NHSE.WinForms
             var kind = ItemInfo.GetItemKind(id);
 
             item.ItemId = id;
-            if (kind.IsFlower())
+            if (kind.IsFlowerGene(id))
             {
                 item.Genes = SaveGenes();
                 item.DaysWatered = (int) NUD_WaterDays.Value;
@@ -137,25 +137,25 @@ namespace NHSE.WinForms
                 item.Count = (ushort)NUD_Count.Value;
                 item.UseCount = (ushort)NUD_Uses.Value;
                 item.SystemParam = (byte)NUD_Flag0.Value;
+            }
 
-                if (kind == ItemKind.Kind_MessageBottle)
+            if (kind == ItemKind.Kind_MessageBottle || id >= 60_000)
+            {
+                item.AdditionalParam = (byte)NUD_Flag1.Value;
+            }
+            else
+            {
+                if (!CHK_Wrapped.Checked)
                 {
-                    item.AdditionalParam = (byte)NUD_Flag1.Value;
+                    item.SetWrapping(0, 0);
                 }
                 else
                 {
-                    if (!CHK_Wrapped.Checked)
-                    {
-                        item.SetWrapping(0, 0);
-                    }
-                    else
-                    {
-                        var type = (ItemWrapping) CB_WrapType.SelectedIndex;
-                        var color = (ItemWrappingPaper) CB_WrapColor.SelectedIndex;
-                        var show = CHK_WrapShowName.Checked;
-                        var flag = CHK_Wrap80.Checked;
-                        item.SetWrapping(type, color, show, flag);
-                    }
+                    var type = (ItemWrapping)CB_WrapType.SelectedIndex;
+                    var color = (ItemWrappingPaper)CB_WrapColor.SelectedIndex;
+                    var show = CHK_WrapShowName.Checked;
+                    var flag = CHK_Wrap80.Checked;
+                    item.SetWrapping(type, color, show, flag);
                 }
             }
             return item;
@@ -174,18 +174,28 @@ namespace NHSE.WinForms
         private void CB_ItemID_SelectedValueChanged(object sender, EventArgs e)
         {
             var itemID = (ushort)WinFormsUtil.GetIndex(CB_ItemID);
-            ChangeItem(itemID);
+            var itemCount = (ushort)NUD_Count.Value;
+            ChangeItem(itemID, itemCount);
             var kind = ItemInfo.GetItemKind(itemID);
 
-            ToggleEditorVisibility(kind);
+            ToggleEditorVisibility(kind, itemID);
             if (!Loading)
                 LoadItemTypeValues(kind, itemID);
 
             var remake = ItemRemakeUtil.GetRemakeIndex(itemID);
             if (remake < 0)
             {
-                L_RemakeBody.Visible = false;
-                L_RemakeFabric.Visible = false;
+                var closeItems = GameInfo.Strings.GetAssociatedItems(itemID, out var bse);
+                if (closeItems.Count > 1) // ignore if we are the only parenthesised item
+                {
+                    L_RemakeBody.Text = $"{bse.Trim()}:\n" + closeItems.ToStringList(false);
+                    L_RemakeBody.Visible = true;
+                }
+                else
+                {
+                    L_RemakeBody.Visible = false;
+                    L_RemakeFabric.Visible = false;
+                }
             }
             else
             {
@@ -202,7 +212,7 @@ namespace NHSE.WinForms
 
         private void LoadItemTypeValues(ItemKind k, ushort index)
         {
-            if (index >= 60_000)
+            if (k == ItemKind.Kind_MessageBottle || index >= 60_000)
             {
                 CHK_Wrapped.Checked = false;
                 CHK_Wrapped.Visible = CHK_Wrapped.Checked = false;
@@ -222,7 +232,6 @@ namespace NHSE.WinForms
 
                 case ItemKind.Kind_MessageBottle:
                     CB_Recipe.SelectedValue = (int) NUD_Count.Value;
-                    CHK_Wrapped.Checked = false;
                     CHK_Wrapped.Visible = CHK_Wrapped.Checked = false;
                     FLP_Flag1.Visible = true;
                     return;
@@ -232,9 +241,9 @@ namespace NHSE.WinForms
             FLP_Flag1.Visible = false;
         }
 
-        private void ToggleEditorVisibility(ItemKind k)
+        private void ToggleEditorVisibility(ItemKind k, ushort id)
         {
-            if (k.IsFlower())
+            if (k.IsFlowerGene(id))
             {
                 CB_Recipe.Visible = false;
                 FLP_Uses.Visible = FLP_Count.Visible = false;
@@ -276,6 +285,16 @@ namespace NHSE.WinForms
                     FLP_Flower.Visible = false;
                     break;
             }
+        }
+
+        private void L_Count_DoubleClick(object sender, EventArgs e)
+        {
+            Item currentItem = SetItem(new Item());
+            var result = ItemInfo.TryGetMaxStackCount(currentItem, out var max);
+            if (!result)
+                return;
+            currentItem.Count = (ushort)(max - 1);
+            LoadItem(currentItem);
         }
 
         private void CB_CountAlias_SelectedValueChanged(object sender,EventArgs e)
@@ -336,11 +355,11 @@ namespace NHSE.WinForms
             }
         }
 
-        private void ChangeItem(ushort item)
+        private void ChangeItem(ushort item, ushort count)
         {
             var pb = PB_Item;
             pb.BackColor = ItemColor.GetItemColor(item);
-            pb.BackgroundImage = ItemSprite.GetItemSprite(item);
+            pb.BackgroundImage = ItemSprite.GetItemSprite(item, count);
         }
 
         private void CHK_Wrapped_CheckedChanged(object sender, EventArgs e)
@@ -358,6 +377,35 @@ namespace NHSE.WinForms
             var itemNames = AllItems.Where(z => z.Text.Contains(entered)).Take(10).Select(z => z.Text);
             var caption = string.Join(Environment.NewLine, itemNames);
             TT_Search.SetToolTip(CB_ItemID, caption);
+        }
+
+        private void NUD_Count_ValueChanged(object sender, EventArgs e)
+        {
+            var itemID = (ushort)WinFormsUtil.GetIndex(CB_ItemID);
+            var itemCount = (ushort)NUD_Count.Value;
+            ChangeItem(itemID, itemCount);
+        }
+
+        private void PB_Item_Click(object sender, EventArgs e)
+        {
+            // Import if requested
+            if (ModifierKeys == Keys.Shift && Clipboard.ContainsText())
+            {
+                var text = Clipboard.GetText();
+                if (!ulong.TryParse(text, NumberStyles.AllowHexSpecifier, CultureInfo.CurrentCulture, out var val))
+                    return;
+                var import = BitConverter.GetBytes(val).ToClass<Item>();
+                LoadItem(import);
+                System.Media.SystemSounds.Asterisk.Play();
+                return;
+            }
+
+            // Otherwise, export
+            var item = SetItem(new Item());
+            var data = item.ToBytesClass();
+            var u64 = BitConverter.ToUInt64(data, 0);
+            Clipboard.SetText($"{u64:X16}");
+            System.Media.SystemSounds.Asterisk.Play();
         }
     }
 }

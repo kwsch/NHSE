@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using NHSE.Core;
 using NHSE.Sprites.Properties;
 
@@ -9,36 +9,19 @@ namespace NHSE.Sprites
 {
     public static class ItemSprite
     {
-        private static readonly Dictionary<string, string> FileLookup = new Dictionary<string, string>();
-        private static string[] ItemNames = Array.Empty<string>();
+        private static string[] ItemNames = Array.Empty<string>(); // currently only used as length check for FieldItem
 
-        public static void Initialize(string path, string[] itemNames)
+        // %appdata%/NHSE
+        public static string PlatformAppDataPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), nameof(NHSE));
+        public static string PlatformAppDataImagePath { get; } = Path.Combine(PlatformAppDataPath, "img");
+        public static bool SingleSpriteExists => Directory.EnumerateFileSystemEntries(PlatformAppDataImagePath).Any();
+
+        public static void Initialize(string[] itemNames)
         {
-            var lookup = FileLookup;
-            if (lookup.Count > 0)
-                return;
-
             ItemNames = itemNames;
 
-            //create items folder if not exist
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-
-            var files = Directory.EnumerateFiles(path, "*.png", SearchOption.AllDirectories);
-            foreach (var f in files)
-            {
-                var fn = Path.GetFileNameWithoutExtension(f);
-                if (fn == null)
-                    continue;
-                lookup[fn.ToLower()] = f;
-                var index = fn.IndexOf('(');
-                if (index < 0)
-                    continue;
-
-                var simplerName = fn.Substring(0, index - 1);
-                if (!lookup.ContainsKey(simplerName))
-                    lookup.Add(simplerName, f);
-            }
+            if (!Directory.Exists(PlatformAppDataImagePath))
+                Directory.CreateDirectory(PlatformAppDataImagePath);
         }
 
         public static Bitmap GetItemMarkup(Item item, Font font, int width, int height, Bitmap backing)
@@ -49,16 +32,22 @@ namespace NHSE.Sprites
         public static Image? GetItemSprite(Item item)
         {
             var id = item.ItemId;
-            return GetItemSprite(id);
+            var count = item.Count;
+            return GetItemSprite(id, count);
         }
 
-        public static Image? GetItemSprite(ushort id)
+        public static Image? GetItemSprite(ushort id, ushort count = 0)
         {
             if (id == Item.NONE)
                 return null;
 
-            if (!GetItemImageSprite(id, out var path))
-                return Resources.leaf;
+            if (!TryGetItemImageSprite(id, out var path, count))
+            {
+                if (!TryGetMenuIconSprite(id, out var img))
+                    return Resources.leaf;
+                else
+                    return img;
+            }
 
             try
             {
@@ -73,50 +62,48 @@ namespace NHSE.Sprites
             }
         }
 
-        private static bool GetItemImageSprite(ushort id, out string? path)
+        private static bool TryGetMenuIconSprite(ushort id, out Image? img)
         {
-            path = string.Empty;
-            var str = ItemNames;
-            if (id >= str.Length)
-            {
-                if (!FieldItemList.Items.TryGetValue(id, out var definition))
-                    return false;
+            id = TryGetFieldItemId(id, ItemNames.Length);
+            var iconType = ItemInfo.GetMenuIcon(id);
 
-                var remap = definition.HeldItemId;
-                if (remap >= str.Length)
-                    return false;
+            // the 1 stops the original "leaf" being overwritten
+            var name = iconType == ItemMenuIconType.Leaf ? $"{iconType}1" : iconType.ToString();
 
-                id = remap;
-            }
+            img = (Image?)Resources.ResourceManager.GetObject(name);
+            return img != null;
+        }
 
-            var name = str[id].ToLower();
-            if (FileLookup.TryGetValue(name, out path))
+        private static bool TryGetItemImageSprite(ushort id, out string path, ushort count = 0)
+        {
+            id = TryGetFieldItemId(id, ItemNames.Length);
+
+            var name = $"{id:00000}_{count}";
+            if (SpriteFileExists(name, out path))
                 return true;
 
-            var index = name.IndexOf('(');
-            if (index <= 0)
-                return false;
-
-            var simple = name.Substring(0, index - 1);
-            return FileLookup.TryGetValue(simple, out path);
+            name = $"{id:00000}_0"; // fallback to no variation
+            return SpriteFileExists(name, out path);
         }
 
-        public static Bitmap? GetImage(Item item, Font font, int width, int height)
+        private static bool SpriteFileExists(string filename, out string path)
         {
-            if (item.ItemId == Item.NONE)
-                return null;
-
-            return CreateFake(item, font, width, height);
+            path = Path.Combine(PlatformAppDataImagePath, filename + ".png");
+            return File.Exists(path);
         }
 
-        private static readonly StringFormat Center = new StringFormat
-        { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
-
-        public static Bitmap CreateFake(Item item, Font font, int width, int height)
+        private static ushort TryGetFieldItemId(ushort id, int length)
         {
-            var bmp = new Bitmap(width, height);
-            return CreateFake(item, font, width, height, bmp);
+            if (id < length)
+                return id;
+            if (!FieldItemList.Items.TryGetValue(id, out var definition))
+                return id;
+
+            var remap = definition.HeldItemId;
+            return remap >= length ? id : remap;
         }
+
+        private static readonly StringFormat Center = new() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
 
         private static Bitmap CreateFake(Item item, Font font, int width, int height, Bitmap bmp)
         {

@@ -76,6 +76,20 @@ namespace NHSE.WinForms
 
         private void B_LoadDesign_Click(object sender, EventArgs e)
         {
+            if (ModifierKeys == Keys.Shift)
+            {
+                using var fbd = new FolderBrowserDialog();
+                if (fbd.ShowDialog() != DialogResult.OK)
+                    return;
+
+                var dir = Path.GetDirectoryName(fbd.SelectedPath);
+                if (dir == null || !Directory.Exists(dir))
+                    return;
+                Patterns.Load(fbd.SelectedPath);
+                LoadPattern(Patterns[0]);
+                return;
+            }
+
             var original = Patterns[Index];
             var name = original.DesignName;
             using var ofd = new OpenFileDialog

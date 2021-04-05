@@ -7,7 +7,9 @@ namespace NHSE.Core
     {
         public readonly Item[] Tiles;
 
-        protected ItemLayer(Item[] tiles, int w, int h) : this(tiles, w, h, w, h) { }
+        protected ItemLayer(Item[] tiles, int w, int h) : this(tiles, w, h, w, h)
+        {
+        }
 
         protected ItemLayer(Item[] tiles, int w, int h, int gw, int gh) : base(gw, gh, w, h)
         {
@@ -52,6 +54,7 @@ namespace NHSE.Core
                     count++;
                 }
             }
+
             return count;
         }
 
@@ -141,6 +144,75 @@ namespace NHSE.Core
             }
 
             return PlacedItemPermission.NoCollision;
+        }
+
+        public int ReplaceAll(Item oldItem, Item newItem, in int xmin, in int ymin, in int width, in int height)
+        {
+            var sizeOld = ItemInfo.GetItemSize(oldItem);
+            var sizeNew = ItemInfo.GetItemSize(newItem);
+
+            if (sizeOld != sizeNew)
+                return -1;
+
+            int count = 0;
+            for (int x = xmin; x < xmin + width; x++)
+            {
+                for (int y = ymin; y < ymin + height; y++)
+                {
+                    var t = GetTile(x, y);
+                    if (!t.IsRoot)
+                        continue;
+
+                    if (!t.Equals(oldItem))
+                        continue;
+
+                    DeleteExtensionTiles(t, x, y);
+                    t.CopyFrom(newItem);
+                    SetExtensionTiles(t, x, y);
+                    count++;
+                }
+            }
+
+            return count;
+        }
+
+        public int ClearDanglingExtensions(in int xmin, in int ymin, in int width, in int height)
+        {
+            int count = 0;
+            for (int x = xmin; x < xmin + width; x++)
+            {
+                for (int y = ymin; y < ymin + height; y++)
+                {
+                    var t = GetTile(x, y);
+                    if (IsValidExtension(t, x, y))
+                        continue;
+                    t.Delete();
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        private bool IsValidExtension(Item t, int x, int y)
+        {
+            if (!t.IsExtension)
+                return true;
+            var parentX = x - t.ExtensionX;
+            var parentY = y - t.ExtensionY;
+
+            try
+            {
+                var parent = GetTile(parentX, parentY);
+                if (parent.ItemId == t.ExtensionItemId)
+                    return true;
+            }
+#pragma warning disable CA1031 // Do not catch general exception types
+            catch
+            {
+                // corrupt?
+            }
+#pragma warning restore CA1031 // Do not catch general exception types
+            return false;
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using NHSE.Injection;
+using NHSE.Core;
 using Xunit;
 
 namespace NHSE.Tests
@@ -10,7 +10,7 @@ namespace NHSE.Tests
         public static void VerifyItemBinary()
         {
             var data = Properties.Resources.itempacket;
-            bool result = PocketInjector.ValidateItemBinary(data);
+            bool result = PlayerItemSet.ValidateItemBinary(data);
             result.Should().BeTrue();
         }
     }

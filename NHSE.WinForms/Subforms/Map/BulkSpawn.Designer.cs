@@ -40,6 +40,8 @@
             this.NUD_DIYStart = new System.Windows.Forms.NumericUpDown();
             this.L_DIYStop = new System.Windows.Forms.Label();
             this.NUD_DIYStop = new System.Windows.Forms.NumericUpDown();
+            this.L_NHI = new System.Windows.Forms.Label();
+            this.L_NHIFileName = new System.Windows.Forms.Label();
             this.CB_SpawnArrange = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_SpawnX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_SpawnY)).BeginInit();
@@ -189,6 +191,25 @@
             0,
             0,
             0});
+            //
+            // L_NHI
+            //
+            this.L_NHI.Location = new System.Drawing.Point(14, 141);
+            this.L_NHI.Name = "L_NHI";
+            this.L_NHI.Size = new System.Drawing.Size(108, 20);
+            this.L_NHI.TabIndex = 24;
+            this.L_NHI.Text = "NHI:";
+            this.L_NHI.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            //
+            // L_NHIFileName
+            //
+            this.L_NHIFileName.Location = new System.Drawing.Point(14, 161);
+            this.L_NHIFileName.Name = "L_NHIFileName";
+            this.L_NHIFileName.Size = new System.Drawing.Size(108, 20);
+            this.L_NHIFileName.TabIndex = 25;
+            this.L_NHIFileName.Text = "<none>";
+            this.L_NHIFileName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.L_NHIFileName.Click += new System.EventHandler(this.L_NHIFileName_Click);
             // 
             // CB_SpawnArrange
             // 
@@ -209,6 +230,8 @@
             this.Controls.Add(this.NUD_DIYStop);
             this.Controls.Add(this.L_DIYStart);
             this.Controls.Add(this.NUD_DIYStart);
+            this.Controls.Add(this.L_NHI);
+            this.Controls.Add(this.L_NHIFileName);
             this.Controls.Add(this.L_SpawnCount);
             this.Controls.Add(this.NUD_SpawnCount);
             this.Controls.Add(this.CB_SpawnType);
@@ -246,6 +269,8 @@
         private System.Windows.Forms.NumericUpDown NUD_DIYStart;
         private System.Windows.Forms.Label L_DIYStop;
         private System.Windows.Forms.NumericUpDown NUD_DIYStop;
+        private System.Windows.Forms.Label L_NHI;
+        private System.Windows.Forms.Label L_NHIFileName;
         private System.Windows.Forms.ComboBox CB_SpawnArrange;
     }
 }

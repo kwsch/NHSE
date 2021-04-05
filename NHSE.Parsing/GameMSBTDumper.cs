@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -8,19 +9,27 @@ namespace NHSE.Parsing
 {
     public static class GameMSBTDumper
     {
-        public static string[] GetItemListResource(string msgPath)
+        public static string[] GetItemListResource(string msgPath, string language)
         {
-            var list = GetItemList(msgPath);
+            var list = GetItemList(msgPath, language);
             var max = list.Max(z => z.Key);
-            var result = new string[max + 1];
+            var result = new string?[max + 1];
 
             foreach (var item in list)
                 result[item.Key] = item.Value;
             for (int i = 0; i < result.Length; i++)
                 result[i] ??= string.Empty;
-            result[0] = "(None)";
-            result[5794] = "DIY recipe";
-            return result;
+
+            FinalizeItemList(language, result!);
+            return result!;
+        }
+
+        private static void FinalizeItemList(string language, string[] result)
+        {
+            result[0] = $"({GetNoneName(language)})";
+            result[5794] = $"({GetDIYRecipeName(language)})";
+            foreach (var internalItem in InternalItemList)
+                result[internalItem.Key] = internalItem.Value;
         }
 
         public static string[] GetArtList(string msgPath)
@@ -56,19 +65,21 @@ namespace NHSE.Parsing
             return normal.Concat(special).ToArray();
         }
 
-        public static Dictionary<ushort, string> GetItemList(string msgPath)
+        public static Dictionary<ushort, string> GetItemList(string msgPath, string language)
         {
             var result = new Dictionary<ushort, string>();
-            AddRegularItems(result, msgPath);
+            AddRegularItems(result, msgPath, language);
             AddColoredItems(result, msgPath);
             return result;
         }
 
-        private static void AddRegularItems(IDictionary<ushort, string> result, string msgPath)
+        private static void AddRegularItems(IDictionary<ushort, string> result, string msgPath, string language)
         {
             var pitem = Path.Combine(msgPath, "Item");
             var fitem = Directory.EnumerateFiles(pitem);
             var regularItemList = GetLabelList(fitem); // (itemID, itemName)
+
+            var forgery = GetForgerySuffix(language);
             foreach (var (label, text) in regularItemList)
             {
                 if (label.EndsWith("_pl"))
@@ -80,11 +91,64 @@ namespace NHSE.Parsing
 
                 var itemText = text;
                 if (label.StartsWith("PictureFake") || label.StartsWith("SculptureFake"))
-                    itemText = $"{itemText} (forgery)";
+                    itemText = $"{itemText} ({forgery})";
 
                 result.Add(itemID, itemText);
             }
         }
+
+        private static string GetNoneName(string language)
+        {
+            return language switch
+            {
+                "de" => "Leer",
+                "es" => "Ningun",
+                "fr" => "Aucun",
+                "it" => "Nessuna",
+                "ko" => "없음",
+                "ja" => "無し",
+                "chs" => "没有",
+                "cht" => "沒有",
+                _ => "None",
+            };
+        }
+
+        private static string GetDIYRecipeName(string language)
+        {
+            return language switch
+            {
+                "de" => "DIY recipe",
+                "es" => "DIY recipe",
+                "fr" => "DIY recipe",
+                "it" => "DIY recipe",
+                "ko" => "DIY recipe",
+                "ja" => "DIY recipe",
+                "chs" => "DIY recipe",
+                "cht" => "DIY recipe",
+                _ => "DIY recipe",
+            };
+        }
+
+        private static string GetForgerySuffix(string language)
+        {
+            return language switch
+            {
+                "de" => "fälschung",
+                "es" => "falsificación",
+                "fr" => "falsification",
+                "it" => "falsificazione",
+                "ko" => "위조",
+                "ja" => "偽造",
+                "chs" => "伪造",
+                "cht" => "偽造",
+                _ => "forgery",
+            };
+        }
+
+        private static readonly Dictionary<int, string> InternalItemList = new()
+        {
+            {4200, "k.k. slider's guitar (internal)"},
+        };
 
         private static void AddColoredItems(IDictionary<ushort, string> result, string msgPath)
         {
@@ -128,19 +192,9 @@ namespace NHSE.Parsing
         private static (string Label, string Text) GetCleanLabelText(MSBTLabel lbl, IList<MSBTTextString> txt)
         {
             var label = lbl.Name;
-
             var index = (int)lbl.Index;
-            var text = txt[index].ToString(Encoding.Unicode);
-            if (text.StartsWith("\u000e")) // string formatting present; discard formatting!
-                text = text.Substring(6);
-
-            const char germanJunk = '\u000e';
-            int junk = text.IndexOf(germanJunk);
-            if (junk != -1) // string formatting present; discard formatting! (german)
-                text = text.Substring(0, junk);
-
-            text = StringUtil.TrimFromZero(text);
-
+            var strObj = txt[index];
+            var text = strObj.ToStringNoAtoms();
             return (label, text);
         }
 

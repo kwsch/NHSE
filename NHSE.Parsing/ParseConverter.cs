@@ -27,17 +27,15 @@ namespace NHSE.Parsing
             var max = items.Max(z => z.Index);
             var result = new string[max + 1];
             foreach (var item in items)
-            {
                 result[item.Index] = item.Name;
-            }
             return result;
         }
     }
 
     public class ParseItem
     {
-        public int Index;
-        public string Name;
+        public readonly int Index;
+        public readonly string Name;
         public ParseItem(string line)
         {
             var split = line.Split(new[] { ", " }, 0);

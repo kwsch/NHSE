@@ -111,7 +111,7 @@ namespace NHSE.WinForms
             var l = CurrentLayer;
             var oldTile = l.GetTile(HoverX, HoverY);
             var tile = GetTile(l, e, out var x, out var y);
-            if (tile == oldTile)
+            if (ReferenceEquals(tile, oldTile))
                 return;
             var str = GameInfo.Strings;
             var name = str.GetItemName(tile);

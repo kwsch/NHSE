@@ -10,7 +10,7 @@ namespace NHSE.WinForms
 {
     public partial class ItemGridEditor : UserControl
     {
-        private static readonly GridSize Sprites = new GridSize();
+        private static readonly GridSize Sprites = new();
         private readonly ItemEditor Editor;
         private readonly IReadOnlyList<Item> Items;
 
@@ -53,7 +53,7 @@ namespace NHSE.WinForms
             ChangePage();
         }
 
-        private void Slot_MouseWheel(object sender, MouseEventArgs e)
+        private void Slot_MouseWheel(object? sender, MouseEventArgs e)
         {
             var delta = e.Delta < 0 ? 1 : -1; // scrolling down increases page #
             var newpage = Math.Min(PageCount - 1, Math.Max(0, Page + delta));
@@ -65,7 +65,7 @@ namespace NHSE.WinForms
 
         public void Slot_MouseEnter(object? sender, EventArgs e)
         {
-            if (!(sender is PictureBox pb))
+            if (sender is not PictureBox pb)
                 return;
             var index = SlotPictureBoxes.IndexOf(pb);
             var item = GetItem(index);
@@ -77,7 +77,7 @@ namespace NHSE.WinForms
 
         public void Slot_MouseLeave(object? sender, EventArgs e)
         {
-            if (!(sender is PictureBox))
+            if (sender is not PictureBox)
                 return;
             L_ItemName.Text = string.Empty;
             HoverTip.RemoveAll();
@@ -85,8 +85,10 @@ namespace NHSE.WinForms
 
         public static string GetItemText(Item item) => GameInfo.Strings.GetItemName(item);
 
-        public void Slot_MouseClick(object sender, MouseEventArgs e)
+        public void Slot_MouseClick(object? sender, MouseEventArgs e)
         {
+            if (sender == null)
+                return;
             switch (ModifierKeys)
             {
                 case Keys.Control | Keys.Alt: ClickClone(sender, e); break;
@@ -171,7 +173,7 @@ namespace NHSE.WinForms
             pb.Image = ItemSprite.GetItemMarkup(item, font, dw, dh, backing);
         }
 
-        private int GetPageJump()
+        private static int GetPageJump()
         {
             return ModifierKeys switch
             {
@@ -224,7 +226,6 @@ namespace NHSE.WinForms
         private static void ShowContextMenuBelow(ToolStripDropDown c, Control n) => c.Show(n.PointToScreen(new Point(0, n.Height)));
         private void B_Clear_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_Remove, B_Clear);
 
-
         private void ClearItemIf(Func<Item, bool> criteria)
         {
             bool all = ModifierKeys == Keys.Shift;
@@ -241,6 +242,57 @@ namespace NHSE.WinForms
                     item.Delete();
             }
             LoadItems();
+            System.Media.SystemSounds.Asterisk.Play();
+        }
+
+        private void B_Sort_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_Sort, B_Sort);
+        private void B_SortAlpha_Click(object sender, EventArgs e)
+        {
+            var sortedItems = Items.Where(item => item.ItemId != Item.NONE)
+                .OrderBy(item => GetItemText(item).ToLower());
+            var sortedItemsCopy = new List<Item>(); // to prevent object reference issues
+
+            foreach(var item in sortedItems)
+            {
+                var itemCopy = new Item();
+                itemCopy.CopyFrom(item);
+                sortedItemsCopy.Add(itemCopy);
+            }
+
+            SetEditorItems(sortedItemsCopy);
+        }
+
+        private void B_SortType_Click(object sender, EventArgs e)
+        {
+            var sortedItems = Items.Where(item => item.ItemId != Item.NONE)
+                .OrderBy(ItemInfo.GetItemKind)
+                .ThenBy(item => GetItemText(item).ToLower());
+            var sortedItemsCopy = new List<Item>(); // to prevent object reference issues
+
+            foreach (var item in sortedItems)
+            {
+                var itemCopy = new Item();
+                itemCopy.CopyFrom(item);
+                sortedItemsCopy.Add(itemCopy);
+            }
+
+            SetEditorItems(sortedItemsCopy);
+        }
+
+        private void SetEditorItems(IReadOnlyList<Item> items)
+        {
+            if (items.Count > Items.Count)
+                return;
+
+            for (int i = 0; i < Items.Count; i++)
+            {
+                var src = i < items.Count ? items[i] : Item.NO_ITEM;
+                GetItem(i).CopyFrom(src);
+                ItemUpdated();
+            }
+
+            LoadItems();
+            Editor.LoadItem(Item.NO_ITEM);
             System.Media.SystemSounds.Asterisk.Play();
         }
 

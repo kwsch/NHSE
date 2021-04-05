@@ -42,6 +42,8 @@
             this.TB_NickName = new System.Windows.Forms.TextBox();
             this.L_NickName = new System.Windows.Forms.Label();
             this.Tab_Greet = new System.Windows.Forms.TabPage();
+            this.TB_Greeting10 = new System.Windows.Forms.TextBox();
+            this.L_Greeting10 = new System.Windows.Forms.Label();
             this.TB_Greeting9 = new System.Windows.Forms.TextBox();
             this.L_Greeting9 = new System.Windows.Forms.Label();
             this.TB_Greeting8 = new System.Windows.Forms.TextBox();
@@ -63,8 +65,10 @@
             this.CAL_GreetDate = new System.Windows.Forms.DateTimePicker();
             this.TB_Greeting = new System.Windows.Forms.TextBox();
             this.L_Greeting = new System.Windows.Forms.Label();
-            this.TB_Greeting10 = new System.Windows.Forms.TextBox();
-            this.L_Greeting10 = new System.Windows.Forms.Label();
+            this.LBL_Name = new System.Windows.Forms.Label();
+            this.TB_NamePlayer = new System.Windows.Forms.TextBox();
+            this.LBL_IslandName = new System.Windows.Forms.Label();
+            this.TB_Island = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Count)).BeginInit();
             this.TC_Memory.SuspendLayout();
             this.Tab_Flags.SuspendLayout();
@@ -245,6 +249,22 @@
             this.Tab_Greet.Text = "Greet";
             this.Tab_Greet.UseVisualStyleBackColor = true;
             // 
+            // TB_Greeting10
+            // 
+            this.TB_Greeting10.Location = new System.Drawing.Point(152, 253);
+            this.TB_Greeting10.Name = "TB_Greeting10";
+            this.TB_Greeting10.Size = new System.Drawing.Size(100, 20);
+            this.TB_Greeting10.TabIndex = 85;
+            // 
+            // L_Greeting10
+            // 
+            this.L_Greeting10.Location = new System.Drawing.Point(62, 253);
+            this.L_Greeting10.Name = "L_Greeting10";
+            this.L_Greeting10.Size = new System.Drawing.Size(84, 20);
+            this.L_Greeting10.TabIndex = 84;
+            this.L_Greeting10.Text = "Greeting 10:";
+            this.L_Greeting10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // TB_Greeting9
             // 
             this.TB_Greeting9.Location = new System.Drawing.Point(152, 233);
@@ -412,27 +432,49 @@
             this.L_Greeting.Text = "Greeting:";
             this.L_Greeting.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // TB_Greeting10
+            // LBL_Name
             // 
-            this.TB_Greeting10.Location = new System.Drawing.Point(152, 253);
-            this.TB_Greeting10.Name = "TB_Greeting10";
-            this.TB_Greeting10.Size = new System.Drawing.Size(100, 20);
-            this.TB_Greeting10.TabIndex = 85;
+            this.LBL_Name.AutoSize = true;
+            this.LBL_Name.Location = new System.Drawing.Point(12, 159);
+            this.LBL_Name.Name = "LBL_Name";
+            this.LBL_Name.Size = new System.Drawing.Size(38, 13);
+            this.LBL_Name.TabIndex = 16;
+            this.LBL_Name.Text = "Name:";
             // 
-            // L_Greeting10
+            // TB_NamePlayer
             // 
-            this.L_Greeting10.Location = new System.Drawing.Point(62, 253);
-            this.L_Greeting10.Name = "L_Greeting10";
-            this.L_Greeting10.Size = new System.Drawing.Size(84, 20);
-            this.L_Greeting10.TabIndex = 84;
-            this.L_Greeting10.Text = "Greeting 10:";
-            this.L_Greeting10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TB_NamePlayer.Location = new System.Drawing.Point(58, 156);
+            this.TB_NamePlayer.Name = "TB_NamePlayer";
+            this.TB_NamePlayer.Size = new System.Drawing.Size(100, 20);
+            this.TB_NamePlayer.TabIndex = 17;
+            this.TB_NamePlayer.TextChanged += new System.EventHandler(this.TB_NamePlayer_TextChanged);
+            // 
+            // LBL_IslandName
+            // 
+            this.LBL_IslandName.AutoSize = true;
+            this.LBL_IslandName.Location = new System.Drawing.Point(13, 186);
+            this.LBL_IslandName.Name = "LBL_IslandName";
+            this.LBL_IslandName.Size = new System.Drawing.Size(38, 13);
+            this.LBL_IslandName.TabIndex = 16;
+            this.LBL_IslandName.Text = "Island:";
+            // 
+            // TB_Island
+            // 
+            this.TB_Island.Location = new System.Drawing.Point(58, 182);
+            this.TB_Island.Name = "TB_Island";
+            this.TB_Island.Size = new System.Drawing.Size(100, 20);
+            this.TB_Island.TabIndex = 17;
+            this.TB_Island.TextChanged += new System.EventHandler(this.TB_Island_TextChanged);
             // 
             // VillagerMemoryEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(506, 359);
+            this.Controls.Add(this.TB_Island);
+            this.Controls.Add(this.LBL_IslandName);
+            this.Controls.Add(this.TB_NamePlayer);
+            this.Controls.Add(this.LBL_Name);
             this.Controls.Add(this.TC_Memory);
             this.Controls.Add(this.B_Dump);
             this.Controls.Add(this.B_Load);
@@ -453,6 +495,7 @@
             this.Tab_Greet.ResumeLayout(false);
             this.Tab_Greet.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -495,5 +538,9 @@
         private System.Windows.Forms.DateTimePicker CAL_GreetDate;
         private System.Windows.Forms.TextBox TB_Greeting;
         private System.Windows.Forms.Label L_Greeting;
+        private System.Windows.Forms.Label LBL_Name;
+        private System.Windows.Forms.TextBox TB_NamePlayer;
+        private System.Windows.Forms.Label LBL_IslandName;
+        private System.Windows.Forms.TextBox TB_Island;
     }
 }

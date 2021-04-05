@@ -7,10 +7,10 @@ namespace NHSE.Injection
     {
         public string IP = "192.168.1.65";
         public int Port = 6000;
-        public Socket Connection = new Socket(SocketType.Stream, ProtocolType.Tcp);
+        public Socket Connection = new(SocketType.Stream, ProtocolType.Tcp);
         public bool Connected { get; private set; }
 
-        private readonly object _sync = new object();
+        private readonly object _sync = new();
 
         public void Connect(string ip, int port)
         {
