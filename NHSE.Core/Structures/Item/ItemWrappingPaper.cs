@@ -21,5 +21,6 @@
         Brown = 13,
         Gray = 14,
         Black = 15,
+        Festive = 63,
     }
 }
