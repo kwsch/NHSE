@@ -8,6 +8,9 @@
         Nothing = 0,
         WrappingPaper = 1,
         Present = 2,
-        Delivery = 3
+        Delivery = 3,
+
+        // These values are handled with special logic. Only 2 bits are allocated to be stored.
+        Festive = 4,
     }
 }

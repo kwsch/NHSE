@@ -48,8 +48,22 @@ namespace NHSE.Core
 
         public ItemWrapping WrappingType
         {
-            get => (ItemWrapping) (AdditionalParam & 3);
-            set => AdditionalParam = (byte)((AdditionalParam & ~3) | ((byte)value & 3));
+            get
+            {
+                var value = (ItemWrapping) (AdditionalParam & 3);
+                if (value is ItemWrapping.Delivery && WrappingPaper is ItemWrappingPaper.Black)
+                    return ItemWrapping.Festive;
+                return value;
+            }
+            set
+            {
+                if (value is ItemWrapping.Festive)
+                {
+                    value = ItemWrapping.Delivery; // 3 (11)
+                    WrappingPaper = ItemWrappingPaper.Black; // 15 (1111)
+                }
+                AdditionalParam = (byte) ((AdditionalParam & ~3) | ((byte) value & 3));
+            }
         }
 
         public ItemWrappingPaper WrappingPaper
@@ -60,13 +74,13 @@ namespace NHSE.Core
 
         public void SetWrapping(ItemWrapping wrap, ItemWrappingPaper color, bool showItem = false, bool item80 = false)
         {
-            if (wrap == ItemWrapping.Nothing || wrap > ItemWrapping.Delivery)
+            if (wrap is ItemWrapping.Nothing or > ItemWrapping.Festive)
             {
                 AdditionalParam = 0;
                 return;
             }
-            WrappingType = wrap;
             WrappingPaper = wrap == ItemWrapping.WrappingPaper ? color : 0;
+            WrappingType = wrap;
             WrappingShowItem = showItem;
             Wrapping80 = item80;
         }
