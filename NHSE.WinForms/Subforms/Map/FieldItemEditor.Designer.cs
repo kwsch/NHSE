@@ -72,6 +72,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.B_WaterFlowers = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Spawn = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menu_Batch = new System.Windows.Forms.ToolStripMenuItem();
             this.GB_Remove = new System.Windows.Forms.Label();
             this.TC_Editor = new System.Windows.Forms.TabControl();
             this.Tab_Item = new System.Windows.Forms.TabPage();
@@ -148,7 +149,7 @@
             this.CHK_RedirectExtensionLoad = new System.Windows.Forms.CheckBox();
             this.CHK_MoveOnDrag = new System.Windows.Forms.CheckBox();
             this.CHK_FieldItemSnap = new System.Windows.Forms.CheckBox();
-            this.Menu_Batch = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_RemoveBushes = new System.Windows.Forms.ToolStripMenuItem();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
@@ -470,6 +471,7 @@
             this.B_RemoveBranches,
             this.B_RemoveShells,
             this.B_RemoveFlowers,
+            this.B_RemoveBushes,
             this.B_FillHoles,
             this.B_RemoveAll,
             this.toolStripSeparator1,
@@ -478,7 +480,7 @@
             this.Menu_Batch});
             this.CM_Remove.Name = "CM_Picture";
             this.CM_Remove.ShowImageMargin = false;
-            this.CM_Remove.Size = new System.Drawing.Size(156, 340);
+            this.CM_Remove.Size = new System.Drawing.Size(156, 362);
             // 
             // B_RemoveAllWeeds
             // 
@@ -575,6 +577,13 @@
             this.Menu_Spawn.Size = new System.Drawing.Size(155, 22);
             this.Menu_Spawn.Text = "Spawn...";
             this.Menu_Spawn.Click += new System.EventHandler(this.Menu_Spawn_Click);
+            // 
+            // Menu_Batch
+            // 
+            this.Menu_Batch.Name = "Menu_Batch";
+            this.Menu_Batch.Size = new System.Drawing.Size(155, 22);
+            this.Menu_Batch.Text = "Batch Editor";
+            this.Menu_Batch.Click += new System.EventHandler(this.Menu_Bulk_Click);
             // 
             // GB_Remove
             // 
@@ -1354,14 +1363,14 @@
             this.CHK_RedirectExtensionLoad.Text = "View Root instead of Extension";
             this.CHK_RedirectExtensionLoad.UseVisualStyleBackColor = true;
             // 
-            // CKH_MoveOnDrag
+            // CHK_MoveOnDrag
             // 
             this.CHK_MoveOnDrag.AutoSize = true;
             this.CHK_MoveOnDrag.Checked = true;
             this.CHK_MoveOnDrag.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CHK_MoveOnDrag.Location = new System.Drawing.Point(535, 423);
             this.CHK_MoveOnDrag.Name = "CHK_MoveOnDrag";
-            this.CHK_MoveOnDrag.Size = new System.Drawing.Size(173, 17);
+            this.CHK_MoveOnDrag.Size = new System.Drawing.Size(204, 17);
             this.CHK_MoveOnDrag.TabIndex = 46;
             this.CHK_MoveOnDrag.Text = "Move Field Item Editor on mouse drag";
             this.CHK_MoveOnDrag.UseVisualStyleBackColor = true;
@@ -1378,12 +1387,12 @@
             this.CHK_FieldItemSnap.Text = "Snap Field Items to Grid on Set";
             this.CHK_FieldItemSnap.UseVisualStyleBackColor = true;
             // 
-            // Menu_Batch
+            // B_RemoveBushes
             // 
-            this.Menu_Batch.Name = "Menu_Batch";
-            this.Menu_Batch.Size = new System.Drawing.Size(155, 22);
-            this.Menu_Batch.Text = "Batch Editor";
-            this.Menu_Batch.Click += new System.EventHandler(this.Menu_Bulk_Click);
+            this.B_RemoveBushes.Name = "B_RemoveBushes";
+            this.B_RemoveBushes.Size = new System.Drawing.Size(155, 22);
+            this.B_RemoveBushes.Text = "Bushes";
+            this.B_RemoveBushes.Click += new System.EventHandler(this.B_RemoveBushes_Click);
             // 
             // FieldItemEditor
             // 
@@ -1579,5 +1588,6 @@
         private System.Windows.Forms.ToolStripMenuItem B_ImportPlacedDesigns;
         private System.Windows.Forms.ToolStripMenuItem B_ExportPlacedDesigns;
         private System.Windows.Forms.ToolStripMenuItem Menu_Batch;
+        private System.Windows.Forms.ToolStripMenuItem B_RemoveBushes;
     }
 }
