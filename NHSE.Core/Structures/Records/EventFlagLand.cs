@@ -316,10 +316,10 @@ namespace NHSE.Core
             {0x159, new EventFlagLand(0 , 1    , 0345, "EarthdaySloFirstVisitToday"                 )}, // 今日がアースデーの初回レイジ来訪日
             {0x15A, new EventFlagLand(0 , 1    , 0346, "IsDreamingBed"                              )}, // ゆめみ用ベッドある？
             {0x15B, new EventFlagLand(0 , 1    , 0347, "UnlockJuneBrideSeq"                         )}, // ゲーム進行的にジューンブライド解禁
-            {0x15C, new EventFlagLand(0 , -1   , 0348, "RandomKey1"                                 )}, // ランダムキーa
-            {0x15D, new EventFlagLand(0 , -1   , 0349, "RandomKey2"                                 )}, // ランダムキーb
-            {0x15E, new EventFlagLand(0 , -1   , 0350, "RandomKey3"                                 )}, // ランダムキーc
-            {0x15F, new EventFlagLand(0 , -1   , 0351, "RandomKey4"                                 )}, // ランダムキーd
+            {0x15C, new EventFlagLand(0 , -1   , 0348, "RandomKey1"                                 )}, // ランダムキー1
+            {0x15D, new EventFlagLand(0 , -1   , 0349, "RandomKey2"                                 )}, // ランダムキー2
+            {0x15E, new EventFlagLand(0 , -1   , 0350, "RandomKey3"                                 )}, // ランダムキー3
+            {0x15F, new EventFlagLand(0 , -1   , 0351, "RandomKey4"                                 )}, // ランダムキー4
             {0x160, new EventFlagLand(0 , 1    , 0352, "FoxPreVisitAlreadyBuyToday"                 )}, // つねきち|今日誰かが事前来訪中に美術品を買った
             {0x161, new EventFlagLand(0 , 1    , 0353, "RcoHasResolvedMoveKitBug"                   )}, // いせつキットバグを解消したか
             {0x162, new EventFlagLand(0 , 1    , 0354, "TapDreamEnable"                             )}, // ゆめみ|ゆめみ機能解禁か？
@@ -363,27 +363,36 @@ namespace NHSE.Core
             {0x192, new EventFlagLand(0 , 1    , 0402, "GrowUpAfterPatch1_7"                        )}, // 1.7適用して成長処理をした
             {0x193, new EventFlagLand(0 , 9999 , 0403, "XmasEveAddBbsYear"                          )}, // クリスマス予告の掲示板書き込みをした年
             {0x194, new EventFlagLand(0 , 1    , 0404, "BCAT_EventFlag_005"                         )}, // クリスマス準備期間解禁
-            {0x195, new EventFlagLand(0 , -1   , 0405, "RandomKey5"                                 )}, // ランダムキーe
+            {0x195, new EventFlagLand(0 , -1   , 0405, "RandomKey5"                                 )}, // ランダムキー5
             {0x196, new EventFlagLand(0 , 1    , 0406, "ShopSocksFlag"                              )}, // かべかけソックス当選済み
             {0x197, new EventFlagLand(0 , -1   , 0407, "ShopHeartChocoSelect"                       )}, // ハートのチョコレート抽選済みカラバリ
             {0x198, new EventFlagLand(0 , -1   , 0408, "ShopHeartFlowerSelect"                      )}, // ハートのバラブーケ抽選済みカラバリ
-            {0x199, new EventFlagLand(0 , -1   , 0409, "RandomKey6"                                 )}, // ランダムキーf
-            {0x19A, new EventFlagLand(0 , -1   , 0410, "RandomKey7"                                 )}, // ランダムキーg
-            {0x19B, new EventFlagLand(0 , -1   , 0411, "RandomKey8"                                 )}, // ランダムキーh
+            {0x199, new EventFlagLand(0 , -1   , 0409, "RandomKey6"                                 )}, // ランダムキー6
+            {0x19A, new EventFlagLand(0 , -1   , 0410, "RandomKey7"                                 )}, // ランダムキー7
+            {0x19B, new EventFlagLand(0 , -1   , 0411, "RandomKey8"                                 )}, // ランダムキー8
             {0x19C, new EventFlagLand(0 , 1    , 0412, "BCAT_EventFlag_006"                         )}, // クリスマスイブ解禁
             {0x19D, new EventFlagLand(0 , 1    , 0413, "BCAT_EventFlag_007"                         )}, // カーニバル本番、バレンタイン本番解禁
             {0x19E, new EventFlagLand(0 , 1    , 0414, "BCAT_EventFlag_008"                         )}, // マリオコラボ解禁
             {0x19F, new EventFlagLand(0 , 1    , 0415, "GrowUpAfterPatch1_8"                        )}, // 1.8適用して成長処理をした
             {0x1A0, new EventFlagLand(0 , 1    , 0416, "GrowUpAfterPatch1_9"                        )}, // 1.9適用して成長処理をした
-            {0x1A1, new EventFlagLand(0 , -1   , 0417, "RandomKey9"                                 )}, // ランダムキーi
+            {0x1A1, new EventFlagLand(0 , -1   , 0417, "RandomKey9"                                 )}, // ランダムキー9
             {0x1A2, new EventFlagLand(0 , 1    , 0418, "BCAT_EventFlag_009"                         )}, // イースター2年目準備解禁
             {0x1A3, new EventFlagLand(0 , 9999 , 0419, "ValentineAddBbsYear"                        )}, // バレンタイン予告の掲示板書き込みをした年
             {0x1A4, new EventFlagLand(0 , 9999 , 0420, "CarnivalAddBbsYear"                         )}, // カーニバル予告の掲示板書き込みをした年
             {0x1A5, new EventFlagLand(0 , 1    , 0421, "CarnivalNpcFeatherColorDecided"             )}, // カーニバル｜NPCが欲しがる羽の色決定済み
             {0x1A6, new EventFlagLand(0 , 1    , 0422, "CarnivalEventPlazaNpcWander"                )}, // カーニバル｜広場行動NPCがぶらつくか
             {0x1AD, new EventFlagLand(0 , 1    , 0429, "BCAT_EventFlag_010"                         )}, // イースター2年目本番解禁
-            {0x1AE, new EventFlagLand(0 , -1   , 0430, "RandomKey10"                                )}, // ランダムキーj
+            {0x1AE, new EventFlagLand(0 , -1   , 0430, "RandomKey10"                                )}, // ランダムキー10
             {0x1B5, new EventFlagLand(0 , 1    , 0437, "AOC_EventFlag_002"                          )}, // AOC同期フラグ| 002 1.9.0NSO加入特典
+            {0x1B6, new EventFlagLand(0 , 1    , 0438, "BCAT_EventFlag_011"                         )}, // ジューンブライド2年目解禁
+            {0x1B7, new EventFlagLand(0 , -1   , 0439, "RandomKey11"                                )}, // ランダムキー11
+            {0x1B8, new EventFlagLand(0 , 50   , 0440, "MuseumArtStampRackLotID1"                   )}, // 国際ミュージアム|1つ目の美術品のスタンプ台ID
+            {0x1B9, new EventFlagLand(0 , 50   , 0441, "MuseumArtStampRackLotID2"                   )}, // 国際ミュージアム|2つ目の美術品のスタンプ台ID
+            {0x1BA, new EventFlagLand(0 , 50   , 0442, "MuseumArtStampRackLotID3"                   )}, // 国際ミュージアム|3つ目の美術品のスタンプ台ID
+            {0x1D2, new EventFlagLand(0 , 1    , 0466, "EventObjFlag1"                              )}, // イベントオブジェフラグ1
+            {0x1D3, new EventFlagLand(0 , 1    , 0467, "EventObjFlag2"                              )}, // イベントオブジェフラグ2
+            {0x1DD, new EventFlagLand(0 , 1    , 0477, "GrowUpAfterPatch1_10"                       )}, // 1.10適用して成長処理をした
+            {0x1E3, new EventFlagLand(0 , 9999 , 0483, "MayDayAddBbsYear"                           )}, // メーデー予告の掲示板書き込みをした年
         };
 
         private const string Unknown = "???";

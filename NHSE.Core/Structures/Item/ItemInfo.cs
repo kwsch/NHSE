@@ -98,6 +98,7 @@ namespace NHSE.Core
             {Kind_Megaphone, 00001},
             {Kind_SoySet, 00001},
             {Kind_MaracasCarnival, 00001},
+            {Kind_FlowerShower, 00001},
             {Kind_TreeSeedling, 00010},
             {Kind_Tree, 00001},
             {Kind_BushSeedling, 00010},

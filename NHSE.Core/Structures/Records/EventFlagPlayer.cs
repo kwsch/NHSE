@@ -795,7 +795,7 @@ namespace NHSE.Core
             {0x3B3, new EventFlagPlayer(0 , 1   , 0947, "JuneBridePlacementDataClearFlag"            )}, // ジューンブライド|配置データクリア
             {0x3B4, new EventFlagPlayer(0 , 1   , 0948, "SloGetHedge"                                )}, // レイジ|レイジから「いけがき」をもらった？
             {0x3B5, new EventFlagPlayer(0 , 1   , 0949, "XctGerReward"                               )}, // メーデー|みしらぬネコから報酬をもらった？
-            {0x3B6, new EventFlagPlayer(0 , 1   , 0950, "SpnJuneBrideClearTalkFrag"                  )}, // パニエル/ジューンブライド|今日クリア後の会話した？
+            {0x3B6, new EventFlagPlayer(0 , 1   , 0950, "SpnJuneBrideClearTalkFrag"                  )}, // パニエル/ジューンブライド|今年クリア後の会話した？
             {0x3B7, new EventFlagPlayer(0 , 1   , 0951, "AlwJuneBrideTalkBeforeFlag"                 )}, // リサ/ジューンブライド|面識ある？
             {0x3B8, new EventFlagPlayer(0 , 1   , 0952, "AlpJuneBrideTalkBeforeFlag"                 )}, // カイゾー/ジューンブライド|面識ある？
             {0x3B9, new EventFlagPlayer(0 , 1   , 0953, "SpnJuneBrideTalkEventFrag"                  )}, // パニエル/ジューンブライド|今年イベント期間中に会話した？
@@ -1056,7 +1056,7 @@ namespace NHSE.Core
             {0x500, new EventFlagPlayer(0 , 1   , 1280, "ChristmasWrappingPresentFlag"               )}, // クリスマス｜ラッピングを誰かくれようとしたか？
             {0x501, new EventFlagPlayer(0 , 1   , 1281, "PckRecipeFlag"                              )}, // カーニバル/べルリーナ|にじいろのはねのレシピもらった？
             {0x502, new EventFlagPlayer(0 , 1   , 1282, "RcoStorageExpansionReserved"                )}, // たぬきち|収納の拡張を予約している
-            {0x503, new EventFlagPlayer(0 , 1   , 1283, "RcoStorageExpansionLevel"                   )}, // たぬきち|収納の拡張段階
+            {0x503, new EventFlagPlayer(0 , 1   , 1283, "RcoStorageExpansionLevel"                   )}, // たぬきち|収納の拡張段階（'20冬パッチ 1段階のみ）
             {0x504, new EventFlagPlayer(0 , 1   , 1284, "PlayerMovingReservedStorageExpand"          )}, // たぬきち|収納の拡張申し込み当日にPだけ引越しした？
             {0x505, new EventFlagPlayer(0 , 1   , 1285, "MailSend_NoticeStorageExpansion"            )}, // たぬきち|収納の拡張のお知らせ手紙の判定処理したか？
             {0x506, new EventFlagPlayer(0 , 1   , 1286, "RcoStandbyNoticeStorageExpansion"           )}, // たぬきち|収納の拡張について強制会話するか？
@@ -1108,13 +1108,33 @@ namespace NHSE.Core
             {0x542, new EventFlagPlayer(0 , 1   , 1346, "UnlockSanrioCollaboPoster6"                 )}, // サンリオNPCポスター解禁_けろっぴ
             {0x543, new EventFlagPlayer(0 , 1   , 1347, "AnnounceEaster"                             )}, // イースター(2021年)｜当日に島内放送で告知した？(2回目放送用)
             {0x54B, new EventFlagPlayer(0 , 1   , 1355, "AnnounceEasterReady"                        )}, // イースター(2021年)｜準備期間に島内放送で告知した？(2回目放送用)
+            {0x54C, new EventFlagPlayer(0 , 1   , 1356, "AnnounceJuneBride"                          )}, // ジューンブライド(2021年)｜当日に島内放送で告知した？(2回目放送用)
             {0x54E, new EventFlagPlayer(0 , 1   , 1358, "PynEvent_SendMailThisYear"                  )}, // イースター|今年手紙を受け取った？
+            {0x555, new EventFlagPlayer(0 , 1   , 1365, "OwlArtStampRally1"                          )}, // フータ/国際ミュージアム|【美術品】スタンプ1つ目を押した？
+            {0x556, new EventFlagPlayer(0 , 1   , 1366, "OwlArtStampRally2"                          )}, // フータ/国際ミュージアム|【美術品】スタンプ2つ目を押した？
+            {0x557, new EventFlagPlayer(0 , 1   , 1367, "OwlArtStampRally3"                          )}, // フータ/国際ミュージアム|【美術品】スタンプ3つ目を押した？
+            {0x558, new EventFlagPlayer(0 , 1   , 1368, "OwlStampGotArtReward"                       )}, // フータ/国際ミュージアム|その日、美術品報酬を貰った
+            {0x559, new EventFlagPlayer(0 , 1   , 1369, "OwlStampGotArt"                             )}, // フータ/国際ミュージアム|その日、フータスタンプ(美術品)を押した
+            {0x55A, new EventFlagPlayer(0 , 1   , 1370, "OwlArtUnfinished"                           )}, // フータ/国際ミュージアム|初参加時、美術品部屋未完成
             {0x55D, new EventFlagPlayer(0 , 1   , 1373, "UnlockSanrioCollabo"                        )}, // サンリオコラボ解禁_キティ
             {0x55E, new EventFlagPlayer(0 , 1   , 1374, "UnlockSanrioCollabo2"                       )}, // サンリオコラボ解禁_プリン
             {0x55F, new EventFlagPlayer(0 , 1   , 1375, "UnlockSanrioCollabo3"                       )}, // サンリオコラボ解禁_キキララ
             {0x560, new EventFlagPlayer(0 , 1   , 1376, "UnlockSanrioCollabo4"                       )}, // サンリオコラボ解禁_シナモン
             {0x561, new EventFlagPlayer(0 , 1   , 1377, "UnlockSanrioCollabo5"                       )}, // サンリオコラボ解禁_マイメロ
             {0x562, new EventFlagPlayer(0 , 1   , 1378, "UnlockSanrioCollabo6"                       )}, // サンリオコラボ解禁_けろっぴ
+            {0x565, new EventFlagPlayer(0 , 4   , 1381, "OwlClearCount"                              )}, // フータ/国際ミュージアム|クリアした部屋の個数
+            {0x567, new EventFlagPlayer(0 , 1   , 1383, "XctGetRewardSec"                            )}, // メーデー|みしらぬネコから2回目の報酬をもらった？
+            {0x568, new EventFlagPlayer(0 , 1   , 1384, "OwlStampPlayedThisYear"                     )}, // フータ/国際ミュージアム|今年サカナのスタンプラリーをクリアした？
+            {0x569, new EventFlagPlayer(0 , 1   , 1385, "OwlStampPlayedThisYear2"                    )}, // フータ/国際ミュージアム|今年ムシのスタンプラリーをクリアした？
+            {0x56A, new EventFlagPlayer(0 , 1   , 1386, "OwlStampPlayedThisYear3"                    )}, // フータ/国際ミュージアム|今年かせきのスタンプラリーをクリアした？
+            {0x56B, new EventFlagPlayer(0 , 1   , 1387, "OwlStampPlayedThisYear4"                    )}, // フータ/国際ミュージアム|今年美術品のスタンプラリーをクリアした？
+            {0x57C, new EventFlagPlayer(0 , 1   , 1404, "AlpJuneBrideNotGetLoveCrystalFrag"          )}, // カイゾー/ジューンブライド|今日あいのけっしょうもらえなかった？
+            {0x57D, new EventFlagPlayer(0 , 1   , 1405, "AlwJuneBrideExchangeTalkFlag"               )}, // リサ/ジューンブライド|今年交換回数制限の説明聞いた？
+            {0x57E, new EventFlagPlayer(0 , 9999, 1406, "LastPlayMuseumYear"                         )}, // 国際ミュージアム|最後に遊んだ国際ミュージアムの年
+            {0x5B0, new EventFlagPlayer(0 , 1   , 1456, "GetMayDayTicketFirst"                       )}, // メーデー|1.10.0未満でメーデーりょこうけんを入手したことがあるか？
+            {0x5B8, new EventFlagPlayer(0 , 1   , 1464, "RcoHeardAboutMayDayTravelTicket"            )}, // メーデー|たぬきち|メーデー旅行券の説明聞いたか？
+            {0x5B9, new EventFlagPlayer(0 , 1   , 1465, "XctGetRewardPast"                           )}, // メーデー|1.10.0未満でみしらぬネコから報酬をもらった？
+            {0x5C6, new EventFlagPlayer(0 , 1   , 1478, "AlwJuneBrideNoRemake1stFlag"                )}, // リサ/ジューンブライド|今日1回目でリメイク解禁してなかった
         };
 
         private const string Unknown = "???";

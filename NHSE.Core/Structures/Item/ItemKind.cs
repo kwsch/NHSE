@@ -61,6 +61,7 @@ namespace NHSE.Core
         Kind_Flower,
         Kind_FlowerBud,
         Kind_FlowerSeed,
+        Kind_FlowerShower,
         Kind_Fossil,
         Kind_FossilUnknown,
         Kind_Fruit,

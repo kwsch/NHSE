@@ -312,7 +312,7 @@ namespace NHSE.Parsing
                     type = $"_{type}"; // enum name can't start with number
 
                 if (!Enum.TryParse<ItemMenuIconType>(type, out var k))
-                    throw new InvalidEnumArgumentException($"{type} is not a known enum value @ index {i}. Update the enum index first.");
+                    throw new InvalidEnumArgumentException($"{type} is not a known enum value @ index {i}. Update the {nameof(ItemMenuIconType)} enum index first.");
                 types.Add(ival, k);
 
                 if (ival > max)
