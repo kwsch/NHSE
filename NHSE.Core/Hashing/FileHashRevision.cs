@@ -499,5 +499,58 @@
         });
 
         #endregion
+
+        #region REVISION 1.10.0
+
+        internal const int REV_1100_MAIN = 0x86D570;
+        internal const int REV_1100_PERSONAL = REV_190_PERSONAL;
+        internal const int REV_1100_POSTBOX = REV_170_POSTBOX;
+        internal const int REV_1100_PHOTO = 0x2C9D0;
+        internal const int REV_1100_PROFILE = REV_110_PROFILE;
+
+        public static readonly FileHashInfo REV_1100 = new(new FileHashDetails[]
+        {
+            new(FN_MAIN, REV_1100_MAIN, new FileHashRegion[]
+            {
+                new(0x000110, 0x1e216c),
+                new(0x1e2280, 0x34582c),
+                new(0x527bc0, 0x03693c),
+                new(0x55e500, 0x02d70c),
+                new(0x58bd20, 0x03693c),
+                new(0x5c2660, 0x02d70c),
+                new(0x5efe80, 0x03693c),
+                new(0x6267c0, 0x02d70c),
+                new(0x653fe0, 0x03693c),
+                new(0x68a920, 0x02d70c),
+                new(0x6b8140, 0x03693c),
+                new(0x6eea80, 0x02d70c),
+                new(0x71c2a0, 0x03693c),
+                new(0x752be0, 0x02d70c),
+                new(0x780400, 0x03693c),
+                new(0x7b6d40, 0x02d70c),
+                new(0x7e4560, 0x03693c),
+                new(0x81aea0, 0x02d70c),
+                new(0x8485b0, 0x024fbc),
+            }),
+            new(FN_PERSONAL, REV_1100_PERSONAL, new FileHashRegion[]
+            {
+                new(0x00110, 0x3693c),
+                new(0x36a50, 0x2d70c),
+            }),
+            new(FN_POSTBOX, REV_1100_POSTBOX, new FileHashRegion[]
+            {
+                new(0x000100, 0x4732c)
+            }),
+            new(FN_PHOTO, REV_1100_PHOTO, new FileHashRegion[]
+            {
+                new(0x000100, 0x2c8cc)
+            }),
+            new(FN_PROFILE, REV_1100_PROFILE, new FileHashRegion[]
+            {
+                new(0x000100, 0x6945C)
+            }),
+        });
+
+        #endregion
     }
 }
