@@ -339,3 +339,6 @@
 13930	Diseño
 14029	Variación
 14340	Color
+14475	Corona
+14476	Variación
+14477	Variación

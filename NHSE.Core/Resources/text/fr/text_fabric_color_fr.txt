@@ -454,3 +454,6 @@
 08760_7	Beige
 12410_0	Message
 12410_1	Risette & Serge
+14475_0	Or
+14475_1	Bleu
+14475_2	Rose

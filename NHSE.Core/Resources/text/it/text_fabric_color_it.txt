@@ -454,3 +454,6 @@
 08760_7	Beige
 12410_0	Messaggio
 12410_1	Alpaca e Merino
+14475_0	Dorato
+14475_1	Blu
+14475_2	Rosa

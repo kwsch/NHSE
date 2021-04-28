@@ -88,3 +88,4 @@
 08298	Bettzeug
 08760	Farbe
 12410	Schild
+14475	Nachricht

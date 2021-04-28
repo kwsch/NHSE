@@ -454,3 +454,6 @@
 08760_7	Beis
 12410_0	Texto
 12410_1	Al y Paca
+14475_0	Dorado
+14475_1	Azul
+14475_2	Rosa

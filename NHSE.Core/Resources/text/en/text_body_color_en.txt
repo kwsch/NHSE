@@ -3429,3 +3429,12 @@
 14340_0	Red
 14340_1	Green
 14340_2	Yellow
+14475_0	White
+14475_1	Blue
+14475_2	Red & white
+14476_0	White
+14476_1	Blue
+14476_2	Brown
+14477_0	White
+14477_1	Blue
+14477_2	Red & white

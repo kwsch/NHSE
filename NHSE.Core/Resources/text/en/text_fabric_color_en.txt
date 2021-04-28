@@ -454,3 +454,6 @@
 08760_7	Beige
 12410_0	Message
 12410_1	Reese & Cyrus
+14475_0	Gold
+14475_1	Blue
+14475_2	Pink

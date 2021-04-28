@@ -339,3 +339,6 @@
 13930	Design
 14029	Variante
 14340	Farbe
+14475	Kranz
+14476	Variante
+14477	Variante

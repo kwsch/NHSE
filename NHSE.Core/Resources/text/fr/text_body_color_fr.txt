@@ -3429,3 +3429,12 @@
 14340_0	Rouge
 14340_1	Vert
 14340_2	Jaune
+14475_0	Blanc
+14475_1	Bleu
+14475_2	Rouge & blanc
+14476_0	Blanc
+14476_1	Bleu
+14476_2	Brun
+14477_0	Blanc
+14477_1	Bleu
+14477_2	Rouge & blanc

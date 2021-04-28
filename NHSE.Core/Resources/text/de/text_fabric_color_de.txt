@@ -454,3 +454,6 @@
 08760_7	Beige
 12410_0	Gruß
 12410_1	Rosina & Björn
+14475_0	Gold
+14475_1	Blau
+14475_2	Rosa

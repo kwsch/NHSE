@@ -1014,7 +1014,7 @@ kagamimochi
 
 
 
-
+koinobori
 
 
 
@@ -5306,7 +5306,7 @@ gorro de dormir (Celeste)
 gorra deportiva (Rojo)
 gorro Papá Noel (Rojo)
 corona imperial (Rojo)
-
+gorro de papel (Gris)
 placa corazón
 placa telaraña
 pañuelo felpa (Blanco)
@@ -14022,7 +14022,7 @@ pastel de π
 
 
 globo terrestre
-
+cesta de claveles
 
 
 
@@ -14277,12 +14277,12 @@ bloque elevado
 
 
 valla sirena
-
-
-
-
-
-
+tocado tsunokakushi (Blanco)
+gorro frigio (Rojo)
+hakama nupcial emblema (Blanco)
+shiromuku nupcial (Blanco)
+delantal gracias papá (Azul)
+cesta con pétalos
 
 
 
@@ -14353,10 +14353,10 @@ cojín de broma
 
 
 
-
-
-
-
+plato de zongzis
+plato de surichwi tteok
+queso Gloucester doble
+timón decorativo de puerta
 
 
 
@@ -14408,3 +14408,247 @@ esmoquin llamativo (Naranja)
 esmoquin llamativo (Púrpura)
 esmoquin llamativo (Marrón)
 esmoquin llamativo (Blanco y negro)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+foto de Fran
+
+
+corona nupcial
+campana nupcial
+cojín con alianzas nupciales
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+placa dorada de arte
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+delantal gracias papá (Rojo)
+delantal gracias papá (Verde)
+delantal gracias papá (Marrón)
+delantal gracias papá (Negro)
+gorro frigio (Naranja)
+gorro frigio (Verde)
+gorro frigio (Celeste)
+gorro frigio (Púrpura)
