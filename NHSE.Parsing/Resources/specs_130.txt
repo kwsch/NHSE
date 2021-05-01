@@ -5343,3 +5343,4 @@
 	('FeatherPpl'             , 'むらさきのはね'),
 	('FeatherRainbow'         , 'にじいろのはね'),
 	('JuiceShamrock'          , 'シャムロックソーダ'),
+	('Flowershower'           , 'フラワーシャワー'),

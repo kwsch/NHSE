@@ -5,7 +5,6 @@ namespace NHSE.Core
     /// </summary>
     public enum ItemMenuIconType : ushort
     {
-        _0x19191B2D,
         Akoyagai,
         Amaebi,
         Anemone0,
@@ -159,6 +158,7 @@ namespace NHSE.Core
         FishYellowparch,
         FishZarigani,
         Floor,
+        Flowershower,
         Fossil,
         FossilJ,
         FtrFishRanchu,
