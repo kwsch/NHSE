@@ -30,7 +30,7 @@ namespace NHSE.WinForms
         public ItemEditor ItemProvider => ItemEdit;
         public ItemLayer SpawnLayer => Map.CurrentLayer;
 
-        private TerrainBrushEditor tbeForm;
+        private TerrainBrushEditor? tbeForm;
 
         public FieldItemEditor(MainSave sav)
         {
@@ -184,32 +184,31 @@ namespace NHSE.WinForms
             var x = View.X + HoverX;
             var y = View.Y + HoverY;
             var tile = Map.Terrain.GetTile(x / 2, y / 2);
-            if (tbeForm != null && tbeForm.brushSelected)
-            {
-                if (tbeForm.Slider_thickness.Value > 1)
-                {
-                    List<TerrainTile> selectedTiles = new List<TerrainTile>();
-                    int radius = tbeForm.Slider_thickness.Value;
-                    int threshold = (radius * radius) / 2;
-                    for (int i = -radius; i < radius; i++)
-                    {
-                        for (int j = -radius; j < radius; j++)
-                        {
-                            if (i * i + j * j < threshold)
-                                selectedTiles.Add(Map.Terrain.GetTile(x / 2 + i, y / 2 + j));
-                        }
-                    }
-                    SetTiles(selectedTiles);
-                }
-                else
-                {
-                    SetTile(tile);
-                }
-            }
-            else
+            if (tbeForm?.brushSelected != true)
             {
                 OmniTileTerrain(tile);
+                return;
             }
+
+            if (tbeForm.Slider_thickness.Value <= 1)
+            {
+                SetTile(tile);
+                return;
+            }
+
+            List<TerrainTile> selectedTiles = new();
+            int radius = tbeForm.Slider_thickness.Value;
+            int threshold = (radius * radius) / 2;
+            for (int i = -radius; i < radius; i++)
+            {
+                for (int j = -radius; j < radius; j++)
+                {
+                    if ((i * i) + (j * j) < threshold)
+                        selectedTiles.Add(Map.Terrain.GetTile((x / 2) + i, (y / 2) + j));
+                }
+            }
+
+            SetTiles(selectedTiles);
         }
 
         private void OmniTile(Item tile, int x, int y)
@@ -288,7 +287,7 @@ namespace NHSE.WinForms
                 MoveDrag(e);
                 return;
             }
-            else if (e.Button == MouseButtons.Left && tbeForm != null && tbeForm.brushSelected)
+            if (e.Button == MouseButtons.Left && tbeForm?.brushSelected == true)
             {
                 OmniTileTerrain(e);
             }
@@ -454,17 +453,14 @@ namespace NHSE.WinForms
         private void SetTile(TerrainTile tile)
         {
             var pgt = (TerrainTile)PG_TerrainTile.SelectedObject;
-            if (tbeForm != null && tbeForm.randomizeVariation)
+            if (tbeForm?.randomizeVariation == true)
             {
                 switch (pgt.UnitModel)
                 {
                     case TerrainUnitModel.Cliff5B:
                     case TerrainUnitModel.River5B:
-                        Random rand = new Random();
+                        Random rand = new();
                         pgt.Variation = (ushort)rand.Next(4);
-                        break;
-
-                    default:
                         break;
                 }
             }
@@ -474,7 +470,7 @@ namespace NHSE.WinForms
             ReloadBuildingsTerrain();
         }
 
-        private void SetTiles(List<TerrainTile> tiles)
+        private void SetTiles(IEnumerable<TerrainTile> tiles)
         {
             var pgt = (TerrainTile)PG_TerrainTile.SelectedObject;
             foreach (TerrainTile tile in tiles)
@@ -1095,10 +1091,7 @@ namespace NHSE.WinForms
 
         private void FieldItemEditor_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (tbeForm != null)
-            {
-                tbeForm.Close();
-            }
+            tbeForm?.Close();
         }
     }
 
