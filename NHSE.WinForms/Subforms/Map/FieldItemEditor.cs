@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Sprites;
+using NHSE.WinForms.Subforms.Map;
 
 namespace NHSE.WinForms
 {
@@ -27,6 +29,8 @@ namespace NHSE.WinForms
 
         public ItemEditor ItemProvider => ItemEdit;
         public ItemLayer SpawnLayer => Map.CurrentLayer;
+
+        private TerrainBrushEditor? tbeForm;
 
         public FieldItemEditor(MainSave sav)
         {
@@ -118,12 +122,13 @@ namespace NHSE.WinForms
         private void ReloadAcreBackground()
         {
             var tbuild = (byte)TR_BuildingTransparency.Value;
-            var tterrain = (byte) TR_Terrain.Value;
+            var tterrain = (byte)TR_Terrain.Value;
             PB_Acre.BackgroundImage = View.GetBackgroundAcre(L_Coordinates.Font, tbuild, tterrain, SelectedBuildingIndex);
             PB_Acre.Invalidate(); // background image reassigning to same img doesn't redraw; force it
         }
 
         private void ReloadMapItemGrid() => PB_Map.Image = View.GetMapWithReticle(GetItemTransparency());
+
         private void ReloadAcreItemGrid() => PB_Acre.Image = View.GetLayerAcre(GetItemTransparency());
 
         public void ReloadItems()
@@ -179,7 +184,31 @@ namespace NHSE.WinForms
             var x = View.X + HoverX;
             var y = View.Y + HoverY;
             var tile = Map.Terrain.GetTile(x / 2, y / 2);
-            OmniTileTerrain(tile);
+            if (tbeForm?.brushSelected != true)
+            {
+                OmniTileTerrain(tile);
+                return;
+            }
+
+            if (tbeForm.Slider_thickness.Value <= 1)
+            {
+                SetTile(tile);
+                return;
+            }
+
+            List<TerrainTile> selectedTiles = new();
+            int radius = tbeForm.Slider_thickness.Value;
+            int threshold = (radius * radius) / 2;
+            for (int i = -radius; i < radius; i++)
+            {
+                for (int j = -radius; j < radius; j++)
+                {
+                    if ((i * i) + (j * j) < threshold)
+                        selectedTiles.Add(Map.Terrain.GetTile((x / 2) + i, (y / 2) + j));
+                }
+            }
+
+            SetTiles(selectedTiles);
         }
 
         private void OmniTile(Item tile, int x, int y)
@@ -189,13 +218,16 @@ namespace NHSE.WinForms
                 default:
                     ViewTile(tile, x, y);
                     return;
+
                 case Keys.Alt | Keys.Control:
                 case Keys.Alt | Keys.Control | Keys.Shift:
                     ReplaceTile(tile, x, y);
                     return;
+
                 case Keys.Shift:
                     SetTile(tile, x, y);
                     return;
+
                 case Keys.Alt:
                     DeleteTile(tile, x, y);
                     return;
@@ -209,12 +241,15 @@ namespace NHSE.WinForms
                 default:
                     ViewTile(tile);
                     return;
+
                 case Keys.Shift | Keys.Control:
                     RotateTile(tile);
                     return;
+
                 case Keys.Shift:
                     SetTile(tile);
                     return;
+
                 case Keys.Alt:
                     DeleteTile(tile);
                     return;
@@ -251,6 +286,10 @@ namespace NHSE.WinForms
             {
                 MoveDrag(e);
                 return;
+            }
+            if (e.Button == MouseButtons.Left && tbeForm?.brushSelected == true)
+            {
+                OmniTileTerrain(e);
             }
 
             var oldTile = l.GetTile(View.X + HoverX, View.Y + HoverY);
@@ -414,7 +453,30 @@ namespace NHSE.WinForms
         private void SetTile(TerrainTile tile)
         {
             var pgt = (TerrainTile)PG_TerrainTile.SelectedObject;
+            if (tbeForm?.randomizeVariation == true)
+            {
+                switch (pgt.UnitModel)
+                {
+                    case TerrainUnitModel.Cliff5B:
+                    case TerrainUnitModel.River5B:
+                        Random rand = new();
+                        pgt.Variation = (ushort)rand.Next(4);
+                        break;
+                }
+            }
+
             tile.CopyFrom(pgt);
+
+            ReloadBuildingsTerrain();
+        }
+
+        private void SetTiles(IEnumerable<TerrainTile> tiles)
+        {
+            var pgt = (TerrainTile)PG_TerrainTile.SelectedObject;
+            foreach (TerrainTile tile in tiles)
+            {
+                tile.CopyFrom(pgt);
+            }
 
             ReloadBuildingsTerrain();
         }
@@ -553,6 +615,7 @@ namespace NHSE.WinForms
         }
 
         private void B_DumpAcre_Click(object sender, EventArgs e) => MapDumpHelper.DumpLayerAcreSingle(Map.CurrentLayer, AcreIndex, CB_Acre.Text, (int)NUD_Layer.Value);
+
         private void B_DumpAllAcres_Click(object sender, EventArgs e) => MapDumpHelper.DumpLayerAcreAll(Map.CurrentLayer);
 
         private void B_ImportAcre_Click(object sender, EventArgs e)
@@ -585,7 +648,9 @@ namespace NHSE.WinForms
             System.Media.SystemSounds.Asterisk.Play();
             ReloadBuildingsTerrain();
         }
+
         private void B_DumpTerrainAcre_Click(object sender, EventArgs e) => MapDumpHelper.DumpTerrainAcre(Map.Terrain, AcreIndex, CB_Acre.Text);
+
         private void B_DumpTerrainAll_Click(object sender, EventArgs e) => MapDumpHelper.DumpTerrainAll(Map.Terrain);
 
         private void B_ImportTerrainAcre_Click(object sender, EventArgs e)
@@ -711,7 +776,7 @@ namespace NHSE.WinForms
 
         private void NUD_Layer_ValueChanged(object sender, EventArgs e)
         {
-            Map.MapLayer = (int) NUD_Layer.Value - 1;
+            Map.MapLayer = (int)NUD_Layer.Value - 1;
             LoadItemGridAcre();
         }
 
@@ -756,30 +821,50 @@ namespace NHSE.WinForms
         }
 
         private void B_RemoveAllWeeds_Click(object sender, EventArgs e) => Remove(B_RemoveAllWeeds, Map.CurrentLayer.RemoveAllWeeds);
+
         private void B_RemoveAllTrees_Click(object sender, EventArgs e) => Remove(B_RemoveAllTrees, Map.CurrentLayer.RemoveAllTrees);
+
         private void B_FillHoles_Click(object sender, EventArgs e) => Remove(B_FillHoles, Map.CurrentLayer.RemoveAllHoles);
+
         private void B_RemovePlants_Click(object sender, EventArgs e) => Remove(B_RemovePlants, Map.CurrentLayer.RemoveAllPlants);
+
         private void B_RemoveFences_Click(object sender, EventArgs e) => Remove(B_RemoveFences, Map.CurrentLayer.RemoveAllFences);
+
         private void B_RemoveObjects_Click(object sender, EventArgs e) => Remove(B_RemoveObjects, Map.CurrentLayer.RemoveAllObjects);
+
         private void B_RemoveAll_Click(object sender, EventArgs e) => Remove(B_RemoveAll, Map.CurrentLayer.RemoveAll);
+
         private void B_RemovePlacedItems_Click(object sender, EventArgs e) => Remove(B_RemovePlacedItems, Map.CurrentLayer.RemoveAllPlacedItems);
+
         private void B_RemoveShells_Click(object sender, EventArgs e) => Remove(B_RemoveShells, Map.CurrentLayer.RemoveAllShells);
+
         private void B_RemoveBranches_Click(object sender, EventArgs e) => Remove(B_RemoveBranches, Map.CurrentLayer.RemoveAllBranches);
+
         private void B_RemoveFlowers_Click(object sender, EventArgs e) => Remove(B_RemoveFlowers, Map.CurrentLayer.RemoveAllFlowers);
+
         private void B_RemoveBushes_Click(object sender, EventArgs e) => Remove(B_RemoveBushes, Map.CurrentLayer.RemoveAllBushes);
 
         private void B_WaterFlowers_Click(object sender, EventArgs e) => Modify(B_WaterFlowers, (xmin, ymin, width, height)
             => Map.CurrentLayer.WaterAllFlowers(xmin, ymin, width, height, (ModifierKeys & Keys.Control) != 0));
 
         private static void ShowContextMenuBelow(ToolStripDropDown c, Control n) => c.Show(n.PointToScreen(new Point(0, n.Height)));
+
         private void B_RemoveItemDropDown_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_Remove, B_RemoveItemDropDown);
+
         private void B_DumpLoadField_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_DLField, B_DumpLoadField);
+
         private void B_DumpLoadTerrain_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_DLTerrain, B_DumpLoadTerrain);
+
         private void B_DumpLoadBuildings_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_DLBuilding, B_DumpLoadBuildings);
+
         private void B_ModifyAllTerrain_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_Terrain, B_ModifyAllTerrain);
+
         private void B_DumpLoadAcres_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_DLMapAcres, B_DumpLoadAcres);
+
         private void TR_Transparency_Scroll(object sender, EventArgs e) => ReloadItems();
+
         private void TR_BuildingTransparency_Scroll(object sender, EventArgs e) => ReloadBuildingsTerrain();
+
         private void TR_Terrain_Scroll(object sender, EventArgs e) => ReloadBuildingsTerrain();
 
         #region Buildings
@@ -794,7 +879,7 @@ namespace NHSE.WinForms
         {
             if (Loading)
                 return;
-            Map.PlazaX = (uint) NUD_PlazaX.Value;
+            Map.PlazaX = (uint)NUD_PlazaX.Value;
             ReloadBuildingsTerrain();
         }
 
@@ -802,7 +887,7 @@ namespace NHSE.WinForms
         {
             if (Loading)
                 return;
-            Map.PlazaY = (uint) NUD_PlazaY.Value;
+            Map.PlazaY = (uint)NUD_PlazaY.Value;
             ReloadBuildingsTerrain();
         }
 
@@ -866,7 +951,8 @@ namespace NHSE.WinForms
             LB_Items.Items[SelectedBuildingIndex] = Map.Buildings[SelectedBuildingIndex].ToString();
             ReloadBuildingsTerrain();
         }
-        #endregion
+
+        #endregion Buildings
 
         #region Acres
 
@@ -911,7 +997,7 @@ namespace NHSE.WinForms
             System.Media.SystemSounds.Asterisk.Play();
         }
 
-        #endregion
+        #endregion Acres
 
         private void B_ZeroElevation_Click(object sender, EventArgs e)
         {
@@ -996,11 +1082,23 @@ namespace NHSE.WinForms
             SpawnLayer.ClearDanglingExtensions(0, 0, SpawnLayer.MaxWidth, SpawnLayer.MaxHeight);
             LoadItemGridAcre();
         }
+
+        private void B_TerrainBrush_Click(object sender, EventArgs e)
+        {
+            tbeForm = new TerrainBrushEditor(PG_TerrainTile, this);
+            tbeForm.Show();
+        }
+
+        private void FieldItemEditor_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            tbeForm?.Close();
+        }
     }
 
     public interface IItemLayerEditor
     {
         void ReloadItems();
+
         ItemEditor ItemProvider { get; }
         ItemLayer SpawnLayer { get; }
     }
