@@ -67,6 +67,7 @@
             this.B_RemoveBranches = new System.Windows.Forms.ToolStripMenuItem();
             this.B_RemoveShells = new System.Windows.Forms.ToolStripMenuItem();
             this.B_RemoveFlowers = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_RemoveBushes = new System.Windows.Forms.ToolStripMenuItem();
             this.B_FillHoles = new System.Windows.Forms.ToolStripMenuItem();
             this.B_RemoveAll = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -149,7 +150,7 @@
             this.CHK_RedirectExtensionLoad = new System.Windows.Forms.CheckBox();
             this.CHK_MoveOnDrag = new System.Windows.Forms.CheckBox();
             this.CHK_FieldItemSnap = new System.Windows.Forms.CheckBox();
-            this.B_RemoveBushes = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_TerrainBrush = new System.Windows.Forms.Button();
             this.CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).BeginInit();
             this.CM_Picture.SuspendLayout();
@@ -480,108 +481,115 @@
             this.Menu_Batch});
             this.CM_Remove.Name = "CM_Picture";
             this.CM_Remove.ShowImageMargin = false;
-            this.CM_Remove.Size = new System.Drawing.Size(156, 362);
+            this.CM_Remove.Size = new System.Drawing.Size(124, 340);
             // 
             // B_RemoveAllWeeds
             // 
             this.B_RemoveAllWeeds.Name = "B_RemoveAllWeeds";
-            this.B_RemoveAllWeeds.Size = new System.Drawing.Size(155, 22);
+            this.B_RemoveAllWeeds.Size = new System.Drawing.Size(123, 22);
             this.B_RemoveAllWeeds.Text = "Weeds";
             this.B_RemoveAllWeeds.Click += new System.EventHandler(this.B_RemoveAllWeeds_Click);
             // 
             // B_RemoveAllTrees
             // 
             this.B_RemoveAllTrees.Name = "B_RemoveAllTrees";
-            this.B_RemoveAllTrees.Size = new System.Drawing.Size(155, 22);
+            this.B_RemoveAllTrees.Size = new System.Drawing.Size(123, 22);
             this.B_RemoveAllTrees.Text = "Trees";
             this.B_RemoveAllTrees.Click += new System.EventHandler(this.B_RemoveAllTrees_Click);
             // 
             // B_RemovePlants
             // 
             this.B_RemovePlants.Name = "B_RemovePlants";
-            this.B_RemovePlants.Size = new System.Drawing.Size(155, 22);
+            this.B_RemovePlants.Size = new System.Drawing.Size(123, 22);
             this.B_RemovePlants.Text = "Plants";
             this.B_RemovePlants.Click += new System.EventHandler(this.B_RemovePlants_Click);
             // 
             // B_RemoveObjects
             // 
             this.B_RemoveObjects.Name = "B_RemoveObjects";
-            this.B_RemoveObjects.Size = new System.Drawing.Size(155, 22);
+            this.B_RemoveObjects.Size = new System.Drawing.Size(123, 22);
             this.B_RemoveObjects.Text = "Objects";
             this.B_RemoveObjects.Click += new System.EventHandler(this.B_RemoveObjects_Click);
             // 
             // B_RemovePlacedItems
             // 
             this.B_RemovePlacedItems.Name = "B_RemovePlacedItems";
-            this.B_RemovePlacedItems.Size = new System.Drawing.Size(155, 22);
+            this.B_RemovePlacedItems.Size = new System.Drawing.Size(123, 22);
             this.B_RemovePlacedItems.Text = "Placed Items";
             this.B_RemovePlacedItems.Click += new System.EventHandler(this.B_RemovePlacedItems_Click);
             // 
             // B_RemoveFences
             // 
             this.B_RemoveFences.Name = "B_RemoveFences";
-            this.B_RemoveFences.Size = new System.Drawing.Size(155, 22);
+            this.B_RemoveFences.Size = new System.Drawing.Size(123, 22);
             this.B_RemoveFences.Text = "Fences";
             this.B_RemoveFences.Click += new System.EventHandler(this.B_RemoveFences_Click);
             // 
             // B_RemoveBranches
             // 
             this.B_RemoveBranches.Name = "B_RemoveBranches";
-            this.B_RemoveBranches.Size = new System.Drawing.Size(155, 22);
+            this.B_RemoveBranches.Size = new System.Drawing.Size(123, 22);
             this.B_RemoveBranches.Text = "Branches";
             this.B_RemoveBranches.Click += new System.EventHandler(this.B_RemoveBranches_Click);
             // 
             // B_RemoveShells
             // 
             this.B_RemoveShells.Name = "B_RemoveShells";
-            this.B_RemoveShells.Size = new System.Drawing.Size(155, 22);
+            this.B_RemoveShells.Size = new System.Drawing.Size(123, 22);
             this.B_RemoveShells.Text = "Shells";
             this.B_RemoveShells.Click += new System.EventHandler(this.B_RemoveShells_Click);
             // 
             // B_RemoveFlowers
             // 
             this.B_RemoveFlowers.Name = "B_RemoveFlowers";
-            this.B_RemoveFlowers.Size = new System.Drawing.Size(155, 22);
+            this.B_RemoveFlowers.Size = new System.Drawing.Size(123, 22);
             this.B_RemoveFlowers.Text = "Flowers";
             this.B_RemoveFlowers.Click += new System.EventHandler(this.B_RemoveFlowers_Click);
+            // 
+            // B_RemoveBushes
+            // 
+            this.B_RemoveBushes.Name = "B_RemoveBushes";
+            this.B_RemoveBushes.Size = new System.Drawing.Size(123, 22);
+            this.B_RemoveBushes.Text = "Bushes";
+            this.B_RemoveBushes.Click += new System.EventHandler(this.B_RemoveBushes_Click);
             // 
             // B_FillHoles
             // 
             this.B_FillHoles.Name = "B_FillHoles";
-            this.B_FillHoles.Size = new System.Drawing.Size(155, 22);
+            this.B_FillHoles.Size = new System.Drawing.Size(123, 22);
             this.B_FillHoles.Text = "Holes";
             this.B_FillHoles.Click += new System.EventHandler(this.B_FillHoles_Click);
             // 
             // B_RemoveAll
             // 
             this.B_RemoveAll.Name = "B_RemoveAll";
-            this.B_RemoveAll.Size = new System.Drawing.Size(155, 22);
+            this.B_RemoveAll.Size = new System.Drawing.Size(123, 22);
             this.B_RemoveAll.Text = "All";
             this.B_RemoveAll.Click += new System.EventHandler(this.B_RemoveAll_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(152, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(120, 6);
             // 
             // B_WaterFlowers
             // 
             this.B_WaterFlowers.Name = "B_WaterFlowers";
-            this.B_WaterFlowers.Size = new System.Drawing.Size(155, 22);
+            this.B_WaterFlowers.Size = new System.Drawing.Size(123, 22);
             this.B_WaterFlowers.Text = "Water Flowers";
             this.B_WaterFlowers.Click += new System.EventHandler(this.B_WaterFlowers_Click);
             // 
             // Menu_Spawn
             // 
             this.Menu_Spawn.Name = "Menu_Spawn";
-            this.Menu_Spawn.Size = new System.Drawing.Size(155, 22);
+            this.Menu_Spawn.Size = new System.Drawing.Size(123, 22);
             this.Menu_Spawn.Text = "Spawn...";
             this.Menu_Spawn.Click += new System.EventHandler(this.Menu_Spawn_Click);
             // 
             // Menu_Batch
             // 
             this.Menu_Batch.Name = "Menu_Batch";
-            this.Menu_Batch.Size = new System.Drawing.Size(155, 22);
+            this.Menu_Batch.Size = new System.Drawing.Size(123, 22);
             this.Menu_Batch.Text = "Batch Editor";
             this.Menu_Batch.Click += new System.EventHandler(this.Menu_Bulk_Click);
             // 
@@ -1004,6 +1012,7 @@
             // 
             // Tab_Terrain
             // 
+            this.Tab_Terrain.Controls.Add(this.B_TerrainBrush);
             this.Tab_Terrain.Controls.Add(this.L_TerrainTileLabelTransparency);
             this.Tab_Terrain.Controls.Add(this.TR_Terrain);
             this.Tab_Terrain.Controls.Add(this.TR_BuildingTransparency);
@@ -1085,7 +1094,7 @@
             // 
             this.B_DumpLoadTerrain.Location = new System.Drawing.Point(6, 413);
             this.B_DumpLoadTerrain.Name = "B_DumpLoadTerrain";
-            this.B_DumpLoadTerrain.Size = new System.Drawing.Size(112, 40);
+            this.B_DumpLoadTerrain.Size = new System.Drawing.Size(49, 40);
             this.B_DumpLoadTerrain.TabIndex = 40;
             this.B_DumpLoadTerrain.Text = "Dump/Import";
             this.B_DumpLoadTerrain.UseVisualStyleBackColor = true;
@@ -1093,9 +1102,9 @@
             // 
             // B_ModifyAllTerrain
             // 
-            this.B_ModifyAllTerrain.Location = new System.Drawing.Point(126, 413);
+            this.B_ModifyAllTerrain.Location = new System.Drawing.Point(60, 413);
             this.B_ModifyAllTerrain.Name = "B_ModifyAllTerrain";
-            this.B_ModifyAllTerrain.Size = new System.Drawing.Size(112, 40);
+            this.B_ModifyAllTerrain.Size = new System.Drawing.Size(89, 40);
             this.B_ModifyAllTerrain.TabIndex = 39;
             this.B_ModifyAllTerrain.Text = "Modify All...";
             this.B_ModifyAllTerrain.UseVisualStyleBackColor = true;
@@ -1387,12 +1396,15 @@
             this.CHK_FieldItemSnap.Text = "Snap Field Items to Grid on Set";
             this.CHK_FieldItemSnap.UseVisualStyleBackColor = true;
             // 
-            // B_RemoveBushes
+            // B_TerrainBrush
             // 
-            this.B_RemoveBushes.Name = "B_RemoveBushes";
-            this.B_RemoveBushes.Size = new System.Drawing.Size(155, 22);
-            this.B_RemoveBushes.Text = "Bushes";
-            this.B_RemoveBushes.Click += new System.EventHandler(this.B_RemoveBushes_Click);
+            this.B_TerrainBrush.Location = new System.Drawing.Point(155, 413);
+            this.B_TerrainBrush.Name = "B_TerrainBrush";
+            this.B_TerrainBrush.Size = new System.Drawing.Size(83, 40);
+            this.B_TerrainBrush.TabIndex = 48;
+            this.B_TerrainBrush.Text = "Terrain brushes";
+            this.B_TerrainBrush.UseVisualStyleBackColor = true;
+            this.B_TerrainBrush.Click += new System.EventHandler(this.B_TerrainBrush_Click);
             // 
             // FieldItemEditor
             // 
@@ -1429,6 +1441,7 @@
             this.Name = "FieldItemEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Field Item Editor";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FieldItemEditor_FormClosed);
             this.CM_Click.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PB_Map)).EndInit();
             this.CM_Picture.ResumeLayout(false);
@@ -1589,5 +1602,6 @@
         private System.Windows.Forms.ToolStripMenuItem B_ExportPlacedDesigns;
         private System.Windows.Forms.ToolStripMenuItem Menu_Batch;
         private System.Windows.Forms.ToolStripMenuItem B_RemoveBushes;
+        private System.Windows.Forms.Button B_TerrainBrush;
     }
 }
