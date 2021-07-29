@@ -5,6 +5,12 @@ namespace NHSE.Core
     /// </summary>
     public enum ItemMenuIconType : ushort
     {
+        _0x014C73D4,
+        _0x4989B94A,
+        _0x7F9E2AC5,
+        _0x869ED2D4,
+        _0xA2BD8BBC,
+        _0xE62FBC8B,
         Akoyagai,
         Amaebi,
         Anemone0,
