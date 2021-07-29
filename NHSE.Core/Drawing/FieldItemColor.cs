@@ -9,12 +9,7 @@ namespace NHSE.Core
             if (item.DisplayItemId >= Item.FieldItemMin)
                 return GetItemColor60000(item);
             var kind = ItemInfo.GetItemKind(item);
-
-            // grab a deterministic random known color
-            var arr = ColorUtil.Colors;
-            if ((uint) kind >= arr.Length)
-                kind = (ItemKind)((int)kind % arr.Length);
-            return arr[(int)kind];
+            return ColorUtil.GetColor((int)kind);
         }
 
         private static Color GetItemColor60000(Item item)

@@ -11,7 +11,7 @@ namespace NHSE.Core
             var kind = ItemInfo.GetItemKind(item);
             if (kind == ItemKind.Unknown)
                 return Color.LimeGreen;
-            return ColorUtil.Colors[(int)kind];
+            return ColorUtil.GetColor((int)kind);
         }
 
         public static Color GetItemColor(ushort item)
@@ -21,7 +21,7 @@ namespace NHSE.Core
             var kind = ItemInfo.GetItemKind(item);
             if (kind == ItemKind.Unknown)
                 return Color.LimeGreen;
-            return ColorUtil.Colors[(int)kind];
+            return ColorUtil.GetColor((int)kind);
         }
     }
 }
