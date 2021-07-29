@@ -728,6 +728,10 @@ namespace NHSE.Core
             {1640, new ItemRemakeInfo(1640, 14476,  2, new byte[] {12, 04, 09, 14, 14, 14, 14, 14}, new byte[] {02, 05, 01, 14, 14, 14, 14, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, false)}, // nuptial bell
             {1641, new ItemRemakeInfo(1641, 14477,  2, new byte[] {12, 05, 01, 14, 14, 14, 14, 14}, new byte[] {02, 04, 12, 14, 14, 14, 14, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, false)}, // nuptial ring pillow
             {1642, new ItemRemakeInfo(1642, 14475,  2, new byte[] {02, 05, 01, 14, 14, 14, 14, 14}, new byte[] {12, 04, 12, 14, 14, 14, 14, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, new byte[] {12, 12, 12, 14, 14, 14, 14, 14}, false)}, // nuptial doorplate
+            {1645, new ItemRemakeInfo(1645, 14550,  3, new byte[] {09, 09, 09, 11, 14, 14, 14, 14}, new byte[] {00, 07, 06, 12, 14, 14, 14, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, false)}, // spooky tree
+            {1647, new ItemRemakeInfo(1647, 14551,  3, new byte[] {00, 07, 06, 12, 14, 14, 14, 14}, new byte[] {00, 07, 06, 12, 14, 14, 14, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, false)}, // spooky trick lamp
+            {1750, new ItemRemakeInfo(1750, 14542,  3, new byte[] {00, 07, 06, 12, 14, 14, 14, 14}, new byte[] {10, 10, 10, 10, 14, 14, 14, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, false)}, // spooky treats basket
+            {1754, new ItemRemakeInfo(1754, 14414,  5, new byte[] {10, 10, 13, 07, 07, 07, 14, 14}, new byte[] {07, 07, 00, 00, 12, 06, 14, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, false)}, // handheld lantern
         };
     }
 }

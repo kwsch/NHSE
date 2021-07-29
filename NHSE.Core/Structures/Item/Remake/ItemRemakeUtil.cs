@@ -1139,10 +1139,14 @@ namespace NHSE.Core
             {14255, 0652}, // Timmy and Tommy's photo
             {14256, 0652}, // Isabelle's photo
             {14340, 1615}, // whoopee cushion
+            {14414, 1754}, // handheld lantern
             {14472, 0652}, // Rover's photo
             {14475, 1642}, // nuptial doorplate
             {14476, 1640}, // nuptial bell
             {14477, 1641}, // nuptial ring pillow
+            {14542, 1750}, // spooky treats basket
+            {14550, 1645}, // spooky tree
+            {14551, 1647}, // spooky trick lamp
         };
     }
 }

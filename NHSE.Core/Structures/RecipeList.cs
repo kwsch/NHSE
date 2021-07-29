@@ -646,6 +646,9 @@ namespace NHSE.Core
             {0x2F5, 12217}, // summer-shell rug
             {0x306, 14239}, // shamrock wand
             {0x308, 14278}, // mermaid fence
+            {0x3D4, 14550}, // spooky tree
+            {0x3D5, 14551}, // spooky trick lamp
+            {0x3D6, 14542}, // spooky treats basket
         };
     }
 }
