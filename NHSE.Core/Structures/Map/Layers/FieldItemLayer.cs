@@ -97,8 +97,8 @@ namespace NHSE.Core
         public int RemoveAll(int xmin, int ymin, int width, int height) => RemoveAll(xmin, ymin, width, height, _ => true);
         public int RemoveAllShells(int xmin, int ymin, int width, int height) => RemoveAll(xmin, ymin, width, height, z => GameLists.Shells.Contains(z.DisplayItemId));
         public int RemoveAllBranches(int xmin, int ymin, int width, int height) => RemoveAll(xmin, ymin, width, height, z => z.DisplayItemId == 2500);
-        public int RemoveAllPlacedItems(int xmin, int ymin, int width, int height) => RemoveAll(xmin, ymin, width,
-            height, z => !z.IsNone && !FieldItemList.Items.ContainsKey(z.DisplayItemId));
+        public int RemoveAllPlacedItems(int xmin, int ymin, int width, int height) => RemoveAll(xmin, ymin, width, height, z => !z.IsNone && !FieldItemList.Items.ContainsKey(z.DisplayItemId));
+        public int RemoveAllLike(int xmin, int ymin, int width, int height, Item item) => RemoveAll(xmin, ymin, width, height, z => !z.IsNone && item.DisplayItemId == z.DisplayItemId);
 
         public int WaterAllFlowers(int xmin, int ymin, int width, int height, bool all)
         {

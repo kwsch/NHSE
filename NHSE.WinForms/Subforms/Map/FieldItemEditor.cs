@@ -820,6 +820,9 @@ namespace NHSE.WinForms
             WinFormsUtil.Alert(string.Format(MessageStrings.MsgFieldItemModifyCount, count));
         }
 
+        private void B_RemoveEditor_Click(object sender, EventArgs e) => Remove(B_RemoveEditor, (min, max, x, y)
+            => Map.CurrentLayer.RemoveAllLike(min, max, x, y, ItemEdit.SetItem(new Item())));
+
         private void B_RemoveAllWeeds_Click(object sender, EventArgs e) => Remove(B_RemoveAllWeeds, Map.CurrentLayer.RemoveAllWeeds);
 
         private void B_RemoveAllTrees_Click(object sender, EventArgs e) => Remove(B_RemoveAllTrees, Map.CurrentLayer.RemoveAllTrees);
