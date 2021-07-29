@@ -14283,7 +14283,7 @@ white hakama with crest (White)
 shiromuku (White)
 thank-you Dad apron (Blue)
 flower-petal basket
-
+chitose ame
 
 
 
@@ -14298,6 +14298,7 @@ flower-petal basket
 
 aloha-edition carrying case
 
+cucumber horse
 
 
 
@@ -14335,9 +14336,8 @@ aloha-edition carrying case
 
 
 
-
-
-
+dango
+eggplant cow
 whoopee cushion
 
 
@@ -14412,7 +14412,7 @@ vibrant tuxedo (Monotone)
 
 
 
-
+handheld lantern
 
 
 
@@ -14540,11 +14540,16 @@ art plaque
 
 
 
+spooky treats basket
 
 
 
 
+songpyeon
+moon cakes
 
+spooky tree
+spooky trick lamp
 
 
 
@@ -14621,17 +14626,12 @@ art plaque
 
 
 
+boba milk tea
+plain cotton candy
 
-
-
-
-
-
-
-
-
-
-
+chocolate frozen treat
+ramune-soda frozen treat
+orange frozen treat
 
 
 
@@ -14652,3 +14652,98 @@ Phrygian cap (Orange)
 Phrygian cap (Green)
 Phrygian cap (Light blue)
 Phrygian cap (Purple)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+marigold decoration
+
+
+
+boba coffee
+melon cotton candy
+ramune-soda cotton candy
+boba strawberry tea
+boba mango tea
+boba green tea
+strawberry cotton candy

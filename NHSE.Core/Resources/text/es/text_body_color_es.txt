@@ -3429,6 +3429,12 @@
 14340_0	Rojo
 14340_1	Verde
 14340_2	Amarillo
+14414_0	Estrellas
+14414_1	Lunas
+14414_2	Vidriera
+14414_3	Soles
+14414_4	Gansos
+14414_5	Hojas
 14475_0	Blanco
 14475_1	Azul
 14475_2	Blanco y rojo
@@ -3438,3 +3444,15 @@
 14477_0	Blanco
 14477_1	Azul
 14477_2	Blanco y rojo
+14542_0	Naranja
+14542_1	Amarillo
+14542_2	Verde
+14542_3	Blanco
+14550_0	Naranja
+14550_1	Amarillo
+14550_2	Verde
+14550_3	Blanco
+14551_0	Naranja
+14551_1	Amarillo
+14551_2	Verde
+14551_3	Blanco

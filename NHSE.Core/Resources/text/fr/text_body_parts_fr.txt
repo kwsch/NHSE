@@ -339,6 +339,10 @@
 13930	Modèle
 14029	Variation
 14340	Couleur
+14414	Modèle
 14475	Couronne
 14476	Variation
 14477	Variation
+14542	Couleur
+14550	Couleur de citrouille
+14551	Couleur de citrouille

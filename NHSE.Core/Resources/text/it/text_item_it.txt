@@ -14283,7 +14283,7 @@ hakama bianco con stemma (Bianco)
 shiromuku (Bianco)
 grembiule grazie papà (Blu)
 cesta con petali
-
+chitose ame
 
 
 
@@ -14298,6 +14298,7 @@ cesta con petali
 
 custodia edizione ACNH
 
+cetriolo dell'Obon
 
 
 
@@ -14335,9 +14336,8 @@ custodia edizione ACNH
 
 
 
-
-
-
+vassoio di dango
+melanzana dell'Obon
 petofono
 
 
@@ -14412,7 +14412,7 @@ smoking vivace (Monocromo)
 
 
 
-
+lanterna portatile
 
 
 
@@ -14540,11 +14540,16 @@ placca d'arte
 
 
 
+cesto di caramelle brividi
 
 
 
 
+piatto di songpyeon
+piatto di torte lunari
 
+albero brividi
+lampada scherzetto brividi
 
 
 
@@ -14621,17 +14626,12 @@ placca d'arte
 
 
 
+bubble tea con latte
+zucchero filato
 
-
-
-
-
-
-
-
-
-
-
+gelato su stecco cioccolato
+gelato su stecco ramune
+gelato su stecco arancia
 
 
 
@@ -14652,3 +14652,98 @@ berretto frigio (Arancio)
 berretto frigio (Verde)
 berretto frigio (Blu chiaro)
 berretto frigio (Viola)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+decorazione calendula
+
+
+
+bubble tea con caffè
+zucchero filato al melone
+zucchero filato al ramune
+bubble tea alla fragola
+bubble tea al mango
+bubble tea al tè verde
+zucchero filato alla fragola

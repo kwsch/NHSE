@@ -3429,6 +3429,12 @@
 14340_0	Rouge
 14340_1	Vert
 14340_2	Jaune
+14414_0	Étoiles
+14414_1	Lunes
+14414_2	Vitraux
+14414_3	Soleils
+14414_4	Oies
+14414_5	Feuilles
 14475_0	Blanc
 14475_1	Bleu
 14475_2	Rouge & blanc
@@ -3438,3 +3444,15 @@
 14477_0	Blanc
 14477_1	Bleu
 14477_2	Rouge & blanc
+14542_0	Orange
+14542_1	Jaune
+14542_2	Vert
+14542_3	Monochrome
+14550_0	Orange
+14550_1	Jaune
+14550_2	Vert
+14550_3	Monochrome
+14551_0	Orange
+14551_1	Jaune
+14551_2	Vert
+14551_3	Monochrome

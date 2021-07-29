@@ -339,6 +339,10 @@
 13930	Diseño
 14029	Variación
 14340	Color
+14414	Diseño
 14475	Corona
 14476	Variación
 14477	Variación
+14542	Color
+14550	Color de la calabaza
+14551	Color de la calabaza

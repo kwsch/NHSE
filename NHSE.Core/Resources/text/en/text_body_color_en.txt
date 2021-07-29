@@ -3429,6 +3429,12 @@
 14340_0	Red
 14340_1	Green
 14340_2	Yellow
+14414_0	Stars
+14414_1	Moons
+14414_2	Stained glass
+14414_3	Suns
+14414_4	Geese
+14414_5	Leaves
 14475_0	White
 14475_1	Blue
 14475_2	Red & white
@@ -3438,3 +3444,15 @@
 14477_0	White
 14477_1	Blue
 14477_2	Red & white
+14542_0	Orange
+14542_1	Yellow
+14542_2	Green
+14542_3	Monochrome
+14550_0	Orange
+14550_1	Yellow
+14550_2	Green
+14550_3	Monochrome
+14551_0	Orange
+14551_1	Yellow
+14551_2	Green
+14551_3	Monochrome

@@ -3429,6 +3429,12 @@
 14340_0	Rosso
 14340_1	Verde
 14340_2	Giallo
+14414_0	Stelle
+14414_1	Lune
+14414_2	Vetrata variopinta
+14414_3	Soli
+14414_4	Oche
+14414_5	Foglie
 14475_0	Bianco
 14475_1	Blu
 14475_2	Rosso e bianco
@@ -3438,3 +3444,15 @@
 14477_0	Bianco
 14477_1	Blu
 14477_2	Rosso e bianco
+14542_0	Arancio
+14542_1	Giallo
+14542_2	Verde
+14542_3	Monocromo
+14550_0	Arancio
+14550_1	Giallo
+14550_2	Verde
+14550_3	Monocromo
+14551_0	Arancio
+14551_1	Giallo
+14551_2	Verde
+14551_3	Monocromo
