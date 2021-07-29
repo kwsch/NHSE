@@ -43,7 +43,7 @@ namespace NHSE.Core
             {0x01A, new EventFlagPlayer(0 , 1   , 0026, "KinuyoTalkBoforeFlag"                       )}, // きぬよ|今までに会話したことある？
             {0x01B, new EventFlagPlayer(0 , 1   , 0027, "KinuyoTalkTodayFlag"                        )}, // きぬよ|今日すでに会話した？(来訪用)
             {0x01D, new EventFlagPlayer(0 , 1   , 0029, "SkkTalkBeforeFlag"                          )}, // シャンク|今までに会話したことある？
-            {0x01F, new EventFlagPlayer(0 , 1   , 0031, "ReijiTalkBeforeFlag"                        )}, // レイジ|行商で会話したことある？
+            {0x01F, new EventFlagPlayer(0 , 1   , 0031, "ReijiTalkBeforeFlag"                        )}, // レイジ|今までに会話したことある？（面識ある？）
             {0x021, new EventFlagPlayer(0 , 1   , 0033, "RollanTalkTodayFlag"                        )}, // ローラン|今日すでに会話した？
             {0x022, new EventFlagPlayer(0 , 3   , 0034, "RollanBuyLargeCount"                        )}, // ローラン|今日ラグ大を買った枚数
             {0x023, new EventFlagPlayer(0 , 3   , 0035, "RollanBuyMediumCount"                       )}, // ローラン|今日ラグ中を買った枚数
@@ -1134,7 +1134,15 @@ namespace NHSE.Core
             {0x5B0, new EventFlagPlayer(0 , 1   , 1456, "GetMayDayTicketFirst"                       )}, // メーデー|1.10.0未満でメーデーりょこうけんを入手したことがあるか？
             {0x5B8, new EventFlagPlayer(0 , 1   , 1464, "RcoHeardAboutMayDayTravelTicket"            )}, // メーデー|たぬきち|メーデー旅行券の説明聞いたか？
             {0x5B9, new EventFlagPlayer(0 , 1   , 1465, "XctGetRewardPast"                           )}, // メーデー|1.10.0未満でみしらぬネコから報酬をもらった？
+            {0x5BD, new EventFlagPlayer(0 , 1   , 1469, "FoxTalk2020FireworksFlag"                   )}, // つねきち|2020年の花火大会で会話したことない？
+            {0x5BE, new EventFlagPlayer(0 , 1   , 1470, "FoxTalkIceCandyTodayFlag"                   )}, // つねきち|アイスキャンディの説明した？
+            {0x5BF, new EventFlagPlayer(0 , 1   , 1471, "FoxTalkTapiocaTodayFlag"                    )}, // つねきち|タピオカドリンクの説明した？
             {0x5C6, new EventFlagPlayer(0 , 1   , 1478, "AlwJuneBrideNoRemake1stFlag"                )}, // リサ/ジューンブライド|今日1回目でリメイク解禁してなかった
+            {0x5C8, new EventFlagPlayer(0 , 1   , 1480, "AnnounceHalloween2"                         )}, // 2021年ハロウィンを島内放送で告知した(2回目放送用)
+            {0x606, new EventFlagPlayer(0 , 1   , 1542, "FoxTalkFireworksFoodFlag"                   )}, // つねきち|花火大会で食べ物追加された会話聞いた？
+            {0x607, new EventFlagPlayer(0 , 1   , 1543, "AnnounceHalloween2Ready"                    )}, // 2021年ハロウィン｜準備期間に島内放送で告知した？(2回目放送用)
+            {0x611, new EventFlagPlayer(0 , 1   , 1553, "FoxFirstTalkTodayFireworksFlag"             )}, // つねきち|今日花火大会で会話した？
+            {0x62D, new EventFlagPlayer(0 , 9999, 1581, "LastPlayFireWorksFestival"                  )}, // 花火大会|最後に遊んだ花火大会の年
         };
 
         private const string Unknown = "???";

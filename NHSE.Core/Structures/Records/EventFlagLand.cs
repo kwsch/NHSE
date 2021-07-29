@@ -392,7 +392,17 @@ namespace NHSE.Core
             {0x1D2, new EventFlagLand(0 , 1    , 0466, "EventObjFlag1"                              )}, // イベントオブジェフラグ1
             {0x1D3, new EventFlagLand(0 , 1    , 0467, "EventObjFlag2"                              )}, // イベントオブジェフラグ2
             {0x1DD, new EventFlagLand(0 , 1    , 0477, "GrowUpAfterPatch1_10"                       )}, // 1.10適用して成長処理をした
+            {0x1DE, new EventFlagLand(0 , 1    , 0478, "GrowUpAfterPatch1_11"                       )}, // 1.11適用して成長処理をした
+            {0x1E0, new EventFlagLand(0 , 1    , 0480, "BCAT_EventFlag_012"                         )}, // ハロウィン2年目解禁
+            {0x1E1, new EventFlagLand(0 , -1   , 0481, "RandomKey12"                                )}, // ランダムキー12
             {0x1E3, new EventFlagLand(0 , 9999 , 0483, "MayDayAddBbsYear"                           )}, // メーデー予告の掲示板書き込みをした年
+            {0x1F8, new EventFlagLand(0 , 1    , 0504, "EventObjFlag3"                              )}, // イベントオブジェフラグ3
+            {0x1F9, new EventFlagLand(0 , 9999 , 0505, "HalloweenAddBbsYear"                        )}, // ハロウィン予告の掲示板書き込みをした年
+            {0x1FD, new EventFlagLand(0 , 1    , 0509, "ExistIllminations"                          )}, // 成長処理時点で電飾付の木が一本以上存在しているか？
+            {0x1FE, new EventFlagLand(0 , 1    , 0510, "ExistSakura"                                )}, // 成長処理時点で村に桜の木が存在するか？
+            {0x1FF, new EventFlagLand(0 , 1    , 0511, "ExistBanboo"                                )}, // 成長処理時点で村に竹の成木が存在するか？
+            {0x200, new EventFlagLand(0 , 1    , 0512, "ExistOak"                                   )}, // 成長処理時点で村に成木の広葉樹が存在するか？
+            {0x201, new EventFlagLand(0 , 1    , 0513, "ExistCedar"                                 )}, // 成長処理時点で村に成木の針葉樹が存在するか？
         };
 
         private const string Unknown = "???";

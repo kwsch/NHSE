@@ -77,7 +77,7 @@ namespace NHSE.Core
             {0x37, new EventFlagVillagerMemoryPlayer(0 , 255, 055, "ContinuousTalkCount"                        )}, // 連続会話回数
             {0x38, new EventFlagVillagerMemoryPlayer(0 , 255, 056, "Again2Count"                                )}, // XX_Again2を聞いた回数
             {0x39, new EventFlagVillagerMemoryPlayer(0 , 1  , 057, "TalkDIY"                                    )}, // DIY会話をした
-            {0x3A, new EventFlagVillagerMemoryPlayer(0 , 2  , 058, "HalloweenDIYGetItem"                        )}, // ハロウィン|DIYしている時の報酬アイテムは？
+            {0x3A, new EventFlagVillagerMemoryPlayer(0 , 2  , 058, "HalloweenDIYGetItem"                        )}, // DIYしている時の報酬アイテムは？
             {0x3B, new EventFlagVillagerMemoryPlayer(0 , 1  , 059, "NewYearGreetingFlag"                        )}, // 新年（1月1日）のあいさつをした
             {0x3C, new EventFlagVillagerMemoryPlayer(0 , 1  , 060, "GotRecipeorMaterial"                        )}, // DIYレシピか素材をもらった
             {0x3D, new EventFlagVillagerMemoryPlayer(0 , 1  , 061, "GotMaterialItemFull"                        )}, // 素材をもらうときもちものがいっぱいだった
