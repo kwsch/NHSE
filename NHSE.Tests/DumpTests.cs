@@ -7,7 +7,7 @@ namespace NHSE.Tests
     {
         private const string RepoPath = @"C:\Users\Kurt\Documents\GitHub";
         private const string PatchDumpPath = @"D:\Kurt\Desktop\ac\" + PatchFolderName;
-        private const string PatchFolderName = "v110";
+        private const string PatchFolderName = "v111";
         private const string MessageDumpFormat = @"Message\String_{0}";
 
         [Fact]
