@@ -193,6 +193,9 @@
   <data name="BanbooShoot" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIcon\BanbooShoot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BasketHalloween" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\BasketHalloween.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="BdayCupcake" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIcon\BdayCupcake.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -328,6 +331,9 @@
   <data name="Candy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIcon\Candy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Candyfloss" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Candyfloss.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Cap" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIcon\Cap.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -462,6 +468,9 @@
   </data>
   <data name="Chinanago" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIcon\Chinanago.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Chitoseame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Chitoseame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="chn00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\chn00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1354,6 +1363,9 @@
   <data name="Hyacinth6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIcon\Hyacinth6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Icecandy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Icecandy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="InsAburazemi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIcon\InsAburazemi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -1674,6 +1686,9 @@
   </data>
   <data name="Kurumaebi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIcon\Kurumaebi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lantern" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Lantern.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="leaf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Misc\leaf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -2724,6 +2739,9 @@
   </data>
   <data name="Tambourine" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIcon\Tambourine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tapioca" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIcon\Tapioca.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Tarabagani" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIcon\Tarabagani.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
