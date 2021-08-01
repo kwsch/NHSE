@@ -78,7 +78,7 @@ namespace NHSE.Core
                 for (int y = 0; y < FieldItemLayer.FieldItemHeight; y++)
                 {
                     var tile = tiles.GetTile(x, y);
-                    var isActive = IsActive(ofs, x, y);
+                    var isActive = GetIsActive(ofs, x, y);
                     if (!isActive)
                         continue;
 
@@ -89,8 +89,12 @@ namespace NHSE.Core
             }
         }
 
-        public bool IsActive(bool baseLayer, int x, int y) => IsActive(baseLayer ? SAV.FieldItemFlag1 : SAV.FieldItemFlag2, x, y);
-        private bool IsActive(int ofs, int x, int y) => FlagUtil.GetFlag(SAV.Data, ofs, (y * FieldItemLayer.FieldItemWidth) + x);
+        public bool GetIsActive(bool baseLayer, int x, int y)             => GetIsActive(baseLayer ? SAV.FieldItemFlag1 : SAV.FieldItemFlag2, x, y);
+        public void SetIsActive(bool baseLayer, int x, int y, bool value) => SetIsActive(baseLayer ? SAV.FieldItemFlag1 : SAV.FieldItemFlag2, x, y, value);
+
+        private bool GetIsActive(int ofs, int x, int y)             => FlagUtil.GetFlag(SAV.Data, ofs, (y * FieldItemLayer.FieldItemWidth) + x);
+        private void SetIsActive(int ofs, int x, int y, bool value) => FlagUtil.SetFlag(SAV.Data, ofs, (y * FieldItemLayer.FieldItemWidth) + x, value);
+
         public bool IsOccupied(int x, int y) => !Layer1.GetTile(x, y).IsNone || !Layer2.GetTile(x, y).IsNone;
     }
 }

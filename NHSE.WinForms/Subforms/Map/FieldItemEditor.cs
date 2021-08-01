@@ -298,6 +298,9 @@ namespace NHSE.WinForms
                 return;
             var str = GameInfo.Strings;
             var name = str.GetItemName(tile);
+            bool active = Map.Items.GetIsActive(NUD_Layer.Value == 0, x, y);
+            if (active)
+                name = $"{name} [Active]";
             TT_Hover.SetToolTip(PB_Acre, name);
             SetCoordinateText(x, y);
         }
@@ -580,6 +583,34 @@ namespace NHSE.WinForms
                 var tile = Map.Terrain.GetTile(x / 2, y / 2);
                 DeleteTile(tile);
             }
+        }
+
+        private bool hasActivate = true;
+
+        private void CM_Click_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!RB_Item.Checked)
+            {
+                if (hasActivate)
+                    CM_Click.Items.Remove(Menu_Activate);
+                hasActivate = false;
+                return;
+            }
+
+            var isBase = NUD_Layer.Value == 0;
+            var x = View.X + HoverX;
+            var y = View.Y + HoverY;
+            Menu_Activate.Text = Map.Items.GetIsActive(isBase, x, y) ? "Inactivate" : "Activate";
+            CM_Click.Items.Add(Menu_Activate);
+            hasActivate = true;
+        }
+
+        private void Menu_Activate_Click(object sender, EventArgs e)
+        {
+            var x = View.X + HoverX;
+            var y = View.Y + HoverY;
+            var isBase = NUD_Layer.Value == 0;
+            Map.Items.SetIsActive(isBase, x, y, !Map.Items.GetIsActive(isBase, x, y));
         }
 
         private void B_Up_Click(object sender, EventArgs e)
