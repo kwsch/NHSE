@@ -39,7 +39,7 @@ namespace NHSE.WinForms
             IReadOnlyList<Item> items;
             int sizeX;
             int sizeY;
-            if (type == SpawnType.SequentialDIY)
+            if (type is SpawnType.SequentialDIY or SpawnType.AlphabeticalDIY)
             {
                 var min = (ushort)NUD_DIYStart.Value;
                 var max = (ushort)NUD_DIYStop.Value;
@@ -47,6 +47,9 @@ namespace NHSE.WinForms
                     .Where(z => min <= z.Key && z.Key <= max)
                     .Select(z => z.Key)
                     .Select(z => new Item(Item.DIYRecipe) {FreeParam = z});
+
+                if (type == SpawnType.AlphabeticalDIY)
+                    diy = diy.OrderBy(x => GameInfo.Strings.GetItemName(x));
 
                 items = Enumerable.Repeat(diy, count).SelectMany(z => z).ToArray();
                 sizeX = sizeY = 2;
@@ -145,11 +148,12 @@ namespace NHSE.WinForms
         private void CB_SpawnType_SelectedIndexChanged(object sender, EventArgs e)
         {
             var index = (SpawnType)CB_SpawnType.SelectedIndex;
-            L_DIYStart.Visible = L_DIYStop.Visible = NUD_DIYStart.Visible = NUD_DIYStop.Visible = index == SpawnType.SequentialDIY;
+            L_DIYStart.Visible = L_DIYStop.Visible = NUD_DIYStart.Visible = NUD_DIYStop.Visible = index is SpawnType.SequentialDIY or SpawnType.AlphabeticalDIY;
             L_NHI.Visible = L_NHIFileName.Visible = index == SpawnType.ItemsFromNHI;
             NUD_SpawnCount.Value = index switch
             {
                 SpawnType.SequentialDIY => 1,
+                SpawnType.AlphabeticalDIY => 1,
                 SpawnType.ItemsFromNHI => 1,
                 _ => 8,
             };
@@ -179,6 +183,7 @@ namespace NHSE.WinForms
         {
             ItemFromEditor,
             SequentialDIY,
+            AlphabeticalDIY,
             ItemsFromNHI,
         }
 
