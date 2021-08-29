@@ -26,6 +26,7 @@ namespace NHSE.WinForms
                 LB_Items.Items.Add(GetPatternSummary(p));
 
             LB_Items.SelectedIndex = 0;
+            SetCM_DLDesign();
         }
 
         private void B_Cancel_Click(object sender, EventArgs e) => Close();
@@ -44,10 +45,12 @@ namespace NHSE.WinForms
         }
 
         private static string GetPatternSummary(DesignPattern p) => p.DesignName;
+        private static void ShowContextMenuBelow(ToolStripDropDown c, Control n) => c.Show(n.PointToScreen(new Point(0, n.Height)));
+        private void B_DumpLoadDesign_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_DLDesign, B_DumpLoadDesign);
 
         private void B_DumpDesign_Click(object sender, EventArgs e)
         {
-            if (ModifierKeys == Keys.Shift)
+            if ((string)((System.Windows.Forms.ToolStripMenuItem)sender).Name == "B_DumpDesignAll")
             {
                 using var fbd = new FolderBrowserDialog();
                 if (fbd.ShowDialog() != DialogResult.OK)
@@ -76,7 +79,7 @@ namespace NHSE.WinForms
 
         private void B_LoadDesign_Click(object sender, EventArgs e)
         {
-            if (ModifierKeys == Keys.Shift)
+            if ((string)((System.Windows.Forms.ToolStripMenuItem)sender).Name == "B_LoadDesignAll")
             {
                 using var fbd = new FolderBrowserDialog();
                 if (fbd.ShowDialog() != DialogResult.OK)
@@ -85,8 +88,10 @@ namespace NHSE.WinForms
                 var dir = Path.GetDirectoryName(fbd.SelectedPath);
                 if (dir == null || !Directory.Exists(dir))
                     return;
-                Patterns.Load(fbd.SelectedPath);
-                LoadPattern(Patterns[0]);
+                var result = WinFormsUtil.Prompt(MessageBoxButtons.YesNoCancel, MessageStrings.MsgAskUpdateValues);
+                Patterns.Load(fbd.SelectedPath, result == DialogResult.Yes);
+                LoadPattern(Patterns[Index]);
+                RepopulateList(Index);
                 return;
             }
 
@@ -125,6 +130,16 @@ namespace NHSE.WinForms
 
             Patterns[Index] = d;
             LoadPattern(d);
+            RepopulateList(Index);
+        }
+
+        private void RepopulateList(int index)
+        {
+            LB_Items.Items.Clear();
+            foreach (var p in Patterns)
+                LB_Items.Items.Add(GetPatternSummary(p));
+            LB_Items.SelectedIndex = index;
+            return;
         }
 
         private void LoadPattern(DesignPattern designPattern)
