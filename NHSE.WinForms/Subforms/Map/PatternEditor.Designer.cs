@@ -34,14 +34,19 @@
             this.LB_Items = new System.Windows.Forms.ListBox();
             this.PB_Palette = new System.Windows.Forms.PictureBox();
             this.L_PatternName = new System.Windows.Forms.Label();
-            this.B_LoadDesign = new System.Windows.Forms.Button();
-            this.B_DumpDesign = new System.Windows.Forms.Button();
+            this.B_DumpLoadDesign = new System.Windows.Forms.Button();
+            this.CM_DLDesign = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.B_DumpDesign = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_DumpDesignAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_LoadDesign = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_LoadDesignAll = new System.Windows.Forms.ToolStripMenuItem();
             this.PB_Pattern = new System.Windows.Forms.PictureBox();
             this.CM_Picture = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Menu_SavePNG = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Palette)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Pattern)).BeginInit();
             this.CM_Picture.SuspendLayout();
+            this.CM_DLDesign.SuspendLayout();
             this.SuspendLayout();
             // 
             // B_Save
@@ -96,27 +101,52 @@
             this.L_PatternName.TabIndex = 33;
             this.L_PatternName.Text = "*PatternName";
             // 
-            // B_LoadDesign
+            // B_DumpLoadDesign
             // 
-            this.B_LoadDesign.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.B_LoadDesign.Location = new System.Drawing.Point(266, 276);
-            this.B_LoadDesign.Name = "B_LoadDesign";
-            this.B_LoadDesign.Size = new System.Drawing.Size(92, 40);
-            this.B_LoadDesign.TabIndex = 32;
-            this.B_LoadDesign.Text = "Load Design";
-            this.B_LoadDesign.UseVisualStyleBackColor = true;
-            this.B_LoadDesign.Click += new System.EventHandler(this.B_LoadDesign_Click);
+            this.B_DumpLoadDesign.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.B_DumpLoadDesign.ContextMenuStrip = this.CM_DLDesign;
+            this.B_DumpLoadDesign.Location = new System.Drawing.Point(168, 276);
+            this.B_DumpLoadDesign.Name = "B_DumpLoadDesign";
+            this.B_DumpLoadDesign.Size = new System.Drawing.Size(92, 40);
+            this.B_DumpLoadDesign.TabIndex = 31;
+            this.B_DumpLoadDesign.Text = "Dump/Import";
+            this.B_DumpLoadDesign.UseVisualStyleBackColor = true;
+            this.B_DumpLoadDesign.Click += new System.EventHandler(this.B_DumpLoadDesign_Click);
+            // 
+            // CM_DLDesign
+            // 
+            this.CM_DLDesign.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.CM_DLDesign.Name = "CM_DLDesign";
+            this.CM_DLDesign.ShowImageMargin = false;
+            this.CM_DLDesign.Size = new System.Drawing.Size(93, 92);
             // 
             // B_DumpDesign
             // 
-            this.B_DumpDesign.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.B_DumpDesign.Location = new System.Drawing.Point(168, 276);
             this.B_DumpDesign.Name = "B_DumpDesign";
-            this.B_DumpDesign.Size = new System.Drawing.Size(92, 40);
-            this.B_DumpDesign.TabIndex = 31;
+            this.B_DumpDesign.Size = new System.Drawing.Size(92, 22);
             this.B_DumpDesign.Text = "Dump Design";
-            this.B_DumpDesign.UseVisualStyleBackColor = true;
             this.B_DumpDesign.Click += new System.EventHandler(this.B_DumpDesign_Click);
+            // 
+            // B_DumpDesignAll
+            // 
+            this.B_DumpDesignAll.Name = "B_DumpDesignAll";
+            this.B_DumpDesignAll.Size = new System.Drawing.Size(92, 22);
+            this.B_DumpDesignAll.Text = "Dump All Designs";
+            this.B_DumpDesignAll.Click += new System.EventHandler(this.B_DumpDesign_Click);
+            // 
+            // B_LoadDesign
+            // 
+            this.B_LoadDesign.Name = "B_LoadDesign";
+            this.B_LoadDesign.Size = new System.Drawing.Size(92, 22);
+            this.B_LoadDesign.Text = "Load Design";
+            this.B_LoadDesign.Click += new System.EventHandler(this.B_LoadDesign_Click);
+            // 
+            // B_LoadDesignAll
+            // 
+            this.B_LoadDesignAll.Name = "B_LoadDesignAll";
+            this.B_LoadDesignAll.Size = new System.Drawing.Size(92, 22);
+            this.B_LoadDesignAll.Text = "Load All Designs";
+            this.B_LoadDesignAll.Click += new System.EventHandler(this.B_LoadDesign_Click);
             // 
             // PB_Pattern
             // 
@@ -153,8 +183,7 @@
             this.ClientSize = new System.Drawing.Size(592, 328);
             this.Controls.Add(this.PB_Palette);
             this.Controls.Add(this.L_PatternName);
-            this.Controls.Add(this.B_LoadDesign);
-            this.Controls.Add(this.B_DumpDesign);
+            this.Controls.Add(this.B_DumpLoadDesign);
             this.Controls.Add(this.PB_Pattern);
             this.Controls.Add(this.LB_Items);
             this.Controls.Add(this.B_Cancel);
@@ -168,6 +197,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PB_Palette)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Pattern)).EndInit();
             this.CM_Picture.ResumeLayout(false);
+            this.CM_DLDesign.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,8 +209,12 @@
         private System.Windows.Forms.ListBox LB_Items;
         private System.Windows.Forms.PictureBox PB_Palette;
         private System.Windows.Forms.Label L_PatternName;
-        private System.Windows.Forms.Button B_LoadDesign;
-        private System.Windows.Forms.Button B_DumpDesign;
+        private System.Windows.Forms.Button B_DumpLoadDesign;
+        private System.Windows.Forms.ContextMenuStrip CM_DLDesign;
+        private System.Windows.Forms.ToolStripMenuItem B_DumpDesign;
+        private System.Windows.Forms.ToolStripMenuItem B_DumpDesignAll;
+        private System.Windows.Forms.ToolStripMenuItem B_LoadDesign;
+        private System.Windows.Forms.ToolStripMenuItem B_LoadDesignAll;
         private System.Windows.Forms.PictureBox PB_Pattern;
         private System.Windows.Forms.ContextMenuStrip CM_Picture;
         private System.Windows.Forms.ToolStripMenuItem Menu_SavePNG;
