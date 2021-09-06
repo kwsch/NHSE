@@ -29,6 +29,14 @@ namespace NHSE.WinForms
             SetCM_DLDesign();
         }
 
+        private void SetCM_DLDesign()
+        {
+            var arr = LB_Items.Items.Count == 0
+                ? new ToolStripItem[] { B_DumpDesign, B_LoadDesign }
+                : new ToolStripItem[] { B_DumpDesign, B_DumpDesignAll, B_LoadDesign, B_LoadDesignAll };
+            CM_DLDesign.Items.AddRange(arr);
+        }
+
         private void B_Cancel_Click(object sender, EventArgs e) => Close();
 
         private void B_Save_Click(object sender, EventArgs e)
@@ -50,7 +58,7 @@ namespace NHSE.WinForms
 
         private void B_DumpDesign_Click(object sender, EventArgs e)
         {
-            if ((string)((System.Windows.Forms.ToolStripMenuItem)sender).Name == "B_DumpDesignAll")
+            if (sender == B_DumpDesignAll)
             {
                 using var fbd = new FolderBrowserDialog();
                 if (fbd.ShowDialog() != DialogResult.OK)
@@ -79,7 +87,7 @@ namespace NHSE.WinForms
 
         private void B_LoadDesign_Click(object sender, EventArgs e)
         {
-            if ((string)((System.Windows.Forms.ToolStripMenuItem)sender).Name == "B_LoadDesignAll")
+            if (sender == B_LoadDesignAll)
             {
                 using var fbd = new FolderBrowserDialog();
                 if (fbd.ShowDialog() != DialogResult.OK)
@@ -139,7 +147,6 @@ namespace NHSE.WinForms
             foreach (var p in Patterns)
                 LB_Items.Items.Add(GetPatternSummary(p));
             LB_Items.SelectedIndex = index;
-            return;
         }
 
         private void LoadPattern(DesignPattern designPattern)

@@ -248,24 +248,6 @@
 
         }
 
-        private void SetCM_DLDesign()
-        {
-            if (LB_Items.Items.Count == 0)
-            {
-                this.CM_DLDesign.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.B_DumpDesign,
-                this.B_LoadDesign});
-            }
-            else
-            {
-                this.CM_DLDesign.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.B_DumpDesign,
-                this.B_DumpDesignAll,
-                this.B_LoadDesign,
-                this.B_LoadDesignAll});
-            }
-        }
-
         #endregion
         private System.Windows.Forms.Button B_Save;
         private System.Windows.Forms.Button B_Cancel;

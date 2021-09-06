@@ -181,8 +181,8 @@ namespace NHSE.Core
         /// </summary>
         /// <param name="patterns">Patterns to load</param>
         /// <param name="path">Path to load from</param>
-        /// <param name="changeorigins">change origins of Patterns</param>
-        public static void Load(this DesignPattern[] patterns, string path, bool changeorigins)
+        /// <param name="changeOrigins">Change origins of Patterns</param>
+        public static void Load(this DesignPattern[] patterns, string path, bool changeOrigins)
         {
             if (patterns.Length == 0)
                 return;
@@ -197,7 +197,8 @@ namespace NHSE.Core
 
                 var data = File.ReadAllBytes(f);
                 var p = new DesignPattern(data);
-                if(changeorigins) p.ChangeOrigins(patterns[ctr], data);
+                if (changeOrigins)
+                    p.ChangeOrigins(patterns[ctr], data);
                 patterns[ctr] = p;
                 if (++ctr >= patterns.Length)
                     break;
@@ -237,8 +238,8 @@ namespace NHSE.Core
         /// </summary>
         /// <param name="patterns">Patterns to load</param>
         /// <param name="path">Path to load from</param>
-        /// <param name="changeorigins">change origins of Patterns</param>
-        public static void Load(this DesignPatternPRO[] patterns, string path, bool changeorigins)
+        /// <param name="changeOrigins">Change origins of Patterns</param>
+        public static void Load(this DesignPatternPRO[] patterns, string path, bool changeOrigins)
         {
             if (patterns.Length == 0)
                 return;
@@ -253,7 +254,8 @@ namespace NHSE.Core
 
                 var data = File.ReadAllBytes(f);
                 var p = new DesignPatternPRO(data);
-                if (changeorigins) p.ChangeOrigins(patterns[ctr], data);
+                if (changeOrigins)
+                    p.ChangeOrigins(patterns[ctr], data);
                 patterns[ctr] = p;
                 if (++ctr >= patterns.Length)
                     break;
