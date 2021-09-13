@@ -6,18 +6,18 @@ NHSE
 
 ![License](https://img.shields.io/badge/License-GPLv3-blue.svg)
 
-Save Editor for Animal Crossing: New Horizons
+Editor de partidas guardadas para Animal Crossing: New Horizons
 
-Edits savedata dumped from the Nintendo Switch. 
-* Bring your own save file data; this program does not dump it from your console.
+Permite editar partidas guardadas extraídas del Nintendo Switch.
+* Debes extraer las partidas guardadas de la consla tu mismo, este programa no las extrae por ti.
 
-## See Also
+## Véase también
 
-[MyHorizons](https://github.com/Cuyler36/MyHorizons) by [Cuyler36](https://github.com/Cuyler36/)
-* Some portions of code are liberally adapted from Cuyler36's project above.
+[MyHorizons](https://github.com/Cuyler36/MyHorizons) de [Cuyler36](https://github.com/Cuyler36/)
+* Partes del código fueron adaptadas del proyecto MyHorizons de Cuyler36
 
-## Other
+## Otro
 
-Refer to the [Wiki](https://github.com/kwsch/NHSE/wiki) for more information.
+Dirígete a la [Wiki](https://github.com/kwsch/NHSE/wiki) para más información.
 
-**We do not support or condone cheating at the expense of others.** Please be responsible!
+**Nosotros no apoyamos ni toleramos hacer trampas para aprovecharse de otros.** Por favor juega de manera justa!
