@@ -66,7 +66,8 @@ namespace NHSE.WinForms
                 var dir = Path.GetDirectoryName(fbd.SelectedPath);
                 if (dir == null || !Directory.Exists(dir))
                     return;
-                Patterns.Dump(fbd.SelectedPath);
+                bool indexed = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgAskExportResultsWithFileIndex) == DialogResult.Yes;
+                Patterns.Dump(fbd.SelectedPath, indexed);
                 return;
             }
 

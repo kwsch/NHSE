@@ -14,6 +14,7 @@ namespace NHSE.WinForms
         public static string MsgAskContinue { get; set; } = "Continue?";
         public static string MsgAskWriteAnyway { get; set; } = "Write anyway?";
         public static string MsgAskExportResultToClipboard { get; set; } = "Export results to clipboard?";
+        public static string MsgAskExportResultsWithFileIndex { get; set; } = "Export results with file index at the front of the file name?";
         public static string MsgCanceling { get; set; } = "Canceling:";
         public static string MsgInvalidHexValue { get; set; } = "Bad hex value.";
         public static string MsgImportDirectoryDoesNotExist { get; set; } = "Directory does not exist!";

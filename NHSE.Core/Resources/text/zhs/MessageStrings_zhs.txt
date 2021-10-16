@@ -7,6 +7,7 @@ MsgAskUpdateValues=更新数值？
 MsgAskContinue=继续？
 MsgAskWriteAnyway=强行写入？
 MsgAskExportResultToClipboard=导出结果到剪贴板？
+MsgAskExportResultsWithFileIndex=Export results with file index at the front of the file name?
 MsgCanceling=取消中:
 MsgInvalidHexValue=无效的16进制值。
 MsgImportDirectoryDoesNotExist=文件夹不存在！

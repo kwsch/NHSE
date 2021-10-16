@@ -7,6 +7,7 @@ MsgAskUpdateValues=Update values?
 MsgAskContinue=Continue?
 MsgAskWriteAnyway=Write anyway?
 MsgAskExportResultToClipboard=Export results to clipboard?
+MsgAskExportResultsWithFileIndex=Export results with file index at the front of the file name?
 MsgCanceling=Canceling:
 MsgInvalidHexValue=Bad hex value.
 MsgImportDirectoryDoesNotExist=Directory does not exist!
