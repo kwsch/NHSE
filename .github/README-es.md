@@ -9,12 +9,12 @@ NHSE
 Editor de partidas guardadas para Animal Crossing: New Horizons
 
 Permite editar partidas guardadas extraídas del Nintendo Switch.
-* Debes extraer las partidas guardadas de la consla tu mismo, este programa no las extrae por ti.
+* Debes extraer las partidas guardadas de la consola tu mismo, este programa no las extrae por ti.
 
 ## Véase también
 
 [MyHorizons](https://github.com/Cuyler36/MyHorizons) de [Cuyler36](https://github.com/Cuyler36/)
-* Partes del código fueron adaptadas del proyecto MyHorizons de Cuyler36
+* Algunas partes del código fueron adaptadas del proyecto MyHorizons de Cuyler36 (arriba)
 
 ## Otro
 
