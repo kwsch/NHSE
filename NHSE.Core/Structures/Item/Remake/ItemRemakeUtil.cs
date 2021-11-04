@@ -1422,7 +1422,6 @@ namespace NHSE.Core
             {13250, 1210}, // mini circuit
             {13251, 1200}, // dinosaur toy
             {13252, 1205}, // dollhouse
-            {13352, 1157}, // spooky tower
             {13255, 1221}, // elaborate display case
             {13266, 1228}, // owl clock
             {13268, 1252}, // covered wagon
