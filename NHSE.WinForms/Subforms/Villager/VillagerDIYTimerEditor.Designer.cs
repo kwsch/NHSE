@@ -56,7 +56,7 @@ namespace NHSE.WinForms
             this.DT_Time.Location = new System.Drawing.Point(91, 38);
             this.DT_Time.Name = "DT_Time";
             this.DT_Time.ShowUpDown = true;
-            this.DT_Time.Size = new System.Drawing.Size(78, 20);
+            this.DT_Time.Size = new System.Drawing.Size(92, 20);
             this.DT_Time.TabIndex = 2;
             this.DT_Time.ValueChanged += new System.EventHandler(this.DT_Time_ValueChanged);
             // 
@@ -122,7 +122,10 @@ namespace NHSE.WinForms
             this.Controls.Add(this.L_EndTime);
             this.Controls.Add(this.DT_Time);
             this.Controls.Add(this.CHK_Crafting);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = global::NHSE.WinForms.Properties.Resources.icon;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "VillagerDIYTimerEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Villager DIY Editor";
