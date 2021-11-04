@@ -36,7 +36,7 @@ namespace NHSE.Tests
 
         [Theory]
         [InlineData("royal Crown", 0x14BB)]
-        [InlineData("royal crown (red)", 0x14BB)]
+        [InlineData("royal crown (No Variations)", 0x14BB)]
         [InlineData("bug aloha shirt ", 0x223C)]
         [InlineData("quaint painting", 0xA)]
         [InlineData("(none)", Item.NONE)]
