@@ -6,6 +6,7 @@
     public enum ItemSizeType : byte
     {
         S_0_5x1_0_Wall,
+        S_0x2B28C88F,
         S_1_0x0_5,
         S_1_0x0_5_Wall,
         S_1_0x1_0,
