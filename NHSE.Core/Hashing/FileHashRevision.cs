@@ -564,5 +564,58 @@
         public static readonly FileHashInfo REV_1110 = REV_1100;
 
         #endregion
+
+        #region REVISION 2.0.0
+
+        internal const int REV_200_MAIN = 0x8F1BB0;
+        internal const int REV_200_PERSONAL = 0x6A520;
+        internal const int REV_200_POSTBOX = REV_170_POSTBOX;
+        internal const int REV_200_PHOTO = 0x2F650;
+        internal const int REV_200_PROFILE = REV_110_PROFILE;
+
+        public static readonly FileHashInfo REV_200 = new(new FileHashDetails[]
+        {
+            new(FN_MAIN, REV_200_MAIN, new FileHashRegion[]
+            {
+                new(0x000110, 0x1e339c),
+                new(0x1e34b0, 0x36406c),
+                new(0x547630, 0x03693c),
+                new(0x57df70, 0x033acc),
+                new(0x5b1b50, 0x03693c),
+                new(0x5e8490, 0x033acc),
+                new(0x61c070, 0x03693c),
+                new(0x6529b0, 0x033acc),
+                new(0x686590, 0x03693c),
+                new(0x6bced0, 0x033acc),
+                new(0x6f0ab0, 0x03693c),
+                new(0x7273f0, 0x033acc),
+                new(0x75afd0, 0x03693c),
+                new(0x791910, 0x033acc),
+                new(0x7c54f0, 0x03693c),
+                new(0x7fbe30, 0x033acc),
+                new(0x82fa10, 0x03693c),
+                new(0x866350, 0x033acc),
+                new(0x899e20, 0x057d8c),
+            }),
+            new(FN_PERSONAL, REV_200_PERSONAL, new FileHashRegion[]
+            {
+                new(0x00110, 0x3693c),
+                new(0x36a50, 0x33acc),
+            }),
+            new(FN_POSTBOX, REV_200_POSTBOX, new FileHashRegion[]
+            {
+                new(0x100, 0x4732c),
+            }),
+            new(FN_PHOTO, REV_200_PHOTO, new FileHashRegion[]
+            {
+                new(0x100, 0x2f54c),
+            }),
+            new(FN_PROFILE, REV_200_PROFILE, new FileHashRegion[]
+            {
+                new(0x100, 0x6945c),
+            }),
+        });
+
+        #endregion
     }
 }

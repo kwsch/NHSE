@@ -2,6 +2,7 @@ ant00	Cirano
 ant01	Antonio
 ant02	Carlotta
 ant03	Annalisa
+ant05	Zoe
 ant06	Lucrezia
 ant08	Anita
 ant09	Ettore
@@ -28,6 +29,7 @@ brd04	Brivido
 brd05	Giuliva
 brd06	Adolfo
 brd08	Minù
+brd09	Asso
 brd11	Valerio
 brd15	Loreto
 brd16	Zampiero
@@ -96,6 +98,7 @@ crd00	Alfonso
 crd01	Alli
 crd02	Crocco
 crd04	Krokki
+crd05	Ulfo
 crd06	Driberto
 crd07	Codrilla
 crd08	Dragonio
@@ -110,6 +113,7 @@ der07	Gigi
 der08	Diana
 der09	Cervasio
 der10	Chelsea
+der11	Sakura
 dog00	Dora
 dog01	Attila
 dog02	Felice
@@ -121,6 +125,7 @@ dog07	Fiorella
 dog08	Briciola
 dog09	Cristina
 dog10	Cucciola
+dog11	Lionello
 dog14	Teo
 dog15	Giosuè
 dog16	Bernardo
@@ -199,6 +204,7 @@ ham04	Cettina
 ham05	Carmelo
 ham06	Meringa
 ham07	Nerone
+ham09	Goffredo
 hip00	Rocco
 hip02	Ippolita
 hip03	Umberta
@@ -227,6 +233,7 @@ kal02	Melba
 kal03	Sidney
 kal04	Gonzo
 kal05	Ozzy
+kal07	Calipso
 kal08	Canberra
 kal09	Nicola
 kal10	Corrado
@@ -253,6 +260,7 @@ mnk05	Elisa
 mnk06	Benny
 mnk07	Ninì
 mnk08	Bobo
+mnk09	Tiansheng
 mus00	Serena
 mus01	Rosico
 mus02	Bella
@@ -268,13 +276,16 @@ mus15	Rattina
 mus16	Greta
 mus17	Penelope
 mus18	Gruviero
+mus19	Petronilla
 ocp00	Ottavio
 ocp01	Marina
 ocp02	Poldo
+ocp04	Polpobot
 ost00	Regina
 ost01	Marta
 ost02	Alessia
 ost03	Frankie
+ost04	Rita
 ost05	Giulia
 ost06	Carmine
 ost07	Enzo
@@ -290,6 +301,7 @@ pbr06	Frank
 pbr07	Beccodì
 pbr08	Aquilio
 pbr09	Celia
+pbr10	Astro
 pgn00	Aurora
 pgn01	Angelino
 pgn02	Cubetto
@@ -297,6 +309,7 @@ pgn03	Pinguaio
 pgn04	Frida
 pgn05	Gelinda
 pgn06	Glacido
+pgn07	Ottone
 pgn09	Plinio
 pgn10	Icaro
 pgn11	Piccio
@@ -339,10 +352,12 @@ rbt17	Lolly
 rbt18	Lello
 rbt19	Martina
 rbt20	Toby
+rbt21	Sasha
 rhn00	Rinaldo
 rhn01	Roby
 rhn02	Bruto
 rhn04	Rino
+rhn05	Ortensia
 rhn07	Irina
 rhn08	Renata
 shp00	Lanella
@@ -377,6 +392,7 @@ squ15	Granella
 squ16	Frugolo
 squ17	Scott
 squ18	Cigliola
+squ21	Pervinca
 tig00	Rolf
 tig01	Ernesto
 tig02	Ubaldo
@@ -405,6 +421,7 @@ bpt	Vanda
 chm	Gustavo
 chy	Ivano
 cml	Sahara
+cmlB	Sahara
 dga	Birro
 dgb	Fido
 doc	Dodoardo
@@ -424,21 +441,26 @@ kpm	Ramona
 kpp	Remo
 kps	Romina
 lom	Micetta
+man	Gedeone
 mka	Blanca
+mnc	Gilbertuccio
 mnk	Ciufciuf
 mob	Don
 mol	Resetti
 otg	Casimira
+otgB	Casimira
 ott	Frodolo
 owl	Blatero
 ows	Celeste
 pck	Pavão
 pge	Bartolo
+pgeB	Bartolo
 pkn	Fifonio
 plk	Pelly
 plm	Polly
 plo	Tino
 poo	Bigodina
+pooB	Bigodina
 pyn	Ovidio
 rcm	Mirco
 rco	Tom Nook
@@ -454,6 +476,7 @@ tap	Sonia
 tkkA	K.K.
 tkkB	DJ K.K.
 ttlA	Tortimer
+ttlB	Ghiandy
 tuk	Cedrone
 upa	Strizzo
 wrl	Van Trik

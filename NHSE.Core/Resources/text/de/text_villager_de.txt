@@ -2,6 +2,7 @@ ant00	Theo
 ant01	Siggi
 ant02	Mathilda
 ant03	Annabell
+ant05	Zoe
 ant06	Hilde
 ant08	Annalena
 ant09	Olaf
@@ -28,6 +29,7 @@ brd04	Alex
 brd05	Iris
 brd06	Ansgar
 brd08	Anna
+brd09	Helge
 brd11	Jesko
 brd15	Lukas
 brd16	Pierre
@@ -96,6 +98,7 @@ crd00	Markus
 crd01	Ali
 crd02	Tilmann
 crd04	Krokki
+crd05	Juri
 crd06	Steve
 crd07	Rosa
 crd08	Frederik
@@ -110,6 +113,7 @@ der07	Martin
 der08	Vroni
 der09	Erik
 der10	Chelsea
+der11	Yoshino
 dog00	Bienchen
 dog01	Hasso
 dog02	Viktor
@@ -121,6 +125,7 @@ dog07	Doris
 dog08	Rosi
 dog09	Agnes
 dog10	Bea
+dog11	Jupp
 dog14	Wuffi
 dog15	Ronaldo
 dog16	Wastl
@@ -199,6 +204,7 @@ ham04	Samira
 ham05	Dietmar
 ham06	Emilie
 ham07	Heinrich
+ham09	Marlo
 hip00	Richi
 hip02	Christin
 hip03	Berta
@@ -227,6 +233,7 @@ kal02	Kornelia
 kal03	Silke
 kal04	Heribert
 kal05	Oskar
+kal07	Finchen
 kal08	Caroline
 kal09	Pepe
 kal10	Sunny
@@ -253,6 +260,7 @@ mnk05	Steffi
 mnk06	Pippo
 mnk07	Uta
 mnk08	Anton
+mnk09	Tiansheng
 mus00	Dora
 mus01	Rafael
 mus02	Susi
@@ -268,13 +276,16 @@ mus15	Schoki
 mus16	Gretel
 mus17	Penelope
 mus18	Charlie
+mus19	Pipette
 ocp00	Ottfried
 ocp01	Marianne
 ocp02	Ottokar
+ocp04	Tentatron
 ost00	Isabella
 ost01	Sandra
 ost02	Senta
 ost03	Lutz
+ost04	Verona
 ost05	Julia
 ost06	Guido
 ost07	Ingo
@@ -290,6 +301,7 @@ pbr06	Arthur
 pbr07	Horst
 pbr08	Kai
 pbr09	Lora
+pbr10	Kim
 pgn00	Sonja
 pgn01	Roland
 pgn02	Cube
@@ -297,6 +309,7 @@ pgn03	Hauke
 pgn04	Frieda
 pgn05	Judith
 pgn06	Puck
+pgn07	Achim
 pgn09	Staksi
 pgn10	Max
 pgn11	Pingi
@@ -339,10 +352,12 @@ rbt17	Henrike
 rbt18	Karl
 rbt19	Mira
 rbt20	Toby
+rbt21	Gerrit
 rhn00	Frank
 rhn01	Regina
 rhn02	Atze
 rhn04	Rüdiger
+rhn05	Jasmin
 rhn07	Maria
 rhn08	Ilona
 shp00	Dolly
@@ -377,6 +392,7 @@ squ15	Trita
 squ16	Steffen
 squ17	Huschke
 squ18	Nadine
+squ21	Vega
 tig00	Boris
 tig01	Gisbert
 tig02	Arne
@@ -405,6 +421,7 @@ bpt	Smeralda
 chm	Carleon
 chy	Carlson
 cml	Aziza
+cmlB	Aziza
 dga	Harry
 dgb	Wuff
 doc	Udo
@@ -424,21 +441,26 @@ kpm	Lore
 kpp	Käpten
 kps	Lotte
 lom	Katja
+man	Sigmar
 mka	Blanka
+mnc	Bono
 mnk	Flip
 mob	Don
 mol	Resetti
 otg	Karlotta
+otgB	Karlotta
 ott	Fred
 owl	Eugen
 ows	Eufemia
 pck	Pavo
 pge	Kofi
+pgeB	Kofi
 pkn	Jakob
 plk	Pelly
 plm	Peggy
 plo	Peter
 poo	Trude
+pooB	Trude
 pyn	Ohs
 rcm	Nepp
 rco	Tom Nook
@@ -454,6 +476,7 @@ tap	Serenada
 tkkA	K.K.
 tkkB	DJ K.K.
 ttlA	Törtel
+ttlB	Eichenmann
 tuk	Gernod
 upa	Samselt
 wrl	Winci

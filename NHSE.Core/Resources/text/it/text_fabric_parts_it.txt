@@ -1,16 +1,24 @@
+00079	Colore della coperta
 00725	Carta
 00833	Adesivi
-00941	Logo
+00922	Logo
+00941	Bandierina
 00950	Adesivi
 01029	Pannello
 01032	Riviste
+01133	Colore del manico
+01222	Immagine
+01235	Lati/Retro
 01499	Fiocco
 01500	Maglia
 01501	Maglia
 01504	Fiocco
+01608	Drappo
 01620	Tessuto
 01644	Adesivo
 01645	Adesivo
+01712	Locandina
+01745	Fotocopia
 01750	Facciata dei fogli
 01778	Maglietta appesa
 01779	Colore tovaglia
@@ -19,34 +27,37 @@
 01802	Pubblicità
 01803	Grancassa
 01816	Tendina
+01820	Indumenti
 01838	Fazzoletto
 01849	Coperta
 01850	Schermo
-01861	Copertine
+01861	Genere
 01870	Motivo
 01899	Firma
-02020	Stoffa
+02020	Design della stoffa
 02561	Paralume
+02587	Colore
 02605	Colore trapunta
+02606	Piumone
 02713	Adesivi
 03200	Coperta
 03229	Camicia
 03230	Colore trapunta
 03305	Cuscino
-03307	Modello
+03307	Design della base
 03439	Colore tovaglia
 03444	Sedile
 03445	Ombrello preferito
 03449	Sedile
-03467	Tovaglietta
+03467	Tipo di tovaglietta
 03468	Motivo
 03502	Biancheria
 03561	Scialle
-03586	Tipo
+03586	Articolo
 03590	Schermo
 03617	Tenda
 03618	Strofinaccio
-03621	Coperta
+03621	Colore della coperta
 03622	Cuscino
 03692	Annuncio
 03702	Sedile
@@ -68,10 +79,11 @@
 04122	Carta da disegno
 04140	Neon
 04144	Quadrante
+04196	Tipo di semaforo
 04308	Immagine
 04445	Piano
-05338	Modello
-05397	Custodia
+05338	Tramezzo
+05397	Colore
 07047	Federa
 07048	Federa
 07132	Colore trapunta
@@ -79,6 +91,7 @@
 07150	Telone
 07151	Telone
 07152	Telone
+07154	Etichetta
 07282	Illustrazione
 07531	Asse
 07681	Tessuto
@@ -87,5 +100,145 @@
 08096	Adesivo
 08298	Biancheria
 08760	Colore
+12361	Colore della copertura
+12366	Logo sullo schienale
 12410	Tableau
-14475	Messaggio
+12605	Segnalazione
+12637	Radiografia
+12669	Design della seduta
+12679	Fogli sotto il banco
+12693	Design degli stendardi
+12699	Tipo di insegna
+12715	Immagine
+12744	Sottotovaglia
+12745	Sottotovaglia
+12782	Colore dell'ombrellone
+12879	Tipo di cartello
+12880	Insegna
+12881	Colore del vestito
+12882	Colore della maglietta
+12883	Stile esposto
+12886	Stile esposto
+12890	Drappeggio
+12892	Design
+12991	Colore della stoffa
+12994	Colore cuscino e materasso
+12995	Colore della stoffa
+12996	Colore del cuscino
+12998	Tessuto
+12999	Tessuto
+13005	Colore della seduta
+13006	Colore della superficie
+13007	Colore della superficie
+13008	Colore della stoffa
+13009	Colore della stoffa
+13010	Colore della stoffa
+13073	Stoffa
+13075	Stoffa
+13076	Stoffa
+13077	Stoffa
+13078	Stoffa
+13079	Stoffa
+13081	Tessuto
+13082	Tessuto
+13108	Tipo di oggetti
+13109	Tipo di oggetti
+13110	Indumenti
+13138	Stoffa
+13139	Copriletto
+13140	Tessuto
+13141	Stoffa
+13142	Stoffa
+13143	Tessuto
+13151	Motivo della lanterna
+13157	Immagine
+13161	Lato posteriore
+13163	Materiale informativo
+13201	Motivo interno
+13205	Merce esposta
+13207	Immagine
+13209	Schermo
+13214	Indicazione
+13220	Motivo delle lanterne
+13269	Affissioni
+13288	Stoffa
+13294	Colore dell'ombrellone
+13295	Risposta
+13296	Poggiatesta
+13299	Etichetta
+13303	Etichetta
+13336	Telo di plastica
+13337	Vecchia rivista
+13339	Camicia abbandonata
+13341	Colore del set da letto
+13345	Colore della confezione
+13347	Logo
+13356	Modello delle scatole
+13360	Etichetta
+13362	Oggetto perforato
+13363	Monitor
+13365	Decorazione della tazza
+13369	Logo
+13454	Colore della superficie
+13502	Monitor principale
+13504	Schermo
+13512	Cartellone pubblicitario
+13513	Etichetta
+13515	Logo
+13521	Monitor
+13522	Completo
+13523	Adesivo
+13582	Emblema
+13583	Colore del costume
+13584	Colore della trousse
+13586	Colore del sedile
+13589	Tema
+13590	Emblema
+13606	Etichetta
+13615	Adesivo
+13621	Adesivo
+13624	Colore del punteggio
+13630	Colore della tenda
+13631	Oggetto incorniciato
+13632	Confezione di popcorn
+13633	Colore della stoffa
+13634	Adesivi
+13636	Oggetto esposto
+13637	Colore del tessuto
+13638	Colore della stoffa
+13639	Tramezzo
+13640	Immagine
+13647	Cartello
+13651	Pergamena appesa
+13652	Variazione
+13655	Immagine
+13656	Colore
+13657	Fantasia
+13680	Colore della superficie
+13681	Colore
+13683	Colore
+13701	Colore
+13709	Etichetta
+13727	Colore
+13730	Colore della stoffa
+13744	Immagine del poster
+13746	Variazione
+13747	Testo
+13751	Foto incorniciata
+13756	Logo
+13764	Colore
+13925	Immagine
+13926	Indicazione
+14049	Logo
+14051	Opera
+14215	Tipo
+14346	Contenuto
+14475	Colore del messaggio
+14525	Etichetta
+14527	Foglio
+14572	Decorazioni per la porta
+14592	Design del coperchio
+14619	Design della tendina
+14620	Design della tendina
+14621	Contenuto
+14714	Etichetta

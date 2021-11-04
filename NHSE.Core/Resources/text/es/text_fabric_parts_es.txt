@@ -1,16 +1,24 @@
-00725	Diseño
+00079	Color de la mantita
+00725	Motivo
 00833	Pegatina
+00922	Logotipo
 00941	Frontal
 00950	Pegatina
 01029	Lateral
 01032	Revistas
+01133	Color de la barra
+01222	Vídeo
+01235	Laterales
 01499	Lazo
 01500	Camiseta
 01501	Camiseta
 01504	Lazo
+01608	Banderola
 01620	Lona
 01644	Pegatina
 01645	Pegatina
+01712	Cartel
+01745	Copias impresas
 01750	Tipo de papeles
 01778	Camiseta
 01779	Mantel
@@ -18,22 +26,25 @@
 01792	Funda
 01802	Publicidad
 01803	Bombo
-01816	Cortina
+01816	Color de la cortina
+01820	Prenda
 01838	Pañuelo
 01849	Diseño de la manta
 01850	Pantalla
-01861	Revistas
+01861	Género
 01870	Diseño
 01899	Firma favorita
 02020	Color de la tela
 02561	Color de la pantalla
+02587	Color
 02605	Edredón
+02606	Edredón
 02713	Pegatinas
 03200	Edredón
 03229	Camisa
 03230	Edredón
 03305	Asiento
-03307	Diseño
+03307	Plato
 03439	Mantel
 03444	Asiento
 03445	Paraguas favorito
@@ -42,7 +53,7 @@
 03468	Diseño
 03502	Edredón
 03561	Chal
-03586	Tipo de revista
+03586	Género
 03590	Pantalla
 03617	Toldo
 03618	Paño
@@ -68,10 +79,11 @@
 04122	Dibujo
 04140	Rótulo luminoso
 04144	Esfera del reloj
+04196	Diseño
 04308	Imagen
-04445	Bandeja
-05338	Diseño
-05397	Funda
+04445	Color de la bandeja
+05338	Motivo
+05397	Color
 07047	Tapizado
 07048	Tapizado
 07132	Edredón
@@ -79,6 +91,7 @@
 07150	Color de la lona
 07151	Color de la lona
 07152	Color de la lona
+07154	Etiquetado
 07282	Imagen
 07531	Tabla
 07681	Tejido
@@ -87,5 +100,145 @@
 08096	Pegatina
 08298	Edredones
 08760	Color
+12361	Color de la tela
+12366	Respaldo
 12410	Cartel
-14475	Texto
+12605	Tablón
+12637	Radiografía
+12669	Asiento
+12679	Documento
+12693	Color de los pendones
+12699	Motivo
+12715	Imagen
+12744	Mantel inferior
+12745	Mantel inferior
+12782	Color de la sombrilla
+12879	Diseño
+12880	Motivo
+12881	Color del vestido
+12882	Color de la camiseta
+12883	Estilo expuesto
+12886	Estilo expuesto
+12890	Paño inferior
+12892	Diseño
+12991	Color
+12994	Color de las fundas
+12995	Color
+12996	Tapizado
+12998	Tapete
+12999	Tapete
+13005	Color del asiento
+13006	Color del tablero
+13007	Color del tablero
+13008	Tapizado
+13009	Tapizado
+13010	Tapizado
+13073	Tapicería
+13075	Tapicería
+13076	Tapicería
+13077	Tapicería
+13078	Tapicería
+13079	Tapicería
+13081	Tapete
+13082	Tapete
+13108	Diseño del contenido
+13109	Diseño del contenido
+13110	Ropa guardada
+13138	Tapizado
+13139	Color de la colcha
+13140	Tela
+13141	Tapizado
+13142	Tapizado
+13143	Tela
+13151	Pantalla
+13157	Imagen
+13161	Diseño posterior
+13163	Información
+13201	Fondo
+13205	Artículos expuestos
+13207	Gráfico
+13209	Aplicación
+13214	Clasificación
+13220	Pantalla
+13269	Carteles
+13288	Tapicería
+13294	Color de la sombrilla
+13295	Respuesta
+13296	Reposacabezas
+13299	Etiquetado
+13303	Etiquetado
+13336	Revestimiento
+13337	Revistas tiradas
+13339	Color de la ropa tirada
+13341	Color de la ropa de cama
+13345	Color de la bolsa
+13347	Logotipo
+13356	Diseño de las cajas
+13360	Etiquetado
+13362	Objeto atravesado
+13363	Monitor
+13365	Diseño de la taza
+13369	Etiquetado
+13454	Color del tablero
+13502	Monitor principal
+13504	Pantalla
+13512	Anuncio
+13513	Etiquetado
+13515	Etiquetado
+13521	Monitores
+13522	Conjunto
+13523	Pegatina
+13582	Blasón
+13583	Color del bañador
+13584	Color del neceser
+13586	Color del asiento
+13589	Logo
+13590	Blasón
+13606	Etiquetado
+13615	Pegatina
+13621	Pegatina
+13624	Color de los paneles
+13630	Color de la cortina
+13631	Estampa enmarcada
+13632	Diseño del cubo
+13633	Tapizado
+13634	Etiquetado
+13636	Objeto expuesto
+13637	Color de la tela
+13638	Tapizado
+13639	Motivo
+13640	Gráfico
+13647	Cartel
+13651	Pergamino
+13652	Variación
+13655	Variación
+13656	Color
+13657	Diseño
+13680	Color del tablero
+13681	Color
+13683	Color
+13701	Color
+13709	Etiquetado
+13727	Color
+13730	Tapizado
+13744	Diseño del cartel
+13746	Variación
+13747	Texto
+13751	Foto enmarcada
+13756	Logotipo
+13764	Color
+13925	Imagen
+13926	Pictograma
+14049	Logotipo
+14051	Género artístico
+14215	Variación
+14346	Variación
+14475	Color del texto
+14525	Etiquetado
+14527	Papel
+14572	Rotulación
+14592	Diseño de la tapa
+14619	Diseño
+14620	Diseño
+14621	Contenidos
+14714	Etiquetado

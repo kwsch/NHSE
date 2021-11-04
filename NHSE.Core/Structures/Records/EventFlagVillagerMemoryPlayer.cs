@@ -77,7 +77,7 @@ namespace NHSE.Core
             {0x37, new EventFlagVillagerMemoryPlayer(0 , 255, 055, "ContinuousTalkCount"                        )}, // 連続会話回数
             {0x38, new EventFlagVillagerMemoryPlayer(0 , 255, 056, "Again2Count"                                )}, // XX_Again2を聞いた回数
             {0x39, new EventFlagVillagerMemoryPlayer(0 , 1  , 057, "TalkDIY"                                    )}, // DIY会話をした
-            {0x3A, new EventFlagVillagerMemoryPlayer(0 , 2  , 058, "HalloweenDIYGetItem"                        )}, // DIYしている時の報酬アイテムは？
+            {0x3A, new EventFlagVillagerMemoryPlayer(0 , 5  , 058, "HalloweenDIYGetItem"                        )}, // DIYしている時の報酬アイテムは？
             {0x3B, new EventFlagVillagerMemoryPlayer(0 , 1  , 059, "NewYearGreetingFlag"                        )}, // 新年（1月1日）のあいさつをした
             {0x3C, new EventFlagVillagerMemoryPlayer(0 , 1  , 060, "GotRecipeorMaterial"                        )}, // DIYレシピか素材をもらった
             {0x3D, new EventFlagVillagerMemoryPlayer(0 , 1  , 061, "GotMaterialItemFull"                        )}, // 素材をもらうときもちものがいっぱいだった
@@ -175,6 +175,16 @@ namespace NHSE.Core
             {0x9D, new EventFlagVillagerMemoryPlayer(0 , 1  , 157, "EasterExchangeEggFlag"                      )}, // 一般NPC/イースターこのNPCとたまご交換した？
             {0x9E, new EventFlagVillagerMemoryPlayer(0 , 1  , 158, "EasterExchangeEggTalkFlag"                  )}, // 一般NPC/イースター|このNPCとたまご交換の会話をした？
             {0x9F, new EventFlagVillagerMemoryPlayer(0 , 1  , 159, "EasterCannotGetNnpcIsRecipeFlag"            )}, // イースター|このNPCから受け取り損ねたのはレシピか
+            {0xA0, new EventFlagVillagerMemoryPlayer(0 , 1  , 160, "TodayReserveCoordinateHouseInterior"        )}, // NPC家コーデ｜今日NPCの家の内装の提案をしたか？
+            {0xA1, new EventFlagVillagerMemoryPlayer(0 , 1  , 161, "TodayReserveCoordinateHouseExterior"        )}, // NPC家コーデ｜今日NPCの家の外観の提案をしたか？
+            {0xA2, new EventFlagVillagerMemoryPlayer(0 , 1  , 162, "TodayCompleteCoordinateHouseInterior"       )}, // NPC家コーデ｜今日NPCの家に提案した内装が反映されたか？
+            {0xA3, new EventFlagVillagerMemoryPlayer(0 , 1  , 163, "TodayCompleteCoordinateHouseExterior"       )}, // NPC家コーデ｜今日NPCの家に提案した外観が反映されたか？
+            {0xA4, new EventFlagVillagerMemoryPlayer(0 , 1  , 164, "InteriorCoordinator"                        )}, // NPC家コーデ｜現在の内装を提案した
+            {0xA5, new EventFlagVillagerMemoryPlayer(0 , 1  , 165, "ExteriorCoordinator"                        )}, // NPC家コーデ｜現在の外観を提案した
+            {0xA6, new EventFlagVillagerMemoryPlayer(0 , 1  , 166, "TodayHeardReactTalkAboutCoordinateHouse"    )}, // NPC家コーデ｜今日、コーディネート提案に関するリアクション会話聞いた
+            {0xA7, new EventFlagVillagerMemoryPlayer(0 , 1  , 167, "WHEREAREN_VisitWherearenWithPlayer"         )}, // OneRoom|おみやげチョコレートを受け取ってウェアラン諸島に行ったことがあるか？
+            {0xA8, new EventFlagVillagerMemoryPlayer(0 , 1  , 168, "TalkProgressMuseumBuiltCafe"                )}, // 博物館（カフェ）への拡張に関するFreeH_Progressを聞いたか？
+            {0xA9, new EventFlagVillagerMemoryPlayer(0 , 1  , 169, "WHEREAREN_GetChocolate"                     )}, // OneRoom|おみやげチョコレートを受け取ったことがあるか？
         };
 
         private const string Unknown = "???";

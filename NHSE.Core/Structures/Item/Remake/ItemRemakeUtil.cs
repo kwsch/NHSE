@@ -22,6 +22,7 @@ namespace NHSE.Core
 
         private static readonly IReadOnlyDictionary<ushort, short> List = new Dictionary<ushort, short>
         {
+            {00079, 1216}, // baby bed
             {00080, 0102}, // clackercart
             {00083, 0129}, // rocking horse
             {00085, 0197}, // train set
@@ -38,12 +39,73 @@ namespace NHSE.Core
             {00335, 0758}, // Mr. Flamingo
             {00336, 0759}, // Mrs. Flamingo
             {00338, 0258}, // lawn mower
+            {00370, 0652}, // Cyrus's photo
+            {00371, 0652}, // Reese's photo
+            {00372, 0652}, // Chip's photo
+            {00373, 0652}, // Phineas's photo
+            {00374, 0652}, // Joan's photo
+            {00375, 0652}, // Katrina's photo
+            {00376, 0652}, // Nat's photo
+            {00377, 0652}, // Saharah's photo
+            {00378, 0652}, // K.K.'s photo
+            {00379, 0652}, // Redd's photo
+            {00380, 0652}, // Gracie's photo
+            {00381, 0652}, // Label's photo
+            {00382, 0652}, // Mabel's photo
             {00383, 0310}, // acoustic guitar
+            {00384, 0652}, // Sable's photo
+            {00385, 0652}, // Grams's photo
+            {00386, 0652}, // Leilani's photo
+            {00387, 0652}, // Kapp'n's photo
+            {00388, 0652}, // Leila's photo
+            {00389, 0652}, // Porter's photo
+            {00390, 0652}, // Don's photo
+            {00391, 0652}, // Resetti's photo
+            {00392, 0652}, // Lyle's photo
+            {00393, 0652}, // Blathers's photo
+            {00394, 0652}, // Celeste's photo
+            {00395, 0652}, // Pavé's photo
+            {00396, 0652}, // Pelly's photo
+            {00397, 0652}, // Phyllis's photo
+            {00398, 0652}, // Copper's photo
+            {00399, 0652}, // Pete's photo
+            {00400, 0652}, // Booker's photo
+            {00401, 0652}, // Harriet's photo
+            {00402, 0652}, // Gulliver's photo
+            {00403, 0652}, // Pascal's photo
+            {00404, 0652}, // Kicks's photo
+            {00405, 0652}, // Tortimer's photo
+            {00406, 0652}, // Franklin's photo
+            {00407, 0652}, // Shrunk's photo
+            {00408, 0652}, // Leif's photo
+            {00409, 0652}, // Blanca's photo
+            {00410, 0652}, // Luna's photo
+            {00411, 0652}, // Katie's photo
+            {00412, 0652}, // Zipper's photo
+            {00413, 0652}, // Digby's photo
+            {00414, 0652}, // Wendell's photo
+            {00415, 0652}, // Wisp's photo
+            {00416, 0652}, // Lottie's photo
+            {00417, 0652}, // Jack's photo
+            {00418, 0652}, // Harvey's photo
+            {00419, 0652}, // C.J.'s photo
+            {00420, 0652}, // Daisy Mae's photo
+            {00421, 0652}, // Orville's photo
+            {00422, 0652}, // Flick's photo
+            {00423, 0652}, // DJ KK's photo
+            {00424, 0652}, // Wilbur's photo
+            {00425, 0652}, // Wardell's photo
+            {00426, 0652}, // Niko's photo
+            {00522, 1515}, // creepy skeleton
             {00530, 0178}, // grass standee
             {00531, 0176}, // hedge standee
             {00532, 0179}, // mountain standee
             {00533, 0177}, // tree standee
+            {00534, 0951}, // hospital bed
+            {00537, 1771}, // IV drip
+            {00538, 0949}, // exam table
             {00546, 0806}, // stadiometer
+            {00547, 0225}, // washbasin
             {00664, 0182}, // beach chair
             {00667, 0899}, // shaved-ice maker
             {00669, 0456}, // ukulele
@@ -58,8 +120,12 @@ namespace NHSE.Core
             {00710, 0216}, // bamboo bench
             {00716, 0360}, // screen
             {00725, 0312}, // paper lantern
+            {00735, 1821}, // low folding table
             {00739, 0224}, // tea table
+            {00741, 1822}, // safety railing
             {00742, 0221}, // fireplace
+            {00743, 1824}, // frozen mini snowperson
+            {00744, 1825}, // compact kitchen
             {00787, 0127}, // tape deck
             {00796, 0374}, // retro stereo
             {00805, 0383}, // mush lamp
@@ -79,6 +145,7 @@ namespace NHSE.Core
             {00908, 0229}, // upright vacuum
             {00915, 0396}, // cuckoo clock
             {00918, 0242}, // coffee cup
+            {00922, 0262}, // stacked bottle crates
             {00928, 0317}, // pot rack
             {00929, 0316}, // air conditioner
             {00941, 0410}, // DJ's turntable
@@ -86,27 +153,35 @@ namespace NHSE.Core
             {00954, 0572}, // espresso maker
             {00955, 0359}, // exit sign
             {00957, 0277}, // ventilation fan
+            {00963, 1815}, // fire hydrant
+            {00967, 0946}, // flower bed
             {00971, 0886}, // snack machine
             {00987, 0743}, // harp
             {00997, 0267}, // incense burner
             {00998, 0309}, // kitchen island
+            {01019, 0280}, // first-aid kit
             {01029, 0183}, // low screen
             {01032, 0152}, // magazine rack
             {01042, 0166}, // metronome
             {01043, 0199}, // microwave
             {01050, 0157}, // mixer
+            {01051, 0159}, // water bird
             {01058, 0140}, // music stand
+            {01072, 0170}, // rope partition
             {01081, 0328}, // upright piano
             {01082, 0184}, // picnic basket
             {01087, 0768}, // pinball machine
             {01092, 0148}, // popcorn machine
             {01103, 0117}, // rocking chair
+            {01108, 0120}, // retro TV
             {01111, 0726}, // outdoor bath
             {01112, 0125}, // colorful wheel
             {01117, 0231}, // sand castle
             {01125, 0559}, // revolving spice rack
             {01127, 0733}, // old sewing machine
             {01128, 0158}, // sewing machine
+            {01133, 1826}, // shopping cart
+            {01141, 0913}, // ski rack
             {01143, 0236}, // smoker
             {01157, 0407}, // brick oven
             {01161, 0526}, // cream and sugar
@@ -116,17 +191,21 @@ namespace NHSE.Core
             {01185, 0200}, // phone box
             {01189, 0370}, // tire stack
             {01199, 0255}, // tricycle
+            {01206, 1298}, // trumpet
             {01211, 0794}, // typewriter
             {01221, 0409}, // video camera
+            {01222, 1217}, // TV with VCR
             {01227, 0194}, // deluxe washer
             {01229, 0227}, // bathroom sink
             {01232, 0793}, // water cooler
             {01234, 0273}, // portable toilet
+            {01235, 1787}, // bathroom stall
             {01241, 0253}, // DIY workbench
             {01243, 0810}, // flashy-flower sign
             {01263, 0325}, // pear wardrobe
             {01288, 0072}, // fan palm
             {01308, 0274}, // school chair
+            {01314, 1047}, // handwashing area
             {01319, 0240}, // microscope
             {01328, 0275}, // school desk
             {01330, 0608}, // basic teacher's desk
@@ -136,12 +215,13 @@ namespace NHSE.Core
             {01432, 0124}, // lantern
             {01434, 0263}, // sleeping bag
             {01449, 0747}, // cello
+            {01493, 0315}, // stroller
             {01495, 0268}, // dolly
             {01499, 0285}, // Papa bear
             {01500, 0287}, // Mama bear
             {01501, 0286}, // Baby bear
             {01504, 0869}, // giant teddy bear
-            {01507, 0575}, // teacup ride
+            {01507, 0575}, // plaza teacup ride
             {01509, 0574}, // robot hero
             {01557, 0084}, // wooden-block bed
             {01558, 0105}, // wooden-block bookshelf
@@ -149,8 +229,10 @@ namespace NHSE.Core
             {01561, 0107}, // wooden-block chest
             {01565, 0108}, // wooden-block table
             {01567, 0090}, // oil barrel
+            {01573, 0219}, // dharma
             {01598, 0175}, // exercise ball
             {01606, 0490}, // serving cart
+            {01608, 0081}, // vertical banner
             {01620, 0180}, // hammock
             {01621, 0185}, // lawn chair
             {01624, 0189}, // garden gnome
@@ -164,7 +246,10 @@ namespace NHSE.Core
             {01645, 0682}, // electric guitar
             {01652, 0381}, // matryoshka
             {01708, 0218}, // cassette player
+            {01712, 0144}, // poster stand
+            {01716, 0198}, // display stand
             {01744, 0544}, // wall clock
+            {01745, 0247}, // copy machine
             {01750, 0710}, // document stack
             {01753, 0311}, // aroma pot
             {01757, 0193}, // claw-foot tub
@@ -179,6 +264,7 @@ namespace NHSE.Core
             {01803, 0089}, // drum set
             {01804, 0724}, // electric bass
             {01816, 0731}, // changing room
+            {01820, 1031}, // stack of clothes
             {01823, 0248}, // trash bags
             {01829, 0494}, // cypress plant
             {01836, 0272}, // humidifier
@@ -195,11 +281,13 @@ namespace NHSE.Core
             {01868, 0266}, // desk mirror
             {01870, 0153}, // mug
             {01875, 0103}, // grand piano
+            {01877, 0137}, // piggy bank
             {01881, 0149}, // plastic canister
             {01888, 0098}, // rice cooker
             {01889, 0132}, // ring
             {01892, 0230}, // hourglass
             {01899, 0257}, // autograph cards
+            {01906, 0906}, // snare drum
             {01913, 0135}, // wooden chair
             {01929, 0099}, // toilet
             {02010, 0143}, // ball
@@ -214,6 +302,7 @@ namespace NHSE.Core
             {02333, 0736}, // solar panel
             {02335, 0201}, // lighthouse
             {02352, 0875}, // parabolic antenna
+            {02358, 1299}, // stadium light
             {02377, 0826}, // fishing rod
             {02379, 0653}, // watering can
             {02553, 0196}, // iron frame
@@ -223,9 +312,12 @@ namespace NHSE.Core
             {02560, 0095}, // wooden chest
             {02561, 0882}, // floor lamp
             {02562, 0864}, // candle
+            {02575, 0278}, // ranch chair
             {02586, 0431}, // natural garden chair
+            {02587, 0075}, // hospital screen
             {02596, 0625}, // juicy-apple TV
             {02605, 0076}, // wooden simple bed
+            {02606, 1514}, // ranch bed
             {02614, 0151}, // mountain bike
             {02713, 0121}, // refrigerator
             {02731, 0078}, // digital alarm clock
@@ -236,6 +328,7 @@ namespace NHSE.Core
             {02772, 0604}, // fancy violin
             {02776, 0220}, // tankless toilet
             {02822, 0856}, // slingshot
+            {03063, 1819}, // theremin
             {03064, 0282}, // cooler box
             {03078, 0097}, // tourist telescope
             {03122, 0161}, // mini DIY workbench
@@ -265,6 +358,7 @@ namespace NHSE.Core
             {03348, 0186}, // plastic pool
             {03396, 0441}, // natural garden table
             {03400, 0610}, // dish-drying rack
+            {03402, 1789}, // vertical-board fence
             {03406, 0524}, // beekeeper's hive
             {03407, 0192}, // katana
             {03416, 0204}, // soft-serve lamp
@@ -280,6 +374,7 @@ namespace NHSE.Core
             {03445, 0271}, // standard umbrella stand
             {03446, 0126}, // western-style stone
             {03449, 0134}, // wooden stool
+            {03465, 1817}, // projection screen
             {03467, 0226}, // tea set
             {03468, 0181}, // beach towel
             {03471, 0609}, // light switch
@@ -494,12 +589,14 @@ namespace NHSE.Core
             {04142, 0520}, // diner dining table
             {04143, 0521}, // diner neon sign
             {04144, 0522}, // diner neon clock
+            {04196, 1249}, // crosswalk signal
             {04226, 0630}, // basketball hoop
             {04230, 0421}, // glass holder with candle
             {04279, 0438}, // frozen-treat set
             {04308, 0611}, // unfinished puzzle
             {04309, 0708}, // destinations signpost
             {04338, 0466}, // portable record player
+            {04357, 1795}, // iron fence
             {04377, 0850}, // ornament wreath
             {04379, 0477}, // springy ride-on
             {04392, 0491}, // magic kit
@@ -527,6 +624,8 @@ namespace NHSE.Core
             {04764, 0848}, // fish doorplate
             {05150, 0598}, // shell speaker
             {05165, 0600}, // wall-mounted candle
+            {05207, 1796}, // zen fence
+            {05208, 1759}, // large lattice fence
             {05309, 0843}, // heart doorplate
             {05310, 0841}, // spider doorplate
             {05337, 0606}, // three-tiered snowperson
@@ -937,6 +1036,7 @@ namespace NHSE.Core
             {06826, 0654}, // nova light
             {06827, 0725}, // starry garland
             {06829, 0757}, // crescent-moon chair
+            {06830, 1743}, // shell music box
             {06831, 0657}, // blossom-viewing lantern
             {06832, 0656}, // cherry-blossom clock
             {06992, 0652}, // Reneigh's photo
@@ -968,6 +1068,7 @@ namespace NHSE.Core
             {07151, 0876}, // red corner
             {07152, 0877}, // neutral corner
             {07153, 0744}, // cypress bathtub
+            {07154, 0678}, // wooden box
             {07159, 0813}, // cardboard sofa
             {07160, 0814}, // cardboard table
             {07161, 0815}, // cardboard bed
@@ -1074,12 +1175,34 @@ namespace NHSE.Core
             {11118, 0652}, // Chai's photo
             {11119, 0652}, // Chelsea's photo
             {11120, 0652}, // Toby's photo
+            {11711, 1797}, // simple wooden fence
+            {11712, 1798}, // lattice fence
             {11941, 0889}, // stone arch
             {11942, 0897}, // street piano
             {11943, 0890}, // stone tablet
             {12140, 0891}, // DAL model plane
             {12207, 0895}, // arcade seat
+            {12305, 1777}, // Casablanca lilies
+            {12308, 0907}, // reception chair
+            {12311, 0905}, // cruiser bike
+            {12312, 0903}, // wood-plank table
+            {12313, 0902}, // public telephone
+            {12314, 0904}, // zen lowboard
             {12332, 0901}, // natural square table
+            {12340, 1788}, // volleyball net
+            {12341, 1778}, // gurney
+            {12343, 1591}, // stepladder
+            {12344, 0912}, // baseball set
+            {12345, 1769}, // metal-and-wood table
+            {12346, 1770}, // metal-and-wood chair
+            {12348, 0909}, // froggy chair
+            {12349, 0910}, // project table
+            {12350, 0911}, // box-shaped seat
+            {12356, 0914}, // round pillow
+            {12358, 0915}, // retro ice-cream case
+            {12361, 1226}, // zen bench
+            {12365, 0918}, // garden chair
+            {12366, 0919}, // plastic bench
             {12372, 0921}, // Pocket modern camper
             {12373, 0920}, // Pocket vintage camper
             {12401, 0923}, // wedding bench
@@ -1093,12 +1216,202 @@ namespace NHSE.Core
             {12409, 0930}, // wedding pipe organ
             {12410, 0924}, // wedding welcome board
             {12411, 0927}, // wedding flower stand
+            {12516, 0933}, // sampler
             {12543, 0934}, // Nintendo Switch
+            {12582, 0652}, // Zoe's photo
+            {12583, 0652}, // Rio's photo
+            {12584, 0652}, // Azalea's photo
+            {12585, 0652}, // Faith's photo
+            {12586, 0652}, // Chabwick's photo
+            {12587, 0652}, // Ace's photo
+            {12588, 0652}, // Frett's photo
+            {12589, 0652}, // Roswell's photo
+            {12590, 0652}, // Ione's photo
+            {12591, 0652}, // Shino's photo
+            {12592, 0652}, // Petri's photo
+            {12593, 0652}, // Quinn's photo
+            {12594, 0652}, // Sasha's photo
+            {12595, 0652}, // Cephalobot's photo
+            {12596, 0652}, // Marlo's photo
+            {12597, 0652}, // Tiansheng's photo
+            {12599, 0935}, // office chair
+            {12600, 1765}, // bulldozer
+            {12601, 1767}, // cement mixer
+            {12602, 1768}, // excavator
+            {12603, 1766}, // steamroller
+            {12604, 1051}, // jackhammer
+            {12605, 0947}, // safety barrier
+            {12606, 0945}, // tractor
+            {12608, 0941}, // flower display case
+            {12610, 0942}, // frozen-drink machine
+            {12611, 1568}, // plate armor
+            {12612, 0940}, // capsule-toy machine
+            {12613, 0944}, // fancy tea set
+            {12614, 0943}, // peacock chair
+            {12637, 0948}, // examination-room desk
+            {12653, 0952}, // modern hospital bed
+            {12669, 0960}, // donut stool
+            {12670, 0950}, // office cabinet
+            {12673, 0955}, // tall file cabinet
+            {12674, 0956}, // short file cabinet
+            {12675, 0957}, // plant partition
+            {12676, 0958}, // large magazine rack
+            {12677, 0959}, // medicine chest
+            {12678, 0961}, // arched reception counter
+            {12679, 0962}, // reception counter
+            {12683, 1807}, // plaza ferris wheel
+            {12684, 1813}, // plaza merry-go-round
+            {12685, 1806}, // inflatable plaza toy
+            {12688, 1812}, // plaza bench
+            {12689, 1805}, // plaza arch
+            {12690, 1809}, // plaza game stand
+            {12691, 1811}, // plaza balloon wagon
+            {12692, 1810}, // plaza clock
+            {12693, 1742}, // street lamp with banners
+            {12699, 0964}, // standing electric sign
+            {12700, 0998}, // sturdy office desk
+            {12701, 1011}, // school locker
+            {12702, 0999}, // strapped books
+            {12703, 1818}, // mop
+            {12704, 1000}, // basic school chair
+            {12705, 1001}, // stewpot
+            {12706, 1002}, // imperial pot
+            {12707, 1003}, // cans
+            {12708, 1004}, // cooking tools
+            {12709, 1010}, // carp on a cutting board
+            {12712, 0994}, // salad bar
+            {12713, 0996}, // antique cash register
+            {12714, 0995}, // modern cash register
+            {12715, 0997}, // bulletin board
+            {12717, 1006}, // left chalkboard section
+            {12718, 1007}, // right chalkboard section
+            {12720, 1009}, // fancy water pitcher
             {12741, 1012}, // world map
+            {12744, 1016}, // small covered round table
+            {12745, 1015}, // large covered round table
+            {12766, 1017}, // small café table
+            {12767, 1018}, // large café table
+            {12768, 1019}, // checkout counter
+            {12769, 1020}, // dessert case
+            {12772, 1021}, // ice-cream display
+            {12773, 1022}, // counter chair
+            {12774, 1023}, // busing station
+            {12775, 1024}, // afternoon-tea set
+            {12776, 1025}, // counter table
+            {12777, 1026}, // covered counter
+            {12778, 1027}, // touchscreen cash register
+            {12779, 1028}, // wood partition
+            {12780, 1029}, // wall shelf with bottles
+            {12781, 1816}, // sample case
+            {12782, 1030}, // bistro table
+            {12803, 1808}, // plaza train
+            {12879, 1039}, // tabletop POP display
+            {12880, 1040}, // standing shop sign
+            {12881, 1046}, // dress mannequin
+            {12882, 1035}, // small mannequin
+            {12883, 1042}, // midsized clothing rack
+            {12884, 1043}, // small clothing rack
+            {12885, 1036}, // hanging clothing rack
+            {12886, 1032}, // corner clothing rack
+            {12887, 1034}, // glass showcase
+            {12888, 1041}, // hanger rack
+            {12889, 1045}, // boxy stool
+            {12890, 1038}, // merchandise table
+            {12891, 1033}, // full-length mirror
+            {12892, 1044}, // sturdy paper bag
+            {12893, 1037}, // stacked shoeboxes
+            {12894, 1799}, // wedding fence
             {12949, 1168}, // spooky standing lamp
             {12951, 1195}, // spooky candy set
+            {12976, 1048}, // mini dharma
+            {12991, 1065}, // simple stool
+            {12993, 1062}, // simple vanity
+            {12994, 1061}, // simple bed
+            {12995, 1064}, // simple sofa
+            {12996, 1059}, // simple chair
+            {12997, 1066}, // simple wall shelf
+            {12998, 1063}, // simple small dresser
+            {12999, 1067}, // simple table
+            {13004, 1069}, // artsy table
+            {13005, 1068}, // artsy chair
+            {13006, 1070}, // cool low table
+            {13007, 1071}, // cool side table
+            {13008, 1072}, // cool chair
+            {13009, 1073}, // cool bed
+            {13010, 1074}, // cool sofa
+            {13073, 1088}, // Nordic chair
+            {13075, 1090}, // Nordic sofa
+            {13076, 1091}, // Nordic low table
+            {13077, 1092}, // Nordic lowboard
+            {13078, 1093}, // Nordic shelves
+            {13079, 1094}, // Nordic table
+            {13080, 1095}, // ranch wardrobe
+            {13081, 1096}, // ranch tea table
+            {13082, 1097}, // ranch lowboard
+            {13083, 1098}, // Moroccan footrest
+            {13084, 1099}, // Moroccan tray table
+            {13085, 1100}, // Moroccan sofa
+            {13108, 1101}, // upright organizer
+            {13109, 1102}, // horizontal organizer
+            {13110, 1103}, // plastic clothing organizer
+            {13111, 1104}, // Japanese dresser
+            {13112, 1105}, // zen low table
+            {13113, 1106}, // shoji divider
+            {13114, 1107}, // vintage stool
+            {13115, 1108}, // vintage desk
+            {13116, 1109}, // vintage sofa
+            {13117, 1110}, // vintage low table
+            {13118, 1111}, // vintage dresser
+            {13119, 1112}, // enamel lamp
+            {13120, 1113}, // round light fixture
+            {13121, 1114}, // wood-shade lamp
+            {13122, 1115}, // zen light
+            {13138, 1117}, // elegant chair
+            {13139, 1118}, // elegant bed
+            {13140, 1119}, // elegant console table
+            {13141, 1120}, // elegant sofa
+            {13142, 1121}, // elegant lamp
+            {13143, 1122}, // elegant dresser
+            {13144, 1123}, // simple shaded lamp
+            {13145, 1124}, // stained-glass light
+            {13146, 1125}, // milk-glass lamp
+            {13147, 1126}, // fluorescent light
+            {13148, 1127}, // ceiling spotlight
+            {13149, 1128}, // Nordic pendant light
+            {13150, 1129}, // Moroccan lights
+            {13151, 1130}, // festival lantern
+            {13152, 1131}, // imperial lamp
+            {13153, 1132}, // wooden pendant light
+            {13154, 1133}, // chandelier
+            {13155, 1134}, // spiral chandelier
+            {13156, 1135}, // ceiling fan
+            {13157, 1136}, // dual hanging monitors
+            {13158, 1137}, // hanging shelves
+            {13161, 1139}, // wooden field sign
+            {13163, 1196}, // study carrel
+            {13164, 1142}, // disco ball
+            {13185, 1143}, // small vase
+            {13186, 1144}, // porcelain vase
+            {13187, 1145}, // fine vase
+            {13188, 1146}, // ball catcher
+            {13189, 1147}, // stair dresser
+            {13190, 1148}, // sword
+            {13191, 1149}, // bow
+            {13192, 1150}, // samurai suit
+            {13201, 1199}, // bath bucket
+            {13202, 1212}, // bath stool
+            {13203, 1213}, // square bathtub
+            {13205, 1225}, // store shelf
+            {13206, 1214}, // shopping bag
+            {13207, 1220}, // small LED display
+            {13209, 1218}, // tablet device
+            {13210, 1215}, // stacked shopping baskets
+            {13211, 1219}, // caged cart
+            {13214, 1222}, // steel trash can
+            {13220, 1152}, // festival-lantern set
             {13222, 1153}, // spooky garland
             {13223, 1154}, // spooky table setting
+            {13229, 1197}, // range hood
             {13242, 1211}, // RC helicopter
             {13243, 1198}, // puppy plushie
             {13244, 1209}, // gift pile
@@ -1109,13 +1422,182 @@ namespace NHSE.Core
             {13250, 1210}, // mini circuit
             {13251, 1200}, // dinosaur toy
             {13252, 1205}, // dollhouse
-            {13352, 1157}, // spooky tower
+            {13255, 1221}, // elaborate display case
+            {13266, 1228}, // owl clock
+            {13268, 1252}, // covered wagon
+            {13269, 1253}, // storefront
+            {13270, 1227}, // antique radio
+            {13271, 1224}, // upright speaker
+            {13272, 1325}, // evergreen ash
+            {13273, 1254}, // cactus
+            {13274, 1223}, // wristwatch
+            {13288, 1229}, // high chair
+            {13294, 1230}, // beach chairs with parasol
+            {13295, 1232}, // game-show stand
+            {13296, 1231}, // vehicle cabin seat
+            {13299, 1233}, // decorative bottles
+            {13300, 1235}, // stylish wall spotlight
+            {13302, 1234}, // decorative pillar
+            {13303, 1241}, // glass jar
+            {13304, 1237}, // winnowing machine
+            {13305, 1238}, // conveyor belt
+            {13306, 1240}, // robot arm
+            {13307, 1236}, // stylish spotlight
+            {13312, 1245}, // round streetlight
+            {13313, 1244}, // curved streetlight
+            {13335, 1256}, // bird mobile
+            {13336, 1257}, // construction scaffolding
+            {13337, 1261}, // sloppy table
+            {13338, 1259}, // sloppy sink
+            {13339, 1260}, // sloppy sofa
+            {13340, 1255}, // garden table
+            {13341, 1262}, // sloppy bed
+            {13342, 1265}, // dreamy bed
+            {13343, 1263}, // dreamy wall rack
+            {13344, 1264}, // dreamy shelves
+            {13345, 1258}, // snack
+            {13347, 1266}, // yacht
+            {13352, 1157}, // 
+            {13356, 1278}, // rolling cart
+            {13360, 1274}, // bottled beverage
+            {13361, 1275}, // paint cans
+            {13362, 1270}, // double-edged sword
+            {13363, 1269}, // inspection equipment
+            {13365, 1273}, // toothbrush-and-cup set
+            {13366, 1272}, // chainsaw
+            {13367, 1267}, // bunny garden decoration
+            {13368, 1268}, // elegant mirror
+            {13369, 1276}, // milk can
+            {13370, 1277}, // wheat field
             {13447, 1295}, // Turkey Day garden stand
             {13448, 1296}, // Turkey Day hearth
             {13449, 1293}, // Turkey Day decorations
             {13450, 1292}, // Turkey Day chair
             {13453, 1297}, // Turkey Day table
+            {13454, 1280}, // cool dining table
+            {13455, 1279}, // shopping basket
+            {13464, 1283}, // crane game
+            {13465, 1786}, // bubble machine
+            {13466, 1288}, // silver confetti blower
+            {13467, 1287}, // stage flame machine
+            {13468, 1286}, // hanging stage lights
+            {13469, 1285}, // stage lights
+            {13472, 1301}, // windmill
+            {13474, 1291}, // siren
+            {13475, 1783}, // candle chandelier
+            {13478, 1820}, // tabletop record player
+            {13479, 1290}, // nearly busted radio
             {13488, 1516}, // chocolate heart
+            {13496, 1302}, // stonework kitchen
+            {13502, 1316}, // spaceship control panel
+            {13503, 1324}, // meter and pipes
+            {13504, 1312}, // strategic meeting table
+            {13505, 1320}, // mining car
+            {13506, 1321}, // science pod
+            {13507, 1323}, // banker's lamp
+            {13508, 1310}, // cold sleep pod
+            {13509, 1305}, // gear tower
+            {13510, 1307}, // crew member's seat
+            {13511, 1304}, // gear apparatus
+            {13512, 1319}, // retro transportation stop
+            {13513, 1311}, // fish container
+            {13514, 1322}, // powder-room booth
+            {13515, 1317}, // tank
+            {13516, 1315}, // amazing machine
+            {13517, 1512}, // unknown machine
+            {13518, 1313}, // lab chair
+            {13519, 1308}, // gaming chair
+            {13520, 1306}, // forbidden altar
+            {13521, 1309}, // gaming desk
+            {13522, 1303}, // dress-up doll
+            {13523, 1314}, // skateboard
+            {13524, 1318}, // medieval building side
+            {13526, 1801}, // vine ladder set-up kit
+            {13530, 1800}, // wooden ladder set-up kit
+            {13534, 1802}, // iron ladder set-up kit
+            {13573, 1339}, // medium wooden partition
+            {13574, 1340}, // small wooden partition
+            {13575, 1327}, // SLR camera
+            {13576, 1332}, // schefflera
+            {13577, 1338}, // potted starter plants
+            {13578, 1326}, // inflatable bird ring
+            {13579, 1336}, // baobab
+            {13580, 1330}, // skateboard wall rack
+            {13581, 1329}, // castle gate
+            {13582, 1328}, // castle tower
+            {13583, 1342}, // rescue mannequin
+            {13584, 1331}, // makeup pouch
+            {13586, 1333}, // transit seat
+            {13587, 1335}, // dried-flower garland
+            {13588, 1341}, // tension-pole rack
+            {13589, 1337}, // professional headphones
+            {13590, 1343}, // castle wall
+            {13591, 1344}, // fancy bathroom vanity
+            {13606, 1345}, // stacked fish containers
+            {13614, 1375}, // key tray
+            {13615, 1399}, // scooter
+            {13616, 1437}, // hanging lightbulb
+            {13618, 1439}, // patchwork sofa chair
+            {13620, 1360}, // office materials
+            {13621, 1381}, // minicar
+            {13622, 1382}, // luxury car
+            {13623, 1465}, // dormant volcano
+            {13624, 1421}, // scoreboard
+            {13625, 1440}, // patchwork chair
+            {13626, 1357}, // ornithopter
+            {13627, 1441}, // patchwork low table
+            {13628, 1452}, // model kit
+            {13629, 1442}, // patchwork bed
+            {13630, 1363}, // curtain partition
+            {13631, 1428}, // torii
+            {13632, 1458}, // popcorn snack set
+            {13633, 1379}, // throne
+            {13634, 1404}, // fresh-food trays
+            {13636, 1448}, // wide display stand
+            {13637, 1361}, // outdoor folding chair
+            {13638, 1377}, // utility wagon
+            {13639, 1396}, // short simple panel
+            {13640, 1370}, // wall-mounted LED display
+            {13642, 1417}, // paper-chain ceiling garland
+            {13643, 1386}, // die
+            {13645, 1402}, // scrapbook
+            {13647, 1449}, // fence
+            {13649, 1436}, // lily-pad table
+            {13651, 1422}, // tokonoma
+            {13652, 1407}, // antique map
+            {13655, 1392}, // framed photo
+            {13656, 1378}, // cube light
+            {13657, 1355}, // decorative plate
+            {13662, 1353}, // ruined decorated pillar
+            {13666, 1358}, // pile of cash
+            {13676, 1460}, // round topiary
+            {13678, 1388}, // triangular topiary
+            {13680, 1362}, // outdoor folding table
+            {13681, 1456}, // light-bulb sign
+            {13683, 1469}, // yoga mat
+            {13690, 1462}, // futuristic meal
+            {13691, 1368}, // mounted mountain bike
+            {13692, 1468}, // dreamy hanging decoration
+            {13696, 1411}, // pile of cardboard boxes
+            {13701, 1429}, // drapery
+            {13709, 1403}, // spray can
+            {13712, 1427}, // card tower
+            {13717, 1380}, // metal pot
+            {13719, 1350}, // toy duck
+            {13722, 1385}, // recycled-paper bundle
+            {13727, 1397}, // dessert carrier
+            {13729, 1438}, // carton beverage
+            {13730, 1470}, // shaded pendant lamp
+            {13740, 1453}, // model kits
+            {13744, 1365}, // framed poster
+            {13745, 1467}, // yunomi teacup
+            {13746, 1423}, // stacked bags
+            {13747, 1387}, // backlit sign
+            {13748, 1426}, // cards
+            {13751, 1486}, // open wooden shelves
+            {13756, 1487}, // bottle crate
+            {13764, 1492}, // hanging cube light
+            {13765, 1494}, // plain party-lights arch
             {13767, 1495}, // Festivale garland
             {13770, 1500}, // Festivale parasol
             {13772, 1501}, // Festivale balloon lamp
@@ -1132,21 +1614,142 @@ namespace NHSE.Core
             {13831, 1522}, // large Mushroom Platform
             {13832, 1523}, // small Mushroom Platform
             {13862, 0652}, // Jingle's photo
+            {13884, 1513}, // ranch cupboard
+            {13897, 1605}, // tall brick island counter
+            {13901, 1607}, // low brick island counter
+            {13902, 1593}, // tall wooden island counter
+            {13925, 1520}, // hanging monitor
+            {13926, 1519}, // hanging guide sign
             {13927, 1521}, // Nintendo Switch Lite
             {13930, 1524}, // set of stockings
+            {14017, 1542}, // cave
+            {14018, 1543}, // ruined arch
+            {14019, 1544}, // vine hanging chair
             {14029, 1546}, // heart-shaped bouquet
+            {14046, 1655}, // xylophoid
+            {14047, 1656}, // babbloid
+            {14049, 1547}, // truck
+            {14050, 1553}, // deep fryer
+            {14051, 1552}, // fancy frame
+            {14053, 1549}, // wall planter
+            {14054, 1550}, // ranch kitchen
+            {14055, 1548}, // outdoor kitchen
+            {14056, 1693}, // arfoid
+            {14057, 1694}, // whistloid
+            {14058, 1695}, // bwongoid
+            {14059, 1696}, // twangoid
+            {14060, 1697}, // laseroid
+            {14061, 1698}, // squeakoid
+            {14062, 1699}, // tockoid
+            {14063, 1700}, // ringoid
+            {14064, 1701}, // oinkoid
+            {14065, 1702}, // tremoloid
+            {14066, 1703}, // bubbloid
+            {14067, 1704}, // petaloid
+            {14074, 1658}, // aluminoid
+            {14075, 1682}, // wallopoid
+            {14076, 1683}, // drummoid
+            {14077, 1684}, // dootoid
+            {14078, 1685}, // whirroid
+            {14080, 1664}, // thwopoid
+            {14081, 1665}, // rumbloid
+            {14082, 1666}, // bendoid
+            {14083, 1667}, // boomoid
+            {14086, 1676}, // bloopoid
+            {14087, 1677}, // sproingoid
+            {14088, 1678}, // crumploid
+            {14089, 1679}, // clatteroid
+            {14092, 1657}, // scatteroid
+            {14093, 1688}, // spikenoid
+            {14094, 1689}, // squeezoid
+            {14095, 1690}, // flutteroid
+            {14098, 1670}, // boioingoid
+            {14099, 1671}, // stelloid
+            {14100, 1672}, // jingloid
+            {14101, 1673}, // rattloid
+            {14106, 1554}, // gazebo
+            {14108, 1556}, // azumaya gazebo
+            {14184, 1567}, // pergola
+            {14192, 1569}, // giant vine
+            {14193, 1570}, // vine bench
+            {14205, 1575}, // vine lamp
+            {14206, 1574}, // vine garland
+            {14207, 1576}, // glowing-moss stool
+            {14208, 1580}, // glowing-moss balloon
+            {14209, 1578}, // glowing-moss boulder
+            {14210, 1577}, // hanging glowing moss
+            {14211, 1579}, // glowing-moss wreath
+            {14212, 1582}, // glowing-moss pond
+            {14213, 1583}, // glowing-moss statue
+            {14214, 1585}, // glowing-moss-jar shelves
+            {14215, 1584}, // glow-in-the-dark stickers
+            {14216, 1581}, // suspicious cauldron
             {14254, 0652}, // Tom Nook's photo
             {14255, 0652}, // Timmy and Tommy's photo
             {14256, 0652}, // Isabelle's photo
+            {14308, 1599}, // low simple island counter
+            {14310, 1602}, // tall simple island counter
+            {14313, 1595}, // low wooden island counter
+            {14332, 1660}, // tall marble island counter
+            {14337, 1662}, // low marble island counter
             {14340, 1615}, // whoopee cushion
+            {14346, 1620}, // hanging sign
+            {14352, 1623}, // dreamy bear toy
+            {14353, 1622}, // dreamy rabbit toy
+            {14354, 1624}, // dreamy unicorn toy
             {14414, 1754}, // handheld lantern
             {14472, 0652}, // Rover's photo
             {14475, 1642}, // nuptial doorplate
             {14476, 1640}, // nuptial bell
             {14477, 1641}, // nuptial ring pillow
+            {14520, 1631}, // wall-mounted neon lamps
+            {14523, 1632}, // tangled cords
+            {14524, 1637}, // floral sconce
+            {14525, 1636}, // dispenser
+            {14526, 1639}, // wooden locker
+            {14527, 1634}, // clipboard
+            {14528, 1633}, // steel fence
+            {14530, 1629}, // meeting-room table
+            {14531, 1635}, // long folding table
+            {14534, 1630}, // instant noodles
+            {14538, 1772}, // protein shake
+            {14539, 1758}, // dumbbell
             {14542, 1750}, // spooky treats basket
+            {14549, 1654}, // decayed tree
             {14550, 1645}, // spooky tree
             {14551, 1647}, // spooky trick lamp
+            {14556, 1779}, // osechi
+            {14561, 1648}, // chafing dish
+            {14572, 1781}, // storage shed
+            {14574, 1776}, // coffee beans
+            {14575, 1751}, // ABD
+            {14591, 1762}, // ornament table lamp
+            {14592, 1649}, // wooden music box
+            {14593, 1764}, // ornament garland
+            {14594, 1761}, // giant ornament
+            {14596, 1653}, // brick pillar
+            {14597, 1659}, // marble pillar
+            {14598, 1652}, // simple pillar
+            {14601, 1651}, // wooden pillar
+            {14604, 1663}, // glowing-moss jar
+            {14611, 0652}, // Brewster's photo
+            {14619, 1747}, // vertical split curtains
+            {14620, 1748}, // horizontal split curtains
+            {14621, 1749}, // unfolded reference sheet
+            {14639, 1755}, // pocketbook
+            {14640, 1756}, // pocket magazine
+            {14714, 1752}, // donation box
+            {14728, 1763}, // ornament tree
+            {14735, 1757}, // 
+            {14756, 1760}, // frozen fence
+            {14758, 1774}, // corrugated iron fence
+            {14759, 1775}, // park fence
+            {14799, 1823}, // flower tabletop mirror
+            {14821, 1782}, // ring light
+            {14826, 1784}, // lighted display stand
+            {14831, 1785}, // wooden storage shed
+            {14882, 1803}, // ruined seat
+            {14887, 1804}, // ruined broken pillar
         };
     }
 }

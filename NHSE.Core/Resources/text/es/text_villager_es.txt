@@ -2,6 +2,7 @@ ant00	Cirano
 ant01	Antonio
 ant02	Aspidora
 ant03	Anabel
+ant05	Naricia
 ant06	Rosanari
 ant08	Alba
 ant09	Olaf
@@ -28,6 +29,7 @@ brd04	Camelio
 brd05	Bárbara
 brd06	Avutardo
 brd08	Paloma
+brd09	Uno
 brd11	Repollo
 brd15	Plumerio
 brd16	Gorrelmo
@@ -96,6 +98,7 @@ crd00	Kaimán
 crd01	Codrila
 crd02	Braulio
 crd04	Croco
+crd05	Roswell
 crd06	Estallón
 crd07	Boni
 crd08	Dragonio
@@ -110,6 +113,7 @@ der07	Lope
 der08	Bambina
 der09	Cervasio
 der10	Chelsea
+der11	Yuki
 dog00	Tere
 dog01	Bruno
 dog02	Pupas
@@ -121,6 +125,7 @@ dog07	Luisa
 dog08	Purita
 dog09	Martina
 dog10	Bea
+dog11	Ulises
 dog14	Pit
 dog15	Eto
 dog16	Bernardo
@@ -199,6 +204,7 @@ ham04	Soraya
 ham05	Boliche
 ham06	Lluvia
 ham07	Arsenio
+ham09	Marlo
 hip00	Roco
 hip02	Hipólita
 hip03	Berta
@@ -227,6 +233,7 @@ kal02	Melba
 kal03	Sidney
 kal04	Bronco
 kal05	Koloa
+kal07	Felicia
 kal08	Canberra
 kal09	Chipi
 kal10	Eucalín
@@ -253,6 +260,7 @@ mnk05	Mayra
 mnk06	Monet
 mnk07	Montse
 mnk08	Cana
+mnk09	Tiansheng
 mus00	Dori
 mus01	Camember
 mus02	Prity
@@ -268,13 +276,16 @@ mus15	Ottina
 mus16	Jimena
 mus17	Adela
 mus18	Roque
+mus19	Petri
 ocp00	Octavio
 ocp01	Marina
 ocp02	Paulino
+ocp04	Octoberto
 ost00	Marujita
 ost01	Gladis
 ost02	Priscila
 ost03	Ráfaga
+ost04	Río
 ost05	Julia
 ost06	Carmelo
 ost07	Amalio
@@ -290,6 +301,7 @@ pbr06	Aquilino
 pbr07	Arni
 pbr08	Lucho
 pbr09	Jazmín
+pbr10	Alexis
 pgn00	Aurora
 pgn01	Bobi
 pgn02	Cube
@@ -297,6 +309,7 @@ pgn03	Güiñón
 pgn04	Frida
 pgn05	Fabiola
 pgn06	Fredo
+pgn07	Gabino
 pgn09	Petín
 pgn10	Serafino
 pgn11	Bobo
@@ -339,10 +352,12 @@ rbt17	Chocolat
 rbt18	Nicolás
 rbt19	Amparo
 rbt20	Toby
+rbt21	Ariel
 rhn00	Aníbal
 rhn01	Ronda
 rhn02	Cornio
 rhn04	Rino
+rhn05	Azalea
 rhn07	Natura
 rhn08	Rina
 shp00	Vesta
@@ -377,6 +392,7 @@ squ15	Encina
 squ16	Matracas
 squ17	Munchi
 squ18	Anacarda
+squ21	Auri
 tig00	Albino
 tig01	Miguelón
 tig02	Teobaldo
@@ -405,6 +421,7 @@ bpt	Katrina
 chm	Papilo
 chy	Kamilo
 cml	Alcatifa
+cmlB	Alcatifa
 dga	Vigilio
 dgb	Nocencio
 doc	Rodri
@@ -424,21 +441,26 @@ kpm	Marimar
 kpp	Capitán
 kps	Conchita
 lom	Cati
+man	Matías
 mka	Blanca
+mnc	Miko
 mnk	Estasio
 mob	Forma T.
 mol	Rese T.
 otg	Nuria
+otgB	Nuria
 ott	Sisebuto
 owl	Sócrates
 ows	Estela
 pck	Conga
 pge	Fígaro
+pgeB	Fígaro
 pkn	Soponcio
 plk	Sol
 plm	Estrella
 plo	Carturo
 poo	Marilín
+pooB	Marilín
 pyn	Coti
 rcm	Tendo
 rco	Tom Nook
@@ -452,8 +474,9 @@ sza	Canela
 szo	Candrés
 tap	Alakama
 tkkA	Totakeke
-tkkB	DJ KeKe
+tkkB	DJ KeKe
 ttlA	Tórtimer
+ttlB	Córnimer
 tuk	Guindo
 upa	Dr. Sito
 wrl	Da Morsi

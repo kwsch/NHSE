@@ -2,6 +2,7 @@ ant00	Cyrano
 ant01	Antonio
 ant02	Pango
 ant03	Anabelle
+ant05	Zoe
 ant06	Snooty
 ant08	Annalisa
 ant09	Olaf
@@ -28,6 +29,7 @@ brd04	Jitters
 brd05	Piper
 brd06	Admiral
 brd08	Midge
+brd09	Ace
 brd11	Jacob
 brd15	Lucha
 brd16	Jacques
@@ -96,6 +98,7 @@ crd00	Alfonso
 crd01	Alli
 crd02	Boots
 crd04	Del
+crd05	Roswell
 crd06	Sly
 crd07	Gayle
 crd08	Drago
@@ -110,6 +113,7 @@ der07	Beau
 der08	Diana
 der09	Erik
 der10	Chelsea
+der11	Shino
 dog00	Goldie
 dog01	Butch
 dog02	Lucky
@@ -121,6 +125,7 @@ dog07	Daisy
 dog08	Cookie
 dog09	Maddie
 dog10	Bea
+dog11	Frett
 dog14	Mac
 dog15	Marcel
 dog16	Benjamin
@@ -199,6 +204,7 @@ ham04	Soleil
 ham05	Clay
 ham06	Flurry
 ham07	Hamphrey
+ham09	Marlo
 hip00	Rocco
 hip02	Bubbles
 hip03	Bertha
@@ -227,6 +233,7 @@ kal02	Melba
 kal03	Sydney
 kal04	Gonzo
 kal05	Ozzie
+kal07	Faith
 kal08	Canberra
 kal09	Lyman
 kal10	Eugene
@@ -253,6 +260,7 @@ mnk05	Elise
 mnk06	Flip
 mnk07	Shari
 mnk08	Deli
+mnk09	Tiansheng
 mus00	Dora
 mus01	Limberg
 mus02	Bella
@@ -268,13 +276,16 @@ mus15	Bettina
 mus16	Greta
 mus17	Penelope
 mus18	Chadder
+mus19	Petri
 ocp00	Octavian
 ocp01	Marina
 ocp02	Zucker
+ocp04	Cephalobot
 ost00	Queenie
 ost01	Gladys
 ost02	Sandy
 ost03	Sprocket
+ost04	Rio
 ost05	Julia
 ost06	Cranston
 ost07	Phil
@@ -290,6 +301,7 @@ pbr06	Frank
 pbr07	Sterling
 pbr08	Keaton
 pbr09	Celia
+pbr10	Quinn
 pgn00	Aurora
 pgn01	Roald
 pgn02	Cube
@@ -297,6 +309,7 @@ pgn03	Hopper
 pgn04	Friga
 pgn05	Gwen
 pgn06	Puck
+pgn07	Chabwick
 pgn09	Wade
 pgn10	Boomer
 pgn11	Iggly
@@ -339,10 +352,12 @@ rbt17	Bonbon
 rbt18	Cole
 rbt19	Mira
 rbt20	Toby
+rbt21	Sasha
 rhn00	Tank
 rhn01	Rhonda
 rhn02	Spike
 rhn04	Hornsby
+rhn05	Azalea
 rhn07	Merengue
 rhn08	Renée
 shp00	Vesta
@@ -377,6 +392,7 @@ squ15	Poppy
 squ16	Sheldon
 squ17	Marshal
 squ18	Hazel
+squ21	Ione
 tig00	Rolf
 tig01	Rowan
 tig02	Tybalt
@@ -405,6 +421,7 @@ bpt	Katrina
 chm	Nat
 chy	Flick
 cml	Saharah
+cmlB	Saharah
 dga	Copper
 dgb	Booker
 doc	Wilbur
@@ -424,21 +441,26 @@ kpm	Leilani
 kpp	Kapp'n
 kps	Leila
 lom	Katie
+man	Wardell
 mka	Blanca
+mnc	Niko
 mnk	Porter
 mob	Don
 mol	Resetti
 otg	Lottie
+otgB	Lottie
 ott	Lyle
 owl	Blathers
 ows	Celeste
 pck	Pavé
 pge	Brewster
+pgeB	Brewster
 pkn	Jack
 plk	Pelly
 plm	Phyllis
 plo	Pete
 poo	Harriet
+pooB	Harriet
 pyn	Zipper
 rcm	Timmy
 rco	Tom Nook
@@ -454,6 +476,7 @@ tap	Luna
 tkkA	K.K.
 tkkB	DJ KK
 ttlA	Tortimer
+ttlB	Cornimer
 tuk	Franklin
 upa	Shrunk
 wrl	Wendell

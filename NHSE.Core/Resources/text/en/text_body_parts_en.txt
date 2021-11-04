@@ -1,68 +1,247 @@
+00079	Frame
 00080	Paint color
 00083	Paint color
+00085	Season
+00086	Color
 00088	Paint color
-00131	Variation
+00131	Color
 00144	Cover design
-00331	Body color
+00146	Color
+00287	Color
+00290	Color
+00330	Color
+00331	Color
 00333	Paint color
-00383	Body
+00335	Color
+00336	Color
+00338	Color
+00383	Color
+00522	Variation
 00530	Season
 00531	Season
 00532	Season
 00533	Season
-00669	Body
-00676	Stone
+00534	Color
+00537	Color
+00538	Color
+00546	Color
+00547	Color
+00664	Color
+00667	Color
+00669	Color
+00676	Variation
 00677	Bamboo
-00682	Design
-00685	Variation
-00688	Variation
-00690	Variation
+00682	Paint color
+00683	Variation
+00685	Color
+00688	Color
+00690	Color
+00704	Variation
 00710	Bamboo
-00739	Body color
+00716	Screen design
+00725	Frame
+00735	Color
+00739	Color
+00741	Color
+00742	Color
+00743	Illumination
+00744	Color
+00787	Color
+00796	Color
 00805	Mushroom type
 00808	Mushroom type
+00832	Color
+00833	Color
+00839	Color
+00840	Color
+00849	Color
+00863	Surface color
 00865	Paint color
+00870	Color
+00889	Burner color
 00891	Color
-01032	Body color
-01058	Body
-01103	Lumber type
-01111	Stone
+00896	Color
+00907	Color
+00908	Color
+00915	Color
+00918	Design
+00922	Color
+00928	Color
+00929	Color
+00941	Frame
+00950	Color
+00954	Color
+00955	Variation
+00957	Blade color
+00963	Color
+00967	Color
+00971	Color
+00987	Color
+00997	Scent
+00998	Frame
+01019	Color
+01029	Frame
+01032	Color
+01042	Color
+01043	Color
+01050	Variation
+01051	Color
+01058	Color
+01072	Color
+01081	Color
+01082	Color
+01087	Color
+01092	Color
+01103	Color
+01108	Color
+01111	Color
+01112	Variation
+01117	Color
+01125	Color
+01127	Color
+01128	Color
+01141	Color
+01143	Color
 01157	Brick color
-01170	Lumber type
-01189	Tire color
+01161	Tray
+01170	Color
+01171	Color
+01177	Color
+01185	Color
+01189	Color
+01199	Color
+01206	Color
+01211	Color
+01221	Color
+01222	Color
+01227	Color
+01229	Color
+01232	Color
+01234	Color
+01235	Color
 01241	Paint color
-01263	Fruit type
-01504	Fabric
-01509	Coating
+01243	Variation
+01263	Fruit color
+01288	Planter color
+01308	Color
+01314	Color
+01319	Color
+01328	Color
+01330	Variation
+01348	Color
+01411	Color
+01412	Color
+01432	Color
+01434	Color
+01449	Color
+01493	Bunting color
+01495	Color
+01499	Design
+01500	Design
+01501	Design
+01504	Design
+01507	Style
+01509	Color
 01557	Block color
 01558	Block color
 01559	Block color
 01561	Block color
 01565	Block color
-01625	Body color
-01626	Body color
-01627	Body color
-01652	Variation
-01753	Variation
+01567	Variation
+01573	Variation
+01598	Color
+01606	Color
+01608	Pole color
+01620	Frame
+01621	Color
+01624	Variation
+01625	Color
+01626	Color
+01627	Color
+01628	Color
+01631	Color
+01632	Color
+01644	Color
+01645	Color
+01652	Color
+01708	Color
+01712	Color
+01716	Color
+01744	Color
+01745	Color
+01753	Color
+01757	Color
 01759	Genre
-01797	Design
+01778	Color
+01783	Frame
+01797	Variation
 01799	Paint color
-01823	Bag color
+01802	Color
+01803	Color
+01804	Color
+01816	Frame
+01823	Color
+01829	Planter color
+01836	Color
+01840	Color
+01845	Color
+01850	Color
+01851	Color
+01852	Color
+01853	Color
+01866	Frame
+01868	Color
+01870	Color
+01875	Color
+01877	Color
+01881	Color
+01888	Color
+01889	Box color
+01892	Frame
+01899	Variation
+01906	Color
 01913	Paint color
+01929	Lid & seat color
+02010	Variation
+02012	Board markings
+02013	Color
+02014	Color
+02020	Frame
 02099	Color
 02319	Color
-02326	Body color
-02329	Tire color
+02326	Color
+02329	Color
+02333	Color
+02335	Color
+02352	Logo
+02358	Light color
 02377	Color
 02379	Color
-02553	Coating
+02553	Color
+02554	Color
 02558	Block color
-02559	Design
+02559	Color
 02560	Paint color
-02586	Chair back and seat
-02596	Fruit type
+02561	Stand color
+02562	Holder color
+02575	Color
+02586	Color
+02596	Fruit color
 02605	Paint color
+02606	Frame
+02614	Frame
+02713	Color
+02731	Color
+02736	Color
+02740	Color
+02770	Color
+02771	Color
+02772	Color
+02776	Color
 02822	Color
+03063	Color
+03064	Color
+03078	Color
 03122	Paint color
 03191	Lumber type
 03193	Lumber type
@@ -73,19 +252,39 @@
 03205	Block color
 03206	Block color
 03208	Block color
+03251	Color
+03252	Color
 03270	Lumber type
 03271	Lumber type
 03275	Lumber type
+03282	Color
+03305	Frame
+03307	Frame
+03333	Color
 03340	Paint color
-03396	Tabletop
+03345	Color
+03346	Color
+03348	Color
+03396	Color
+03400	Color
+03402	Color
 03406	Paint color
-03407	Variation
+03407	Color
+03416	Variation
+03428	Color
+03430	Color
+03431	Color
 03436	Paint color
 03438	Paint color
 03439	Paint color
-03445	Body color
-03446	Stone
+03442	Color
+03443	Color
+03445	Color
+03446	Variation
 03449	Paint color
+03465	Frame
+03467	China color
+03471	Plate color
 03490	Paint color
 03497	Illumination
 03498	Illumination
@@ -96,57 +295,128 @@
 03503	Illumination
 03504	Illumination
 03505	Illumination
-03509	Variation
+03509	Frame
 03551	Bamboo
 03553	Bamboo
 03554	Bamboo
 03556	Bamboo
 03557	Bamboo
 03558	Bamboo
-03559	Body color
-03560	Body color
-03561	Body color
-03562	Body color
-03563	Body color
+03559	Color
+03560	Color
+03561	Color
+03562	Color
+03563	Color
 03581	Variation
-03587	Variation
+03582	Genre
+03583	Design
+03584	Variation
+03587	Color
 03588	Navigation
-03591	Variation
-03592	Variation
-03593	Variation
-03594	Variation
-03617	Variation
-03618	Finish
+03590	Color
+03591	Style
+03592	Style
+03593	Style
+03594	Style
+03595	Color
+03596	Color
+03616	Color
+03617	Frame
+03618	Color
+03619	Food
+03621	Frame
+03622	Frame
+03623	Color
+03624	Color
 03658	Bamboo
+03672	Variation
 03675	Hay condition
-03683	Design
-03692	Sign
+03681	Seat color
+03683	Color
+03692	Color
+03697	Color
 03699	Variation
+03701	Color
+03702	Frame
 03773	Frame
 03775	Frame
 03776	Brick color
+03783	Color
+03784	Color
 03785	Color
 03805	Mushroom type
 03806	Mushroom type
 03808	Mushroom type
-03819	Barrel color
+03816	Color
+03818	Design
+03819	Color
+03820	Color
+03821	Color
+03822	Color
 03943	Lumber type
-03966	Design
-03975	Fruit type
-03976	Fruit type
-03977	Shell color
+03946	Frame
+03947	Frame
+03948	Color
+03949	Color
+03950	Color
+03951	Color
+03952	Color
+03953	Color
+03954	Color
+03955	Color
+03956	Color
+03957	Color
+03958	Color
+03959	Color
+03960	Color
+03961	Mat color
+03962	Color
+03965	Cup color
+03966	Color
+03967	Color
+03970	Color
+03971	Color
+03972	Color
+03973	Color
+03974	Color
+03975	Fruit color
+03976	Fruit color
+03977	Color
 03978	Shell color
 03979	Shell color
 03980	Shell color
 03982	Shell color
 03983	Shell color
 03984	Shell color
-03991	Design
-03992	Body color
-04011	Fruit type
-04012	Fruit type
+03986	Color
+03987	Color
+03991	Color
+03992	Color
+03993	Color
+03995	Color
+03996	Color
+03997	Color
+03998	Color
+03999	Color
+04000	Color
+04001	Color
+04002	Color
+04003	Color
+04006	Color
+04009	Color
+04011	Fruit color
+04012	Fruit color
+04013	Color
+04014	Color
+04015	Color
+04017	Color
+04019	Color
+04023	Color
 04025	Design
 04027	Color
+04029	Color
+04030	Color
+04033	Design
 04035	Lumber type
 04036	Lumber type
 04037	Lumber type
@@ -157,12 +427,30 @@
 04042	Lumber type
 04043	Lumber type
 04044	Lumber type
+04045	Color
+04046	Color
+04047	Color
+04048	Color
+04049	Color
+04050	Color
+04051	Color
+04052	Color
+04053	Color
+04054	Color
 04066	Light color
-04067	Design
+04067	Color
+04068	Tableware
+04070	Color
+04071	Mat color
+04072	Color
 04073	Design
 04074	Light color
 04075	Frame
+04076	Color
+04077	Color
 04078	Plate color
+04080	Color
+04081	Color
 04083	Pumpkin color
 04084	Pumpkin color
 04086	Pumpkin color
@@ -172,34 +460,88 @@
 04090	Pumpkin color
 04092	Pumpkin color
 04093	Bamboo
-04104	Dish
+04094	Planter color
+04099	Frame
+04101	Color
+04102	Frame
+04104	Food
 04108	Light color
+04109	Color
+04110	Variation
+04111	Color
+04113	Frame
+04114	Variation
+04116	Variation
+04118	Color
+04119	Color
+04122	Tracing-table color
 04124	Lumber type
 04125	Paint color
-04127	Fruit type
-04128	Fruit type
+04127	Fruit color
+04128	Fruit color
+04129	Planter color
 04131	Light color
-04134	Fruit type
+04132	Planter color
+04133	Frame
+04134	Fruit color
+04135	Color
+04137	Color
+04138	Color
+04139	Color
+04140	Color
+04141	Color
+04142	Color
+04143	Color
+04144	Frame
+04196	Color
+04226	Color
+04230	Candle color
 04279	Flavor
-04309	Color
+04309	Paint color
+04338	Color
+04357	Color
 04377	Color
-04546	Fruit type
+04379	Color
+04392	Mat color
+04412	Color
+04441	Color
+04445	Frame
+04546	Fruit color
+04572	Shade color
+04687	Color
 04708	Mushroom type
+04719	Color
+04722	Color
+04738	Color
 04751	Color
 04752	Color
+04753	Color
+04754	Color
+04756	Color
+04757	Color
+04758	Color
+04759	Color
+04760	Color
+04761	Color
+04762	Color
 04764	Color
 05150	Shell color
+05165	Holder color
+05207	Roof-tile color
+05208	Color
+05309	Color
 05310	Color
 05337	Knit-cap color
+05338	Frame
 05543	Block color
 05635	Paint color
-05636	Body color
+05636	Color
 05716	Color
 05717	Color
 05718	Color
 05719	Color
 05784	Color
-05931	Body color
+05931	Color
 05972	Lumber type
 05973	Lumber type
 05976	Bamboo
@@ -214,26 +556,35 @@
 06826	Color
 06827	Color
 06829	Color
-06831	Body color
+06830	Shell color
+06831	Stand color
 06832	Color
 07045	Can
 07132	Paint color
 07133	Paint color
 07134	Paint color
+07135	Light color
+07136	Planter color
 07137	Paint color
 07138	Design
 07139	Art
-07140	Cover pattern
+07140	Design
 07141	Design
 07143	Design
-07144	Cover pattern
+07144	Design
 07145	Design
 07146	Decorations
 07147	Name
-07159	Cardboard
-07160	Cardboard
-07161	Cardboard
-07163	Cardboard
+07148	Color
+07153	Color
+07154	Paint color
+07159	Design
+07160	Design
+07161	Design
+07163	Design
+07189	Light color
+07190	Light color
+07229	Color
 07230	Flower color
 07231	Flower color
 07232	Flower color
@@ -243,28 +594,61 @@
 07236	Flower color
 07237	Flower color
 07238	Color
-07247	Roof color
+07247	Color
 07253	Color
+07257	Color
 07258	Creation
-07259	Variation
-07281	Body color
-07284	Variation
+07259	Style
+07260	Sign
+07264	Color
+07280	Variation
+07281	Paint color
+07282	Color
+07284	Color
 07317	Stone
+07379	Color
 07390	Color
-07393	Stone
-07454	Color
-07527	Variation
-07535	Body color
+07391	Frame
+07392	Color
+07393	Variation
+07453	Contents
+07454	Paint color
+07525	Color
+07526	Color
+07527	Color
+07528	Color
+07529	Color
+07535	Color
 07588	Mushroom type
+07599	Variation
+07653	Color
+07654	Color
 07788	Food
-07795	Color
-07805	Lumber type
+07789	Color
+07795	Variation
+07796	Color
+07797	Color
+07800	Flavor
+07801	Color
+07802	Color
+07803	Color
+07804	Color
+07805	Color
+07845	Color
+07865	Kimono pattern
 07867	Navigation
+07868	Color
 08031	Color
+08096	Color
 08176	Color
 08177	Color
 08178	Color
-08419	Paint color
+08297	Color
+08298	Frame
+08415	Color
+08417	Color
+08418	Color
+08419	Color
 08471	Color
 08472	Color
 08473	Color
@@ -277,16 +661,46 @@
 08579	Color
 08580	Color
 08826	Paint color
-09642	Body color
+09502	Color
+09565	Design
+09568	Variation
+09584	Color
+09619	Variation
+09642	Color
+09766	Color
+09767	Color
+10244	Bottle color
 10742	Bamboo
 10743	Bamboo
-11941	Color
+11711	Color
+11712	Color
+11941	Variation
 11942	Paint color
-11943	Color
+11943	Variation
 12140	Color
-12332	Tabletop
-12372	Paint
-12373	Paint
+12207	Color
+12305	Color
+12308	Color
+12311	Frame
+12312	Color
+12313	Color
+12314	Color
+12332	Color
+12340	Pole color
+12341	Color
+12343	Color
+12344	Color
+12345	Color
+12346	Color
+12348	Color
+12349	Color
+12350	Color
+12356	Color
+12358	Color
+12365	Color
+12366	Color
+12372	Variation
+12373	Variation
 12401	Design
 12402	Design
 12403	Design
@@ -295,54 +709,499 @@
 12406	Design
 12407	Design
 12408	Design
-12409	Body color
-12410	Easel
+12409	Color
+12410	Design
 12411	Design
+12516	Color
 12543	Joy-Con
+12599	Color
+12600	Color
+12601	Color
+12602	Color
+12603	Color
+12604	Color
+12605	Frame
+12606	Color
+12608	Color
+12610	Color
+12611	Condition
+12612	Color
+12613	China color
+12614	Color
+12637	Variation
+12653	Color
+12669	Frame
+12670	Color
+12673	Color
+12674	Color
+12675	Color
+12676	Color
+12677	Color
+12678	Color
+12679	Color
+12683	Style
+12684	Style
+12685	Style
+12688	Style
+12689	Style
+12690	Style
+12691	Style
+12692	Style
+12693	Color
+12699	Frame
+12700	Color
+12701	Color
+12702	Color
+12703	Bucket color
+12704	Color
+12705	Food
+12706	Food
+12707	Variation
+12708	Color
+12709	Color
+12712	Color
+12713	Color
+12714	Color
+12715	Style
+12717	Board markings
+12718	Board markings
+12720	Color
 12741	Map center
+12744	Top cloth
+12745	Top cloth
+12766	Color
+12767	Color
+12768	Color
+12769	Color
+12772	Color
+12773	Color
+12774	Color
+12775	Stand color
+12776	Color
+12777	Color
+12778	Color
+12779	Color
+12780	Color
+12781	Color
+12782	Table color
+12803	Style
+12880	Frame
+12881	Color
+12882	Color
+12883	Color
+12884	Color
+12885	Color
+12886	Color
+12887	Color
+12888	Color
+12889	Color
+12890	Variation
+12891	Frame
+12893	Color
+12894	Color
 12949	Pumpkin color
-12951	Color
-13222	Color
-13223	Color
-13242	Body color
-13243	Fabric
-13244	Design
-13245	Variation
+12951	Pumpkin color
+12976	Variation
+12993	Color
+12994	Frame
+12995	Color
+12996	Frame
+12997	Color
+12998	Color
+12999	Color
+13004	Color
+13005	Frame
+13006	Frame
+13007	Frame
+13008	Frame
+13009	Frame
+13010	Frame
+13073	Frame
+13075	Frame
+13076	Color
+13077	Color
+13078	Color
+13079	Color
+13080	Color
+13081	Color
+13082	Color
+13083	Color
+13084	Tray color
+13085	Fabric
+13108	Color
+13109	Color
+13110	Color
+13111	Color
+13112	Color
+13113	Design
+13114	Color
+13115	Color
+13116	Color
+13117	Color
+13118	Color
+13119	Color
+13120	Metal color
+13121	Color
+13122	Frame
+13138	Frame
+13139	Frame
+13140	Color
+13141	Frame
+13142	Stand color
+13143	Color
+13144	Color
+13145	Variation
+13146	Color
+13147	Color
+13148	Color
+13149	Color
+13150	Color
+13151	Hanger
+13152	Color
+13153	Color
+13154	Color
+13155	Color
+13156	Variation
+13157	Color
+13158	Color
+13161	Sign design
+13163	Color
+13164	Color
+13185	Design
+13186	Design
+13187	Design
+13188	Ball type
+13189	Color
+13190	Color
+13191	Color
+13192	Color
+13201	Color
+13202	Color
+13203	Variation
+13205	Color
+13206	Color
+13207	Frame
+13209	Color
+13210	Color
+13211	Color
+13214	Color
+13220	Hanger color
+13222	Pumpkin color
+13223	Pumpkin color
+13229	Color
+13242	Color
+13243	Color
+13244	Color
+13245	Flavor
 13246	Variation
-13247	Body color
-13249	Variation
+13247	Color
+13249	Color
 13250	Race-car colors
-13251	Body color
+13251	Color
 13252	Roof color
-13447	Design
-13448	Design
-13449	Design
-13450	Design
-13453	Design
+13255	Color
+13266	Color
+13268	Wagon color
+13269	Color
+13270	Color
+13271	Color
+13272	Planter color
+13273	Flowers
+13274	Color
+13288	Base color
+13294	Chair color
+13295	Color
+13296	Seat color
+13299	Color
+13300	Color
+13302	Variation
+13303	Contents
+13304	Color
+13305	Color
+13306	Color
+13307	Color
+13312	Color
+13313	Color
+13335	Color
+13337	Color
+13338	Color
+13339	Color
+13340	Color
+13341	Frame
+13342	Color
+13343	Color
+13344	Color
+13345	Contents
+13347	Variation
+13356	Color
+13360	Beverage color
+13361	Paint colors
+13362	Variation
+13363	Color
+13365	Cup color
+13366	Color
+13367	Color
+13368	Color
+13369	Color
+13370	Color
+13447	Theme
+13448	Theme
+13449	Theme
+13450	Theme
+13453	Theme
+13454	Frame
+13455	Color
+13464	Color
+13465	Color
+13466	Confetti color
+13467	Flame color
+13468	Light color
+13469	Light color
+13472	Blade color
+13474	Color
+13475	Variation
+13478	Color
+13479	Color
 13488	Variation
-13767	Variation
-13770	Variation
-13772	Variation
-13773	Variation
-13774	Variation
-13775	Variation
-13776	Variation
-13777	Variation
-13778	Variation
-13818	Design
-13819	Design
-13820	Design
+13496	Variation
+13502	Light color
+13503	Variation
+13504	Light color
+13505	Color
+13506	Light color
+13507	Color
+13508	Color
+13509	Variation
+13510	Color
+13511	Variation
+13512	Color
+13513	Color
+13514	Style
+13515	Color
+13516	Color
+13517	Color
+13518	Color
+13519	Color
+13520	Variation
+13521	Color
+13522	Hairstyle
+13523	Color
+13524	Variation
+13526	Color
+13530	Paint color
+13534	Color
+13573	Paint color
+13574	Paint color
+13575	Color
+13576	Planter color
+13577	Color
+13578	Color
+13579	Leaves
+13580	Style
+13581	Variation
+13582	Variation
+13583	Color
+13584	Makeup color
+13586	Frame
+13587	Color
+13588	Paint color
+13589	Color
+13590	Variation
+13591	Style
+13606	Color
+13614	Color
+13615	Color
+13616	Cord color
+13618	Pattern
+13620	Tape type
+13621	Color
+13622	Color
+13623	Variation
+13624	Frame
+13625	Pattern
+13626	Color
+13627	Pattern
+13628	Color
+13629	Pattern
+13630	Frame
+13631	Color
+13632	Flavors
+13633	Frame
+13634	Contents
+13636	Color
+13637	Frame color
+13638	Frame
+13639	Frame
+13642	Color
+13643	Color
+13645	Color
+13647	Color
+13649	Color
+13651	Color
+13655	Frame
+13657	Stand color
+13662	Variation
+13666	Color
+13676	Color
+13678	Color
+13680	Frame color
+13690	Color
+13691	Frame
+13692	Color
+13696	Design
+13712	Color
+13717	Color
+13719	Color
+13722	Variation
+13729	Variation
+13740	Genre
+13744	Frame
+13745	Design
+13747	Frame
+13748	Color
+13751	Paint color
+13756	Color
+13765	Poles
+13767	Color
+13770	Color
+13772	Color
+13773	Color
+13774	Color
+13775	Color
+13776	Color
+13777	Color
+13778	Color
+13818	Theme
+13819	Theme
+13820	Theme
 13829	Variation
 13831	Color
 13832	Color
+13884	Color
+13897	Brick color
+13901	Brick color
+13902	Variation
+13925	Color
+13926	Color
 13927	Color
-13930	Design
-14029	Variation
+13930	Style
+14017	Variation
+14018	Variation
+14019	Color
+14029	Color
+14046	Color
+14047	Color
+14049	Body color
+14050	Label color
+14051	Frame
+14053	Frame
+14054	Color
+14055	Color
+14056	Color
+14057	Color
+14058	Color
+14059	Color
+14060	Color
+14061	Color
+14062	Color
+14063	Color
+14064	Color
+14065	Color
+14066	Color
+14067	Color
+14074	Color
+14075	Color
+14076	Color
+14077	Color
+14078	Color
+14080	Color
+14081	Color
+14082	Color
+14083	Color
+14086	Color
+14087	Color
+14088	Color
+14089	Color
+14092	Color
+14093	Color
+14094	Color
+14095	Color
+14098	Color
+14099	Color
+14100	Color
+14101	Color
+14106	Variation
+14108	Variation
+14184	Plants
+14192	Color
+14193	Color
+14205	Color
+14206	Color
+14207	Color
+14208	Color
+14209	Color
+14210	Color
+14211	Color
+14212	Color
+14213	Variation
+14214	Color
+14216	Content color
+14308	Color
+14310	Color
+14313	Variation
+14332	Color
+14337	Color
 14340	Color
-14414	Design
-14475	Wreath
-14476	Variation
-14477	Variation
-14542	Color
+14352	Color
+14353	Color
+14354	Color
+14414	Variation
+14475	Wreath color
+14476	Color
+14477	Color
+14520	Color
+14523	Color
+14524	Shade color
+14525	Color
+14526	Color
+14527	Color
+14528	Color
+14530	Color
+14531	Color
+14534	Variation
+14538	Shaker color
+14539	Color
+14542	Pumpkin color
+14549	Variation
 14550	Pumpkin color
 14551	Pumpkin color
+14556	Box color
+14561	Food
+14572	Color
+14574	Beans
+14575	Color
+14591	Color
+14592	Paint color
+14593	Color
+14594	Color
+14596	Brick color
+14597	Color
+14598	Color
+14601	Variation
+14604	Color
+14619	Curtain rod
+14620	Curtain rod
+14639	Genre
+14640	Genre
+14714	Color
+14728	Color
+14735	
+14756	Illumination
+14758	Color
+14759	Color
+14799	Color
+14821	Light color
+14826	Color
+14831	Color
+14882	Variation
+14887	Variation

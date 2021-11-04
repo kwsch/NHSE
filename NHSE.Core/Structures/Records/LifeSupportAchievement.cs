@@ -183,6 +183,15 @@ namespace NHSE.Core
             {0x5F, new LifeSupportAchievement(095, 5, 0005, 0010, 0020, 0030, 0040,  -1,  -1, "FillSeafoodList"             )}, // 海の幸図鑑を埋めた数
             {0x60, new LifeSupportAchievement(096, 3, 0001, 0010, 0020, 0000, 0000,  -1,  -1, "GiveScallopsToSeo"           )}, // ラコスケにホタテを渡した回数
             {0x62, new LifeSupportAchievement(098, 5, 0005, 0050, 0250, 1000, 2500,  -1,  -1, "CatchSeafood"                )}, // 海の幸をGETした回数
+            {0x64, new LifeSupportAchievement(100, 5, 0005, 0020, 0050, 0100, 0200,  -1,  -1, "PlantVegetableSeedling"      )}, // 野菜の苗を植えた回数
+            {0x66, new LifeSupportAchievement(102, 5, 0010, 0050, 0150, 0500, 1000,  -1,  -1, "HarvestVegetable"            )}, // 野菜を収穫した個数
+            {0x67, new LifeSupportAchievement(103, 5, 0003, 0010, 0020, 0030, 0050,  -1,  -1, "VisitKappeiTour"             )}, // カッペイツアーに行った回数
+            {0x68, new LifeSupportAchievement(104, 3, 0005, 0015, 0020, 0000, 0000,  -1,  -1, "FillGyroidList"              )}, // ハニワのカタログ数
+            {0x69, new LifeSupportAchievement(105, 3, 0010, 0030, 0050, 0000, 0000,  -1,  -1, "FillCookingList"             )}, // 料理レシピ習得数
+            {0x6A, new LifeSupportAchievement(106, 1, 0001, 0000, 0000, 0000, 0000,  -1,  -1, "DigGyroid"                   )}, // 島でハニワを掘り出した
+            {0x6B, new LifeSupportAchievement(107, 5, 0005, 0030, 0100, 0300, 0500,  -1,  -1, "CookFood"                    )}, // 料理した回数
+            {0x6C, new LifeSupportAchievement(108, 5, 0005, 0010, 0020, 0030, 0050,  -1,  -1, "DrinkCoffee"                 )}, // 喫茶店でコーヒーを飲んだ回数
+            {0x6D, new LifeSupportAchievement(109, 5, 0003, 0010, 0020, 0030, 0050,  -1,  -1, "JoinRadioGymnastics"         )}, // ラジオ体操した回数
         };
 
         public static string GetName(int index, uint count, IReadOnlyDictionary<string, string> str)

@@ -192,31 +192,31 @@ namespace NHSE.Core
             {0x0EA, 01054}, // moon
             {0x0EB, 01439}, // asteroid
             {0x0EC, 01445}, // astronaut suit
-            {0x0ED, 05096}, // hyacinth crown (Red)
-            {0x0EE, 05097}, // cool hyacinth crown (Blue)
-            {0x0EF, 05098}, // purple hyacinth crown (Purple)
-            {0x0F0, 05099}, // windflower crown (Colorful)
-            {0x0F1, 05100}, // cool windflower crown (Colorful)
-            {0x0F2, 05101}, // purple windflower crown (Purple)
-            {0x0F3, 05102}, // tulip crown (Colorful)
-            {0x0F4, 05103}, // chic tulip crown (Colorful)
-            {0x0F5, 05104}, // dark tulip crown (Dark red)
-            {0x0F6, 05105}, // pansy crown (Colorful)
-            {0x0F7, 05106}, // cool pansy crown (Colorful)
-            {0x0F8, 05107}, // purple pansy crown (Purple)
-            {0x0F9, 05108}, // cosmos crown (Colorful)
-            {0x0FA, 05109}, // lovely cosmos crown (Colorful)
-            {0x0FB, 05110}, // dark cosmos crown (Dark red)
-            {0x0FC, 05111}, // rose crown (Colorful)
-            {0x0FD, 05112}, // cute rose crown (Colorful)
-            {0x0FE, 05113}, // chic rose crown (Purple)
-            {0x0FF, 05114}, // lily crown (Colorful)
-            {0x100, 05115}, // cute lily crown (Colorful)
-            {0x101, 05116}, // dark lily crown (Dark red)
-            {0x102, 05117}, // mum crown (Colorful)
-            {0x103, 05118}, // chic mum crown (Colorful)
-            {0x104, 05119}, // simple mum crown (Green)
-            {0x105, 04682}, // leaf (Green)
+            {0x0ED, 05096}, // hyacinth crown (No Variations)
+            {0x0EE, 05097}, // cool hyacinth crown (No Variations)
+            {0x0EF, 05098}, // purple hyacinth crown (No Variations)
+            {0x0F0, 05099}, // windflower crown (No Variations)
+            {0x0F1, 05100}, // cool windflower crown (No Variations)
+            {0x0F2, 05101}, // purple windflower crown (No Variations)
+            {0x0F3, 05102}, // tulip crown (No Variations)
+            {0x0F4, 05103}, // chic tulip crown (No Variations)
+            {0x0F5, 05104}, // dark tulip crown (No Variations)
+            {0x0F6, 05105}, // pansy crown (No Variations)
+            {0x0F7, 05106}, // cool pansy crown (No Variations)
+            {0x0F8, 05107}, // purple pansy crown (No Variations)
+            {0x0F9, 05108}, // cosmos crown (No Variations)
+            {0x0FA, 05109}, // lovely cosmos crown (No Variations)
+            {0x0FB, 05110}, // dark cosmos crown (No Variations)
+            {0x0FC, 05111}, // rose crown (No Variations)
+            {0x0FD, 05112}, // cute rose crown (No Variations)
+            {0x0FE, 05113}, // chic rose crown (No Variations)
+            {0x0FF, 05114}, // lily crown (No Variations)
+            {0x100, 05115}, // cute lily crown (No Variations)
+            {0x101, 05116}, // dark lily crown (No Variations)
+            {0x102, 05117}, // mum crown (No Variations)
+            {0x103, 05118}, // chic mum crown (No Variations)
+            {0x104, 05119}, // simple mum crown (No Variations)
+            {0x105, 04682}, // leaf (No Variations)
             {0x106, 03472}, // golden toilet
             {0x107, 01241}, // DIY workbench
             {0x108, 02578}, // pitfall seed
@@ -339,6 +339,7 @@ namespace NHSE.Core
             {0x1A6, 06033}, // outdoor picnic set
             {0x1A7, 06081}, // tree's bounty arch
             {0x1A8, 05979}, // bamboo noodle slide
+            {0x1A9, 06830}, // shell music box
             {0x1AA, 06832}, // cherry-blossom clock
             {0x1AB, 06831}, // blossom-viewing lantern
             {0x1AD, 06826}, // nova light
@@ -369,8 +370,8 @@ namespace NHSE.Core
             {0x1C8, 06840}, // leaf umbrella
             {0x1C9, 03229}, // clothesline
             {0x1CA, 07211}, // bridge construction kit
-            {0x1CB, 07377}, // blue rose crown (Blue)
-            {0x1CC, 07378}, // gold rose crown (Gold)
+            {0x1CB, 07377}, // blue rose crown (No Variations)
+            {0x1CC, 07378}, // gold rose crown (No Variations)
             {0x1CD, 05166}, // campsite construction kit
             {0x1CE, 01750}, // document stack
             {0x1CF, 04034}, // scattered papers
@@ -453,16 +454,20 @@ namespace NHSE.Core
             {0x220, 07330}, // orange rug
             {0x221, 07331}, // peach rug
             {0x222, 07332}, // pear rug
+            {0x224, 04351}, // log fence
             {0x225, 04352}, // rope fence
             {0x226, 04354}, // imperial fence
+            {0x227, 04355}, // block fence
             {0x228, 04356}, // straw fence
             {0x229, 04358}, // spiky fence
             {0x22B, 05206}, // iron-and-stone fence
             {0x22C, 05207}, // zen fence
+            {0x22D, 05208}, // large lattice fence
+            {0x22F, 05210}, // log-wall fence
             {0x231, 05213}, // barbed-wire fence
             {0x234, 05268}, // underwater flooring
             {0x235, 05030}, // water flooring
-            {0x236, 04590}, // gold armor (Gold)
+            {0x236, 04590}, // gold armor (No Variations)
             {0x237, 02777}, // medicine
             {0x238, 07317}, // zen-style stone
             {0x239, 08825}, // golden casket
@@ -497,48 +502,48 @@ namespace NHSE.Core
             {0x258, 07535}, // kettlebell
             {0x259, 05941}, // golden dung beetle
             {0x25A, 11260}, // golden arowana model
-            {0x25B, 04333}, // grass skirt (Brown)
-            {0x25C, 05291}, // traditional straw coat (Brown)
-            {0x25D, 08907}, // green grass skirt (Green)
-            {0x25E, 07254}, // straw umbrella hat (Brown)
-            {0x25F, 05143}, // bamboo hat (Beige)
+            {0x25B, 04333}, // grass skirt (No Variations)
+            {0x25C, 05291}, // traditional straw coat (No Variations)
+            {0x25D, 08907}, // green grass skirt (No Variations)
+            {0x25E, 07254}, // straw umbrella hat (No Variations)
+            {0x25F, 05143}, // bamboo hat (No Variations)
             {0x260, 07527}, // flower stand
             {0x261, 03410}, // small cardboard boxes
             {0x262, 03411}, // medium cardboard boxes
             {0x263, 03412}, // large cardboard boxes
-            {0x264, 09838}, // cherry dress (Red)
-            {0x265, 09873}, // cherry hat (Red)
+            {0x264, 09838}, // cherry dress (No Variations)
+            {0x265, 09873}, // cherry hat (No Variations)
             {0x266, 09949}, // cherry umbrella
-            {0x267, 09837}, // pear dress (Beige)
-            {0x268, 09872}, // pear hat (Green)
+            {0x267, 09837}, // pear dress (No Variations)
+            {0x268, 09872}, // pear hat (No Variations)
             {0x269, 09950}, // pear umbrella
-            {0x26A, 09839}, // peach dress (Peach)
-            {0x26B, 09874}, // peach hat (Peach)
+            {0x26A, 09839}, // peach dress (No Variations)
+            {0x26B, 09874}, // peach hat (No Variations)
             {0x26C, 09947}, // peach umbrella
-            {0x26D, 09836}, // apple dress (Red)
-            {0x26E, 09871}, // apple hat (Red)
+            {0x26D, 09836}, // apple dress (No Variations)
+            {0x26E, 09871}, // apple hat (No Variations)
             {0x26F, 09948}, // apple umbrella
-            {0x270, 05275}, // orange hat (Orange)
+            {0x270, 05275}, // orange hat (No Variations)
             {0x271, 06912}, // orange umbrella
-            {0x272, 03288}, // orange dress (Orange)
-            {0x273, 07489}, // star pochette (Yellow)
-            {0x274, 09862}, // star head (Yellow)
+            {0x272, 03288}, // orange dress (No Variations)
+            {0x273, 07489}, // star pochette (No Variations)
+            {0x274, 09862}, // star head (No Variations)
             {0x275, 09945}, // cherry-blossom umbrella
-            {0x276, 07490}, // cherry-blossom pochette (Pink)
-            {0x277, 07491}, // maple-leaf pochette (Red)
-            {0x278, 07492}, // acorn pochette (Brown)
-            {0x279, 07493}, // snowflake pochette (White)
-            {0x27A, 07494}, // shellfish pochette (White)
+            {0x276, 07490}, // cherry-blossom pochette (No Variations)
+            {0x277, 07491}, // maple-leaf pochette (No Variations)
+            {0x278, 07492}, // acorn pochette (No Variations)
+            {0x279, 07493}, // snowflake pochette (No Variations)
+            {0x27A, 07494}, // shellfish pochette (No Variations)
             {0x27B, 07291}, // leaf mask (Green)
-            {0x27C, 07511}, // knitted-grass backpack (Green)
-            {0x27D, 08609}, // snowperson head (White)
-            {0x27E, 07498}, // log pack (Brown)
-            {0x280, 04588}, // iron armor (Gray)
+            {0x27C, 07511}, // knitted-grass backpack (No Variations)
+            {0x27D, 08609}, // snowperson head (No Variations)
+            {0x27E, 07498}, // log pack (No Variations)
+            {0x280, 04588}, // iron armor (No Variations)
             {0x281, 05334}, // knight's helmet (Gray)
-            {0x282, 05472}, // armor shoes (Gray)
-            {0x283, 05524}, // gold-armor shoes (Gold)
+            {0x282, 05472}, // armor shoes (No Variations)
+            {0x283, 05524}, // gold-armor shoes (No Variations)
             {0x284, 05346}, // gold helmet (Gold)
-            {0x285, 07506}, // basket pack (Green)
+            {0x285, 07506}, // basket pack (No Variations)
             {0x286, 12206}, // flat garden rock
             {0x287, 12208}, // mossy garden rock
             {0x288, 07174}, // mush umbrella
@@ -557,7 +562,7 @@ namespace NHSE.Core
             {0x295, 08578}, // golden slingshot
             {0x296, 08660}, // golden rod
             {0x297, 09617}, // golden axe
-            {0x298, 12326}, // recycled boots (Brown)
+            {0x298, 12326}, // recycled boots (No Variations)
             {0x299, 05508}, // underwater wall
             {0x29A, 05661}, // tropical vista
             {0x29B, 07239}, // starry-sands flooring
@@ -566,28 +571,28 @@ namespace NHSE.Core
             {0x29E, 12332}, // natural square table
             {0x29F, 11113}, // light bamboo rug
             {0x2A0, 11114}, // dark bamboo rug
-            {0x2A1, 12439}, // earth-egg shell (Red)
-            {0x2A2, 12449}, // earth-egg outfit (Red)
-            {0x2A3, 12455}, // earth-egg shoes (Red)
-            {0x2A4, 12440}, // stone-egg shell (Yellow)
-            {0x2A5, 12450}, // stone-egg outfit (Yellow)
-            {0x2A6, 12456}, // stone-egg shoes (Yellow)
-            {0x2A7, 12441}, // leaf-egg shell (Green)
-            {0x2A8, 12451}, // leaf-egg outfit (Green)
-            {0x2A9, 12457}, // leaf-egg shoes (Green)
-            {0x2AA, 12442}, // wood-egg shell (Orange)
-            {0x2AB, 12452}, // wood-egg outfit (Orange)
-            {0x2AC, 12458}, // wood-egg shoes (Orange)
-            {0x2AD, 12443}, // sky-egg shell (Blue)
-            {0x2AE, 12453}, // sky-egg outfit (Blue)
-            {0x2AF, 12459}, // sky-egg shoes (Blue)
-            {0x2B0, 12444}, // water-egg shell (Purple)
-            {0x2B1, 12454}, // water-egg outfit (Purple)
-            {0x2B2, 12460}, // water-egg shoes (Purple)
-            {0x2B3, 12446}, // egg party hat (Colorful)
-            {0x2B4, 12448}, // egg party dress (Colorful)
-            {0x2B5, 12445}, // Bunny Day crown (Colorful)
-            {0x2B6, 12447}, // Bunny Day bag (Colorful)
+            {0x2A1, 12439}, // earth-egg shell (No Variations)
+            {0x2A2, 12449}, // earth-egg outfit (No Variations)
+            {0x2A3, 12455}, // earth-egg shoes (No Variations)
+            {0x2A4, 12440}, // stone-egg shell (No Variations)
+            {0x2A5, 12450}, // stone-egg outfit (No Variations)
+            {0x2A6, 12456}, // stone-egg shoes (No Variations)
+            {0x2A7, 12441}, // leaf-egg shell (No Variations)
+            {0x2A8, 12451}, // leaf-egg outfit (No Variations)
+            {0x2A9, 12457}, // leaf-egg shoes (No Variations)
+            {0x2AA, 12442}, // wood-egg shell (No Variations)
+            {0x2AB, 12452}, // wood-egg outfit (No Variations)
+            {0x2AC, 12458}, // wood-egg shoes (No Variations)
+            {0x2AD, 12443}, // sky-egg shell (No Variations)
+            {0x2AE, 12453}, // sky-egg outfit (No Variations)
+            {0x2AF, 12459}, // sky-egg shoes (No Variations)
+            {0x2B0, 12444}, // water-egg shell (No Variations)
+            {0x2B1, 12454}, // water-egg outfit (No Variations)
+            {0x2B2, 12460}, // water-egg shoes (No Variations)
+            {0x2B3, 12446}, // egg party hat (No Variations)
+            {0x2B4, 12448}, // egg party dress (No Variations)
+            {0x2B5, 12445}, // Bunny Day crown (No Variations)
+            {0x2B6, 12447}, // Bunny Day bag (No Variations)
             {0x2B7, 12398}, // Bunny Day arch
             {0x2B8, 12412}, // wobbling Zipper toy
             {0x2B9, 12413}, // Bunny Day lamp
@@ -630,6 +635,7 @@ namespace NHSE.Core
             {0x2DF, 13223}, // spooky table setting
             {0x2E0, 13237}, // spooky wand
             {0x2E1, 13275}, // spooky fence
+            {0x2E2, 13608}, // veggie basket
             {0x2E4, 13447}, // Turkey Day garden stand
             {0x2E5, 13448}, // Turkey Day hearth
             {0x2E6, 13449}, // Turkey Day decorations
@@ -642,13 +648,288 @@ namespace NHSE.Core
             {0x2EE, 13244}, // gift pile
             {0x2EF, 13792}, // festive wrapping paper
             {0x2F0, 13603}, // falling-snow wall
+            {0x2F1, 12681}, // partition wall
             {0x2F3, 03548}, // rainbow feather
             {0x2F5, 12217}, // summer-shell rug
+            {0x2F6, 14019}, // vine hanging chair
+            {0x2F7, 13526}, // vine ladder set-up kit
+            {0x2F8, 13530}, // wooden ladder set-up kit
+            {0x2F9, 13534}, // iron ladder set-up kit
+            {0x2FA, 14017}, // cave
+            {0x2FB, 14018}, // ruined arch
+            {0x2FC, 13906}, // round vine rug
+            {0x2FD, 13874}, // glowing-moss ruins wall
+            {0x2FE, 13875}, // rope-net wall
+            {0x300, 13877}, // glowing-moss rug
+            {0x301, 13878}, // round glowing-moss rug
+            {0x302, 13879}, // glowing-moss flooring
+            {0x303, 13880}, // rope-net flooring
+            {0x304, 13881}, // glowing-moss cave wall
+            {0x305, 13019}, // glowing-moss forest wall
             {0x306, 14239}, // shamrock wand
             {0x308, 14278}, // mermaid fence
+            {0x309, 13895}, // tall concrete island counter
+            {0x30B, 13897}, // tall brick island counter
+            {0x30C, 13898}, // low concrete island counter
+            {0x30F, 13901}, // low brick island counter
+            {0x310, 13902}, // tall wooden island counter
+            {0x318, 14308}, // low simple island counter
+            {0x31A, 14310}, // tall simple island counter
+            {0x31D, 14313}, // low wooden island counter
+            {0x323, 14322}, // tall steel island counter
+            {0x325, 14324}, // low steel island counter
+            {0x32B, 14330}, // tall golden island counter
+            {0x32D, 14332}, // tall marble island counter
+            {0x32E, 14333}, // low golden island counter
+            {0x332, 14337}, // low marble island counter
+            {0x333, 14470}, // golden ladder set-up kit
+            {0x334, 14197}, // woven-vines hat (No Variations)
+            {0x335, 14202}, // vine crown (No Variations)
+            {0x336, 14248}, // vine outfit (No Variations)
+            {0x337, 14249}, // woven-vine pochette (No Variations)
+            {0x338, 01573}, // dharma
+            {0x339, 14487}, // golden dharma
+            {0x33A, 14489}, // mini golden dharma
+            {0x33B, 14207}, // glowing-moss stool
+            {0x33C, 14209}, // glowing-moss boulder
+            {0x33D, 14206}, // vine garland
+            {0x33E, 14192}, // giant vine
+            {0x33F, 14596}, // brick pillar
+            {0x340, 14597}, // marble pillar
+            {0x341, 14598}, // simple pillar
+            {0x342, 14599}, // steel pillar
+            {0x343, 14600}, // golden pillar
+            {0x344, 14601}, // wooden pillar
+            {0x345, 14602}, // concrete pillar
+            {0x346, 12335}, // acorn rug
+            {0x347, 12351}, // cherry-blossom rug
+            {0x349, 14187}, // stacked senmaizuke barrels
+            {0x34A, 14188}, // senmaizuke barrel
+            {0x34C, 13931}, // carrot potage
+            {0x34D, 13932}, // potato potage
+            {0x34E, 13933}, // bread gratin
+            {0x34F, 13934}, // orange pie
+            {0x350, 13935}, // peach pie
+            {0x351, 13936}, // pear pie
+            {0x352, 13937}, // cherry pie
+            {0x353, 13938}, // gnocchi di zucca
+            {0x354, 13939}, // gnocchi di patate
+            {0x355, 13940}, // gnocchi di carote
+            {0x356, 13941}, // pumpkin soup
+            {0x357, 13942}, // minestrone soup
+            {0x358, 13943}, // bamboo-shoot soup
+            {0x359, 13944}, // apple pie
+            {0x35A, 13945}, // seaweed soup
+            {0x35B, 13946}, // carrot cake
+            {0x35C, 13947}, // apple tart
+            {0x35D, 13948}, // veggie quiche
+            {0x35E, 13949}, // orange tart
+            {0x35F, 13950}, // mixed-fruits tart
+            {0x360, 13951}, // peach tart
+            {0x361, 13952}, // cherry tart
+            {0x362, 13953}, // pear tart
+            {0x363, 13957}, // mixed-fruits pie
+            {0x364, 13959}, // mixed-fruits sandwich
+            {0x365, 13960}, // coconut pudding
+            {0x366, 13961}, // pear jelly
+            {0x367, 13962}, // cherry jelly
+            {0x368, 13963}, // peach jelly
+            {0x369, 13964}, // mushroom crepe
+            {0x36A, 13965}, // seafood salad
+            {0x36B, 13966}, // fruit salad
+            {0x36C, 13967}, // orange jelly
+            {0x36D, 13968}, // salade de carottes râpées
+            {0x36E, 13969}, // poke
+            {0x36F, 13970}, // turnip salad
+            {0x370, 13971}, // apple jelly
+            {0x371, 13972}, // mushroom salad
+            {0x372, 13973}, // veggie crepe
+            {0x373, 13974}, // veggie sandwich
+            {0x374, 13975}, // mixed-fruits crepe
+            {0x375, 13976}, // salmon sandwich
+            {0x376, 13977}, // sugar crepe
+            {0x377, 13978}, // cookies
+            {0x378, 13979}, // orange pound cake
+            {0x379, 13980}, // pound cake
+            {0x37A, 13981}, // pumpkin pound cake
+            {0x37B, 13982}, // tomato juice
+            {0x37C, 13983}, // kabu ankake
+            {0x37D, 13984}, // carrot juice
+            {0x37E, 13985}, // coconut milk
+            {0x37F, 13986}, // pretzels
+            {0x380, 13987}, // frosted pretzels
+            {0x381, 13988}, // salad-stuffed tomato
+            {0x382, 13989}, // coconut cookies
+            {0x383, 13990}, // veggie cookies
+            {0x384, 13991}, // cherry smoothie
+            {0x385, 13992}, // thumbprint jam cookies
+            {0x386, 13993}, // frosted cookies
+            {0x387, 13994}, // flour
+            {0x388, 13995}, // pear smoothie
+            {0x389, 13996}, // whole-wheat flour
+            {0x38A, 13997}, // sugar
+            {0x38B, 13998}, // brown sugar
+            {0x38C, 13999}, // peach smoothie
+            {0x38D, 14000}, // apple smoothie
+            {0x38E, 14001}, // orange smoothie
+            {0x38F, 14002}, // brown-sugar pound cake
+            {0x390, 14003}, // sea-bass pie
+            {0x391, 14010}, // salad
+            {0x392, 14048}, // mushroom potage
+            {0x393, 14104}, // fish and chips
+            {0x394, 14105}, // french fries
+            {0x395, 14109}, // plain scones
+            {0x396, 14110}, // veggie cupcakes
+            {0x397, 14111}, // tomato bagel sandwich
+            {0x398, 14112}, // brown-sugar cupcakes
+            {0x399, 14113}, // carrot scones
+            {0x39A, 14114}, // pumpkin cupcakes
+            {0x39B, 14115}, // fruit scones
+            {0x39C, 14116}, // fruit cupcakes
+            {0x39D, 14117}, // pumpkin scones
+            {0x39E, 14118}, // plain cupcakes
+            {0x39F, 14119}, // salmon bagel sandwich
+            {0x3A0, 14120}, // squid-ink curry
+            {0x3A1, 14121}, // pumpkin curry
+            {0x3A2, 14122}, // carrot-tops curry
+            {0x3A3, 14123}, // mixed-fruits bagel sandwich
+            {0x3A4, 14124}, // tomato curry
+            {0x3A5, 14125}, // pumpkin bagel sandwich
+            {0x3A6, 14126}, // carrot bagel sandwich
+            {0x3A7, 14127}, // potato curry
+            {0x3A8, 14128}, // mushroom curry
+            {0x3A9, 14129}, // pancakes
+            {0x3AA, 14130}, // coconut pancakes
+            {0x3AB, 14131}, // potato galette
+            {0x3AC, 14132}, // fruit-topped pancakes
+            {0x3AD, 14161}, // pesce all'acqua pazza
+            {0x3AE, 14162}, // karei no nitsuke
+            {0x3AF, 14163}, // aji fry
+            {0x3B0, 14164}, // sautéed olive flounder
+            {0x3B1, 14165}, // grilled sea bass with herbs
+            {0x3B2, 14166}, // carpaccio di salmone
+            {0x3B3, 14167}, // carpaccio di marlin blu
+            {0x3B4, 14168}, // barred-knifejaw carpaccio
+            {0x3B5, 14169}, // orange marmalade
+            {0x3B6, 14170}, // peach jam
+            {0x3B7, 14171}, // pear jam
+            {0x3B8, 14172}, // carpaccio di capesante
+            {0x3B9, 14173}, // cherry jam
+            {0x3BA, 14174}, // pickled veggies
+            {0x3BB, 14175}, // tomato puree
+            {0x3BC, 14176}, // apple jam
+            {0x3BD, 14177}, // coconut oil
+            {0x3BE, 14178}, // anchoas al ajillo
+            {0x3BF, 14179}, // tomates al ajillo
+            {0x3C0, 14180}, // champiñones al ajillo
+            {0x3C1, 14181}, // sardines in oil
+            {0x3C2, 14182}, // pull-apart bread
+            {0x3C3, 14183}, // seafood ajillo
+            {0x3C4, 14185}, // jarred mushrooms
+            {0x3C5, 14186}, // jarred bamboo shoots
+            {0x3C6, 14465}, // baked potatoes
+            {0x3C7, 14466}, // pizza margherita
+            {0x3C8, 14696}, // seafood pizza
+            {0x3C9, 14697}, // fruit pizza
+            {0x3CA, 14698}, // mushroom pizza
+            {0x3CB, 13327}, // gratin
+            {0x3CC, 13328}, // clam chowder
+            {0x3CD, 13329}, // pumpkin pie
+            {0x3CE, 13330}, // olive-flounder meunière
+            {0x3CF, 12822}, // bread
+            {0x3D0, 12823}, // organic bread
+            {0x3D1, 12824}, // snack bread
+            {0x3D2, 12813}, // savory bread
+            {0x3D3, 12390}, // maple-leaf rug
             {0x3D4, 14550}, // spooky tree
             {0x3D5, 14551}, // spooky trick lamp
             {0x3D6, 14542}, // spooky treats basket
+            {0x3D7, 12222}, // yellow star rug
+            {0x3D8, 12329}, // green bamboo mat
+            {0x3D9, 12330}, // yellow bamboo mat
+            {0x3DA, 12379}, // tree-stump rug
+            {0x3DB, 12399}, // light bamboo bath mat
+            {0x3DC, 12400}, // dark bamboo bath mat
+            {0x3DD, 12521}, // starry-skies rug
+            {0x3DE, 13662}, // ruined decorated pillar
+            {0x3DF, 14193}, // vine bench
+            {0x3E0, 14205}, // vine lamp
+            {0x3E1, 14210}, // hanging glowing moss
+            {0x3E2, 14211}, // glowing-moss wreath
+            {0x3E3, 14212}, // glowing-moss pond
+            {0x3E4, 14213}, // glowing-moss statue
+            {0x3E5, 14214}, // glowing-moss-jar shelves
+            {0x3E6, 14215}, // glow-in-the-dark stickers
+            {0x3E7, 14216}, // suspicious cauldron
+            {0x3E8, 14208}, // glowing-moss balloon
+            {0x3E9, 14604}, // glowing-moss jar
+            {0x3EA, 14199}, // glowing-moss hood (No Variations)
+            {0x3EB, 14198}, // glowing-moss pointed cap (No Variations)
+            {0x3EC, 14201}, // glowing-moss headband (No Variations)
+            {0x3ED, 14257}, // full-body glowing-moss suit (No Variations)
+            {0x3EE, 14259}, // glowing-moss dress (No Variations)
+            {0x3EF, 14755}, // green bamboo fence
+            {0x3F0, 14756}, // frozen fence
+            {0x3F1, 14757}, // bamboo-slats fence
+            {0x3F2, 14758}, // corrugated iron fence
+            {0x3F3, 14759}, // park fence
+            {0x3F4, 14728}, // ornament tree
+            {0x3F5, 14594}, // giant ornament
+            {0x3F6, 14593}, // ornament garland
+            {0x3F7, 14591}, // ornament table lamp
+            {0x3F8, 14552}, // spooky cookies
+            {0x3F9, 14613}, // ornament crown (No Variations)
+            {0x3FA, 14565}, // Roost sablé cookie
+            {0x3FB, 14478}, // golden plate armor
+            {0x3FC, 14479}, // golden piggy bank
+            {0x3FD, 14484}, // golden meter and pipes
+            {0x3FE, 14485}, // golden gear apparatus
+            {0x3FF, 14486}, // golden gear tower
+            {0x400, 14488}, // golden garden bunny
+            {0x401, 14490}, // golden urn
+            {0x402, 14491}, // golden wristwatch
+            {0x403, 14492}, // golden decorative plate
+            {0x404, 14481}, // golden vase
+            {0x405, 14482}, // golden altar
+            {0x406, 14483}, // golden bathtub
+            {0x407, 14480}, // gold-nugget mining car
+            {0x408, 14533}, // golden samurai suit
+            {0x409, 12840}, // spaghetti napolitan
+            {0x40A, 12838}, // spaghetti marinara
+            {0x40B, 12835}, // squid-ink spaghetti
+            {0x40C, 14645}, // foxtail
+            {0x40D, 14644}, // nice branch
+            {0x40E, 14716}, // cake salé
+            {0x40F, 14714}, // donation box
+            {0x410, 13496}, // stonework kitchen
+            {0x411, 14831}, // wooden storage shed
+            {0x412, 14592}, // wooden music box
+            {0x413, 14549}, // decayed tree
+            {0x414, 13572}, // frozen floor tiles
+            {0x415, 14882}, // ruined seat
+            {0x416, 13509}, // gear tower
+            {0x417, 13511}, // gear apparatus
+            {0x418, 13520}, // forbidden altar
+            {0x419, 12611}, // plate armor
+            {0x41A, 07154}, // wooden box
+            {0x41B, 12350}, // box-shaped seat
+            {0x41C, 12706}, // imperial pot
+            {0x41D, 13696}, // pile of cardboard boxes
+            {0x41E, 12349}, // project table
+            {0x41F, 13210}, // stacked shopping baskets
+            {0x420, 13606}, // stacked fish containers
+            {0x421, 13220}, // festival-lantern set
+            {0x422, 13580}, // skateboard wall rack
+            {0x423, 12709}, // carp on a cutting board
+            {0x424, 14887}, // ruined broken pillar
+            {0x425, 13666}, // pile of cash
+            {0x426, 00922}, // stacked bottle crates
+            {0x427, 00743}, // frozen mini snowperson
+            {0x42B, 13573}, // medium wooden partition
+            {0x42C, 13574}, // small wooden partition
+            {0x42D, 13751}, // open wooden shelves
+            {0x42E, 13588}, // tension-pole rack
+            {0x430, 13161}, // wooden field sign
         };
     }
 }

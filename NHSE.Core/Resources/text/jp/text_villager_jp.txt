@@ -2,6 +2,7 @@ ant00	さくらじま
 ant01	マコト
 ant02	パトラ
 ant03	あるみ
+ant05	ビーフン
 ant06	こまち
 ant08	みやび
 ant09	アントニオ
@@ -28,6 +29,7 @@ brd04	ジーニョ
 brd05	レイコ
 brd06	イッテツ
 brd08	うずまき
+brd09	フェザー
 brd11	ジャコテン
 brd15	マスカラス
 brd16	ジョッキー
@@ -96,6 +98,7 @@ crd00	アルベルト
 crd01	クロコ
 crd02	ホウサク
 crd04	ヤマト
+crd05	ピロンコン
 crd06	ハイド
 crd07	アリゲッティ
 crd08	タツオ
@@ -110,6 +113,7 @@ der07	ペーター
 der08	ナタリー
 der09	チャック
 der10	チェルシー
+der11	よしの
 dog00	キャラメル
 dog01	ジョン
 dog02	ラッキー
@@ -121,6 +125,7 @@ dog07	バニラ
 dog08	ペリーヌ
 dog09	マロン
 dog10	ベーグル
+dog11	シャンペン
 dog14	チャンプ
 dog15	もんじゃ
 dog16	ハチ
@@ -199,6 +204,7 @@ ham04	シャンティ
 ham05	どぐろう
 ham06	ゆきみ
 ham07	ハムジ
+ham09	ドンチャン
 hip00	ゴンザレス
 hip02	チャコ
 hip03	あんこ
@@ -227,6 +233,7 @@ kal02	アデレード
 kal03	シドニー
 kal04	ゴンゾー
 kal05	ドングリ
+kal07	マーチ
 kal08	キャンベラ
 kal09	オズモンド
 kal10	ロッキー
@@ -253,6 +260,7 @@ mnk05	モンこ
 mnk06	さすけ
 mnk07	シェリー
 mnk08	デリー
+mnk09	テンシン
 mus00	とめ
 mus01	らっきょ
 mus02	イザベラ
@@ -268,13 +276,16 @@ mus15	マルコ
 mus16	ふくこ
 mus17	チューこ
 mus18	チーズ
+mus19	リカ
 ocp00	おくたろう
 ocp01	タコリーナ
 ocp02	タコヤ
+ocp04	ギーガー
 ost00	タキュ
 ost01	ちとせ
 ost02	ラン
 ost03	ヘルツ
+ost04	デジャネイロ
 ost05	ジュリア
 ost06	トキオ
 ost07	ケイン
@@ -290,6 +301,7 @@ pbr06	ハルク
 pbr07	ギンカク
 pbr08	フランク
 pbr09	ティファニー
+pbr10	シオン
 pgn00	オーロラ
 pgn01	ペンタ
 pgn02	ビス
@@ -297,6 +309,7 @@ pgn03	ダルマン
 pgn04	サブリナ
 pgn05	ポーラ
 pgn06	ホッケー
+pgn07	のぶお
 pgn09	カマボコ
 pgn10	ショーイ
 pgn11	のりまき
@@ -339,10 +352,12 @@ rbt17	ミミィ
 rbt18	アマミン
 rbt19	ミラコ
 rbt20	トビー
+rbt21	ミッチェル
 rhn00	くるぶし
 rhn01	ユメコ
 rhn02	スクワット
 rhn04	みつお
+rhn05	ペチュニア
 rhn07	パティ
 rhn08	おさい
 shp00	メリヤス
@@ -377,6 +392,7 @@ squ15	グミ
 squ16	クリス
 squ17	ジュン
 squ18	アイリス
+squ21	スピカ
 tig00	チョモラン
 tig01	ゴメス
 tig02	ハリマオ
@@ -405,6 +421,7 @@ bpt	ハッケミィ
 chm	カメヤマさん
 chy	レックス
 cml	ローラン
+cmlB	ローラン
 dga	おまわりさん
 dgb	おまわりさん
 doc	ロドリー
@@ -424,21 +441,26 @@ kpm	クーコ
 kpp	かっぺい
 kps	クク
 lom	まいこちゃん
+man	ナッティー
 mka	あやしいネコ
+mnc	ニコ
 mnk	えきいんさん
 mob	ラケットさん
 mol	リセットさん
 otg	タクミ
+otgB	タクミ
 ott	ホンマさん
 owl	フータ
 ows	フーコ
 pck	ベルリーナ
 pge	マスター
+pgeB	マスター
 pkn	パンプキング
 plk	ぺりこ
 plm	ぺりみ
 plo	ぺりお
 poo	カットリーヌ
+pooB	カットリーヌ
 pyn	ぴょんたろう
 rcm	まめきち
 rco	たぬきち
@@ -454,6 +476,7 @@ tap	ゆめみ
 tkkA	とたけけ
 tkkB	DJ K.K
 ttlA	コトブキ
+ttlB	ドンどんぐり
 tuk	フランクリン
 upa	ししょー
 wrl	セイイチ

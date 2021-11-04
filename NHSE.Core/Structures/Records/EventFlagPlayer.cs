@@ -57,11 +57,11 @@ namespace NHSE.Core
             {0x02D, new EventFlagPlayer(0 , 1   , 0045, "MakeVillagePlayerFlag"                      )}, // 村民代表か？
             {0x02E, new EventFlagPlayer(0 , 1   , 0046, "PrologueDone1stTalkAtPlaza"                 )}, // 1P序盤|広場での最初の会話終わった？
             {0x02F, new EventFlagPlayer(0 , 1   , 0047, "HighAndLowPlayed"                           )}, // ミニゲームのハイ＆ローをプレイした事がある
-            {0x030, new EventFlagPlayer(0 , 1   , 0048, "HappyHomeMission1"                          )}, // ハッピーホームでミッション１をクリヤーした
+            {0x030, new EventFlagPlayer(0 , 1   , 0048, "HappyHomeMission1"                          )}, // HHA/ハッピーホームでミッション１をクリヤーした
             {0x033, new EventFlagPlayer(0 , 1   , 0051, "OccurrenceCoinStone"                        )}, // コイン岩を発生させたか
-            {0x034, new EventFlagPlayer(0 , 1   , 0052, "HappyHomeMission2"                          )}, // ハッピーホームでミッション２をクリヤーした
+            {0x034, new EventFlagPlayer(0 , 1   , 0052, "HappyHomeMission2"                          )}, // HHA/ハッピーホームでミッション２をクリヤーした
             {0x035, new EventFlagPlayer(0 , 1   , 0053, "SeoRejectFlag"                              )}, // ラコスケ|ホタテ渡すの断った？
-            {0x036, new EventFlagPlayer(0 , 1   , 0054, "HappyHomeMission3"                          )}, // ハッピーホームでミッション３をクリヤーした
+            {0x036, new EventFlagPlayer(0 , 1   , 0054, "HappyHomeMission3"                          )}, // HHA/ハッピーホームでミッション３をクリヤーした
             {0x03B, new EventFlagPlayer(0 , 999 , 0059, "CatchFishFesCount"                          )}, // つり大会|保持している大会ポイント
             {0x03C, new EventFlagPlayer(0 , 999 , 0060, "CatchInsectFesCount"                        )}, // ムシとり大会|保持している大会ポイント
             {0x03D, new EventFlagPlayer(0 , 1   , 0061, "PlayerPocketUIEnable"                       )}, // プレイヤー|ポケットUI解禁
@@ -98,11 +98,11 @@ namespace NHSE.Core
             {0x05F, new EventFlagPlayer(0 , 1   , 0095, "MainmenuMydesign"                           )}, // スマホUI|マイデザイン解禁
             {0x060, new EventFlagPlayer(0 , 1   , 0096, "MainmenuBank"                               )}, // スマホUI|モバイルバンク解禁
             {0x061, new EventFlagPlayer(0 , 1   , 0097, "RcmTalked1P1stday"                          )}, // まめきち|1Pが初日にテントで会話した？
-            {0x062, new EventFlagPlayer(0 , 1   , 0098, "HappyHomeMission4"                          )}, // ハッピーホームでミッション４をクリヤーした
+            {0x062, new EventFlagPlayer(0 , 1   , 0098, "HappyHomeMission4"                          )}, // HHA/ハッピーホームでミッション４をクリヤーした
             {0x063, new EventFlagPlayer(0 , 1   , 0099, "RcoHeardDetailDIYtrial"                     )}, // たぬきち|DIY体験の材料の説明聞いた？
             {0x064, new EventFlagPlayer(0 , 1   , 0100, "SzaTaled1stTime"                            )}, // しずえ|役場内で会話したことがあるか？
-            {0x065, new EventFlagPlayer(0 , 1   , 0101, "HappyHomeMission5"                          )}, // ハッピーホームでミッション５をクリヤーした
-            {0x066, new EventFlagPlayer(0 , 1   , 0102, "HappyHomeMission6"                          )}, // ハッピーホームでミッション６をクリヤーした
+            {0x065, new EventFlagPlayer(0 , 1   , 0101, "HappyHomeMission5"                          )}, // HHA/ハッピーホームでミッション５をクリヤーした
+            {0x066, new EventFlagPlayer(0 , 1   , 0102, "HappyHomeMission6"                          )}, // HHA/ハッピーホームでミッション６をクリヤーした
             {0x06B, new EventFlagPlayer(0 , 1   , 0107, "OdekakeTutorial"                            )}, // 空港|モーリー|おでかけ初回説明済？
             {0x06C, new EventFlagPlayer(0 , 1   , 0108, "OdekakeTutorialKeyword"                     )}, // 空港|モーリー|おでかけあいことばマッチメイク初回説明済？
             {0x06E, new EventFlagPlayer(0 , 1   , 0110, "RcoGotWorkingwear"                          )}, // たぬきち|アルバイトの服もらった？
@@ -139,6 +139,7 @@ namespace NHSE.Core
             {0x0A0, new EventFlagPlayer(0 , 1   , 0160, "TownNewsHeardShopOpen1Flag"                 )}, // 村内放送|商店の新装開店告知を聞いた？(商店・小)
             {0x0A1, new EventFlagPlayer(0 , 1   , 0161, "TownNewsHeardShopOpen2Flag"                 )}, // 村内放送|商店の新装開店告知を聞いた？(商店・大)
             {0x0A3, new EventFlagPlayer(0 , 1   , 0163, "TownNewsHeardMuseumOpenFlag"                )}, // 村内放送|博物館建物が建った告知を聞いた？
+            {0x0A5, new EventFlagPlayer(0 , 1   , 0165, "TownNewsHeardMuseumCafeOpenFlag"            )}, // 村内放送|ミュージアムカフェのオープン告知を聞いた？
             {0x0A6, new EventFlagPlayer(0 , 1   , 0166, "MarvelAtCockroarchToday"                    )}, // ゴキブリに驚いた
             {0x0A7, new EventFlagPlayer(0 , 1   , 0167, "GstTalkBefore"                              )}, // ゆうたろう|今までに会話したことある？
             {0x0A8, new EventFlagPlayer(0 , 1   , 0168, "GstQuestStartFlag"                          )}, // ゆうたろう|クエスト発生中？
@@ -154,18 +155,24 @@ namespace NHSE.Core
             {0x0B7, new EventFlagPlayer(0 , 1   , 0183, "SzaHeardMuraokoshiExplain"                  )}, // しずえ|村おこしのことの説明聞いた？
             {0x0B8, new EventFlagPlayer(0 , 1   , 0184, "SzaHeardAboutHousingKit"                    )}, // たぬきち|土地確保解禁の説明聞いた？
             {0x0BA, new EventFlagPlayer(0 , 1   , 0186, "SeoFirstFlag"                               )}, // ラコスケ|ホタテを渡したことある？
-            {0x0BF, new EventFlagPlayer(0 , 1   , 0191, "FoxTalkTodayFlag"                           )}, // つねきち|今日つねきちと会話した？
+            {0x0BF, new EventFlagPlayer(0 , 1   , 0191, "FoxTalkTodayFlag"                           )}, // つねきち|今日本島に来訪したつねきちと会話した？
             {0x0C0, new EventFlagPlayer(0 , 1   , 0192, "FoxBuyTodayFlag"                            )}, // つねきち|今日いなりマーケットで買い物した？
             {0x0C1, new EventFlagPlayer(0 , 1   , 0193, "FoxBuyArtTodayFlag"                         )}, // つねきち|今日いなりマーケットで美術品買った？
             {0x0C2, new EventFlagPlayer(0 , 1   , 0194, "TownNewsHeardEventSpaceOpenFlag"            )}, // 村内放送|村内放送でイベント広場が完成した告知を聞いた？
             {0x0C3, new EventFlagPlayer(0 , 1   , 0195, "PcDidNotKnowKK"                             )}, // プレイヤー|序盤にとたけけ知らないと答えた
             {0x0C4, new EventFlagPlayer(0 , 1   , 0196, "RcoAfterHouseRemodel"                       )}, // たぬきち｜家増築後の説明発生する？
             {0x0C6, new EventFlagPlayer(0 , 1   , 0198, "HeardAboutBuildingTownOffice"               )}, // しずえ|役場建設開始の説明聞いた？
+            {0x0C7, new EventFlagPlayer(0 , 1   , 0199, "PgeTalkTodayFlag"                           )}, // マスター|今日すでに会話した？
+            {0x0C8, new EventFlagPlayer(0 , 1   , 0200, "PgeItemGetFirstFlag"                        )}, // マスター|今日アイテムもらった？
+            {0x0C9, new EventFlagPlayer(0 , 50  , 0201, "PgeRegularCount"                            )}, // マスター|常連度
+            {0x0CA, new EventFlagPlayer(0 , 1   , 0202, "PgeTalkValentineFlag"                       )}, // マスター|今日バレンタインでコーヒー飲んだ？
+            {0x0CB, new EventFlagPlayer(0 , 1   , 0203, "PgeTalkBirthdayFlag"                        )}, // マスター|今日誕生日などイベント系の会話した？
             {0x0CD, new EventFlagPlayer(0 , 1   , 0205, "RcoFenceShoppingExplain"                    )}, // たぬきち|柵購入の説明を受けたことがある？
             {0x0CE, new EventFlagPlayer(0 , 1   , 0206, "Ttl1stmet"                                  )}, // コトブキ|初対面会話済か？
             {0x0CF, new EventFlagPlayer(1 , 5   , 0207, "PcTownmakeLv"                               )}, // プレイヤーの村づくりライセンスレベル
             {0x0D0, new EventFlagPlayer(0 , 1   , 0208, "PcUpgradeTownmakeToday"                     )}, // 今日上級村づくりライセンスを入手したか？
             {0x0D1, new EventFlagPlayer(0 , 1   , 0209, "PcHousingLoanFinish"                        )}, // 住宅ローン完全終了
+            {0x0D2, new EventFlagPlayer(0 , 1   , 0210, "PgeCoffeeTodayFlag"                         )}, // マスター|今日コーヒーかホットチョコレート注文した？
             {0x0D3, new EventFlagPlayer(0 , 1   , 0211, "RcoGetTvForCongratsHouse"                   )}, // たぬきち|新築祝いもらった？
             {0x0D4, new EventFlagPlayer(0 , 1   , 0212, "RcoItemFullForTv"                           )}, // たぬきち|新築祝いもらう時アイテムいっぱいだった
             {0x0D7, new EventFlagPlayer(0 , 1   , 0215, "PlayerEnableEating"                         )}, // プレイヤー|『食べる』解禁
@@ -762,6 +769,7 @@ namespace NHSE.Core
             {0x388, new EventFlagPlayer(0 , 9999, 0904, "MailSendFlag_VersionUp"                     )}, // 手紙|アップデートお礼手紙を送った
             {0x389, new EventFlagPlayer(0 , 1   , 0905, "MailSendFlag_BundledEdition"                )}, // 手紙|同梱版購入お礼手紙を送った
             {0x38B, new EventFlagPlayer(0 , 1   , 0907, "GetMayDayTicket"                            )}, // メーデー|メーデーりょこうけんを入手した？
+            {0x38C, new EventFlagPlayer(0 , 1   , 0908, "WHEREAREN_VisitDone"                        )}, // HHD|ウェアラン諸島に行ったことがある
             {0x38D, new EventFlagPlayer(0 , 1   , 0909, "PAnnouncePreEaster"                         )}, // 島内放送|イースター準備期間の放送を聞いた？
             {0x390, new EventFlagPlayer(0 , 7   , 0912, "ShootDownEasterOverCountRecipeBalloon"      )}, // イースター|たまご風船をレシピ排出数がない状態で撃ち落とした数をカウント
             {0x391, new EventFlagPlayer(0 , 1   , 0913, "RcoEarthDayAnnouncement"                    )}, // アースデー|案内所たぬきちのアースデー告知を聞いた？
@@ -796,8 +804,8 @@ namespace NHSE.Core
             {0x3B4, new EventFlagPlayer(0 , 1   , 0948, "SloGetHedge"                                )}, // レイジ|レイジから「いけがき」をもらった？
             {0x3B5, new EventFlagPlayer(0 , 1   , 0949, "XctGerReward"                               )}, // メーデー|みしらぬネコから報酬をもらった？
             {0x3B6, new EventFlagPlayer(0 , 1   , 0950, "SpnJuneBrideClearTalkFrag"                  )}, // パニエル/ジューンブライド|今年クリア後の会話した？
-            {0x3B7, new EventFlagPlayer(0 , 1   , 0951, "AlwJuneBrideTalkBeforeFlag"                 )}, // リサ/ジューンブライド|面識ある？
-            {0x3B8, new EventFlagPlayer(0 , 1   , 0952, "AlpJuneBrideTalkBeforeFlag"                 )}, // カイゾー/ジューンブライド|面識ある？
+            {0x3B7, new EventFlagPlayer(0 , 1   , 0951, "AlwJuneBrideTalkBeforeFlag"                 )}, // リサ|面識ある？
+            {0x3B8, new EventFlagPlayer(0 , 1   , 0952, "AlpJuneBrideTalkBeforeFlag"                 )}, // カイゾー|面識ある？
             {0x3B9, new EventFlagPlayer(0 , 1   , 0953, "SpnJuneBrideTalkEventFrag"                  )}, // パニエル/ジューンブライド|今年イベント期間中に会話した？
             {0x3BA, new EventFlagPlayer(0 , 9999, 0954, "PynVisitYear"                               )}, // ぴょんたろうが来訪した年
             {0x3BB, new EventFlagPlayer(0 , 1   , 0955, "PynVisitToday"                              )}, // ぴょんたろうが今日来訪NPCとして来訪する
@@ -834,7 +842,7 @@ namespace NHSE.Core
             {0x3F7, new EventFlagPlayer(0 , 1   , 1015, "OwlPaintingQuestReminder"                   )}, // フータ|その日、美術品提出の催促を受けた
             {0x3F8, new EventFlagPlayer(0 , 1   , 1016, "OwlShowDiveFishReport"                      )}, // フータ|海の幸発見の報告を受けた
             {0x3F9, new EventFlagPlayer(0 , 1   , 1017, "DocUsePurchaseServiceFalg"                  )}, // ロドリー|買取サービス使った？
-            {0x3FA, new EventFlagPlayer(0 , 1   , 1018, "UsePurchaseBOXFalg"                         )}, // 買取BOX使った？
+            {0x3FA, new EventFlagPlayer(0 , 1   , 1018, "UsePurchaseBOXFalg"                         )}, // 今日、買取BOX使った？（入電のメッセージ分岐用）
             {0x3FB, new EventFlagPlayer(0 , 1   , 1019, "FoxForcedTalkTodayFlag"                     )}, // つねきち|今日お店で入店時の強制会話した？
             {0x3FC, new EventFlagPlayer(0 , 1   , 1020, "FoxForcedTalk2TodayFlag"                    )}, // つねきち|今日お店で退店時の強制会話した？
             {0x3FE, new EventFlagPlayer(0 , 9999, 1022, "EDDIYFlowerWreathOrderYear"                 )}, // 花を摘んでリースをつくる活動受注年
@@ -910,6 +918,7 @@ namespace NHSE.Core
             {0x451, new EventFlagPlayer(0 , 1   , 1105, "OwlPaintingDiveFish"                        )}, // フータのうみのさちチュートリアル聞いた？
             {0x452, new EventFlagPlayer(0 , 1   , 1106, "PAnnounceFireworksSza1"                     )}, // 島内放送|花火大会しずえ1回目の放送を聞いた？
             {0x454, new EventFlagPlayer(0 , 1   , 1108, "RcmBoughtCandyTodayFlag"                    )}, // まめきち/ハロウィン|今日アメ買った？
+            {0x456, new EventFlagPlayer(0 , 1   , 1110, "WHEREAREN_Unlock_AccentWall"                )}, // OneRoom|ライセンス(アクセントウォール)解禁
             {0x457, new EventFlagPlayer(0 , 1   , 1111, "FoxFirstTalkFireworksFlag"                  )}, // つねきち|花火大会で会話したことある？
             {0x458, new EventFlagPlayer(0 , 1   , 1112, "CharacterCreationFlag"                      )}, // 夏パッチ以降でキャラメイク完了したか？
             {0x459, new EventFlagPlayer(0 , 1   , 1113, "PublicAnnouncement_DiveFish"                )}, // 泳ぎ解禁の島内放送聞いたか？手紙だす？
@@ -1000,6 +1009,7 @@ namespace NHSE.Core
             {0x4B9, new EventFlagPlayer(0 , 1   , 1209, "IslandCreaterUnlockMoving"                  )}, // プレイヤーだけ引越し|引越しのタイミングで島クリエイター解禁した？
             {0x4BA, new EventFlagPlayer(0 , 1   , 1210, "AnnounceHalloween"                          )}, // ハロウィンを島内放送で告知した(2回目放送用)
             {0x4BB, new EventFlagPlayer(0 , 1   , 1211, "AnnounceHarvest"                            )}, // ハーベスト｜当日島内放送で告知した(2回目放送用)
+            {0x4BE, new EventFlagPlayer(0 , 1   , 1214, "SloGetVegetableBasketDIY"                   )}, // レイジ|野菜の籠レシピもらった？
             {0x4BF, new EventFlagPlayer(0 , 1   , 1215, "MilageSendLetterFlag"                       )}, // タヌポート/ハロウィン|新規肌・目の色の追加手紙送った？
             {0x4C0, new EventFlagPlayer(0 , 1   , 1216, "NpcHalloweenGetMirrorFlag"                  )}, // ハロウィン|今日NPCからミラーもらった？
             {0x4C1, new EventFlagPlayer(0 , 1   , 1217, "NpcHalloweenCandyHelpFlag"                  )}, // ハロウィン|今日NPCから救済用アメもらった？
@@ -1029,6 +1039,7 @@ namespace NHSE.Core
             {0x4DD, new EventFlagPlayer(0 , 1   , 1245, "ReiStartQuest2"                             )}, // クリスマス｜ジングルからプレゼント配布クエスト受注した？
             {0x4DF, new EventFlagPlayer(0 , 1   , 1247, "ReiFinishQuest1"                            )}, // クリスマス｜ジングルのDIYクエスト完了した？
             {0x4E0, new EventFlagPlayer(0 , 1   , 1248, "AnnouncePreChristmas"                       )}, // クリスマス｜事前期間に島内放送で告知した？
+            {0x4E2, new EventFlagPlayer(0 , 1   , 1250, "WHEREAREN_NoticeAboutDustCloth"             )}, // OneRoom|まごころ雑巾の初回ダイアログを見た？
             {0x4E3, new EventFlagPlayer(0 , 10  , 1251, "SantaMissionNpcIndex1"                      )}, // クリスマス｜サンタミッションでお返しをくれるNPC1
             {0x4E4, new EventFlagPlayer(0 , 10  , 1252, "SantaMissionNpcIndex2"                      )}, // クリスマス｜サンタミッションでお返しをくれるNPC2
             {0x4E5, new EventFlagPlayer(0 , 10  , 1253, "SantaMissionNpcIndex3"                      )}, // クリスマス｜サンタミッションでお返しをくれるNPC3
@@ -1037,6 +1048,8 @@ namespace NHSE.Core
             {0x4E8, new EventFlagPlayer(0 , 1   , 1256, "PckTalkTodayFlag"                           )}, // カーニバル/べルリーナ|今日すでに会話した？
             {0x4E9, new EventFlagPlayer(0 , 9999, 1257, "ChristmasWreathGetYear"                     )}, // クリスマス｜クリスマスリースをNPCから貰った年
             {0x4EA, new EventFlagPlayer(0 , 9   , 1258, "TukSecretRewardType"                        )}, // ハーベスト｜フランクリンの隠し食材報酬抽選結果
+            {0x4EC, new EventFlagPlayer(0 , 1   , 1260, "WHEREAREN_Unlock_ResortPlannerApp"          )}, // OneRoom|リゾートプランナーアプリアンロック
+            {0x4ED, new EventFlagPlayer(0 , 1   , 1261, "WHEREAREN_Unlock_ResortStudyApp"            )}, // OneRoom|リゾートスタディアプリアンロック
             {0x4EE, new EventFlagPlayer(0 , 1   , 1262, "TapUpdatedDreamFirstTalk"                   )}, // ゆめみ|初回会話を1.6.0以降に行った？
             {0x4EF, new EventFlagPlayer(0 , 1   , 1263, "SzaChristmasOrnament"                       )}, // クリスマス｜しずえからオーナメント素材もらった？
             {0x4F1, new EventFlagPlayer(0 , 1   , 1265, "CheckHarvestFtrInStore"                     )}, // ハーベスト｜ハーベスト家具をお店でチェックしたことがあるか？
@@ -1062,6 +1075,7 @@ namespace NHSE.Core
             {0x506, new EventFlagPlayer(0 , 1   , 1286, "RcoStandbyNoticeStorageExpansion"           )}, // たぬきち|収納の拡張について強制会話するか？
             {0x507, new EventFlagPlayer(0 , 1   , 1287, "ChristmasWreathNoGetFlag"                   )}, // クリスマス|このNPCからリース受け取り損ねた
             {0x508, new EventFlagPlayer(0 , 3   , 1288, "PckGetItem"                                 )}, // カーニバル/べルリーナ|報酬アイテムは？
+            {0x509, new EventFlagPlayer(0 , 1   , 1289, "WHEREAREN_Unlock_CoordinateNpcHouse"        )}, // OneRoom|ライセンス(NPC家コーディネート)解禁
             {0x50A, new EventFlagPlayer(0 , 1   , 1290, "GetCarnivalLight"                           )}, // カーニバル/べルリーナ|カーニバルなライトもらった？
             {0x50B, new EventFlagPlayer(0 , 1   , 1291, "GetCarnivalFoodStand"                       )}, // カーニバル/べルリーナ|カーニバルな屋台もらった？
             {0x50C, new EventFlagPlayer(0 , 1   , 1292, "GetCarnivalstage"                           )}, // カーニバル/べルリーナ|カーニバルなステージもらった？
@@ -1073,6 +1087,8 @@ namespace NHSE.Core
             {0x512, new EventFlagPlayer(0 , 1   , 1298, "GetCarnivalGarland"                         )}, // カーニバル/べルリーナ|カーニバルなガーランドもらった？
             {0x513, new EventFlagPlayer(0 , 1   , 1299, "GetCarnivalFloat"                           )}, // カーニバル/べルリーナ|カーニバルなフロートもらった？
             {0x515, new EventFlagPlayer(0 , 10  , 1301, "PckGiveFurnitureCount"                      )}, // カーニバル/べルリーナ|家具をもらった回数
+            {0x516, new EventFlagPlayer(0 , 1   , 1302, "WHEREAREN_Unlock_ResortPlannerAppNetwork"   )}, // OneRoom|リゾートプランナーアプリのツクッターアンロック
+            {0x517, new EventFlagPlayer(0 , 1   , 1303, "WHEREAREN_Unlock_ResortPlannerAppRevisit"   )}, // OneRoom|リゾートプランナーアプリの再訪アンロック
             {0x518, new EventFlagPlayer(0 , 1   , 1304, "SloExplainPumpkinColorFlag"                 )}, // レイジ|かぼちゃの苗説明聞いたことある？
             {0x519, new EventFlagPlayer(0 , 1   , 1305, "SloExplainAddPumpkinFlag"                   )}, // レイジ|かぼちゃの苗販売開始の説明聞いた？
             {0x51B, new EventFlagPlayer(0 , 1   , 1307, "TukSecretRewardType3rd"                     )}, // ハーベスト｜フランクリンの隠し食材報酬抽選結果（３回目）
@@ -1107,15 +1123,24 @@ namespace NHSE.Core
             {0x541, new EventFlagPlayer(0 , 1   , 1345, "UnlockSanrioCollaboPoster5"                 )}, // サンリオNPCポスター解禁_マイメロ
             {0x542, new EventFlagPlayer(0 , 1   , 1346, "UnlockSanrioCollaboPoster6"                 )}, // サンリオNPCポスター解禁_けろっぴ
             {0x543, new EventFlagPlayer(0 , 1   , 1347, "AnnounceEaster"                             )}, // イースター(2021年)｜当日に島内放送で告知した？(2回目放送用)
+            {0x544, new EventFlagPlayer(0 , 1   , 1348, "PhoneCallByRcoWherearen"                    )}, // 電話デモ|たぬきちからウェアラン入電受けたことがある？
+            {0x545, new EventFlagPlayer(0 , 1   , 1349, "RcoTalkWithOtg"                             )}, // たぬきち|タクミとの会話を聞いたことがある？
+            {0x547, new EventFlagPlayer(0 , 1   , 1351, "SloTalkCommuneBeforeFlag"                   )}, // レイジ｜コミューンで会話したことある？
+            {0x548, new EventFlagPlayer(0 , 1   , 1352, "SloExplainVegetableSeedling"                )}, // レイジ｜野菜の苗の説明聞いたことある？
+            {0x549, new EventFlagPlayer(0 , 1   , 1353, "SloExplainPlumeriaSeedling"                 )}, // レイジ｜プルメリアの苗の説明聞いたことある？
+            {0x54A, new EventFlagPlayer(0 , 1   , 1354, "SloExplainWeeding"                          )}, // レイジ｜草むしりサービスの説明聞いたことある？
             {0x54B, new EventFlagPlayer(0 , 1   , 1355, "AnnounceEasterReady"                        )}, // イースター(2021年)｜準備期間に島内放送で告知した？(2回目放送用)
             {0x54C, new EventFlagPlayer(0 , 1   , 1356, "AnnounceJuneBride"                          )}, // ジューンブライド(2021年)｜当日に島内放送で告知した？(2回目放送用)
+            {0x54D, new EventFlagPlayer(0 , 1   , 1357, "StandByPhoneCallOtgVisit"                   )}, // OneRoom｜電話デモ|タクミ訪問の入電するか？
             {0x54E, new EventFlagPlayer(0 , 1   , 1358, "PynEvent_SendMailThisYear"                  )}, // イースター|今年手紙を受け取った？
+            {0x553, new EventFlagPlayer(0 , 1   , 1363, "UnlockWherearen"                            )}, // OneRoom|ウェアラン渡航解禁
             {0x555, new EventFlagPlayer(0 , 1   , 1365, "OwlArtStampRally1"                          )}, // フータ/国際ミュージアム|【美術品】スタンプ1つ目を押した？
             {0x556, new EventFlagPlayer(0 , 1   , 1366, "OwlArtStampRally2"                          )}, // フータ/国際ミュージアム|【美術品】スタンプ2つ目を押した？
             {0x557, new EventFlagPlayer(0 , 1   , 1367, "OwlArtStampRally3"                          )}, // フータ/国際ミュージアム|【美術品】スタンプ3つ目を押した？
             {0x558, new EventFlagPlayer(0 , 1   , 1368, "OwlStampGotArtReward"                       )}, // フータ/国際ミュージアム|その日、美術品報酬を貰った
             {0x559, new EventFlagPlayer(0 , 1   , 1369, "OwlStampGotArt"                             )}, // フータ/国際ミュージアム|その日、フータスタンプ(美術品)を押した
             {0x55A, new EventFlagPlayer(0 , 1   , 1370, "OwlArtUnfinished"                           )}, // フータ/国際ミュージアム|初参加時、美術品部屋未完成
+            {0x55C, new EventFlagPlayer(0 , 1   , 1372, "WHEREAREN_DisclosePlannerID"                )}, // OneRoom|プランナーIDの公開
             {0x55D, new EventFlagPlayer(0 , 1   , 1373, "UnlockSanrioCollabo"                        )}, // サンリオコラボ解禁_キティ
             {0x55E, new EventFlagPlayer(0 , 1   , 1374, "UnlockSanrioCollabo2"                       )}, // サンリオコラボ解禁_プリン
             {0x55F, new EventFlagPlayer(0 , 1   , 1375, "UnlockSanrioCollabo3"                       )}, // サンリオコラボ解禁_キキララ
@@ -1123,26 +1148,384 @@ namespace NHSE.Core
             {0x561, new EventFlagPlayer(0 , 1   , 1377, "UnlockSanrioCollabo5"                       )}, // サンリオコラボ解禁_マイメロ
             {0x562, new EventFlagPlayer(0 , 1   , 1378, "UnlockSanrioCollabo6"                       )}, // サンリオコラボ解禁_けろっぴ
             {0x565, new EventFlagPlayer(0 , 4   , 1381, "OwlClearCount"                              )}, // フータ/国際ミュージアム|クリアした部屋の個数
+            {0x566, new EventFlagPlayer(0 , 1   , 1382, "WHEREAREN_Pickup_Disclose"                  )}, // OneRoom|現在、宣伝内容をピックアップに公開中か？
             {0x567, new EventFlagPlayer(0 , 1   , 1383, "XctGetRewardSec"                            )}, // メーデー|みしらぬネコから2回目の報酬をもらった？
             {0x568, new EventFlagPlayer(0 , 1   , 1384, "OwlStampPlayedThisYear"                     )}, // フータ/国際ミュージアム|今年サカナのスタンプラリーをクリアした？
             {0x569, new EventFlagPlayer(0 , 1   , 1385, "OwlStampPlayedThisYear2"                    )}, // フータ/国際ミュージアム|今年ムシのスタンプラリーをクリアした？
             {0x56A, new EventFlagPlayer(0 , 1   , 1386, "OwlStampPlayedThisYear3"                    )}, // フータ/国際ミュージアム|今年かせきのスタンプラリーをクリアした？
             {0x56B, new EventFlagPlayer(0 , 1   , 1387, "OwlStampPlayedThisYear4"                    )}, // フータ/国際ミュージアム|今年美術品のスタンプラリーをクリアした？
+            {0x56C, new EventFlagPlayer(0 , 1   , 1388, "MuseumCafeEv_1_HeardExplanation"            )}, // 博物館カフェ増築イベント|フータから依頼受けた？
+            {0x56D, new EventFlagPlayer(0 , 1   , 1389, "MuseumCafeEv_2_TalkedWithMasterAtIsland"    )}, // 博物館カフェ増築イベント|離島でマスターと会話したことがある？
+            {0x56E, new EventFlagPlayer(0 , 1   , 1390, "MuseumCafeEv_3_ConfirmedVisitingTown"       )}, // 博物館カフェ増築イベント|離島マスターに来訪の約束した？
+            {0x56F, new EventFlagPlayer(0 , 1   , 1391, "MuseumCafeEv_4_ReportedToOwl"               )}, // 博物館カフェ増築イベント|フータにマスターのことを報告した？
+            {0x570, new EventFlagPlayer(0 , 1   , 1392, "Owl_HeardAboutCafeConstruction"             )}, // フータ|カフェの工事のことを聞いた？
+            {0x571, new EventFlagPlayer(0 , 1   , 1393, "Owl_HeardAboutCafeOpen"                     )}, // フータ|カフェオープンのことを聞いた？
+            {0x572, new EventFlagPlayer(0 , 1   , 1394, "PgeThankToMainPC"                           )}, // マスター|カフェ開店後に島民代表が初会話した？
+            {0x573, new EventFlagPlayer(0 , 8   , 1395, "TodayFortune"                               )}, // ハッケミィ|今日の運勢
+            {0x574, new EventFlagPlayer(0 , 8   , 1396, "ReserveFortune"                             )}, // ハッケミィ|発動前の運勢
+            {0x575, new EventFlagPlayer(0 , 1   , 1397, "RadioGymnasticsFirstExplain"                )}, // ラジオ体操|初回説明読んだ？
+            {0x576, new EventFlagPlayer(0 , 1   , 1398, "Bpt_1stTalk"                                )}, // ハッケミィ｜占ったことがある？
+            {0x577, new EventFlagPlayer(0 , 1   , 1399, "Bpt_FinishFortune_Today"                    )}, // ハッケミィ｜今日「今日の運勢」占い済？
+            {0x578, new EventFlagPlayer(0 , 1   , 1400, "Bpt_FinishCompatibilityToday"               )}, // ハッケミィ｜今日「相性占い」占い済？
+            {0x57A, new EventFlagPlayer(0 , 8   , 1402, "LastFortune"                                )}, // ハッケミィ|前回の運勢
+            {0x57B, new EventFlagPlayer(0 , 1   , 1403, "SkkCommuneTalkBefore"                       )}, // シャンク｜コミューンで以前話したことある？
             {0x57C, new EventFlagPlayer(0 , 1   , 1404, "AlpJuneBrideNotGetLoveCrystalFrag"          )}, // カイゾー/ジューンブライド|今日あいのけっしょうもらえなかった？
             {0x57D, new EventFlagPlayer(0 , 1   , 1405, "AlwJuneBrideExchangeTalkFlag"               )}, // リサ/ジューンブライド|今年交換回数制限の説明聞いた？
             {0x57E, new EventFlagPlayer(0 , 9999, 1406, "LastPlayMuseumYear"                         )}, // 国際ミュージアム|最後に遊んだ国際ミュージアムの年
+            {0x57F, new EventFlagPlayer(0 , -1  , 1407, "RadioGymnasticsCount"                       )}, // ラジオ体操|累計参加回数
+            {0x580, new EventFlagPlayer(0 , 5   , 1408, "RadioGymnasticsGetReward"                   )}, // ラジオ体操|報酬何回もらった？
+            {0x581, new EventFlagPlayer(0 , 1   , 1409, "ExplainIslandRegulation"                    )}, // 条例|しずえから条例の説明受けた
+            {0x582, new EventFlagPlayer(0 , 1   , 1410, "MainmenuRecipe_v2"                          )}, // スマホUI|レシピ＋解禁（v2.0.0料理レシピ）
+            {0x583, new EventFlagPlayer(0 , 1   , 1411, "Mobile1stBoot_DIYrecipe_v2"                 )}, // スマホアプリ初起動|DIYレシピ＋（v2.0.0料理レシピ）
+            {0x584, new EventFlagPlayer(0 , 1   , 1412, "TapUnlockSearchByIslandName"                )}, // ゆめみ|「島の名前で探す」解禁説明読んだ？
+            {0x585, new EventFlagPlayer(0 , 1   , 1413, "MuseumCafe_Telephone_Access1stTime"         )}, // 喫茶ハトの巣｜店内電話初回説明見たか？
+            {0x586, new EventFlagPlayer(0 , 1   , 1414, "AlpCommuneTalkBeforeFlag"                   )}, // カイゾー｜コミューンで会話したことある？
+            {0x589, new EventFlagPlayer(0 , 1   , 1417, "FirstPlayAfterMuseumBuilt3Flag"             )}, // 博物館3に拡張したあとのプレイ初日？
+            {0x58A, new EventFlagPlayer(0 , 1   , 1418, "ReserveCommuneExpansion"                    )}, // コミューン｜拡張イベント予約
+            {0x58C, new EventFlagPlayer(0 , 1   , 1420, "DoneCommuneSloOpenEvent"                    )}, // コミューン島レイジ開店イベント発生制御
+            {0x58D, new EventFlagPlayer(0 , 1   , 1421, "DoneCommuneCmlOpenEvent"                    )}, // コミューン島ローラン開店イベント発生制御
+            {0x58E, new EventFlagPlayer(0 , 1   , 1422, "DoneCommuneFoxOpenEvent"                    )}, // コミューン島つねきち開店イベント発生制御
+            {0x58F, new EventFlagPlayer(0 , 1   , 1423, "DoneCommuneBptOpenEvent"                    )}, // コミューン島ハッケミィ開店イベント発生制御
+            {0x590, new EventFlagPlayer(0 , 1   , 1424, "DoneCommuneSkkOpenEvent"                    )}, // コミューン島シャンク開店イベント発生制御
+            {0x591, new EventFlagPlayer(0 , 1   , 1425, "DoneCommuneAlpOpenEvent"                    )}, // コミューン島リサカイゾー開店イベント発生制御
+            {0x592, new EventFlagPlayer(0 , 1   , 1426, "PooTalkAboutHairArrange"                    )}, // カットリーヌ｜初回ヘアアレンジの話を聞いた
+            {0x593, new EventFlagPlayer(0 , 1   , 1427, "PooRefuseHairArrange"                       )}, // カットリーヌ｜ヘアアレンジを断った
+            {0x594, new EventFlagPlayer(0 , 1   , 1428, "PooTodayGetHairStyle"                       )}, // カットリーヌ｜今日、ヘアアレンジをしてもらった
+            {0x595, new EventFlagPlayer(0 , 1   , 1429, "PooUndoHairStyelAfterArrange"               )}, // カットリーヌ｜ヘアアレンジ後、元に戻してもらった
+            {0x596, new EventFlagPlayer(0 , 1   , 1430, "PooGetNewHairStyle1"                        )}, // カットリーヌ｜ヘアアレンジ解禁１（レイジ）
+            {0x597, new EventFlagPlayer(0 , 1   , 1431, "PooGetNewHairStyle2"                        )}, // カットリーヌ｜ヘアアレンジ解禁２（ローラン）
+            {0x598, new EventFlagPlayer(0 , 1   , 1432, "PooGetNewHairStyle3"                        )}, // カットリーヌ｜ヘアアレンジ解禁３（つねきち）
+            {0x599, new EventFlagPlayer(0 , 1   , 1433, "PooGetNewHairStyle4"                        )}, // カットリーヌ｜ヘアアレンジ解禁４（ハッケミィ）
+            {0x59A, new EventFlagPlayer(0 , 1   , 1434, "PooGetNewHairStyle5"                        )}, // カットリーヌ｜ヘアアレンジ解禁５（シャンク）
+            {0x59B, new EventFlagPlayer(0 , 1   , 1435, "PooGetNewHairStyle6"                        )}, // カットリーヌ｜ヘアアレンジ解禁６（リサカイゾー）
+            {0x59C, new EventFlagPlayer(0 , 1   , 1436, "SpnTodayExplainedPhotoStudio"               )}, // パニエル｜撮影スタジオに今日初めて入った
+            {0x59D, new EventFlagPlayer(0 , 1   , 1437, "RcoCordinateNpcHouseSelEnable"              )}, // たぬきち｜NPC家コーデの選択肢が解禁
+            {0x59E, new EventFlagPlayer(0 , 8   , 1438, "PgeItemGetCount"                            )}, // マスター|もらったアイテムの数
+            {0x59F, new EventFlagPlayer(0 , 1   , 1439, "PgeTalkFirstFlag"                           )}, // マスター|面識ある？
+            {0x5A0, new EventFlagPlayer(0 , 1   , 1440, "AlwCommuneTalkBeforeFlag"                   )}, // リサ｜コミューンで会話したことある？
+            {0x5A2, new EventFlagPlayer(0 , 1   , 1442, "CmlCommuneTalkBefore"                       )}, // ローラン｜コミューンで会話したことある？
+            {0x5A4, new EventFlagPlayer(0 , 1   , 1444, "CmlCommuneBuyToday"                         )}, // ローラン｜今日買い物した？
+            {0x5A5, new EventFlagPlayer(0 , 1   , 1445, "UnlockBuyRecipePlus"                        )}, // タヌポート｜レシピ+の陳列開始
+            {0x5A7, new EventFlagPlayer(0 , 1   , 1447, "Mobile1stBoot_MydesignPatternPlus"          )}, // 汎用布地ページ追加後スマホアプリ初起動｜マイデザイン
+            {0x5A8, new EventFlagPlayer(0 , 1   , 1448, "MainmenuMydesignPatternPlus"                )}, // マイデザイン｜汎用布地ページ追加
+            {0x5A9, new EventFlagPlayer(0 , 1   , 1449, "Mobile1stBoot_Camera1stPersonView"          )}, // 主観カメラ追加後スマホアプリ初起動｜カメラ
+            {0x5AA, new EventFlagPlayer(0 , 1   , 1450, "MainmenuCamera1stPersonView"                )}, // カメラ｜主観カメラ解禁
+            {0x5AC, new EventFlagPlayer(0 , 1   , 1452, "UnlockInterior_CeilingFurniture"            )}, // インテリアモード｜天井家具解禁
+            {0x5AD, new EventFlagPlayer(0 , 1   , 1453, "FenceRemakeEnable"                          )}, // リメイク｜柵リメイク解禁
             {0x5B0, new EventFlagPlayer(0 , 1   , 1456, "GetMayDayTicketFirst"                       )}, // メーデー|1.10.0未満でメーデーりょこうけんを入手したことがあるか？
+            {0x5B1, new EventFlagPlayer(0 , 1   , 1457, "TotakekeLive2_0Flag"                        )}, // とたけけ|2.0アプデ後に初めてライブ聴いた？
+            {0x5B2, new EventFlagPlayer(0 , 3   , 1458, "RcoStorageExpansion_v200_AddLevel"          )}, // たぬきち|収納の拡張（v2.0.0）追加段階0～3
+            {0x5B3, new EventFlagPlayer(0 , 1   , 1459, "MailSend_Notice_v200_AddStorage"            )}, // たぬきち|収納の拡張（v2.0.0）段階追加お知らせの手紙判定したか？
+            {0x5B4, new EventFlagPlayer(0 , 1   , 1460, "RcoStandbyNotice_v200_AddStorage"           )}, // たぬきち|収納の拡張（v2.0.0）段階追加のお知らせ強制会話するか？
+            {0x5B5, new EventFlagPlayer(0 , 1   , 1461, "RcoStandbyNotice_v200_AfterStorageExpansion")}, // たぬきち|収納の拡張（v2.0.0）収納拡張後の強制会話予約フラグ
+            {0x5B6, new EventFlagPlayer(0 , 1   , 1462, "PlayerMovingAfterStorageExpansion"          )}, // たぬきち|収納拡張後の説明の発生予約中にPだけ引っ越しした？
+            {0x5B7, new EventFlagPlayer(0 , 1   , 1463, "UnlockBuyFenceRemake"                       )}, // タヌポート｜柵リメイク解禁の陳列開始
             {0x5B8, new EventFlagPlayer(0 , 1   , 1464, "RcoHeardAboutMayDayTravelTicket"            )}, // メーデー|たぬきち|メーデー旅行券の説明聞いたか？
             {0x5B9, new EventFlagPlayer(0 , 1   , 1465, "XctGetRewardPast"                           )}, // メーデー|1.10.0未満でみしらぬネコから報酬をもらった？
+            {0x5BB, new EventFlagPlayer(0 , 1   , 1467, "SloExplainBuyVegetableSeedling"             )}, // レイジ｜野菜購入時に説明聞いたことある？
+            {0x5BC, new EventFlagPlayer(0 , 1   , 1468, "SloWeedingBeforeCommune"                    )}, // レイジ｜コミューン誘致前に草むしりサービス解禁した？
             {0x5BD, new EventFlagPlayer(0 , 1   , 1469, "FoxTalk2020FireworksFlag"                   )}, // つねきち|2020年の花火大会で会話したことない？
             {0x5BE, new EventFlagPlayer(0 , 1   , 1470, "FoxTalkIceCandyTodayFlag"                   )}, // つねきち|アイスキャンディの説明した？
             {0x5BF, new EventFlagPlayer(0 , 1   , 1471, "FoxTalkTapiocaTodayFlag"                    )}, // つねきち|タピオカドリンクの説明した？
+            {0x5C0, new EventFlagPlayer(0 , 1   , 1472, "KppTourExplain1st"                          )}, // かっぺい|かっぺいツアー初上陸で説明聞いた？
+            {0x5C1, new EventFlagPlayer(0 , 1   , 1473, "KppTakeTourTodayFlag"                       )}, // かっぺい|今日かっぺいツアー参加した？
+            {0x5C2, new EventFlagPlayer(0 , 1   , 1474, "KppFirstTalk"                               )}, // かっぺい|面識ある？
+            {0x5C3, new EventFlagPlayer(0 , 1   , 1475, "SpnTodayDonation"                           )}, // パニエル｜今日募金したか？
+            {0x5C4, new EventFlagPlayer(0 , 1   , 1476, "SpnTodayThanksDonation"                     )}, // パニエル｜今日募金を感謝されたか？
+            {0x5C5, new EventFlagPlayer(0 , 1   , 1477, "SpnTodayCompleteDonation"                   )}, // パニエル｜今日募金達成したか？
             {0x5C6, new EventFlagPlayer(0 , 1   , 1478, "AlwJuneBrideNoRemake1stFlag"                )}, // リサ/ジューンブライド|今日1回目でリメイク解禁してなかった
+            {0x5C7, new EventFlagPlayer(0 , 1   , 1479, "RcoExplainStorageExpandCostIncrease"        )}, // たぬきち|収納の拡張（v2.0.0）拡張工事の細かい説明聞いた
             {0x5C8, new EventFlagPlayer(0 , 1   , 1480, "AnnounceHalloween2"                         )}, // 2021年ハロウィンを島内放送で告知した(2回目放送用)
+            {0x5C9, new EventFlagPlayer(0 , 1   , 1481, "HasLookMyHouseExplain_CeilingFtrAWall"      )}, // 家の機能説明ダイアログ（v200天井家具、Aウォール）を見たか？
+            {0x5CA, new EventFlagPlayer(0 , 1   , 1482, "CompleteNoticeChangeHouseForm"              )}, // たぬきち|v200家外観変更に「家の形」が増えたこと告知した？
+            {0x5CB, new EventFlagPlayer(0 , 1   , 1483, "SloTalkBeforeCommune"                       )}, // レイジ｜コミューン誘致後に本島で会話した？
+            {0x5CC, new EventFlagPlayer(0 , 1   , 1484, "JoinedTodayRadioGymnastics"                 )}, // ラジオ体操|今日ラジオ体操に参加したか？
+            {0x5CD, new EventFlagPlayer(0 , 1   , 1485, "TalkSloCommuneOpenEvent"                    )}, // レイジ｜コミューン開店イベントで話した
+            {0x5CE, new EventFlagPlayer(0 , 1   , 1486, "TalkCmlCommuneOpenEvent"                    )}, // ローラン｜コミューン開店イベントで話した
+            {0x5CF, new EventFlagPlayer(0 , 1   , 1487, "TalkFoxCommuneOpenEvent"                    )}, // つねきち｜コミューン開店イベントで話した
+            {0x5D0, new EventFlagPlayer(0 , 1   , 1488, "TalkBptCommuneOpenEvent"                    )}, // ハッケミィ｜コミューン開店イベントで話した
+            {0x5D1, new EventFlagPlayer(0 , 1   , 1489, "TalkSkkCommuneOpenEvent"                    )}, // シャンク｜コミューン開店イベントで話した
+            {0x5D2, new EventFlagPlayer(0 , 1   , 1490, "TalkAlpCommuneOpenEvent"                    )}, // リサカイゾー｜コミューン開店イベントで話した
+            {0x5D3, new EventFlagPlayer(0 , 1   , 1491, "BptFirstTalk"                               )}, // ハッケミィ|面識ある？
+            {0x5D4, new EventFlagPlayer(0 , 1   , 1492, "SpnSendMailCommuneExpansion"                )}, // パニエル｜コミューン拡張の手紙出したか？
+            {0x5D5, new EventFlagPlayer(0 , 1023, 1493, "ChocolateVillagerIndex"                     )}, // 各インデックスの住民がチョコレート勧誘されているかどうか
+            {0x5D6, new EventFlagPlayer(0 , -1  , 1494, "LatestChocolateDate"                        )}, // 最新の勧誘をした日付
+            {0x5D7, new EventFlagPlayer(0 , 1   , 1495, "PgeTalkCafeFlag"                            )}, // マスター|店で会話したことある？
+            {0x5D8, new EventFlagPlayer(0 , 1   , 1496, "AnnounceHarvest2"                           )}, // 2021年ハーベストを島内放送で告知した(2回目放送用)
+            {0x5D9, new EventFlagPlayer(0 , 1   , 1497, "MuseumCafeRandomVisitSpTalked_hgs"          )}, // 喫茶ハトの巣|ランダム来訪特殊NPC今日店内で会話したか（あさみ）
+            {0x5DA, new EventFlagPlayer(0 , 1   , 1498, "MuseumCafeRandomVisitSpTalked_hgh"          )}, // 喫茶ハトの巣|ランダム来訪特殊NPC今日店内で会話したか（きぬよ）
+            {0x5DB, new EventFlagPlayer(0 , 1   , 1499, "MuseumCafeRandomVisitSpTalked_doc"          )}, // 喫茶ハトの巣|ランダム来訪特殊NPC今日店内で会話したか（ロドリー）
+            {0x5DC, new EventFlagPlayer(0 , 1   , 1500, "MuseumCafeRandomVisitSpTalked_boc"          )}, // 喫茶ハトの巣|ランダム来訪特殊NPC今日店内で会話したか（ウリ）
+            {0x5DD, new EventFlagPlayer(0 , 1   , 1501, "MuseumCafeRandomVisitSpTalked_mol"          )}, // 喫茶ハトの巣|ランダム来訪特殊NPC今日店内で会話したか（リセットさん）
+            {0x5DE, new EventFlagPlayer(0 , 1   , 1502, "MuseumCafeRandomVisitSpTalked_mob"          )}, // 喫茶ハトの巣|ランダム来訪特殊NPC今日店内で会話したか（ラケットさん）
+            {0x5DF, new EventFlagPlayer(0 , 1   , 1503, "MuseumCafeRandomVisitSpTalked_tkkA"         )}, // 喫茶ハトの巣|ランダム来訪特殊NPC今日店内で会話したか（とたけけ）
+            {0x5E0, new EventFlagPlayer(0 , 1   , 1504, "MuseumCafeRandomVisitSpTalked_skk"          )}, // 喫茶ハトの巣|ランダム来訪特殊NPC今日店内で会話したか（シャンク）
+            {0x5E1, new EventFlagPlayer(0 , 1   , 1505, "MuseumCafeRandomVisitSpTalked_cml"          )}, // 喫茶ハトの巣|ランダム来訪特殊NPC今日店内で会話したか（ローラン）
+            {0x5E2, new EventFlagPlayer(0 , 1   , 1506, "MuseumCafeRandomVisitSpTalked_hgc"          )}, // 喫茶ハトの巣|ランダム来訪特殊NPC今日店内で会話したか（ことの）
+            {0x5E3, new EventFlagPlayer(0 , 1   , 1507, "MuseumCafeRandomVisitSpTalked_slo"          )}, // 喫茶ハトの巣|ランダム来訪特殊NPC今日店内で会話したか（レイジ）
+            {0x5E4, new EventFlagPlayer(0 , 1   , 1508, "MuseumCafeRandomVisitSpTalked_ows"          )}, // 喫茶ハトの巣|ランダム来訪特殊NPC今日店内で会話したか（フーコ）
+            {0x5E5, new EventFlagPlayer(0 , 1   , 1509, "MuseumCafeRandomVisitSpTalked_chy"          )}, // 喫茶ハトの巣|ランダム来訪特殊NPC今日店内で会話したか（レックス）
+            {0x5E6, new EventFlagPlayer(0 , 1   , 1510, "MuseumCafeRandomVisitSpTalked_bey"          )}, // 喫茶ハトの巣|ランダム来訪特殊NPC今日店内で会話したか（ジャスティン）
+            {0x5E7, new EventFlagPlayer(0 , 5   , 1511, "MuseumCafeRandomVisitSpMeetCount_hgs"       )}, // 喫茶ハトの巣|ランダム来訪特殊NPC店内で会った回数（あさみ）
+            {0x5E8, new EventFlagPlayer(0 , 5   , 1512, "MuseumCafeRandomVisitSpMeetCount_hgh"       )}, // 喫茶ハトの巣ランダム来訪特殊NPC店内で会った回数（きぬよ）
+            {0x5E9, new EventFlagPlayer(0 , 5   , 1513, "MuseumCafeRandomVisitSpMeetCount_doc"       )}, // 喫茶ハトの巣|ランダム来訪特殊NPC店内で会った回数（ロドリー）
+            {0x5EA, new EventFlagPlayer(0 , 5   , 1514, "MuseumCafeRandomVisitSpMeetCount_boc"       )}, // 喫茶ハトの巣|ランダム来訪特殊NPC店内で会った回数（ウリ）
+            {0x5EB, new EventFlagPlayer(0 , 5   , 1515, "MuseumCafeRandomVisitSpMeetCount_mol"       )}, // 喫茶ハトの巣|ランダム来訪特殊NPC店内で会った回数（リセットさん）
+            {0x5EC, new EventFlagPlayer(0 , 5   , 1516, "MuseumCafeRandomVisitSpMeetCount_mob"       )}, // 喫茶ハトの巣|ランダム来訪特殊NPC店内で会った回数（ラケットさん）
+            {0x5ED, new EventFlagPlayer(0 , 5   , 1517, "MuseumCafeRandomVisitSpMeetCount_tkkA"      )}, // 喫茶ハトの巣|ランダム来訪特殊NPC店内で会った回数（とたけけ）
+            {0x5EE, new EventFlagPlayer(0 , 5   , 1518, "MuseumCafeRandomVisitSpMeetCount_skk"       )}, // 喫茶ハトの巣|ランダム来訪特殊NPC店内で会った回数（シャンク）
+            {0x5EF, new EventFlagPlayer(0 , 5   , 1519, "MuseumCafeRandomVisitSpMeetCount_cml"       )}, // 喫茶ハトの巣|ランダム来訪特殊NPC店内で会った回数（ローラン）
+            {0x5F0, new EventFlagPlayer(0 , 5   , 1520, "MuseumCafeRandomVisitSpMeetCount_hgc"       )}, // 喫茶ハトの巣|ランダム来訪特殊NPC店内で会った回数（ことの）
+            {0x5F1, new EventFlagPlayer(0 , 5   , 1521, "MuseumCafeRandomVisitSpMeetCount_slo"       )}, // 喫茶ハトの巣|ランダム来訪特殊NPC店内で会った回数（レイジ）
+            {0x5F2, new EventFlagPlayer(0 , 5   , 1522, "MuseumCafeRandomVisitSpMeetCount_ows"       )}, // 喫茶ハトの巣|ランダム来訪特殊NPC店内で会った回数（フーコ）
+            {0x5F3, new EventFlagPlayer(0 , 5   , 1523, "MuseumCafeRandomVisitSpMeetCount_chy"       )}, // 喫茶ハトの巣|ランダム来訪特殊NPC店内で会った回数（レックス）
+            {0x5F4, new EventFlagPlayer(0 , 5   , 1524, "MuseumCafeRandomVisitSpMeetCount_bey"       )}, // 喫茶ハトの巣|ランダム来訪特殊NPC店内で会った回数（ジャスティン）
+            {0x5F5, new EventFlagPlayer(0 , 1   , 1525, "DoneCommuneTtlOpenEvent"                    )}, // コミューン島コトブキ開店イベント発生制御
+            {0x5F6, new EventFlagPlayer(0 , 1   , 1526, "DodSelectWherearen1st"                      )}, // モーリー|「お仕事に行く」の説明を聞いた
+            {0x5F7, new EventFlagPlayer(0 , 1   , 1527, "FortuneApproachTalked"                      )}, // 占い結果でのアプローチ会話発生済み
+            {0x5F8, new EventFlagPlayer(0 , 1   , 1528, "SawMuseumCafeTakeoutNpc"                    )}, // 喫茶ハトの巣|テイクアウトで来店した特殊NPCを見た
+            {0x5F9, new EventFlagPlayer(0 , 7   , 1529, "LastSawMuseumCafeTakeoutNpc"                )}, // 喫茶ハトの巣|最後にテイクアウトで来店するのを見たNPC
+            {0x5FA, new EventFlagPlayer(0 , 1   , 1530, "KppTourDone_RareStarpiece"                  )}, // かっぺいツアー｜レア島行った：星のかけら
+            {0x5FB, new EventFlagPlayer(0 , 1   , 1531, "KppTourDone_RareCherryBlossom"              )}, // かっぺいツアー｜レア島行った：桜の花びら
+            {0x5FC, new EventFlagPlayer(0 , 1   , 1532, "KppTourDone_RareSpringBamboo"               )}, // かっぺいツアー｜レア島行った：春のわかたけ
+            {0x5FD, new EventFlagPlayer(0 , 1   , 1533, "KppTourDone_RareSummerShell"                )}, // かっぺいツアー｜レア島行った：夏のかいがら
+            {0x5FE, new EventFlagPlayer(0 , 1   , 1534, "KppTourDone_RareMushroom"                   )}, // かっぺいツアー｜レア島行った：キノコ
+            {0x5FF, new EventFlagPlayer(0 , 1   , 1535, "KppTourDone_RareMapleLeaf"                  )}, // かっぺいツアー｜レア島行った：紅葉の葉っぱ
+            {0x600, new EventFlagPlayer(0 , 1   , 1536, "KppTourDone_RareSnowCrystal"                )}, // かっぺいツアー｜レア島行った：雪のけっしょう
+            {0x601, new EventFlagPlayer(0 , 1   , 1537, "MuseumCafe_Telephone_Calledxct"             )}, // 喫茶ハトの巣｜みしらぬネコ｜amiiboでみしらぬネコを呼び出し会話したか？
+            {0x602, new EventFlagPlayer(0 , 1   , 1538, "MainmenuTips"                               )}, // スマホUI|徹底ライフサポート（Tips）解禁
+            {0x603, new EventFlagPlayer(0 , 1   , 1539, "Mobile1stBoot_Tips"                         )}, // スマホアプリ初起動|徹底ライフサポート（Tips）
+            {0x604, new EventFlagPlayer(0 , 1   , 1540, "MydesignExchangeExp_v2_0"                   )}, // マイデザイン交換| v2.0.0で追加された機能説明
+            {0x605, new EventFlagPlayer(0 , 1   , 1541, "TalkTtlCommuneOpenEvent"                    )}, // コトブキ｜コミューン開店イベントで話した
             {0x606, new EventFlagPlayer(0 , 1   , 1542, "FoxTalkFireworksFoodFlag"                   )}, // つねきち|花火大会で食べ物追加された会話聞いた？
             {0x607, new EventFlagPlayer(0 , 1   , 1543, "AnnounceHalloween2Ready"                    )}, // 2021年ハロウィン｜準備期間に島内放送で告知した？(2回目放送用)
+            {0x608, new EventFlagPlayer(0 , 1   , 1544, "PgeLikeTepidLasttimeFlag"                   )}, // マスター|前回ぬるい方が好きと答えた？
+            {0x60A, new EventFlagPlayer(0 , 3   , 1546, "PgeTepidCount"                              )}, // マスター|ぬるく入れるか聞くカウンタ
+            {0x60B, new EventFlagPlayer(0 , 1   , 1547, "SkkTalkFirstTimeCommune"                    )}, // シャンク｜初会話がコミューン店の方だった
+            {0x60C, new EventFlagPlayer(0 , 1   , 1548, "TtlTodayTalkFlag"                           )}, // コトブキ｜今日もう会話した？
+            {0x60D, new EventFlagPlayer(0 , 1   , 1549, "TtlBFirstTalkFlag"                          )}, // コトブキ｜ドンどんぐりとして今年会話した？
+            {0x60F, new EventFlagPlayer(0 , 1   , 1551, "GetMayDayTicketBefore_v2_0"                 )}, // メーデー|2.0.0未満でメーデーりょこうけんを入手したことがあるか？
+            {0x610, new EventFlagPlayer(0 , 1   , 1552, "XctGetRewardEveryYear"                      )}, // メーデー|みしらぬネコから3回目以降の報酬をもらった？
             {0x611, new EventFlagPlayer(0 , 1   , 1553, "FoxFirstTalkTodayFireworksFlag"             )}, // つねきち|今日花火大会で会話した？
+            {0x612, new EventFlagPlayer(0 , 1   , 1554, "PlayerMovingWithPFlag555"                   )}, // パニエル|「撮影スタジオの説明」聞いた後に、P引越しした
+            {0x613, new EventFlagPlayer(0 , 1   , 1555, "PooTalkFirst"                               )}, // カットリーヌ｜面識がある？
+            {0x614, new EventFlagPlayer(0 , 1   , 1556, "PooTalkToday"                               )}, // カットリーヌ｜今日会話した？
+            {0x615, new EventFlagPlayer(0 , 1   , 1557, "PooTalkFirstToday"                          )}, // カットリーヌ｜今日面識ができた？
+            {0x616, new EventFlagPlayer(0 , 1   , 1558, "PooGetNewHairStyle7"                        )}, // カットリーヌ｜ヘアアレンジ解禁７（コトブキ）
+            {0x617, new EventFlagPlayer(0 , 1   , 1559, "WHEREAREN_TapFirstCheckMydesingShowcase"    )}, // OneRoom|視察中にマイデザインショーケース端末にアクセスしたことがある？
+            {0x618, new EventFlagPlayer(0 , 1   , 1560, "PAAboutUnlockIslandRegulation"              )}, // 島内放送|条例が解禁したこと聞いた
+            {0x619, new EventFlagPlayer(0 , 1   , 1561, "SelectedGotoCafe"                           )}, // 日課「喫茶店に行こうキャンペーン」を今日達成した
+            {0x61A, new EventFlagPlayer(0 , 2   , 1562, "SelectedDoRadioGymnastics"                  )}, // 日課「ラジオ体操をしよう」が出現カウンター
+            {0x61B, new EventFlagPlayer(0 , 1   , 1563, "TtlB_Acorn_Today"                           )}, // コトブキ｜今日どんぐり貰った？
+            {0x61C, new EventFlagPlayer(0 , 1   , 1564, "HeldCeremonyMuseum3"                        )}, // セレモニ|博物館③を開いた
+            {0x61D, new EventFlagPlayer(0 , 1   , 1565, "StandByPhoneCallNpcNG"                      )}, // 電話デモ|NPCを呼び出せなかった入電するか？
+            {0x61E, new EventFlagPlayer(0 , 1   , 1566, "PgeTalkTakeOutFlag"                         )}, // マスター|テイクアウトの話聞いた？
+            {0x61F, new EventFlagPlayer(0 , 1   , 1567, "UnlockPlayerHair37"                         )}, // 髪型解禁：Hair37センターわけ
+            {0x620, new EventFlagPlayer(0 , 1   , 1568, "UnlockPlayerHair38"                         )}, // 髪型解禁：Hair38ウルフカット
+            {0x621, new EventFlagPlayer(0 , 1   , 1569, "UnlockPlayerHair39"                         )}, // 髪型解禁：Hair39オールバック
+            {0x622, new EventFlagPlayer(0 , 1   , 1570, "UnlockPlayerHair40"                         )}, // 髪型解禁：Hair40マッシュルーム
+            {0x623, new EventFlagPlayer(0 , 1   , 1571, "UnlockPlayerHair41"                         )}, // 髪型解禁：Hair41かっこいいMじ
+            {0x624, new EventFlagPlayer(0 , 1   , 1572, "UnlockPlayerHair42"                         )}, // 髪型解禁：Hair42そりこみぼうず
+            {0x625, new EventFlagPlayer(0 , 1   , 1573, "UnlockPlayerHair43"                         )}, // 髪型解禁：Hair43ハーフアップ
+            {0x626, new EventFlagPlayer(0 , 1   , 1574, "UnlockPlayerHair44"                         )}, // 髪型解禁：Hair44ふわひとつあみ
+            {0x627, new EventFlagPlayer(0 , 1   , 1575, "UnlockPlayerHair45"                         )}, // 髪型解禁：Hair45ふわひとつくくり
+            {0x628, new EventFlagPlayer(0 , 1   , 1576, "UnlockPlayerHair46"                         )}, // 髪型解禁：Hair46まとめがみ
+            {0x629, new EventFlagPlayer(0 , 1   , 1577, "UnlockPlayerHair47"                         )}, // 髪型解禁：Hair47みつあみツイン
+            {0x62A, new EventFlagPlayer(0 , 1   , 1578, "TtlChangeTtlB"                              )}, // コトブキをドンどんぐりに差し替え
+            {0x62B, new EventFlagPlayer(0 , 4095, 1579, "TkkFirstPlayNewSong"                        )}, // とたけけ|まだ演奏したことがない新曲かどうか
+            {0x62C, new EventFlagPlayer(0 , 8   , 1580, "XctCalledMessageBefore"                     )}, // メーデー|前の1537で出現したメッセージ番号
             {0x62D, new EventFlagPlayer(0 , 9999, 1581, "LastPlayFireWorksFestival"                  )}, // 花火大会|最後に遊んだ花火大会の年
+            {0x62E, new EventFlagPlayer(0 , 1   , 1582, "SendAocPurchasingPrize"                     )}, // AOC|予約・購入特典を送付した
+            {0x62F, new EventFlagPlayer(0 , 1   , 1583, "FoxCommuneTalkBeforeFlag"                   )}, // つねきち|今日コミューンのつねきちからお店の説明聞いた？
+            {0x630, new EventFlagPlayer(0 , 1   , 1584, "FoxCommuneTalkLotteryTodayFlag"             )}, // つねきち|今日コミューン開店イベントで話した
+            {0x631, new EventFlagPlayer(0 , 1   , 1585, "FoxCommuneTalkExplainFlag"                  )}, // つねきち|コミューンのつねきちからお店の説明聞いた？
+            {0x632, new EventFlagPlayer(0 , 1   , 1586, "FoxCommunePlayLotteryTodayFlag"             )}, // つねきち|今日コミューンのつねきちのくじ引いた？
+            {0x634, new EventFlagPlayer(0 , 9999, 1588, "LastPlayMayDayYear"                         )}, // メーデー|最後に遊んだメーデーの年
+            {0x635, new EventFlagPlayer(0 , 1   , 1589, "FoxCommuneTalkIceTodayFlag"                 )}, // つねきち|アイス系の説明した？
+            {0x636, new EventFlagPlayer(0 , 1   , 1590, "FoxCommuneTalkJuiceTodayFlag"               )}, // つねきち|缶飲料の説明した？
+            {0x637, new EventFlagPlayer(0 , 1   , 1591, "FoxCommuneTalkTodayFlag"                    )}, // つねきち|今日コミューンのつねきちと会話した？
+            {0x639, new EventFlagPlayer(0 , 1   , 1593, "WHEREAREN_Unlock_RoomDimming"               )}, // OneRoom|オリジナル調光アンロック
+            {0x63A, new EventFlagPlayer(0 , 1   , 1594, "OwlDonateDiveFishAtMuseumTent"              )}, // フータ|テント状態のときに海の幸を見せた？
+            {0x63B, new EventFlagPlayer(0 , 1   , 1595, "FoxCommuneBuyArtTodayFlag"                  )}, // つねきち|今日コミューンで美術品買った？
+            {0x63C, new EventFlagPlayer(0 , 1   , 1596, "UnlockBuyFIXLadderRecipe"                   )}, // お店｜はしごFIXキットのレシピ陳列開始
+            {0x63D, new EventFlagPlayer(0 , 1   , 1597, "UnlockBuyInteriorModePro"                   )}, // タヌポート｜もようがえPROライセンス陳列解禁
+            {0x63E, new EventFlagPlayer(0 , 1   , 1598, "AlwCommuneTalkTodayFlag"                    )}, // リサ｜今日コミューン島で会話した？
+            {0x63F, new EventFlagPlayer(0 , 1   , 1599, "UnlockBuyReactionCollection_v200"           )}, // タヌポート｜リアクション集v200陳列解禁
+            {0x640, new EventFlagPlayer(0 , 1   , 1600, "UnlockBuyHairStyleCollection_v200"          )}, // タヌポート｜ヘアスタイル集v200陳列解禁
+            {0x641, new EventFlagPlayer(0 , 1   , 1601, "RadioGymnasticsAchievementFinish"           )}, // ラジオ体操の実績を今日カウントした
+            {0x642, new EventFlagPlayer(0 , 1   , 1602, "UnlockBuyTipsApp"                           )}, // タヌポート｜徹底ライフサポートアプリ陳列解禁
+            {0x643, new EventFlagPlayer(0 , 2   , 1603, "TreasureHuntJustMissed"                     )}, // 宝探し｜ギリギリだったか
+            {0x644, new EventFlagPlayer(0 , 1   , 1604, "WHEREAREN_Use_AccentWall"                   )}, // アクセントウォールを使用したことがある
+            {0x645, new EventFlagPlayer(0 , 1   , 1605, "WHEREAREN_Unlock_DustCloth_01"              )}, // OneRoom|まごころ雑巾アンロック01
+            {0x646, new EventFlagPlayer(0 , 1   , 1606, "WHEREAREN_Unlock_DustCloth_02"              )}, // OneRoom|まごころ雑巾アンロック02
+            {0x648, new EventFlagPlayer(0 , 1   , 1608, "WHEREAREN_Unlock_EnvSound_01"               )}, // OneRoom|環境音アンロック01
+            {0x649, new EventFlagPlayer(0 , 1   , 1609, "WHEREAREN_Unlock_EnvSound_02"               )}, // OneRoom|環境音アンロック02
+            {0x64A, new EventFlagPlayer(0 , 1   , 1610, "WHEREAREN_Unlock_EnvSound_03"               )}, // OneRoom|環境音アンロック03
+            {0x64C, new EventFlagPlayer(0 , 1   , 1612, "WHEREAREN_Prev_Unlock_EnvSound_01"          )}, // OneRoom|環境音アンロック01_事前フラグ
+            {0x64D, new EventFlagPlayer(0 , 1   , 1613, "WHEREAREN_Prev_Unlock_EnvSound_02"          )}, // OneRoom|環境音アンロック02_事前フラグ
+            {0x64E, new EventFlagPlayer(0 , 1   , 1614, "WHEREAREN_Prev_Unlock_EnvSound_03"          )}, // OneRoom|環境音アンロック03_事前フラグ
+            {0x650, new EventFlagPlayer(0 , 1   , 1616, "WHEREAREN_Unlock_RoomSizeModeUnlock"        )}, // OneRoom|部屋サイズモードアンロック
+            {0x651, new EventFlagPlayer(0 , 1   , 1617, "Owl1stTalkMuseum3"                          )}, // フータ|博物館③（カフェ）完成後の挨拶した？
+            {0x652, new EventFlagPlayer(0 , 1   , 1618, "LectureAboutMarinesuitBuyIt"                )}, // まめきち|マリンスーツを買ったときレクチャーをする？
+            {0x653, new EventFlagPlayer(0 , 1   , 1619, "TalkHHATodayAnyone"                         )}, // 今日誰かにHHAを聞いたか
+            {0x654, new EventFlagPlayer(0 , 1   , 1620, "UnlockBuyReactionCoolection_v160"           )}, // タヌポート｜リアクション集v160陳列解禁
+            {0x655, new EventFlagPlayer(0 , 1   , 1621, "UnlockBuyHairStyleColection_v160"           )}, // タヌポート｜もっと！ヘアスタイル×６v160陳列解禁
+            {0x656, new EventFlagPlayer(0 , 1   , 1622, "UnlockBuyAddBridgeSlope"                    )}, // タヌポート｜インフラぞうせつライセンス陳列解禁
+            {0x657, new EventFlagPlayer(0 , 1   , 1623, "MuseumPosterTalkAboutMakePoster"            )}, // フータ/博物館コンプポスター|フータに「ポスター準備する話」を聞いたか？
+            {0x658, new EventFlagPlayer(0 , 1   , 1624, "MuseumPosterUnlockBuySel"                   )}, // フータ/博物館コンプポスター|自身が「ポスター買う」選択肢出すか？
+            {0x659, new EventFlagPlayer(0 , 1   , 1625, "MuseumPosterUnlockMyselfBug"                )}, // フータ/博物館コンプポスター|自身がムシのポスター購入を解禁した？
+            {0x65A, new EventFlagPlayer(0 , 1   , 1626, "MuseumPosterUnlockMyselfFish"               )}, // フータ/博物館コンプポスター|自身がサカナのポスター購入を解禁した？
+            {0x65B, new EventFlagPlayer(0 , 1   , 1627, "MuseumPosterUnlockMyselfFossil"             )}, // フータ/博物館コンプポスター|自身が化石のポスター購入を解禁した？
+            {0x65C, new EventFlagPlayer(0 , 1   , 1628, "MuseumPosterUnlockMyselfPainting"           )}, // フータ/博物館コンプポスター|自身が美術品のポスター購入を解禁した？
+            {0x65D, new EventFlagPlayer(0 , 1   , 1629, "MuseumPosterUnlockMySelfSea"                )}, // フータ/博物館コンプポスター|自身が海の幸のポスター購入を解禁した？
+            {0x65E, new EventFlagPlayer(0 , 1   , 1630, "TtlTodayFirstTalkFlag"                      )}, // コトブキ｜今日初会話した？
+            {0x65F, new EventFlagPlayer(0 , 256 , 1631, "BalloonShootCountSum"                       )}, // Tips|風船を撃ち落とした累計回数
+            {0x660, new EventFlagPlayer(0 , 1   , 1632, "BocBuyNumCountSum"                          )}, // Tips|ウリからのカブ購入数X以上か？（X=15)
+            {0x664, new EventFlagPlayer(0 , 1   , 1636, "NoticeAboutInteriorModePlus_playerHouse"    )}, // 自宅か撮影スタジオでインテリアモード開いてインテリアモード＋の初回ダイアログを見た？
+            {0x665, new EventFlagPlayer(0 , 1   , 1637, "NoticeAboutInteriorModePlus_Dimming"        )}, // インテリアモード＋の調光追加の初回ダイアログを見た？
+            {0x666, new EventFlagPlayer(0 , 1   , 1638, "NoticeAboutInteriorModePlus_EnvironmentalSound1")}, // 環境音解禁の初回ダイアログを見た？
+            {0x667, new EventFlagPlayer(0 , 1   , 1639, "NoticeAboutInteriorModePlus_EnvironmentalSound2")}, // 環境音解禁の追加１ダイアログを見た？
+            {0x668, new EventFlagPlayer(0 , 1   , 1640, "NoticeAboutInteriorModePlus_EnvironmentalSound3")}, // 環境音解禁の追加２ダイアログを見た？
+            {0x669, new EventFlagPlayer(0 , 1   , 1641, "BuildAddtionalBridgeSlopeIntroduction"      )}, // たぬきち｜ライセンス所持状態で９本目の橋/坂建てようとしてる？
+            {0x66A, new EventFlagPlayer(0 , 1   , 1642, "NoticeAboutMagokoro_MainIsland"             )}, // まごころ雑巾解禁後、本島側でスタジオ＆家に入った初回ダイアログを見た？
+            {0x66B, new EventFlagPlayer(0 , 1   , 1643, "WHEREAREN_NoticeAboutDustCloth2"            )}, // OneRoom|まごころ雑巾の追加用ダイアログを見た？
+            {0x66C, new EventFlagPlayer(0 , 1   , 1644, "GotToiletForTips"                           )}, // Tips|トイレ入手したか？
+            {0x66D, new EventFlagPlayer(0 , 1   , 1645, "GotBushForTips"                             )}, // Tips|低木入手したか？
+            {0x66E, new EventFlagPlayer(0 , 1   , 1646, "GetDresserForTips"                          )}, // Tips|ドレッサー入手したか？
+            {0x66F, new EventFlagPlayer(0 , 20  , 1647, "KppTourDidntHit_Rare"                       )}, // かっぺいツアー｜連続ハズレカウンタ：レア島
+            {0x670, new EventFlagPlayer(0 , 20  , 1648, "KppTourDidntHit_Haniwa"                     )}, // かっぺいツアー｜連続ハズレカウンタ：はにわ島
+            {0x671, new EventFlagPlayer(0 , 20  , 1649, "KppTourDidntHit_Vegetable"                  )}, // かっぺいツアー｜連続ハズレカウンタ：やさい島
+            {0x672, new EventFlagPlayer(0 , 20  , 1650, "KppTourDidntHit_DLC"                        )}, // かっぺいツアー｜連続ハズレカウンタ：OneRoom島
+            {0x673, new EventFlagPlayer(0 , 1   , 1651, "GotBonusMax"                                )}, // Tips｜ログインボーナス上限X達したか？
+            {0x674, new EventFlagPlayer(0 , 512 , 1652, "GotBonusToday"                              )}, // Tips｜今日のログインボーナスマイル？
+            {0x675, new EventFlagPlayer(0 , 1   , 1653, "PgeCoffeeEatInTodayFlag"                    )}, // マスター|今日イートインでコーヒー注文した？
+            {0x676, new EventFlagPlayer(0 , 1   , 1654, "RcmBlackFridayTodayFlag"                    )}, // まめきち｜ブラックフライデーの入店時会話した？
+            {0x677, new EventFlagPlayer(0 , 256 , 1655, "DoneDIYCountNum"                            )}, // Tips｜DIY家具or道具、または料理をX回したか？
+            {0x678, new EventFlagPlayer(0 , 1   , 1656, "RadioGymnasticsGotAllRewards"               )}, // Tips|ラジオ体操の報酬プロテインまでもらった？
+            {0x679, new EventFlagPlayer(0 , 9999, 1657, "TtlBFirstTalkYear"                          )}, // コトブキ｜ドンどんぐりと会話した年
+            {0x67A, new EventFlagPlayer(0 , 1   , 1658, "LettersNumForTips"                          )}, // Tips|メッセージが100通以上残っている＋未開封がある？
+            {0x67B, new EventFlagPlayer(0 , 3   , 1659, "WHEREAREN_GetInspectRewardsNum"             )}, // OneRoom|見学した数についてナッティーからの話を聞いたかのフラグ
+            {0x67C, new EventFlagPlayer(0 , -1  , 1660, "JoinedPastRadioGymnasticsNum"               )}, // Tips|前日以前に何回ラジオ体操に参加していないか
+            {0x67D, new EventFlagPlayer(0 , 1   , 1661, "WHEREAREN_NoticeAboutMemberPage"            )}, // OneRoom|メンバーページを開いたときの説明ダイアログを見た？
+            {0x67E, new EventFlagPlayer(0 , 1   , 1662, "WHEREAREN_NoticeAboutMyPage"                )}, // OneRoom|マイページを開いたときの説明ダイアログを見た？
+            {0x67F, new EventFlagPlayer(0 , 1   , 1663, "SpnExpandEventAfterJuneBride"               )}, // パニエル｜ジューンブライド初回から解禁イベントにハシゴ
+            {0x680, new EventFlagPlayer(0 , 1   , 1664, "RepayMileInteriorModePro"                   )}, // もようがえPROライセンスのマイルを返還する？
+            {0x681, new EventFlagPlayer(0 , 1   , 1665, "WHEREAREN_Mobile1stBoot_ResortPlannerApp"   )}, // OneRoom|リゾプラappの初回起動かどうか？
+            {0x682, new EventFlagPlayer(0 , 1   , 1666, "MuseumCafe_Tel_CalledThisYearXct"           )}, // 喫茶ハトの巣｜みしらぬネコ｜amiiboでみしらぬネコを今年呼び出し会話したか？
+            {0x683, new EventFlagPlayer(0 , 1   , 1667, "PooTalkAfterJuneBride"                      )}, // カットリーヌ｜ジューンブライドクリア後の反応予約フラグ
+            {0x684, new EventFlagPlayer(0 , 1   , 1668, "KppTalkAboutVine"                           )}, // かっぺい|ツアーでツタの説明した？
+            {0x685, new EventFlagPlayer(0 , 1   , 1669, "IsOnPlayerMemoriesFireworksInMainfield"     )}, // 思い出機能｜花火が花火大会開催中にメインフィールドにいたがON？
+            {0x686, new EventFlagPlayer(0 , 1   , 1670, "IsOnPlayerMemoriesDivingFirst"              )}, // 思い出機能｜マリンスーツで初めて海に飛び込んだがON？
+            {0x687, new EventFlagPlayer(0 , 1   , 1671, "NoticeAboutInteriorModePlus_RoomSize"       )}, // OneRoomでインテリアモード＋の初回ダイアログを見た？
+            {0x688, new EventFlagPlayer(0 , 1   , 1672, "WHEREAREN_NoticeAboutResortPlannnerAppNet"  )}, // OneRoom|マイページを開いたときの説明ダイアログを見た？
+            {0x689, new EventFlagPlayer(0 , 1   , 1673, "UnlockBuyATM"                               )}, // タヌポート｜ATM陳列解禁
+            {0x68A, new EventFlagPlayer(0 , 1   , 1674, "UnlockBuyStoreroom"                         )}, // タヌポート｜ものおき＆レシピ陳列解禁
+            {0x68C, new EventFlagPlayer(0 , 1   , 1676, "NoticeAboutRoomSketch"                      )}, // ルームスケッチの初回ダイアログを見た？
+            {0x68D, new EventFlagPlayer(0 , 1   , 1677, "CommuneCompleteExpandEvent_Player"          )}, // コミューン｜自分がコミューン拡張（または初回イベント）みたか？
+            {0x68E, new EventFlagPlayer(0 , 1   , 1678, "PAnnounceAboutKppTourCompleted"             )}, // 島内放送｜かっぺいツアーに関する島内放送をしたか？
+            {0x68F, new EventFlagPlayer(0 , 1   , 1679, "MakePlayerAfterStartingKppTour"             )}, // かっぺい｜かっぺいツアー開始後に作られたプレイヤーか？
+            {0x690, new EventFlagPlayer(0 , 1   , 1680, "IsOnPlayerMemoriesSeasonPetal"              )}, // 思い出機能｜桜の花びらをその日初めて取得したがON？
+            {0x691, new EventFlagPlayer(0 , 1   , 1681, "IsOnPlayerMemoriesSeasonCrystal"            )}, // 思い出機能｜雪の結晶をその日初めて取得したがON？
+            {0x692, new EventFlagPlayer(0 , 1   , 1682, "IsOnPlayerMemoriesSeasonLeaf"               )}, // 思い出機能｜紅葉をその日初めて取得したがON？
+            {0x693, new EventFlagPlayer(0 , 1   , 1683, "IsOnPlayerMemoriesSeasonBamboo"             )}, // 思い出機能｜はるのわかたけをその日初めて取得したがON？
+            {0x694, new EventFlagPlayer(0 , 1   , 1684, "IsOnPlayerMemoriesSeasonShell"              )}, // 思い出機能｜夏のかいがらをその日初めて取得したがON？
+            {0x695, new EventFlagPlayer(0 , 1   , 1685, "IsOnPlayerMemoriesSeasonAcorn"              )}, // 思い出機能｜どんぐりをその日初めて取得したがON？
+            {0x696, new EventFlagPlayer(0 , 1   , 1686, "IsOnPlayerMemoriesSeasonPinecone"           )}, // 思い出機能｜まつぼっくりをその日初めて取得したがON？
+            {0x697, new EventFlagPlayer(0 , 1   , 1687, "WHERWAREN_NoticeAbout_ResortPlanner"        )}, // OneRoom|ツクッターの初回ダイアログを見終わったか？
+            {0x698, new EventFlagPlayer(0 , 1   , 1688, "WHEREAREN_PlayingContentsToday"             )}, // OneRoom|今日OneRoomを遊んだか
+            {0x699, new EventFlagPlayer(0 , 1   , 1689, "WHEREAREN_PlayedContentsBefore"             )}, // OneRoom|前回OneRoomを遊んだか
+            {0x69A, new EventFlagPlayer(0 , 1   , 1690, "MuseumPosterTodayflagbug"                   )}, // フータ/博物館コンプポスター|ムシのポスターもらった？
+            {0x69B, new EventFlagPlayer(0 , 1   , 1691, "MuseumPosterTodayflagfish"                  )}, // フータ/博物館コンプポスター|サカナのポスターもらった？
+            {0x69C, new EventFlagPlayer(0 , 1   , 1692, "MuseumPosterTodayflagfossil"                )}, // フータ/博物館コンプポスター|かせきのポスターもらった？
+            {0x69D, new EventFlagPlayer(0 , 1   , 1693, "MuseumPosterTodayflagpainting"              )}, // フータ/博物館コンプポスター|美術品のポスターもらった？
+            {0x69E, new EventFlagPlayer(0 , 1   , 1694, "MuseumPosterTodayflagsea"                   )}, // フータ/博物館コンプポスター|海の幸のポスターもらった？
+            {0x69F, new EventFlagPlayer(0 , 1   , 1695, "WHEREAREN_RcoHeardRemakeWS"                 )}, // たぬきち|飛行場でリメイク体験会の話を聞いた
+            {0x6A0, new EventFlagPlayer(0 , 1   , 1696, "IsOnPlayerMemoriesMushSplendid"             )}, // 思い出機能｜りっぱなキノコをその日初めて取得したがON？
+            {0x6A1, new EventFlagPlayer(0 , 1   , 1697, "IsOnPlayerMemoriesMushRound"                )}, // 思い出機能｜まるいキノコをその日初めて取得したがON？
+            {0x6A2, new EventFlagPlayer(0 , 1   , 1698, "IsOnPlayerMemoriesMushSlender"              )}, // 思い出機能｜ほそいキノコをその日初めて取得したがON？
+            {0x6A3, new EventFlagPlayer(0 , 1   , 1699, "IsOnPlayerMemoriesMushFlat"                 )}, // 思い出機能｜ひらたいキノコをその日初めて取得したがON？
+            {0x6A4, new EventFlagPlayer(0 , 1   , 1700, "IsOnPlayerMemoriesMushRare"                 )}, // 思い出機能｜めずらしいキノコをその日初めて取得したがON？
+            {0x6A5, new EventFlagPlayer(0 , 1   , 1701, "RejectedTips"                               )}, // 徹底ライフサポート（Tips）受け取り拒否設定がON？
+            {0x6A6, new EventFlagPlayer(0 , 1   , 1702, "UnlockBuyRcoOnePieceAerobics"               )}, // ラジオ体操｜レオタードをタヌポートにも陳列
+            {0x6A7, new EventFlagPlayer(0 , 1   , 1703, "UnlockBuyRcoYogaMat"                        )}, // ラジオ体操｜ヨガマットをタヌポートにも陳列
+            {0x6AA, new EventFlagPlayer(0 , 1   , 1706, "DodSelectWherearenFromBeginning"            )}, // モーリー|「お仕事に行く」の説明を他の件と一緒に聞いた
+            {0x6AB, new EventFlagPlayer(0 , 1   , 1707, "EquipDustClothWithGateOpen"                 )}, // まごころ雑巾｜開門中にまごころ雑巾を装備のダイアログを見た？
+            {0x6AD, new EventFlagPlayer(0 , 1   , 1709, "WHEREAREN_NoticeAboutFirstPublication_ResortPlanner")}, // OneRoom|マイページにて「施工事例から選んでね」ダイアログを一度表示したかどうか？
+            {0x6AE, new EventFlagPlayer(0 , 1   , 1710, "TalkAboutNpcHouseCoordeHint"                )}, // たぬきち｜NPC家コーデ内装初回説明したか？
+            {0x6AF, new EventFlagPlayer(0 , 10  , 1711, "NpcHouseCoordinateTodayCount"               )}, // たぬきち｜NPC家コーデの当日内回数チェックカウンタ
+            {0x6B0, new EventFlagPlayer(0 , 1   , 1712, "PublicAnnouncement_MarinsuitHint"           )}, // 島内放送｜マリンスーツのヒントを聞いたか？
+            {0x6B1, new EventFlagPlayer(0 , 1   , 1713, "WHEREAREN_NoticeAboutSNSShare"              )}, // OneRoom｜ツクッター初回掲載後のSN共有の説明を見た？
+            {0x6B2, new EventFlagPlayer(0 , 10  , 1714, "PlanPalmSeedOnSand"                         )}, // Tips|やしのみを砂浜に植えた回数
+            {0x6B3, new EventFlagPlayer(0 , 10  , 1715, "PlanBambooshoot"                            )}, // Tips|たけのこを植えた回数
+            {0x6B4, new EventFlagPlayer(0 , 1   , 1716, "PlayerDoneEating"                           )}, // Tips|料理を1回以上「食べる」をした
+            {0x6B5, new EventFlagPlayer(0 , 10  , 1717, "OpenUIMenuLoadTipsCount"                    )}, // Tips|徹底ライフサポートUIを開いた回数
+            {0x6B6, new EventFlagPlayer(0 , 1   , 1718, "PlayerUsedChangeStick"                      )}, // Tips|変身ステッキを使ったことがあるか
+            {0x6B7, new EventFlagPlayer(0 , 1   , 1719, "ScanAmiiboInCafe"                           )}, // Tips|喫茶店でAmiibo読み込みを行った
+            {0x6B8, new EventFlagPlayer(0 , 1   , 1720, "ScanAmiiboInPhotoStudio"                    )}, // Tips|撮影スタジオでAmiibo読み込みを行った
+            {0x6B9, new EventFlagPlayer(0 , 1   , 1721, "RequestedAlpRemake"                         )}, // Tips|カイゾーにリメイクを依頼した
+            {0x6BA, new EventFlagPlayer(0 , 1   , 1722, "RequestedAlpUniqueRemake"                   )}, // Tips|カイゾーにカイゾーにしかできないリメイクを依頼した
+            {0x6BB, new EventFlagPlayer(0 , 1   , 1723, "AlreadyCheckedFirstTips1"                   )}, // 初回用固定Tips1を見た
+            {0x6BC, new EventFlagPlayer(0 , 1   , 1724, "AlreadyCheckedFirstTips2"                   )}, // 初回用固定Tips2を見た
+            {0x6BD, new EventFlagPlayer(0 , 1   , 1725, "AlreadyCheckedOneRoomFirstTips1"            )}, // OneRoom権利獲得後初回固定Tips1を見た
+            {0x6BE, new EventFlagPlayer(0 , 1   , 1726, "SloFirstTalkCommune"                        )}, // レイジ｜コミューン島で初対面会話した？
+            {0x6BF, new EventFlagPlayer(0 , 5   , 1727, "SalmonCookingRecipeCount"                   )}, // DIY｜レシピ１つ覚えた後、サケを釣り上げた回数をカウント
+            {0x6C0, new EventFlagPlayer(0 , 1   , 1728, "StandByCallByRcoNpcHouseCoodinate"          )}, // 電話デモ|たぬきちNPC家エディット導入入電するか？
+            {0x6C1, new EventFlagPlayer(0 , 1   , 1729, "RcoCoordinateUnlockWithPhoneCall"           )}, // たぬきち|NPC家エディット解禁電話聞いたか？
+            {0x6C2, new EventFlagPlayer(0 , 3   , 1730, "SloVegetableCount"                          )}, // レイジ｜野菜の苗を買い物した回数
+            {0x6C3, new EventFlagPlayer(0 , 1   , 1731, "SloBuyVegetableToday"                       )}, // レイジ｜今日野菜の買い物したか
+            {0x6C4, new EventFlagPlayer(0 , 1   , 1732, "SloBuyToday"                                )}, // レイジ｜今日レイジから買い物したか？
+            {0x6C6, new EventFlagPlayer(0 , 1   , 1734, "WHEREAREN_IsSnsShareCanceled"               )}, // OneRoom｜デイリー表示される掲載後のSNSShareをキャンセルしたか？
+            {0x6C8, new EventFlagPlayer(0 , 1   , 1736, "OtgTipsUnlockGardenEdit"                    )}, // Tips|2件目庭（季節変更、時間帯変更、庭エディット解禁）
+            {0x6C9, new EventFlagPlayer(0 , 1   , 1737, "OtgTipsComplete1stOrder"                    )}, // Tips|1件目完了（オーディオ家具解禁）
+            {0x6CA, new EventFlagPlayer(0 , 1   , 1738, "RcoBuildMovingPurchase_v200"                )}, // たぬきち｜v2.0.0で何らかの移設費用支払った？
+            {0x6CB, new EventFlagPlayer(0 , 1   , 1739, "SendLetterBuildMovingPricedown"             )}, // たぬきち｜移設費用値下げの手紙送った？
+            {0x6CC, new EventFlagPlayer(0 , 1   , 1740, "ReturnMyHomeMoving8000PMoving"              )}, // たぬきち｜Pだけ引越しで返金されたマイホーム移設費用は8000ベル？
+            {0x6CD, new EventFlagPlayer(0 , 1   , 1741, "OtgTipsUnlockWorkingTable"                  )}, // Tips|6件目完了（2FDIY作業台解禁）
+            {0x6CE, new EventFlagPlayer(0 , 1   , 1742, "WHEREAREN_UnlockMessageBottleAfter"         )}, // Tips|ウェアラン諸島でメッセージボトル解禁されてから1成長処理経過
+            {0x6CF, new EventFlagPlayer(0 , 1   , 1743, "OtgTipsCompleteSchoolBuild"                 )}, // Tips|学校完成（キャストUI、施設リフォーム解禁）
+            {0x6D0, new EventFlagPlayer(0 , 1   , 1744, "OtgTipsCompleteSloSchoolEvent"              )}, // Tips|レイジの授業完了（交配花の一部解禁）
+            {0x6D1, new EventFlagPlayer(0 , 1   , 1745, "RcoOfficeBuiltLetter"                       )}, // 案内所完成の案内手紙投函された
+            {0x6D2, new EventFlagPlayer(0 , 1   , 1746, "WatchedRcoAnnouceAfter200ver"               )}, // 2.0.0以降verでたぬきち島内放送を見た
+            {0x6D3, new EventFlagPlayer(0 , 1   , 1747, "OtgTipsComplete2ndFacilityBuild"            )}, // Tips|カフェ/レストラン少なくともどちらかが完成
+            {0x6D4, new EventFlagPlayer(0 , 1   , 1748, "OtgTipsUnlockDIYFtrCatalog"                 )}, // Tips|DIYしたことある家具のカタログ解禁
+            {0x6D5, new EventFlagPlayer(0 , 1   , 1749, "ScanAmiiboInTanuport"                       )}, // Tips|タヌポートでAmiibo読み込みを行った
+            {0x6D6, new EventFlagPlayer(0 , 1   , 1750, "OtgTipsUnlockHouseShare"                    )}, // Tips|シェアハウス解禁
+            {0x6D7, new EventFlagPlayer(0 , 1   , 1751, "OtgTipsCompleteCafeBuild"                   )}, // Tips|カフェ完成
+            {0x6D8, new EventFlagPlayer(0 , 1   , 1752, "OtgTipsCompleteRestaulantBuild"             )}, // Tips|レストラン完成
+            {0x6D9, new EventFlagPlayer(0 , 1   , 1753, "OtgTipsCompleteHospitalBuild"               )}, // Tips|病院完成
+            {0x6DA, new EventFlagPlayer(0 , 1   , 1754, "OtgTipsCompleteBoutiqueBuild"               )}, // Tips|アパレルショップ完成
+            {0x6DB, new EventFlagPlayer(0 , 1   , 1755, "OtgTipsCompleteHospitalDonation"            )}, // Tips|病院の募金が完了した
+            {0x6DC, new EventFlagPlayer(0 , 1   , 1756, "OtgTipsBuildEitherCafeRestaulant"           )}, // Tips|カフェ/レストランどちらかが未完成
+            {0x6DD, new EventFlagPlayer(0 , 1   , 1757, "WHEREAREN_SeqAvailableAmiiboDone"           )}, // Tips|amiibo読取機解禁イベントを見た？
+            {0x6DE, new EventFlagPlayer(0 , 2   , 1758, "BocFirstMail"                               )}, // ウリ｜商店が建ったときの手紙を出したか？
+            {0x6DF, new EventFlagPlayer(0 , 1   , 1759, "OtgTipsExplainManCatalog"                   )}, // Tips|ナッティーカタログ解禁説明聞いた？
+            {0x6E0, new EventFlagPlayer(0 , 1   , 1760, "OtgTipsUnlockATM"                           )}, // Tips|事務所ATM解禁した？
+            {0x6E1, new EventFlagPlayer(0 , 1   , 1761, "CommuneATMChkToday"                         )}, // コミューン｜今日ATMをチェックした？
+            {0x6E2, new EventFlagPlayer(0 , 1   , 1762, "SpnCommuneATMNoticeDone"                    )}, // パニエル｜ATMについて喋った？
+            {0x6E3, new EventFlagPlayer(0 , 1   , 1763, "RcoTalkAboutNpcHouseEditOfficeBuild"        )}, // たぬきち｜Pだけ引越し後案内所完成したら、NPC家コーデの解禁告知するか？
+            {0x6E4, new EventFlagPlayer(0 , 1   , 1764, "RcoPMovingUnlockNpcEditWithPhoneCall"       )}, // たぬきち｜入電は聞いたがNPC家コーデを解禁せずにPだけ引越しした
+            {0x6E5, new EventFlagPlayer(0 , 1   , 1765, "WHERWAREN_NoticeAbout_ResortPlannerRevisit" )}, // OneRoom｜訪問機能の説明ダイアログを見た？
+            {0x6E6, new EventFlagPlayer(0 , 1   , 1766, "PublicAnnoucement_EvNotice_Carnival"        )}, // 島内放送｜カーニバルの予告を聞いたか？
+            {0x6E7, new EventFlagPlayer(0 , 1   , 1767, "WHEREAREN_OtgVisitThisIsland"               )}, // 今住んでる島でOneRoomの解禁イベントを見た
+            {0x6E8, new EventFlagPlayer(0 , 1   , 1768, "DocUnlockSpnOtgDirectRoute"                 )}, // ロドリー｜直行便解禁会話見た？
+            {0x6E9, new EventFlagPlayer(0 , 1   , 1769, "UnlockCatalogPokiBag"                       )}, // カタログ｜ポキ袋をスタジオやOneRoomのカタログで解禁
+            {0x6EA, new EventFlagPlayer(0 , 1   , 1770, "PAnnounceFishingEvNotice_Jan"               )}, // 島内放送｜釣り大会の予告を聞いたか（１月）
+            {0x6EB, new EventFlagPlayer(0 , 1   , 1771, "PAnnounceFishingEvNotice_Apr"               )}, // 島内放送｜釣り大会の予告を聞いたか（４月）
+            {0x6EC, new EventFlagPlayer(0 , 1   , 1772, "PAnnounceFishingEvNotice_Jul"               )}, // 島内放送｜釣り大会の予告を聞いたか（７月）
+            {0x6ED, new EventFlagPlayer(0 , 1   , 1773, "PAnnounceFishingEvNotice_Oct"               )}, // 島内放送｜釣り大会の予告を聞いたか（１０月）
+            {0x6EE, new EventFlagPlayer(0 , 1   , 1774, "PAnnounceInsectEvNotice_1"                  )}, // 島内放送｜ムシとり大会の予告を聞いたか①
+            {0x6EF, new EventFlagPlayer(0 , 1   , 1775, "PAnnounceInsectEvNotice_2"                  )}, // 島内放送｜ムシとり大会の予告を聞いたか②
+            {0x6F0, new EventFlagPlayer(0 , 1   , 1776, "PAnnounceInsectEvNotice_3"                  )}, // 島内放送｜ムシとり大会の予告を聞いたか③
+            {0x6F1, new EventFlagPlayer(0 , 1   , 1777, "PAnnounceInsectEvNotice_4"                  )}, // 島内放送｜ムシとり大会の予告を聞いたか④
+            {0x6F2, new EventFlagPlayer(0 , 1   , 1778, "PAnnounceFireWorksEvNotice"                 )}, // 島内放送｜花火大会の予告を聞いたか
+            {0x6F3, new EventFlagPlayer(0 , 1   , 1779, "PAnnounceCountdownEvNotice"                 )}, // 島内放送｜大晦日の予告を聞いたか
+            {0x6F4, new EventFlagPlayer(0 , 1   , 1780, "StandByPhoneCallMayDayTour"                 )}, // 電話デモ|メーデー告知の入電するか？
+            {0x6F7, new EventFlagPlayer(0 , 1   , 1783, "DrinkCoffeeToday"                           )}, // 喫茶ハトの巣｜今日コーヒーを飲んだか（実績用）
+            {0x6F8, new EventFlagPlayer(0 , 1   , 1784, "RcoTipsPurchaseBoxUsed"                     )}, // Tips|買取BOX使ったことある？
+            {0x6F9, new EventFlagPlayer(0 , 1   , 1785, "SloExplainbush"                             )}, // レイジ｜低木について個別に説明するか？
+            {0x6FA, new EventFlagPlayer(0 , 1   , 1786, "SloRecommendbush"                           )}, // レイジ｜コミューン島今週のおすすめの低木を伝えたか
+            {0x6FB, new EventFlagPlayer(0 , 2   , 1787, "PMovingTmpDustCloth"                        )}, // プレイヤーだけ引越し｜まごころ雑巾をP引越し時に一時的に使えなくするためのtmpフラグ
+            {0x6FC, new EventFlagPlayer(0 , 1   , 1788, "RcoTipsRcoMachineLoginBonus"                )}, // Tips|タヌポートログボのTips出す？
         };
 
         private const string Unknown = "???";

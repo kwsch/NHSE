@@ -1,3 +1,10 @@
+00079_0	Bianco semplice
+00079_1	Beige
+00079_2	Rosa
+00079_3	Giallo
+00079_4	Verde
+00079_5	Blu
+00079_6	Nero
 00725_0	Semplice
 00725_1	Primavera
 00725_2	Estate
@@ -8,6 +15,14 @@
 00833_2	Grazioso
 00833_3	Pop
 00833_4	Messaggi
+00922_0	Nessuno
+00922_1	Blu
+00922_2	Bianco
+00922_3	Arancia
+00922_4	Mela
+00922_5	Pesca
+00922_6	Pera
+00922_7	Ciliegia
 00941_0	Senza
 00941_1	Familiare
 00941_2	Chic
@@ -36,22 +51,43 @@
 01032_4	Fumetti
 01032_5	Per bambini
 01032_6	Settimanale
-01499_0	Senza
+01133_0	Blu
+01133_1	Rosso
+01133_2	Giallo
+01133_3	Verde
+01222_0	Evento sportivo
+01222_1	Film di fantascienza
+01222_2	Video musicale
+01222_3	Cartone animato
+01235_0	Nulla
+01235_1	Regole di buona condotta
+01235_2	Poster di assunzione
+01235_3	Poster di viaggio
+01235_4	Scarabocchi e adesivi
+01499_0	Nulla
 01499_1	Rosso
 01499_2	Blu
 01499_3	Giallo
-01500_0	Senza
+01500_0	Nulla
 01500_1	Righe rosse
 01500_2	Righe blu
 01500_3	Righe gialle
-01501_0	Senza
+01501_0	Nulla
 01501_1	Cuore
 01501_2	Pesce
 01501_3	Stella
-01504_0	Senza
+01504_0	Nulla
 01504_1	Bianco
 01504_2	Pois
 01504_3	Righe
+01608_0	Sushi
+01608_1	Cibo cinese
+01608_2	Pane
+01608_3	Panini
+01608_4	Gelati
+01608_5	Aperto
+01608_6	Mercato
+01608_7	Emblema
 01620_0	Multicolore
 01620_1	Mimetico
 01620_2	Fiori di ibisco
@@ -72,6 +108,19 @@
 01645_5	Foglietto di carta
 01645_6	Pop
 01645_7	Grazioso
+01712_0	Mostra di ceramiche
+01712_1	Mostra di pittura
+01712_2	Mostra d'arte
+01712_3	Concerto jazz
+01712_4	Concerto
+01712_5	Musical
+01712_6	Film
+01712_7	Mostra fotografica
+01745_0	Grafici e testo
+01745_1	Documento testuale
+01745_2	Bolla di consegna
+01745_3	Manoscritto di un fumetto
+01745_4	Partitura musicale
 01750_0	Risorse
 01750_1	Testo
 01750_2	Prove d'esame
@@ -115,11 +164,17 @@
 01816_5	Rosso
 01816_6	Verde
 01816_7	Blu
+01820_0	Camicie bianche
+01820_1	Camicie color pastello
+01820_2	Camicie a righe
+01820_3	Camicie con pizzo
+01820_4	Magliette
+01820_5	Maglioni
 01838_0	Bianco
 01838_1	Giallo
 01838_2	Rosa
 01838_3	Blu
-01849_0	Tris
+01849_0	Motivo a pozzetto
 01849_1	Fiori
 01849_2	Pied-de-poule
 01849_3	Righe
@@ -155,10 +210,21 @@
 02561_5	Design verde
 02561_6	Design arancione
 02561_7	Design blu marino
+02587_0	Bianco
+02587_1	Blu
+02587_2	Rosa
+02587_3	Verde
+02587_4	Giallo
 02605_0	Arancio
 02605_1	Rosa
 02605_2	Blu
 02605_3	Verde
+02606_0	Semplice
+02606_1	Percalle rosso
+02606_2	Percalle blu
+02606_3	Percalle verde
+02606_4	Percalle rosa
+02606_5	Percalle limone
 02713_0	Senza
 02713_1	Graziosi
 02713_2	Rock
@@ -186,7 +252,7 @@
 03307_2	Pois
 03307_3	Righe nere
 03307_4	Legno
-03439_0	Nessuno
+03439_0	Nulla
 03439_1	Arancio
 03439_2	Rosa
 03439_3	Blu
@@ -200,7 +266,7 @@
 03445_1	Pois
 03445_2	Blu marino
 03445_3	Tre colori
-03449_0	Nessuno
+03449_0	Nulla
 03449_1	Arancio
 03449_2	Rosa
 03449_3	Blu
@@ -349,6 +415,13 @@
 04144_0	Linee rosse
 04144_1	Ape blu
 04144_2	Numero su sfondo nero
+04196_0	Due pedoni
+04196_1	Mano e pedone
+04196_2	Luci rotonde
+04196_3	Biciclette
+04196_4	Frecce
+04196_5	Cuori
+04196_6	Foglie
 04308_0	Tramonto
 04308_1	Raggi tra gli alberi
 04308_2	Neve
@@ -358,9 +431,9 @@
 04445_1	Nero
 04445_2	Bianco
 04445_3	Legno naturale
-05338_0	Pannello semplice
-05338_1	Pannello rinforzato
-05338_2	Pannello forato
+05338_0	Standard
+05338_1	Rinforzato
+05338_2	Forato
 05338_3	Assi orizzontali
 05338_4	Reticolato
 05338_5	Muro di fango
@@ -392,7 +465,7 @@
 07132_1	Rosa
 07132_2	Blu
 07132_3	Verde
-07133_0	Nessuno
+07133_0	Nulla
 07133_1	Arancio
 07133_2	Rosa
 07133_3	Blu
@@ -412,6 +485,14 @@
 07152_2	Blu
 07152_3	Nero
 07152_4	Giallo
+07154_0	Nessuna
+07154_1	Frutta
+07154_2	Rétro
+07154_3	Antica
+07154_4	Fragile
+07154_5	Adesivi pop
+07154_6	Adesivi di trasporto
+07154_7	Adesivi colorati
 07282_0	Calligrafia
 07282_1	Montagne
 07282_2	Pesce
@@ -452,8 +533,951 @@
 08760_5	Blu
 08760_6	Giallo
 08760_7	Beige
+12361_0	Rosso
+12361_1	Bianco
+12361_2	Nero
+12366_0	Nessuno
+12366_1	Motivo A
+12366_2	Motivo B
+12366_3	Motivo C
+12366_4	Motivo D
+12366_5	Motivo E
+12366_6	Foglia
+12366_7	Cuori
 12410_0	Messaggio
 12410_1	Alpaca e Merino
+12605_0	Righe gialle e nere
+12605_1	Litorale
+12605_2	Campo di fiori
+12637_0	Persona
+12637_1	Denti
+12637_2	Animale
+12669_0	Blu
+12669_1	Rosso
+12669_2	Verde
+12669_3	Giallo
+12669_4	Quadretti bianchi
+12669_5	Quadretti neri
+12669_6	Ciambella
+12679_0	Elenco di nomi
+12679_1	Lista di cose da fare
+12679_2	Questionario medico
+12693_0	Giallo
+12693_1	Rosso
+12693_2	Verde
+12693_3	Blu
+12693_4	Nero
+12699_0	Caffè
+12699_1	Libreria
+12699_2	Ristorante
+12699_3	Pasticceria
+12699_4	Karaoke
+12699_5	Ristorante giapponese
+12699_6	Succhi e bevande
+12715_0	Panorama
+12715_1	Persone
+12715_2	Illustrazione
+12744_0	Bianco semplice
+12744_1	Blu perlaceo semplice
+12744_2	Blu marino semplice
+12744_3	Percalle arancione
+12744_4	Percalle verde
+12744_5	Rosso rubino
+12744_6	Blu damascato
+12744_7	Marrone damascato
+12745_0	Bianco semplice
+12745_1	Blu perlaceo semplice
+12745_2	Blu marino semplice
+12745_3	Percalle arancione
+12745_4	Percalle verde
+12745_5	Rosso rubino
+12745_6	Blu damascato
+12745_7	Marrone damascato
+12782_0	Avorio
+12782_1	Blu marino
+12782_2	Verde
+12782_3	Rosso
+12782_4	Ocra
+12782_5	Giallo
+12782_6	Rosa
+12782_7	Blu chiaro
+12879_0	Gratis
+12879_1	Sconto 50%
+12879_2	Novità
+12879_3	Dito
+12879_4	Nuvola
+12879_5	Cerchio
+12879_6	Stella
+12879_7	Cuore
+12880_0	Pasta
+12880_1	Cibo cinese
+12880_2	Sushi
+12880_3	Hamburger
+12880_4	Bevande analcoliche
+12880_5	Pane
+12880_6	Abbigliamento
+12880_7	Gratis
+12881_0	Blu
+12881_1	Rosso
+12881_2	Giallo
+12881_3	Nero
+12881_4	Bianco
+12882_0	Verde
+12882_1	Bianco
+12882_2	Rosso
+12882_3	Giallo
+12882_4	Blu
+12883_0	Casual
+12883_1	Semplice
+12883_2	Elegante
+12883_3	Grazioso
+12883_4	Infantile
+12886_0	Abiti casual
+12886_1	Abiti dai colori naturali
+12886_2	Abiti dai colori spavaldi
+12886_3	Abiti graziosi
+12886_4	Abiti da bambini
+12890_0	Nessuno
+12890_1	Righe rosse e bianche
+12890_2	Giallo
+12890_3	Blu
+12890_4	Verde
+12892_0	Carta riciclata
+12892_1	Bianco
+12892_2	Blu
+12892_3	Nero
+12892_4	Rosso
+12892_5	Verde
+12892_6	Giallo
+12892_7	Stampa floreale
+12991_0	Marrone
+12991_1	Blu
+12991_2	Bianco
+12991_3	Rosa
+12991_4	Giallo
+12991_5	Verde
+12991_6	Blu chiaro
+12991_7	Viola
+12994_0	Marrone
+12994_1	Blu
+12994_2	Bianco
+12994_3	Rosa
+12994_4	Giallo
+12994_5	Verde
+12994_6	Blu chiaro
+12994_7	Viola
+12995_0	Marrone
+12995_1	Blu
+12995_2	Bianco
+12995_3	Rosa
+12995_4	Giallo
+12995_5	Verde
+12995_6	Blu chiaro
+12995_7	Viola
+12996_0	Marrone
+12996_1	Blu
+12996_2	Bianco
+12996_3	Rosa
+12996_4	Giallo
+12996_5	Verde
+12996_6	Blu chiaro
+12996_7	Viola
+12998_0	Nessuno
+12998_1	Blu
+12998_2	Bianco
+12998_3	Rosa
+12998_4	Giallo
+12998_5	Verde
+12998_6	Blu chiaro
+12998_7	Viola
+12999_0	Nessuno
+12999_1	Blu
+12999_2	Bianco
+12999_3	Rosa
+12999_4	Giallo
+12999_5	Verde
+12999_6	Blu chiaro
+12999_7	Viola
+13005_0	Rosso
+13005_1	Blu
+13005_2	Arancio
+13005_3	Verde muschio
+13005_4	Viola
+13005_5	Bianco
+13005_6	Grigio
+13005_7	Nero
+13006_0	Nero
+13006_1	Bianco
+13006_2	Rosso
+13006_3	Arancio
+13006_4	Blu
+13006_5	Limetta
+13006_6	Giallo
+13006_7	Marrone
+13007_0	Nero
+13007_1	Bianco
+13007_2	Rosso
+13007_3	Arancio
+13007_4	Blu
+13007_5	Limetta
+13007_6	Giallo
+13007_7	Marrone
+13008_0	Nero
+13008_1	Bianco
+13008_2	Rosso
+13008_3	Arancio
+13008_4	Blu
+13008_5	Limetta
+13008_6	Giallo
+13008_7	Marrone
+13009_0	Nero
+13009_1	Bianco
+13009_2	Rosso
+13009_3	Arancio
+13009_4	Blu
+13009_5	Limetta
+13009_6	Giallo
+13009_7	Marrone
+13010_0	Nero
+13010_1	Bianco
+13010_2	Rosso
+13010_3	Arancio
+13010_4	Blu
+13010_5	Limetta
+13010_6	Giallo
+13010_7	Marrone
+13073_0	Fiorellini
+13073_1	Farfalle
+13073_2	Gocce di pioggia
+13073_3	Forme arancioni
+13073_4	Fiori
+13073_5	Puntini
+13073_6	Foglie
+13073_7	Triangoli
+13075_0	Fiorellini
+13075_1	Farfalle
+13075_2	Gocce di pioggia
+13075_3	Forme arancioni
+13075_4	Fiori
+13075_5	Puntini
+13075_6	Foglie
+13075_7	Triangoli
+13076_0	Nessuna
+13076_1	Fiorellini
+13076_2	Farfalle
+13076_3	Gocce di pioggia
+13076_4	Forme arancioni
+13076_5	Fiori
+13076_6	Puntini
+13076_7	Foglie
+13077_0	Nessuna
+13077_1	Fiorellini
+13077_2	Farfalle
+13077_3	Gocce di pioggia
+13077_4	Forme arancioni
+13077_5	Fiori
+13077_6	Puntini
+13077_7	Foglie
+13078_0	Nessuna
+13078_1	Fiorellini
+13078_2	Farfalle
+13078_3	Gocce di pioggia
+13078_4	Forme arancioni
+13078_5	Fiori
+13078_6	Puntini
+13078_7	Foglie
+13079_0	Nessuna
+13079_1	Fiorellini
+13079_2	Farfalle
+13079_3	Gocce di pioggia
+13079_4	Forme arancioni
+13079_5	Fiori
+13079_6	Puntini
+13079_7	Foglie
+13081_0	Nessuno
+13081_1	Percalle rosso
+13081_2	Percalle blu
+13081_3	Percalle verde
+13081_4	Percalle rosa
+13081_5	Percalle limone
+13082_0	Nessuno
+13082_1	Percalle rosso
+13082_2	Percalle blu
+13082_3	Percalle verde
+13082_4	Percalle rosa
+13082_5	Percalle limone
+13108_0	Puntini gialli
+13108_1	Zigzag colori freddi
+13108_2	Quadretti beige
+13108_3	Rombi viola
+13108_4	Righe vivaci
+13108_5	Fiori pastello
+13108_6	Onde blu
+13108_7	Frutta
+13109_0	Puntini gialli
+13109_1	Zigzag colori freddi
+13109_2	Quadretti beige
+13109_3	Rombi viola
+13109_4	Righe vivaci
+13109_5	Fiori pastello
+13109_6	Onde blu
+13109_7	Frutta
+13110_0	Camicie semplici
+13110_1	Camicie a righe
+13110_2	Camicie a righe spesse
+13110_3	Camicie a quadri
+13110_4	Camicie a quadri di percalle
+13110_5	Camicie color pastello
+13110_6	Camicie a stelle
+13110_7	Camicie a pois
+13138_0	Stile botanico
+13138_1	Bianco a righe
+13138_2	Rombi dorati
+13138_3	Rosso damascato
+13138_4	Nero damascato
+13138_5	Rose blu
+13138_6	Rose rosa
+13139_0	Stile botanico
+13139_1	Bianco a righe
+13139_2	Rombi dorati
+13139_3	Rosso damascato
+13139_4	Nero damascato
+13139_5	Rose blu
+13139_6	Rose rosa
+13140_0	Nessuno
+13140_1	Stile botanico
+13140_2	Bianco a righe
+13140_3	Rombi dorati
+13140_4	Rosso damascato
+13140_5	Nero damascato
+13140_6	Rose blu
+13140_7	Rose rosa
+13141_0	Stile botanico
+13141_1	Bianco a righe
+13141_2	Rombi dorati
+13141_3	Rosso damascato
+13141_4	Nero damascato
+13141_5	Rose blu
+13141_6	Rose rosa
+13142_0	Stile botanico
+13142_1	Bianco a righe
+13142_2	Rombi dorati
+13142_3	Rosso damascato
+13142_4	Nero damascato
+13142_5	Rose blu
+13142_6	Rose rosa
+13143_0	Nessuno
+13143_1	Stile botanico
+13143_2	Bianco a righe
+13143_3	Rombi dorati
+13143_4	Rosso damascato
+13143_5	Nero damascato
+13143_6	Rose blu
+13143_7	Rose rosa
+13151_0	Fuku (buona fortuna)
+13151_1	Fiori
+13151_2	Matsuri (festival)
+13151_3	Emblema
+13151_4	Righe rosse e bianche
+13151_5	Righe blue e bianche
+13151_6	Righe gialle e bianche
+13151_7	Righe verdi e bianche
+13157_0	Menu da caffetteria
+13157_1	Menu delle bevande
+13157_2	Menu da fast food
+13157_3	Menu da ristorante
+13157_4	Menu dei gelati
+13157_5	Orari
+13157_6	Numeri del turno
+13157_7	Aggiornamenti finanziari
+13161_0	Uguale all'altro lato
+13161_1	Spettatori al coperto
+13161_2	Spettatori all'aperto
+13161_3	Blu con logo
+13161_4	Arancione con logo
+13161_5	Bianco con logo
+13161_6	Rosa con logo
+13161_7	Verde con logo
+13163_0	Nessuno
+13163_1	Normativa
+13163_2	Menu da caffetteria
+13163_3	Menu di ramen
+13163_4	Appunti vari
+13201_0	Nessuno
+13201_1	Testo
+13201_2	Icona delle terme
+13201_3	Sole
+13201_4	Tulipano
+13201_5	Arancia
+13201_6	Logo
+13205_0	Prodotti da dispensa
+13205_1	Cibi importati
+13205_2	Prodotti biologici
+13205_3	Cibi giapponesi
+13207_0	
+13207_1	
+13207_2	
+13207_3	×
+13207_4	Bevande
+13207_5	Microfono
+13207_6	Aperto
+13207_7	Sorriso
+13209_0	Desktop
+13209_1	Riunione online
+13209_2	E-book
+13209_3	Video
+13209_4	Dati grafici
+13209_5	App per bambini
+13209_6	Software di grafica
+13209_7	Fumetti digitali
+13214_0	Nessuna
+13214_1	Rifiuti infiammabili
+13214_2	Rifiuti non infiammabili
+13214_3	Bottiglie e barattoli
+13214_4	Plastica
+13214_5	Quotidiani e riviste
+13214_6	Indifferenziata
+13220_0	Fuku (buona fortuna)
+13220_1	Fiori
+13220_2	Matsuri (festival)
+13220_3	Emblema
+13220_4	Righe rosse e bianche
+13220_5	Righe blue e bianche
+13220_6	Righe gialle e bianche
+13220_7	Righe verdi e bianche
+13269_0	Ricercato
+13269_1	Pubblicità
+13288_0	Nessuna
+13288_1	Beige
+13288_2	Rosa
+13288_3	Giallo
+13288_4	Verde
+13288_5	Blu
+13288_6	Nero
+13294_0	Blu e bianco
+13294_1	Rosso e bianco
+13294_2	Giallo e bianco
+13294_3	Rosa e bianco
+13294_4	Turchese e bianco
+13294_5	Blu e giallo
+13294_6	Rosso e giallo
+13294_7	Verde
+13295_0	Risposta giusta A
+13295_1	Risposta giusta B
+13295_2	Risposta giusta C
+13295_3	Risposta giusta D
+13295_4	Risposta sbagliata A
+13295_5	Risposta sbagliata B
+13295_6	Risposta sbagliata C
+13295_7	Risposta sbagliata D
+13296_0	Nessuno
+13296_1	Bianco
+13296_2	Rosso
+13296_3	Giallo
+13296_4	Verde
+13296_5	Blu chiaro
+13296_6	Grigio
+13296_7	Nero
+13299_0	Nessuna
+13299_1	Mele
+13299_2	Arancia
+13299_3	Montagna
+13299_4	Sidro
+13299_5	Cola
+13303_0	Nessuna
+13303_1	Bianca
+13303_2	Marrone
+13303_3	Nera
+13336_0	Nessuno
+13336_1	Blu
+13336_2	Verde
+13336_3	Bianco
+13336_4	Grigio
+13336_5	Arancio
+13337_0	Giardinaggio
+13337_1	Viaggi
+13337_2	Moda
+13337_3	Sport
+13337_4	Fumetti
+13337_5	Per bambini
+13337_6	Settimanale
+13339_0	Bianco
+13339_1	Blu chiaro
+13339_2	Verde scuro
+13339_3	Rosso
+13339_4	Verde chiaro
+13339_5	Giallo
+13339_6	Rosa
+13339_7	Beige
+13341_0	Beige
+13341_1	Grigio
+13341_2	Blu marino
+13341_3	Giallo
+13341_4	Verde
+13341_5	Blu chiaro
+13341_6	Rosa
+13341_7	Marrone
+13345_0	Verde e rosso
+13345_1	Blu chiaro
+13345_2	Marrone chiaro
+13345_3	Marrone
+13345_4	Blu e giallo
+13345_5	Rosa
+13345_6	Giallo
+13345_7	Nero
+13347_0	Nessuno
+13347_1	Ideogrammi
+13347_2	Testo inglese
+13347_3	Delfino
+13356_0	Standard
+13356_1	Con etichette
+13356_2	Bianco
+13356_3	Giallo
+13356_4	Blu chiaro
+13356_5	Nero
+13360_0	Blu
+13360_1	Marrone chiaro
+13360_2	Rosa
+13360_3	Blu chiaro
+13360_4	Limetta
+13360_5	Arancio
+13360_6	Viola
+13362_0	Nessuno
+13362_1	Mappa antica
+13363_0	Grafico a onde
+13363_1	Radiografia
+13363_2	Termografia
+13363_3	Menu di sistema
+13363_4	Errore
+13365_0	Nessuna
+13365_1	Logo
+13365_2	Tulipano
+13365_3	Autobus
+13369_0	Nessuno
+13369_1	Logo bianco
+13369_2	Logo marrone
+13369_3	Logo nero
+13454_0	Nero
+13454_1	Bianco
+13454_2	Rosso
+13454_3	Arancio
+13454_4	Blu
+13454_5	Limetta
+13454_6	Giallo
+13454_7	Marrone
+13502_0	Dati topografici
+13502_1	Mappa
+13502_2	Radar
+13502_3	Diagramma
+13502_4	Codice di programmazione
+13504_0	Dati topografici
+13504_1	Mappa
+13504_2	Radar
+13504_3	Diagramma
+13504_4	Codice di programmazione
+13512_0	Blu
+13512_1	Giallo
+13512_2	Rosso e bianco
+13513_0	Nessuna
+13513_1	Pesce
+13513_2	Ancora
+13513_3	Sakana (pesce)
+13513_4	Capasanta
+13513_5	Logo
+13515_0	Nessuno
+13515_1	Sole
+13515_2	Logo
+13515_3	Avviso di sicurezza
+13515_4	Avviso "Infiammabile"
+13515_5	Testo
+13515_6	Dosatore
+13521_0	Desktop
+13521_1	Gioco in terza persona
+13521_2	Gioco in prima persona
+13521_3	Gioco di ruolo online
+13521_4	Simulatore
+13521_5	Gioco musicale
+13521_6	Borsa
+13521_7	Software audio
+13522_0	Semplice
+13522_1	Elegante
+13522_2	Vestito
+13522_3	Abiti sportivi
+13522_4	Uniforme scolastica
+13522_5	Cheerleader
+13522_6	Formale
+13522_7	Casual
+13523_0	Nessuno
+13523_1	Giroide
+13523_2	Messaggio
+13523_3	Animale
+13523_4	Sushi
+13582_0	Nessuno
+13582_1	Corona
+13582_2	Spade
+13582_3	Uccello
+13582_4	Albero
+13583_0	Blu
+13583_1	Rosso
+13583_2	Giallo
+13583_3	Verde
+13583_4	Bianco
+13583_5	Grigio
+13583_6	Nero
+13584_0	Avorio
+13584_1	Rosso
+13584_2	Celeste
+13584_3	Nero
+13584_4	Rosa
+13584_5	Verde chiaro
+13584_6	Viola
+13586_0	Blu
+13586_1	Rosso
+13586_2	Verde
+13586_3	Giallo
+13586_4	Viola
+13586_5	Lilla
+13586_6	Marrone
+13586_7	Marrone scuro
+13589_0	Nessuno
+13589_1	Nero e rosso
+13589_2	Nero e blu
+13589_3	Logo con albero
+13589_4	Logo con testo
+13589_5	Logo con foca
+13590_0	Nessuno
+13590_1	Corona
+13590_2	Spade
+13590_3	Uccello
+13590_4	Albero
+13606_0	Nessuna
+13606_1	Pesce
+13606_2	Ancora
+13606_3	Sakana (pesce)
+13606_4	Capasanta
+13606_5	Logo
+13615_0	Nessuno
+13615_1	Scritta bianca
+13615_2	Scritta blu
+13615_3	Albero
+13615_4	Fiore
+13615_5	Animale
+13621_0	Nessuno
+13621_1	Scritta bianca
+13621_2	Montagne
+13621_3	Sole
+13621_4	Corona
+13621_5	Fiore
+13624_0	Giallo
+13624_1	Bianco
+13624_2	Nero
+13624_3	Rosso e blu
+13630_0	Avorio
+13630_1	Blu
+13630_2	Rosso
+13630_3	Verde
+13630_4	Rosa
+13630_5	Blu chiaro
+13630_6	Nero
+13630_7	Anatre
+13631_0	Testo
+13631_1	Borsa di stelline
+13631_2	Farfalla
+13631_3	Pesce
+13631_4	Giroide
+13632_0	Righe rosse
+13632_1	Righe blu
+13632_2	Righe verdi
+13632_3	Gialla con scritta
+13632_4	Colori vivaci
+13632_5	Stile botanico
+13632_6	Fuochi artificiali
+13632_7	Fiocco
+13633_0	Rosso
+13633_1	Blu
+13633_2	Verde
+13633_3	Viola
+13633_4	Bianco
+13633_5	Nero
+13633_6	Dorato
+13634_0	Nessuno
+13634_1	Rossi
+13634_2	Blu
+13634_3	Gialli
+13636_0	Targa bianca con testo
+13636_1	Targa nera con testo
+13636_2	Paesaggio
+13636_3	Natura morta
+13636_4	Ritratto
+13636_5	Xilografia
+13636_6	Dipinto astratto
+13636_7	Disegno naïf
+13637_0	Verde
+13637_1	Giallo
+13637_2	Rosso
+13637_3	Blu
+13637_4	Arancio
+13637_5	Nero
+13637_6	Bianco
+13637_7	Rosa
+13638_0	Verde
+13638_1	Giallo
+13638_2	Rosso
+13638_3	Blu
+13638_4	Arancio
+13638_5	Marrone
+13638_6	Bianco
+13638_7	Rosa
+13639_0	Standard
+13639_1	Rinforzato
+13639_2	Forato
+13639_3	Assi orizzontali
+13639_4	Reticolato
+13639_5	Muro di fango
+13639_6	Cemento
+13639_7	Oro
+13640_0	
+13640_1	
+13640_2	
+13640_3	×
+13640_4	Bevande
+13640_5	Microfono
+13640_6	Aperto
+13640_7	Sorriso
+13647_0	Nessuno
+13647_1	Pericolo
+13647_2	Poster di un evento
+13647_3	Offerta di lavoro
+13647_4	Annuncio
+13647_5	Cartello rétro
+13647_6	Regole sulla raccolta rifiuti
+13651_0	Calligrafia
+13651_1	Montagna
+13651_2	Drago
+13651_3	Gru
+13651_4	Fiori di ciliegio
+13651_5	Foglie d'acero
+13652_0	Mappa del tesoro
+13652_1	Rotta nautica
+13652_2	Planisfero
+13655_0	Fiore essiccato
+13655_1	Foto dell'oceano
+13655_2	Foto di paesaggio montano
+13655_3	Foto di un tramonto
+13655_4	Foto di una vista cittadina
+13655_5	Foto color seppia
+13655_6	Foto di gruppo
+13655_7	Foto di un evento sportivo
+13656_0	Bianco
+13656_1	Giallo
+13656_2	Arancio
+13656_3	Rosso
+13656_4	Rosa
+13656_5	Viola
+13656_6	Blu
+13656_7	Verde
+13657_0	Fiori
+13657_1	Montagna
+13657_2	Uccello
+13657_3	Motivo floreale monocromo
+13657_4	Motivo floreale variopinto
+13657_5	Motivo floreale seppia
+13657_6	Melograni
+13657_7	Terra assolata
+13680_0	Argentato
+13680_1	Nero
+13680_2	Marrone chiaro
+13680_3	Marrone
+13681_0	Rosso
+13681_1	Giallo
+13681_2	Verde
+13681_3	Blu marino
+13681_4	Arancio
+13681_5	Bianco
+13681_6	Nero
+13681_7	Rosso, bianco e blu
+13683_0	Viola
+13683_1	Blu
+13683_2	Rosa
+13683_3	Verde
+13683_4	Arancio
+13683_5	Marrone
+13683_6	Bianco
+13683_7	Nero
+13701_0	Rosso lampone
+13701_1	Verde
+13701_2	Giallo
+13701_3	Blu chiaro
+13701_4	Bianco
+13701_5	Blu marino
+13701_6	Nero
+13701_7	Viola
+13709_0	Nessuna
+13709_1	Arancio
+13709_2	Nero
+13709_3	Giallo
+13709_4	Blu
+13709_5	Verde
+13727_0	Bianco semplice
+13727_1	Marrone chiaro
+13727_2	Rosso
+13727_3	Verde
+13727_4	Marrone scuro
+13727_5	Rosa
+13727_6	Giallo
+13727_7	Blu
+13730_0	Bianco
+13730_1	Grigio chiaro
+13730_2	Rosa
+13730_3	Blu chiaro
+13730_4	Design giallo
+13730_5	Design verde
+13730_6	Design arancione
+13730_7	Design blu marino
+13744_0	Fiori
+13744_1	Caratteri tipografici
+13744_2	Alberi
+13744_3	Frittelle
+13744_4	Rétro
+13744_5	Pubblicità
+13744_6	Foto
+13744_7	Uccelli
+13746_0	Bianco semplice
+13746_1	Nero semplice
+13746_2	Verde semplice
+13746_3	Marrone chiaro semplice
+13746_4	Terra
+13746_5	Calce viva
+13746_6	Chicchi
+13747_0	"In onda"
+13747_1	"Aperto"
+13747_2	"Chiuso"
+13747_3	"Benvenuti"
+13747_4	"VIP"
+13747_5	"Pericolo"
+13747_6	Shiyouchu (in uso)
+13747_7	Sagyouchu (in lavorazione)
+13751_0	Foto di una foresta
+13751_1	Foto di un litorale
+13751_2	Foto di fiori
+13751_3	Foto di un treno
+13751_4	Foto in bianco e nero
+13756_0	Nessuno
+13756_1	Blu
+13756_2	Bianco
+13756_3	Arancia
+13756_4	Mela
+13756_5	Pesca
+13756_6	Pera
+13756_7	Ciliegia
+13764_0	Bianco
+13764_1	Giallo
+13764_2	Arancio
+13764_3	Rosso
+13764_4	Rosa
+13764_5	Viola
+13764_6	Blu
+13764_7	Verde
+13925_0	Presentazione
+13925_1	Videoconferenza
+13925_2	Tasso di cambio
+13925_3	Telecamere di sicurezza
+13925_4	Previsioni meteo
+13925_5	Dati operativi
+13925_6	Trasmissione sportiva
+13925_7	Schermo di errore
+13926_0	Predefinita
+13926_1	↑
+13926_2	→
+13926_3	←
+13926_4	Ingresso vietato
+13926_5	Caffetteria
+13926_6	Ritiro bagagli
+13926_7	Parcheggio
+14049_0	Nessuno
+14049_1	Nome dell'azienda
+14049_2	Camion frigo
+14049_3	Azienda di traslochi
+14049_4	Azienda ittica
+14049_5	Azienda agricola
+14051_0	Natura morta
+14051_1	Dipinto antico
+14051_2	Dipinto sbiadito
+14051_3	Medievale
+14051_4	Paesaggio a olio
+14051_5	Paesaggio acrilico
+14051_6	Dipinto astratto
+14051_7	Dipinto con motivi ripetuti
+14215_0	Note musicali
+14215_1	Mani
+14215_2	Creature marine
+14215_3	Fiori
+14215_4	Stelle
+14215_5	Cuori
+14215_6	Fiocchi di neve
+14215_7	Dinosauri
+14346_0	Offerta speciale
+14346_1	Ristorante
+14346_2	Menu da caffetteria
+14346_3	Avvertenza
+14346_4	Cuore
+14346_5	Igiene
+14346_6	Rétro
 14475_0	Dorato
 14475_1	Blu
 14475_2	Rosa
+14525_0	Nessuna
+14525_1	Bio
+14525_2	Spavalda
+14525_3	Graziosa
+14527_0	Grafici e testo
+14527_1	Questionario medico
+14527_2	Lista di cose da fare
+14527_3	Pratica di firma
+14527_4	Menu
+14527_5	Elenco di nomi
+14527_6	Appunti
+14527_7	Schizzo
+14572_0	Nessuna
+14572_1	Adesivo con bicicletta
+14572_2	Etichetta di deposito
+14572_3	Etichetta con scritta
+14572_4	Adesivo con ghirlanda
+14572_5	Adesivi con loghi
+14572_6	Adesivi con mongolfiera
+14572_7	Permessi di installazione
+14592_0	Nessuno
+14592_1	Strumento musicale
+14592_2	Fiori blu
+14592_3	Fiori gialli
+14592_4	Fiore bianco
+14592_5	Fiori rossi
+14592_6	Motivi geometrici
+14592_7	Uccello
+14619_0	Semplice
+14619_1	Sette tesori
+14619_2	Motivo a frecce
+14619_3	Campanule
+14619_4	Gatti della fortuna
+14619_5	Gru
+14619_6	Glicine
+14619_7	Motivo a cerchio
+14620_0	Semplice
+14620_1	Fiori di ciliegio
+14620_2	Pozzetto
+14620_3	Bambù
+14620_4	Foglie di canapa
+14620_5	Foglie d'acero
+14620_6	Stemmi
+14620_7	Koori
+14621_0	Progetto
+14621_1	Mappa dei trasporti
+14621_2	Grafico con promemoria
+14621_3	Presentazione
+14621_4	Schizzo
+14621_5	Campioni di colore
+14621_6	Mappa delle costellazioni
+14714_0	Nessuna
+14714_1	Foglia
+14714_2	Cuore
+14714_3	Stellina
