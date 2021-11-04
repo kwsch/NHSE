@@ -1,68 +1,247 @@
+00079	Modello
 00080	Modello
 00083	Modello
+00085	Stagione
+00086	Colore
 00088	Modello
 00131	Colore
-00144	Design del tombino
+00144	Design
+00146	Colore
+00287	Colore
+00290	Colore
+00330	Colore
 00331	Colore
 00333	Modello
-00383	Modello
+00335	Colore
+00336	Colore
+00338	Colore
+00383	Colore
+00522	Variazione
 00530	Stagione
 00531	Stagione
 00532	Stagione
 00533	Stagione
-00669	Modello
-00676	Pietra
+00534	Colore
+00537	Colore
+00538	Colore
+00546	Colore
+00547	Colore
+00664	Colore
+00667	Colore
+00669	Colore
+00676	Variazione
 00677	Tipo di bambù
-00682	Design
+00682	Modello
+00683	Variazione
 00685	Colore
 00688	Colore
 00690	Colore
+00704	Variazione
 00710	Tipo di bambù
+00716	Immagine
+00725	Struttura
+00735	Colore
 00739	Colore
+00741	Colore
+00742	Colore
+00743	Illuminazione
+00744	Colore
+00787	Colore
+00796	Colore
 00805	Tipo di fungo
 00808	Tipo di fungo
+00832	Colore
+00833	Colore
+00839	Colore
+00840	Colore
+00849	Colore
+00863	Colore del panno
 00865	Modello
+00870	Colore
+00889	Colore del fornello
 00891	Colore
+00896	Colore
+00907	Colore
+00908	Colore
+00915	Colore
+00918	Design
+00922	Colore
+00928	Colore
+00929	Colore
+00941	Modello
+00950	Colore
+00954	Colore
+00955	Variazione
+00957	Colore delle pale
+00963	Colore
+00967	Colore
+00971	Colore
+00987	Colore
+00997	Tipo
+00998	Modello
+01019	Colore
+01029	Modello
 01032	Colore
-01058	Modello
-01103	Tipo di legno
-01111	Pietra
+01042	Colore
+01043	Colore
+01050	Variazione
+01051	Colore
+01058	Colore
+01072	Colore
+01081	Colore
+01082	Colore
+01087	Colore
+01092	Colore
+01103	Colore
+01108	Colore
+01111	Colore
+01112	Variazione
+01117	Colore
+01125	Colore
+01127	Colore
+01128	Colore
+01141	Colore
+01143	Colore
 01157	Colore dei mattoni
-01170	Tipo di legno
-01189	Tipo pneumatico
+01161	Tipo di vassoio
+01170	Colore
+01171	Colore
+01177	Colore
+01185	Colore
+01189	Colore
+01199	Colore
+01206	Colore
+01211	Colore
+01221	Colore
+01222	Colore
+01227	Colore
+01229	Colore
+01232	Colore
+01234	Colore
+01235	Colore
 01241	Modello
-01263	Tipo di frutta
-01504	Tessuto
-01509	Laccatura
-01557	Colore dei blocchi
-01558	Colore dei blocchi
-01559	Colore dei blocchi
-01561	Colore dei blocchi
-01565	Colore dei blocchi
+01243	Variazione
+01263	Colore
+01288	Colore del vaso
+01308	Colore
+01314	Colore
+01319	Colore
+01328	Colore
+01330	Variazione
+01348	Colore
+01411	Colore
+01412	Colore
+01432	Colore
+01434	Colore
+01449	Colore
+01493	Colore della capottina
+01495	Colore
+01499	Disegno
+01500	Disegno
+01501	Disegno
+01504	Disegno
+01507	Modello
+01509	Colore
+01557	Modello
+01558	Modello
+01559	Modello
+01561	Modello
+01565	Modello
+01567	Variazione
+01573	Variazione
+01598	Colore
+01606	Colore
+01608	Colore dell'asta
+01620	Modello
+01621	Colore
+01624	Variazione
 01625	Colore
 01626	Colore
 01627	Colore
+01628	Colore
+01631	Colore
+01632	Colore
+01644	Colore
+01645	Colore
 01652	Colore
+01708	Colore
+01712	Colore
+01716	Colore
+01744	Colore
+01745	Colore
 01753	Colore
+01757	Colore
 01759	Genere
-01797	Design
+01778	Colore
+01783	Modello
+01797	Variazione
 01799	Modello
-01823	Colore dei sacchi
+01802	Colore
+01803	Colore
+01804	Colore
+01816	Modello
+01823	Colore
+01829	Colore del vaso
+01836	Colore
+01840	Colore
+01845	Colore
+01850	Colore
+01851	Colore
+01852	Colore
+01853	Colore
+01866	Modello
+01868	Colore
+01870	Colore
+01875	Colore
+01877	Colore
+01881	Colore
+01888	Colore
+01889	Colore della custodia
+01892	Modello
+01899	Variazione
+01906	Colore
 01913	Modello
+01929	Colore del sedile
+02010	Variazione
+02012	Contenuto
+02013	Colore
+02014	Colore
+02020	Modello
 02099	Colore
 02319	Colore
-02326	Colore principale
-02329	Tipo pneumatico
+02326	Colore
+02329	Colore
+02333	Colore
+02335	Colore
+02352	Logo
+02358	Colore della luce
 02377	Colore
 02379	Colore
-02553	Laccatura
-02558	Colore dei blocchi
-02559	Modello
+02553	Colore
+02554	Colore
+02558	Modello
+02559	Colore
 02560	Modello
-02586	Modello
-02596	Tipo di frutta
+02561	Colore della base
+02562	Colore del portacandele
+02575	Colore
+02586	Colore
+02596	Colore
 02605	Modello
+02606	Modello
+02614	Colore
+02713	Colore
+02731	Colore
+02736	Colore
+02740	Colore
+02770	Colore
+02771	Colore
+02772	Colore
+02776	Colore
 02822	Colore
+03063	Colore
+03064	Colore
+03078	Colore
 03122	Modello
 03191	Tipo di legno
 03193	Tipo di legno
@@ -70,22 +249,42 @@
 03195	Tipo di legno
 03196	Tipo di legno
 03200	Tipo di legno
-03205	Colore dei blocchi
-03206	Colore dei blocchi
-03208	Colore dei blocchi
+03205	Modello
+03206	Modello
+03208	Modello
+03251	Colore
+03252	Colore
 03270	Tipo di legno
 03271	Tipo di legno
 03275	Tipo di legno
+03282	Colore
+03305	Modello
+03307	Modello
+03333	Colore
 03340	Modello
-03396	Piano del tavolo
+03345	Colore
+03346	Colore
+03348	Colore
+03396	Colore
+03400	Colore
+03402	Colore
 03406	Modello
 03407	Colore
+03416	Variazione
+03428	Colore
+03430	Colore
+03431	Colore
 03436	Modello
 03438	Modello
 03439	Modello
+03442	Colore
+03443	Colore
 03445	Colore
-03446	Pietra
+03446	Variazione
 03449	Modello
+03465	Modello
+03467	Colore della porcellana
+03471	Colore
 03490	Modello
 03497	Illuminazione
 03498	Illuminazione
@@ -96,7 +295,7 @@
 03503	Illuminazione
 03504	Illuminazione
 03505	Illuminazione
-03509	Colore
+03509	Modello
 03551	Tipo di bambù
 03553	Tipo di bambù
 03554	Tipo di bambù
@@ -108,45 +307,116 @@
 03561	Colore
 03562	Colore
 03563	Colore
-03581	Colore
+03581	Variazione
+03582	Genere
+03583	Design
+03584	Variazione
 03587	Colore
 03588	Indicazione
-03591	Colore
-03592	Colore
-03593	Colore
-03594	Colore
-03617	Colore
-03618	Rifinitura
+03590	Colore
+03591	Modello
+03592	Modello
+03593	Modello
+03594	Modello
+03595	Colore
+03596	Colore
+03616	Colore
+03617	Modello
+03618	Colore
+03619	Contenuto
+03621	Modello
+03622	Modello
+03623	Colore
+03624	Colore
 03658	Tipo di bambù
+03672	Variazione
 03675	Paglia
-03683	Design
-03692	Tipo di cartello
-03699	Colore
-03773	Tipo
-03775	Tipo
+03681	Colore della seduta
+03683	Colore
+03692	Colore
+03697	Colore
+03699	Variazione
+03701	Colore
+03702	Modello
+03773	Modello
+03775	Modello
 03776	Colore dei mattoni
+03783	Colore
+03784	Colore
 03785	Colore
 03805	Tipo di fungo
 03806	Tipo di fungo
 03808	Tipo di fungo
-03819	Colore del fusto
+03816	Colore
+03818	Design
+03819	Colore
+03820	Colore
+03821	Colore
+03822	Colore
 03943	Tipo di legno
-03966	Design
-03975	Tipo di frutta
-03976	Tipo di frutta
-03977	Colore della conchiglia
-03978	Colore della conchiglia
-03979	Colore della conchiglia
-03980	Colore della conchiglia
-03982	Colore della conchiglia
-03983	Colore della conchiglia
-03984	Colore della conchiglia
-03991	Design
+03946	Colore della struttura
+03947	Colore della struttura
+03948	Colore
+03949	Colore
+03950	Colore
+03951	Colore
+03952	Colore
+03953	Colore
+03954	Colore
+03955	Colore
+03956	Colore
+03957	Colore
+03958	Colore
+03959	Colore
+03960	Colore
+03961	Colore del tappetino
+03962	Colore
+03965	Colore del bicchiere
+03966	Colore
+03967	Colore
+03970	Colore
+03971	Colore
+03972	Colore
+03973	Colore
+03974	Colore
+03975	Colore
+03976	Colore
+03977	Colore
+03978	Colore
+03979	Colore
+03980	Colore
+03982	Colore
+03983	Colore
+03984	Colore
+03986	Colore
+03987	Colore
+03991	Colore
 03992	Colore
-04011	Tipo di frutta
-04012	Tipo di frutta
+03993	Colore
+03995	Colore
+03996	Colore
+03997	Colore
+03998	Colore
+03999	Colore
+04000	Colore
+04001	Colore
+04002	Colore
+04003	Colore
+04006	Colore
+04009	Colore
+04011	Colore
+04012	Colore
+04013	Colore
+04014	Colore
+04015	Colore
+04017	Colore
+04019	Colore
+04023	Colore
 04025	Design
 04027	Colore
+04029	Colore
+04030	Colore
+04033	Design
 04035	Tipo di legno
 04036	Tipo di legno
 04037	Tipo di legno
@@ -157,12 +427,30 @@
 04042	Tipo di legno
 04043	Tipo di legno
 04044	Tipo di legno
+04045	Colore
+04046	Colore
+04047	Colore
+04048	Colore
+04049	Colore
+04050	Colore
+04051	Colore
+04052	Colore
+04053	Colore
+04054	Colore
 04066	Colore della luce
-04067	Design
+04067	Colore
+04068	Colore dei piatti
+04070	Colore
+04071	Colore del tappetino
+04072	Colore
 04073	Modello
 04074	Colore della luce
-04075	Tipo
+04075	Modello
+04076	Colore
+04077	Colore
 04078	Colore dei pesi
+04080	Colore
+04081	Colore
 04083	Colore della zucca
 04084	Colore della zucca
 04086	Colore della zucca
@@ -172,26 +460,80 @@
 04090	Colore della zucca
 04092	Colore della zucca
 04093	Tipo di bambù
+04094	Colore del vaso
+04099	Modello
+04101	Colore
+04102	Modello
 04104	Contenuto
 04108	Colore della luce
+04109	Colore
+04110	Variazione
+04111	Colore
+04113	Modello
+04114	Variazione
+04116	Variazione
+04118	Colore
+04119	Colore
+04122	Colore del piano luminoso
 04124	Tipo di legno
 04125	Modello
-04127	Tipo di frutta
-04128	Tipo di frutta
+04127	Colore
+04128	Colore
+04129	Colore del vaso
 04131	Colore della luce
-04134	Tipo di frutta
+04132	Colore del vaso
+04133	Modello
+04134	Colore
+04135	Colore
+04137	Colore
+04138	Colore
+04139	Colore
+04140	Colore
+04141	Colore
+04142	Colore
+04143	Colore
+04144	Colore della corona
+04196	Colore
+04226	Colore
+04230	Colore della candela
 04279	Gusto
-04309	Colore
+04309	Modello
+04338	Colore
+04357	Colore
 04377	Colore
-04546	Tipo di frutta
+04379	Colore
+04392	Colore del tappetino
+04412	Colore
+04441	Colore
+04445	Modello
+04546	Colore
+04572	Colore del paralume
+04687	Colore
 04708	Tipo di fungo
+04719	Colore
+04722	Colore
+04738	Colore
 04751	Colore
 04752	Colore
+04753	Colore
+04754	Colore
+04756	Colore
+04757	Colore
+04758	Colore
+04759	Colore
+04760	Colore
+04761	Colore
+04762	Colore
 04764	Colore
-05150	Colore della conchiglia
+05150	Colore
+05165	Colore del portacandele
+05207	Colore del tetto
+05208	Colore
+05309	Colore
 05310	Colore
 05337	Colore del berretto
-05543	Colore dei blocchi
+05338	Colore della struttura
+05543	Modello
 05635	Modello
 05636	Colore
 05716	Colore
@@ -209,31 +551,40 @@
 06079	Colore
 06080	Colore
 06081	Colore
-06426	Tipo
+06426	Modello
 06818	Colore
 06826	Colore
 06827	Colore
 06829	Colore
-06831	Colore
+06830	Colore
+06831	Colore della base
 06832	Colore
 07045	Latta
 07132	Modello
 07133	Modello
 07134	Modello
+07135	Colore della luce
+07136	Colore del vaso
 07137	Modello
 07138	Design
 07139	Soggetto
-07140	Motivo
+07140	Modello
 07141	Design
 07143	Design
-07144	Motivo
+07144	Modello
 07145	Design
-07146	Decorazioni
+07146	Decorazione
 07147	Nome
-07159	Tipo di cartone
-07160	Tipo di cartone
-07161	Tipo di cartone
-07163	Tipo di cartone
+07148	Colore
+07153	Colore
+07154	Colore
+07159	Modello
+07160	Modello
+07161	Modello
+07163	Modello
+07189	Colore della luce
+07190	Colore della luce
+07229	Colore
 07230	Colore del fiore
 07231	Colore del fiore
 07232	Colore del fiore
@@ -243,28 +594,61 @@
 07236	Colore del fiore
 07237	Colore del fiore
 07238	Colore
-07247	Colore del tetto
+07247	Colore
 07253	Colore
+07257	Colore
 07258	Creazione
-07259	Colore
-07281	Colore
+07259	Modello
+07260	Tipo di cartello
+07264	Colore
+07280	Variazione
+07281	Modello
+07282	Colore
 07284	Colore
 07317	Pietra
+07379	Colore
 07390	Colore
-07393	Pietra
-07454	Colore
+07391	Modello
+07392	Colore
+07393	Variazione
+07453	Contenuto
+07454	Modello
+07525	Colore
+07526	Colore
 07527	Colore
+07528	Colore
+07529	Colore
 07535	Colore
 07588	Tipo di fungo
+07599	Variazione
+07653	Colore
+07654	Colore
 07788	Cibo
-07795	Colore
-07805	Tipo di legno
+07789	Colore
+07795	Variazione
+07796	Colore
+07797	Colore
+07800	Gusto
+07801	Colore
+07802	Colore
+07803	Colore
+07804	Colore
+07805	Colore
+07845	Colore
+07865	Motivo del kimono
 07867	Indicazione
+07868	Colore
 08031	Colore
+08096	Colore
 08176	Colore
 08177	Colore
 08178	Colore
-08419	Modello
+08297	Colore
+08298	Modello
+08415	Colore
+08417	Colore
+08418	Colore
+08419	Colore
 08471	Colore
 08472	Colore
 08473	Colore
@@ -277,16 +661,46 @@
 08579	Colore
 08580	Colore
 08826	Modello
+09502	Colore
+09565	Design
+09568	Variazione
+09584	Colore
+09619	Variazione
 09642	Colore
+09766	Colore
+09767	Colore
+10244	Colore della bottiglia
 10742	Tipo di bambù
 10743	Tipo di bambù
-11941	Colore
+11711	Colore
+11712	Colore
+11941	Variazione
 11942	Modello
-11943	Colore
+11943	Variazione
 12140	Colore
-12332	Piano del tavolo
-12372	Verniciatura
-12373	Verniciatura
+12207	Colore
+12305	Colore
+12308	Colore
+12311	Colore
+12312	Materiale
+12313	Colore
+12314	Colore
+12332	Colore
+12340	Colore dei pali
+12341	Colore
+12343	Colore
+12344	Colore
+12345	Colore
+12346	Colore
+12348	Colore
+12349	Colore
+12350	Colore
+12356	Colore
+12358	Colore
+12365	Colore
+12366	Colore
+12372	Variazione
+12373	Variazione
 12401	Design
 12402	Design
 12403	Design
@@ -296,30 +710,358 @@
 12407	Design
 12408	Design
 12409	Colore
-12410	Cavalletto
+12410	Design
 12411	Design
+12516	Colore
 12543	Joy-Con
+12599	Colore
+12600	Colore
+12601	Colore
+12602	Colore
+12603	Colore
+12604	Colore
+12605	Colore del cavalletto
+12606	Colore
+12608	Colore
+12610	Colore
+12611	Condizione
+12612	Colore
+12613	Colore della porcellana
+12614	Colore
+12637	Modello
+12653	Colore
+12669	Colore delle gambe
+12670	Colore
+12673	Colore
+12674	Colore
+12675	Colore
+12676	Colore
+12677	Colore
+12678	Colore
+12679	Colore
+12683	Modello
+12684	Modello
+12685	Modello
+12688	Modello
+12689	Modello
+12690	Modello
+12691	Modello
+12692	Modello
+12693	Colore
+12699	Colore della struttura
+12700	Modello
+12701	Colore
+12702	Colore
+12703	Colore del secchio
+12704	Colore
+12705	Contenuto
+12706	Contenuto
+12707	Variazione
+12708	Modello
+12709	Colore
+12712	Colore
+12713	Colore
+12714	Colore
+12715	Modello
+12717	Contenuto
+12718	Contenuto
+12720	Colore
 12741	Centro del planisfero
+12744	Colore tovaglia
+12745	Colore tovaglia
+12766	Colore
+12767	Colore
+12768	Colore
+12769	Colore
+12772	Colore
+12773	Colore
+12774	Colore
+12775	Colore della base
+12776	Colore
+12777	Colore
+12778	Colore
+12779	Colore
+12780	Colore
+12781	Colore
+12782	Colore del tavolo
+12803	Modello
+12880	Colore del cavalletto
+12881	Colore
+12882	Colore
+12883	Colore
+12884	Colore
+12885	Colore
+12886	Colore
+12887	Colore
+12888	Colore
+12889	Colore
+12890	Variazione
+12891	Modello
+12893	Colore
+12894	Colore
 12949	Colore della zucca
-12951	Colore
-13222	Colore
-13223	Colore
+12951	Colore della zucca
+12976	Variazione
+12993	Colore
+12994	Colore della struttura
+12995	Colore
+12996	Colore della struttura
+12997	Colore
+12998	Colore
+12999	Colore
+13004	Colore
+13005	Colore della struttura
+13006	Colore della struttura
+13007	Colore della struttura
+13008	Colore della struttura
+13009	Colore della struttura
+13010	Colore della struttura
+13073	Modello
+13075	Modello
+13076	Colore
+13077	Colore
+13078	Colore
+13079	Colore
+13080	Colore
+13081	Colore
+13082	Colore
+13083	Colore
+13084	Colore del piano
+13085	Colore della stoffa
+13108	Colore
+13109	Colore
+13110	Colore
+13111	Colore
+13112	Colore
+13113	Design
+13114	Colore
+13115	Colore
+13116	Colore
+13117	Colore
+13118	Colore
+13119	Colore
+13120	Colore del metallo
+13121	Colore
+13122	Modello
+13138	Modello
+13139	Modello
+13140	Colore
+13141	Modello
+13142	Colore della base
+13143	Colore
+13144	Colore
+13145	Design
+13146	Colore
+13147	Colore
+13148	Colore
+13149	Colore
+13150	Colore
+13151	Supporto
+13152	Colore
+13153	Colore
+13154	Colore
+13155	Colore
+13156	Variazione
+13157	Colore
+13158	Colore
+13161	Lato frontale
+13163	Colore
+13164	Colore
+13185	Design
+13186	Motivo
+13187	Design
+13188	Tipo di palla
+13189	Colore
+13190	Colore
+13191	Colore
+13192	Colore
+13201	Colore
+13202	Colore
+13203	Modello
+13205	Colore
+13206	Colore
+13207	Modello
+13209	Colore
+13210	Colore
+13211	Colore
+13214	Colore
+13220	Colore del supporto
+13222	Colore della zucca
+13223	Colore della zucca
+13229	Colore
 13242	Colore
-13243	Tessuto
-13244	Design
-13245	Colore
-13246	Colore
+13243	Colore
+13244	Colore
+13245	Gusto
+13246	Variazione
 13247	Colore
 13249	Colore
 13250	Colore delle macchinine
 13251	Colore
 13252	Colore del tetto
-13447	Design
-13448	Design
-13449	Design
-13450	Design
-13453	Design
-13488	Colore
+13255	Colore
+13266	Colore
+13268	Colore del carro
+13269	Colore
+13270	Colore
+13271	Colore
+13272	Colore dell'aiuola
+13273	Fioritura
+13274	Colore
+13288	Colore della base
+13294	Colore delle sdraio
+13295	Colore
+13296	Colore della seduta
+13299	Colore
+13300	Colore
+13302	Materiale
+13303	Contenuto
+13304	Colore
+13305	Colore
+13306	Colore
+13307	Colore
+13312	Colore
+13313	Colore
+13335	Colore
+13337	Colore
+13338	Colore
+13339	Colore
+13340	Colore
+13341	Modello
+13342	Colore
+13343	Colore
+13344	Colore
+13345	Contenuto
+13347	Variazione
+13356	Colore
+13360	Colore della bevanda
+13361	Colore della vernice
+13362	Variazione
+13363	Colore
+13365	Colore della tazza
+13366	Colore
+13367	Colore
+13368	Colore
+13369	Colore
+13370	Colore
+13447	Tema
+13448	Tema
+13449	Tema
+13450	Tema
+13453	Tema
+13454	Colore della struttura
+13455	Colore
+13464	Colore
+13465	Colore
+13466	Colore dei coriandoli
+13467	Colore delle fiamme
+13468	Colore della luce
+13469	Colore della luce
+13472	Colore delle pale
+13474	Colore
+13475	Variazione
+13478	Colore
+13479	Colore
+13488	Variazione
+13496	Variazione
+13502	Colore della luce
+13503	Variazione
+13504	Colore della luce
+13505	Colore
+13506	Colore della luce
+13507	Colore
+13508	Colore
+13509	Variazione
+13510	Colore
+13511	Variazione
+13512	Colore
+13513	Colore
+13514	Modello
+13515	Colore
+13516	Colore
+13517	Colore
+13518	Colore
+13519	Colore
+13520	Variazione
+13521	Colore
+13522	Capelli
+13523	Colore
+13524	Variazione
+13526	Colore
+13530	Modello
+13534	Colore
+13573	Modello
+13574	Modello
+13575	Colore
+13576	Colore del vaso
+13577	Colore
+13578	Colore
+13579	Fioritura
+13580	Modello
+13581	Variazione
+13582	Variazione
+13583	Colore
+13584	Colore dei trucchi
+13586	Colore della struttura
+13587	Colore
+13588	Modello
+13589	Colore
+13590	Variazione
+13591	Tipo di toletta
+13606	Colore
+13614	Colore
+13615	Colore
+13616	Colore del cavo
+13618	Motivo
+13620	Tipo di nastri
+13621	Colore
+13622	Tema
+13623	Variazione
+13624	Modello
+13625	Motivo
+13626	Colore
+13627	Motivo
+13628	Colore
+13629	Motivo
+13630	Colore del reggitenda
+13631	Colore
+13632	Gusti
+13633	Colore della struttura
+13634	Contenuto
+13636	Colore
+13637	Colore dell'intelaiatura
+13638	Colore della struttura
+13639	Colore della struttura
+13642	Colore
+13643	Colore
+13645	Colore
+13647	Colore
+13649	Colore
+13651	Colore
+13655	Colore della cornice
+13657	Colore della base
+13662	Variazione
+13666	Colore
+13676	Colore
+13678	Colore
+13680	Colore dell'intelaiatura
+13690	Colore
+13691	Colore
+13692	Colore
+13696	Modello
+13712	Colore
+13717	Colore
+13719	Colore
+13722	Tipo
+13729	Contenuto
+13740	Genere
+13744	Colore della cornice
+13745	Modello
+13747	Colore
+13748	Colore
+13751	Modello
+13756	Colore
+13765	Aste
 13767	Colore
 13770	Colore
 13772	Colore
@@ -329,20 +1071,137 @@
 13776	Colore
 13777	Colore
 13778	Colore
-13818	Design
-13819	Design
-13820	Design
-13829	Colore
+13818	Tema
+13819	Tema
+13820	Tema
+13829	Variazione
 13831	Colore
 13832	Colore
+13884	Colore
+13897	Colore dei mattoni
+13901	Colore dei mattoni
+13902	Variazione
+13925	Colore
+13926	Colore
 13927	Colore
-13930	Design
+13930	Modello
+14017	Tipo
+14018	Variazione
+14019	Colore
 14029	Colore
+14046	Colore
+14047	Colore
+14049	Colore della carrozzeria
+14050	Colore del pannello
+14051	Modello
+14053	Modello
+14054	Colore
+14055	Colore
+14056	Colore
+14057	Colore
+14058	Colore
+14059	Colore
+14060	Colore
+14061	Colore
+14062	Colore
+14063	Colore
+14064	Colore
+14065	Colore
+14066	Colore
+14067	Colore
+14074	Colore
+14075	Colore
+14076	Colore
+14077	Colore
+14078	Colore
+14080	Colore
+14081	Colore
+14082	Colore
+14083	Colore
+14086	Colore
+14087	Colore
+14088	Colore
+14089	Colore
+14092	Colore
+14093	Colore
+14094	Colore
+14095	Colore
+14098	Colore
+14099	Colore
+14100	Colore
+14101	Colore
+14106	Variazione
+14108	Variazione
+14184	Tipo
+14192	Colore
+14193	Colore
+14205	Colore
+14206	Colore
+14207	Colore
+14208	Colore
+14209	Colore
+14210	Colore
+14211	Colore
+14212	Colore
+14213	Variazione
+14214	Colore
+14216	Colore del liquido
+14308	Colore
+14310	Colore
+14313	Variazione
+14332	Colore
+14337	Colore
 14340	Colore
-14414	Design
-14475	Ghirlanda nuziale
+14352	Colore
+14353	Colore
+14354	Colore
+14414	Variazione
+14475	Colore della ghirlanda
 14476	Colore
 14477	Colore
-14542	Colore
+14520	Colore
+14523	Colore
+14524	Colore del paralume
+14525	Colore
+14526	Colore
+14527	Colore
+14528	Colore
+14530	Colore
+14531	Colore
+14534	Contenuto
+14538	Colore del contenitore
+14539	Colore
+14542	Colore della zucca
+14549	Variazione
 14550	Colore della zucca
 14551	Colore della zucca
+14556	Colore della scatola
+14561	Contenuto
+14572	Colore
+14574	Tipo di caffè
+14575	Colore
+14591	Colore
+14592	Modello
+14593	Colore
+14594	Colore
+14596	Colore dei mattoni
+14597	Colore
+14598	Colore
+14601	Variazione
+14604	Colore
+14619	Asticella della tendina
+14620	Asticella della tendina
+14639	Genere
+14640	Genere
+14714	Colore
+14728	Colore
+14735	
+14756	Illuminazione
+14758	Colore
+14759	Colore
+14799	Colore
+14821	Colore della luce
+14826	Colore
+14831	Colore
+14882	Variazione
+14887	Variazione

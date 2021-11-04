@@ -1,16 +1,24 @@
+00079	Couverture
 00725	Papier
 00833	Autocollants
+00922	Logo
 00941	Drapeau
 00950	Autocollants
 01029	Écran
 01032	Revues
+01133	Couleur de la barre
+01222	Vidéo
+01235	Devant/derrière
 01499	Ruban
 01500	Habit
 01501	Habit
 01504	Ruban
+01608	Motif de l'étendard
 01620	Tissu
 01644	Autocollant
 01645	Autocollant
+01712	Type d'illustration
+01745	Type de document
 01750	Type
 01778	Type de t-⁠shirt
 01779	Nappe
@@ -19,30 +27,33 @@
 01802	Publicité
 01803	Peau de grosse caisse
 01816	Rideau
+01820	Type de vêtements
 01838	Mouchoir
-01849	Modèle
+01849	Couverture
 01850	Écran
-01861	Thème
+01861	Genre
 01870	Modèle
-01899	Type
+01899	Autographe préféré
 02020	Tissu
 02561	Abat-jour
+02587	Modèle
 02605	Literie
+02606	Couverture
 02713	Autocollants
 03200	Literie
 03229	Chemise
 03230	Literie
 03305	Siège
-03307	Modèle
+03307	Motif de la base
 03439	Nappe
 03444	Siège
 03445	Parapluie préféré
 03449	Siège
-03467	Napperon
+03467	Couleur du napperon
 03468	Modèle
 03502	Literie
 03561	Écharpe
-03586	Article
+03586	Genre
 03590	Affichage
 03617	Rideau
 03618	Torchon
@@ -68,10 +79,11 @@
 04122	Papier
 04140	Balise
 04144	Cadran
+04196	Signal
 04308	Image
 04445	Plateau
 05338	Modèle
-05397	Modèle
+05397	Coloris
 07047	Housse
 07048	Housse
 07132	Literie
@@ -79,6 +91,7 @@
 07150	Jupe du ring
 07151	Jupe du ring
 07152	Jupe du ring
+07154	Étiquette
 07282	Illustration
 07531	Planche
 07681	Tissu
@@ -87,5 +100,145 @@
 08096	Autocollant
 08298	Literie
 08760	Coloris
+12361	Couleur du tissu
+12366	Logo sur le dossier
 12410	Écriteau
-14475	Message
+12605	Écriteau
+12637	Radiographie
+12669	Modèle
+12679	Documents sous le bureau
+12693	Couleur du drapeau
+12699	Type de panneau
+12715	Image affichée
+12744	Nappe du dessous
+12745	Nappe du dessous
+12782	Couleur du parasol
+12879	Type d'écriteau
+12880	Type de publicité
+12881	Couleur de la robe
+12882	Couleur du haut
+12883	Type de vêtement
+12886	Type de vêtement
+12890	Draperie
+12892	Modèle
+12991	Revêtement
+12994	Literie
+12995	Revêtement
+12996	Coussin
+12998	Napperon
+12999	Napperon
+13005	Couleur de l'assise
+13006	Plateaux de table
+13007	Plateaux de table
+13008	Couleur du revêtement
+13009	Couleur du revêtement
+13010	Couleur du revêtement
+13073	Modèle
+13075	Modèle
+13076	Modèle
+13077	Modèle
+13078	Modèle
+13079	Modèle
+13081	Décor
+13082	Décor
+13108	Design du contenu
+13109	Design du contenu
+13110	Contenu
+13138	Tissu
+13139	Couvre-lit
+13140	Jeté de table
+13141	Tissu
+13142	Tissu
+13143	Jeté de table
+13151	Modèle
+13157	Affichage du moniteur
+13161	Motif au dos
+13163	Affiche
+13201	Motif
+13205	Articles
+13207	À l'écran
+13209	Écran
+13214	Pictogramme
+13220	Motif des lampions
+13269	Affiches à l'arrière
+13288	Modèle
+13294	Couleur du parasol
+13295	Réponse
+13296	Appui-tête
+13299	Étiquette
+13303	Étiquette
+13336	Bâche
+13337	Magazines éparpillés
+13339	Vêtements éparpillés
+13341	Couleur de la literie
+13345	Couleur de l'emballage
+13347	Logo
+13356	Style des cartons
+13360	Étiquette
+13362	Objet transpercé
+13363	Moniteur
+13365	Verre à dents
+13369	Style
+13454	Plateaux de table
+13502	Moniteur principal
+13504	Écran
+13512	Affiches à l'arrière
+13513	Étiquette
+13515	Motif
+13521	Moniteurs
+13522	Tenue
+13523	Autocollant
+13582	Emblème
+13583	Couleur du maillot de bain
+13584	Couleur de la pochette
+13586	Couleur de l'assise
+13589	Logo
+13590	Emblème
+13606	Étiquette
+13615	Autocollant
+13621	Autocollant
+13624	Couleur du score
+13630	Rideaux
+13631	Hengaku
+13632	Motif du seau de pop-corn
+13633	Couleur du tissu
+13634	Autocollants
+13636	Contenu
+13637	Couleur de l'assise
+13638	Couleur du tissu
+13639	Modèle
+13640	À l'écran
+13647	Panneau
+13651	Rouleau
+13652	Variation
+13655	Cadre
+13656	Couleur
+13657	Motif
+13680	Plateaux de table
+13681	Motif
+13683	Coloris
+13701	Coloris
+13709	Étiquette
+13727	Modèle
+13730	Couleur du tissu
+13744	Motif du poster
+13746	Variation
+13747	Texte
+13751	Photo encadrée
+13756	Logo
+13764	Couleur
+13925	À l'écran
+13926	Pictogramme
+14049	Logo
+14051	Type d'œuvre
+14215	Modèle
+14346	Motif
+14475	Couleur du message
+14525	Étiquette
+14527	Document
+14572	Décoration de la porte
+14592	Couvercle
+14619	Motif
+14620	Motif
+14621	Type de document
+14714	Étiquette

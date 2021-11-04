@@ -2,6 +2,7 @@ ant00	Cyrano
 ant01	Antonio
 ant02	Mathilda
 ant03	Anabelle
+ant05	Cléo
 ant06	Tarina
 ant08	Roberta
 ant09	Blair
@@ -28,6 +29,7 @@ brd04	Gilbert
 brd05	Neige
 brd06	Maréchal
 brd08	Michèle
+brd09	Boumboum
 brd11	Jacob
 brd15	Condor
 brd16	Jacky
@@ -96,6 +98,7 @@ crd00	Alphonse
 crd01	Allie
 crd02	Croko
 crd04	Hector
+crd05	Roswell
 crd06	Chuck
 crd07	Odile
 crd08	Drago
@@ -110,6 +113,7 @@ der07	Stefaon
 der08	Didi
 der09	Abraham
 der10	Chelsea
+der11	Shino
 dog00	Mirza
 dog01	Avril
 dog02	Ramsès
@@ -121,6 +125,7 @@ dog07	Naomie
 dog08	Cookie
 dog09	Olympe
 dog10	Béa
+dog11	Foufou
 dog14	Brutus
 dog15	Ismaël
 dog16	Bernardo
@@ -199,6 +204,7 @@ ham04	Stella
 ham05	Guido
 ham06	Emma
 ham07	Charles
+ham09	Marlou
 hip00	Bebel
 hip02	Hippy
 hip03	Bertha
@@ -227,6 +233,7 @@ kal02	Melba
 kal03	Koaline
 kal04	Gonzo
 kal05	Koko
+kal07	Kolette
 kal08	Kolala
 kal09	Kalyptus
 kal10	Jamy
@@ -253,6 +260,7 @@ mnk05	Élise
 mnk06	Rudy
 mnk07	Luna
 mnk08	Magogo
+mnk09	Tiansheng
 mus00	Dora
 mus01	Gruyère
 mus02	Belle
@@ -268,13 +276,16 @@ mus15	Sabrina
 mus16	Greta
 mus17	Missy
 mus18	Mozzar
+mus19	Shimi
 ocp00	Octave
 ocp01	Marina
 ocp02	Marvin
+ocp04	Octoborg
 ost00	Reine
 ost01	Gladys
 ost02	Ottie
 ost03	Laflèche
+ost04	Estrella
 ost05	Julie
 ost06	Gabin
 ost07	Phil
@@ -290,6 +301,7 @@ pbr06	Greggae
 pbr07	Manfred
 pbr08	Enzo
 pbr09	Garance
+pbr10	Astair
 pgn00	Aurore
 pgn01	Reynald
 pgn02	Cube
@@ -297,6 +309,7 @@ pgn03	Victor
 pgn04	Friga
 pgn05	Gwen
 pgn06	Hervé
+pgn07	Zinzin
 pgn09	Miglou
 pgn10	Ethan
 pgn11	Urbain
@@ -339,10 +352,12 @@ rbt17	Sylvette
 rbt18	Épicure
 rbt19	Grisette
 rbt20	Toby
+rbt21	Alix
 rhn00	Ben
 rhn01	Renée
 rhn02	Rhino
 rhn04	Cornio
+rhn05	Azalée
 rhn07	Patty
 rhn08	Rina
 shp00	Hélaine
@@ -377,6 +392,7 @@ squ15	Irène
 squ16	Roy
 squ17	Mathéo
 squ18	Pamela
+squ21	Terra
 tig00	Ralf
 tig01	Marito
 tig02	Jeff
@@ -405,6 +421,7 @@ bpt	Astrid
 chm	Djarod
 chy	Djason
 cml	Sarah
+cmlB	Sarah
 dga	Maret
 dgb	Chausset
 doc	Rodrigue
@@ -424,21 +441,26 @@ kpm	Liliane
 kpp	Amiral
 kps	Lila
 lom	Cathie
+man	Mantin
 mka	Blanca
+mnc	Gratien
 mnk	Lazare
 mob	Don
 mol	Resetti
 otg	Lou
+otgB	Lou
 ott	Lionel
 owl	Thibou
 ows	Céleste
 pck	Roberto
 pge	Robusto
+pgeB	Robusto
 pkn	Jacqu'O
 plk	Opélie
 plm	Élisabec
 plo	Antoine
 poo	Ginette
+pooB	Ginette
 pyn	Albin
 rcm	Méli
 rco	Tom Nook
@@ -454,6 +476,7 @@ tap	Serena
 tkkA	Kéké
 tkkB	DJ Kéké
 ttlA	Tortimer
+ttlB	Cornimer
 tuk	Dindou
 upa	Ciboulot
 wrl	Morsicus

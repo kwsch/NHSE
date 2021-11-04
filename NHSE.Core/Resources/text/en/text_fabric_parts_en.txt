@@ -1,16 +1,24 @@
+00079	Blanket
 00725	Paper
 00833	Sticker area
+00922	Logo
 00941	Flag
 00950	Sticker area
 01029	Screen
 01032	Magazine
+01133	Handle color
+01222	Video
+01235	Side/Back
 01499	Ribbon
 01500	Shirt
 01501	Shirt
 01504	Ribbon
+01608	Flag design
 01620	Cloth
 01644	Sticker area
 01645	Sticker area
+01712	Poster
+01745	Printed paper
 01750	Writing
 01778	Drying shirt
 01779	Tablecloth
@@ -19,26 +27,29 @@
 01802	Advertisement panel
 01803	Bass drum head
 01816	Curtain
+01820	Clothing
 01838	Handkerchief design
 01849	Blanket
 01850	Screen
-01861	Covers
+01861	Genre
 01870	Design
 01899	Signature
 02020	Fabric
 02561	Lampshade
+02587	Color
 02605	Bedding
+02606	Comforter
 02713	Sticker area
 03200	Bedding
 03229	Drying shirt
 03230	Bedding
 03305	Cushion
-03307	Design
+03307	Base pattern
 03439	Tablecloth
 03444	Seat
 03445	Favorite umbrella
 03449	Seat
-03467	Mat
+03467	Mat color
 03468	Towel
 03502	Bedding
 03561	Shawl
@@ -68,10 +79,11 @@
 04122	Manuscript paper
 04140	Lamp
 04144	Clock face
+04196	Crosswalk design
 04308	Puzzle image
 04445	Tray
-05338	Panel design
-05397	Case
+05338	Panel
+05397	Color
 07047	Upholstery
 07048	Upholstery
 07132	Bedding
@@ -79,6 +91,7 @@
 07150	Ring curtain
 07151	Ring curtain
 07152	Ring curtain
+07154	Label
 07282	Design
 07531	Ironing board
 07681	Knitting
@@ -87,5 +100,145 @@
 08096	Sticker
 08298	Bedding
 08760	Color
+12361	Cover color
+12366	Backboard logo
 12410	Board
-14475	Message
+12605	Board
+12637	Radiogram
+12669	Seat design
+12679	Paper under the counter
+12693	Banner color
+12699	Sign design
+12715	Displayed image
+12744	Undercloth
+12745	Undercloth
+12782	Parasol color
+12879	POP design
+12880	Sign design
+12881	Dress color
+12882	Shirt color
+12883	Displayed clothing
+12886	Displayed clothing
+12890	Curtain
+12892	Design
+12991	Fabric color
+12994	Pillow and mattress color
+12995	Fabric color
+12996	Cushion color
+12998	Cloth
+12999	Cloth
+13005	Seat color
+13006	Tabletop color
+13007	Tabletop color
+13008	Fabric color
+13009	Fabric color
+13010	Fabric color
+13073	Fabric
+13075	Fabric
+13076	Fabric
+13077	Fabric
+13078	Fabric
+13079	Fabric
+13081	Cloth
+13082	Cloth
+13108	Stored-item design
+13109	Stored-item design
+13110	Stored items
+13138	Fabric
+13139	Duvet cover
+13140	Cloth
+13141	Fabric
+13142	Fabric
+13143	Cloth
+13151	Lantern pattern
+13157	Displayed content
+13161	Back design
+13163	Posting
+13201	Inside design
+13205	Displayed items
+13207	Display
+13209	Screen
+13214	Signage
+13220	Lantern pattern
+13269	Posters
+13288	Fabric
+13294	Parasol color
+13295	Answer
+13296	Headrest cover
+13299	Label
+13303	Label
+13336	Plastic sheet
+13337	Discarded magazines
+13339	Discarded clothing
+13341	Bedding color
+13345	Packaging color
+13347	Logo
+13356	Box style
+13360	Label
+13362	Pierced object
+13363	Monitor
+13365	Cup design
+13369	Style
+13454	Tabletop color
+13502	Main monitor
+13504	Screen
+13512	Advertisement
+13513	Label
+13515	Design
+13521	Monitors
+13522	Outfit
+13523	Sticker
+13582	Emblem
+13583	Swimsuit color
+13584	Pouch color
+13586	Seat color
+13589	Logo
+13590	Emblem
+13606	Label
+13615	Sticker
+13621	Sticker
+13624	Score color
+13630	Curtains
+13631	Framed item
+13632	Popcorn bucket
+13633	Fabric color
+13634	Stickers
+13636	Displayed item
+13637	Seat color
+13638	Fabric color
+13639	Panel
+13640	Display
+13647	Sign
+13651	Hanging scroll
+13652	Variation
+13655	Variation
+13656	Color
+13657	Design
+13680	Tabletop color
+13681	Variation
+13683	Color
+13701	Color
+13709	Label
+13727	Variation
+13730	Fabric color
+13744	Poster design
+13746	Variation
+13747	Text
+13751	Framed photo
+13756	Logo
+13764	Color
+13925	Display
+13926	Pictogram
+14049	Logo
+14051	Art genre
+14215	Variation
+14346	Variation
+14475	Message color
+14525	Label
+14527	Paper
+14572	Door decoration
+14592	Lid design
+14619	Curtain design
+14620	Curtain design
+14621	Content
+14714	Label

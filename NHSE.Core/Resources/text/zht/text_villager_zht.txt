@@ -2,6 +2,7 @@ ant00	陽明
 ant01	阿誠
 ant02	佩希
 ant03	有美
+ant05	米粉
 ant06	貴妃
 ant08	小雅
 ant09	安東尼
@@ -28,6 +29,7 @@ brd04	紀諾
 brd05	麗婷
 brd06	李徹
 brd08	小酒窩
+brd09	羽毛
 brd11	余板
 brd15	摔角鴉
 brd16	趙奇
@@ -96,6 +98,7 @@ crd00	阿泥
 crd01	鱷羅思
 crd02	豐年
 crd04	大和
+crd05	皮隆孔
 crd06	海德
 crd07	愛莉
 crd08	阿龍
@@ -110,6 +113,7 @@ der07	彼得
 der08	倪家莉
 der09	查克
 der10	雀兒喜
+der11	佳芝
 dog00	牛奶糖
 dog01	約翰
 dog02	大吉
@@ -121,6 +125,7 @@ dog07	香草
 dog08	珮琳
 dog09	麻蓉
 dog10	貝果
+dog11	祥平
 dog14	金牌
 dog15	文字燒
 dog16	小八
@@ -199,6 +204,7 @@ ham04	安安
 ham05	子墨
 ham06	雪美
 ham07	小倉
+ham09	胖督
 hip00	孔在來
 hip02	曹珂
 hip03	豆沙
@@ -227,6 +233,7 @@ kal02	阿得
 kal03	思穎
 kal04	鋼鎖
 kal05	阿栗
+kal07	游琪
 kal08	簡培菈
 kal09	敖志明
 kal10	羅奇
@@ -253,6 +260,7 @@ mnk05	孟琪
 mnk06	天佑
 mnk07	雪莉
 mnk08	德里
+mnk09	天聖
 mus00	杜美
 mus01	韭菜
 mus02	貝拉
@@ -268,13 +276,16 @@ mus15	丸子
 mus16	如意
 mus17	小啾
 mus18	起司
+mus19	理佳
 ocp00	張瑜
 ocp01	章立娜
 ocp02	章丸丸
+ocp04	吉格爾
 ost00	果果
 ost01	仙仙
 ost02	小嵐
 ost03	鶴茲
+ost04	勒內盧
 ost05	朱莉亞
 ost06	朱祿
 ost07	凱恩
@@ -290,6 +301,7 @@ pbr06	浩克
 pbr07	銀閣
 pbr08	法蘭克
 pbr09	蒂芬妮
+pbr10	席恩
 pgn00	歐若拉
 pgn01	企鵝達
 pgn02	羅斯
@@ -297,6 +309,7 @@ pgn03	達滿
 pgn04	謝賓娜
 pgn05	寶拉
 pgn06	哈奇
+pgn07	信雄
 pgn09	竹輪
 pgn10	秀益
 pgn11	花壽司
@@ -339,10 +352,12 @@ rbt17	妙妙
 rbt18	阿甘
 rbt19	蜜拉
 rbt20	咚比
+rbt21	蜜雪兒
 rhn00	阿足
 rhn01	夢夢
 rhn02	阿蹲
 rhn04	光雄
+rhn05	碧芊
 rhn07	草莓
 rhn08	柴姐
 shp00	綿綿
@@ -377,6 +392,7 @@ squ15	軟糖
 squ16	克栗斯
 squ17	小潤
 squ18	艾栗絲
+squ21	穗星
 tig00	朱穆朗
 tig01	戈麥斯
 tig02	谷豐
@@ -405,6 +421,7 @@ bpt	星薇
 chm	龍山先生
 chy	龍克斯
 cml	駱嵐
+cmlB	駱嵐
 dga	警察叔叔
 dgb	警察叔叔
 doc	陸德里
@@ -424,21 +441,26 @@ kpm	沽玉
 kpp	航平
 kps	沽沽
 lom	咪露
+man	納提
 mka	無臉貓
+mnc	尼可
 mnk	車長叔叔
 mob	開關叔叔
 mol	電源叔叔
 otg	巧美
+otgB	巧美
 ott	阿本先生
 owl	傅達
 ows	傅珂
 pck	阿歡
 pge	老闆
+pgeB	老闆
 pkn	南瓜王
 plk	宋信子
 plm	宋信美
 plo	程信雄
 poo	刀麗茹
+pooB	刀麗茹
 pyn	蹦蹦
 rcm	豆狸
 rco	狸克
@@ -454,6 +476,7 @@ tap	夢美
 tkkA	K.K.
 tkkB	DJ KK
 ttlA	壽伯
+ttlB	橡伯
 tuk	富藍
 upa	笑匠
 wrl	海項

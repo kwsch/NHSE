@@ -77,7 +77,7 @@ cuadro naturaleza (dcha.) (falsificación)
 cuadro naturaleza (dcha.)
 
 paisaje francés
-
+cuna
 carrito carraca
 
 
@@ -115,66 +115,66 @@ bola de musgo
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+camisa escolar corta (Corbata azul)
+camisa escolar corta (Corbata verde)
+camisa escolar corta (Corbata rosa)
+blusa marinera (Naranja)
+blusa marinera (Celeste)
+blusa marinera (Verde)
+blusa marinera (Marrón)
+blusa marinera (Púrpura)
+blusa marinera (Rojo)
+blusa marinera (Rosa)
+equipación deportiva (Celeste)
+equipación deportiva (Amarillo)
+equipación deportiva (Verde)
+equipación deportiva (Naranja)
 gato de la suerte
 aloe pequeño
+equipación deportiva (Rosa)
 
+equipación deportiva (Púrpura)
 
+equipación deportiva (Azul marino)
 
-
-
-
-
-
-
-
-
+rodillera (Negro y azul)
+rodillera (Negro y amarillo)
+rodillera (Negro y rosa)
+rodillera (Negro y blanco)
+rebeca uniforme escolar (Gris)
 tapa de cloaca
-
+rebeca uniforme escolar (Azul marino)
 cono
+rebeca uniforme escolar (Crema)
+gafa redonda de pasta (Marrón)
+gafa redonda de pasta (Plateado)
+gafa redonda de pasta (Azul marino)
+gafa redonda de pasta (Rojo)
+mandil higiénico hostelería (Amarillo)
+mandil higiénico hostelería (Rosa)
+gafa de sol simple (Blanco)
+gafa de sol simple (Amarillo)
+gafa de sol simple (Lima)
+gafa de sol simple (Rojo)
+gafa de sol simple (Naranja)
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+gafa montura superior recta (Marrón)
+gafa montura superior recta (Verde)
+gafa montura superior recta (Gris)
+chaleco tartán (Marrón claro)
+chaleco tartán (Azul pálido)
+chaleco tartán (Marrón)
 cráneo anquilosaurio
 cuerpo anquilosaurio
 cola anquilosaurio
 
-
-
-
-
+chaleco tartán (Burdeos)
+sudadera abierta (Verde)
+sudadera abierta (Negro)
+sudadera abierta (Azul)
 cuerpo archelon
 cola archelon
 
@@ -184,7 +184,7 @@ cola brontoterio
 
 cráneo dimetrodonte
 cuerpo dimetrodonte
-
+sudadera abierta (Burdeos)
 
 cráneo iguanodonte
 cuerpo iguanodonte
@@ -198,7 +198,7 @@ cuerpo mamut
 
 cuerpo paquicefalosaurio
 cola paquicefalosaurio
-
+sudadera abierta (Azul marino)
 
 cráneo parasaurio
 cuerpo parasaurio
@@ -228,10 +228,10 @@ cráneo estegosaurio
 cuerpo estegosaurio
 cola estegosaurio
 
-
-
-
-
+toalla sobre camiseta (Rojo sobre blanco)
+toalla sobre camiseta (Azul sobre blanco)
+toalla sobre camiseta (Negro sobre blanco)
+toalla sobre camiseta (Rosa sobre negro)
 cráneo plesiosaurio
 torso plesiosaurio
 cola plesiosaurio
@@ -244,342 +244,342 @@ cráneo tricerátops
 cuerpo tricerátops
 cola tricerátops
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+toalla sobre camiseta (Verde sobre negro)
+toalla sobre camiseta (Naranja sobre negro)
+anorak deportivo (Verde)
+anorak deportivo (Negro)
+anorak deportivo (Azul)
+anorak deportivo (Burdeos)
+anorak deportivo (Azul marino)
+anorak deportivo (Blanco)
+mochila escolar randoseru (Negro)
+mochila escolar randoseru (Marrón)
+mochila escolar randoseru (Verde)
+mochila escolar randoseru (Azul)
+mochila escolar randoseru (Celeste)
+mochila escolar randoseru (Rosa)
+mochila escolar randoseru (Púrpura)
+cartera escolar (Azul marino)
+cartera escolar (Negro)
+cartera escolar (Gris)
+cartera escolar (Marrón)
+cartera escolar (Verde)
+máscara carnaval veneciano (Plateado)
+máscara carnaval veneciano (Azul)
+máscara carnaval veneciano (Rosa)
+máscara carnaval veneciano (Blanco)
+gafa de sol neón (Naranja y lima)
+gafa de sol neón (Rosa y amarillo)
+gafa de sol neón (Lima y púrpura)
+pañuelo retales tropicales (Rojo)
+pañuelo retales tropicales (Púrpura)
+corona de flores luminosa (Celeste)
+corona de flores luminosa (Púrpura)
+corona de flores luminosa (Amarillo)
+horquilla plumeria (Rosa)
+camiseta logo DJ KeKe (Naranja neón)
+camiseta logo DJ KeKe (Rosa neón)
+camiseta logo DJ KeKe (Verde neón)
+top retales tropicales (Azul)
+top retales tropicales (Rosa)
+top evento Archipiélago (Azul)
+top evento Archipiélago (Rojo)
+top evento Archipiélago (Verde)
 bicicleta estática
-
-
+peluca cresta punk (Verde)
+peluca cresta punk (Azul)
 cinta de correr
-
-
-
+peluca cresta punk (Rosa)
+cocina industrial
+peluca cresta punk (Naranja)
 ámbar
 amonites
 coprolito
-
+bolsa de compra logotipo (Rojo)
 arqueoptérix
-
+bolsa de compra logotipo (Blanco)
 huella de dinosaurio
 australopiteco
 mandíbula de tiburón
 trilobites
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+bolsa de centro comercial (Rojo)
+bolsa de compra boutique (Celeste)
+bolso de mano (Verde)
+bolso de mano (Rojo)
+bolso de mano (Negro)
+bolso de mano de polipiel (Naranja)
+bolso de mano de polipiel (Azul)
+bolso de mano de polipiel (Rosa)
+bolso de mano de polipiel (Amarillo)
+bolso de mano de polipiel (Gris)
+bolso de mano de polipiel (Negro)
+peluca con maxilazo (Amarillo)
+peluca con maxilazo (Verde)
+peluca con maxilazo (Burdeos)
+peluca con maxilazo (Negro)
+peluca con maxilazo (Blanco)
+abanico verde hierba
+abanico naranja amarga
+abanico azul cielo
+barquillo arcoíris
+barquillo vainilla y cereza
+barquillo vainilla y té verde
+barquillo de chocolate
 carpín
 pez dorado
 barbacoa
 bañadero para pájaros
-
+rosquilla de té verde
 casita para pájaros
-
+rosquilla de fresa
 Sr. Flamenco
 Sra. Flamenco
-
+rosquilla chocolate blanco
 cortacésped
+mochila osito (Blanco)
+bolsito broche (Rojo)
 
-
-
-
+bolsito broche (Azul)
 antorcha
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+bolsito broche (Verde)
+bolsito broche (Blanco)
+bolsito broche (Ceniza)
+bolsito broche (Marrón)
+estuche para instrumento (Blanco)
+estuche para instrumento (Azul)
+estuche para instrumento (Rojo)
+estuche para instrumento (Rosa)
+bolsito broche asiático (Azul)
+bolsito broche japonés (Malva)
+bolsito broche japonés (Azul cielo)
+bolsito broche abalorios (Rosa)
+bolsito broche abalorios (Azul marino)
+bolso de tela simple (Azul)
+bolso de tela simple (Amarillo)
+bolso de tela simple (Verde)
+bolso de tela simple (Beis)
+bolso de tela simple (Blanco y negro)
+bolso de mimbre a rayas (Blanco y negro)
+bolso de tela florecillas (Celeste)
+bolso de tela florecillas (Amarillo)
+bolso de tela logotipo (Rojo)
+bolso de tela logotipo (Azul marino)
+bolso de tela camuflaje (Marrón)
+bolso de mimbre (Blanco)
+bolso de mimbre (Marrón)
+foto de Al
+foto de Paca
+foto de Martín
+foto de Elio
+foto de Juana
+foto de Katrina
+foto de Papilo
+foto de Alcatifa
+foto de Totakeke
+foto de Ladino
+foto de Graciela
+foto de Tili
+foto de Pili
 guitarra acústica
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+foto de Mili
+foto de Rosauria
+foto de Marimar
+foto del Capitán
+foto de Conchita
+foto de Estasio
+foto de Forma T. Ado
+foto de Rese T. Ado
+foto de Sisebuto
+foto de Sócrates
+foto de Estela
+foto de Conga
+foto de Sol
+foto de Estrella
+foto de Vigilio
+foto de Carturo
+foto de Nocencio
+foto de Marilín
+foto de Gulliver
+foto de Pascal
+foto de Betunio
+foto de Tórtimer
+foto de Guindo
+foto del Dr. Sito
+foto de Gandulio
+foto de Blanca
+foto de Alakama
+foto de Cati
+foto de Coti Conejal
+foto de Candrés
+foto de Da Morsi
+foto de Buh
+foto de Nuria
+foto de Soponcio
+foto de Fauno
+foto de CJ
+foto de Juliana
+foto de Rafa
+foto de Kamilo
+foto de DJ KeKe
+foto de Rodri
+foto de Matías
+foto de Miko
+sifón
+
+molinillo de café profesional
+blusa uniforme boutique (Marrón)
+blusa uniforme boutique (Naranja)
+blusa uniforme boutique (Rojo)
+blusa uniforme boutique (Blanco)
+blusa uniforme boutique (Rosa)
+uniforme comida rápida (Azul)
+uniforme comida rápida (Naranja)
+uniforme comida rápida (Verde)
+uniforme comida rápida (Marrón)
+uniforme comida rápida (Rosa)
+gafa graciosa con párpados (Amarillo)
+gafa graciosa con párpados (Rosa)
+gafa graciosa con párpados (Celeste)
+gafa graciosa con párpados (Azul)
+gafa graciosa con párpados (Blanco)
+top sin lavar (Verde oliva)
+top sin lavar (Marrón claro)
+top sin lavar (Negro)
+chaqueta de maquinista (Azul marino)
+chaqueta de maquinista (Celeste)
+chaqueta de maquinista (Rojo)
+chaqueta de maquinista (Verde)
+chaqueta de maquinista (Marrón)
+chaqueta de maquinista (Blanco)
+blusa mercante periodo Edo (Fucsia)
+blusa mercante periodo Edo (Verde pastel)
+blusa mercante periodo Edo (Púrpura)
+blusa mercante periodo Edo (Gris)
+camiseta robot gigante (Blanco)
+camiseta robot gigante (Azul)
+camiseta robot gigante (Rojo)
+camiseta robot gigante (Púrpura)
+casco de minería (Azul)
+casco de minería (Naranja)
+casco de minería (Verde)
+casco de minería (Negro)
+gorra de maquinista (Azul marino)
+gorra de maquinista (Celeste)
+gorra de maquinista (Rojo)
+gorra de maquinista (Verde)
+gorra de maquinista (Marrón)
+gorra de maquinista (Blanco)
+gorra lonja de subastas (Verde)
+gorra lonja de subastas (Marrón)
+conjunto ropa interior añeja (Azul)
+conjunto ropa interior añeja (Rosa)
+gorro de chef con logo (Azul)
+gorro de chef con logo (Naranja)
+gorro de chef con logo (Verde)
+gorro de chef con logo (Marrón)
+gorro de chef con logo (Rosa)
+gorro comida rápida (Azul)
+gorro comida rápida (Naranja)
+gorro comida rápida (Verde)
+gorro comida rápida (Marrón)
+gorro comida rápida (Rosa)
+gorro de papel hostelería (Blanco y negro)
+gorro de papel hostelería (Blanco y verde)
+gorro de papel hostelería (Blanco y amarillo)
+gorro de papel hostelería (Marrón)
+gorro de papel hostelería (Rosa)
+mochila reparto de comida (Azul)
+mochila reparto de comida (Verde)
+mochila reparto de comida (Amarillo)
+mochila reparto de comida (Marrón)
+mochila reparto de comida (Rosa)
+chaqueta reparto de comida (Azul)
+chaqueta reparto de comida (Naranja)
+chaqueta reparto de comida (Verde)
+chaqueta reparto de comida (Marrón)
+chaqueta reparto de comida (Rosa)
+bata de chef (Marrón)
+bata de chef (Azul)
+bata de chef (Negro)
+vestido doncella largo (Burdeos)
+vestido doncella largo (Azul)
+vestido doncella largo (Naranja)
+vestido doncella largo (Gris claro)
+vestido doncella largo (Negro)
+camisa con chaleco a rayas (Azul)
+camisa con chaleco a rayas (Verde)
+camisa con chaleco a rayas (Mostaza)
+camiseta y babero silicona (Morado pastel)
+camiseta y babero silicona (Amarillo pastel)
+camiseta y babero silicona (Verde pastel)
+camiseta y babero silicona (Rosa pastel)
+camiseta y babero silicona (Gris pastel)
+camiseta y babero silicona (Azul pastel)
+camiseta y babero silicona (Naranja pastel)
+bata médica de guardia (Corbata morada)
+cinta enroscada hachimaki (Rojo)
+cinta enroscada hachimaki (Blanco)
+difunto pavoroso
+cinta enroscada hachimaki (Verde)
+cinta enroscada hachimaki (Púrpura)
+FtrOneroomBox3x2
+FtrOneroomBox3x1
+casco bárbaro (Dorado)
+casco bárbaro (Plateado)
+coraza guerrera (Marrón)
 hierba de atrezo
 seto de atrezo
 montaña de atrezo
 árbol de atrezo
+cama para pacientes
+coraza guerrera (Negro)
+coraza guerrera (Dorado)
+gotero de hospital
+camilla de hospital
 
-
-
-
-
-
-
-
-
-
-
-
+antena robot (Verde)
+antena robot (Amarillo)
+antena robot (Rojo)
+equipo quirúrgico
+caftán (Verde)
+caftán (Azul)
 estadiómetro
+palangana de hospital
+caftán (Negro)
+caftán (Blanco)
+hakama samurái (Blanco)
+hakama samurái (Azul)
+hakama samurái (Naranja pálido)
+hakama samurái (Azul cielo)
+hakama samurái (Bermellón)
+hakama samurái (Rosa claro)
+hatillo furoshiki (Azul)
+hatillo furoshiki (Púrpura)
+hatillo furoshiki (Rojo)
+hatillo furoshiki (Blanco)
+hatillo furoshiki (Dorado)
+camiseta de pijama (Rojo)
+camiseta de pijama (Azul)
+camiseta de pijama (Gris)
+pantalón de pijama corto (Rojo)
+pantalón de pijama corto (Azul)
+pantalón de pijama corto (Gris)
+sombrero steampunk (Azul)
+sombrero steampunk (Verde)
+sombrero steampunk (Negro)
+vestido steampunk (Azul)
+vestido steampunk (Verde)
+vestido steampunk (Negro)
+vestido de punto gótico (Negro)
+vestido de punto gótico (Gris)
+vestido de punto gótico (Celeste)
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+bolso bandolera cuadrado (Beis)
+mochila propulsora (Negro)
 cigarra marrón
 mariposa tigre
 mariposa alas de Brooke
@@ -587,11 +587,11 @@ libélula roja
 mariposa alas de pájaro
 zapatero
 hormiga
-
+mochila propulsora (Blanco)
 cochinilla
 cochinilla de arena
 polilla
-
+cartera mochila (Negro)
 escarabajo nadador
 libélula caballito del diablo
 goliat
@@ -627,7 +627,7 @@ mariposa colias
 mariposa común
 mariposa celeste
 ciempiés
-
+cartera mochila (Pardo)
 insecto palo
 escarabajo ciervo arcoíris
 escarabajo ciervo sierra
@@ -652,8 +652,8 @@ escarabajo violín
 cangrejo ermitaño
 polilla atlas
 escarabajo astado elefante
-
-
+cartera mochila (Azul)
+cartera mochila (Rojo)
 
 
 
@@ -673,35 +673,35 @@ ukelele
 
 
 
-
+mochila jardín botánico (Blanco)
 farol alto
 fuente de bambú
 
-
-
-
+mochila ensueño (Menta)
+mochila leopardo (Azul)
+mochila leopardo (Rosa)
 bumerán
 barco en botella
-
+mochila leopardo (Amarillo)
 caballo de Dalecarlia
-
-
+mochila espacial (Púrpura)
+mochila espacial (Rosa)
 pagoda
 tigre de papel
 muñeca hawaiana
-
-
+mochila cebra (Amarillo)
+mochila topos (Lima)
 estatua de la Libertad
+mochila topos (Celeste)
+mochila topos (Rosa)
 
-
-
-
+mochila topos (Azul)
 moái
-
+mochila simple (Gris)
 Torre de Pisa
-
-
-
+mochila damero (Azul)
+mochila damero (Gris)
+mochila damero (Verde)
 tapiz
 
 
@@ -709,56 +709,56 @@ tapiz
 
 
 banco de bambú
+vaina con espada (Azul)
 
-
-
-
+vaina con espada (Negro)
+mochila osito (Rosa)
 
 biombo
 chimenea de terracota
-
-
-
-
+mochila osito (Celeste)
+mochila osito (Negro)
+mochila panda (Marrón)
+mochila simple (Negro)
 hogar
-
+bolso bandolera pitón (Gris)
 tetera
 farolillo
-
-
-
+bolso bandolera cebra (Amarillo)
+bolsa de compra electrónica (Celeste)
+sombrero steampunk (Púrpura)
 roca gruesa
 roca alta
+vestido steampunk (Púrpura)
+bolsa de compra electrónica (Azul)
+bolsa de compra electrónica (Rojo)
 
-
-
-
-
+mesa plegable baja
 
 
 
 mesita
 
-
+barandilla de seguridad
 chimenea
+muñeco de nieve iceberg
+cocina compacta
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+proyecto trampa
+kit de escalerilla
+receta de cocina
+papel de pared
+suelo
+arbusto de vivero
+bolsa de pokis
+cultivo de vivero
+hierbajo
+musgo luminoso
+enredadera
 
 
 
@@ -920,7 +920,7 @@ taza de café
 
 molinillo de café
 
-
+pila de cajas de refresco
 
 
 
@@ -961,13 +961,13 @@ extractor
 
 
 
+boca de incendios
 
 
 
+parterre
 
-
-
-
+monitor de escenario
 
 máquina expendedora
 
@@ -1007,7 +1007,7 @@ kagamimochi
 
 
 
-
+karaoke
 
 
 
@@ -1017,7 +1017,7 @@ kagamimochi
 koinobori
 
 
-
+botiquín
 
 
 
@@ -1049,7 +1049,7 @@ micrófono vocal
 
 
 batidora de vaso
-
+pájaro balancín
 
 
 Luna
@@ -1070,7 +1070,7 @@ atril para partituras
 
 
 
-
+cordón divisorio
 
 
 
@@ -1106,9 +1106,9 @@ mecedora
 
 
 
+tele retro
 
-
-
+mortero para mochi
 baño termal
 ruleta colorida
 
@@ -1125,12 +1125,13 @@ espantapájaros
 globo de acuario
 especiero giratorio
 servidor
-máquina de coser antigua
+máquina de coser añeja
 máquina de coser
 
 
 aire acondicionado exterior
 
+carro de la compra
 
 
 
@@ -1138,8 +1139,7 @@ aire acondicionado exterior
 
 
 
-
-
+estante de esquí
 
 horno para ahumados
 
@@ -1204,7 +1204,7 @@ pez de bronce
 bichotrofeo de oro
 bichotrofeo de plata
 bichotrofeo de bronce
-
+trompeta
 
 
 
@@ -1220,7 +1220,7 @@ urinario de pared
 
 
 cámara de vídeo
-
+tele con vídeo
 
 
 
@@ -1233,7 +1233,7 @@ lavabo
 surtidor de agua
 
 retrete portátil
-
+cabina de retrete
 
 
 
@@ -1312,7 +1312,7 @@ silla escolar
 
 
 
-
+pilón
 
 
 modelo anatómico
@@ -1491,7 +1491,7 @@ campana de juez
 
 
 
-
+cochecito
 
 muñeca
 
@@ -1505,7 +1505,7 @@ osito
 papá oso gigante
 
 
-atracción tazas giratorias
+atracción tazas de feria
 
 robot gigante
 
@@ -1571,7 +1571,7 @@ barril de petróleo
 
 
 
-
+daruma
 
 
 
@@ -1606,7 +1606,7 @@ pelota de ejercicios
 
 carrito de servicio
 
-
+banderola vertical
 
 
 
@@ -1710,11 +1710,11 @@ radiocasete doble
 
 
 
+cartel con póster
 
 
 
-
-
+podio de exposición
 
 
 
@@ -1743,7 +1743,7 @@ radiocasete doble
 
 
 reloj de oficina
-
+fotocopiadora
 
 
 
@@ -1818,7 +1818,7 @@ probador
 
 
 
-
+ropa doblada
 
 
 par de bolsas de basura
@@ -1875,7 +1875,7 @@ taza grande
 
 piano de cola
 
-
+hucha cerdito
 
 
 
@@ -1904,7 +1904,7 @@ set de autógrafos
 
 
 
-
+tambor redoblante
 
 
 
@@ -2356,7 +2356,7 @@ antena parabólica
 
 
 
-
+foco de estadio
 
 
 
@@ -2496,7 +2496,7 @@ Tota-disco
 Feliz en tu día
 
 
-camiseta bola 3 (Rojo)
+camiseta bola 3 (Sin variaciones)
 
 rama
 tallo de bambú
@@ -2539,7 +2539,7 @@ kit de personalización
 
 
 
-camiseta bola 2 (Azul)
+camiseta bola 2 (Sin variaciones)
 
 permiso de elevaciones
 varita estrella
@@ -2568,12 +2568,12 @@ vela
 almeja japonesa
 
 
-
+tomate
 buzón clásico
 zapatilla alta (Gris)
 
 
-
+silla rústica
 
 
 trampa
@@ -2585,7 +2585,7 @@ fósil
 
 
 silla de madera natural
-
+biombo de hospital
 
 
 
@@ -2602,14 +2602,14 @@ vestido de satén (Verde)
 
 
 
-
+mesa de trabajo de cocina
 cama individual de madera
-
+cama rústica
 
 
 lazo (Verde)
 lazo (Rojo)
-diadema estrellas (Amarillo)
+diadema estrellas (Sin variaciones)
 tocado de Carnaval (Azul)
 
 bici de montaña
@@ -2647,10 +2647,10 @@ manojo pasado
 
 
 
+tomatera de vivero
 
-
-
-
+tomatera pequeña
+tomatera mediana
 
 
 jersey rayas (Azul)
@@ -3027,26 +3027,26 @@ acebo de vivero
 acebo joven
 acebo adulto
 
+espiga de trigo
+espiga de trigo de vivero
+espiga de trigo joven
+espiga de trigo pequeña
+espiga de trigo mediana
+caña de azúcar
+caña de azúcar de vivero
 
+caña de azúcar pequeña
+caña de azúcar mediana
+patata
+patata de vivero
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+patata pequeña
+patata mediana
+zanahoria
+zanahoria de vivero
+zanahoria joven
+zanahoria pequeña
+zanahoria mediana
 
 
 
@@ -3061,7 +3061,7 @@ vestido de campo (Tela vaquera)
 
 
 
-
+teremín
 nevera portátil rígida
 pila de lingotes de oro
 
@@ -3133,7 +3133,7 @@ vestido de fiesta (Azul)
 
 
 uniforme ci-fi retro (Rojo)
-vestido festivo (Rojo)
+vestido festivo (Sin variaciones)
 
 vestido de cuento (Rojo)
 vestido doncella (Negro)
@@ -3251,13 +3251,13 @@ camiseta equipo de fútbol (Amarillo)
 
 cocina de gas sencilla
 tele LCD de 50"
-cazadora tigre (Verde)
+cazadora tigre (Sin variaciones)
 chaqueta festival (Azul)
 sudadera de montaña (Rojo)
-cazadora dragón (Negro)
+cazadora dragón (Sin variaciones)
 camiseta camuflaje (Marrón)
 maillot de ciclista (Azul y blanco)
-camiseta pollitos (Azul)
+camiseta pollitos (Sin variaciones)
 vestido princesa (Azul)
 vestido punto sin mangas (Gris)
 chaleco pijo (Azul)
@@ -3281,17 +3281,17 @@ champiñón plano
 champiñón raro
 
 tostadora eléctrica
-jersey real (Rojo)
+jersey real (Sin variaciones)
 
 
-vestido fresa (Rojo)
-vestido sandía (Rojo)
-vestido naranja (Naranja)
-vestido kiwi (Verde)
-vestido uvas (Púrpura)
+vestido fresa (Sin variaciones)
+vestido sandía (Sin variaciones)
+vestido naranja (Sin variaciones)
+vestido kiwi (Sin variaciones)
+vestido uvas (Sin variaciones)
 
 
-vestido piña (Amarillo)
+vestido piña (Sin variaciones)
 
 
 pantalón cómodo (Gris)
@@ -3318,13 +3318,13 @@ camisa bicolor (Azul)
 pantalón bicolor (Blanco y negro)
 
 falda vichy (Rojo)
-camiseta bola 1 (Amarillo)
-camiseta bola 4 (Púrpura)
-camiseta bola 5 (Naranja)
-camiseta bola 6 (Verde)
-camiseta bola 7 (Marrón)
-camiseta bola 8 (Negro)
-camiseta bola 9 (Amarillo)
+camiseta bola 1 (Sin variaciones)
+camiseta bola 4 (Sin variaciones)
+camiseta bola 5 (Sin variaciones)
+camiseta bola 6 (Sin variaciones)
+camiseta bola 7 (Sin variaciones)
+camiseta bola 8 (Sin variaciones)
+camiseta bola 9 (Sin variaciones)
 
 camisa con jersey (Rosa)
 
@@ -3334,7 +3334,7 @@ cronómetro
 tele LCD de 20"
 sudadera de chándal urbana (Azul marino)
 pantalón de chándal urbano (Azul marino)
-vestido nupcial (Blanco)
+vestido nupcial (Sin variaciones)
 kilt (Rojo)
 
 chaleco fino (Gris)
@@ -3388,8 +3388,8 @@ vestido camisero (Azul marino)
 vestido camisero sisa (Azul)
 esmoquin (Negro)
 
-chaquetón Papá Noel (Rojo)
-pantalón Papá Noel (Rojo)
+chaquetón Papá Noel (Sin variaciones)
+pantalón Papá Noel (Sin variaciones)
 
 
 
@@ -3399,7 +3399,7 @@ mesa de piedra
 taburete de piedra
 interfono
 escurreplatos
-chaqué (Negro)
+chaqué (Sin variaciones)
 valla de tablones
 valla celosía de bambú
 
@@ -3439,7 +3439,7 @@ armario de madera
 mesita auxiliar de madera
 mesa de madera
 
-vestido del Nilo (Blanco)
+vestido del Nilo (Sin variaciones)
 costurero añejo
 proyecto de costura
 silla de ruedas
@@ -3460,10 +3460,10 @@ jinbei (Azul oscuro)
 
 vestimenta de ninja (Azul oscuro)
 
-traje dragón (Amarillo)
-pantalón de vaquero (Marrón)
+traje dragón (Sin variaciones)
+pantalón de vaquero (Sin variaciones)
 uniforme de conserje (Verde)
-
+pantalla para proyector
 chatarra
 juego de té
 toalla de playa
@@ -3498,7 +3498,7 @@ vestido vietnamita (Blanco)
 mesa iceberg
 mampara iceberg
 arco iceberg
-columna iceberg
+pilar iceberg
 escultura iceberg
 cama iceberg
 sillón iceberg
@@ -3547,7 +3547,7 @@ pluma morada
 
 
 pluma arcoíris
-pico (Amarillo)
+pico (Sin variaciones)
 bigote inglés (Color del pelo)
 estante de bambú
 
@@ -3563,7 +3563,7 @@ perchero de hierro
 repisa de hierro
 estantería de hierro
 
-uniforme de policía (Azul marino)
+uniforme de policía (Sin variaciones)
 
 
 
@@ -3572,10 +3572,10 @@ toga (Rojo)
 
 kimono flor de ciruelo (Rosa)
 vestido gótico elegante (Púrpura)
-quitón (Blanco)
+quitón (Sin variaciones)
 camiseta kanji (Verde)
-vestido borrones (Beis)
-vestido egipcio (Blanco)
+vestido borrones (Sin variaciones)
+vestido egipcio (Sin variaciones)
 cárdigan sobre camiseta (Amarillo)
 suéter pijo (Verde)
 banco de bonsáis
@@ -3605,9 +3605,9 @@ jersey tenis (Marfil)
 
 
 traje del desierto (Púrpura)
-disfraz de momia (Blanco)
+disfraz de momia (Sin variaciones)
 
-disfraz de esqueleto (Blanco)
+disfraz de esqueleto (Sin variaciones)
 traje de lucha libre (Rojo)
 uniforme de béisbol (Rojo)
 uniforme de comandante (Azul marino)
@@ -3633,8 +3633,8 @@ jersey copos (Gris)
 cárdigan nórdico (Azul gélido)
 jersey de punto trenzado (Rojo)
 
-jersey fantasía (Rosa)
-traje espacial (Blanco)
+jersey ensueño (Rosa)
+traje espacial (Sin variaciones)
 
 
 
@@ -3684,7 +3684,7 @@ banco de piano
 lavabo sencillo
 zumo de coco
 sari (Granate)
-vestido maravilloso (Azul)
+vestido maravilloso (Sin variaciones)
 guayabera (Verde)
 trenca corta (Negro)
 estufa de sauna
@@ -4194,7 +4194,7 @@ tortuga mordedora
 trucha dorada
 pez arcoíris
 minipantalón jogging (Rosa)
-
+semáforo para peatones
 
 camisa de aristócrata (Blanco)
 
@@ -4209,7 +4209,7 @@ chaqueta de aviación (Marrón)
 
 
 
-camiseta teñida (Arcoíris)
+camiseta teñida (Sin variaciones)
 chaleco mullido (Azul marino)
 
 
@@ -4280,7 +4280,7 @@ chaleco acolchado (Azul marino)
 bandeja con polos
 
 
-gafa de culo de vaso (Negro)
+gafa de culo de vaso (Sin variaciones)
 falda corta sport (Gris)
 
 chaqueta de nailon (Negro)
@@ -4331,17 +4331,17 @@ pirata de seda exótico (Rosa)
 pantalón de seda (Verde)
 pantalón kung-fu (Azul marino)
 vestido mágico (Rosa)
-falda de paja (Marrón)
+falda de paja (Sin variaciones)
 abrigo bolero (Rosa)
 
 uniforme de oficinista (Azul)
-gafa rota (Negro)
+gafa rota (Sin variaciones)
 tocadiscos portátil
 
 camiseta tipografía (Negro)
 vestido largo con perlas (Negro)
 kimono sencillo (Azul oscuro)
-cazadora halcón (Rojo)
+cazadora halcón (Sin variaciones)
 vestido roñoso (Marrón)
 traje roñoso (Marrón)
 
@@ -4349,11 +4349,11 @@ vestido esmoquin (Negro)
 
 valla de corral
 valla leños
-
+valla de troncos
 valla cordón
 
 valla dinastía
-
+cerca de bloques
 valla de paja
 verja de hierro
 valla puntiaguda
@@ -4449,13 +4449,13 @@ camiseta fútbol americano (Verde)
 chaqueta de esquí (Azul)
 traje rey del rock (Blanco)
 pantalón de esquí (Turquesa)
-mascarilla quirúrgica (Blanco)
-parche médico (Blanco)
+mascarilla quirúrgica (Sin variaciones)
+parche médico (Sin variaciones)
 gafa de esquí (Blanco)
 gafa para piscina (Negro)
 
 gafa retro (Amarillo)
-parche (Negro)
+parche (Sin variaciones)
 gafa de sol esquí (Negro)
 gafa de sol piloto (Negro)
 gafa de carey (Marrón)
@@ -4482,19 +4482,19 @@ regalo
 
 
 hocico de gato (Blanco)
-vestido china poblana (Rojo)
+vestido china poblana (Sin variaciones)
 pantalón punk (Rojo)
 top isla tropical (Rojo)
 bermuda playera (Naranja)
 chaleco paz y amor (Naranja)
 vestido de punto con chal (Negro)
 pantalón con rodilleras (Marrón)
-mascarilla de pepino (Verde)
-barba Papá Noel (Blanco)
+mascarilla de pepino (Sin variaciones)
+barba Papá Noel (Sin variaciones)
 
 
 
-nariz postiza (Rojo)
+nariz postiza (Sin variaciones)
 
 
 
@@ -4509,8 +4509,8 @@ chaleco Chimayó (Azul marino)
 
 
 gafa de cumpleaños (Amarillo)
-disfraz de reno (Marrón)
-mascarilla facial (Blanco)
+disfraz de reno (Sin variaciones)
+mascarilla facial (Sin variaciones)
 gafa graciosa (Marrón)
 pantalón corto de ciclista (Azul y rojo)
 bermuda surf (Azul)
@@ -4561,7 +4561,7 @@ vestido camiseta (Negro)
 top labio de lentejuelas (Rojo)
 máscara de baile (Blanco)
 
-traje punk (Negro)
+traje punk (Sin variaciones)
 
 abrigo de polipiel (Negro)
 cárdigan renos (Verde)
@@ -4586,9 +4586,9 @@ vestido bosque (Verde)
 
 uniforme de rugby (Rojo y blanco)
 vestido lencero (Azul)
-armadura de hierro (Gris)
+armadura de hierro (Sin variaciones)
 abrigo largo acolchado (Negro)
-armadura de oro (Dorado)
+armadura de oro (Sin variaciones)
 
 
 pantalón de satén (Verde)
@@ -4601,7 +4601,7 @@ túnica sin mangas (Púrpura)
 hocico de conejito (Rosa)
 cárdigan largo (Púrpura)
 pantalón de pana (Pardo)
-traje baile folclórico (Rojo)
+traje baile folclórico (Sin variaciones)
 vestido sudadera mullido (Menta)
 abrigo recortes (Marrón)
 chubasquero balmacaan (Verde bosque)
@@ -4645,12 +4645,12 @@ vestido pantalón corto (Marrón)
 
 paquete
 gafa pixelada (Rojo)
-hocico de cerdo (Rosa)
-vestido glacial (Azul gélido)
+hocico de cerdo (Sin variaciones)
+vestido glacial (Sin variaciones)
 máscara de gas (Negro)
 vestido de país nórdico (Azul)
 anomalocaris
-resto de arroz (Blanco)
+resto de arroz (Sin variaciones)
 traje de mariachi (Azul marino)
 
 vestido olas marinas (Azul)
@@ -4669,20 +4669,20 @@ antifaz baile de máscaras (Púrpura)
 top largo (Blanco)
 montura de madera (Marrón)
 
-máscara anonimato (Negro)
+máscara anonimato (Sin variaciones)
 bigote de artista (Color del pelo)
 top carrera (1)
 cárdigan de punto largo (Mostaza)
 top lunares y lacitos (Negro)
 perilla (Color del pelo)
-par de tiritas (Beis)
+par de tiritas (Sin variaciones)
 careta de bufón (Negro)
 barba perfilada (Color del pelo)
 jersey de lana estampado (Verde musgo)
 traje de detective (Marrón)
-hoja (Verde)
+hoja (Sin variaciones)
 gafa de sol con bisutería (Rojo)
-antifaz (Negro)
+antifaz (Sin variaciones)
 gafa steampunk (Verde)
 vestido adorable (Blanco)
 caja de herramientas
@@ -4827,20 +4827,20 @@ pared persiana
 pared cerámica blanca
 pared cerámica marrón
 pared lujo
-
+pared terma
 pared celosía
 pared floreada beis
 pared gres ondulada
 pared bambú
-pared losa desierto beis
-pared losa desierto azul
+pared losa marroquí beis
+pared losa marroquí azul
 pared cañizo
 pared biblioteca de clásicos
 pared biblioteca de manga
 pared cajas de seguridad
 pared cabaña
 pared crepé
-
+pared museo
 pared fachada en obras
 pared leñera
 pared tierra amasada
@@ -4905,7 +4905,7 @@ pared floreada verde
 pared listones
 pared otoñal
 pared rosas
-pared rosas lila
+pared rosas lilas
 pared psicodelia
 pared panal parda
 pared alicatada blanca
@@ -4935,7 +4935,7 @@ pared chocolate blanco
 pared chocolate fresa
 pared floral verde
 pared egipcia
-
+pared steampunk
 
 pared lisa blanca
 pared metro azul
@@ -4963,8 +4963,8 @@ suelo jirafa
 suelo cebra
 suelo rayas
 suelo bambú
-losa desierto beis
-losa desierto azul
+losa marroquí beis
+losa marroquí azul
 suelo ratán
 superficie lunar
 suelo corcho
@@ -5053,7 +5053,7 @@ losa palacete
 suelo chocolate blanco
 suelo chocolate rosa
 losa pirámide
-
+suelo steampunk
 parqué cerezo
 suelo madera azul
 suelo madera verde
@@ -5070,7 +5070,7 @@ losa multicolor
 losa piedra
 parqué pintado adorable
 parqué pintado refinado
-
+robosuelo
 suelo floral amarillo
 suelo floral azul
 suelo floral marrón
@@ -5094,30 +5094,30 @@ varita cosmos
 varita rosa
 varita lirio
 varita crisantemo
-guirnalda jacinto (Rojo)
-guirnalda jacinto refinada (Azul)
-guirnalda jacinto violeta (Púrpura)
-guirnalda anémona (Multicolor)
-guirnalda anémona refinada (Multicolor)
-guirnalda anémona violeta (Púrpura)
-guirnalda tulipán (Multicolor)
-guirnalda tulipán chic (Multicolor)
-guirnalda tulipán negro (Granate)
-guirnalda viola (Multicolor)
-guirnalda viola refinada (Multicolor)
-guirnalda viola violeta (Púrpura)
-guirnalda cosmos (Multicolor)
-guirnalda cosmos adorable (Multicolor)
-guirnalda cosmos negro (Granate)
-guirnalda rosa (Multicolor)
-guirnalda rosa adorable (Multicolor)
-guirnalda rosa oscura (Púrpura)
-guirnalda lirio (Multicolor)
-guirnalda lirio adorable (Multicolor)
-guirnalda lirio negro (Granate)
-guirnalda crisantemo (Multicolor)
-guirnalda crisantemo chic (Multicolor)
-guirnalda crisantemo verde (Verde)
+guirnalda jacinto (Sin variaciones)
+guirnalda jacinto refinada (Sin variaciones)
+guirnalda jacinto violeta (Sin variaciones)
+guirnalda anémona (Sin variaciones)
+guirnalda anémona refinada (Sin variaciones)
+guirnalda anémona violeta (Sin variaciones)
+guirnalda tulipán (Sin variaciones)
+guirnalda tulipán chic (Sin variaciones)
+guirnalda tulipán negro (Sin variaciones)
+guirnalda viola (Sin variaciones)
+guirnalda viola refinada (Sin variaciones)
+guirnalda viola violeta (Sin variaciones)
+guirnalda cosmos (Sin variaciones)
+guirnalda cosmos adorable (Sin variaciones)
+guirnalda cosmos negro (Sin variaciones)
+guirnalda rosa (Sin variaciones)
+guirnalda rosa adorable (Sin variaciones)
+guirnalda rosa oscura (Sin variaciones)
+guirnalda lirio (Sin variaciones)
+guirnalda lirio adorable (Sin variaciones)
+guirnalda lirio negro (Sin variaciones)
+guirnalda crisantemo (Sin variaciones)
+guirnalda crisantemo chic (Sin variaciones)
+guirnalda crisantemo verde (Sin variaciones)
 
 
 jersey copo de nieve (Azul)
@@ -5132,16 +5132,16 @@ coraza de samurái (Rojo)
 vestido de seda sin mangas (Rojo)
 delantal con protectores (Rosa)
 disfraz de ogro (Azul)
-disfraz de maleante (Negro)
+disfraz de maleante (Sin variaciones)
 vestido corto futurista (Azul)
 sombrero de exploración (Pardo)
 birrete de graduación (Rojo)
 sombrero cuate (Natural y rojo)
 casco de obra (Amarillo)
-gorro de chef (Blanco)
-gorra de policía (Azul marino)
-sombrero pirata (Negro)
-gorro de bambú cónico (Beis)
+gorro de chef (Sin variaciones)
+gorra de policía (Sin variaciones)
+sombrero pirata (Sin variaciones)
+gorro de bambú cónico (Sin variaciones)
 gorro de pelo sintético (Beis)
 pañuelo anudado (Amarillo)
 gorro de punto (Negro)
@@ -5180,7 +5180,7 @@ calcetín raído (Azul)
 calcetín con pompones (Rosa)
 calcetín composición color (Púrpura)
 calcetín de felpa (Rosa)
-visor 3D (Blanco)
+visor 3D (Sin variaciones)
 
 
 
@@ -5206,9 +5206,9 @@ media con flores bordadas (Marrón)
 
 verja de hierro y piedra
 cerca oriental
+valla alta celosía
 
-
-
+valla de maderos
 
 cerca de piedra
 valla de alambre
@@ -5218,7 +5218,7 @@ pared piedra
 pared cáñamo
 pared oficina
 
-
+pared híper
 pared arte urbano
 pared yacimiento
 pared selva
@@ -5247,7 +5247,7 @@ sombrero de hechicería (Negro)
 
 
 suelo calaveras
-
+suelo círculo mágico
 suelo red neuronal
 
 
@@ -5259,7 +5259,7 @@ gorra de ciclista (Azul)
 sombrero de paseo (Naranja)
 canotier (Crema)
 boina (Burdeos)
-gafa de visión nocturna (Negro)
+gafa de visión nocturna (Sin variaciones)
 jersey jovial (Amarillo)
 
 
@@ -5273,23 +5273,23 @@ suelo nave espacial
 
 suelo deshielo
 suelo volcánico
-gorro naranja (Naranja)
-gorro kiwi (Verde)
-gorro fresa (Rojo)
-gorro uva (Púrpura)
-gorro piña (Amarillo)
-gorro sandía (Rojo)
+gorro naranja (Sin variaciones)
+gorro kiwi (Sin variaciones)
+gorro fresa (Sin variaciones)
+gorro uva (Sin variaciones)
+gorro piña (Sin variaciones)
+gorro sandía (Sin variaciones)
 gorro chef de sushi (Blanco)
 casco de ciclista (Azul)
 gorro de natación (Amarillo)
 gorro de seda (Verde)
 pantalón chino holgado (Marrón)
 tejano desteñido (Azul)
-disfraz de perrito caliente (Mostaza)
+disfraz de perrito caliente (Sin variaciones)
 mono con protectores (Verde)
 chaqueta desteñida (Azul)
 camiseta festival de música (Negro)
-abrigo de paja (Marrón)
+abrigo de paja (Sin variaciones)
 chaqueta urbana (Rojo)
 gorro tulipán (Naranja)
 pañuelo de cachemira (Rojo)
@@ -5304,9 +5304,9 @@ fedora (Beis)
 
 gorro de dormir (Celeste)
 gorra deportiva (Rojo)
-gorro Papá Noel (Rojo)
-corona imperial (Rojo)
-gorro de papel (Gris)
+gorro Papá Noel (Sin variaciones)
+corona imperial (Sin variaciones)
+gorro de papel (Sin variaciones)
 placa corazón
 placa telaraña
 pañuelo felpa (Blanco)
@@ -5320,9 +5320,9 @@ sudadera compañía de baile (Negro)
 paipay
 ocarina
 
-pañuelo anudado en la nariz (Verde)
+pañuelo anudado en la nariz (Sin variaciones)
 caperuza de cuento (Rojo)
-careta de momia (Blanco)
+careta de momia (Sin variaciones)
 gorro de conejito (Rosa)
 gorro de gato (Azul marino)
 pasamontañas (Verde)
@@ -5330,13 +5330,13 @@ capucha calavera (Blanco)
 minigorro de punto (Verde)
 gorro de oso (Marrón)
 gorro de kappa (Verde)
-gorra de capitán (Blanco)
+gorra de capitán (Sin variaciones)
 gorra elegante (Pardo)
 yelmo (Gris)
 gorro de rana (Verde)
 gorro mago (Azul)
 muñeco de nieve detallado
-mampara simple
+mampara simple alta
 libélula damisela
 sombrero de globos (Arcoíris)
 pantalón compañía de baile (Negro)
@@ -5409,7 +5409,7 @@ calcetín caritas (Rosa)
 gorro de punto copos (Azul)
 gorro de punto colorido (Rojo)
 
-bermuda cómics (Negro)
+bermuda cómics (Sin variaciones)
 pantalón monpe (Azul oscuro)
 pantalón impermeable (Amarillo)
 falda corta de punto (Marrón)
@@ -5431,7 +5431,7 @@ objeto perdido
 pandereta
 
 vestido Renacimiento (Rojo)
-chaleco con prismáticos (Beis)
+chaleco con prismáticos (Sin variaciones)
 turbante (Púrpura)
 casco motocicleta clásico (Rosa)
 corona anémona
@@ -5445,7 +5445,7 @@ casco de carreras (Rojo)
 calcetín Chimayó (Amarillo)
 
 gorro de reno (Marrón)
-casco con cuernos (Blanco)
+casco con cuernos (Sin variaciones)
 falda pata de gallo (Rojo)
 falda de supraciclaje (Beis)
 
@@ -5453,7 +5453,7 @@ falda de supraciclaje (Beis)
 
 
 
-
+robopared
 pared árboles
 pared jungla
 pared ladrillo musgoso
@@ -5470,7 +5470,7 @@ corona jacinto
 pantufla zarpa (Rosa)
 chancla (Azul)
 mercedita (Negro)
-escarpe (Gris)
+escarpe (Sin variaciones)
 zapatilla escolar japonesa (Rojo)
 botín de polipiel (Marrón)
 sandalia con flor (Amarillo)
@@ -5490,12 +5490,12 @@ pared desierto
 pared Oeste
 pared sala de servidores
 pared sala de seguridad
-
+pared velas
 
 pared red neuronal
 pared sala de estasis
-
-
+pared vagón
+pared cabina de pasaje
 pared esquí
 pared noche de tormenta
 horizonte lunar
@@ -5505,11 +5505,11 @@ pared graderío
 pared cielo
 pared hielo
 pared volcánica
-
+pared caverna caliza
 pared fondo marino
 pared calabozo
 pared nave espacial
-
+pared cementerio
 pared boxeo
 pared cumbre
 pared manglar
@@ -5522,7 +5522,7 @@ pared calaveras
 pared sala de té natural
 
 bota del medievo (Marrón)
-escarpe de oro (Dorado)
+escarpe de oro (Sin variaciones)
 pantufla (Gris)
 
 
@@ -5565,7 +5565,7 @@ tacón de tiras (Rojo)
 pantufla hogareña (Gris)
 sandalia de plástico (Celeste)
 mocasín de talón bajo (Amarillo)
-bata escolar (Azul)
+bata escolar (Sin variaciones)
 
 
 
@@ -5607,14 +5607,14 @@ Bricolaje para epatar
 zapato muñequita (Rosa)
 máscara egipcia (Dorado)
 zapatilla de ballet (Rosa)
-bota punk (Negro)
+bota punk (Sin variaciones)
 traje de rumba (Rojo)
 
 
 
-disfraz sushi de tortilla (Blanco)
-disfraz sushi de atún (Blanco)
-disfraz sushi de sábalo (Blanco)
+disfraz sushi de tortilla (Sin variaciones)
+disfraz sushi de atún (Sin variaciones)
+disfraz sushi de sábalo (Sin variaciones)
 zapatilla alta con puntera (Azul)
 zueco florido (Amarillo)
 sandalia holgada (Marrón)
@@ -5622,13 +5622,13 @@ sandalia gladiador (Marrón)
 jersey marinero (Azul marino)
 zapato florido tradicional (Rojo)
 
-superbota (Blanco)
-sudadera de Nook Inc. (Verde)
-camisa aloha de Nook Inc. (Marfil)
-gorra de Nook Inc. (Verde)
-pañuelo de Nook Inc. (Amarillo)
-calcetín de Nook Inc. (Amarillo)
-pantufla de Nook Inc. (Blanco)
+superbota (Sin variaciones)
+sudadera de Nook Inc. (Sin variaciones)
+camisa aloha de Nook Inc. (Sin variaciones)
+gorra de Nook Inc. (Sin variaciones)
+pañuelo de Nook Inc. (Sin variaciones)
+calcetín de Nook Inc. (Sin variaciones)
+pantufla de Nook Inc. (Sin variaciones)
 
 
 
@@ -5640,7 +5640,7 @@ zapatilla de básquet (Rojo)
 zapato de bufón (Púrpura)
 sandalia de paseo (Verde)
 corona lirio
-cáscara de huevo (Blanco)
+cáscara de huevo (Sin variaciones)
 bota del Oeste (Marrón)
 disfraz de pollito (Amarillo)
 vestido de rumba (Rojo)
@@ -5656,7 +5656,7 @@ zapatilla de tacos (Azul)
 zapato de puntera afilada (Rojo)
 
 
-camisa fischerhemd (Azul)
+camisa fischerhemd (Sin variaciones)
 deportiva alto rendimiento (Naranja)
 bota de esquí (Blanco)
 pared tropical
@@ -5735,7 +5735,7 @@ minipantalón de polipiel (Negro)
 bermuda gobelino (Beis)
 pantalón paquidermo (Rojo)
 pantalón de humorista (Naranja)
-falda con perlas (Azul marino)
+falda con perlas (Sin variaciones)
 pompa de chicle (Rosa)
 gafa de sol floral (Rojo)
 
@@ -5758,7 +5758,7 @@ corona tulipán adorable
 
 
 
-bota espacial (Blanco)
+bota espacial (Sin variaciones)
 deportiva juvenil (Rojo)
 
 
@@ -5794,7 +5794,7 @@ red
 botella con mensaje
 (DIY recipe)
 pantalón étnico (Azul)
-vestido fantasía (Rosa)
+vestido ensueño (Rosa)
 kimono vistoso (Verde)
 vestido nobiliario (Verde)
 mono psicodélico (Verde)
@@ -5831,7 +5831,7 @@ kit de asentamiento: solar 3
 peto de granja (Rojo)
 uniforme de hockey (Blanco y rojo)
 peluca punk (Color del pelo)
-gota de moco (Celeste)
+gota de moco (Sin variaciones)
 
 
 
@@ -5855,7 +5855,7 @@ cupón de millas Nook
 bermuda jardín botánico (Negro)
 impermeable de trabajo (Amarillo)
 hacha de piedra
-resto de pasta (Pasta)
+resto de pasta (Sin variaciones)
 
 pétalo de cerezo
 
@@ -5921,7 +5921,7 @@ puente de hierro
 
 
 figura esc. ciervo sierra
-pantalón fantasía (Rosa)
+pantalón ensueño (Rosa)
 estatua es. astado hércules
 falda floral (Celeste)
 camisa con brazalete (Verde)
@@ -6037,8 +6037,8 @@ máscara de sabio (Blanco)
 máscara de teatro Noh (Blanco)
 
 
-espejo médico (Gris)
-máscara con tachuelas (Negro)
+espejo médico (Sin variaciones)
+máscara con tachuelas (Sin variaciones)
 máscara de hockey (Blanco)
 zapato calado con cordón (Marrón)
 babucha (Azul)
@@ -6046,10 +6046,10 @@ calcetín para kilt (Cintas rojas)
 media rayas (Rojo)
 media con estampado (Negro)
 
-gorro gestión imperial (Negro)
-boina glengarry (Negro)
+gorro gestión imperial (Sin variaciones)
+boina glengarry (Sin variaciones)
 máscara de béisbol (Rojo)
-
+protector de cabeza infantil (Amarillo)
 pañuelo árabe (Blanco)
 velo de tramoyista (Negro)
 gorra con pompón (Marrón)
@@ -6089,7 +6089,7 @@ arco frutos del bosque
 
 
 
-gorra de monedas (Dorado)
+gorra de monedas (Sin variaciones)
 diadema de princesa (Plateado)
 cinta para el pelo (Rosa)
 
@@ -6820,7 +6820,7 @@ móvil ornamentos
 camisa aloha piñas (Rojo)
 camisa aloha piñas (Amarillo)
 camisa aloha piñas (Verde)
-camiseta estrellón (Púrpura)
+camiseta estrellón (Sin variaciones)
 
 
 
@@ -6828,12 +6828,12 @@ lámpara estrella
 guirnalda estrellas
 
 sillón cuarto creciente
-
+caja música concha marina
 farol flor de cerezo
 reloj flor de cerezo
 
 
-camiseta MVP (Blanco)
+camiseta MVP (Sin variaciones)
 
 
 mochila escolar (Verde)
@@ -6861,8 +6861,8 @@ pared damero negro
 botín con pompones (Rojo)
 pared pasillo blanca
 pared pasillo negra
-pared losa desierto caqui
-pared losa desierto lila
+pared losa marroquí caqui
+pared losa marroquí lila
 pared barquito amarilla
 pared barquito verde
 botín con pompones (Amarillo)
@@ -6886,7 +6886,7 @@ mocasín de talón bajo (Rojo)
 mocasín de talón bajo (Azul)
 
 
-camiseta n.º 1 (Rojo)
+camiseta n.º 1 (Sin variaciones)
 mocasín de talón bajo (Verde)
 mocasín de talón bajo (Negro)
 
@@ -6919,14 +6919,14 @@ paraguas tartán
 paraguas de vinilo a topos
 paraguas negro
 calamar luciérnaga
-halo (Dorado)
+halo (Sin variaciones)
 chancla (Verde)
 paraguas camuflaje
 paraguas amuleto
 paraguas rana
 paraguas vichy
-losa desierto lila
-losa desierto caqui
+losa marroquí lila
+losa marroquí caqui
 figura de carpín
 figura de pez dorado
 figura de amarguillo
@@ -7152,7 +7152,7 @@ esquina azul
 esquina roja
 esquina neutral
 bañera de ciprés
-
+cajón de madera
 
 
 
@@ -7252,7 +7252,7 @@ silo
 punta de cola diplodocus
 pulpo paraguas
 reloj estrella
-gorro de paja achatado (Marrón)
+gorro de paja achatado (Sin variaciones)
 
 
 pedalera de guitarra
@@ -7375,8 +7375,8 @@ alfombra desorden
 hoja de arce
 
 
-guirnalda rosa azul (Azul)
-guirnalda rosa dorada (Dorado)
+guirnalda rosa azul (Sin variaciones)
+guirnalda rosa dorada (Sin variaciones)
 aerogenerador
 alfombra tablas natural
 alfombra tablas blanca
@@ -7475,9 +7475,9 @@ mochila impermeable (Amarillo)
 
 
 bolsa de polipiel (Marrón)
-bolsito pez (Azul)
-bolsa de pesca (Azul)
-jaula para bichos (Verde)
+bolsito pez (Sin variaciones)
+bolsa de pesca (Sin variaciones)
+jaula para bichos (Sin variaciones)
 bolso de pelo sintético (Rosa)
 bolsita con flecos (Pardo)
 bolso de punto (Verde)
@@ -7486,30 +7486,30 @@ mochilita polipiel al hombro (Azul marino)
 bolsa gimnasio al hombro (Rojo)
 bandolera esferas (Pop)
 bandolera de tela (Azul)
-bolsita de cáñamo (Marrón)
-bolsito estrella (Amarillo)
-bolsito flor de cerezo (Rosa)
-bolsito hoja de arce (Rojo)
-bolsito bellota (Marrón)
-bolsito copo de nieve (Blanco)
-bolsito concha marina (Blanco)
+bolsita de cáñamo (Sin variaciones)
+bolsito estrella (Sin variaciones)
+bolsito flor de cerezo (Sin variaciones)
+bolsito hoja de arce (Sin variaciones)
+bolsito bellota (Sin variaciones)
+bolsito copo de nieve (Sin variaciones)
+bolsito concha marina (Sin variaciones)
 
 
-bolsa de herramientas (Negro)
-mochila troncos (Marrón)
+bolsa de herramientas (Sin variaciones)
+mochila troncos (Sin variaciones)
 mochila de trotamundos (Naranja)
 mochila rectangular (Amarillo)
 mochila de acampada (Verde bosque)
-mochila mariposa (Rosa)
+mochila mariposa (Sin variaciones)
 mochila con tachuelas (Negro)
 mochilita de polipiel (Blanco)
 mochila de senderismo (Rojo)
-mochila cesta (Verde)
+mochila cesta (Sin variaciones)
 mochila de cierre sellado (Verde)
 mochila saco (Azul)
-mochila de lona (Blanco)
+mochila de lona (Sin variaciones)
 mochila de mamá (M)
-mochila de mimbre (Verde)
+mochila de mimbre (Sin variaciones)
 mochila rígida (Azul)
 
 
@@ -7655,18 +7655,18 @@ balón pera
 patinete eléctrico
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+Tota-fuga
+Tota-polka
+Tota-kī hō'alu
+Tota-chorinho
+Tota-sintes
+Tota-dub
+Tota-amores
+Tota-dancehall
+Tota-hop
+Tota-break
+Tota-khöömei
+Tota-loid
 
 
 
@@ -7998,8 +7998,8 @@ sudadera sin mangas (Púrpura)
 sudadera sin mangas (Naranja)
 cazadora bulldog (Blanco)
 cazadora bulldog (Rojo)
-corona real (Dorado)
-jersey fantasía (Azul)
+corona real (Sin variaciones)
+jersey ensueño (Azul)
 jersey con bufanda (Gris)
 jersey con bufanda (Marrón)
 jersey con bufanda (Pardo)
@@ -8190,22 +8190,22 @@ vestido topos (Rojo)
 vestido hawaiano hibiscos (Rojo)
 vestido polinesio (Azul marino)
 
-top peligro (Amarillo)
+top peligro (Sin variaciones)
 jersey corazón (Rosa)
-jersey pino (Beis)
-camiseta ranita (Beis)
-camiseta osito (Verde)
-camiseta conejito (Azul)
+jersey pino (Sin variaciones)
+camiseta ranita (Sin variaciones)
+camiseta osito (Sin variaciones)
+camiseta conejito (Sin variaciones)
 camiseta rayas animales (Tigre)
 camiseta de leopardo (Amarillo)
-camiseta huesito (Amarillo)
-camiseta bruma (Verde)
+camiseta huesito (Sin variaciones)
+camiseta bruma (Sin variaciones)
 camiseta topos multicolor (Negro)
 camiseta topos (Amarillo)
-jersey zigzag (Rojo, verde y dorado)
+jersey zigzag (Sin variaciones)
 camiseta florida (Rosa)
 camisa aloha polinesia (Azul marino)
-camiseta telaraña (Negro)
+camiseta telaraña (Sin variaciones)
 camiseta calavera (Negro)
 
 
@@ -8530,7 +8530,7 @@ blusa manga abullonada (Lima)
 camisa con cámara (Negro)
 camisa con brazalete (Rojo)
 camisa con brazalete (Amarillo)
-camiseta A (Azul)
+camiseta A (Sin variaciones)
 regadera de oro
 regadera colorida
 regadera elefante
@@ -8607,7 +8607,7 @@ vestido polinesio (Rosa)
 
 
 pirámide
-casco de Copito (Blanco)
+casco de Copito (Sin variaciones)
 horquilla oriental (Rojo)
 horquilla flor (Rosa)
 gorra de piloto (Azul marino)
@@ -8697,9 +8697,9 @@ vestido mágico (Rojo)
 vestido mágico (Púrpura)
 vestido mágico (Negro)
 vestido mágico (Celeste)
-vestido fantasía (Amarillo)
-vestido fantasía (Azul)
-vestido fantasía (Verde)
+vestido ensueño (Amarillo)
+vestido ensueño (Azul)
+vestido ensueño (Verde)
 esfinge
 falda plisada larga (Blanco)
 falda plisada larga (Amarillo)
@@ -8762,8 +8762,8 @@ funda móvil personalizable
 
 jersey de punto de mamá (M)
 delantal de mamá (M)
-camisa aloha bichos (Negro)
-camiseta estampada pez (Verde bosque)
+camisa aloha bichos (Sin variaciones)
+camiseta estampada pez (Sin variaciones)
 
 paraguas mariquita
 paraguas peces
@@ -8905,7 +8905,7 @@ buzón de madera blanco
 falda encaje (Rosa)
 falda encaje (Verde)
 falda encaje (Beis)
-falda de hojas (Verde)
+falda de hojas (Sin variaciones)
 falda de tweed con lazo (Gris)
 falda de tweed con lazo (Rosa)
 falda de tweed con lazo (Azul)
@@ -9192,9 +9192,9 @@ pantalón étnico (Marrón)
 pantalón étnico (Azul marino)
 pantalón étnico (Naranja)
 bermuda jardín botánico (Blanco)
-pantalón fantasía (Verde)
-pantalón fantasía (Amarillo)
-pantalón fantasía (Azul)
+pantalón ensueño (Verde)
+pantalón ensueño (Amarillo)
+pantalón ensueño (Azul)
 bata de invierno gruesa (Verde)
 bata de invierno gruesa (Marrón)
 bata de invierno gruesa (Púrpura)
@@ -9502,7 +9502,7 @@ camiseta topos (Verde)
 camiseta topos (Negro)
 armario de tela
 micro con trípode
-vestido tartán vivaz (Verde)
+vestido tartán vivaz (Sin variaciones)
 traje de bufón (Negro y blanco)
 traje de bufón (Rojo y azul)
 traje de bufón (Verde y rojo)
@@ -9533,8 +9533,8 @@ mono psicodélico (Granate)
 mono psicodélico (Púrpura)
 mono psicodélico (Rojo)
 traje steampunk (Púrpura)
-top estrellas (Blanco)
-camiseta fuego (Rojo)
+top estrellas (Sin variaciones)
+camiseta fuego (Sin variaciones)
 pantalón raya fina (Celeste)
 chaqueta desteñida (Negro)
 tejano con estampado (Celeste)
@@ -9652,7 +9652,7 @@ calcetín de diario (Marrón)
 
 
 
-antifaz dormir de Nook Inc. (Verde)
+antifaz dormir de Nook Inc. (Sin variaciones)
 media (Gris)
 media (Blanco)
 media (Marrón)
@@ -9758,8 +9758,8 @@ horquilla oriental (Púrpura)
 horquilla oriental (Rosa)
 horquilla oriental (Verde)
 horquilla oriental (Azul cielo)
-camiseta de Nook Inc. (Amarillo)
-mochila saco de Nook Inc. (Marrón)
+camiseta de Nook Inc. (Sin variaciones)
+mochila saco de Nook Inc. (Sin variaciones)
 paipay de Nook Inc.
 gorra de béisbol (Rojo)
 
@@ -9831,20 +9831,20 @@ blusa adorable (Rosa)
 delantal de trabajo (Naranja)
 camiseta jardín botánico (Negro)
 camisa psicodelia (Naranja)
-kimono junihitoe (Rojo)
+kimono junihitoe (Sin variaciones)
 vestido de época (Azul marino)
-hakama con emblema (Negro)
-vestido manzana (Rojo)
-vestido pera (Beis)
-vestido cerezas (Rojo)
-vestido melocotón (Melocotón)
+hakama con emblema (Sin variaciones)
+vestido manzana (Sin variaciones)
+vestido pera (Sin variaciones)
+vestido cerezas (Sin variaciones)
+vestido melocotón (Sin variaciones)
 pantalón corto fútbol (Verde)
 pantalón corto exploración (Pardo)
 falda estampado animal (Tigre)
 
 pantalón rugby (Verde)
 
-zapato kung-fu (Negro)
+zapato kung-fu (Sin variaciones)
 manoletina con bordado (Rojo)
 
 
@@ -9855,12 +9855,12 @@ manoletina con bordado (Rojo)
 clip flor (Rosa)
 clip corazón (Rosa)
 clip estrella (Amarillo)
-diadema luciérnagas (Verde)
-diadema florecillas (Azul)
-diadema corazones (Rosa)
-pasador (Rosa)
+diadema luciérnagas (Sin variaciones)
+diadema florecillas (Sin variaciones)
+diadema corazones (Sin variaciones)
+pasador (Sin variaciones)
 maxilazo (Rojo)
-casco estrella (Amarillo)
+casco estrella (Sin variaciones)
 casco para patinete (Naranja)
 gorro de punto trenzado (Blanco)
 
@@ -9869,10 +9869,10 @@ gorra serigrafiada (Rojo)
 sombrero de paja con lazo (Azul)
 
 gorro de patchwork (Rosa)
-gorro manzana (Rojo)
-gorro pera (Verde)
-gorro cerezas (Rojo)
-gorro melocotón (Melocotón)
+gorro manzana (Sin variaciones)
+gorro pera (Sin variaciones)
+gorro cerezas (Sin variaciones)
+gorro melocotón (Sin variaciones)
 camiseta de punto Trini (Crepúsculo)
 abrigo Trini (Crepúsculo)
 vestido Trini (Crepúsculo)
@@ -10774,7 +10774,7 @@ póster de Paca
 póster de Nuria
 póster de Olivia
 póster de Teddy
-póster de DJ KeKe
+póster de DJ KeKe
 póster de Mili
 póster de Charo
 póster de Gatomán
@@ -10828,11 +10828,11 @@ pasamontañas (Negro)
 pasamontañas (Lima)
 pasamontañas (Rojo)
 pasamontañas (Azul)
-
-
-
-
-
+protector de cabeza infantil (Rojo)
+protector de cabeza infantil (Celeste)
+protector de cabeza infantil (Verde)
+protector de cabeza infantil (Azul marino)
+protector de cabeza infantil (Plateado)
 gorro helado cremoso (Chocolate)
 gorro helado cremoso (Oro)
 gorro helado cremoso (Fresa)
@@ -10906,7 +10906,7 @@ jersey parvulario (Rana)
 
 túnica bekasab (Rojo)
 kimono ainu (Azul)
-kimono bingata (Amarillo)
+kimono bingata (Sin variaciones)
 abrigo con chal de peluche (Naranja)
 mono de trabajo de pintor (Beis)
 vestido de Carnaval (Azul)
@@ -11177,7 +11177,7 @@ antifaz elegante (Azul)
 pared sala de té chic
 pared sala de té relajante
 pared sala de té moderna
-vestido punk (Negro)
+vestido punk (Sin variaciones)
 pared ventanas orientales
 
 figura de peces mariposa
@@ -11259,7 +11259,7 @@ bota alta (Blanco)
 bota alta (Marrón)
 bota alta (Rojo)
 trofeo arowana de oro
-engranaje de oro
+engranaje dorado
 
 pantalón acolchado (Negro)
 pantalón acolchado (Rojo)
@@ -12034,11 +12034,11 @@ tubeteika (Púrpura)
 matanpushi (Marrón)
 matanpushi (Rojo)
 abrigo con chal de peluche (Gris)
-camiseta n.º 2 (Azul)
-camiseta n.º 3 (Verde)
-camiseta n.º 4 (Rosa)
-
-
+camiseta n.º 2 (Sin variaciones)
+camiseta n.º 3 (Sin variaciones)
+camiseta n.º 4 (Sin variaciones)
+cuadro bichos
+cuadro peces
 sombrero aloha piñas (Blanco)
 sombrero aloha piñas (Azul)
 gorra serigrafiada (Beis)
@@ -12112,25 +12112,25 @@ sombrero aloha piñas (Amarillo)
 sombrero aloha piñas (Rosa)
 
 
-camiseta «⁠konnichiwa» (Verde)
-camiseta «⁠bonjour» (Blanco)
-camiseta «⁠hello» (Gris)
-camiseta «⁠annyeong» (Celeste)
-camiseta «⁠ni hao» (Rosa)
-camiseta «⁠hallo» (Negro)
-camiseta «⁠ciao» (Rojo)
-camiseta «⁠hola» (Amarillo)
-camiseta «⁠privét» (Verde)
-camiseta «⁠hi» (Beis)
-camiseta «⁠hoi» (Azul)
-camiseta de DAL (Azul)
-delantal de DAL (Azul)
-chaqueta de piloto de DAL (Verde)
-antifaz para dormir de DAL (Azul)
-gafa de sol de DAL (Amarillo)
-pantufla de DAL (Azul)
-mochila de DAL (Azul)
-gorra de DAL (Azul)
+camiseta «⁠konnichiwa» (Sin variaciones)
+camiseta «⁠bonjour» (Sin variaciones)
+camiseta «⁠hello» (Sin variaciones)
+camiseta «⁠annyeong» (Sin variaciones)
+camiseta «⁠ni hao» (Sin variaciones)
+camiseta «⁠hallo» (Sin variaciones)
+camiseta «⁠ciao» (Sin variaciones)
+camiseta «⁠hola» (Sin variaciones)
+camiseta «⁠privét» (Sin variaciones)
+camiseta «⁠hi» (Sin variaciones)
+camiseta «⁠hoi» (Sin variaciones)
+camiseta de DAL (Sin variaciones)
+delantal de DAL (Sin variaciones)
+chaqueta de piloto de DAL (Sin variaciones)
+antifaz para dormir de DAL (Sin variaciones)
+gafa de sol de DAL (Sin variaciones)
+pantufla de DAL (Sin variaciones)
+mochila de DAL (Sin variaciones)
+gorra de DAL (Sin variaciones)
 parasol muñequita lila
 parasol muñequita azul
 parasol muñequita blanco
@@ -12213,14 +12213,14 @@ roca con musgo
 デモ用たぬきマイルカード
 
 alfombra bolsa de bayas
-
-
+alfombra sandía roja
+alfombra sandía amarilla
 alfombra concha veraniega
 
-
-
-
-
+alfombra galleta
+alfombra exquisita roja
+alfombra exquisita verde
+alfombra estrella amarilla
 
 
 
@@ -12303,16 +12303,16 @@ proyecto hacha endeble
 
 
 
+jarrón de azucenas
 
+extintor
+silla de recepción
+planta tropical
 
-
-
-
-
-
-
-
-
+bicicleta de paseo
+mesa tronco
+teléfono público
+banco TV
 
 
 
@@ -12324,47 +12324,47 @@ proyecto hacha endeble
 
 
 alfombra botánica Nook Inc.
-bota reciclada (Marrón)
+bota reciclada (Sin variaciones)
 proyecto escalera de mano
-
-
-
+alfombra disco de vinilo
+alfombra bambú verde
+alfombra bambú amarilla
 
 mesita de madera natural
 
+alfombra calavera
+alfombra bellota
 
 
+sillón de masaje retro
+sillón de masaje de polipiel
+red de voleibol
+camilla de ambulancia
+electrocardiógrafo
+escalera plegable
+set de béisbol
+mesa de aluminio
+silla de aluminio
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+silla ranita
+mesa de trabajo
+taburete de trabajo
+alfombra flor de cerezo
 camiseta camuflaje (Púrpura)
 camiseta camuflaje (Rojo)
 
 
+asiento de mimbre
+
+heladera terma retro
 
 
+banco japonés
 
+felpudo hueso
 
-
-
-
-
-
-
-
+silla de plástico
+banco de plástico
 
 estandarte del mercado
 puesto de galletas fortuna
@@ -12377,28 +12377,28 @@ cartel parcela de acampada
 
 
 
+alfombra tocón
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+estera ejercicio blanca
+estera ejercicio azul
+estera ejercicio verde
+estera ejercicio roja
+alfombra hoja de arce
+alfombra hawaiana azul
+alfombra hawaiana verde
+alfombra hawaiana rosa
+alfombra hawaiana amarilla
+alfombra imperial
 felpudo de seda Nook Inc.
 
 arco Caza del Huevo
-
-
+alfombrilla bambú clara
+alfombrilla bambú oscura
 banco de boda
 arco de boda
 tarta de boda
@@ -12422,9 +12422,9 @@ tocador Caza del Huevo
 globo Caza del Huevo set 2
 
 suelo Caza del Huevo
-gorra de OK Motors (Blanco)
-camisa de OK Motors (Blanco)
-camiseta de campista (Verde)
+gorra de OK Motors (Sin variaciones)
+camisa de OK Motors (Sin variaciones)
+camiseta de campista (Sin variaciones)
 
 
 
@@ -12437,28 +12437,28 @@ suelo de boda verde
 mesa Caza del Huevo
 armario Caza del Huevo
 cesta Caza del Huevo
-cáscara de huevo terrestre (Rojo)
-cáscara de huevo rupestre (Amarillo)
-cáscara de huevo boscoso (Verde)
-cáscara de huevo leñoso (Naranja)
-cáscara de huevo celeste (Azul)
-cáscara de huevo acuático (Púrpura)
-guirnalda Caza del Huevo (Multicolor)
-sombrero de fiesta huevo (Multicolor)
-mochila Caza del Huevo (Multicolor)
-vestido de fiesta huevo (Multicolor)
-traje de huevo terrestre (Rojo)
-traje de huevo rupestre (Amarillo)
-traje de huevo boscoso (Verde)
-traje de huevo leñoso (Naranja)
-traje de huevo celeste (Azul)
-traje de huevo acuático (Púrpura)
-zapato de huevo terrestre (Rojo)
-zapato de huevo rupestre (Amarillo)
-zapato de huevo boscoso (Verde)
-zapato de huevo leñoso (Naranja)
-zapato de huevo celeste (Azul)
-zapato de huevo acuático (Púrpura)
+cáscara de huevo terrestre (Sin variaciones)
+cáscara de huevo rupestre (Sin variaciones)
+cáscara de huevo boscoso (Sin variaciones)
+cáscara de huevo leñoso (Sin variaciones)
+cáscara de huevo celeste (Sin variaciones)
+cáscara de huevo acuático (Sin variaciones)
+guirnalda Caza del Huevo (Sin variaciones)
+sombrero de fiesta huevo (Sin variaciones)
+mochila Caza del Huevo (Sin variaciones)
+vestido de fiesta huevo (Sin variaciones)
+traje de huevo terrestre (Sin variaciones)
+traje de huevo rupestre (Sin variaciones)
+traje de huevo boscoso (Sin variaciones)
+traje de huevo leñoso (Sin variaciones)
+traje de huevo celeste (Sin variaciones)
+traje de huevo acuático (Sin variaciones)
+zapato de huevo terrestre (Sin variaciones)
+zapato de huevo rupestre (Sin variaciones)
+zapato de huevo boscoso (Sin variaciones)
+zapato de huevo leñoso (Sin variaciones)
+zapato de huevo celeste (Sin variaciones)
+zapato de huevo acuático (Sin variaciones)
 pared banquete de boda
 alfombra de boda azul
 
@@ -12493,9 +12493,9 @@ camelia rosa joven
 camelia rosa adulta
 
 
-zapato nupcial con lazo (Blanco)
-zapato nupcial con hebilla (Blanco)
-esmoquin nupcial (Blanco)
+zapato nupcial con lazo (Sin variaciones)
+zapato nupcial con hebilla (Sin variaciones)
+esmoquin nupcial (Sin variaciones)
 
 
 
@@ -12514,12 +12514,12 @@ huevo leñoso
 huevo celeste
 huevo acuático
 
-
+sámpler
 corona Caza del Huevo
 
 
 
-
+alfombra cielo estrellado
 
 
 
@@ -12548,8 +12548,8 @@ joya amorosa
 
 
 
-
-
+musgo luminoso
+enredadera
 mesa sirena
 estantería sirena
 tocador sirena
@@ -12573,46 +12573,46 @@ cuadro naturaleza (izda.) (falsificación)
 tonel pirata tumbado
 cofre del tesoro pirata
 tonel pirata
-capa hecha a mano (Rojo)
-corona hecha a mano (Rojo)
-corona de girasoles (Amarillo)
+capa hecha a mano (Sin variaciones)
+corona hecha a mano (Sin variaciones)
+corona de girasoles (Sin variaciones)
 varita Caza del Huevo
 Nintendo Switch ACNH
 
 
+foto de Naricia
+foto de Río
+foto de Azalea
+foto de Felicia
+foto de Gabino
+foto de Uno
+foto de Ulises
+foto de Roswell
+foto de Auri
+foto de Yuki
+foto de Petri
+foto de Alexis
+foto de Ariel
+foto de Octoberto
+foto de Marlo
+foto de Tiansheng
 
+silla de oficina
+niveladora
+hormigonera
+excavadora
+apisonadora
+martillo neumático
+valla de obras
+tractor
+estantería invernadero
+vitrina de floristería
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+máquina de granizados
+armadura
+expendedora de juguetes
+juego de té pomposo
+silla pavo real
 hacha maltrecha
 
 
@@ -12635,6 +12635,7 @@ valla Caza del Huevo
 
 
 
+escritorio consulta médica
 
 
 
@@ -12650,8 +12651,7 @@ valla Caza del Huevo
 
 
 
-
-
+cama de hospital
 
 
 
@@ -12659,76 +12659,76 @@ valla Caza del Huevo
 
 
 zapato sirena (Rosa)
-tiara de sirena (Blanco)
-parche pirata (Negro)
+tiara de sirena (Sin variaciones)
+parche pirata (Sin variaciones)
 barba de pirata (Color del pelo)
-pantalón de pirata (Negro)
-bota pirata (Marrón)
+pantalón de pirata (Sin variaciones)
+bota pirata (Sin variaciones)
 pañuelo de pirata (Rojo)
-casaca del tesoro pirata (Negro)
+casaca del tesoro pirata (Sin variaciones)
 traje de pirata (Rojo)
+taburete rosquilla
+cajonera de oficina
 
 
+archivador grande
+archivador mediano
+macetero separador
+revistero grande
+armario de medicinas
+mostrador recepción curvo
+mostrador de recepción
 
+muro de separación
 
+noria de feria
+tiovivo de feria
+muñeco hinchable de feria
+fuente de parque
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+banco de feria
+arco de feria
+puesto de feria
+carrito de globos de feria
+reloj de feria
+farola con pendones
 
 varita ramo de boda
 
 
 
+cartel eléctrico de pie
+escritorio de oficina
+taquilla de escuela
+correa portalibros
+fregona
+silla escolar con rejilla
+olla
+wok
+lote de conservas
+set de pastelería
+tabla de cortar pescado
+lavavajillas exprés
+
+bufé de ensalada
+registradora antigua
+registradora digital
+tablón de avisos
+
+pizarra sección izquierda
+pizarra sección derecha
+
+jarra de servicio
+pared circo
 
 
+pared armario medicinas
+alfombra pista de circo
+suelo sala hospitalización
+suelo circo
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+suelo quirófano
+losa piedra desgastada
 
 
 
@@ -12742,8 +12742,8 @@ varita ramo de boda
 mapamundi
 
 
-
-
+mesita con mantel
+mesa grande con mantel
 
 azalea blanca retoño
 azalea rosa retoño
@@ -12764,19 +12764,81 @@ seto
 
 
 
+mesita de cafetería
+mesa grande de cafetería
+pie para caja registradora
+vitrina de postres
 
 
+mostrador de helados
+silla giratoria
+puesto de bandejas
+lote merienda
+barra mostrador
+barra techada
+registradora pantalla táctil
+mampara de pino
+estante con botellas
+vitrina con ruedas
+mesa de terraza
+zumo de naranja sanguina
+refresco de melón
+café solo con hielo
 
+refresco de fresa
+café con leche con hielo
+zumo multifrutas
+té helado al limón
+ramen picante al sésamo
+ramen a la salsa de soja
+ramen tradicional
+ramen de miso
+ramen salado
+camiseta festival del tomate (Sin variaciones)
+mochila vendimia (Sin variaciones)
 
 
+batido
 
 
+locomotora de feria
 
 
+FtrOneroomBox1x1
+FtrOneroomBox2x1
+FtrOneroomBox2x2
+FtrOneroomBox3x3
 
 
 
+cesta de pan vegetal
 
+arroz pilaf
+bandeja de nigiri
+bandeja de nigiri superior
+bandeja de nigiri supremo
+menú bocadillo de tortilla
+menú bocadillo vegetal
+menú bocadillo caprese
+cesta de pan y bollería
+cesta de pan integral
+cesta de pan y galletas
+menú desayuno sándwich
+menú desayuno completo
+arroz salteado
+risotto
+arroz al curry
+arroz con tortilla y tomate
+arroz salteado a la albahaca
+arroz salteado con tomate
+arroz biryani
+pasta arrabbiata
+pasta a la tinta de calamar
+pasta carbonara
+pasta al pesto
+pasta marinara
+menú desayuno vegetal
+pasta napolitana
 
 
 
@@ -12784,9 +12846,20 @@ seto
 
 
 
+pared vestíbulo
+pared taquillas rojas
 
+pared quirófano
+suelo natural
+suelo rayuela
+suelo gimnasio
+pared tapia ladrillo elegante
+ぞうきん
 
 
+ぞうきんがけエプロン (Sin variaciones)
+ぞうきんがけのズボン (Sin variaciones)
+ぞうきんがけのバンダナ (Sin variaciones)
 
 
 
@@ -12795,7 +12868,6 @@ seto
 
 
 
-mochila vendimia (Marrón)
 
 
 
@@ -12803,119 +12875,47 @@ mochila vendimia (Marrón)
 
 
 
+mochila osito (Marrón)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+cartel promocional de mesa
+cartel promocional de pie
+maniquí adulto
+maniquí infantil
+expositor de ropa mediano
+expositor de ropa pequeño
+expositor de ropa perchero
+expositor de ropa esquinero
+mostrador con vitrina
+perchero de barra
+escabel tapizado cuadrado
+mesa de mercancías
+espejo de cuerpo entero
+bolsa de papel con asas
+pila de cajas de zapatos
 valla de boda
 
 
+tomatera joven
+tomatera madura
+espiga de trigo madura
+caña de azúcar madura
+caña de azúcar joven
+patata madura
+patata joven
 
+zanahoria madura
+pared opulenta blanca
+pared restaurante añejo
+pared dispensadores café
+pared surtido de helados
+pared ventana exterior
+pared boutique
+pared estantes blanca
+pared ambigú cine
 
+suelo cocina restaurante
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+suelo comida rápida
 
 
 
@@ -12957,58 +12957,58 @@ bandeja chuches calabaza
 
 vestido princesa sirena (Rosa)
 vestido cola de sirena (Rosa)
-jersey invernal (Beis)
+jersey invernal (Sin variaciones)
+escayola de pie (Blanco)
+cuadro fósiles
+mascarilla quirúrgica (Blanco)
+vendaje de cabeza (Blanco)
 
-
-
-
-
-
-
-
+gasa para la nariz (Sin variaciones)
+par de tiritas de rodilla (Sin variaciones)
+pañal (Celeste)
 perla
 
-traje de buceo de Nook Inc. (Verde)
+traje de buceo de Nook Inc. (Sin variaciones)
 
 
 
 bengala azul
+gasa para el ojo (Sin variaciones)
+minidaruma
 
 
 
-
-
-corona del tesoro pirata (Plateado)
+corona del tesoro pirata (Sin variaciones)
 traje de buceo hoja (Celeste)
-cam. aloha Nook Inc. coral (Salmón)
-cam. aloha Nook Inc. verde (Verde)
+cam. aloha Nook Inc. coral (Sin variaciones)
+cam. aloha Nook Inc. verde (Sin variaciones)
 
-
+cuadro especies submarinas
 traje de buceo a rayas (Rojo)
-túnica de Soponcio (Púrpura)
+túnica de Soponcio (Sin variaciones)
 traje andrajoso (Naranja)
 vestido de hechicería (Naranja)
 disfraz de animal (Naranja)
+taburete simple
+
+tocador simple
+cama simple
+sofá simple
+silla simple
+alacena de pared simple
+mesita de noche simple
+mesa simple
 
 
-
-
-
-
-
-
-
-
-
-máscara de Soponcio (Naranja)
+máscara de Soponcio (Sin variaciones)
 capucha escuela de magia (Naranja)
-
-
-
-
-
-
-
+mesa de diseño
+sillón de diseño
+mesa de té cosmopolita
+mesita cosmopolita
+silla cosmopolita
+cama cosmopolita
+sofá cosmopolita
 
 sombrero hechicería rayas (Naranja)
 
@@ -13016,15 +13016,15 @@ sombrero hechicería rayas (Naranja)
 par de alas de diablillo (Naranja)
 bota de animal (Naranja)
 bota de hechicería (Naranja)
-nariz de animal (Negro)
-
-
+nariz de animal (Sin variaciones)
+pared musgo lumin. bosque
+pared Archipiélago
 
 par de cuernos de diablillo (Naranja)
 gorro orejas puntiagudas (Naranja)
 gorro orejas redondeadas (Naranja)
 
-
+suelo Archipiélago
 
 
 media rayas horizontales (Naranja)
@@ -13037,6 +13037,26 @@ póster de Etoile
 póster de Chai
 póster de Chelsea
 póster de Toby
+póster de Naricia
+póster de Río
+póster de Azalea
+póster de Felicia
+póster de Gabino
+póster de Uno
+póster de Ulises
+póster de Roswell
+póster de Auri
+póster de Yuki
+póster de Petri
+póster de Alexis
+póster de Ariel
+póster de Octoberto
+póster de Marlo
+póster de Tiansheng
+póster de Miko
+póster de Matías
+felpudo de coco «café»
+felpudo simple
 
 
 
@@ -13051,39 +13071,19 @@ póster de Toby
 
 
 
+silla escandinava
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+sofá escandinavo
+mesita escandinava
+banco TV escandinavo
+aparador escandinavo
+mesa escandinava
+armario rústico
+mesa alargada rústica
+banco TV rústico
+puf marroquí
+mesita marroquí
+sofá marroquí
 
 zapato sirena (Celeste)
 pañuelo de pirata (Azul)
@@ -13102,32 +13102,33 @@ traje de buceo hoja (Verde)
 traje de buceo a rayas (Azul)
 traje de buceo a rayas (Amarillo)
 traje de buceo a rayas (Negro)
-
+caja bombones de recuerdo
 comunicador
 bengala de tubo
 bengala de tubo usada
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+organizador vertical
+organizador horizontal
+cajonera para ropa
+cómoda japonesa
+mesita de té
+biombo shoji
+taburete de linóleo
+escritorio de linóleo
+sofá de linóleo y polipiel
+mesa de té de linóleo
+cómoda de linóleo
+lámpara industrial
+lámpara tres esferas
+lámpara de techo bandas
+fluorescente japonés
 globo rojo
 globo amarillo
 globo verde
 globo rosa
-
+suelo empedrado ajado
 banderín Nook Inc. portátil
 
+pared discoteca
 
 
 
@@ -13135,90 +13136,89 @@ banderín Nook Inc. portátil
 
 
 
+silla elegante
+cama elegante
+consola elegante
+sofá elegante
+lamparita elegante
+cómoda elegante
+lámpara de techo simple
+lámpara techo art nouveau
+lámp. techo vidrio opalino
+fluorescente de techo
+línea de halógenos
+lámpara techo escandinava
+lámpara de techo marroquí
+farolillo oriental
+lámpara de techo imperial
+lámpara techo geométrica
+lámpara de araña
+lámpara de techo espiral
+ventilador de techo
+pantalla de techo doble
+repisa colgante doble
 
 
+anuncio barrera de madera
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-gorro Hello Kitty (Blanco)
-camiseta Hello Kitty (Azul)
-mercedita Hello Kitty (Blanco)
-capucha My Melody (Rosa)
-bota My Melody (Rosa)
-clip Kiki & Lala (Amarillo)
-camiseta Kiki & Lala (Rosa)
-calcetín Kiki & Lala (Rosa)
+cubículo sencillo
+bola de discoteca
+gorro Hello Kitty (Sin variaciones)
+camiseta Hello Kitty (Sin variaciones)
+mercedita Hello Kitty (Sin variaciones)
+capucha My Melody (Sin variaciones)
+bota My Melody (Sin variaciones)
+clip Kiki & Lala (Sin variaciones)
+camiseta Kiki & Lala (Sin variaciones)
+calcetín Kiki & Lala (Sin variaciones)
 varita Kiki & Lala
-mercedita Kiki & Lala (Rosa)
-gorro Pompompurin (Amarillo)
-camiseta Pompompurin (Amarillo)
-botín Pompompurin (Amarillo)
-chaqueta Cinnamoroll (Celeste)
-zapatilla Cinnamoroll (Celeste)
-conjunto Kerokerokeroppi (Verde)
-top Kerokerokeroppi (Rojo)
-clip Kerokerokeroppi (Blanco)
-calcetín Kerokerokeroppi (Rojo)
-bota Kerokerokeroppi (Verde)
-
-
-
-
-
-
-
-
-
+mercedita Kiki & Lala (Sin variaciones)
+gorro Pompompurin (Sin variaciones)
+camiseta Pompompurin (Sin variaciones)
+botín Pompompurin (Sin variaciones)
+chaqueta Cinnamoroll (Sin variaciones)
+zapatilla Cinnamoroll (Sin variaciones)
+conjunto Kerokerokeroppi (Sin variaciones)
+top Kerokerokeroppi (Sin variaciones)
+clip Kerokerokeroppi (Sin variaciones)
+calcetín Kerokerokeroppi (Sin variaciones)
+bota Kerokerokeroppi (Sin variaciones)
+jarrón pequeño
+jarrón de porcelana
+jarrón delicado
+jaula para balones
+cómoda en escalera
+espada
+arco
+armadura samurái
+suelo discoteca
 
 Mis diseños profesionales +
 piruleta
 chuche
 
 
+camisa aloha Archipiélago (Sin variaciones)
+palangana
+peldaño de aseo
+bañera terma cuadrada
+
+estante de alimentación
+bolsa de la compra
+panel LED pequeño
+
+tableta
+portacestas del súper
+carro alto de almacén
+
+
+papelera pública
+gafa de buceo Nook Inc. (Sin variaciones)
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-gafa de buceo Nook Inc. (Verde)
-
-
-
-
-
+set de farolillos orientales
 cama de Alakama
 guirnalda calabaza
 servicio de mesa calabaza
@@ -13227,7 +13227,7 @@ suelo calabaza
 
 calabaza de vivero
 cupón de bayas onírico
-
+campana extractora
 pared fuegos artificiales
 
 
@@ -13237,8 +13237,8 @@ pared fuegos artificiales
 
 varita calabaza
 
-atuendo de Orihime (Rojo)
-atuendo de Hikoboshi (Azul)
+atuendo de Orihime (Sin variaciones)
+atuendo de Hikoboshi (Sin variaciones)
 trineo de Renato
 helicóptero teledirigido
 cachorro de peluche
@@ -13253,31 +13253,31 @@ dinosaurio de juguete
 casa de muñecas
 
 
-
+vitrina lujosa
 Trucos de pintura corporal
 Guía de lentillas de colores
 
 
 
 
+plumeria rosa de vivero
+plumeria rosa joven
+plumeria rosa adulta
+plumeria rosa retoño
+reloj búho
 
-
-
-
-
-
-
-
-
-
-
-
-
+carromato
+porche
+radio antigua
+altavoz inalámbrico
+fresno de hoja perenne
+cactus
+reloj de pulsera
 valla calabaza
-vestido Hello Kitty (Azul)
-
-
-
+vestido Hello Kitty (Sin variaciones)
+maniquí torso
+maniquí piernas
+maniquí cabeza
 
 
 
@@ -13286,32 +13286,32 @@ vestido Hello Kitty (Azul)
 
 
 alfombra luna
-
+trona
 
 
 
 
 Ring-Con
-
-
-
-gorro Cinnamoroll (Blanco)
-blusa Cinnamoroll (Celeste)
-
-
-
-
-
-
-
-
-
-
-
+sombrilla con tumbonas
+atril de concurso
+asiento de a bordo
+gorro Cinnamoroll (Sin variaciones)
+blusa Cinnamoroll (Sin variaciones)
+set de botellas decorativas
+halógeno de pared
+conífera
+pilar decorativo
+tarro de vidrio
+cribadora
+cinta transportadora
+brazo robótico
+halógeno de pie
 
 
 
 
+farola redonda
+farola curvada
 
 cartel de Nook Inc.
 
@@ -13323,52 +13323,52 @@ suelo Día del Pavo
 
 
 
+gafa de sol girasol (Sin variaciones)
+gorro de punto y orejeras (Sin variaciones)
+gratinado
+sopa de almejas
+pastel de calabaza
+rodaballo a la molinera
+pared ladrillo antiguo
+pared con ventanal blanca
+pared inspiración zen
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+móvil de pájaro
+andamio
+mesa desorden
+fregadero desorden
+sofá desorden
+mesa de plástico
+cama desorden
+cama ensueño
+estante ensueño
+estantería ensueño
+bolsa de picoteo
 kit de transferencia
-
-
-
-
-
+yate
+plumeria blanca de vivero
+plumeria blanca joven
+plumeria blanca adulta
+plumeria blanca retoño
 
 retrato de Soponcio
 
 
-
+carrito de correo
 corona festiva
+pared alimentos congelados
 
-
-
-
-
-
-
-
-
-
-
-
-
+botella de refresco
+set de latas de pintura
+espada de doble filo
+equipo de inspección
+flor aro gigante
+taza con cepillos de dientes
+motosierra
+figura de conejo para jardín
+espejo de pared elegante
+cántaro de leche
+trigal
 
 media rayas horizontales (Púrpura)
 media rayas horizontales (Blanco)
@@ -13431,16 +13431,16 @@ bota de hechicería (Blanco)
 bota de hechicería (Verde)
 bota de hechicería (Rojo)
 bota de hechicería (Negro)
-vestido Kiki & Lala (Rosa)
+vestido Kiki & Lala (Sin variaciones)
+pared invernadero
+pared tienda de campaña
 
 
-
-
-
+pared con ventanal negra
 funda móvil Pocket Camp
 
-
-
+pared taquillas grises
+pared estantes gris
 
 
 
@@ -13452,8 +13452,8 @@ silla Día del Pavo
 
 
 mesa comedor Día del Pavo
-
-
+mesa grande cosmopolita
+cesta del súper
 
 
 
@@ -13462,30 +13462,30 @@ juego del iut
 
 plato con doce uvas
 plato de berlinesas
+máquina de gancho
+máquina pompas industrial
+cañón de serpentinas brillo
+cañón de pirotecnia
+barra de luces colgante
+barra de luces de escenario
+clarinete
+par de timbales
+molino
+
+luz de alarma
+candelabro de techo
+micrófono de mesa
+
+plato de DJ
+transistor destartalado
 
 
+pared huella animal
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-conjunto Pompompurin (Amarillo)
-
+suelo tablones
+suelo tienda de campaña
+conjunto Pompompurin (Sin variaciones)
+pared marroquí azul
 caja bombones Enamorados
 
 figura zodiacal de buey
@@ -13494,45 +13494,45 @@ túnica escuela de magia (Blanco)
 túnica escuela de magia (Verde)
 túnica escuela de magia (Rojo)
 túnica escuela de magia (Negro)
-
-
+cocina de mampostería
+pared marroquí naranja
 
 
 
 shimekazari de Año Nuevo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+panel de control espacial
+sistema de tuberías
+mesa de estratega
+vagoneta de minería
+tanque de estudio biológico
+lamparita de biblioteca
+cápsula de criogenización
+eje de engranajes
+silla de tripulación
+sistema de engranajes
+parada de transporte retro
+caja de pescado
+cubículo de tocador
+cisterna
+psicomáquina
+psicointerruptor
+psicosilla
+silla de videojuegos
+altar arcano
+estación de videojuegos
+muñeca para vestir
+monopatín
+paramento medieval teja
 alfombra Día del Pavo
+kit escalerilla enredadera
 
 
 
+kit de escalerilla de madera
 
 
 
-
-
-
+kit de escalerilla de hierro
 
 
 
@@ -13544,89 +13544,127 @@ alfombra Día del Pavo
 arco de bienvenida al 2021
 
 
-gorra de Mario (Rojo)
-gorra de Luigi (Verde)
-gorra de Wario (Amarillo)
+gorra de Mario (Sin variaciones)
+gorra de Luigi (Sin variaciones)
+gorra de Wario (Sin variaciones)
 
 
 
 
 
 
-traje de Mario (Azul)
-traje de Luigi (Azul marino)
-traje de Wario (Púrpura)
-bigote de Mario (Negro)
-bigote de Luigi (Negro)
-bigote de Wario (Negro)
-zapato de Mario (Marrón)
-zapato de Wario (Verde)
-corona de Peach (Dorado)
-vestido de Peach (Rosa)
+traje de Mario (Sin variaciones)
+traje de Luigi (Sin variaciones)
+traje de Wario (Sin variaciones)
+bigote de Mario (Sin variaciones)
+bigote de Luigi (Sin variaciones)
+bigote de Wario (Sin variaciones)
+zapato de Mario (Sin variaciones)
+zapato de Wario (Sin variaciones)
+corona de Peach (Sin variaciones)
+vestido de Peach (Sin variaciones)
+
+estera losa gris
+alfombra piedra clara
+estera losa cuadrada clara
 
 
+alfombra ladrillo rojo
+estera losa iceberg
+separación ancha madera
+separación estrecha madera
+cámara réflex
+cheflera
+semillero
+flotador inflable ave
+baobab
+expositor monopatín pared
+portal de castillo
+torreón de castillo
+maniquí primeros auxilios
+neceser de maquillaje
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+banco de transporte
+guirnalda de flores secas
+estantería de barras
+auricular profesional
+paramento medieval castillo
+tocador de aseo lujoso
+estera losa cuadrada oscura
+estera cuad. madera natural
+alfombra piedra oscura
+estera losa cuadrada blanca
 alfombra girasol
+alfombra ladrillo gris
 
 
 
 
-
-zapato de Peach (Rojo)
+zapato de Peach (Sin variaciones)
 pared noche nevada
+losa marroquí
 
+pila de cajas de pescado
 
-
-
-
+cesta de verduras
 pared aurora
 Emociones y actividades
+menú de estilo japonés
 
 
+bandeja para el recibidor
+ciclomotor
+bombilla pelada
 
+asiento de retales
 
+caja de material de oficina
+coche utilitario
+coche de lujo
+volcán inactivo
+marcador
+sillón de retales
+ornitóptero
+mesita baja de retales
+kit de modelismo
+cama de retales
+cortina separadora
+arco torii
+menú para el cine
+trono
+producto fresco envasado
+altavoz de megafonía
+vitrina de exposición ancha
+silla plegable para exterior
+carrito de transporte
+mampara simple baja
+panel LED de pared
 
+guirnalda de techo en papel
+dado
 
+álbum de recortes
 
+mampara de rejilla
 
+mesa nenúfar
 
+tokonoma
+mapa antiguo
 
 
+foto enmarcada
+cubo de luz
+plato decorativo
 
 
 
 
+pilar ruinas
 
 
 
+montón de billetes
 
 
 
@@ -13636,22 +13674,32 @@ Emociones y actividades
 
 
 
+seto redondo
 
+seto cónico
 
+mesa plegable para exterior
+cartel añejo
 
+estera de yoga
 
 
 
 
 
 
+menú futurista
+bici de montaña colgada
+adorno colgante ensueño
 
 
 
+pila de cajas de cartón
 
 
 
 
+colgadura textil de techo
 
 
 
@@ -13659,20 +13707,28 @@ Emociones y actividades
 
 
 
+lata de aerosol
 
 
+torre de naipes
 
 
 
 
+vasija metálica
 
+patito de goma
 
 
+papel para reciclar
 
 
 
 
+cartón transporte de dulces
 
+cartón de bebida
+lámpara techo con pantalla
 
 
 
@@ -13682,88 +13738,32 @@ Emociones y actividades
 
 
 
+lote de kits de modelismo
 
 
 
+cartel enmarcado
+taza de té yunomi
+pila de sacos
+cartel retroiluminado
+tapete con naipes
 
 
+estantería abierta madera
 
 
 
 
+caja de refresco
 
+vestido My Melody (Sin variaciones)
+polo My Melody (Sin variaciones)
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-vestido My Melody (Rosa)
-polo My Melody (Rosa)
-
-
-
-
-
-
+lámpara cúbica
+arco luces de fiesta sencillo
 6 peinados revolucionarios
 guirnalda de Carnaval
 
@@ -13782,9 +13782,9 @@ gratinado
 sopa de almejas
 pastel de calabaza
 
-
-
-
+menú de estilo occidental
+menú de lujo
+menú de estilo chino
 Bricolaje Día del Pavo
 
 
@@ -13833,7 +13833,7 @@ plataforma champiñón XL
 plataforma champiñón
 Roca Picuda
 
-zumo de manzana
+zumo manzana espumoso
 saco de regalos
 
 
@@ -13858,13 +13858,13 @@ saco de regalos
 
 
 
-
-
+linóleo veta clara
+estera losa madera clara
 foto de Renato
 
 
 
-
+pared opulenta negra
 mini Rese T. Ado
 
 regalo de alguien
@@ -13872,6 +13872,17 @@ regalo de alguien
 
 alfombra huevo de Yoshi
 alfombra nube de Lakitu
+pared musgo lumin. ruinas
+pared malla
+
+estera musgo luminoso
+estera musgo lum. redonda
+suelo musgo luminoso
+suelo malla
+pared musgo lumin. cueva
+
+
+alacena rústica
 
 
 
@@ -13882,142 +13893,131 @@ alfombra nube de Lakitu
 
 
 
+encimera de cemento alta
+
+encimera de ladrillo alta
+encimera de cemento baja
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+encimera de ladrillo baja
+encimera de madera alta
 
 alfombra final deportiva
 
+estera enredadera redonda
 
 
 
-
-máscara de Okame (Blanco)
+máscara de Okame (Sin variaciones)
 
 
 megáfono fútbol americano
 caja habichuelas para lanzar
+vestido aloha Archipiélago (Sin variaciones)
 
 
 
 
+horquilla plumeria (Blanco)
 
 
 
 
-
-
-
-
+pantalla de techo
+cartel indicador colgante
 Nintendo Switch Lite
 
 
 lote de calcetines de pared
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+crema de zanahoria
+crema de patata
+pan relleno gratinado
+pastel de naranja
+pastel de melocotón
+pastel de pera
+pastel de cereza
+plato de ñoquis de calabaza
+plato de ñoquis de patata
+plato de ñoquis zanahoria
+sopa de calabaza
+sopa minestrone
+sopa de brotes de bambú
+pastel de manzana
+sopa de algas
+pastel de zanahoria
+tarta de manzana
+quiche de verduras
+tarta de naranja
+tarta de frutas
+tarta de melocotón
+tarta de cereza
+tarta de pera
 sobre rojo de la suerte
 bolsita de la suerte
-
-
+sobre de Año Nuevo
+pastel de frutas
 par de maracas
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+sándwich de fruta
+gelatina de coco
+gelatina de pera
+gelatina de cereza
+gelatina de melocotón
+crepe de champiñones
+salpicón de marisco
+ensalada de frutas
+gelatina de naranja
+ensalada de zanahoria
+ensalada poke
+ensalada de nabos
+gelatina de manzana
+ensalada de champiñones
+crepe vegetal
+sándwich vegetal
+crepe de frutas
+sándwich de salmón
+crepe azucarada
+plato de galletas
+bizcocho de naranja
+bizcocho
+bizcocho de calabaza
+zumo de tomate
+nabo relleno
+zumo de zanahoria
+leche de coco
+cesta de prétzeles
+cesta prétzeles glaseados
+tomate relleno
+plato de galletas de coco
+plato de galletas vegetales
+zumo de cereza
+plato de galletas decoradas
+plato de galletas glaseadas
+paquete de harina
+zumo de pera
+paquete de harina integral
+paquete de azúcar
+paquete de azúcar moreno
+zumo de melocotón
+zumo de manzana
+zumo de naranja
+bizcocho de azúcar moreno
+empanada de lubina
 
 seto Caza del Huevo
 árbol Caza del Huevo
 estandarte Caza del Huevo
 macetero Caza del Huevo
 plato dulces Caza del Huevo
+ensalada
 
-
-
+alfombra elegante marrón
 megáfono ánimo encendido
 megáfono de las estrellas
 megáfono deslumbrante
 traje de Carnaval (Azul)
-
-
-
+cueva
+arco ruinas
+silla colgante enredadera
 pastel de π
 
 
@@ -14033,118 +14033,118 @@ placa trébol
 adorno Año Nuevo Lunar
 
 
-
-
-
-
-
-
+estera losa madera blanca
+estera losa madera oscura
+estera losa madera natural
+linóleo veta blanca
+linóleo veta oscura
+linóleo veta natural
 forsitia
 aguinaldo Año Nuevo Lunar
 aguinaldo de Seollal
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+aguinaldo de Año Nuevo
+
+xilofoide
+dulzoide
+crema de champiñones
+camión
+freidora
+marco lujoso
+
+macetero de pared
+fregadero rústico
+cocina para exterior
+ladroide
+silboide
+puntoide
+rasgueoide
+hablaseroide
+estrujónido
+varítono
+monotoide
+oinkoide
+sinusoide
+mirlitoide
+clavicoina
+
+
+
+
+
+
+aluminoide
+acolchoida
+platoide
+bipoide
+zumbínida
+
+flopoide
+tetracordia
+arcoviol
+bomboina
+
+
+hidroide
+muelloide
+arrugandia
+castañoide
+figaroide
+
+agitoide
+pinchoide
+gomicoida
+aletensoide
+
+
+vibroide
+reverberoide
+cascabela
+cacharroide
+
+
+fish & chips
+plato de patatas fritas
+cenador
+
+cenador azumaya
+plato de scones
+plato de cupcakes vegetales
+bagel con tomate
+plato cupcakes glaseados
+plato scones de zanahoria
+plato cupcakes de calabaza
+plato scones de fruta
+plato de cupcakes de fruta
+plato scones de calabaza
+plato de cupcakes
+bagel con salmón
+curry a la tinta de calamar
+curry de calabaza
+curry de zanahoria
+bagel con fruta
+curry de tomate
+bagel con calabaza
+bagel con zanahoria
+curry de patata
+curry de champiñones
+torre de tortitas
+torre de tortitas de coco
+galette de patata
+torre de tortitas con fruta
+
+
+
+roca
+tocón de caducifolio
+tocón de cedro
+tocón de cocotero
+bambú cortado
+cedro ornamentado
 tarta primer aniversario
 
-
-
-
+alfombra elegante beis
+alfombra elegante azul
+alfombra elegante negra
 
 
 
@@ -14159,14 +14159,62 @@ tarta primer aniversario
 Portal de diseños
 
 
+pargo rojo escalfado
+gallo pochado
+jurel rebozado
+rodaballo salteado
+lubina a las finas hierbas
+carpaccio de salmón
+carpaccio de pez espada
+carpaccio de dorada
+mermelada de naranja
+mermelada de melocotón
+mermelada de pera
+carpaccio de vieira
+mermelada de cereza
+conserva de verduras
+puré de tomate
+mermelada de manzana
+aceite de coco
+sartén de anchoas al ajillo
+sartén de tomates al ajillo
+sartén champiñones al ajillo
+conserva de boquerones
+sartén de pan frito
+sartén de marisco al ajillo
+pérgola
+conserva de champiñones
+conserva brotes de bambú
+pila barricas nabo encurtido
+barrica de nabo encurtido
 
 
+alfombra vaca marrón
+enredadera gigante
+banco enredadera
 
 
 
+sombrero enredadera (Sin variaciones)
+gorro cono musgo luminoso (Sin variaciones)
+capucha musgo luminoso (Sin variaciones)
 
+diadema musgo luminoso (Sin variaciones)
+corona enredadera (Sin variaciones)
 
 
+lámpara enredadera
+guirnalda enredadera
+taburete musgo luminoso
+esfera musgo luminoso
+roca musgo luminoso
+musgo luminoso colgante
+corona musgo luminoso
+estanque musgo luminoso
+estatua musgo luminoso
+alacena musgo luminoso
+set pegatinas fluorescentes
+caldero sospechoso
 
 
 
@@ -14185,69 +14233,21 @@ Portal de diseños
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-sombrero trébol (Verde)
-traje trébol (Verde)
-botín trébol (Verde)
-gafa de sol trébol (Verde)
+sombrero trébol (Sin variaciones)
+traje trébol (Sin variaciones)
+botín trébol (Sin variaciones)
+gafa de sol trébol (Sin variaciones)
 varita trébol
 traje de Carnaval (Rojo)
 traje de Carnaval (Púrpura)
 traje de Carnaval (Verde)
-zapato de Luigi (Marrón)
+zapato de Luigi (Sin variaciones)
 
+alfombra vaca ocre
 
-
-
-
-
+gasa doble para la nariz (Sin variaciones)
+vestido tubo enredadera (Sin variaciones)
+bolsito enredadera (Sin variaciones)
 placa Nook Inc.
 
 pared baile de fin de curso
@@ -14255,9 +14255,9 @@ suelo baile de fin de curso
 foto de Tom Nook
 foto de Tendo y Nendo
 foto de Canela
+mono musgo luminoso (Sin variaciones)
 
-
-
+vestido musgo luminoso (Sin variaciones)
 
 esmoquin llamativo (Rojo)
 banda baile de fin de curso (Rojo)
@@ -14265,37 +14265,37 @@ zapato baile de fin de curso (Negro)
 corona baile de fin de curso (Dorado)
 tiara baile de fin de curso (Dorado)
 bloque elevado
+hamaca Archipiélago
 
-
-
-
-
-
-
-
-
-
+bata médica de guardia (Corbata roja)
+camisa escolar corta (Corbata roja)
+blusa marinera (Azul marino)
+gafa redonda de pasta (Negro)
+mandil higiénico hostelería (Verde)
+gorro higiénico hostelería (Sin variaciones)
+chaqueta estampado rosas (Rosas rojas sobre negro)
+chaqueta estampado pitón (Marrón)
 
 valla sirena
-tocado tsunokakushi (Blanco)
+tocado tsunokakushi (Sin variaciones)
 gorro frigio (Rojo)
-hakama nupcial emblema (Blanco)
-shiromuku nupcial (Blanco)
+hakama nupcial emblema (Sin variaciones)
+shiromuku nupcial (Sin variaciones)
 delantal gracias papá (Azul)
 cesta con pétalos
 caramelo de los mil años
+gorro comida rápida (Negro)
+gorra uniforme de reparto (Negro)
+pañuelo anudado liso (Rosa)
+blusa uniforme boutique (Azul)
+gorro de papel hostelería (Blanco y rojo)
+gorro de chef con logo (Negro)
 
-
-
-
-
-
-
-
-
-
-
-
+bata de chef (Gris)
+vestido doncella largo (Verde)
+cinta enroscada hachimaki (Azul)
+camisa con chaleco a rayas (Rojo)
+delantal aloha (Menta)
 funda edición ACNH
 
 caballo de pepino
@@ -14306,6 +14306,12 @@ caballo de pepino
 
 
 
+encimera sencilla baja
+
+encimera sencilla alta
+
+
+encimera de madera baja
 
 
 
@@ -14314,28 +14320,22 @@ caballo de pepino
 
 
 
+encimera de acero alta
+
+encimera de acero baja
 
 
 
 
 
+encimera dorada alta
+
+encimera de mármol alta
+encimera dorada baja
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+encimera de mármol baja
 pasta de luna
 vaca de berenjena
 cojín de broma
@@ -14344,33 +14344,33 @@ cojín de broma
 
 
 
+cartel colgante
 
 
 
 
 
-
-
-
-
+oso de peluche ensueño
+conejo de peluche ensueño
+unicornio peluche ensueño
 plato de zongzis
 plato de surichwi tteok
 queso Gloucester doble
 timón decorativo de puerta
 
 
+chaleco tartán (Gris)
+gafa montura superior recta (Negro)
+sudadera abierta (Rojo)
+toalla sobre camiseta (Blanco sobre blanco)
+anorak deportivo (Rojo)
+mochila escolar randoseru (Rojo)
+cartera escolar (Azul)
+delantal impermeable (Azul)
+polo sobre camiseta larga (Azul)
 
-
-
-
-
-
-
-
-
-
-
-
+capucha higiénica (Blanco)
+mono decontaminación (Blanco)
 
 
 
@@ -14413,6 +14413,22 @@ esmoquin llamativo (Blanco y negro)
 
 
 farolillo de mano
+uniforme mesón japonés (Rojo)
+
+
+
+
+
+
+equipación deportiva (Rojo)
+rodillera (Negro y rojo)
+rebeca uniforme escolar (Beis)
+chaqueta reparto de comida (Negro)
+mochila reparto de comida (Negro)
+camiseta y babero silicona (Turquesa pastel)
+
+
+camiseta kanji enérgica (Tamashii (alma))
 
 
 
@@ -14438,37 +14454,21 @@ farolillo de mano
 
 
 
+chaqueta Archipiélago (Sin variaciones)
+americana Archipiélago (Sin variaciones)
+camiseta Archipiélago (Sin variaciones)
+top Archipiélago (Sin variaciones)
+
+sandalia Archipiélago (Sin variaciones)
+pantufla Archipiélago (Sin variaciones)
+minicanotier (Sin variaciones)
+parasol Archipiélago
+plato de patatas asadas
+pizza margarita
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+kit de escalerilla dorada
 
 foto de Fran
 
@@ -14476,6 +14476,33 @@ foto de Fran
 corona nupcial
 campana nupcial
 cojín con alianzas nupciales
+armadura dorada
+hucha cerdito dorada
+vagoneta de pepitas de oro
+jarrón lujoso dorado
+altar dorado
+bañera dorada
+sistema de tuberías doradas
+sistema engranajes dorados
+eje de engranajes dorados
+daruma dorado
+figura de conejo dorada
+minidaruma dorado
+vasija dorada
+reloj de pulsera dorado
+plato decorativo dorado
+
+
+
+
+
+
+
+
+
+
+minigorro de fiesta (Naranja)
+vara de luz colorida
 
 
 
@@ -14491,72 +14518,64 @@ cojín con alianzas nupciales
 
 
 
+fluorescente de pared
 
 
+maraña de cables
+candelabro floral de pared
+expendedor de jabón
+taquilla de madera
+portapapeles
+barrera metálica
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+mesa de reunión
+mesa plegable alargada
 placa dorada de arte
+armadura samurái dorada
+sopa instantánea
 
 
 
-
-
-
-
-
-
+vaso de batido de proteínas
+mancuerna
+globo de Nook Inc.
+café para llevar
 cesta surtido de Halloween
-
-
-
-
+bolsito Nook Inc. (Sin variaciones)
+jersey de Nook Inc. (Sin variaciones)
+malla de Nook Inc. (Sin variaciones)
+fragmento de giroide
 surtido de songpyeon
 plato de pasteles de luna
-
+árbol seco
 árbol calabaza
 farol de sombras calabaza
+plato de galletas pavorosas
+bol de gachas siete hierbas
+baño de yuzu
+sopa tangyuan
+caja de comida osechi
 
 
 
 
+bandeja de bufé
 
 
+cojín de Nook Inc.
+galleta de El Alpiste
+papel higiénico Nook Inc.
+reloj de pared mapache
+piedra de energía
+taza con platillo
+herradura de la suerte
+mayo
+minicobertizo
+planta de café
+café en grano
+bayero automático
 
+estera de yoga de Nook Inc.
 
 
 
@@ -14568,64 +14587,45 @@ farol de sombras calabaza
 
 
 
+cuadro obras de arte
+arco de bienvenida al 2022
+ornamento mesa luminoso
+caja de música de madera
+guirnalda de ornamentos
+ornamento gigante
 
+pilar de ladrillo
+pilar de mármol
+pilar simple
+pilar de acero
+pilar dorado
+pilar de madera
+pilar de cemento
 
+cultivo de musgo luminoso
+chaqueta escolar con lazo (Azul marino)
+chaqueta escolar corbata (Azul marino)
+falda escolar escocesa (Gris oscuro)
+pantalón escolar escocés (Gris oscuro)
 
+figurilla de tortuga dorada
+foto de Fígaro
+figura zodiacal de tigre
+corona ornamentos (Sin variaciones)
 
 
 
 
 
+cortina noren larga
+cortina noren corta
+desplegable
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+abanico rosa flor de cerezo
 té de burbujas con leche
 algodón de azúcar
 
@@ -14633,17 +14633,17 @@ polo de chocolate
 polo de lima-limón
 polo de naranja
 
+cucurucho de vainilla
+barquillo de vainilla
 
-
-
-
-
-
-
-
-
-
-
+lata de zumo de naranja
+libro de bolsillo
+revista de bolsillo
+rosquilla de chocholate
+bolsa reutilizable vegetales (Sin variaciones)
+plumero
+ramita de árbol
+espiga
 delantal gracias papá (Rojo)
 delantal gracias papá (Verde)
 delantal gracias papá (Marrón)
@@ -14660,16 +14660,61 @@ gorro frigio (Púrpura)
 
 
 
+pantalón de vestir rosas (Rosas rojas sobre negro)
+pantalón de vestir pitón (Marrón)
 
+mascarilla quirúrgica (Azul)
+mascarilla quirúrgica (Rosa)
+mascarilla quirúrgica (Crema)
+mascarilla quirúrgica (Negro)
+escayola de pie (Rosa)
+escayola de pie (Azul)
+escayola de pie (Verde)
+escayola de pie (Negro)
+vendaje de cabeza (Rosa)
+vendaje de cabeza (Azul)
+vendaje de cabeza (Verde)
+vendaje de cabeza (Negro)
+minigorro de fiesta (Celeste)
+minigorro de fiesta (Amarillo)
+minigorro de fiesta (Verde)
+minigorro de fiesta (Púrpura)
+minigorro de fiesta (Rojo)
+pañal (Rosa)
+pañal (Crema)
+pañal (Negro)
+camiseta logo DJ KeKe (Azul neón)
+top evento Archipiélago (Púrpura)
+top retales tropicales (Naranja)
+corona de flores luminosa (Rosa)
+pañuelo retales tropicales (Verde)
+gafa de sol neón (Celeste y rosa)
+¡Creaciones+ y a cocinar!
+Estampados en Mis diseños
+Modo decoración Pro
+Cómo personalizar vallas
+Actualización cámara Pro
+pizza de marisco
+pizza de fruta
+pizza de champiñones
+foto plantilla Archipiélago
 
 
 
 
 
 
+alfombra Archipiélago
+alfombrilla Archipiélago
+macetero Archipiélago
+banderola Archipiélago
 
+peluca con maxilazo (Rojo)
+peluca cresta punk (Amarillo)
 
+hucha para donativos
 
+bizcocho salado
 
 
 
@@ -14680,59 +14725,14 @@ gorro frigio (Púrpura)
 
 
 
+uniforme comida rápida (Negro)
+árbol de ornamentos
 
 
 
+top dinámico (Negro)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+cucurucho de limón y lima
 
 
 
@@ -14747,3 +14747,241 @@ té de burbujas de fresa
 té de burbujas de mango
 té verde de burbujas
 algodón de azúcar de fresa
+
+
+uniforme cafetería (Rosa)
+uniforme de barista (Negro)
+máscara carnaval veneciano (Dorado)
+set de velas Archipiélago
+valla de bambú verde
+valla iceberg
+valla listones bambú
+valla de chapa ondulada
+valla de parque infantil
+caftán (Rosa)
+sombrero steampunk (Rojo)
+antena robot (Celeste)
+casco bárbaro (Negro)
+hakama samurái (Negro)
+manoletina sencilla (Negro)
+falda estampado rosas (Rosas rojas sobre negro)
+
+
+
+
+
+
+
+ポキ袋
+lata de zumo de uva
+lata de zumo de manzana
+lata de té verde
+lata de té con limón
+lata de café
+lata de bebida energética
+lata de refresco
+mochila jardín botánico (Negro)
+bolsito broche (Amarillo)
+estuche para instrumento (Negro)
+vaina con espada (Rojo)
+
+bolso de tela simple (Rojo)
+hatillo furoshiki (Verde)
+bolso de mano de polipiel (Rojo)
+bolsa de compra logotipo (Verde)
+bolso de mimbre (Marrón claro)
+bolso de mano (Marrón claro)
+casco de minería (Amarillo)
+top sin lavar (Blanco)
+gafa de sol simple (Negro)
+Aplicación Manual insular
+gorra de maquinista (Azul)
+
+espejo de mesa flor
+
+chaqueta de maquinista (Azul)
+
+cojín Archipiélago
+caja pañuelos Archipiélago
+camiseta de pijama (Marrón)
+pantalón de pijama corto (Marrón)
+taza Archipiélago
+póster Archipiélago
+
+
+Recetario básico
+bolsa reutilizable peces (Sin variaciones)
+bolsa reutilizable pan (Sin variaciones)
+bolsa reutilizable flores (Sin variaciones)
+
+Recetario Día del Pavo
+
+vestido largo Archipiélago (Sin variaciones)
+camisa Archipiélago (Sin variaciones)
+funda móvil Archipiélago
+anillo de luz
+bolso bandolera cuadrado (Negro)
+mochila propulsora (Gris)
+cartera mochila (Marrón)
+bolsito ensueño (Sin variaciones)
+expositor de base iluminada
+
+Emociones y expresiones
+4 peinados fabulosos
+mochila panda (Blanco y negro)
+minicobertizo de madera
+
+abrigo largo Archipiélago (Sin variaciones)
+vestido Archipiélago (Sin variaciones)
+
+cucurucho de chocolate
+cucurucho de fresa
+mochila ensueño (Rosa)
+mochila leopardo (Marrón)
+mochila espacial (Azul)
+mochila cebra (Blanco)
+mochila topos (Amarillo)
+mochila simple (Pardo)
+mochila damero (Marrón)
+
+conjunto ropa interior añeja (Blanco)
+blusa mercante periodo Edo (Azul oscuro)
+gorra lonja de subastas (Azul)
+camiseta robot gigante (Negro)
+gafa graciosa con párpados (Púrpura)
+
+cucurucho pastel y melón
+cucurucho menta y naranja
+bolso de mimbre a rombos (Sin variaciones)
+bolso de mimbre a rayas (Marrón)
+bolso de tela florecillas (Rosa)
+bolso de tela logotipo (Gris)
+
+bolsito broche asiático (Negro)
+bolsito broche japonés (Azul oscuro)
+bolsito broche abalorios (Púrpura)
+póster de Rafa
+proyecto kit de escalerilla
+póster de Rodri
+póster de Kamilo
+póster de Juliana
+póster de Fauno
+póster de Buh
+póster de CJ
+bolsa de compra boutique (Rosa)
+bolsa de compra electrónica (Amarillo)
+bolsa de centro comercial (Azul)
+paquete
+
+
+
+
+
+
+
+
+asiento ruinas
+bolsito ensueño con lazo (Sin variaciones)
+bolsito ensueño unicornio (Sin variaciones)
+
+vestido de punto gótico (Púrpura)
+pilar roto ruinas
+
+
+bolso de tela camuflaje (Verde)
+coraza guerrera (Plateado)
+
+vestido steampunk (Rojo)
+bolso bandolera pitón (Marrón)
+bolso bandolera cebra (Blanco)
+pared Anteproyectos
+suelo Anteproyectos
+
+
+camiseta kanji enérgica (Kizuna (vínculo))
+camiseta kanji enérgica (Men (fideos))
+camiseta kanji enérgica (Yume (sueño))
+pantalón de vestir rosas (Rosas naranjas sobre azul)
+pantalón de vestir rosas (Rosas azules sobre blanco)
+pantalón de vestir rosas (Rosas lima sobre blanco)
+falda estampado rosas (Rosas naranjas sobre azul)
+falda estampado rosas (Rosas azules sobre blanco)
+falda estampado rosas (Rosas lima sobre blanco)
+chaqueta estampado rosas (Rosas naranjas sobre azul)
+chaqueta estampado rosas (Rosas azules sobre blanco)
+chaqueta estampado rosas (Rosas lima sobre blanco)
+pantalón de vestir pitón (Gris)
+chaqueta estampado pitón (Gris)
+Más infraestructuras
+chaqueta escolar con lazo (Rosa)
+chaqueta escolar con lazo (Celeste)
+chaqueta escolar con lazo (Negro)
+chaqueta escolar con lazo (Blanco)
+chaqueta escolar con lazo (Gris claro)
+chaqueta escolar corbata (Rosa)
+chaqueta escolar corbata (Celeste)
+chaqueta escolar corbata (Negro)
+chaqueta escolar corbata (Blanco)
+chaqueta escolar corbata (Gris claro)
+falda escolar escocesa (Rosa)
+falda escolar escocesa (Blanco)
+falda escolar escocesa (Amarillo)
+falda escolar escocesa (Gris claro)
+falda escolar escocesa (Azul)
+pantalón escolar escocés (Rosa)
+pantalón escolar escocés (Blanco)
+pantalón escolar escocés (Amarillo)
+pantalón escolar escocés (Gris claro)
+pantalón escolar escocés (Azul)
+gorra uniforme de reparto (Marrón)
+gorra uniforme de reparto (Verde oscuro)
+gorra uniforme de reparto (Pardo)
+gorra uniforme de reparto (Rosa)
+gorra uniforme de reparto (Celeste)
+pañuelo anudado liso (Celeste)
+pañuelo anudado liso (Salmón)
+pañuelo anudado liso (Verde)
+pañuelo anudado liso (Rojo)
+pañuelo anudado liso (Azul marino)
+uniforme cafetería (Celeste)
+uniforme cafetería (Naranja)
+uniforme cafetería (Verde)
+delantal aloha (Rosa)
+delantal aloha (Amarillo)
+uniforme de barista (Marrón)
+uniforme de barista (Verde)
+uniforme de barista (Castaña)
+uniforme mesón japonés (Azul)
+uniforme mesón japonés (Amarillo dorado)
+uniforme mesón japonés (Verde)
+uniforme mesón japonés (Púrpura)
+gorra uniforme de reparto (Salmón)
+gorra uniforme de reparto (Verde)
+pañuelo anudado liso (Pardo)
+pañuelo anudado liso (Negro)
+capucha higiénica (Azul)
+capucha higiénica (Verde)
+capucha higiénica (Amarillo)
+capucha higiénica (Naranja)
+manoletina sencilla (Marrón)
+manoletina sencilla (Pardo)
+manoletina sencilla (Marfil)
+manoletina sencilla (Gris pardo)
+manoletina sencilla (Rojo)
+manoletina sencilla (Azul)
+manoletina sencilla (Verde)
+polo sobre camiseta larga (Rojo)
+polo sobre camiseta larga (Amarillo)
+polo sobre camiseta larga (Verde)
+polo sobre camiseta larga (Beis)
+polo sobre camiseta larga (Blanco)
+polo sobre camiseta larga (Negro)
+top dinámico (Púrpura)
+top dinámico (Granate)
+top dinámico (Azul marino)
+delantal impermeable (Naranja)
+delantal impermeable (Blanco)
+mono decontaminación (Azul)
+mono decontaminación (Verde)
+mono decontaminación (Amarillo)
+mono decontaminación (Naranja)

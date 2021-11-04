@@ -1,68 +1,247 @@
+00079	Color de la estructura
 00080	Color de la pintura
 00083	Color de la pintura
+00085	Diseño
+00086	Color
 00088	Color de la pintura
-00131	Variación
+00131	Color
 00144	Diseño de la tapa
-00331	Color principal
+00146	Color
+00287	Color
+00290	Color
+00330	Color
+00331	Color
 00333	Color de la pintura
+00335	Color
+00336	Color
+00338	Color
 00383	Color
+00522	Variación
 00530	Diseño
 00531	Diseño
 00532	Diseño
 00533	Diseño
+00534	Color
+00537	Color
+00538	Color
+00546	Color
+00547	Color
+00664	Color
+00667	Color
 00669	Color
-00676	Piedra
+00676	Variación
 00677	Bambú
-00682	Diseño
-00685	Variación
-00688	Variación
-00690	Variación
+00682	Color de la pintura
+00683	Variación
+00685	Color
+00688	Color
+00690	Color
+00704	Variación
 00710	Bambú
-00739	Color principal
+00716	Diseño
+00725	Estructura
+00735	Color
+00739	Color
+00741	Color
+00742	Color
+00743	Iluminación
+00744	Color
+00787	Color
+00796	Color
 00805	Hongo
 00808	Hongo
+00832	Color
+00833	Color
+00839	Color
+00840	Color
+00849	Color
+00863	Color del tapete
 00865	Color de la pintura
+00870	Color
+00889	Color del quemador
 00891	Color
-01032	Color principal
+00896	Color
+00907	Color
+00908	Color
+00915	Color
+00918	Diseño
+00922	Color
+00928	Color
+00929	Color
+00941	Color del mueble
+00950	Color
+00954	Color
+00955	Variación
+00957	Color de las aspas
+00963	Color
+00967	Color
+00971	Color
+00987	Color
+00997	Aroma
+00998	Color
+01019	Color
+01029	Color de la madera
+01032	Color
+01042	Color
+01043	Color
+01050	Variación
+01051	Color
 01058	Color
-01103	Madera
-01111	Piedra
+01072	Color
+01081	Color
+01082	Color
+01087	Color
+01092	Color
+01103	Color
+01108	Color
+01111	Color
+01112	Variación
+01117	Color
+01125	Color
+01127	Color
+01128	Color
+01141	Color
+01143	Color
 01157	Ladrillo
-01170	Madera
-01189	Neumático
+01161	Color de la bandeja
+01170	Color
+01171	Color
+01177	Color
+01185	Color
+01189	Color
+01199	Color
+01206	Color
+01211	Color
+01221	Color
+01222	Color
+01227	Color
+01229	Color
+01232	Color
+01234	Color
+01235	Color
 01241	Color de la pintura
-01263	Fruta
-01504	Tela
+01243	Variación
+01263	Color
+01288	Color de la maceta
+01308	Color
+01314	Color
+01319	Color
+01328	Color
+01330	Variación
+01348	Color
+01411	Color
+01412	Color
+01432	Color
+01434	Color
+01449	Color
+01493	Color de la capota
+01495	Color
+01499	Diseño
+01500	Diseño
+01501	Diseño
+01504	Diseño
+01507	Estilo
 01509	Color
 01557	Color de los bloques
 01558	Color de los bloques
 01559	Color de los bloques
 01561	Color de los bloques
 01565	Color de los bloques
-01625	Color principal
-01626	Color principal
-01627	Color principal
-01652	Variación
-01753	Variación
+01567	Variación
+01573	Variación
+01598	Color
+01606	Color
+01608	Color del poste
+01620	Armazón
+01621	Color
+01624	Variación
+01625	Color
+01626	Color
+01627	Color
+01628	Color
+01631	Color
+01632	Color
+01644	Color
+01645	Color
+01652	Color
+01708	Color
+01712	Color
+01716	Color
+01744	Color
+01745	Color
+01753	Color
+01757	Color
 01759	Género
-01797	Diseño
+01778	Color
+01783	Marco
+01797	Variación
 01799	Color de la pintura
-01823	Color de las bolsas
+01802	Color
+01803	Color
+01804	Color
+01816	Color de las paredes
+01823	Color
+01829	Color de la maceta
+01836	Color
+01840	Color
+01845	Color
+01850	Color
+01851	Color
+01852	Color
+01853	Color
+01866	Marco
+01868	Color
+01870	Color
+01875	Color
+01877	Color
+01881	Color
+01888	Color
+01889	Color del estuche
+01892	Cuerpo
+01899	Variación
+01906	Color
 01913	Color de la pintura
+01929	Color de la tapa
+02010	Variación
+02012	Contenido
+02013	Color
+02014	Color
+02020	Color de la estructura
 02099	Color
 02319	Color
-02326	Color principal
-02329	Neumático
+02326	Color
+02329	Color
+02333	Color
+02335	Color
+02352	Logo
+02358	Color de las luces
 02377	Color
 02379	Color
 02553	Color
+02554	Color
 02558	Color de los bloques
-02559	Diseño
+02559	Color
 02560	Color de la pintura
-02586	Asiento y respaldo
-02596	Fruta
+02561	Color del pie
+02562	Color de la palmatoria
+02575	Color
+02586	Color
+02596	Color
 02605	Color de la pintura
+02606	Cuerpo
+02614	Color del cuadro
+02713	Color
+02731	Color
+02736	Color
+02740	Color
+02770	Color
+02771	Color
+02772	Color
+02776	Color
 02822	Color
+03063	Color
+03064	Color
+03078	Color
 03122	Color de la pintura
 03191	Madera
 03193	Madera
@@ -73,19 +252,39 @@
 03205	Color de los bloques
 03206	Color de los bloques
 03208	Color de los bloques
+03251	Color
+03252	Color
 03270	Madera
 03271	Madera
 03275	Madera
+03282	Color
+03305	Armazón
+03307	Color
+03333	Color
 03340	Color de la pintura
-03396	Tablero
+03345	Color
+03346	Color
+03348	Color
+03396	Color
+03400	Color
+03402	Color
 03406	Color de la pintura
-03407	Variación
+03407	Color
+03416	Variación
+03428	Color
+03430	Color
+03431	Color
 03436	Color de la pintura
 03438	Color de la pintura
 03439	Color de la pintura
-03445	Color principal
-03446	Piedra
+03442	Color
+03443	Color
+03445	Color
+03446	Variación
 03449	Color de la pintura
+03465	Armazón
+03467	Color de la porcelana
+03471	Color
 03490	Color de la pintura
 03497	Iluminación
 03498	Iluminación
@@ -96,44 +295,92 @@
 03503	Iluminación
 03504	Iluminación
 03505	Iluminación
-03509	Variación
+03509	Color del hierro
 03551	Bambú
 03553	Bambú
 03554	Bambú
 03556	Bambú
 03557	Bambú
 03558	Bambú
-03559	Color principal
-03560	Color principal
-03561	Color principal
-03562	Color principal
-03563	Color principal
+03559	Color
+03560	Color
+03561	Color
+03562	Color
+03563	Color
 03581	Variación
-03587	Variación
+03582	Género
+03583	Diseño
+03584	Variación
+03587	Color
 03588	Lugar indicado
-03591	Variación
-03592	Variación
-03593	Variación
-03594	Variación
-03617	Variación
-03618	Barniz
+03590	Color
+03591	Estilo
+03592	Estilo
+03593	Estilo
+03594	Estilo
+03595	Color
+03596	Color
+03616	Color
+03617	Color de la madera
+03618	Color
+03619	Contenido
+03621	Color de la madera
+03622	Color de la madera
+03623	Color
+03624	Color
 03658	Bambú
+03672	Variación
 03675	Heno
-03683	Diseño
-03692	Tablón
+03681	Tapizado
+03683	Color
+03692	Color
+03697	Color
 03699	Variación
-03773	Marco
-03775	Marco
+03701	Color
+03702	Color de la madera
+03773	Color de la estructura
+03775	Color del metal
 03776	Ladrillo
+03783	Color
+03784	Color
 03785	Color
 03805	Hongo
 03806	Hongo
 03808	Hongo
-03819	Barril
+03816	Color
+03818	Diseño
+03819	Color
+03820	Color
+03821	Color
+03822	Color
 03943	Madera
-03966	Diseño
-03975	Fruta
-03976	Fruta
+03946	Armazón
+03947	Armazón
+03948	Color
+03949	Color
+03950	Color
+03951	Color
+03952	Color
+03953	Color
+03954	Color
+03955	Color
+03956	Color
+03957	Color
+03958	Color
+03959	Color
+03960	Color
+03961	Color del tapete
+03962	Color
+03965	Color del vaso
+03966	Color
+03967	Color
+03970	Color
+03971	Color
+03972	Color
+03973	Color
+03974	Color
+03975	Color
+03976	Color
 03977	Color
 03978	Color
 03979	Color
@@ -141,12 +388,35 @@
 03982	Color
 03983	Color
 03984	Color
-03991	Diseño
-03992	Color principal
-04011	Fruta
-04012	Fruta
+03986	Color
+03987	Color
+03991	Color
+03992	Color
+03993	Color
+03995	Color
+03996	Color
+03997	Color
+03998	Color
+03999	Color
+04000	Color
+04001	Color
+04002	Color
+04003	Color
+04006	Color
+04009	Color
+04011	Color
+04012	Color
+04013	Color
+04014	Color
+04015	Color
+04017	Color
+04019	Color
+04023	Color
 04025	Diseño
 04027	Color
+04029	Color
+04030	Color
+04033	Diseño
 04035	Madera
 04036	Madera
 04037	Madera
@@ -157,12 +427,30 @@
 04042	Madera
 04043	Madera
 04044	Madera
+04045	Color
+04046	Color
+04047	Color
+04048	Color
+04049	Color
+04050	Color
+04051	Color
+04052	Color
+04053	Color
+04054	Color
 04066	Color de las luces
-04067	Diseño
+04067	Color
+04068	Color de la vajilla
+04070	Color
+04071	Color del tapete
+04072	Color
 04073	Diseño
 04074	Color de las luces
-04075	Marco
+04075	Armazón
+04076	Color
+04077	Color
 04078	Color de las pesas
+04080	Color
+04081	Color
 04083	Color de la calabaza
 04084	Color de la calabaza
 04086	Color de la calabaza
@@ -172,34 +460,88 @@
 04090	Color de la calabaza
 04092	Color de la calabaza
 04093	Bambú
+04094	Color de la maceta
+04099	Marco
+04101	Color
+04102	Armazón
 04104	Contenido
 04108	Color de las luces
+04109	Color
+04110	Variación
+04111	Color
+04113	Armazón
+04114	Variación
+04116	Variación
+04118	Color
+04119	Color
+04122	Color de la mesa de luz
 04124	Madera
 04125	Color de la pintura
-04127	Fruta
-04128	Fruta
+04127	Color
+04128	Color
+04129	Color de la maceta
 04131	Color de las luces
-04134	Fruta
+04132	Color de la maceta
+04133	Marco
+04134	Color
+04135	Color
+04137	Color
+04138	Color
+04139	Color
+04140	Color
+04141	Color
+04142	Color
+04143	Color
+04144	Marco
+04196	Color
+04226	Color
+04230	Color de la cera
 04279	Sabor
-04309	Color
+04309	Color de la pintura
+04338	Color
+04357	Color
 04377	Color
-04546	Fruta
+04379	Color
+04392	Color del tapete
+04412	Color
+04441	Color
+04445	Color de las patas
+04546	Color
+04572	Color de la pantalla
+04687	Color
 04708	Hongo
+04719	Color
+04722	Color
+04738	Color
 04751	Color
 04752	Color
+04753	Color
+04754	Color
+04756	Color
+04757	Color
+04758	Color
+04759	Color
+04760	Color
+04761	Color
+04762	Color
 04764	Color
 05150	Color
+05165	Color de la palmatoria
+05207	Color de la teja
+05208	Color
+05309	Color
 05310	Color
 05337	Gorro
+05338	Armazón
 05543	Color de los bloques
 05635	Color de la pintura
-05636	Color principal
+05636	Color
 05716	Color
 05717	Color
 05718	Color
 05719	Color
 05784	Color
-05931	Color principal
+05931	Color
 05972	Madera
 05973	Madera
 05976	Bambú
@@ -214,12 +556,15 @@
 06826	Color
 06827	Color
 06829	Color
-06831	Color principal
+06830	Color
+06831	Color del pie
 06832	Color
 07045	Lata
 07132	Color de la pintura
 07133	Color de la pintura
 07134	Color de la pintura
+07135	Color de las luces
+07136	Color de la maceta
 07137	Color de la pintura
 07138	Diseño
 07139	Motivo
@@ -230,10 +575,16 @@
 07145	Diseño
 07146	Decoración
 07147	Nombre
-07159	Cartón
-07160	Cartón
-07161	Cartón
-07163	Cartón
+07148	Color
+07153	Color
+07154	Color de la pintura
+07159	Diseño
+07160	Diseño
+07161	Diseño
+07163	Diseño
+07189	Color de las luces
+07190	Color de las luces
+07229	Color
 07230	Color
 07231	Color
 07232	Color
@@ -243,28 +594,61 @@
 07236	Color
 07237	Color
 07238	Color
-07247	Tejado
+07247	Color
 07253	Color
+07257	Color
 07258	Diseño
-07259	Variación
-07281	Color principal
-07284	Variación
+07259	Estilo
+07260	Tipo de señal
+07264	Color
+07280	Variación
+07281	Color de la pintura
+07282	Color
+07284	Color
 07317	Piedra
+07379	Color
 07390	Color
-07393	Piedra
-07454	Color
-07527	Variación
-07535	Color principal
+07391	Marco
+07392	Color
+07393	Variación
+07453	Contenido
+07454	Color de la pintura
+07525	Color
+07526	Color
+07527	Color
+07528	Color
+07529	Color
+07535	Color
 07588	Hongo
+07599	Variación
+07653	Color
+07654	Color
 07788	Comida
-07795	Color
-07805	Madera
+07789	Color
+07795	Variación
+07796	Color
+07797	Color
+07800	Sabor
+07801	Color
+07802	Color
+07803	Color
+07804	Color
+07805	Color
+07845	Color
+07865	Diseño del kimono
 07867	Lugar indicado
+07868	Color
 08031	Color
+08096	Color
 08176	Color
 08177	Color
 08178	Color
-08419	Color de la pintura
+08297	Color
+08298	Armazón
+08415	Color
+08417	Color
+08418	Color
+08419	Color
 08471	Color
 08472	Color
 08473	Color
@@ -277,16 +661,46 @@
 08579	Color
 08580	Color
 08826	Color de la pintura
-09642	Color principal
+09502	Color
+09565	Diseño
+09568	Variación
+09584	Color
+09619	Variación
+09642	Color
+09766	Color
+09767	Color
+10244	Color del frasco
 10742	Bambú
 10743	Bambú
-11941	Color
+11711	Color
+11712	Color
+11941	Variación
 11942	Color de la pintura
-11943	Color
+11943	Variación
 12140	Color
-12332	Tablero
-12372	Lacado
-12373	Lacado
+12207	Color
+12305	Color
+12308	Color
+12311	Color del cuadro
+12312	Color
+12313	Color
+12314	Color
+12332	Color
+12340	Color de los postes
+12341	Color
+12343	Color
+12344	Color
+12345	Color
+12346	Color
+12348	Color
+12349	Color
+12350	Color
+12356	Color
+12358	Color
+12365	Color
+12366	Color
+12372	Variación
+12373	Variación
 12401	Diseño
 12402	Diseño
 12403	Diseño
@@ -295,54 +709,499 @@
 12406	Diseño
 12407	Diseño
 12408	Diseño
-12409	Color principal
-12410	Caballete
+12409	Color
+12410	Diseño
 12411	Diseño
+12516	Color
 12543	Joy-Con
+12599	Color
+12600	Color
+12601	Color
+12602	Color
+12603	Color
+12604	Color
+12605	Armazón
+12606	Color
+12608	Color
+12610	Color
+12611	Estado
+12612	Color
+12613	Color de la porcelana
+12614	Color
+12637	Variación
+12653	Color
+12669	Color de las patas
+12670	Color
+12673	Color
+12674	Color
+12675	Color
+12676	Color
+12677	Color
+12678	Color
+12679	Color
+12683	Estilo
+12684	Estilo
+12685	Estilo
+12688	Estilo
+12689	Estilo
+12690	Estilo
+12691	Estilo
+12692	Estilo
+12693	Color
+12699	Armazón
+12700	Color
+12701	Color
+12702	Color
+12703	Color del cubo
+12704	Color
+12705	Contenido
+12706	Contenido
+12707	Variación
+12708	Color
+12709	Color
+12712	Color
+12713	Color
+12714	Color
+12715	Estilo
+12717	Contenido
+12718	Contenido
+12720	Color
 12741	Centro del mapa
+12744	Mantel superior
+12745	Mantel superior
+12766	Color
+12767	Color
+12768	Color
+12769	Color
+12772	Color
+12773	Color
+12774	Color
+12775	Color del pie
+12776	Color
+12777	Color
+12778	Color
+12779	Color
+12780	Color
+12781	Color
+12782	Color de la mesa
+12803	Estilo
+12880	Armazón
+12881	Color
+12882	Color
+12883	Color
+12884	Color
+12885	Color
+12886	Color
+12887	Color
+12888	Color
+12889	Color
+12890	Variación
+12891	Marco
+12893	Color
+12894	Color
 12949	Color de la calabaza
-12951	Color
-13222	Color
-13223	Color
-13242	Color principal
-13243	Tela
-13244	Diseño
-13245	Variación
+12951	Color de la calabaza
+12976	Variación
+12993	Color
+12994	Color de la madera
+12995	Color
+12996	Color de la madera
+12997	Color
+12998	Color
+12999	Color
+13004	Color
+13005	Cuerpo
+13006	Armazón
+13007	Armazón
+13008	Armazón
+13009	Armazón
+13010	Armazón
+13073	Color de la madera
+13075	Color de la madera
+13076	Color
+13077	Color
+13078	Color
+13079	Color
+13080	Color
+13081	Color
+13082	Color
+13083	Color
+13084	Color de la bandeja
+13085	Tapizado
+13108	Color
+13109	Color
+13110	Color
+13111	Color
+13112	Color
+13113	Diseño
+13114	Color
+13115	Color
+13116	Color
+13117	Color
+13118	Color
+13119	Color
+13120	Metal
+13121	Color
+13122	Color de la madera
+13138	Color de la madera
+13139	Color de la madera
+13140	Color
+13141	Color de la madera
+13142	Color del pie
+13143	Color
+13144	Color
+13145	Variación
+13146	Color
+13147	Color
+13148	Color
+13149	Color
+13150	Color
+13151	Enganche
+13152	Color
+13153	Color
+13154	Color
+13155	Color
+13156	Variación
+13157	Color
+13158	Color
+13161	Diseño frontal
+13163	Color
+13164	Color
+13185	Diseño
+13186	Diseño
+13187	Diseño
+13188	Balones
+13189	Color
+13190	Color
+13191	Color
+13192	Color
+13201	Color
+13202	Color
+13203	Variación
+13205	Color
+13206	Color
+13207	Soporte
+13209	Color
+13210	Color
+13211	Color
+13214	Color
+13220	Color del enganche
+13222	Color de la calabaza
+13223	Color de la calabaza
+13229	Color
+13242	Color
+13243	Color
+13244	Color
+13245	Sabor
 13246	Variación
-13247	Color principal
-13249	Variación
+13247	Color
+13249	Color
 13250	Color de los coches
-13251	Color principal
+13251	Color
 13252	Tejado
-13447	Diseño
-13448	Diseño
-13449	Diseño
-13450	Diseño
-13453	Diseño
+13255	Color
+13266	Color
+13268	Armazón
+13269	Color
+13270	Color
+13271	Color
+13272	Color de la maceta
+13273	Estado
+13274	Color
+13288	Color de la estructura
+13294	Color de las tumbonas
+13295	Color
+13296	Tapizado
+13299	Color
+13300	Color
+13302	Variación
+13303	Contenido
+13304	Color
+13305	Color
+13306	Color
+13307	Color
+13312	Color
+13313	Color
+13335	Color
+13337	Color
+13338	Color
+13339	Color
+13340	Color
+13341	Cuerpo
+13342	Color
+13343	Color
+13344	Color
+13345	Contenido
+13347	Variación
+13356	Color
+13360	Color del contenido
+13361	Colores
+13362	Variación
+13363	Color
+13365	Color de la taza
+13366	Color
+13367	Color
+13368	Color
+13369	Color
+13370	Color
+13447	Estilo
+13448	Estilo
+13449	Estilo
+13450	Estilo
+13453	Estilo
+13454	Armazón
+13455	Color
+13464	Color
+13465	Color
+13466	Color de la serpentina
+13467	Color de la llama
+13468	Color de las luces
+13469	Color de las luces
+13472	Color de las aspas
+13474	Color
+13475	Variación
+13478	Color
+13479	Color
 13488	Variación
-13767	Variación
-13770	Variación
-13772	Variación
-13773	Variación
-13774	Variación
-13775	Variación
-13776	Variación
-13777	Variación
-13778	Variación
-13818	Diseño
-13819	Diseño
-13820	Diseño
+13496	Variación
+13502	Color de las luces
+13503	Variación
+13504	Color de las luces
+13505	Color
+13506	Color de las luces
+13507	Color
+13508	Color
+13509	Variación
+13510	Color
+13511	Variación
+13512	Color
+13513	Color
+13514	Estilo
+13515	Color
+13516	Color
+13517	Color
+13518	Color
+13519	Color
+13520	Variación
+13521	Color
+13522	Peinado
+13523	Color
+13524	Variación
+13526	Color
+13530	Color de la pintura
+13534	Color
+13573	Color de la pintura
+13574	Color de la pintura
+13575	Color
+13576	Color de la maceta
+13577	Color
+13578	Color
+13579	Copa
+13580	Estilo
+13581	Variación
+13582	Variación
+13583	Color
+13584	Color del maquillaje
+13586	Armazón
+13587	Color
+13588	Color de la pintura
+13589	Color
+13590	Variación
+13591	Estilo
+13606	Color
+13614	Color
+13615	Color
+13616	Color del cable
+13618	Estampado
+13620	Rollo
+13621	Color
+13622	Color
+13623	Variación
+13624	Armazón
+13625	Estampado
+13626	Color
+13627	Estampado
+13628	Color
+13629	Estampado
+13630	Armazón
+13631	Color
+13632	Sabores
+13633	Cuerpo
+13634	Contenido
+13636	Color
+13637	Color de la estructura
+13638	Color de la estructura
+13639	Color de la estructura
+13642	Color
+13643	Color
+13645	Color
+13647	Color
+13649	Color
+13651	Color
+13655	Marco
+13657	Color del pie
+13662	Variación
+13666	Color
+13676	Color
+13678	Color
+13680	Color de la estructura
+13690	Color
+13691	Color del cuadro
+13692	Color
+13696	Diseño
+13712	Color
+13717	Color
+13719	Color
+13722	Variación
+13729	Contenido
+13740	Género
+13744	Marco
+13745	Diseño
+13747	Marco
+13748	Color
+13751	Color de la pintura
+13756	Color
+13765	Postes
+13767	Color
+13770	Color
+13772	Color
+13773	Color
+13774	Color
+13775	Color
+13776	Color
+13777	Color
+13778	Color
+13818	Estilo
+13819	Estilo
+13820	Estilo
 13829	Variación
 13831	Color
 13832	Color
+13884	Color
+13897	Ladrillo
+13901	Ladrillo
+13902	Variación
+13925	Color
+13926	Color
 13927	Color
-13930	Diseño
-14029	Variación
+13930	Estilo
+14017	Variación
+14018	Variación
+14019	Color
+14029	Color
+14046	Color
+14047	Color
+14049	Color
+14050	Color del panel
+14051	Marco
+14053	Marco
+14054	Color
+14055	Color
+14056	Color
+14057	Color
+14058	Color
+14059	Color
+14060	Color
+14061	Color
+14062	Color
+14063	Color
+14064	Color
+14065	Color
+14066	Color
+14067	Color
+14074	Color
+14075	Color
+14076	Color
+14077	Color
+14078	Color
+14080	Color
+14081	Color
+14082	Color
+14083	Color
+14086	Color
+14087	Color
+14088	Color
+14089	Color
+14092	Color
+14093	Color
+14094	Color
+14095	Color
+14098	Color
+14099	Color
+14100	Color
+14101	Color
+14106	Variación
+14108	Variación
+14184	Planta
+14192	Color
+14193	Color
+14205	Color
+14206	Color
+14207	Color
+14208	Color
+14209	Color
+14210	Color
+14211	Color
+14212	Color
+14213	Variación
+14214	Color
+14216	Color del brebaje
+14308	Color
+14310	Color
+14313	Variación
+14332	Color
+14337	Color
 14340	Color
-14414	Diseño
-14475	Corona
-14476	Variación
-14477	Variación
-14542	Color
+14352	Color
+14353	Color
+14354	Color
+14414	Variación
+14475	Color
+14476	Color
+14477	Color
+14520	Color
+14523	Color
+14524	Color de la pantalla
+14525	Color
+14526	Color
+14527	Color
+14528	Color
+14530	Color
+14531	Color
+14534	Contenido
+14538	Color
+14539	Color
+14542	Color de la calabaza
+14549	Variación
 14550	Color de la calabaza
 14551	Color de la calabaza
+14556	Color de la caja
+14561	Contenido
+14572	Color
+14574	Tipo de grano
+14575	Color
+14591	Color
+14592	Color de la pintura
+14593	Color
+14594	Color
+14596	Ladrillo
+14597	Color
+14598	Color
+14601	Variación
+14604	Color
+14619	Color de la barra
+14620	Color de la barra
+14639	Género
+14640	Género
+14714	Color
+14728	Color
+14735	
+14756	Iluminación
+14758	Color
+14759	Color
+14799	Color
+14821	Color de las luces
+14826	Color
+14831	Color
+14882	Variación
+14887	Variación

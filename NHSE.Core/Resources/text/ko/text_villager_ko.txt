@@ -2,6 +2,7 @@ ant00	사지마
 ant01	퍼머거
 ant02	패트라
 ant03	아롱이
+ant05	소면
 ant06	스누티
 ant08	설백
 ant09	안토니오
@@ -28,6 +29,7 @@ brd04	딩요
 brd05	파이프
 brd06	일섭
 brd08	핑글이
+brd09	페더
 brd11	야곱
 brd15	마스카라스
 brd16	쪼끼
@@ -96,6 +98,7 @@ crd00	알베르트
 crd01	크로크
 crd02	풍작
 crd04	파도맨
+crd05	삐로코
 crd06	하이드
 crd07	앨리
 crd08	용남이
@@ -110,6 +113,7 @@ der07	피터
 der08	나탈리
 der09	자끄
 der10	첼시
+der11	요비
 dog00	카라멜
 dog01	존
 dog02	럭키
@@ -121,6 +125,7 @@ dog07	바닐라
 dog08	베리
 dog09	마롱
 dog10	베이글
+dog11	샹펜
 dog14	챔프
 dog15	에드워드
 dog16	땡칠이
@@ -199,6 +204,7 @@ ham04	샨티
 ham05	햄둥
 ham06	뽀야미
 ham07	햄쥐
+ham09	보스터
 hip00	곤잘레스
 hip02	차코
 hip03	베티
@@ -227,6 +233,7 @@ kal02	아델레이드
 kal03	시드니
 kal04	근성
 kal05	동동이
+kal07	마치
 kal08	캔버라
 kal09	오즈먼드
 kal10	코알
@@ -253,6 +260,7 @@ mnk05	몽자
 mnk06	원승
 mnk07	젤리
 mnk08	델리
+mnk09	제천
 mus00	티미
 mus01	단무지
 mus02	이자벨
@@ -268,13 +276,16 @@ mus15	마르카
 mus16	복자
 mus17	찍순이
 mus18	치즈
+mus19	리카
 ocp00	문복
 ocp01	문리나
 ocp02	탁호
+ocp04	기가
 ost00	택주
 ost01	빅토리아
 ost02	샌디
 ost03	헤르츠
+ost04	데자네
 ost05	줄리아
 ost06	타키
 ost07	케인
@@ -290,6 +301,7 @@ pbr06	헐크
 pbr07	은수리
 pbr08	프랭크
 pbr09	티파니
+pbr10	시온
 pgn00	오로라
 pgn01	펭수
 pgn02	빙수
@@ -297,6 +309,7 @@ pgn03	달만이
 pgn04	사브리나
 pgn05	폴라
 pgn06	하키
+pgn07	펭구
 pgn09	호떡
 pgn10	팽기
 pgn11	김말이
@@ -339,10 +352,12 @@ rbt17	미미
 rbt18	아마민
 rbt19	미랑
 rbt20	토비
+rbt21	미첼
 rhn00	탱크
 rhn01	론다
 rhn02	스쿼트
 rhn04	뿌람
+rhn05	페튜니아
 rhn07	스트로베리
 rhn08	뿔님이
 shp00	메리어스
@@ -377,6 +392,7 @@ squ15	다람
 squ16	크리스
 squ17	쭈니
 squ18	아이리스
+squ21	스피카
 tig00	호랭이
 tig01	고메스
 tig02	티볼트
@@ -405,6 +421,7 @@ bpt	마추릴라
 chm	멜레옹
 chy	레온
 cml	사하라
+cmlB	사하라
 dga	경찰관
 dgb	경찰관
 doc	로드리
@@ -424,21 +441,26 @@ kpm	갑순
 kpp	갑돌
 kps	꼬미
 lom	미야
+man	너티
 mka	아트고양이
+mnc	방글
 mnk	역무원
 mob	오루묵씨
 mol	도루묵씨
 otg	솜이
+otgB	솜이
 ott	안심해씨
 owl	부엉
 ows	부옥
 pck	베르리나
 pge	마스터
+pgeB	마스터
 pkn	펌킹
 plk	펠리
 plm	펠리미
 plo	펠리오
 poo	카트리나
+pooB	카트리나
 pyn	토빗
 rcm	콩돌이
 rco	너굴
@@ -454,6 +476,7 @@ tap	몽셰르
 tkkA	K.K.
 tkkB	DJ K.K.
 ttlA	고북
+ttlB	도토리옹
 tuk	프랭클린
 upa	스승
 wrl	고파유
