@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using NHSE.Core;
 
 namespace NHSE.Parsing
 {
@@ -50,6 +47,14 @@ namespace NHSE.Parsing
             }
             result.Sort();
             return result.ToArray();
+        }
+
+        public static string[] GetVillagerPhraseResource(string msgPath)
+        {
+            var file = Path.Combine(msgPath, "Npc", "STR_NNpcPhrase.msbt");
+            var list = GetLabelList(file);
+            var normal = list.Select(z => $"{z.Label}\t{z.Text}").OrderBy(z => z);
+            return normal.ToArray();
         }
 
         public static string[] GetVillagerListResource(string msgPath)

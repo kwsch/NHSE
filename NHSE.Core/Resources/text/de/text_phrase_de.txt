@@ -2,6 +2,7 @@ ant00	schneuf
 ant01	schlürrrf
 ant02	schnieef
 ant03	puuust
+ant05	schnurz
 ant06	schnuff
 ant08	schnüffel
 ant09	mwahaaa
@@ -28,6 +29,7 @@ brd04	zischhh
 brd05	tschikadii
 brd06	oh, ja
 brd08	twitiriti
+brd09	astrein
 brd11	tirilü
 brd15	mauser
 brd16	piepiep
@@ -77,6 +79,7 @@ cbr14	flüster
 cbr15	baaambus
 cbr16	mwuuu
 cbr17	bossi
+cbr18	pompudding
 cbr19	träum
 chn00	buaa-ka-ka
 chn01	putputtt
@@ -95,6 +98,7 @@ crd00	ahhhrg
 crd01	graaach
 crd02	schmatzi
 crd04	happ
+crd05	yoyoyo
 crd06	schnapp
 crd07	zähni
 crd08	hömpf
@@ -108,6 +112,8 @@ der06	zick
 der07	knospel
 der08	kitz
 der09	hirschl
+der10	denkpink
+der11	okido
 dog00	wuff
 dog01	GRRUFF
 dog02	rrr-awau
@@ -119,6 +125,7 @@ dog07	wauwau
 dog08	nuffnuff
 dog09	hurra
 dog10	bingo
+dog11	gnüff
 dog14	bellbell
 dog15	tusch
 dog16	winsel
@@ -151,6 +158,7 @@ elp06	TUUUUT
 elp07	polter
 elp09	puuuuuh
 elp10	huiuiui
+elp11	zimtroll
 elp12	hau
 flg00	kröti
 flg01	quarrrk
@@ -187,6 +195,7 @@ gor07	auauauu
 gor08	uga-uga
 gor09	brahaha
 gor10	kongkong
+gor11	kittykong
 ham00	twirps
 ham01	fiep
 ham02	hähäm
@@ -195,6 +204,7 @@ ham04	hümpf
 ham05	backi
 ham06	millimilli
 ham07	squiep
+ham09	sososo
 hip00	pfffft
 hip02	blupper
 hip03	blubber
@@ -223,6 +233,7 @@ kal02	zubba
 kal03	sternchen
 kal04	partner
 kal05	altes Haus
+kal07	aloha
 kal08	kolala
 kal09	liptus
 kal10	yeah
@@ -249,6 +260,7 @@ mnk05	strebstreb
 mnk06	kikiki
 mnk07	makimaki
 mnk08	miekmiek
+mnk09	wuwu
 mus00	quieek
 mus01	pfiffikus
 mus02	visavisa
@@ -264,13 +276,16 @@ mus15	achja
 mus16	nagnag
 mus17	bling
 mus18	hoho
+mus19	tjöm
 ocp00	schling
 ocp01	blubblub
 ocp02	saug
+ocp04	klink-klonk
 ost00	hühnchen
 ost01	ajajajjj
 ost02	flottilda
 ost03	affenzahn
+ost04	küken
 ost05	püh
 ost06	happahappa
 ost07	zwoing
@@ -286,6 +301,7 @@ pbr06	kriiieck
 pbr07	krahkrah
 pbr08	kiiiiiih
 pbr09	kraaack
+pbr10	hirro
 pgn00	b-bestens
 pgn01	k-k-kumpel
 pgn02	d-d-dude
@@ -293,6 +309,7 @@ pgn03	slaschi
 pgn04	grrmpf
 pgn05	sssweetie
 pgn06	brrrrrrrrr
+pgn07	mömömö
 pgn09	wackel
 pgn10	menschlein
 pgn11	plitsch
@@ -334,10 +351,13 @@ rbt16	langohr
 rbt17	hüppi
 rbt18	mümml
 rbt19	jahopp
+rbt20	kerokero
+rbt21	hobbli
 rhn00	rumpel
 rhn01	stampf
 rhn02	punk
 rhn04	schneuzel
+rhn05	wumpa
 rhn07	trarapp
 rhn08	bomm
 shp00	bäääh
@@ -352,6 +372,7 @@ shp10	bwäääh
 shp11	knuddel
 shp12	knuffi
 shp13	helau
+shp14	kikilala
 shp15	jau
 squ00	faulenzer
 squ01	knack
@@ -371,6 +392,7 @@ squ15	nussi
 squ16	hoppi
 squ17	huschhusch
 squ18	kekeke
+squ21	knibbi
 tig00	brüll
 tig01	mango
 tig02	grrrummel

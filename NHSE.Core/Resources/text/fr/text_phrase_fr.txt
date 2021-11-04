@@ -2,6 +2,7 @@ ant00	ATCHOUM
 ant01	pouet
 ant02	pouuuuuf
 ant03	grognon
+ant05	bubale
 ant06	snif snif
 ant08	tap tap
 ant09	tartarin
@@ -28,6 +29,7 @@ brd04	bouerk
 brd05	puic puic
 brd06	cornichon
 brd08	loulou
+brd09	ma caille
 brd11	asticô
 brd15	yaaaah
 brd16	ploc ploc
@@ -77,6 +79,7 @@ cbr14	linou
 cbr15	pla-pla
 cbr16	dodododu
 cbr17	grifouille
+cbr18	pom pom
 cbr19	oh là là
 chn00	bouyaka
 chn01	oh oh
@@ -95,6 +98,7 @@ crd00	moi moi
 crd01	graaagh
 crd02	mariolle
 crd04	clap
+crd05	parsec
 crd06	repos
 crd07	croquignou
 crd08	ducroc
@@ -108,6 +112,8 @@ der06	rosace
 der07	feufeuille
 der08	bichouchou
 der09	breuh
+der10	bibiche
+der11	bramaka
 dog00	ouaf
 dog01	WROOOOUF
 dog02	graaaouch
@@ -119,6 +125,7 @@ dog07	mon chou
 dog08	woufi
 dog09	youp
 dog10	mon chaton
+dog11	nondinche
 dog14	babines
 dog15	miaouf
 dog16	croquettes
@@ -151,6 +158,7 @@ elp06	splaf
 elp07	sacrelotte
 elp09	mammouth
 elp10	énoooorme
+elp11	pachipach
 elp12	bastringue
 flg00	watich'
 flg01	croac
@@ -187,6 +195,7 @@ gor07	gong
 gor08	ouba-oub
 gor09	patouche
 gor10	tût tût
+gor11	rorille
 ham00	chicots
 ham01	bibille
 ham02	au pif
@@ -195,6 +204,7 @@ ham04	gnognotte
 ham05	pindépice
 ham06	abajoujou
 ham07	balivernes
+ham09	capiche
 hip00	babi
 hip02	hip hop là
 hip03	rololol
@@ -223,6 +233,7 @@ kal02	pêchou
 kal03	mon trésor
 kal04	galopin
 kal05	koa là là
+kal07	aloha
 kal08	zyva
 kal09	sandwich
 kal10	yapaphoto
@@ -249,6 +260,7 @@ mnk05	steup
 mnk06	oh hisse
 mnk07	tavu
 mnk08	liaaaane
+mnk09	houhou
 mus00	tatouille
 mus01	scriiich
 mus02	hiiiii
@@ -264,13 +276,16 @@ mus15	skouik-ik
 mus16	téma
 mus17	grugru
 mus18	frometon
+mus19	eurêk
 ocp00	chenapan
 ocp01	beurp
 ocp02	sploush
+ocp04	bip bip
 ost00	poupoule
 ost01	codêt
 ost02	euh quoi
 ost03	pik pik
+ost04	bon bref
 ost05	trutruche
 ost06	omelette
 ost07	bécot
@@ -286,6 +301,7 @@ pbr06	maaaarre
 pbr07	kaputt
 pbr08	royaaaal
 pbr09	bebec
+pbr10	nickel
 pgn00	b-b-bébé
 pgn01	pépépère
 pgn02	cococopain
@@ -293,6 +309,7 @@ pgn03	manette
 pgn04	bourfff
 pgn05	h-h-h-hon
 pgn06	brrrrrrrrr
+pgn07	maiheu
 pgn09	blanbec
 pgn10	boudiou
 pgn11	zozio
@@ -334,10 +351,13 @@ rbt16	pinou-nou
 rbt17	nananère
 rbt18	chaaauuud
 rbt19	auch auch
+rbt20	kérocarot
+rbt21	boing
 rhn00	kaboum
 rhn01	grand pied
 rhn02	saperlotte
 rhn04	euh
+rhn05	pistil
 rhn07	ma fraise
 rhn08	badaboum
 shp00	pupull
@@ -352,6 +372,7 @@ shp10	barbiche
 shp11	mouêêê
 shp12	tricoti
 shp13	bamboche
+shp14	mohair
 shp15	broutille
 squ00	noisette
 squ01	coquille
@@ -371,6 +392,7 @@ squ15	scratchy
 squ16	toutouffe
 squ17	nanache
 squ18	tac tac
+squ21	albedou
 tig00	grrrufff
 tig01	banane
 tig02	grouaaah

@@ -2,6 +2,7 @@ ant00	ett-CCIÙ
 ant01	honk
 ant02	snuuf
 ant03	snorty
+ant05	oiiinfff
 ant06	sniffff
 ant08	chic
 ant09	swish
@@ -28,6 +29,7 @@ brd04	bzzert
 brd05	cocoricò
 brd06	cipissi
 brd08	firulì
+brd09	blablo
 brd11	ciiipito
 brd15	lorito
 brd16	pio pio
@@ -77,6 +79,7 @@ cbr14	purrrimba
 cbr15	brupp
 cbr16	babalù
 cbr17	ohè
+cbr18	pom pom
 cbr19	misu misu
 chn00	cucù
 chn01	uh-hoo
@@ -95,6 +98,7 @@ crd00	proprio
 crd01	graaag
 crd02	gnammi
 crd04	chomp
+crd05	blipblop
 crd06	ciaf
 crd07	désolée
 crd08	tic tac
@@ -108,6 +112,8 @@ der06	cervilà
 der07	gnam gnam
 der08	mamy
 der09	relax
+der10	melodì
+der11	bramì
 dog00	wuf wuf
 dog01	ROOOOOF
 dog02	ossorrr
@@ -119,6 +125,7 @@ dog07	bau WOW
 dog08	bubabù
 dog09	yuuuppii
 dog10	bingo
+dog11	goleador
 dog14	arfidenti
 dog15	snif snif
 dog16	bauuau
@@ -151,6 +158,7 @@ elp06	SBONK
 elp07	caromé
 elp09	barrir
 elp10	parbleu
+elp11	ruuu ruuu
 elp12	rocking
 flg00	gragragra
 flg01	cracrà
@@ -187,6 +195,7 @@ gor07	tump tump
 gor08	bananao
 gor09	uhatà
 gor10	entonces
+gor11	arrruuu
 ham00	puff pant
 ham01	triplo uau
 ham02	paella
@@ -195,6 +204,7 @@ ham04	vriiin
 ham05	popomf
 ham06	fondue
 ham07	spatapumf
+ham09	vossia
 hip00	ipper
 hip02	hiippy
 hip03	blup
@@ -223,6 +233,7 @@ kal02	toasty
 kal03	calipto
 kal04	dinamite
 kal05	ulabadula
+kal07	aloha
 kal08	eurekalì
 kal09	ponzipò
 kal10	koahola
@@ -249,6 +260,7 @@ mnk05	per favore
 mnk06	clap clap
 mnk07	babbuh
 mnk08	panzé
+mnk09	wuwu
 mus00	squiksquik
 mus01	squick
 mus02	eeks
@@ -264,13 +276,16 @@ mus15	zink zink
 mus16	rattaplan
 mus17	cheeese
 mus18	iiik
+mus19	accadueo
 ocp00	perdindi
 ocp01	blurp
 ocp02	blub
+ocp04	clinkclank
 ost00	polpetta
 ost01	stretch
 ost02	vruum
 ost03	niiun
+ost04	pasticcino
 ost05	blaaah
 ost06	boa
 ost07	tambien
@@ -286,6 +301,7 @@ pbr06	rapaciao
 pbr07	chicchirò
 pbr08	baila
 pbr09	ah bon
+pbr10	forzasù
 pgn00	b-b-baby
 pgn01	br-br-brr
 pgn02	brivido
@@ -293,6 +309,7 @@ pgn03	sguish
 pgn04	brrrumf
 pgn05	a-a-amor
 pgn06	brrrrrrrrr
+pgn07	uffifu
 pgn09	uhiii uuuh
 pgn10	glacius
 pgn11	tubi tubi
@@ -334,10 +351,13 @@ rbt16	gnuf gnuf
 rbt17	hurrah
 rbt18	niglio
 rbt19	baffoplà
+rbt20	kerokero
+rbt21	hoppihop
 rhn00	zamperù
 rhn01	piedone
 rhn02	pachi
 rhn04	splush
+rhn05	pistil
 rhn07	rien
 rhn08	stomp
 shp00	beeeby
@@ -352,6 +372,7 @@ shp10	pecoramè
 shp11	beee la la
 shp12	lanadà
 shp13	peco peco
+shp14	ovinin
 shp15	veronò
 squ00	sgronch
 squ01	scrick
@@ -371,6 +392,7 @@ squ15	squittole
 squ16	flash
 squ17	ardillà
 squ18	blink
+squ21	brillbrill
 tig00	grrrolf
 tig01	mango
 tig02	grrrRAH

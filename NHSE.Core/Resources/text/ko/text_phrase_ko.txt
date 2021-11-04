@@ -2,6 +2,7 @@ ant00	임돠
 ant01	진짜로
 ant02	라지요
 ant03	정말
+ant05	후루룩
 ant06	추릅
 ant08	하양하양
 ant09	무쵸
@@ -28,6 +29,7 @@ brd04	삼바
 brd05	허나
 brd06	오예
 brd08	핑그르르
+brd09	겁나
 brd11	그거야
 brd15	까아악
 brd16	체키라웃
@@ -77,6 +79,7 @@ cbr14	띵호아
 cbr15	부끄
 cbr16	아니그냥
 cbr17	차라리
+cbr18	폼폼
 cbr19	어머머
 chn00	키득
 chn01	우힛
@@ -95,6 +98,7 @@ crd00	나아거
 crd01	얘야
 crd02	만세
 crd04	처얼썩
+crd05	삐리리
 crd06	부스럭
 crd07	아거얌
 crd08	띠용띠용
@@ -108,6 +112,8 @@ der06	핑크크
 der07	우왕
 der08	라니까
 der09	뚜비뚜바
+der10	하트하트
+der11	아무튼
 dog00	왈왈
 dog01	아니
 dog02	그렇대
@@ -119,6 +125,7 @@ dog07	그렇죠
 dog08	초롱초롱
 dog09	달코미
 dog10	쫀득
+dog11	참나
 dog14	우물우물
 dog15	하옵소서
 dog16	그럼그럼
@@ -151,6 +158,7 @@ elp06	히힛
 elp07	트랄라
 elp09	뿌뿌
 elp10	따끈따끈
+elp11	롤롤
 elp12	피스
 flg00	그래요
 flg01	오버
@@ -187,6 +195,7 @@ gor07	에그머닛
 gor08	부락
 gor09	끼얍
 gor10	알만하다
+gor11	헬로
 ham00	햄햄
 ham01	큐룽
 ham02	그렇다고
@@ -195,6 +204,7 @@ ham04	파샤샤
 ham05	둥게둥게
 ham06	뽀드득
 ham07	카악
+ham09	알겠냐
 hip00	그러마
 hip02	히포포
 hip03	맞습니다
@@ -223,6 +233,7 @@ kal02	정말로요
 kal03	발그레
 kal04	버텨
 kal05	큐큐
+kal07	바삭
 kal08	어어
 kal09	우와
 kal10	야야야
@@ -249,6 +260,7 @@ mnk05	몽몽
 mnk06	빠샤
 mnk07	우끼네
 mnk08	흠냐리
+mnk09	긁적
 mus00	찍찍
 mus01	긍가벼
 mus02	캬학
@@ -264,13 +276,16 @@ mus15	내말이요
 mus16	오호호
 mus17	그러찍
 mus18	꼬리꼬리
+mus19	흐으음
 ocp00	쭉쭉
 ocp01	캬캬
 ocp02	약히
+ocp04	발사
 ost00	역시
 ost01	그렇지라
 ost02	그렇다조
 ost03	치지직
+ost04	네이루
 ost05	어머몰라
 ost06	오요용
 ost07	호롤로
@@ -286,6 +301,7 @@ pbr06	크헐
 pbr07	호옷
 pbr08	수리수리
 pbr09	그래맞아
+pbr10	확실히
 pgn00	랄라
 pgn01	팽팽
 pgn02	땡땡
@@ -293,6 +309,7 @@ pgn03	아따
 pgn04	으쓱
 pgn05	우훗훗
 pgn06	엣취
+pgn07	중얼중얼
 pgn09	뒤집어
 pgn10	에헴헴
 pgn11	펭글펭글
@@ -334,10 +351,13 @@ rbt16	진짜진짜
 rbt17	어뜨케
 rbt18	나도나도
 rbt19	거봐라
+rbt20	케로케로
+rbt21	동글
 rhn00	아뿔소
 rhn01	훗
 rhn02	빠직
 rhn04	뿔뿔
+rhn05	세봉
 rhn07	베리베리
 rhn08	킁킁
 shp00	쩝
@@ -352,6 +372,7 @@ shp10	달려
 shp11	포테토
 shp12	수고
 shp13	므흐흐
+shp14	폭신폭신
 shp15	뿜뿜
 squ00	거얌
 squ01	헤헤헤
@@ -371,6 +392,7 @@ squ15	도톨도톨
 squ16	땡글땡글
 squ17	어차피
 squ18	알아알아
+squ21	빤짝
 tig00	근데
 tig01	내참
 tig02	으르렁

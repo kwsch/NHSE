@@ -2,6 +2,7 @@ ant00	有的
 ant01	真誠
 ant02	希希
 ant03	真的假的
+ant05	粉粉
 ant06	麻煩了
 ant08	優雅
 ant09	歐啦
@@ -28,6 +29,7 @@ brd04	諾諾
 brd05	山雀
 brd06	貫徹
 brd08	臉紅
+brd09	是也
 brd11	話說
 brd15	嘎
 brd16	唷唷唷
@@ -77,6 +79,7 @@ cbr14	佳佳
 cbr15	竹子
 cbr16	算了
 cbr17	竟然說
+cbr18	布丁
 cbr19	哎呀
 chn00	咕咕
 chn01	好棒
@@ -95,6 +98,7 @@ crd00	鱷泥
 crd01	鱷魚皮
 crd02	跳
 crd04	噗咻
+crd05	吼吼
 crd06	唰唰
 crd07	鱷莉
 crd08	然後
@@ -108,6 +112,8 @@ der06	西卡
 der07	怎麼辦
 der08	是吧
 der09	鹿鹿
+der10	喜喜
+der11	總芝
 dog00	汪
 dog01	儂
 dog02	大概
@@ -119,6 +125,7 @@ dog07	對不對
 dog08	琳琳
 dog09	一二
 dog10	賓果
+dog11	欸
 dog14	摘
 dog15	什麼字
 dog16	那麼那麼
@@ -151,6 +158,7 @@ elp06	嘻嘻
 elp07	啦啷
 elp09	毛毛
 elp10	呼
+elp11	大耳
 elp12	搖滾
 flg00	雨雨
 flg01	機器
@@ -187,6 +195,7 @@ gor07	唉呀
 gor08	嗚呼
 gor09	煞啊
 gor10	同意
+gor11	哈囉
 ham00	火腿
 ham01	轉轉
 ham02	就是這樣
@@ -195,6 +204,7 @@ ham04	相信我
 ham05	忐忑不安
 ham06	對啊
 ham07	怒
+ham09	所以囉
 hip00	覺得是啦
 hip02	是是
 hip03	沒錯
@@ -223,6 +233,7 @@ kal02	不得了
 kal03	無尾熊
 kal04	錢錢
 kal05	顆顆
+kal07	香脆
 kal08	咦～
 kal09	哇～
 kal10	喂喂
@@ -249,6 +260,7 @@ mnk05	孟孟
 mnk06	差不多
 mnk07	嗚吱吱
 mnk08	去吧
+mnk09	好好
 mus00	美吧
 mus01	非也
 mus02	嘎哈
@@ -264,13 +276,16 @@ mus15	就說吧
 mus16	呵呵呵
 mus17	啾啾
 mus18	也是啦
+mus19	嗯啊
 ocp00	章魚
 ocp01	咔
 ocp02	認同
+ocp04	發動
 ost00	果然
 ost01	千歲
 ost02	鴕鳥
 ost03	機械
+ost04	鈴鈴
 ost05	吼唷
 ost06	哎呀呀
 ost07	轟隆隆
@@ -286,6 +301,7 @@ pbr06	多謝
 pbr07	呀啊
 pbr08	是
 pbr09	是呢
+pbr10	好好做
 pgn00	若
 pgn01	企鵝
 pgn02	十字
@@ -293,6 +309,7 @@ pgn03	禪
 pgn04	滑溜溜
 pgn05	唔呼呼
 pgn06	候補
+pgn07	嘟噥
 pgn09	所以啦
 pgn10	軋軋
 pgn11	捲捲
@@ -334,10 +351,13 @@ rbt16	真的
 rbt17	不妙
 rbt18	就是如此
 rbt19	月球
+rbt20	蛙蛙
+rbt21	妹妹頭
 rhn00	犀犀
 rhn01	嗯噗
 rhn02	混混
 rhn04	念念
+rhn05	謝謝
 rhn07	糖糖
 rhn08	超強
 shp00	就這樣呀
@@ -352,6 +372,7 @@ shp10	等啊
 shp11	薯薯
 shp12	辛苦了
 shp13	丑丑
+shp14	毛茸茸
 shp15	哇耶
 squ00	就是唷
 squ01	哼哼
@@ -371,6 +392,7 @@ squ15	甜甜
 squ16	鼓栗鼓栗
 squ17	不管怎樣
 squ18	當然囉
+squ21	亮晶晶
 tig00	王
 tig01	完全
 tig02	虎虎

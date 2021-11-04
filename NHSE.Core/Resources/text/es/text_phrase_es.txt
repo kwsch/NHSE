@@ -2,6 +2,7 @@ ant00	achús
 ant01	fufuf
 ant02	snuf-snuf
 ant03	esnoink
+ant05	olisquín
 ant06	sniff
 ant08	nubecillas
 ant09	fruf
@@ -28,6 +29,7 @@ brd04	pío-pío
 brd05	chupiyá
 brd06	avechucho
 brd08	arrurrú
+brd09	figura
 brd11	pelusilla
 brd15	picopico
 brd16	chapó
@@ -77,6 +79,7 @@ cbr14	pitiminí
 cbr15	ahivá
 cbr16	apurri
 cbr17	tararí
+cbr18	pudin
 cbr19	qué cosas
 chn00	caracol
 chn01	cocorico
@@ -95,6 +98,7 @@ crd00	ñam-ñam
 crd01	lagartija
 crd02	crococroco
 crd04	chomp
+crd05	alien
 crd06	capón
 crd07	corazón
 crd08	quemarrr
@@ -108,6 +112,8 @@ der06	braaaam
 der07	babum
 der08	braaavo
 der09	ñume-ñume
+der10	melomelo
+der11	oni
 dog00	guau-guau
 dog01	gruf-gruf
 dog02	guuuuAY
@@ -119,6 +125,7 @@ dog07	guaay
 dog08	fresita
 dog09	chupi
 dog10	huesín
+dog11	pichichi
 dog14	frusky
 dog15	colmillos
 dog16	tirirí
@@ -151,6 +158,7 @@ elp06	ankagua
 elp07	trompi
 elp09	purupú
 elp10	snuuuf
+elp11	vuelalto
 elp12	rocanrol
 flg00	mosquita
 flg01	crobit
@@ -187,6 +195,7 @@ gor07	canapé
 gor08	chocolate
 gor09	uga-uga
 gor10	cungagún
+gor11	kittybún
 ham00	chucufá
 ham01	do-re-mi
 ham02	ñisqui
@@ -195,6 +204,7 @@ ham04	moflete
 ham05	tucu-tucu
 ham06	nomnom
 ham07	andaquenó
+ham09	pariente
 hip00	batracio
 hip02	hippie
 hip03	glub-glub
@@ -223,6 +233,7 @@ kal02	tesoro
 kal03	súper
 kal04	jorf-jorf
 kal05	osete
+kal07	aloha
 kal08	kolalá
 kal09	trololó
 kal10	ouyeah
@@ -249,6 +260,7 @@ mnk05	ricura
 mnk06	afuá
 mnk07	tunante
 mnk08	millón
+mnk09	wuwu
 mus00	cuiqui
 mus01	caramba
 mus02	petisú
@@ -264,13 +276,16 @@ mus15	piruleta
 mus16	bocadito
 mus17	migas
 mus18	fundifún
+mus19	eureka
 ocp00	chupatinta
 ocp01	dospatas
 ocp02	churubú
+ocp04	clonc
 ost00	gallina
 ost01	plumillas
 ost02	fiuuun
 ost03	chiuuun
+ost04	sambasamba
 ost05	churri
 ost06	gruqui
 ost07	jurk
@@ -286,6 +301,7 @@ pbr06	vulanico
 pbr07	mancuernas
 pbr08	flopflop
 pbr09	plumis
+pbr10	nobi
 pgn00	pescadito
 pgn01	titirito
 pgn02	waap
@@ -293,6 +309,7 @@ pgn03	esploch
 pgn04	heladito
 pgn05	crustáceo
 pgn06	sardinilla
+pgn07	refunfú
 pgn09	personaje
 pgn10	humanoide
 pgn11	chirpi
@@ -334,10 +351,13 @@ rbt16	arcoíris
 rbt17	oh lalá
 rbt18	muyayo
 rbt19	muesli
+rbt20	keroppi
+rbt21	neutrino
 rhn00	tapumba
 rhn01	jip-jip
 rhn02	granuja
 rhn04	narigón
+rhn05	merci
 rhn07	fresitas
 rhn08	purrum
 shp00	beeeibi
@@ -352,6 +372,7 @@ shp10	yalovéees
 shp11	berebé
 shp12	lanas
 shp13	moquimoqui
+shp14	kikilala
 shp15	diiigo yo
 squ00	almendrita
 squ01	bayita
@@ -371,6 +392,7 @@ squ15	albricias
 squ16	zasca
 squ17	tecuén
 squ18	castaña
+squ21	destello
 tig00	grooorf
 tig01	turista
 tig02	bengala

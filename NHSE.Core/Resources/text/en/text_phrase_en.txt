@@ -2,6 +2,7 @@ ant00	ah-CHOO
 ant01	honk
 ant02	snooooof
 ant03	snorty
+ant05	zoozooroo
 ant06	sniffff
 ant08	gumdrop
 ant09	whiffa
@@ -28,6 +29,7 @@ brd04	bzzert
 brd05	chickadee
 brd06	aye aye
 brd08	tweedledee
+brd09	ace
 brd11	ya feel
 brd15	cacaw
 brd16	zut alors
@@ -77,6 +79,7 @@ cbr14	bud
 cbr15	rookie
 cbr16	cubby
 cbr17	ya heard
+cbr18	pompom
 cbr19	myohmy
 chn00	buh-kay
 chn01	uh-hoo
@@ -95,6 +98,7 @@ crd00	it'sa me
 crd01	graaagh
 crd02	munchie
 crd04	gronk
+crd05	spaaace
 crd06	hoo-rah
 crd07	snacky
 crd08	burrrn
@@ -108,6 +112,8 @@ der06	precious
 der07	saltlick
 der08	no doy
 der09	chow down
+der10	pound cake
+der11	okaaay
 dog00	woof
 dog01	ROOOOOWF
 dog02	rrr-owch
@@ -119,6 +125,7 @@ dog07	bow-WOW
 dog08	arfer
 dog09	yippee
 dog10	bingo
+dog11	goshers
 dog14	woo woof
 dog15	non
 dog16	alrighty
@@ -151,6 +158,7 @@ elp06	WHONK
 elp07	li'l one
 elp09	fuzzers
 elp10	teacup
+elp11	flap flap
 elp12	rockin'
 flg00	toady
 flg01	zzrrbbitt
@@ -187,6 +195,7 @@ gor07	sweetie
 gor08	ayyyeee
 gor09	vroom
 gor10	groovy
+gor11	hello
 ham00	hammie
 ham01	cheekers
 ham02	indeed
@@ -195,6 +204,7 @@ ham04	tarnation
 ham05	thump
 ham06	powderpuff
 ham07	snort
+ham09	gabeesh
 hip00	hippie
 hip02	hipster
 hip03	bloop
@@ -223,6 +233,7 @@ kal02	toasty
 kal03	sunshine
 kal04	mate
 kal05	ol' bear
+kal07	aloha
 kal08	nuh uh
 kal09	chips
 kal10	yeah buddy
@@ -249,6 +260,7 @@ mnk05	puh-lease
 mnk06	rerack
 mnk07	cheeky
 mnk08	monch
+mnk09	wuwu
 mus00	squeaky
 mus01	squinky
 mus02	eeks
@@ -264,13 +276,16 @@ mus15	eekers
 mus16	yelp
 mus17	oh bow
 mus18	fromage
+mus19	mmmhmm
 ocp00	sucker
 ocp01	blurp
 ocp02	bloop
+ocp04	donk donk
 ost00	chicken
 ost01	stretch
 ost02	speedy
 ost03	zort
+ost04	li'l chick
 ost05	dahling
 ost06	sweatband
 ost07	hurk
@@ -286,6 +301,7 @@ pbr06	crushy
 pbr07	skraaaaw
 pbr08	wingo
 pbr09	feathers
+pbr10	proper
 pgn00	b-b-baby
 pgn01	b-b-buddy
 pgn02	brainfreeze
@@ -293,6 +309,7 @@ pgn03	slushie
 pgn04	brrrmph
 pgn05	h-h-h-hon
 pgn06	brrrrrrrrr
+pgn07	blargh
 pgn09	so it goes
 pgn10	human
 pgn11	waddler
@@ -334,10 +351,13 @@ rbt16	nougat
 rbt17	deelish
 rbt18	coooooool
 rbt19	cottontail
+rbt20	ribbit
+rbt21	hoppity
 rhn00	kerPOW
 rhn01	bigfoot
 rhn02	punk
 rhn04	schnozzle
+rhn05	merci
 rhn07	shortcake
 rhn08	yo yo yo
 shp00	baaaffo
@@ -352,6 +372,7 @@ shp10	pine nut
 shp11	oh ewe
 shp12	nightshade
 shp13	honk honk
+shp14	fuzzy
 shp15	indeedaroo
 squ00	slacker
 squ01	nutlet
@@ -371,6 +392,7 @@ squ15	nutty
 squ16	cardio
 squ17	sulky
 squ18	uni-wow
+squ21	gleam
 tig00	grrrolf
 tig01	mango
 tig02	grrrRAH

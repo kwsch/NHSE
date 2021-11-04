@@ -40,6 +40,7 @@ namespace NHSE.Parsing
             var langFolderCode = entry.Value;
             DumpItem(corePath, langID, msbtFolder, langFolderCode);
             DumpVillager(corePath, langID, msbtFolder, langFolderCode);
+            DumpVillagerPhrase(corePath, langID, msbtFolder, langFolderCode);
             DumpRemake(corePath, langID, msbtFolder, langFolderCode);
         }
 
@@ -48,6 +49,14 @@ namespace NHSE.Parsing
             var dest = Path.Combine(corePath, langID, $"text_villager_{langID}.txt");
             var file = string.Format(msbtFolder, langFolderCode);
             var villager = GameMSBTDumper.GetVillagerListResource(file);
+            File.WriteAllLines(dest, villager);
+        }
+
+        private static void DumpVillagerPhrase(string corePath, string langID, string msbtFolder, string langFolderCode)
+        {
+            var dest = Path.Combine(corePath, langID, $"text_phrase_{langID}.txt");
+            var file = string.Format(msbtFolder, langFolderCode);
+            var villager = GameMSBTDumper.GetVillagerPhraseResource(file);
             File.WriteAllLines(dest, villager);
         }
 
