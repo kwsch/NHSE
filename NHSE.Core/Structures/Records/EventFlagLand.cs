@@ -275,6 +275,7 @@ namespace NHSE.Core
             {0x120, new EventFlagLand(0 , 1    , 0288, "JohnnyQuestFinishFlagIsland"                )}, // ジョニー|その日に村で誰かがジョニーを助けたか？(海賊ジョニーでも使用)
             {0x121, new EventFlagLand(0 , 10   , 0289, "CampRandomSelectMoveOutNpc"                 )}, // キャンプ場|ランダム選出転出NPCが何番目の住人か？(0:未抽選/抽選対象なし)
             {0x122, new EventFlagLand(0 , 1    , 0290, "CampFireRemoved"                            )}, // 広場のキャンプファイアー撤去（実際の撤去とは連動してません）
+            {0x123, new EventFlagLand(0 , 1    , 0291, "WHEREAREN_HHDUnlock"                        )}, // ウェアラン諸島解禁
             {0x125, new EventFlagLand(0 , 1    , 0293, "UnlockEaster"                               )}, // BCATにてイースター解禁
             {0x126, new EventFlagLand(0 , 5    , 0294, "MuseumConstruction2"                        )}, // 博物館1→2(美術部屋追加)への工事中
             {0x127, new EventFlagLand(0 , 1    , 0295, "MuseumGrowupEnable2"                        )}, // 博物館2(美術部屋追加)への成長条件達成
@@ -288,6 +289,7 @@ namespace NHSE.Core
             {0x137, new EventFlagLand(0 , 1    , 0311, "GrowUpAfterPatch1_2"                        )}, // 1.2適用して成長処理をした
             {0x138, new EventFlagLand(0 , 1    , 0312, "GrowUpAfterPatch1_3"                        )}, // 1.3適用して成長処理をした
             {0x139, new EventFlagLand(0 , 1    , 0313, "GrowUpAfterPatch1_4"                        )}, // 1.4適用して成長処理をした
+            {0x13A, new EventFlagLand(0 , 1    , 0314, "GrowUpAfterPatch2_0"                        )}, // 2.0適用して成長処理をした
             {0x13B, new EventFlagLand(0 , 1    , 0315, "EarthdaySloFirstVisit"                      )}, // アースデーの初回レイジを予約した
             {0x13C, new EventFlagLand(0 , 1    , 0316, "OwlFoundDiveFish"                           )}, // フータ|誰かが海の幸を見せたことがある
             {0x13D, new EventFlagLand(0 , 1    , 0317, "SloPeddlerPurchaceToday"                    )}, // レイジ行商|今回の来訪で島の誰かが商品購入した？
@@ -324,6 +326,7 @@ namespace NHSE.Core
             {0x161, new EventFlagLand(0 , 1    , 0353, "RcoHasResolvedMoveKitBug"                   )}, // いせつキットバグを解消したか
             {0x162, new EventFlagLand(0 , 1    , 0354, "TapDreamEnable"                             )}, // ゆめみ|ゆめみ機能解禁か？
             {0x165, new EventFlagLand(0 , 1    , 0357, "GulBVisitEnable"                            )}, // 海賊ジョニーが来訪する条件を満たしたか
+            {0x166, new EventFlagLand(0 , 200  , 0358, "PokiRate"                                   )}, // x)ポキの両替レート
             {0x167, new EventFlagLand(0 , 9999 , 0359, "FireworksAddBbsYear"                        )}, // 花火大会予告の掲示板書き込みをした年
             {0x16A, new EventFlagLand(0 , 1    , 0362, "EnableMyDream"                              )}, // ゆめみ|現在、自分の島の夢を提供中か？
             {0x16B, new EventFlagLand(0 , 1    , 0363, "JohnnyInvisible"                            )}, // ジョニー非表示状態か
@@ -347,12 +350,12 @@ namespace NHSE.Core
             {0x180, new EventFlagLand(0 , 1    , 0384, "HarvestHQDish3Island"                       )}, // ハーベスト｜島の誰かが料理３グラタンの隠し食材納めた？
             {0x181, new EventFlagLand(0 , 1    , 0385, "HarvestHQDish4Island"                       )}, // ハーベスト｜島の誰かが料理４サカナのムニエルの隠し食材納めた？
             {0x182, new EventFlagLand(0 , 1    , 0386, "IsDisclosedMyDream"                         )}, // ゆめみ|現在、自分の島の夢をおまかせに公開中か？
-            {0x183, new EventFlagLand(0 , 19   , 0387, "HarvestTukIngredient2_2"                    )}, // ハーベスト｜必要食材２－２
-            {0x184, new EventFlagLand(0 , 19   , 0388, "HarvestTukIngredient3_1"                    )}, // ハーベスト｜必要食材３－１
-            {0x185, new EventFlagLand(0 , 19   , 0389, "HarvestTukIngredient3_2"                    )}, // ハーベスト｜必要食材３－２
-            {0x186, new EventFlagLand(0 , 19   , 0390, "HarvestTukIngredient4_2"                    )}, // ハーベスト｜必要食材４－２
-            {0x187, new EventFlagLand(0 , 19   , 0391, "HarvestTukHideIngredient2_1"                )}, // ハーベスト｜隠し食材２－１
-            {0x188, new EventFlagLand(0 , 19   , 0392, "HarvestTukHideIngredient2_2"                )}, // ハーベスト｜隠し食材２－２
+            {0x183, new EventFlagLand(0 , 22   , 0387, "HarvestTukIngredient2_2"                    )}, // ハーベスト｜必要食材２－２
+            {0x184, new EventFlagLand(0 , 22   , 0388, "HarvestTukIngredient3_1"                    )}, // ハーベスト｜必要食材３－１
+            {0x185, new EventFlagLand(0 , 22   , 0389, "HarvestTukIngredient3_2"                    )}, // ハーベスト｜必要食材３－２
+            {0x186, new EventFlagLand(0 , 22   , 0390, "HarvestTukIngredient4_2"                    )}, // ハーベスト｜必要食材４－２
+            {0x187, new EventFlagLand(0 , 22   , 0391, "HarvestTukHideIngredient2_1"                )}, // ハーベスト｜隠し食材２－１
+            {0x188, new EventFlagLand(0 , 22   , 0392, "HarvestTukHideIngredient2_2"                )}, // ハーベスト｜隠し食材２－２
             {0x189, new EventFlagLand(0 , 5    , 0393, "ReputaionMyIsland"                          )}, // ゆめみ｜現在の自分の島の評判値
             {0x18C, new EventFlagLand(0 , 9999 , 0396, "LastPlayXmasYear"                           )}, // 最後にプレイしたクリスマスの年
             {0x18D, new EventFlagLand(0 , 1    , 0397, "ShopSelectChristmasFtr"                     )}, // クリスマスおもちゃ家具抽選を今日したか
@@ -389,20 +392,107 @@ namespace NHSE.Core
             {0x1B8, new EventFlagLand(0 , 50   , 0440, "MuseumArtStampRackLotID1"                   )}, // 国際ミュージアム|1つ目の美術品のスタンプ台ID
             {0x1B9, new EventFlagLand(0 , 50   , 0441, "MuseumArtStampRackLotID2"                   )}, // 国際ミュージアム|2つ目の美術品のスタンプ台ID
             {0x1BA, new EventFlagLand(0 , 50   , 0442, "MuseumArtStampRackLotID3"                   )}, // 国際ミュージアム|3つ目の美術品のスタンプ台ID
+            {0x1BB, new EventFlagLand(0 , 1    , 0443, "v200_Enabled_ChangeRegulation"              )}, // 条例が解禁した
+            {0x1BC, new EventFlagLand(0 , 1    , 0444, "RegulationType1"                            )}, // 美しい島条例発動中
+            {0x1BD, new EventFlagLand(0 , 1    , 0445, "RegulationType2"                            )}, // 朝活条例発動中
+            {0x1BE, new EventFlagLand(0 , 1    , 0446, "RegulationType3"                            )}, // 夜活条例発動中
+            {0x1BF, new EventFlagLand(0 , 1    , 0447, "RegulationType4"                            )}, // 景気アップ条例発動中
+            {0x1C0, new EventFlagLand(0 , 5    , 0448, "ReserveRegulation"                          )}, // 予約中の条例
+            {0x1C1, new EventFlagLand(0 , 5    , 0449, "TodayChangeRegulation"                      )}, // 今日変更した条例
+            {0x1C2, new EventFlagLand(0 , 1    , 0450, "MuseumCafeConstruction_1_Confirm"           )}, // 博物館カフェ増築｜①工事決定（翌朝工事へ）
+            {0x1C3, new EventFlagLand(0 , 1    , 0451, "GyroidCommuneFlag"                          )}, // チャリティーハニワくん｜目標額を達成した？
+            {0x1C4, new EventFlagLand(0 , 8    , 0452, "GyroidCommuneDonationCount"                 )}, // チャリティーハニワくん｜今日どのハニワくんが目標額達成した？
+            {0x1C5, new EventFlagLand(0 , 1    , 0453, "GyroidCommuneOtherFlag"                     )}, // チャリティーハニワくん｜目標額を達成したハニワがいる？
+            {0x1C6, new EventFlagLand(0 , -1   , 0454, "WeedCount"                                  )}, // 村全体に生えている雑草の本数
+            {0x1C7, new EventFlagLand(0 , 1    , 0455, "MuseumCafeConstruction_2_ConstructionDay"   )}, // 博物館カフェ増築｜②工事当日（今日一日工事状態）
+            {0x1C8, new EventFlagLand(0 , 2    , 0456, "CommuneSloDonation"                         )}, // コミューン島レイジ用募金状態
+            {0x1C9, new EventFlagLand(0 , 2    , 0457, "CommuneCmlDonation"                         )}, // コミューン島レローラン用募金状態
+            {0x1CA, new EventFlagLand(0 , 2    , 0458, "CommuneFoxDonation"                         )}, // コミューン島つねきち用募金状態
+            {0x1CB, new EventFlagLand(0 , 2    , 0459, "CommuneBptDonation"                         )}, // コミューン島ハッケミィ用募金状態
+            {0x1CC, new EventFlagLand(0 , 2    , 0460, "CommuneSkkDonation"                         )}, // コミューン島シャンク用募金状態
+            {0x1CD, new EventFlagLand(0 , 2    , 0461, "CommuneAlpDonation"                         )}, // コミューン島リサカイゾー用募金状態
+            {0x1CE, new EventFlagLand(0 , 1    , 0462, "MuseumCafeConstruction_3_OpenDay"           )}, // 博物館カフェ増築｜③オープン当日
+            {0x1CF, new EventFlagLand(0 , 1    , 0463, "MuseumCafeConstruction_4_Opened"            )}, // 博物館カフェ増築｜④オープン済（当日含む）
+            {0x1D0, new EventFlagLand(0 , 10000, 0464, "MuseumCafeConstruction_5_OpenDaysCount"     )}, // 博物館カフェ増築｜⑤オープンして何日目か（初日は１）
+            {0x1D1, new EventFlagLand(0 , 1    , 0465, "ReserveCommuneSloOpenEvent"                 )}, // コミューン島レイジ開店イベント予約
             {0x1D2, new EventFlagLand(0 , 1    , 0466, "EventObjFlag1"                              )}, // イベントオブジェフラグ1
             {0x1D3, new EventFlagLand(0 , 1    , 0467, "EventObjFlag2"                              )}, // イベントオブジェフラグ2
+            {0x1D4, new EventFlagLand(0 , 5    , 0468, "MuseumConstruction3"                        )}, // 博物館2→3(カフェ増築)への工事中
+            {0x1D5, new EventFlagLand(0 , 1    , 0469, "CommuneExpanded"                            )}, // コミューン｜コミューン島が拡張した
+            {0x1D6, new EventFlagLand(0 , 1    , 0470, "ReserveCommuneCmlOpenEvent"                 )}, // コミューン島ローラン開店イベント予約
+            {0x1D7, new EventFlagLand(0 , 1    , 0471, "ReserveCommuneFoxOpenEvent"                 )}, // コミューン島つねきち開店イベント予約
+            {0x1D8, new EventFlagLand(0 , 1    , 0472, "ReserveCommuneBptOpenEvent"                 )}, // コミューン島ハッケミィ開店イベント予約
+            {0x1D9, new EventFlagLand(0 , 1    , 0473, "ReserveCommuneSkkOpenEvent"                 )}, // コミューン島シャンク開店イベント予約
+            {0x1DA, new EventFlagLand(0 , 1    , 0474, "ReserveCommuneAlpOpenEvent"                 )}, // コミューン島リサカイゾー開店イベント予約
+            {0x1DB, new EventFlagLand(0 , -1   , 0475, "MuseumCafeAmiiboCustomer"                   )}, // 喫茶ハトの巣|Amiiboで呼び出したNPC
+            {0x1DC, new EventFlagLand(0 , 1    , 0476, "SloWeedingFlag"                             )}, // レイジ｜今日草むしりサービス頼んだ？
             {0x1DD, new EventFlagLand(0 , 1    , 0477, "GrowUpAfterPatch1_10"                       )}, // 1.10適用して成長処理をした
             {0x1DE, new EventFlagLand(0 , 1    , 0478, "GrowUpAfterPatch1_11"                       )}, // 1.11適用して成長処理をした
+            {0x1DF, new EventFlagLand(0 , 2    , 0479, "RadioGymnasticsBbsFlag"                     )}, // ラジオ体操の掲示板書き込みをした？
             {0x1E0, new EventFlagLand(0 , 1    , 0480, "BCAT_EventFlag_012"                         )}, // ハロウィン2年目解禁
             {0x1E1, new EventFlagLand(0 , -1   , 0481, "RandomKey12"                                )}, // ランダムキー12
+            {0x1E2, new EventFlagLand(0 , 1    , 0482, "CompleteCommuneExpandEvent"                 )}, // コミューン｜コミューン島が拡張したイベントを誰かが完了したか
             {0x1E3, new EventFlagLand(0 , 9999 , 0483, "MayDayAddBbsYear"                           )}, // メーデー予告の掲示板書き込みをした年
+            {0x1E4, new EventFlagLand(0 , -1   , 0484, "MuseumCafeCheckedTimeZone"                  )}, // 喫茶ハトの巣|ランダム来訪一般NPCチェックした時間帯
+            {0x1E5, new EventFlagLand(0 , 3    , 0485, "MuseumCafeRandomVisitSp_hgs"                )}, // 喫茶ハトの巣|ランダム来訪特殊NPC（あさみ）
+            {0x1E6, new EventFlagLand(0 , 3    , 0486, "MuseumCafeRandomVisitSp_hgh"                )}, // 喫茶ハトの巣|ランダム来訪特殊NPC（きぬよ）
+            {0x1E7, new EventFlagLand(0 , 3    , 0487, "MuseumCafeRandomVisitSp_doc"                )}, // 喫茶ハトの巣|ランダム来訪特殊NPC（ロドリー）
+            {0x1E8, new EventFlagLand(0 , 3    , 0488, "MuseumCafeRandomVisitSp_boc"                )}, // 喫茶ハトの巣|ランダム来訪特殊NPC（ウリ）
+            {0x1E9, new EventFlagLand(0 , 3    , 0489, "MuseumCafeRandomVisitSp_mol"                )}, // 喫茶ハトの巣|ランダム来訪特殊NPC（リセットさん）
+            {0x1EA, new EventFlagLand(0 , 3    , 0490, "MuseumCafeRandomVisitSp_mob"                )}, // 喫茶ハトの巣|ランダム来訪特殊NPC（ラケットさん）
+            {0x1EB, new EventFlagLand(0 , 3    , 0491, "MuseumCafeRandomVisitSp_tkkA"               )}, // 喫茶ハトの巣|ランダム来訪特殊NPC（とたけけ）
+            {0x1EC, new EventFlagLand(0 , 3    , 0492, "MuseumCafeRandomVisitSp_skk"                )}, // 喫茶ハトの巣|ランダム来訪特殊NPC（シャンク）
+            {0x1ED, new EventFlagLand(0 , 3    , 0493, "MuseumCafeRandomVisitSp_cml"                )}, // 喫茶ハトの巣|ランダム来訪特殊NPC（ローラン）
+            {0x1EE, new EventFlagLand(0 , 3    , 0494, "MuseumCafeRandomVisitSp_hgc"                )}, // 喫茶ハトの巣|ランダム来訪特殊NPC（ことの）
+            {0x1EF, new EventFlagLand(0 , 3    , 0495, "MuseumCafeRandomVisitSp_slo"                )}, // 喫茶ハトの巣|ランダム来訪特殊NPC（レイジ）
+            {0x1F0, new EventFlagLand(0 , 3    , 0496, "MuseumCafeRandomVisitSp_ows"                )}, // 喫茶ハトの巣|ランダム来訪特殊NPC（フーコ）
+            {0x1F1, new EventFlagLand(0 , 3    , 0497, "MuseumCafeRandomVisitSp_chy"                )}, // 喫茶ハトの巣|ランダム来訪特殊NPC（レックス）
+            {0x1F2, new EventFlagLand(0 , 3    , 0498, "MuseumCafeRandomVisitSp_bey"                )}, // 喫茶ハトの巣|ランダム来訪特殊NPC（ジャスティン）
+            {0x1F3, new EventFlagLand(0 , 1    , 0499, "BCAT_EventFlag_013"                         )}, // サンクスギビング、ブラックフライデー解禁
+            {0x1F4, new EventFlagLand(0 , -1   , 0500, "RandomKey13"                                )}, // ランダムキー13
+            {0x1F5, new EventFlagLand(0 , 2    , 0501, "CommuneTtlDonation"                         )}, // コミューン島コトブキ用募金状態
+            {0x1F6, new EventFlagLand(0 , 1    , 0502, "ReserveCommuneTtlOpenEvent"                 )}, // コミューン島コトブキ開店イベント予約
+            {0x1F7, new EventFlagLand(0 , 1    , 0503, "UnlockGyroidMainField"                      )}, // ハニワの自然発生が解禁されているか？
             {0x1F8, new EventFlagLand(0 , 1    , 0504, "EventObjFlag3"                              )}, // イベントオブジェフラグ3
             {0x1F9, new EventFlagLand(0 , 9999 , 0505, "HalloweenAddBbsYear"                        )}, // ハロウィン予告の掲示板書き込みをした年
+            {0x1FA, new EventFlagLand(0 , 1    , 0506, "Museum2BuiltSkippedMuseum1"                 )}, // 博物館①をスキップして博物館②が建った
+            {0x1FB, new EventFlagLand(0 , 1    , 0507, "FoxAndShipReserveVer2"                      )}, // つねきち船＋フィールドを予約する(Ver2.0.0)
+            {0x1FC, new EventFlagLand(0 , 1    , 0508, "EverChangedRegulation"                      )}, // 条例変更直前に発動中の条例があったか？
             {0x1FD, new EventFlagLand(0 , 1    , 0509, "ExistIllminations"                          )}, // 成長処理時点で電飾付の木が一本以上存在しているか？
             {0x1FE, new EventFlagLand(0 , 1    , 0510, "ExistSakura"                                )}, // 成長処理時点で村に桜の木が存在するか？
             {0x1FF, new EventFlagLand(0 , 1    , 0511, "ExistBanboo"                                )}, // 成長処理時点で村に竹の成木が存在するか？
             {0x200, new EventFlagLand(0 , 1    , 0512, "ExistOak"                                   )}, // 成長処理時点で村に成木の広葉樹が存在するか？
             {0x201, new EventFlagLand(0 , 1    , 0513, "ExistCedar"                                 )}, // 成長処理時点で村に成木の針葉樹が存在するか？
+            {0x202, new EventFlagLand(0 , 2    , 0514, "FoxCommuneArtStockCount"                    )}, // つねきち|コミューンで購入されたの美術品の数
+            {0x203, new EventFlagLand(0 , 1    , 0515, "PlacementRadioGymnastics"                   )}, // ラジオ体操用ラジカセ設置
+            {0x204, new EventFlagLand(0 , 100  , 0516, "FoxCommuneRealRate"                         )}, // つねきち|コミューンで美術品を本物に差し替える確率
+            {0x205, new EventFlagLand(0 , 2    , 0517, "FoxCommuneRealNum"                          )}, // つねきち|コミューンで本物の美術品を並べた回数
+            {0x206, new EventFlagLand(0 , 3    , 0518, "CatalogShopBigCount"                        )}, // カタログショッピングで大型の連続ハズレカウント
+            {0x208, new EventFlagLand(0 , 1    , 0520, "CoffeTakeout"                               )}, // 喫茶ハトの巣|島の誰かがコーヒーの持ち帰り解禁された？
+            {0x209, new EventFlagLand(0 , 1    , 0521, "MuseumPosterflagbug"                        )}, // フータ/博物館コンプポスター|ムシのポスター購入を解禁した？
+            {0x20A, new EventFlagLand(0 , 1    , 0522, "MuseumPosterflagfish"                       )}, // フータ/博物館コンプポスター|サカナのポスター購入を解禁した？
+            {0x20B, new EventFlagLand(0 , 1    , 0523, "MuseumPosterflagfossil"                     )}, // フータ/博物館コンプポスター|化石のポスター購入を解禁した？
+            {0x20C, new EventFlagLand(0 , 1    , 0524, "MuseumPosterflagpainting"                   )}, // フータ/博物館コンプポスター|美術品のポスター購入を解禁した？
+            {0x20D, new EventFlagLand(0 , 1    , 0525, "MuseumPosterflagsea"                        )}, // フータ/博物館コンプポスター|海の幸のポスター購入を解禁した？
+            {0x20E, new EventFlagLand(0 , 1    , 0526, "MuseumPosterTodayflagbug"                   )}, // フータ/博物館コンプポスター|ムシのポスター送った？
+            {0x20F, new EventFlagLand(0 , 1    , 0527, "MuseumPosterTodayflagfish"                  )}, // フータ/博物館コンプポスター|サカナのポスター送った？
+            {0x210, new EventFlagLand(0 , 1    , 0528, "MuseumPosterTodayflagfossil"                )}, // フータ/博物館コンプポスター|かせきのポスター送った？
+            {0x211, new EventFlagLand(0 , 1    , 0529, "MuseumPosterTodayflagpainting"              )}, // フータ/博物館コンプポスター|美術品のポスター送った？
+            {0x212, new EventFlagLand(0 , 1    , 0530, "MuseumPosterTodayflagsea"                   )}, // フータ/博物館コンプポスター|海の幸のポスター送った？
+            {0x213, new EventFlagLand(0 , 1    , 0531, "SzaChangeSymbol"                            )}, // しずえ｜誰かが旗のデザイン変えた？
+            {0x214, new EventFlagLand(0 , 5    , 0532, "GotFakeArts"                                )}, // Tips|島全体で贋作購入した個数
+            {0x215, new EventFlagLand(0 , 1    , 0533, "VisitGulAFlag"                              )}, // ジョニーが来訪したフラグ
+            {0x216, new EventFlagLand(0 , 1    , 0534, "EnableBlackFriday"                          )}, // ゲーム進行的にブラックフライデー解禁
+            {0x217, new EventFlagLand(0 , 1    , 0535, "KppTourStart"                               )}, // 島内放送｜島の誰かにかっぺいツアー開始告知をした
+            {0x218, new EventFlagLand(0 , 1    , 0536, "KppTourStartToday"                          )}, // 島内放送｜今日が、初めて島の誰かにかっぺいツアー開始告知をした当日
+            {0x219, new EventFlagLand(0 , 1    , 0537, "RcoUnlockBridgeSlopePlus2"                  )}, // たぬきち｜橋、坂を追加で２つ作れるようになった？
+            {0x21A, new EventFlagLand(0 , 1    , 0538, "UnlockCommuneExpandedBGM"                   )}, // コミューン島｜コミューン島拡張BGMが解禁済みか？
+            {0x21B, new EventFlagLand(0 , 1    , 0539, "CommuneFoxShopGenuine"                      )}, // コミューン島｜つねきちの店で今週本物が並んだ
+            {0x21C, new EventFlagLand(0 , 1    , 0540, "CommuneSloOpenToday"                        )}, // コミューン島レイジ開店当日
+            {0x21D, new EventFlagLand(0 , 1    , 0541, "UnlockBuyRecipePitfallSeed"                 )}, // お店|おとしあなのタネのレシピの店売りを解禁するか？
+            {0x21E, new EventFlagLand(0 , 10   , 0542, "GrowHaniwaPieceNum"                         )}, // Tips|ハニワのかけらがハニワに成長した個数
+            {0x21F, new EventFlagLand(0 , 1    , 0543, "UnlockSzaResetHouse"                        )}, // しずえ｜NPCの家リセット解禁（家コーデが村の誰かのところで解禁）
+            {0x220, new EventFlagLand(0 , 1    , 0544, "RcoTipsDisableNoticeLoginBonus"             )}, // Tips|タヌポートログボ出すの禁止か？（工事当日＆大晦日にON）
         };
 
         private const string Unknown = "???";

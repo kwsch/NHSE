@@ -43,7 +43,7 @@ namespace NHSE.Core
             {0x016, new EventFlagVillager(0 , 1   , 0022, "FinishTalkTransition"                       )}, // 序盤→日常移行会話を聞き終えたか
             {0x017, new EventFlagVillager(0 , 3   , 0023, "OutdoorCatnap"                              )}, // 深夜屋外でのうたた寝判定状況
             {0x018, new EventFlagVillager(0 , 1   , 0024, "ForceMoveOut"                               )}, // 強制的に転出させられるフラグ
-            {0x019, new EventFlagVillager(0 , 3   , 0025, "EarlyOrLate"                                )}, // 早起き・夜更かしフラグ
+            {0x019, new EventFlagVillager(0 , 4   , 0025, "EarlyOrLate"                                )}, // 早起き・夜更かしフラグ
             {0x01A, new EventFlagVillager(0 , 16  , 0026, "ContinuousNormalDay"                        )}, // 平常活動の連続日数
             {0x01B, new EventFlagVillager(0 , 1   , 0027, "React1stNpcPresent"                         )}, // React_1P_Lifestartのプレゼント装備の反応発生したか
             {0x01C, new EventFlagVillager(0 , 1   , 0028, "IsReFabricSmartPhone"                       )}, // スマホ柄に汎用布地を使うか？
@@ -74,7 +74,14 @@ namespace NHSE.Core
             {0x040, new EventFlagVillager(0 , 1   , 0064, "HarvestDemoEndWait"                         )}, // ハーベスト｜デモ終了待機中か？
             {0x041, new EventFlagVillager(0 , 1   , 0065, "WoreNewYearHat"                             )}, // カウントダウン｜ニューイヤーハットを被った
             {0x042, new EventFlagVillager(0 , 1   , 0066, "HarvestDemoStateNow"                        )}, // ハーベスト｜デモ参加状態か？
+            {0x045, new EventFlagVillager(0 , 3   , 0069, "CoordinateDIYStatus"                        )}, // OneRoom | 家コーディネートの作業台の状態
             {0x046, new EventFlagVillager(0 , 36  , 0070, "WearItemLayer1LayoutLimit"                  )}, // 成長処理家具入替時の装備品の二層目配置候補上限数
+            {0x047, new EventFlagVillager(0 , 1   , 0071, "CookingInDIYSchedule"                       )}, // DIY予定の時間に料理をするか
+            {0x048, new EventFlagVillager(0 , 3000, 0072, "MuseumCafeExitTime"                         )}, // 喫茶ハトの巣|ランダム来店撤収時刻
+            {0x049, new EventFlagVillager(0 , 1   , 0073, "HouseReset"                                 )}, // 案内所で自宅リセットされた
+            {0x04A, new EventFlagVillager(0 , 3   , 0074, "ReserveDIYStatus"                           )}, // 家コーディネートの作業台の状態予約
+            {0x04B, new EventFlagVillager(0 , 3   , 0075, "AudioShuffleState"                          )}, // 編集された部屋のオーディオのシャッフル設定
+            {0x04C, new EventFlagVillager(0 , 3   , 0076, "IslandKitchenStandPos"                      )}, // 調理行動時アイランドキッチンの正面側に立つか
         };
 
         private const string Unknown = "???";
