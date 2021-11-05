@@ -50,5 +50,8 @@
 
         public override int VillagerSize => Villager2.SIZE;
         public override IVillager ReadVillager(byte[] data) => new Villager2(data);
+
+        public override int VillagerHouseSize => VillagerHouse1.SIZE;
+        public override IVillagerHouse ReadVillagerHouse(byte[] data) => new VillagerHouse1(data);
     }
 }

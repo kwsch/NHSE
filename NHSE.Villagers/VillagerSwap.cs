@@ -15,7 +15,7 @@ namespace NHSE.Villagers
             var ov = exist.Villager;
             var oh = exist.House;
             var nv = new Villager2(replace.Villager);
-            _ = new VillagerHouse(replace.House) {NPC1 = oh.NPC1, NPC2 = oh.NPC2, BuildPlayer = oh.BuildPlayer};
+            _ = new VillagerHouse1(replace.House) {NPC1 = oh.NPC1, NPC2 = oh.NPC2, BuildPlayer = oh.BuildPlayer};
 
             // Copy Memories
             var om = nv.GetMemory(0);

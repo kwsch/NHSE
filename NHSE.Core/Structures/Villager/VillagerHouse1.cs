@@ -2,13 +2,16 @@
 
 namespace NHSE.Core
 {
-    public class VillagerHouse : IHouseInfo
-{
+    public class VillagerHouse1 : IVillagerHouse
+    {
         public const int SIZE = 0x1D4;
         public const int ItemCount = 36;
+        public virtual string Extension => "nhvh";
 
         public readonly byte[] Data;
-        public VillagerHouse(byte[] data) => Data = data;
+        public VillagerHouse1(byte[] data) => Data = data;
+
+        public byte[] Write() => Data;
 
         public uint HouseLevel { get => BitConverter.ToUInt32(Data, 0x00); set => BitConverter.GetBytes(value).CopyTo(Data, 0x00); }
         public uint HouseStatus { get => BitConverter.ToUInt32(Data, 0x04); set => BitConverter.GetBytes(value).CopyTo(Data, 0x04); }
@@ -29,5 +32,12 @@ namespace NHSE.Core
         public sbyte NPC2 { get => (sbyte)Data[0x1C5]; set => Data[0x1C5] = (byte)value; }
 
         public sbyte BuildPlayer { get => (sbyte)Data[0x1D0]; set => Data[0x1D0] = (byte)value; }
+
+        public VillagerHouse2 Upgrade()
+        {
+            var data = new byte[VillagerHouse2.SIZE];
+            Data.CopyTo(data, 0);
+            return new VillagerHouse2(data) { DoorDecoItemName = Item.NO_ITEM };
+        }
     }
 }

@@ -108,11 +108,11 @@ namespace NHSE.Core
             }
         }
 
-        private static void Dump(this VillagerHouse h, string path, IVillager v)
+        private static void Dump(this IVillagerHouse h, string path, IVillager v)
         {
             var name = GameInfo.Strings.GetVillager(v.InternalName);
-            var dest = Path.Combine(path, $"{name}.nhvh");
-            var data = h.Data;
+            var dest = Path.Combine(path, $"{name}.{h.Extension}");
+            var data = h.Write();
             File.WriteAllBytes(dest, data);
         }
 

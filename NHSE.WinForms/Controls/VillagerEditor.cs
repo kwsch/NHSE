@@ -311,7 +311,7 @@ namespace NHSE.WinForms
             var exist = new VillagerInfo(v2, houses[houseIndex]);
             var replace = VillagerSwap.GetReplacementVillager(exist, internalName);
 
-            var nh = new VillagerHouse(replace.House);
+            var nh = new VillagerHouse1(replace.House);
             SAV.SetVillagerHouse(nh, houseIndex);
             var nv = new Villager2(replace.Villager);
             LoadVillager(Villagers[index] = nv);

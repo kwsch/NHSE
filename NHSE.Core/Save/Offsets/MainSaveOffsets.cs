@@ -47,7 +47,10 @@ namespace NHSE.Core
         public abstract int LastSavedTime { get; }
 
         public abstract int VillagerSize { get; }
+        public abstract int VillagerHouseSize { get; }
+
         public abstract IVillager ReadVillager(byte[] data);
+        public abstract IVillagerHouse ReadVillagerHouse(byte[] data);
 
         public static MainSaveOffsets GetOffsets(FileHeaderInfo Info)
         {
@@ -138,6 +141,24 @@ namespace NHSE.Core
                 throw new ArgumentOutOfRangeException(nameof(index));
             var size = VillagerSize;
             v.Write().CopyTo(data, Animal + (index * size));
+        }
+
+        public IVillagerHouse ReadVillagerHouse(byte[] data, int index)
+        {
+            if ((uint)index >= VillagerCount)
+                throw new ArgumentOutOfRangeException(nameof(index));
+
+            var size = VillagerHouseSize;
+            var v = data.Slice(NpcHouseList + (index * size), size);
+            return ReadVillagerHouse(v);
+        }
+
+        public void WriteVillagerHouse(IVillagerHouse v, byte[] data, int index)
+        {
+            if ((uint)index >= VillagerCount)
+                throw new ArgumentOutOfRangeException(nameof(index));
+            var size = VillagerHouseSize;
+            v.Write().CopyTo(data, NpcHouseList + (index * size));
         }
     }
 }

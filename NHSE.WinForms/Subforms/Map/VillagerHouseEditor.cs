@@ -9,12 +9,12 @@ namespace NHSE.WinForms
     public partial class VillagerHouseEditor : Form
     {
         private readonly MainSave SAV;
-        private readonly VillagerHouse[] Houses;
+        private readonly IVillagerHouse[] Houses;
         private readonly IReadOnlyList<IVillager> Villagers;
 
         private int Index;
 
-        public VillagerHouseEditor(VillagerHouse[] houses, IReadOnlyList<IVillager> villagers, MainSave sav, int index)
+        public VillagerHouseEditor(IVillagerHouse[] houses, IReadOnlyList<IVillager> villagers, MainSave sav, int index)
         {
             InitializeComponent();
             this.TranslateInterface(GameInfo.CurrentLanguage);
@@ -52,9 +52,9 @@ namespace NHSE.WinForms
             LB_Items.Items[Index] = GetHouseSummary(Houses[Index]);
         }
 
-        private string GetHouseSummary(VillagerHouse house) => $"{GetVillagerName(house)}'s House";
+        private string GetHouseSummary(IVillagerHouse house) => $"{GetVillagerName(house)}'s House";
 
-        private string GetVillagerName(VillagerHouse house)
+        private string GetVillagerName(IVillagerHouse house)
         {
             var villagerIndex = house.NPC1;
             var v = (uint) villagerIndex >= Villagers.Count ? "???" : Villagers[villagerIndex].InternalName;
@@ -77,46 +77,56 @@ namespace NHSE.WinForms
                 return;
             }
 
-            var name = GetVillagerName(Houses[Index]);
+            var h = Houses[Index];
+            var name = GetVillagerName(h);
             using var sfd = new SaveFileDialog
             {
-                Filter = "New Horizons Villager House (*.nhvh)|*.nhvh|All files (*.*)|*.*",
-                FileName = $"{name}.nhvh",
+                Filter = "New Horizons Villager House (*.nhvh)|*.nhvh|" +
+                         "New Horizons Villager House (*.nhvh2)|*.nhvh2|" +
+                         "All files (*.*)|*.*",
+                FileName = $"{name}.{h.Extension}",
             };
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
-            var h = Houses[Index];
-            var data = h.Data;
+            var data = h.Write();
             File.WriteAllBytes(sfd.FileName, data);
         }
 
         private void B_LoadHouse_Click(object sender, EventArgs e)
         {
+            var h = Houses[Index];
             var name = GetVillagerName(Houses[Index]);
-            if(name == "???")
-            {
+            if (name == "???")
                 name = "*";
-            }
             using var ofd = new OpenFileDialog
             {
-                Filter = "New Horizons Villager House (*.nhvh)|*.nhvh|All files (*.*)|*.*",
-                FileName = $"{name}.nhvh",
+                Filter = "New Horizons Villager House (*.nhvh)|*.nhvh|" +
+                         "New Horizons Villager House (*.nhvh2)|*.nhvh2|" +
+                         "All files (*.*)|*.*",
+                FileName = $"{name}.{h.Extension}",
             };
             if (ofd.ShowDialog() != DialogResult.OK)
                 return;
 
-            var file = ofd.FileName;
-            var fi = new FileInfo(file);
-            const int expectLength = VillagerHouse.SIZE;
-            if (fi.Length != expectLength)
+            var path = ofd.FileName;
+            var expectLength = SAV.Offsets.VillagerHouseSize;
+            var fi = new FileInfo(path);
+            if (!VillagerHouseConverter.IsCompatible((int)fi.Length, expectLength))
             {
-                WinFormsUtil.Error(MessageStrings.MsgCanceling, string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength));
+                WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength), path);
                 return;
             }
 
-            var data = File.ReadAllBytes(file);
-            var h = new VillagerHouse(data);
+            var data = File.ReadAllBytes(ofd.FileName);
+            data = VillagerHouseConverter.GetCompatible(data, expectLength);
+            if (data.Length != expectLength)
+            {
+                WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength), path);
+                return;
+            }
+
+            h = SAV.Offsets.ReadVillagerHouse(data);
             var current = Houses[Index];
             h.NPC1 = current.NPC1;
             Houses[Index] = h;

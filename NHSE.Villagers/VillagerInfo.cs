@@ -5,9 +5,9 @@ namespace NHSE.Villagers
     public class VillagerInfo
     {
         public readonly Villager2 Villager;
-        public readonly VillagerHouse House;
+        public readonly IVillagerHouse House;
 
-        public VillagerInfo(Villager2 villager, VillagerHouse house)
+        public VillagerInfo(Villager2 villager, IVillagerHouse house)
         {
             Villager = villager;
             House = house;

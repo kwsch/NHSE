@@ -18,6 +18,9 @@ namespace NHSE.Core
         public IVillager GetVillager(int index) => Offsets.ReadVillager(Data, index);
         public void SetVillager(IVillager value, int index) => Offsets.WriteVillager(value, Data, index);
 
+        public IVillagerHouse GetVillagerHouse(int index) => Offsets.ReadVillagerHouse(Data, index);
+        public void SetVillagerHouse(IVillagerHouse value, int index) => Offsets.WriteVillagerHouse(value, Data, index);
+
         public IVillager[] GetVillagers()
         {
             var villagers = new IVillager[MainSaveOffsets.VillagerCount];
@@ -30,6 +33,20 @@ namespace NHSE.Core
         {
             for (int i = 0; i < villagers.Count; i++)
                 SetVillager(villagers[i], i);
+        }
+
+        public IVillagerHouse[] GetVillagerHouses()
+        {
+            var villagers = new IVillagerHouse[MainSaveOffsets.VillagerCount];
+            for (int i = 0; i < villagers.Length; i++)
+                villagers[i] = GetVillagerHouse(i);
+            return villagers;
+        }
+
+        public void SetVillagerHouses(IReadOnlyList<IVillagerHouse> villagers)
+        {
+            for (int i = 0; i < villagers.Count; i++)
+                SetVillagerHouse(villagers[i], i);
         }
 
         public DesignPattern GetDesign(int index) => Offsets.ReadPattern(Data, index);
@@ -61,34 +78,6 @@ namespace NHSE.Core
             if ((uint)index >= MainSaveOffsets.PlayerCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
             h.Data.CopyTo(Data, Offsets.PlayerHouseList + (index * PlayerHouse.SIZE));
-        }
-
-        public VillagerHouse GetVillagerHouse(int index)
-        {
-            if ((uint)index >= MainSaveOffsets.VillagerCount)
-                throw new ArgumentOutOfRangeException(nameof(index));
-            return new VillagerHouse(Data.Slice(Offsets.NpcHouseList + (index * VillagerHouse.SIZE), VillagerHouse.SIZE));
-        }
-
-        public void SetVillagerHouse(VillagerHouse h, int index)
-        {
-            if ((uint)index >= MainSaveOffsets.VillagerCount)
-                throw new ArgumentOutOfRangeException(nameof(index));
-            h.Data.CopyTo(Data, Offsets.NpcHouseList + (index * VillagerHouse.SIZE));
-        }
-
-        public VillagerHouse[] GetVillagerHouses()
-        {
-            var villagers = new VillagerHouse[MainSaveOffsets.VillagerCount];
-            for (int i = 0; i < villagers.Length; i++)
-                villagers[i] = GetVillagerHouse(i);
-            return villagers;
-        }
-
-        public void SetVillagerHouses(IReadOnlyList<VillagerHouse> houses)
-        {
-            for (int i = 0; i < houses.Count; i++)
-                SetVillagerHouse(houses[i], i);
         }
 
         public PlayerHouse[] GetPlayerHouses()
