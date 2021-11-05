@@ -36,8 +36,12 @@ namespace NHSE.Core
         public VillagerHouse2 Upgrade()
         {
             var data = new byte[VillagerHouse2.SIZE];
+            var empty = Item.NONE.ToBytes();
             Data.CopyTo(data, 0);
-            return new VillagerHouse2(data) { DoorDecoItemName = Item.NO_ITEM };
+            for (int i = 0; i < 236; i++)
+                empty.CopyTo(data, 0x1D8 + (i * 0xC));
+            VillagerHouse2.Footer.CopyTo(data, 0x1270);
+            return new VillagerHouse2(data);
         }
     }
 }
