@@ -28,7 +28,7 @@ namespace NHSE.Villagers
             var bv = (byte[])ResourceManager.GetObject(nv);
             var bh = (byte[])ResourceManager.GetObject(nh);
             Debug.Assert(bv.Length == Villager2.SIZE);
-            Debug.Assert(bh.Length == VillagerHouse1.SIZE);
+            Debug.Assert(bh.Length == VillagerHouse2.SIZE);
 
             return new VillagerData(bv, bh);
         }

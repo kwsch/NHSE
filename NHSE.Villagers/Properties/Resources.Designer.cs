@@ -143,6 +143,26 @@ namespace NHSE.Villagers.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] ant05H {
+            get {
+                object obj = ResourceManager.GetObject("ant05H", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ant05V {
+            get {
+                object obj = ResourceManager.GetObject("ant05V", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] ant06H {
             get {
                 object obj = ResourceManager.GetObject("ant06H", resourceCulture);
@@ -656,6 +676,26 @@ namespace NHSE.Villagers.Properties {
         internal static byte[] brd08V {
             get {
                 object obj = ResourceManager.GetObject("brd08V", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] brd09H {
+            get {
+                object obj = ResourceManager.GetObject("brd09H", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] brd09V {
+            get {
+                object obj = ResourceManager.GetObject("brd09V", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -2023,6 +2063,26 @@ namespace NHSE.Villagers.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] crd05H {
+            get {
+                object obj = ResourceManager.GetObject("crd05H", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] crd05V {
+            get {
+                object obj = ResourceManager.GetObject("crd05V", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] crd06H {
             get {
                 object obj = ResourceManager.GetObject("crd06H", resourceCulture);
@@ -2303,6 +2363,26 @@ namespace NHSE.Villagers.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] der11H {
+            get {
+                object obj = ResourceManager.GetObject("der11H", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] der11V {
+            get {
+                object obj = ResourceManager.GetObject("der11V", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] dog00H {
             get {
                 object obj = ResourceManager.GetObject("dog00H", resourceCulture);
@@ -2516,6 +2596,26 @@ namespace NHSE.Villagers.Properties {
         internal static byte[] dog10V {
             get {
                 object obj = ResourceManager.GetObject("dog10V", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] dog11H {
+            get {
+                object obj = ResourceManager.GetObject("dog11H", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] dog11V {
+            get {
+                object obj = ResourceManager.GetObject("dog11V", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -4083,6 +4183,26 @@ namespace NHSE.Villagers.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] ham09H {
+            get {
+                object obj = ResourceManager.GetObject("ham09H", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ham09V {
+            get {
+                object obj = ResourceManager.GetObject("ham09V", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] hip00H {
             get {
                 object obj = ResourceManager.GetObject("hip00H", resourceCulture);
@@ -4643,6 +4763,26 @@ namespace NHSE.Villagers.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] kal07H {
+            get {
+                object obj = ResourceManager.GetObject("kal07H", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] kal07V {
+            get {
+                object obj = ResourceManager.GetObject("kal07V", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] kal08H {
             get {
                 object obj = ResourceManager.GetObject("kal08H", resourceCulture);
@@ -5163,6 +5303,26 @@ namespace NHSE.Villagers.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] mnk09H {
+            get {
+                object obj = ResourceManager.GetObject("mnk09H", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] mnk09V {
+            get {
+                object obj = ResourceManager.GetObject("mnk09V", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] mus00H {
             get {
                 object obj = ResourceManager.GetObject("mus00H", resourceCulture);
@@ -5463,6 +5623,26 @@ namespace NHSE.Villagers.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] mus19H {
+            get {
+                object obj = ResourceManager.GetObject("mus19H", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] mus19V {
+            get {
+                object obj = ResourceManager.GetObject("mus19V", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] ocp00H {
             get {
                 object obj = ResourceManager.GetObject("ocp00H", resourceCulture);
@@ -5516,6 +5696,26 @@ namespace NHSE.Villagers.Properties {
         internal static byte[] ocp02V {
             get {
                 object obj = ResourceManager.GetObject("ocp02V", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ocp04H {
+            get {
+                object obj = ResourceManager.GetObject("ocp04H", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ocp04V {
+            get {
+                object obj = ResourceManager.GetObject("ocp04V", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -5596,6 +5796,26 @@ namespace NHSE.Villagers.Properties {
         internal static byte[] ost03V {
             get {
                 object obj = ResourceManager.GetObject("ost03V", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ost04H {
+            get {
+                object obj = ResourceManager.GetObject("ost04H", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ost04V {
+            get {
+                object obj = ResourceManager.GetObject("ost04V", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -5903,6 +6123,26 @@ namespace NHSE.Villagers.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] pbr10H {
+            get {
+                object obj = ResourceManager.GetObject("pbr10H", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] pbr10V {
+            get {
+                object obj = ResourceManager.GetObject("pbr10V", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] pgn00H {
             get {
                 object obj = ResourceManager.GetObject("pgn00H", resourceCulture);
@@ -6036,6 +6276,26 @@ namespace NHSE.Villagers.Properties {
         internal static byte[] pgn06V {
             get {
                 object obj = ResourceManager.GetObject("pgn06V", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] pgn07H {
+            get {
+                object obj = ResourceManager.GetObject("pgn07H", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] pgn07V {
+            get {
+                object obj = ResourceManager.GetObject("pgn07V", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -6883,6 +7143,26 @@ namespace NHSE.Villagers.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] rbt21H {
+            get {
+                object obj = ResourceManager.GetObject("rbt21H", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] rbt21V {
+            get {
+                object obj = ResourceManager.GetObject("rbt21V", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] rhn00H {
             get {
                 object obj = ResourceManager.GetObject("rhn00H", resourceCulture);
@@ -6956,6 +7236,26 @@ namespace NHSE.Villagers.Properties {
         internal static byte[] rhn04V {
             get {
                 object obj = ResourceManager.GetObject("rhn04V", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] rhn05H {
+            get {
+                object obj = ResourceManager.GetObject("rhn05H", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] rhn05V {
+            get {
+                object obj = ResourceManager.GetObject("rhn05V", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -7636,6 +7936,26 @@ namespace NHSE.Villagers.Properties {
         internal static byte[] squ18V {
             get {
                 object obj = ResourceManager.GetObject("squ18V", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] squ21H {
+            get {
+                object obj = ResourceManager.GetObject("squ21H", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] squ21V {
+            get {
+                object obj = ResourceManager.GetObject("squ21V", resourceCulture);
                 return ((byte[])(obj));
             }
         }
