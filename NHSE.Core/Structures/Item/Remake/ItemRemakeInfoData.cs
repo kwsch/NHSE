@@ -1261,7 +1261,7 @@ namespace NHSE.Core
             {1823, new ItemRemakeInfo(1823, 14799,  7, new byte[] {01, 05, 07, 06, 03, 02, 12, 10}, new byte[] {11, 11, 11, 11, 11, 11, 11, 11}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, false)}, // flower tabletop mirror
             {1824, new ItemRemakeInfo(1824, 00743,  6, new byte[] {05, 04, 02, 07, 00, 06, 03, 14}, new byte[] {05, 04, 02, 07, 00, 06, 03, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, false)}, // frozen mini snowperson
             {1825, new ItemRemakeInfo(1825, 00744,  7, new byte[] {08, 09, 10, 12, 02, 05, 06, 04}, new byte[] {12, 11, 11, 12, 02, 12, 08, 09}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, false)}, // compact kitchen
-{1826, new ItemRemakeInfo(1826, 01133, -1, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, new byte[] {04, 01, 07, 06, 14, 14, 14, 14}, false)}, // shopping cart
+            {1826, new ItemRemakeInfo(1826, 01133, -1, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, new byte[] {14, 14, 14, 14, 14, 14, 14, 14}, new byte[] {04, 01, 07, 06, 14, 14, 14, 14}, false)}, // shopping cart
         };
     }
 }

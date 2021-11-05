@@ -513,6 +513,16 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BookPlayer {
+            get {
+                object obj = ResourceManager.GetObject("BookPlayer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BookRecipe {
             get {
                 object obj = ResourceManager.GetObject("BookRecipe", resourceCulture);
@@ -546,6 +556,16 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap Bottoms {
             get {
                 object obj = ResourceManager.GetObject("Bottoms", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Branch {
+            get {
+                object obj = ResourceManager.GetObject("Branch", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -753,6 +773,16 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CameraAppPro {
+            get {
+                object obj = ResourceManager.GetObject("CameraAppPro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Can {
             get {
                 object obj = ResourceManager.GetObject("Can", resourceCulture);
@@ -783,6 +813,16 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CannedDrink {
+            get {
+                object obj = ResourceManager.GetObject("CannedDrink", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cap {
             get {
                 object obj = ResourceManager.GetObject("Cap", resourceCulture);
@@ -806,6 +846,16 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap Carpet {
             get {
                 object obj = ResourceManager.GetObject("Carpet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Carrot {
+            get {
+                object obj = ResourceManager.GetObject("Carrot", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1383,6 +1433,16 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Coffee {
+            get {
+                object obj = ResourceManager.GetObject("Coffee", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Coin {
             get {
                 object obj = ResourceManager.GetObject("Coin", resourceCulture);
@@ -1693,6 +1753,16 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dishes {
+            get {
+                object obj = ResourceManager.GetObject("Dishes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DIYAcorn {
             get {
                 object obj = ResourceManager.GetObject("DIYAcorn", resourceCulture);
@@ -1736,6 +1806,16 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap DIYPinecone {
             get {
                 object obj = ResourceManager.GetObject("DIYPinecone", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DIYRecipePlus {
+            get {
+                object obj = ResourceManager.GetObject("DIYRecipePlus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1933,9 +2013,29 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Donut {
+            get {
+                object obj = ResourceManager.GetObject("Donut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DreamBellExchangeTicket {
             get {
                 object obj = ResourceManager.GetObject("DreamBellExchangeTicket", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Drink {
+            get {
+                object obj = ResourceManager.GetObject("Drink", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2113,9 +2213,29 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dumbbell {
+            get {
+                object obj = ResourceManager.GetObject("Dumbbell", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DungenessCrab {
             get {
                 object obj = ResourceManager.GetObject("DungenessCrab", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Duster {
+            get {
+                object obj = ResourceManager.GetObject("Duster", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -3183,6 +3303,16 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FixedLadder {
+            get {
+                object obj = ResourceManager.GetObject("FixedLadder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap flg00 {
             get {
                 object obj = ResourceManager.GetObject("flg00", resourceCulture);
@@ -3373,6 +3503,36 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Flour {
+            get {
+                object obj = ResourceManager.GetObject("Flour", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FlourSugarbrown {
+            get {
+                object obj = ResourceManager.GetObject("FlourSugarbrown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FlourWheatwhole {
+            get {
+                object obj = ResourceManager.GetObject("FlourWheatwhole", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Flowershower {
             get {
                 object obj = ResourceManager.GetObject("Flowershower", resourceCulture);
@@ -3396,6 +3556,16 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap FossilJ {
             get {
                 object obj = ResourceManager.GetObject("FossilJ", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Foxtail {
+            get {
+                object obj = ResourceManager.GetObject("Foxtail", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -3796,6 +3966,36 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap Hanabi {
             get {
                 object obj = ResourceManager.GetObject("Hanabi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HandBag {
+            get {
+                object obj = ResourceManager.GetObject("HandBag", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Haniwa {
+            get {
+                object obj = ResourceManager.GetObject("Haniwa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HaniwaPiece {
+            get {
+                object obj = ResourceManager.GetObject("HaniwaPiece", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -4216,6 +4416,16 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap Icecandy {
             get {
                 object obj = ResourceManager.GetObject("Icecandy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IceCream {
+            get {
+                object obj = ResourceManager.GetObject("IceCream", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -5323,6 +5533,16 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LifeSupport {
+            get {
+                object obj = ResourceManager.GetObject("LifeSupport", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Lollipop {
             get {
                 object obj = ResourceManager.GetObject("Lollipop", resourceCulture);
@@ -5416,6 +5636,16 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap Love {
             get {
                 object obj = ResourceManager.GetObject("Love", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Magazine {
+            get {
+                object obj = ResourceManager.GetObject("Magazine", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -5953,6 +6183,16 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap OneroomCardboard {
+            get {
+                object obj = ResourceManager.GetObject("OneroomCardboard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Orange {
             get {
                 object obj = ResourceManager.GetObject("Orange", resourceCulture);
@@ -6113,6 +6353,16 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap OtoshidamaOpenJp {
+            get {
+                object obj = ResourceManager.GetObject("OtoshidamaOpenJp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap OtoshidamaOpenKr {
             get {
                 object obj = ResourceManager.GetObject("OtoshidamaOpenKr", resourceCulture);
@@ -6126,6 +6376,16 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap OtoshidamaSealCh {
             get {
                 object obj = ResourceManager.GetObject("OtoshidamaSealCh", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OtoshidamaSealJp {
+            get {
+                object obj = ResourceManager.GetObject("OtoshidamaSealJp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -6833,6 +7093,36 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PltBushPlumeriaPink {
+            get {
+                object obj = ResourceManager.GetObject("PltBushPlumeriaPink", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PltBushPlumeriaWhite {
+            get {
+                object obj = ResourceManager.GetObject("PltBushPlumeriaWhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PltCarrot {
+            get {
+                object obj = ResourceManager.GetObject("PltCarrot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PltCherry {
             get {
                 object obj = ResourceManager.GetObject("PltCherry", resourceCulture);
@@ -7223,6 +7513,16 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PltPotato {
+            get {
+                object obj = ResourceManager.GetObject("PltPotato", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PltRose0 {
             get {
                 object obj = ResourceManager.GetObject("PltRose0", resourceCulture);
@@ -7343,9 +7643,29 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PltSugarCane {
+            get {
+                object obj = ResourceManager.GetObject("PltSugarCane", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PltSuzuran {
             get {
                 object obj = ResourceManager.GetObject("PltSuzuran", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PltTomato {
+            get {
+                object obj = ResourceManager.GetObject("PltTomato", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -7416,6 +7736,36 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap PltTurip6 {
             get {
                 object obj = ResourceManager.GetObject("PltTurip6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PltVine {
+            get {
+                object obj = ResourceManager.GetObject("PltVine", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PltWeedLight {
+            get {
+                object obj = ResourceManager.GetObject("PltWeedLight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PltWheat {
+            get {
+                object obj = ResourceManager.GetObject("PltWheat", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -7503,6 +7853,16 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Potato {
+            get {
+                object obj = ResourceManager.GetObject("Potato", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Present {
             get {
                 object obj = ResourceManager.GetObject("Present", resourceCulture);
@@ -7516,6 +7876,16 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap Present2 {
             get {
                 object obj = ResourceManager.GetObject("Present2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Protein {
+            get {
+                object obj = ResourceManager.GetObject("Protein", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -8043,6 +8413,16 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Sensu {
+            get {
+                object obj = ResourceManager.GetObject("Sensu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Shako {
             get {
                 object obj = ResourceManager.GetObject("Shako", resourceCulture);
@@ -8343,6 +8723,16 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SmartphoneCaseOtg {
+            get {
+                object obj = ResourceManager.GetObject("SmartphoneCaseOtg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SnowCrystal {
             get {
                 object obj = ResourceManager.GetObject("SnowCrystal", resourceCulture);
@@ -8366,6 +8756,26 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap Socks {
             get {
                 object obj = ResourceManager.GetObject("Socks", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SoftCream {
+            get {
+                object obj = ResourceManager.GetObject("SoftCream", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SouvenirChocolate {
+            get {
+                object obj = ResourceManager.GetObject("SouvenirChocolate", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -8753,6 +9163,26 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Sugar {
+            get {
+                object obj = ResourceManager.GetObject("Sugar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SugarCane {
+            get {
+                object obj = ResourceManager.GetObject("SugarCane", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Syabon {
             get {
                 object obj = ResourceManager.GetObject("Syabon", resourceCulture);
@@ -8926,6 +9356,16 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap Tire {
             get {
                 object obj = ResourceManager.GetObject("Tire", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tomato {
+            get {
+                object obj = ResourceManager.GetObject("Tomato", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -9153,6 +9593,16 @@ namespace NHSE.Sprites.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap WallHighSeries {
+            get {
+                object obj = ResourceManager.GetObject("WallHighSeries", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Watering {
             get {
                 object obj = ResourceManager.GetObject("Watering", resourceCulture);
@@ -9346,6 +9796,16 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap WetSuit {
             get {
                 object obj = ResourceManager.GetObject("WetSuit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Wheat {
+            get {
+                object obj = ResourceManager.GetObject("Wheat", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
