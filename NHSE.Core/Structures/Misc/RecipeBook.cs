@@ -26,18 +26,20 @@ namespace NHSE.Core
         public bool GetIsFavorite(int recipe) => FlagUtil.GetFlag(Data, 3 * BitFlagArraySize, recipe);
         public void SetIsFavorite(int recipe, bool value = true) => FlagUtil.SetFlag(Data, 3 * BitFlagArraySize, recipe, value);
 
-        public void GiveAll(IReadOnlyDictionary<ushort,ushort> recipes)
+        public void GiveAll(IReadOnlyDictionary<ushort,ushort> recipes, bool isNew = true)
         {
             foreach (var entry in recipes)
             {
                 var index = entry.Key;
+                if (index is RecipeList.BridgeConstructionKit or RecipeList.CampsiteConstructionKit)
+                    continue;
 
                 bool alreadyHave = GetIsKnown(index);
                 if (alreadyHave)
                     continue;
 
                 SetIsKnown(index);
-                SetIsNew(index);
+                SetIsNew(index, isNew);
             }
         }
 

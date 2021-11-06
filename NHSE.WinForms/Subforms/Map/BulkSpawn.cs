@@ -44,7 +44,7 @@ namespace NHSE.WinForms
                 var min = (ushort)NUD_DIYStart.Value;
                 var max = (ushort)NUD_DIYStop.Value;
                 var diy = RecipeList.Recipes
-                    .Where(z => min <= z.Key && z.Key <= max)
+                    .Where(z => z.Key is not RecipeList.BridgeConstructionKit or RecipeList.CampsiteConstructionKit && min <= z.Key && z.Key <= max)
                     .Select(z => z.Key)
                     .Select(z => new Item(Item.DIYRecipe) {FreeParam = z});
 

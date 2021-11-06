@@ -4,6 +4,9 @@ namespace NHSE.Core
 {
     public static class RecipeList
     {
+        public const int BridgeConstructionKit = 0x1CA;
+        public const int CampsiteConstructionKit = 0x1CD;
+
         public static readonly IReadOnlyDictionary<ushort, ushort> Recipes = new Dictionary<ushort, ushort>
         {
             {0x006, 02596}, // juicy-apple TV

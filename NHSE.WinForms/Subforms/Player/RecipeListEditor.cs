@@ -76,7 +76,7 @@ namespace NHSE.WinForms
             return $"0x{index:X3} - {known} {item}";
         }
 
-        private void B_All_Click(object sender, EventArgs e) => DoAll(() => Book.GiveAll(RecipeList.Recipes));
+        private void B_All_Click(object sender, EventArgs e) => DoAll(() => Book.GiveAll(RecipeList.Recipes, ModifierKeys != Keys.Control));
         private void B_ClearAll_Click(object sender, EventArgs e) => DoAll(Book.ClearAll);
         private void B_CraftAll_Click(object sender, EventArgs e) => DoAll(Book.CraftAll);
 
