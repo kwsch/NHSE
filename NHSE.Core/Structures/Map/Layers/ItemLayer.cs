@@ -121,17 +121,17 @@ namespace NHSE.Core
             var w = type.GetWidth();
             var h = type.GetHeight();
 
-            if (x + w - 1 >= MaxWidth)
-                return PlacedItemPermission.OutOfBounds;
-            if (y + h - 1 >= MaxHeight)
-                return PlacedItemPermission.OutOfBounds;
-
             if ((tile.Rotation & 1) == 1)
             {
                 var tmp = w;
                 w = h;
                 h = tmp;
             }
+
+            if (x + w - 1 >= MaxWidth)
+                return PlacedItemPermission.OutOfBounds;
+            if (y + h - 1 >= MaxHeight)
+                return PlacedItemPermission.OutOfBounds;
 
             for (byte ix = 0; ix < w; ix++)
             {
