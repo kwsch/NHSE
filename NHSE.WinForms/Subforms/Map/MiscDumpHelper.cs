@@ -159,7 +159,7 @@ namespace NHSE.WinForms
 
             var data = File.ReadAllBytes(ofd.FileName);
             data = PlayerHouseConverter.GetCompatible(data, expectLength);
-            if (fi.Length != expectLength)
+            if (data.Length != expectLength)
             {
                 WinFormsUtil.Error(MessageStrings.MsgCanceling, string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength), path);
                 return false;
@@ -211,7 +211,7 @@ namespace NHSE.WinForms
 
             var data = File.ReadAllBytes(ofd.FileName);
             data = PlayerRoomConverter.GetCompatible(data, offsets.PlayerRoomSize);
-            if (fi.Length != expectLength)
+            if (data.Length != expectLength)
             {
                 WinFormsUtil.Error(MessageStrings.MsgCanceling, string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength), path);
                 return false;
