@@ -151,7 +151,7 @@ namespace NHSE.WinForms
             var path = ofd.FileName;
             var expectLength = offsets.PlayerHouseSize;
             var fi = new FileInfo(path);
-            if (!VillagerHouseConverter.IsCompatible((int)fi.Length, expectLength))
+            if (!PlayerHouseConverter.IsCompatible((int)fi.Length, expectLength))
             {
                 WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength), path);
                 return false;
@@ -188,7 +188,7 @@ namespace NHSE.WinForms
             File.WriteAllBytes(sfd.FileName, data);
         }
 
-        public static bool LoadRoom(MainSaveOffsets offsets, IPlayerRoom room, int index)
+        public static bool LoadRoom(MainSaveOffsets offsets, ref IPlayerRoom room, int index)
         {
             using var ofd = new OpenFileDialog
             {
