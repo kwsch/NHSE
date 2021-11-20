@@ -54,7 +54,7 @@ namespace NHSE.Core
         public PlayerRoom1 Downgrade()
         {
             var result = new byte[PlayerRoom1.SIZE];
-            Data.CopyTo(result, 0);
+            Array.Copy(Data, result, PlayerRoom1.SIZE);
             return new PlayerRoom1(result);
         }
     }
