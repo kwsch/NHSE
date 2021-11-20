@@ -48,9 +48,13 @@ namespace NHSE.Core
 
         public abstract int VillagerSize { get; }
         public abstract int VillagerHouseSize { get; }
+        public abstract int PlayerHouseSize { get; }
+        public abstract int PlayerRoomSize { get; }
 
         public abstract IVillager ReadVillager(byte[] data);
         public abstract IVillagerHouse ReadVillagerHouse(byte[] data);
+        public abstract IPlayerHouse ReadPlayerHouse(byte[] data);
+        public abstract IPlayerRoom ReadPlayerRoom(byte[] data);
 
         public static MainSaveOffsets GetOffsets(FileHeaderInfo Info)
         {
@@ -161,6 +165,24 @@ namespace NHSE.Core
                 throw new ArgumentOutOfRangeException(nameof(index));
             var size = VillagerHouseSize;
             v.Write().CopyTo(data, NpcHouseList + (index * size));
+        }
+
+        public IPlayerHouse ReadPlayerHouse(byte[] data, int index)
+        {
+            if ((uint)index >= PlayerCount)
+                throw new ArgumentOutOfRangeException(nameof(index));
+
+            var size = PlayerHouseSize;
+            var v = data.Slice(PlayerHouseList + (index * size), size);
+            return ReadPlayerHouse(v);
+        }
+
+        public void WritePlayerHouse(IPlayerHouse v, byte[] data, int index)
+        {
+            if ((uint)index >= PlayerCount)
+                throw new ArgumentOutOfRangeException(nameof(index));
+            var size = PlayerHouseSize;
+            v.Write().CopyTo(data, PlayerHouseList + (index * size));
         }
     }
 }

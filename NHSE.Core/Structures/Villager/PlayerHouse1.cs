@@ -2,12 +2,15 @@
 
 namespace NHSE.Core
 {
-    public class PlayerHouse : IHouseInfo
+    public class PlayerHouse1 : IPlayerHouse
     {
         public const int SIZE = 0x26400;
+        public virtual string Extension => "nhph";
 
         public readonly byte[] Data;
-        public PlayerHouse(byte[] data) => Data = data;
+        public PlayerHouse1(byte[] data) => Data = data;
+
+        public byte[] Write() => Data;
 
         public uint HouseLevel { get => BitConverter.ToUInt32(Data, 0x00); set => BitConverter.GetBytes(value).CopyTo(Data, 0x00); }
         public WallType WallUniqueID { get => (WallType)BitConverter.ToUInt16(Data, 0x04); set => BitConverter.GetBytes((ushort)value).CopyTo(Data, 0x04); }
@@ -39,29 +42,29 @@ namespace NHSE.Core
         public void SetEventFlags(short[] value) => Buffer.BlockCopy(value, 0, Data, 0x20, value.Length * sizeof(short));
 
         public const int MaxRoom = 6;
-        private const int RoomStart = 0x120;
+        public const int RoomStart = 0x120;
 
-        public PlayerRoom GetRoom(int roomIndex)
+        public IPlayerRoom GetRoom(int roomIndex)
         {
             if ((uint)roomIndex >= MaxRoom)
                 throw new ArgumentOutOfRangeException(nameof(roomIndex));
 
-            var data = Data.Slice(RoomStart + (roomIndex * PlayerRoom.SIZE), PlayerRoom.SIZE);
-            return new PlayerRoom(data);
+            var data = Data.Slice(RoomStart + (roomIndex * PlayerRoom1.SIZE), PlayerRoom1.SIZE);
+            return new PlayerRoom1(data);
         }
 
-        public void SetRoom(int roomIndex, PlayerRoom room)
+        public void SetRoom(int roomIndex, IPlayerRoom room)
         {
             if ((uint)roomIndex >= MaxRoom)
                 throw new ArgumentOutOfRangeException(nameof(roomIndex));
 
-            room.Data.CopyTo(Data, RoomStart + (roomIndex * PlayerRoom.SIZE));
+            room.Write().CopyTo(Data, RoomStart + (roomIndex * PlayerRoom1.SIZE));
         }
 
         public sbyte NPC1 { get => (sbyte)Data[0x263D0]; set => Data[0x263D0] = (byte)value; }
         public sbyte NPC2 { get => (sbyte)Data[0x263D1]; set => Data[0x263D1] = (byte)value; }
 
-        // 2bytes padding
+        // 2 bytes padding
 
         public Item DoorDecoItemName
         {
@@ -84,5 +87,15 @@ namespace NHSE.Core
         }
 
         // cockroach @ 0x263f0 -- meh
+        
+        public PlayerHouse2 Upgrade()
+        {
+            var data = new byte[PlayerHouse2.SIZE];
+            Data.Slice(0x0, 0x120).CopyTo(data, 0); // HouseLevel -> EventFlag
+            for (int i = 0; i < MaxRoom; i++)
+                GetRoom(i).Upgrade().Write().CopyTo(data, 0x120 + i * PlayerRoom2.SIZE); // RoomList
+            Data.Slice(0x263D0, 0x30).CopyTo(data, 0x289F8); // PlayerList -> Cockroach
+            return new PlayerHouse2(data);
+        }
     }
 }

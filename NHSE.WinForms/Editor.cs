@@ -470,7 +470,7 @@ namespace NHSE.WinForms
         private void B_EditPlayerHouses_Click(object sender, EventArgs e)
         {
             var houses = SAV.Main.GetPlayerHouses();
-            using var editor = new PlayerHouseEditor(houses, SAV.Players, PlayerIndex);
+            using var editor = new PlayerHouseEditor(houses, SAV.Players, SAV.Main, PlayerIndex);
             if (editor.ShowDialog() == DialogResult.OK)
                 SAV.Main.SetPlayerHouses(houses);
         }
