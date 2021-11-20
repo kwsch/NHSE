@@ -56,7 +56,7 @@
         public override int PlayerHouseSize => PlayerHouse1.SIZE;
         public override IPlayerHouse ReadPlayerHouse(byte[] data) => new PlayerHouse1(data);
 
-        public override int PlayerRoomSize => PlayerHouse1.SIZE;
+        public override int PlayerRoomSize => PlayerRoom1.SIZE;
         public override IPlayerRoom ReadPlayerRoom(byte[] data) => new PlayerRoom1(data);
     }
 }

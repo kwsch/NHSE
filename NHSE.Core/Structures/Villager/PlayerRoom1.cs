@@ -38,7 +38,7 @@ namespace NHSE.Core
             set => value.ToBytes().CopyTo(Data, 0x65A4);
         }
 
-        public IPlayerRoom Upgrade()
+        public PlayerRoom2 Upgrade()
         {
             var data = new byte[PlayerRoom2.SIZE];
             Data.CopyTo(data, 0);

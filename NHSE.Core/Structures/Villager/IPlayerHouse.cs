@@ -10,7 +10,7 @@
         string Extension { get; }
         short[] GetEventFlags();
         void SetEventFlags(short[] value);
-        IPlayerRoom GetRoom(int v);
+        IPlayerRoom GetRoom(int roomIndex);
         void SetRoom(int roomIndex, IPlayerRoom room);
     }
 }

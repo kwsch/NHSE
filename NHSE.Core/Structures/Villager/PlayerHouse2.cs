@@ -9,7 +9,7 @@ namespace NHSE.Core
 
         public PlayerHouse2(byte[] data) : base(data) { }
 
-        public new PlayerRoom2 GetRoom(int roomIndex)
+        public override IPlayerRoom GetRoom(int roomIndex)
         {
             if ((uint)roomIndex >= MaxRoom)
                 throw new ArgumentOutOfRangeException(nameof(roomIndex));
@@ -18,12 +18,12 @@ namespace NHSE.Core
             return new PlayerRoom2(data);
         }
 
-        public void SetRoom(int roomIndex, PlayerRoom2 room)
+        public override void SetRoom(int roomIndex, IPlayerRoom room)
         {
             if ((uint)roomIndex >= MaxRoom)
                 throw new ArgumentOutOfRangeException(nameof(roomIndex));
 
-            room.Data.CopyTo(Data, RoomStart + (roomIndex * PlayerRoom2.SIZE));
+            room.Write().CopyTo(Data, RoomStart + (roomIndex * PlayerRoom2.SIZE));
         }
 
         public new sbyte NPC1 { get => (sbyte)Data[0x289F8]; set => Data[0x289F8] = (byte)value; }
@@ -58,7 +58,7 @@ namespace NHSE.Core
             var data = new byte[PlayerHouse1.SIZE];
             Data.Slice(0x0, 0x120).CopyTo(data, 0); // HouseLevel -> EventFlag
             for (int i = 0; i < MaxRoom; i++)
-                GetRoom(i).Downgrade().Data.CopyTo(data, 0x120 + i * PlayerRoom2.SIZE); // RoomList
+                ((PlayerRoom2)GetRoom(i)).Downgrade().Data.CopyTo(data, 0x120 + i * PlayerRoom2.SIZE); // RoomList
             Data.Slice(0x289F8, 0x30).CopyTo(data, 0x263D0); // PlayerList -> Cockroach
             return new PlayerHouse1(data);
         }
