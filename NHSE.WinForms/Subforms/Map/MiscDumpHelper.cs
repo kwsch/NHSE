@@ -176,7 +176,7 @@ namespace NHSE.WinForms
         {
             using var sfd = new SaveFileDialog
             {
-                Filter = "New Horizons Player House Room (*.nhpr)|*.nhph|" +
+                Filter = "New Horizons Player House Room (*.nhpr)|*.nhpr|" +
                          "New Horizons Player House Room (*.nhpr2)|*.nhpr2|" +
                          "All files (*.*)|*.*",
                 FileName = $"Room {index + 1}.{room.Extension}",
@@ -192,8 +192,10 @@ namespace NHSE.WinForms
         {
             using var ofd = new OpenFileDialog
             {
-                Filter = "New Horizons Player House Room (*.nhpr)|*.nhpr|All files (*.*)|*.*",
-                FileName = $"Room {index + 1}.nhpr",
+                Filter = "New Horizons Player House Room (*.nhpr)|*.nhpr|" +
+                         "New Horizons Player House Room (*.nhpr2)|*.nhpr2|" +
+                         "All files (*.*)|*.*",
+                FileName = $"Room {index + 1}.{room.Extension}",
             };
             if (ofd.ShowDialog() != DialogResult.OK)
                 return false;
