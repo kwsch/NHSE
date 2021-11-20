@@ -9,7 +9,8 @@ namespace NHSE.WinForms
 {
     public partial class PlayerHouseEditor : Form
     {
-        private readonly PlayerHouse[] Houses;
+        private readonly MainSave SAV;
+        private readonly IPlayerHouse[] Houses;
         private readonly IReadOnlyList<Player> Players;
         private RoomItemManager Manager;
         private const int scale = 24;
@@ -17,10 +18,11 @@ namespace NHSE.WinForms
         private int Index = -1;
         private int RoomIndex = -1;
 
-        public PlayerHouseEditor(PlayerHouse[] houses, IReadOnlyList<Player> players, int index)
+        public PlayerHouseEditor(IPlayerHouse[] houses, IReadOnlyList<Player> players, MainSave sav, int index)
         {
             InitializeComponent();
             this.TranslateInterface(GameInfo.CurrentLanguage);
+            SAV = sav;
             Houses = houses;
             Players = players;
             Manager = new RoomItemManager(houses[0].GetRoom(0));
@@ -73,7 +75,7 @@ namespace NHSE.WinForms
             LB_Items.Items[Index] = GetHouseSummary(Players, Houses[Index], Index);
         }
 
-        public static string GetHouseSummary(IReadOnlyList<Player> players, PlayerHouse house, int index)
+        public static string GetHouseSummary(IReadOnlyList<Player> players, IPlayerHouse house, int index)
         {
             var houseName = index >= players.Count ? $"House {index}" : $"{players[index].Personal.PlayerName}'s House";
             return $"{houseName} (lv {house.HouseLevel})";
@@ -86,7 +88,7 @@ namespace NHSE.WinForms
 
         private void B_LoadHouse_Click(object sender, EventArgs e)
         {
-            if (!MiscDumpHelper.LoadHouse(Players, Houses, Index))
+            if (!MiscDumpHelper.LoadHouse(SAV.Offsets, Players, Houses, Index))
                 return;
 
             RoomIndex = -1;
@@ -141,14 +143,14 @@ namespace NHSE.WinForms
             y = e.Y / scale;
         }
 
-        private void ChangeRoom(PlayerHouse house)
+        private void ChangeRoom(IPlayerHouse house)
         {
             RoomIndex = (int) NUD_Room.Value - 1;
             ReloadManager(house);
             DrawLayer();
         }
 
-        private void ReloadManager(PlayerHouse house)
+        private void ReloadManager(IPlayerHouse house)
         {
             var unsupported = Manager.GetUnsupportedTiles();
             if (unsupported.Count != 0)
@@ -300,7 +302,7 @@ namespace NHSE.WinForms
         private void B_LoadRoom_Click(object sender, EventArgs e)
         {
             var room = Manager.Room;
-            MiscDumpHelper.LoadRoom(room, RoomIndex);
+            MiscDumpHelper.LoadRoom(SAV.Offsets, room, RoomIndex);
 
             var house = Houses[Index];
             house.SetRoom(RoomIndex, room);

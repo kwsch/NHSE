@@ -66,29 +66,19 @@ namespace NHSE.Core
             set => Building.SetArray(value).CopyTo(Data, Offsets.MainFieldStructure);
         }
 
-        public PlayerHouse GetPlayerHouse(int index)
+        public IPlayerHouse GetPlayerHouse(int index) => Offsets.ReadPlayerHouse(Data, index);
+        public void SetPlayerHouse(IPlayerHouse value, int index) => Offsets.WritePlayerHouse(value, Data, index);
+
+
+        public IPlayerHouse[] GetPlayerHouses()
         {
-            if ((uint)index >= MainSaveOffsets.PlayerCount)
-                throw new ArgumentOutOfRangeException(nameof(index));
-            return new PlayerHouse(Data.Slice(Offsets.PlayerHouseList + (index * PlayerHouse.SIZE), PlayerHouse.SIZE));
+            var players = new IPlayerHouse[MainSaveOffsets.PlayerCount];
+            for (int i = 0; i < players.Length; i++)
+                players[i] = GetPlayerHouse(i);
+            return players;
         }
 
-        public void SetPlayerHouse(PlayerHouse h, int index)
-        {
-            if ((uint)index >= MainSaveOffsets.PlayerCount)
-                throw new ArgumentOutOfRangeException(nameof(index));
-            h.Data.CopyTo(Data, Offsets.PlayerHouseList + (index * PlayerHouse.SIZE));
-        }
-
-        public PlayerHouse[] GetPlayerHouses()
-        {
-            var villagers = new PlayerHouse[MainSaveOffsets.PlayerCount];
-            for (int i = 0; i < villagers.Length; i++)
-                villagers[i] = GetPlayerHouse(i);
-            return villagers;
-        }
-
-        public void SetPlayerHouses(IReadOnlyList<PlayerHouse> houses)
+        public void SetPlayerHouses(IReadOnlyList<IPlayerHouse> houses)
         {
             for (int i = 0; i < houses.Count; i++)
                 SetPlayerHouse(houses[i], i);

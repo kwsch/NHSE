@@ -8,10 +8,10 @@ namespace NHSE.Core
     {
         public readonly RoomItemLayer[] Layers;
 
-        public readonly PlayerRoom Room;
+        public readonly IPlayerRoom Room;
         private const int LayerCount = 8;
 
-        public RoomItemManager(PlayerRoom room)
+        public RoomItemManager(IPlayerRoom room)
         {
             Layers = room.GetItemLayers();
             Room = room;

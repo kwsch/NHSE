@@ -59,7 +59,7 @@ namespace NHSE.Core
         /// <param name="houses"></param>
         /// <param name="players"></param>
         /// <param name="path">Path to dump to</param>
-        public static void DumpPlayerHouses(this IReadOnlyList<PlayerHouse> houses, IReadOnlyList<Player> players, string path)
+        public static void DumpPlayerHouses(this IReadOnlyList<IPlayerHouse> houses, IReadOnlyList<Player> players, string path)
         {
             for (int i = 0; i < houses.Count; i++)
             {
@@ -84,12 +84,12 @@ namespace NHSE.Core
             }
         }
 
-        private static void Dump(this PlayerHouse h, string path, IVillagerOrigin p) => h.Dump(p.PlayerName, path);
+        private static void Dump(this IPlayerHouse h, string path, IVillagerOrigin p) => h.Dump(p.PlayerName, path);
 
-        private static void Dump(this PlayerHouse h, string player, string path)
+        private static void Dump(this IPlayerHouse h, string player, string path)
         {
-            var dest = Path.Combine(path, $"{player}.nhph");
-            var data = h.Data;
+            var dest = Path.Combine(path, $"{player}.{h.Extension}");
+            var data = h.Write();
             File.WriteAllBytes(dest, data);
         }
 

@@ -96,7 +96,7 @@ namespace NHSE.WinForms
             return true;
         }
 
-        public static void DumpHouse(IReadOnlyList<Player> players, IReadOnlyList<PlayerHouse> houses, int index, bool dumpAll)
+        public static void DumpHouse(IReadOnlyList<Player> players, IReadOnlyList<IPlayerHouse> houses, int index, bool dumpAll)
         {
             if (dumpAll)
                 DumpAllPlayerHouses(houses, players);
@@ -104,23 +104,25 @@ namespace NHSE.WinForms
                 DumpPlayerHouse(players, houses, index);
         }
 
-        private static void DumpPlayerHouse(IReadOnlyList<Player> players, IReadOnlyList<PlayerHouse> houses, int index)
+        private static void DumpPlayerHouse(IReadOnlyList<Player> players, IReadOnlyList<IPlayerHouse> houses, int index)
         {
             var house = houses[index];
             var name = PlayerHouseEditor.GetHouseSummary(players, house, index);
             using var sfd = new SaveFileDialog
             {
-                Filter = "New Horizons Player House (*.nhph)|*.nhph|All files (*.*)|*.*",
-                FileName = $"{name}.nhph",
+                Filter = "New Horizons Player House (*.nhph)|*.nhph|" +
+                         "New Horizons Player House (*.nhph2)|*.nhph2|" +
+                         "All files (*.*)|*.*",
+                FileName = $"{name}.{house.Extension}",
             };
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
-            var data = house.Data;
+            var data = house.Write();
             File.WriteAllBytes(sfd.FileName, data);
         }
 
-        private static void DumpAllPlayerHouses(IReadOnlyList<PlayerHouse> houses, IReadOnlyList<Player> players)
+        private static void DumpAllPlayerHouses(IReadOnlyList<IPlayerHouse> houses, IReadOnlyList<Player> players)
         {
             using var fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() != DialogResult.OK)
@@ -132,49 +134,61 @@ namespace NHSE.WinForms
             houses.DumpPlayerHouses(players, fbd.SelectedPath);
         }
 
-        public static bool LoadHouse(IReadOnlyList<Player> players, PlayerHouse[] houses, int index)
+        public static bool LoadHouse(MainSaveOffsets offsets, IReadOnlyList<Player> players, IPlayerHouse[] houses, int index)
         {
+            var h = houses[index];
             var name = PlayerHouseEditor.GetHouseSummary(players, houses[index], index);
             using var ofd = new OpenFileDialog
             {
-                Filter = "New Horizons Player House (*.nhph)|*.nhph|All files (*.*)|*.*",
-                FileName = $"{name}.nhph",
+                Filter = "New Horizons Player House (*.nhph)|*.nhph|" +
+                         "New Horizons Player House (*.nhph2)|*.nhph2|" +
+                         "All files (*.*)|*.*",
+                FileName = $"{name}.{h.Extension}",
             };
             if (ofd.ShowDialog() != DialogResult.OK)
                 return false;
 
-            var file = ofd.FileName;
-            var fi = new FileInfo(file);
-            const int expectLength = PlayerHouse.SIZE;
-            if (fi.Length != expectLength)
+            var path = ofd.FileName;
+            var expectLength = offsets.PlayerHouseSize;
+            var fi = new FileInfo(path);
+            if (!VillagerHouseConverter.IsCompatible((int)fi.Length, expectLength))
             {
-                WinFormsUtil.Error(MessageStrings.MsgCanceling, string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength));
+                WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength), path);
                 return false;
             }
 
-            var data = File.ReadAllBytes(file);
-            var h = new PlayerHouse(data);
+            var data = File.ReadAllBytes(ofd.FileName);
+            data = PlayerHouseConverter.GetCompatible(data, expectLength);
+            if (fi.Length != expectLength)
+            {
+                WinFormsUtil.Error(MessageStrings.MsgCanceling, string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength), path);
+                return false;
+            }
+
+            h = offsets.ReadPlayerHouse(data);
             var current = houses[index];
             h.NPC1 = current.NPC1;
             houses[index] = h;
             return true;
         }
 
-        public static void DumpRoom(PlayerRoom room, int index)
+        public static void DumpRoom(IPlayerRoom room, int index)
         {
             using var sfd = new SaveFileDialog
             {
-                Filter = "New Horizons Player House Room (*.nhpr)|*.nhpr|All files (*.*)|*.*",
-                FileName = $"Room {index + 1}.nhpr",
+                Filter = "New Horizons Player House Room (*.nhpr)|*.nhph|" +
+                         "New Horizons Player House Room (*.nhpr2)|*.nhpr2|" +
+                         "All files (*.*)|*.*",
+                FileName = $"Room {index + 1}.{room.Extension}",
             };
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
-            var data = room.Data;
+            var data = room.Write();
             File.WriteAllBytes(sfd.FileName, data);
         }
 
-        public static bool LoadRoom(PlayerRoom room, int index)
+        public static bool LoadRoom(MainSaveOffsets offsets, IPlayerRoom room, int index)
         {
             using var ofd = new OpenFileDialog
             {
@@ -184,17 +198,24 @@ namespace NHSE.WinForms
             if (ofd.ShowDialog() != DialogResult.OK)
                 return false;
 
-            var file = ofd.FileName;
-            var fi = new FileInfo(file);
-            const int expectLength = PlayerRoom.SIZE;
-            if (fi.Length != expectLength)
+            var path = ofd.FileName;
+            var expectLength = offsets.PlayerRoomSize;
+            var fi = new FileInfo(path);
+            if (!PlayerRoomConverter.IsCompatible((int)fi.Length, expectLength))
             {
-                WinFormsUtil.Error(MessageStrings.MsgCanceling, string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength));
+                WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength), path);
                 return false;
             }
 
-            var data = File.ReadAllBytes(file);
-            data.CopyTo(room.Data, 0);
+            var data = File.ReadAllBytes(ofd.FileName);
+            data = PlayerRoomConverter.GetCompatible(data, offsets.PlayerRoomSize);
+            if (fi.Length != expectLength)
+            {
+                WinFormsUtil.Error(MessageStrings.MsgCanceling, string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength), path);
+                return false;
+            }
+
+            room = offsets.ReadPlayerRoom(data);
             return true;
         }
 

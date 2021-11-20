@@ -2,12 +2,15 @@
 
 namespace NHSE.Core
 {
-    public class PlayerRoom
+    public class PlayerRoom1 : IPlayerRoom
     {
         public const int SIZE = 0x65C8;
+        public virtual string Extension => "nhpr";
 
         public readonly byte[] Data;
-        public PlayerRoom(byte[] data) => Data = data;
+        public PlayerRoom1(byte[] data) => Data = data;
+
+        public byte[] Write() => Data;
 
         /*
           s_d8bc748b                        ItemLayerList[8];                          // @0x0 size 0xc80, align 4
@@ -33,6 +36,13 @@ namespace NHSE.Core
         {
             get => Data.Slice(0x65A4, GSaveRoomFloorWall.SIZE).ToStructure<GSaveRoomFloorWall>();
             set => value.ToBytes().CopyTo(Data, 0x65A4);
+        }
+
+        public IPlayerRoom Upgrade()
+        {
+            var data = new byte[PlayerRoom2.SIZE];
+            Data.CopyTo(data, 0);
+            return new PlayerRoom2(data);
         }
     }
 }
