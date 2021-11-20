@@ -44,7 +44,7 @@ namespace NHSE.Core
         public const int MaxRoom = 6;
         public const int RoomStart = 0x120;
 
-        public IPlayerRoom GetRoom(int roomIndex)
+        public virtual IPlayerRoom GetRoom(int roomIndex)
         {
             if ((uint)roomIndex >= MaxRoom)
                 throw new ArgumentOutOfRangeException(nameof(roomIndex));
@@ -53,7 +53,7 @@ namespace NHSE.Core
             return new PlayerRoom1(data);
         }
 
-        public void SetRoom(int roomIndex, IPlayerRoom room)
+        public virtual void SetRoom(int roomIndex, IPlayerRoom room)
         {
             if ((uint)roomIndex >= MaxRoom)
                 throw new ArgumentOutOfRangeException(nameof(roomIndex));
@@ -93,7 +93,7 @@ namespace NHSE.Core
             var data = new byte[PlayerHouse2.SIZE];
             Data.Slice(0x0, 0x120).CopyTo(data, 0); // HouseLevel -> EventFlag
             for (int i = 0; i < MaxRoom; i++)
-                GetRoom(i).Upgrade().Write().CopyTo(data, 0x120 + i * PlayerRoom2.SIZE); // RoomList
+                ((PlayerRoom1)GetRoom(i)).Upgrade().Write().CopyTo(data, 0x120 + i * PlayerRoom2.SIZE); // RoomList
             Data.Slice(0x263D0, 0x30).CopyTo(data, 0x289F8); // PlayerList -> Cockroach
             return new PlayerHouse2(data);
         }

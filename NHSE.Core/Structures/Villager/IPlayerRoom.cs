@@ -10,6 +10,5 @@ namespace NHSE.Core
         string Extension { get; }
         RoomItemLayer[] GetItemLayers();
         void SetItemLayers(IReadOnlyList<RoomItemLayer> value);
-        IPlayerRoom Upgrade();
     }
 }
