@@ -302,7 +302,7 @@ namespace NHSE.WinForms
         private void B_LoadRoom_Click(object sender, EventArgs e)
         {
             var room = Manager.Room;
-            MiscDumpHelper.LoadRoom(SAV.Offsets, room, RoomIndex);
+            MiscDumpHelper.LoadRoom(SAV.Offsets, ref room, RoomIndex);
 
             var house = Houses[Index];
             house.SetRoom(RoomIndex, room);

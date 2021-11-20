@@ -58,7 +58,7 @@ namespace NHSE.Core
             var data = new byte[PlayerHouse1.SIZE];
             Data.Slice(0x0, 0x120).CopyTo(data, 0); // HouseLevel -> EventFlag
             for (int i = 0; i < MaxRoom; i++)
-                ((PlayerRoom2)GetRoom(i)).Downgrade().Data.CopyTo(data, 0x120 + i * PlayerRoom2.SIZE); // RoomList
+                ((PlayerRoom2)GetRoom(i)).Downgrade().Data.CopyTo(data, 0x120 + i * PlayerRoom1.SIZE); // RoomList
             Data.Slice(0x289F8, 0x30).CopyTo(data, 0x263D0); // PlayerList -> Cockroach
             return new PlayerHouse1(data);
         }
