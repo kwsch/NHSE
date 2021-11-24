@@ -10,6 +10,7 @@
         private const string FN_POSTBOX = "postbox.dat";
         private const string FN_PHOTO = "photo_studio_island.dat";
         private const string FN_PROFILE = "profile.dat";
+        private const string FN_WHEREAREN = "wherearen.dat";
 
         #region REVISION 1.0.0
 
@@ -572,6 +573,7 @@
         internal const int REV_200_POSTBOX = REV_170_POSTBOX;
         internal const int REV_200_PHOTO = 0x2F650;
         internal const int REV_200_PROFILE = REV_110_PROFILE;
+        internal const int REV_200_WHEREAREN = 0xB8A4E0;
 
         public static readonly FileHashInfo REV_200 = new(new FileHashDetails[]
         {
@@ -614,7 +616,11 @@
             {
                 new(0x100, 0x6945c),
             }),
-        });
+            new(FN_WHEREAREN, REV_200_WHEREAREN, new FileHashRegion[]
+            {
+                new(0x100, 0xB8A3DC),
+            }),
+        } );
 
         #endregion
     }

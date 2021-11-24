@@ -78,6 +78,8 @@ namespace NHSE.Core
                     return false;
                 if (p.Profile.Data.Length != sizes.Profile)
                     return false;
+                if ( p.WhereAreN.Data.Length != sizes.WhereAreN )
+                    return false;
             }
             return true;
         }

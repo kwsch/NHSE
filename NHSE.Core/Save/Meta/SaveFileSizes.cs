@@ -10,14 +10,16 @@
         public readonly uint PhotoStudioIsland;
         public readonly uint PostBox;
         public readonly uint Profile;
+        public readonly uint WhereAreN;
 
-        public SaveFileSizes(uint main, uint personal, uint photo, uint postbox, uint profile)
+        public SaveFileSizes(uint main, uint personal, uint photo, uint postbox, uint profile, uint wherearen )
         {
             Main = main;
             Personal = personal;
             PhotoStudioIsland = photo;
             PostBox = postbox;
             Profile = profile;
+            WhereAreN = wherearen;
         }
     }
 }

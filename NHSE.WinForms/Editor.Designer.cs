@@ -38,6 +38,7 @@
             this.Menu_VerifyHashes = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_LoadDecrypted = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_RAMEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menu_ItemImages = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Options = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Language = new System.Windows.Forms.ToolStripComboBox();
             this.Menu_Settings = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,7 +99,8 @@
             this.CB_Players = new System.Windows.Forms.ComboBox();
             this.PB_Player = new System.Windows.Forms.PictureBox();
             this.TC_Editors = new System.Windows.Forms.TabControl();
-            this.Menu_ItemImages = new System.Windows.Forms.ToolStripMenuItem();
+            this.L_Poki = new System.Windows.Forms.Label();
+            this.NUD_Poki = new System.Windows.Forms.NumericUpDown();
             this.Menu_Editor.SuspendLayout();
             this.CM_Picture.SuspendLayout();
             this.Tab_Map.SuspendLayout();
@@ -115,6 +117,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).BeginInit();
             this.TC_Editors.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_Poki)).BeginInit();
             this.SuspendLayout();
             // 
             // Menu_Editor
@@ -191,6 +194,14 @@
             this.Menu_RAMEdit.Text = "RAM Edit";
             this.Menu_RAMEdit.Click += new System.EventHandler(this.Menu_RAMEdit_Click);
             // 
+            // Menu_ItemImages
+            // 
+            this.Menu_ItemImages.Name = "Menu_ItemImages";
+            this.Menu_ItemImages.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
+            this.Menu_ItemImages.Size = new System.Drawing.Size(206, 22);
+            this.Menu_ItemImages.Text = "Item Images";
+            this.Menu_ItemImages.Click += new System.EventHandler(this.Menu_ItemImages_Click);
+            // 
             // Menu_Options
             // 
             this.Menu_Options.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -259,8 +270,8 @@
             this.Tab_Map.Controls.Add(this.B_RecycleBin);
             this.Tab_Map.Location = new System.Drawing.Point(4, 22);
             this.Tab_Map.Name = "Tab_Map";
-            this.Tab_Map.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.Tab_Map.Size = new System.Drawing.Size(396, 212);
+            this.Tab_Map.Padding = new System.Windows.Forms.Padding(3);
+            this.Tab_Map.Size = new System.Drawing.Size(396, 261);
             this.Tab_Map.TabIndex = 2;
             this.Tab_Map.Text = "Map";
             this.Tab_Map.UseVisualStyleBackColor = true;
@@ -469,14 +480,16 @@
             // 
             this.Tab_Villagers.Location = new System.Drawing.Point(4, 22);
             this.Tab_Villagers.Name = "Tab_Villagers";
-            this.Tab_Villagers.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.Tab_Villagers.Size = new System.Drawing.Size(396, 212);
+            this.Tab_Villagers.Padding = new System.Windows.Forms.Padding(3);
+            this.Tab_Villagers.Size = new System.Drawing.Size(396, 261);
             this.Tab_Villagers.TabIndex = 0;
             this.Tab_Villagers.Text = "Villagers";
             this.Tab_Villagers.UseVisualStyleBackColor = true;
             // 
             // Tab_Players
             // 
+            this.Tab_Players.Controls.Add(this.L_Poki);
+            this.Tab_Players.Controls.Add(this.NUD_Poki);
             this.Tab_Players.Controls.Add(this.L_EarnedMiles);
             this.Tab_Players.Controls.Add(this.NUD_TotalNookMiles);
             this.Tab_Players.Controls.Add(this.L_StorageCount);
@@ -501,8 +514,8 @@
             this.Tab_Players.Controls.Add(this.PB_Player);
             this.Tab_Players.Location = new System.Drawing.Point(4, 22);
             this.Tab_Players.Name = "Tab_Players";
-            this.Tab_Players.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.Tab_Players.Size = new System.Drawing.Size(396, 211);
+            this.Tab_Players.Padding = new System.Windows.Forms.Padding(3);
+            this.Tab_Players.Size = new System.Drawing.Size(396, 261);
             this.Tab_Players.TabIndex = 1;
             this.Tab_Players.Text = "Players";
             this.Tab_Players.UseVisualStyleBackColor = true;
@@ -558,7 +571,7 @@
             // L_PocketCount2
             // 
             this.L_PocketCount2.AutoSize = true;
-            this.L_PocketCount2.Location = new System.Drawing.Point(148, 191);
+            this.L_PocketCount2.Location = new System.Drawing.Point(200, 192);
             this.L_PocketCount2.Name = "L_PocketCount2";
             this.L_PocketCount2.Size = new System.Drawing.Size(81, 13);
             this.L_PocketCount2.TabIndex = 22;
@@ -568,7 +581,7 @@
             // L_PocketCount1
             // 
             this.L_PocketCount1.AutoSize = true;
-            this.L_PocketCount1.Location = new System.Drawing.Point(148, 170);
+            this.L_PocketCount1.Location = new System.Drawing.Point(200, 171);
             this.L_PocketCount1.Name = "L_PocketCount1";
             this.L_PocketCount1.Size = new System.Drawing.Size(81, 13);
             this.L_PocketCount1.TabIndex = 21;
@@ -577,14 +590,14 @@
             // 
             // NUD_PocketCount2
             // 
-            this.NUD_PocketCount2.Location = new System.Drawing.Point(104, 188);
+            this.NUD_PocketCount2.Location = new System.Drawing.Point(151, 189);
             this.NUD_PocketCount2.Maximum = new decimal(new int[] {
             2147483647,
             0,
             0,
             0});
             this.NUD_PocketCount2.Name = "NUD_PocketCount2";
-            this.NUD_PocketCount2.Size = new System.Drawing.Size(41, 20);
+            this.NUD_PocketCount2.Size = new System.Drawing.Size(46, 20);
             this.NUD_PocketCount2.TabIndex = 20;
             this.NUD_PocketCount2.Value = new decimal(new int[] {
             20,
@@ -595,14 +608,14 @@
             // 
             // NUD_PocketCount1
             // 
-            this.NUD_PocketCount1.Location = new System.Drawing.Point(104, 167);
+            this.NUD_PocketCount1.Location = new System.Drawing.Point(151, 168);
             this.NUD_PocketCount1.Maximum = new decimal(new int[] {
             2147483647,
             0,
             0,
             0});
             this.NUD_PocketCount1.Name = "NUD_PocketCount1";
-            this.NUD_PocketCount1.Size = new System.Drawing.Size(41, 20);
+            this.NUD_PocketCount1.Size = new System.Drawing.Size(46, 20);
             this.NUD_PocketCount1.TabIndex = 19;
             this.NUD_PocketCount1.Value = new decimal(new int[] {
             20,
@@ -614,9 +627,9 @@
             // B_EditPlayer
             // 
             this.B_EditPlayer.ContextMenuStrip = this.CM_EditPlayer;
-            this.B_EditPlayer.Location = new System.Drawing.Point(300, 168);
+            this.B_EditPlayer.Location = new System.Drawing.Point(6, 214);
             this.B_EditPlayer.Name = "B_EditPlayer";
-            this.B_EditPlayer.Size = new System.Drawing.Size(92, 40);
+            this.B_EditPlayer.Size = new System.Drawing.Size(130, 40);
             this.B_EditPlayer.TabIndex = 18;
             this.B_EditPlayer.Text = "Edit Player...";
             this.B_EditPlayer.UseVisualStyleBackColor = true;
@@ -689,7 +702,7 @@
             // 
             this.B_EditPlayerItems.Location = new System.Drawing.Point(6, 168);
             this.B_EditPlayerItems.Name = "B_EditPlayerItems";
-            this.B_EditPlayerItems.Size = new System.Drawing.Size(92, 40);
+            this.B_EditPlayerItems.Size = new System.Drawing.Size(130, 40);
             this.B_EditPlayerItems.TabIndex = 12;
             this.B_EditPlayerItems.Text = "Edit Items";
             this.B_EditPlayerItems.UseVisualStyleBackColor = true;
@@ -817,26 +830,38 @@
             this.TC_Editors.Controls.Add(this.Tab_Players);
             this.TC_Editors.Controls.Add(this.Tab_Villagers);
             this.TC_Editors.Controls.Add(this.Tab_Map);
-            this.TC_Editors.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TC_Editors.Location = new System.Drawing.Point(0, 24);
             this.TC_Editors.Name = "TC_Editors";
             this.TC_Editors.SelectedIndex = 0;
-            this.TC_Editors.Size = new System.Drawing.Size(404, 237);
+            this.TC_Editors.Size = new System.Drawing.Size(404, 287);
             this.TC_Editors.TabIndex = 1;
             // 
-            // Menu_ItemImages
+            // L_Poki
             // 
-            this.Menu_ItemImages.Name = "Menu_ItemImages";
-            this.Menu_ItemImages.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
-            this.Menu_ItemImages.Size = new System.Drawing.Size(206, 22);
-            this.Menu_ItemImages.Text = "Item Images";
-            this.Menu_ItemImages.Click += new System.EventHandler(this.Menu_ItemImages_Click);
+            this.L_Poki.Location = new System.Drawing.Point(142, 214);
+            this.L_Poki.Name = "L_Poki";
+            this.L_Poki.Size = new System.Drawing.Size(84, 20);
+            this.L_Poki.TabIndex = 28;
+            this.L_Poki.Text = "Poki:";
+            this.L_Poki.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // NUD_Poki
+            // 
+            this.NUD_Poki.Location = new System.Drawing.Point(232, 214);
+            this.NUD_Poki.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.NUD_Poki.Name = "NUD_Poki";
+            this.NUD_Poki.Size = new System.Drawing.Size(100, 20);
+            this.NUD_Poki.TabIndex = 27;
             // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 261);
+            this.ClientSize = new System.Drawing.Size(404, 311);
             this.Controls.Add(this.TC_Editors);
             this.Controls.Add(this.Menu_Editor);
             this.Icon = global::NHSE.WinForms.Properties.Resources.icon;
@@ -864,6 +889,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).EndInit();
             this.TC_Editors.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_Poki)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -940,6 +966,8 @@
         private System.Windows.Forms.Label L_WeatherSeed;
         private System.Windows.Forms.NumericUpDown NUD_WeatherSeed;
         private System.Windows.Forms.ToolStripMenuItem Menu_ItemImages;
+        private System.Windows.Forms.Label L_Poki;
+        private System.Windows.Forms.NumericUpDown NUD_Poki;
     }
 }
 

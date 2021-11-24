@@ -308,6 +308,8 @@ namespace NHSE.WinForms
             NUD_PocketCount2.Value = Math.Min(int.MaxValue, pers.BagCount);
             NUD_StorageCount.Value = Math.Min(int.MaxValue, pers.ItemChestCount);
 
+            NUD_Poki.Value = Math.Min( int.MaxValue, player.WhereAreN.Poki.Value );
+
             try
             {
                 var photo = pers.GetPhotoData();
