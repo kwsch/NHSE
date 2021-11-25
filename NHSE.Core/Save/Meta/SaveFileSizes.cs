@@ -12,7 +12,7 @@
         public readonly uint Profile;
         public readonly uint WhereAreN;
 
-        public SaveFileSizes(uint main, uint personal, uint photo, uint postbox, uint profile, uint wherearen )
+        public SaveFileSizes(uint main, uint personal, uint photo, uint postbox, uint profile, uint wherearen = 0)
         {
             Main = main;
             Personal = personal;

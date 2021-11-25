@@ -68,6 +68,8 @@
             this.B_RecycleBin = new System.Windows.Forms.Button();
             this.Tab_Villagers = new System.Windows.Forms.TabPage();
             this.Tab_Players = new System.Windows.Forms.TabPage();
+            this.L_Poki = new System.Windows.Forms.Label();
+            this.NUD_Poki = new System.Windows.Forms.NumericUpDown();
             this.L_EarnedMiles = new System.Windows.Forms.Label();
             this.NUD_TotalNookMiles = new System.Windows.Forms.NumericUpDown();
             this.L_StorageCount = new System.Windows.Forms.Label();
@@ -99,14 +101,13 @@
             this.CB_Players = new System.Windows.Forms.ComboBox();
             this.PB_Player = new System.Windows.Forms.PictureBox();
             this.TC_Editors = new System.Windows.Forms.TabControl();
-            this.L_Poki = new System.Windows.Forms.Label();
-            this.NUD_Poki = new System.Windows.Forms.NumericUpDown();
             this.Menu_Editor.SuspendLayout();
             this.CM_Picture.SuspendLayout();
             this.Tab_Map.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_WeatherSeed)).BeginInit();
             this.CM_EditMap.SuspendLayout();
             this.Tab_Players.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_Poki)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_TotalNookMiles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_StorageCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_PocketCount2)).BeginInit();
@@ -117,7 +118,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).BeginInit();
             this.TC_Editors.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_Poki)).BeginInit();
             this.SuspendLayout();
             // 
             // Menu_Editor
@@ -520,6 +520,27 @@
             this.Tab_Players.Text = "Players";
             this.Tab_Players.UseVisualStyleBackColor = true;
             // 
+            // L_Poki
+            // 
+            this.L_Poki.Location = new System.Drawing.Point(142, 224);
+            this.L_Poki.Name = "L_Poki";
+            this.L_Poki.Size = new System.Drawing.Size(84, 20);
+            this.L_Poki.TabIndex = 28;
+            this.L_Poki.Text = "Poki:";
+            this.L_Poki.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // NUD_Poki
+            // 
+            this.NUD_Poki.Location = new System.Drawing.Point(232, 224);
+            this.NUD_Poki.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.NUD_Poki.Name = "NUD_Poki";
+            this.NUD_Poki.Size = new System.Drawing.Size(100, 20);
+            this.NUD_Poki.TabIndex = 27;
+            // 
             // L_EarnedMiles
             // 
             this.L_EarnedMiles.Location = new System.Drawing.Point(142, 117);
@@ -836,27 +857,6 @@
             this.TC_Editors.Size = new System.Drawing.Size(404, 287);
             this.TC_Editors.TabIndex = 1;
             // 
-            // L_Poki
-            // 
-            this.L_Poki.Location = new System.Drawing.Point(142, 214);
-            this.L_Poki.Name = "L_Poki";
-            this.L_Poki.Size = new System.Drawing.Size(84, 20);
-            this.L_Poki.TabIndex = 28;
-            this.L_Poki.Text = "Poki:";
-            this.L_Poki.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // NUD_Poki
-            // 
-            this.NUD_Poki.Location = new System.Drawing.Point(232, 214);
-            this.NUD_Poki.Maximum = new decimal(new int[] {
-            2147483647,
-            0,
-            0,
-            0});
-            this.NUD_Poki.Name = "NUD_Poki";
-            this.NUD_Poki.Size = new System.Drawing.Size(100, 20);
-            this.NUD_Poki.TabIndex = 27;
-            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -879,6 +879,7 @@
             this.CM_EditMap.ResumeLayout(false);
             this.Tab_Players.ResumeLayout(false);
             this.Tab_Players.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_Poki)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_TotalNookMiles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_StorageCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_PocketCount2)).EndInit();
@@ -889,7 +890,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_BankBells)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).EndInit();
             this.TC_Editors.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.NUD_Poki)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

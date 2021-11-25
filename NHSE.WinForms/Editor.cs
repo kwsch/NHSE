@@ -308,7 +308,14 @@ namespace NHSE.WinForms
             NUD_PocketCount2.Value = Math.Min(int.MaxValue, pers.BagCount);
             NUD_StorageCount.Value = Math.Min(int.MaxValue, pers.ItemChestCount);
 
-            NUD_Poki.Value = Math.Min( int.MaxValue, player.WhereAreN.Poki.Value );
+            if (player.WhereAreN is not null)
+            {
+                NUD_Poki.Value = Math.Min(int.MaxValue, player.WhereAreN.Poki.Value);
+            }
+            else
+            {
+                L_Poki.Visible = NUD_Poki.Visible = false;
+            }
 
             try
             {
@@ -369,6 +376,11 @@ namespace NHSE.WinForms
             pers.BagCount = (uint)NUD_PocketCount2.Value;
 
             pers.ItemChestCount = (uint)NUD_StorageCount.Value;
+
+            if (player.WhereAreN is not null)
+            {
+                player.WhereAreN.Poki.Value = (uint)NUD_Poki.Value;
+            }
         }
 
         private void B_EditAchievements_Click(object sender, EventArgs e)

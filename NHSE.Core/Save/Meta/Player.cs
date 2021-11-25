@@ -14,7 +14,7 @@ namespace NHSE.Core
         public readonly PhotoStudioIsland Photo;
         public readonly PostBox PostBox;
         public readonly Profile Profile;
-        public readonly WhereAreN WhereAreN;
+        public readonly WhereAreN? WhereAreN;
 
         /// <summary>
         /// Directory Name where the player data was loaded from. Not the full path.
@@ -22,7 +22,14 @@ namespace NHSE.Core
         public readonly string DirectoryName;
 
         #region Override Implementations
-        public IEnumerator<EncryptedFilePair> GetEnumerator() => new EncryptedFilePair[] {Personal, Photo, PostBox, Profile, WhereAreN}.AsEnumerable().GetEnumerator();
+        public IEnumerator<EncryptedFilePair> GetEnumerator()
+        {
+            IEnumerable<EncryptedFilePair> baseFiles = new EncryptedFilePair[] { Personal, Photo, PostBox, Profile };
+            if (WhereAreN is not null)
+                baseFiles = baseFiles.Concat(new EncryptedFilePair[] { WhereAreN });
+            return baseFiles.AsEnumerable().GetEnumerator();
+        }
+
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
         public override string ToString() => Personal.PlayerName;
@@ -50,7 +57,9 @@ namespace NHSE.Core
             Photo = new PhotoStudioIsland(folder);
             PostBox = new PostBox(folder);
             Profile = new Profile(folder);
-            WhereAreN = new WhereAreN( folder );
+
+            if (EncryptedFilePair.Exists(folder, WhereAreN.FileName))
+                WhereAreN = new WhereAreN(folder);
         }
     }
 }
