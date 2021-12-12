@@ -19,6 +19,15 @@ namespace NHSE.Core
         public readonly string NameData;
         public readonly string NameHeader;
 
+        public static bool Exists(string folder, string name)
+        {
+            var NameData = $"{name}.dat";
+            var NameHeader = $"{name}Header.dat";
+            var hdr = Path.Combine(folder, NameHeader);
+            var dat = Path.Combine(folder, NameData);
+            return File.Exists(hdr) && File.Exists(dat);
+        }
+
         protected EncryptedFilePair(string folder, string name)
         {
             NameData = $"{name}.dat";
