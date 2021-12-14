@@ -270,8 +270,8 @@ namespace NHSE.Core
         {
             var name = dp.DesignName;
             string fn = indexed
-                ? $"{index:00} - {name}.nhd"
-                : $"{name}.nhd";
+                ? $"{index:00} - {name}.nhpd"
+                : $"{name}.nhpd";
             fn = StringUtil.CleanFileName(fn);
             var dest = Path.Combine(path, fn);
             File.WriteAllBytes(dest, dp.Data);
