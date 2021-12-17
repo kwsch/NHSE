@@ -308,12 +308,12 @@ Boutique-Papiertüte (Hellblau)
 Clutch (Grün)
 Clutch (Rot)
 Clutch (Schwarz)
-Kunstlederhandtasche (Orange)
-Kunstlederhandtasche (Blau)
-Kunstlederhandtasche (Rosa)
-Kunstlederhandtasche (Gelb)
-Kunstlederhandtasche (Grau)
-Kunstlederhandtasche (Schwarz)
+Kunstledertäschchen (Orange)
+Kunstledertäschchen (Blau)
+Kunstledertäschchen (Rosa)
+Kunstledertäschchen (Gelb)
+Kunstledertäschchen (Grau)
+Kunstledertäschchen (Schwarz)
 Schleifenperücke (Gelb)
 Schleifenperücke (Grün)
 Schleifenperücke (Weinrot)
@@ -3338,7 +3338,7 @@ Brautkleid (Keine Varianten)
 Kilt (Rot)
 
 Weste mit Hemd (Grau)
-Holz-Rehkopf
+Holz-Hirschkopf
 Marinerock (Marineblau)
 Tarnhose (Braun)
 
@@ -14576,17 +14576,17 @@ Kaffeebohnenpackung
 Bankautomat
 
 Nook-Inc.-Yogamatte
-
-
-
-
-
-
-
-
-
-
-
+Rattenfigur
+Hasenfigur
+Drachenfigur
+Schlangenfigur
+Pferdefigur
+Schafsfigur
+Affenfigur
+Hahnenfigur
+Hundefigur
+Wildschweinfigur
+Schweinefigur
 Kunst-Lithografie
 2022-Festtagsbogen
 Dekotischlampe
@@ -14787,7 +14787,7 @@ Umhängeschwert (Rot)
 
 Standard-Stofftasche (Rot)
 Furoshiki (Grün)
-Kunstlederhandtasche (Rot)
+Kunstledertäschchen (Rot)
 Logo-Papiertüte (Grün)
 Korbtasche (Hellbraun)
 Clutch (Hellbraun)

@@ -510,13 +510,13 @@ full-length maid gown (Black)
 shirt with striped vest (Blue)
 shirt with striped vest (Green)
 shirt with striped vest (Mustard)
-tee with silicon bib (Baby purple)
-tee with silicon bib (Baby yellow)
-tee with silicon bib (Baby green)
-tee with silicon bib (Baby pink)
-tee with silicon bib (Baby gray)
-tee with silicon bib (Baby blue)
-tee with silicon bib (Baby orange)
+tee with silicone bib (Baby purple)
+tee with silicone bib (Baby yellow)
+tee with silicone bib (Baby green)
+tee with silicone bib (Baby pink)
+tee with silicone bib (Baby gray)
+tee with silicone bib (Baby blue)
+tee with silicone bib (Baby orange)
 ripped doctor's coat (Purple necktie)
 twisted hachimaki (Red)
 twisted hachimaki (White)
@@ -14102,7 +14102,7 @@ jingloid
 rattloid
 
 
-fish and chips
+fish-and-chips
 french fries
 gazebo
 
@@ -14425,7 +14425,7 @@ knee braces (Black & red)
 cardigan school uniform top (Beige)
 delivery jacket (Black)
 delivery bag (Black)
-tee with silicon bib (Baby mint)
+tee with silicone bib (Baby mint)
 
 
 fired-up kanji tee (Tamashii (Soul))
@@ -14576,17 +14576,17 @@ coffee beans
 ABD
 
 Nook Inc. yoga mat
-
-
-
-
-
-
-
-
-
-
-
+zodiac rat figurine
+zodiac rabbit figurine
+zodiac dragon figurine
+zodiac snake figurine
+zodiac horse figurine
+zodiac sheep figurine
+zodiac monkey figurine
+zodiac rooster figurine
+zodiac dog figurine
+zodiac boar figurine
+zodiac pig figurine
 framed art poster
 2022 celebratory arch
 ornament table lamp
