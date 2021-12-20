@@ -377,9 +377,11 @@ namespace NHSE.WinForms
 
             pers.ItemChestCount = (uint)NUD_StorageCount.Value;
 
-            if (player.WhereAreN is not null)
+            if (player.WhereAreN is { } x)
             {
-                player.WhereAreN.Poki.Value = (uint)NUD_Poki.Value;
+                var poki = x.Poki;
+                poki.Value = (uint)NUD_Poki.Value;
+                x.Poki = poki;
             }
         }
 
