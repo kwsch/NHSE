@@ -38,6 +38,7 @@
             this.B_AllFish = new System.Windows.Forms.ToolStripMenuItem();
             this.B_AllBugs = new System.Windows.Forms.ToolStripMenuItem();
             this.B_AllArt = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_AllFurniture = new System.Windows.Forms.ToolStripMenuItem();
             this.B_GiveEverything = new System.Windows.Forms.ToolStripMenuItem();
             this.L_Received = new System.Windows.Forms.Label();
             this.L_VariantBody = new System.Windows.Forms.Label();
@@ -72,7 +73,7 @@
             // 
             // CLB_Items
             // 
-            this.CLB_Items.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.CLB_Items.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.CLB_Items.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CLB_Items.FormattingEnabled = true;
@@ -118,7 +119,8 @@
             this.B_AllBugs,
             this.B_AllDive,
             this.B_AllArt,
-            this.B_GiveEverything});
+            this.B_AllFurniture,
+            this.B_GiveEverything}); ;
             this.CM_Buttons.Name = "CM_Buttons";
             this.CM_Buttons.Size = new System.Drawing.Size(166, 124);
             // 
@@ -142,6 +144,13 @@
             this.B_AllArt.Size = new System.Drawing.Size(165, 24);
             this.B_AllArt.Text = "Give All Art";
             this.B_AllArt.Click += new System.EventHandler(this.B_AllArt_Click);
+            //
+            // B_AllFurniture
+            //
+            this.B_AllFurniture.Name = "B_AllFurniture";
+            this.B_AllFurniture.Size = new System.Drawing.Size(165, 24);
+            this.B_AllFurniture.Text = "Give All Furniture";
+            this.B_AllFurniture.Click += new System.EventHandler(this.B_AllFurniture_Click);
             // 
             // B_GiveEverything
             // 
@@ -172,8 +181,8 @@
             // 
             // CLB_Remake
             // 
-            this.CLB_Remake.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.CLB_Remake.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CLB_Remake.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CLB_Remake.FormattingEnabled = true;
@@ -228,6 +237,7 @@
         private System.Windows.Forms.ToolStripMenuItem B_AllFish;
         private System.Windows.Forms.ToolStripMenuItem B_AllBugs;
         private System.Windows.Forms.ToolStripMenuItem B_AllArt;
+        private System.Windows.Forms.ToolStripMenuItem B_AllFurniture;
         private System.Windows.Forms.Label L_Received;
         private System.Windows.Forms.Label L_VariantBody;
         private System.Windows.Forms.CheckedListBox CLB_Remake;
