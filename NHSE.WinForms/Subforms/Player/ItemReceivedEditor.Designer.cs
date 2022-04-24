@@ -37,13 +37,14 @@
             this.CM_Buttons = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.B_AllFish = new System.Windows.Forms.ToolStripMenuItem();
             this.B_AllBugs = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_AllDive = new System.Windows.Forms.ToolStripMenuItem();
             this.B_AllArt = new System.Windows.Forms.ToolStripMenuItem();
             this.B_AllFurniture = new System.Windows.Forms.ToolStripMenuItem();
             this.B_GiveEverything = new System.Windows.Forms.ToolStripMenuItem();
             this.L_Received = new System.Windows.Forms.Label();
             this.L_VariantBody = new System.Windows.Forms.Label();
             this.CLB_Remake = new System.Windows.Forms.CheckedListBox();
-            this.B_AllDive = new System.Windows.Forms.ToolStripMenuItem();
+            this.CB_VariantBodiesOnly = new System.Windows.Forms.CheckBox();
             this.CM_Buttons.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +52,7 @@
             // 
             this.B_Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.B_Cancel.Location = new System.Drawing.Point(599, 430);
-            this.B_Cancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.B_Cancel.Margin = new System.Windows.Forms.Padding(4);
             this.B_Cancel.Name = "B_Cancel";
             this.B_Cancel.Size = new System.Drawing.Size(96, 28);
             this.B_Cancel.TabIndex = 7;
@@ -63,7 +64,7 @@
             // 
             this.B_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.B_Save.Location = new System.Drawing.Point(703, 430);
-            this.B_Save.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.B_Save.Margin = new System.Windows.Forms.Padding(4);
             this.B_Save.Name = "B_Save";
             this.B_Save.Size = new System.Drawing.Size(96, 28);
             this.B_Save.TabIndex = 6;
@@ -73,12 +74,12 @@
             // 
             // CLB_Items
             // 
-            this.CLB_Items.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.CLB_Items.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.CLB_Items.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CLB_Items.FormattingEnabled = true;
             this.CLB_Items.Location = new System.Drawing.Point(16, 33);
-            this.CLB_Items.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CLB_Items.Margin = new System.Windows.Forms.Padding(4);
             this.CLB_Items.Name = "CLB_Items";
             this.CLB_Items.Size = new System.Drawing.Size(307, 346);
             this.CLB_Items.TabIndex = 8;
@@ -92,7 +93,7 @@
             this.CB_Item.DropDownWidth = 322;
             this.CB_Item.FormattingEnabled = true;
             this.CB_Item.Location = new System.Drawing.Point(16, 396);
-            this.CB_Item.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CB_Item.Margin = new System.Windows.Forms.Padding(4);
             this.CB_Item.Name = "CB_Item";
             this.CB_Item.Size = new System.Drawing.Size(307, 24);
             this.CB_Item.TabIndex = 13;
@@ -103,7 +104,7 @@
             this.B_GiveAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.B_GiveAll.ContextMenuStrip = this.CM_Buttons;
             this.B_GiveAll.Location = new System.Drawing.Point(16, 430);
-            this.B_GiveAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.B_GiveAll.Margin = new System.Windows.Forms.Padding(4);
             this.B_GiveAll.Name = "B_GiveAll";
             this.B_GiveAll.Size = new System.Drawing.Size(109, 28);
             this.B_GiveAll.TabIndex = 14;
@@ -120,42 +121,49 @@
             this.B_AllDive,
             this.B_AllArt,
             this.B_AllFurniture,
-            this.B_GiveEverything}); ;
+            this.B_GiveEverything});
             this.CM_Buttons.Name = "CM_Buttons";
-            this.CM_Buttons.Size = new System.Drawing.Size(166, 124);
+            this.CM_Buttons.Size = new System.Drawing.Size(192, 148);
             // 
             // B_AllFish
             // 
             this.B_AllFish.Name = "B_AllFish";
-            this.B_AllFish.Size = new System.Drawing.Size(165, 24);
+            this.B_AllFish.Size = new System.Drawing.Size(191, 24);
             this.B_AllFish.Text = "Give All Fish";
             this.B_AllFish.Click += new System.EventHandler(this.B_AllFish_Click);
             // 
             // B_AllBugs
             // 
             this.B_AllBugs.Name = "B_AllBugs";
-            this.B_AllBugs.Size = new System.Drawing.Size(165, 24);
+            this.B_AllBugs.Size = new System.Drawing.Size(191, 24);
             this.B_AllBugs.Text = "Give All Bugs";
             this.B_AllBugs.Click += new System.EventHandler(this.B_AllBugs_Click);
+            // 
+            // B_AllDive
+            // 
+            this.B_AllDive.Name = "B_AllDive";
+            this.B_AllDive.Size = new System.Drawing.Size(191, 24);
+            this.B_AllDive.Text = "Give All Dive";
+            this.B_AllDive.Click += new System.EventHandler(this.B_AllDive_Click);
             // 
             // B_AllArt
             // 
             this.B_AllArt.Name = "B_AllArt";
-            this.B_AllArt.Size = new System.Drawing.Size(165, 24);
+            this.B_AllArt.Size = new System.Drawing.Size(191, 24);
             this.B_AllArt.Text = "Give All Art";
             this.B_AllArt.Click += new System.EventHandler(this.B_AllArt_Click);
-            //
+            // 
             // B_AllFurniture
-            //
+            // 
             this.B_AllFurniture.Name = "B_AllFurniture";
-            this.B_AllFurniture.Size = new System.Drawing.Size(165, 24);
+            this.B_AllFurniture.Size = new System.Drawing.Size(191, 24);
             this.B_AllFurniture.Text = "Give All Furniture";
             this.B_AllFurniture.Click += new System.EventHandler(this.B_AllFurniture_Click);
             // 
             // B_GiveEverything
             // 
             this.B_GiveEverything.Name = "B_GiveEverything";
-            this.B_GiveEverything.Size = new System.Drawing.Size(165, 24);
+            this.B_GiveEverything.Size = new System.Drawing.Size(191, 24);
             this.B_GiveEverything.Text = "Everything";
             this.B_GiveEverything.Click += new System.EventHandler(this.B_GiveEverything_Click);
             // 
@@ -165,7 +173,7 @@
             this.L_Received.Location = new System.Drawing.Point(16, 11);
             this.L_Received.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.L_Received.Name = "L_Received";
-            this.L_Received.Size = new System.Drawing.Size(67, 17);
+            this.L_Received.Size = new System.Drawing.Size(66, 16);
             this.L_Received.TabIndex = 15;
             this.L_Received.Text = "Received";
             // 
@@ -175,35 +183,41 @@
             this.L_VariantBody.Location = new System.Drawing.Point(328, 11);
             this.L_VariantBody.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.L_VariantBody.Name = "L_VariantBody";
-            this.L_VariantBody.Size = new System.Drawing.Size(89, 17);
+            this.L_VariantBody.Size = new System.Drawing.Size(84, 16);
             this.L_VariantBody.TabIndex = 16;
             this.L_VariantBody.Text = "Variant Body";
             // 
             // CLB_Remake
             // 
-            this.CLB_Remake.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.CLB_Remake.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CLB_Remake.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CLB_Remake.FormattingEnabled = true;
             this.CLB_Remake.Location = new System.Drawing.Point(332, 33);
-            this.CLB_Remake.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CLB_Remake.Margin = new System.Windows.Forms.Padding(4);
             this.CLB_Remake.Name = "CLB_Remake";
             this.CLB_Remake.Size = new System.Drawing.Size(465, 346);
             this.CLB_Remake.TabIndex = 17;
             // 
-            // B_AllDive
+            // CB_VariantBodiesOnly
             // 
-            this.B_AllDive.Name = "B_AllDive";
-            this.B_AllDive.Size = new System.Drawing.Size(165, 24);
-            this.B_AllDive.Text = "Give All Dive";
-            this.B_AllDive.Click += new System.EventHandler(this.B_AllDive_Click);
+            this.CB_VariantBodiesOnly.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CB_VariantBodiesOnly.AutoSize = true;
+            this.CB_VariantBodiesOnly.Location = new System.Drawing.Point(133, 435);
+            this.CB_VariantBodiesOnly.Margin = new System.Windows.Forms.Padding(4);
+            this.CB_VariantBodiesOnly.Name = "CB_VariantBodiesOnly";
+            this.CB_VariantBodiesOnly.Size = new System.Drawing.Size(178, 20);
+            this.CB_VariantBodiesOnly.TabIndex = 18;
+            this.CB_VariantBodiesOnly.Text = "Give Variant Bodies Only";
+            this.CB_VariantBodiesOnly.UseVisualStyleBackColor = true;
             // 
             // ItemReceivedEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 473);
+            this.Controls.Add(this.CB_VariantBodiesOnly);
             this.Controls.Add(this.CLB_Remake);
             this.Controls.Add(this.L_VariantBody);
             this.Controls.Add(this.L_Received);
@@ -212,8 +226,6 @@
             this.Controls.Add(this.CLB_Items);
             this.Controls.Add(this.B_Cancel);
             this.Controls.Add(this.B_Save);
-            this.Icon = global::NHSE.WinForms.Properties.Resources.icon;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ItemReceivedEditor";
@@ -242,5 +254,6 @@
         private System.Windows.Forms.Label L_VariantBody;
         private System.Windows.Forms.CheckedListBox CLB_Remake;
         private System.Windows.Forms.ToolStripMenuItem B_AllDive;
+        private System.Windows.Forms.CheckBox CB_VariantBodiesOnly;
     }
 }

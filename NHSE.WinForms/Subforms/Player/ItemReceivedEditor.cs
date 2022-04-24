@@ -75,7 +75,7 @@ namespace NHSE.WinForms
         public void GiveAll(IReadOnlyList<ushort> indexes, bool value = true)
         {
             foreach (var item in indexes)
-                GiveItem(item, value);
+                GiveItem(item, value, CB_VariantBodiesOnly.Checked);
             System.Media.SystemSounds.Asterisk.Play();
         }
 
@@ -84,7 +84,7 @@ namespace NHSE.WinForms
             if (!value)
             {
                 for (ushort i = 0; i < CLB_Items.Items.Count; i++)
-                    GiveItem(i, false);
+                    GiveItem(i, false, CB_VariantBodiesOnly.Checked);
                 return;
             }
 
@@ -95,7 +95,7 @@ namespace NHSE.WinForms
                     continue;
                 if (skip.Contains(i))
                     continue;
-                GiveItem(i);
+                GiveItem(i, remakeOnly: CB_VariantBodiesOnly.Checked);
             }
             System.Media.SystemSounds.Asterisk.Play();
         }
@@ -114,13 +114,14 @@ namespace NHSE.WinForms
                     continue;
                 if (skip.Contains(i))
                     continue;
-                GiveItem(i, value);
+                GiveItem(i, value, CB_VariantBodiesOnly.Checked);
             }
             System.Media.SystemSounds.Asterisk.Play();
         }
-        private void GiveItem(ushort item, bool value = true)
+        private void GiveItem(ushort item, bool value = true, bool remakeOnly = false)
         {
-            CLB_Items.SetItemChecked(item, value);
+            if (!remakeOnly)
+                CLB_Items.SetItemChecked(item, value);
 
             var remakeIndex = ItemRemakeUtil.GetRemakeIndex(item);
             if (!ItemRemakeInfoData.List.TryGetValue(remakeIndex, out var info))
