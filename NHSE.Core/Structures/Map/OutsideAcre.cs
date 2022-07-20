@@ -167,7 +167,7 @@ namespace NHSE.Core
 
         // New!
         FldOutWherearenNW00 = 257,
-        ldOutWherearenW00 = 258,
+        FldOutWherearenW00 = 258,
         FldOutWherearenSW00 = 259,
         FldOutWherearenS01 = 260,
         FldOutWherearenSE00 = 261,
