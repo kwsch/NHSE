@@ -6,9 +6,9 @@ namespace NHSE.Core
     {
         public static readonly byte[] AcreTiles = ResourceUtil.GetBinaryResource("outside.bin");
 
-        public static int GetAcreTileColor(byte acre, int x, int y)
+        public static int GetAcreTileColor(ushort acre, int x, int y)
         {
-            if (acre > (byte)OutsideAcre.FldOutSBridge01)
+            if (acre > (ushort)OutsideAcre.FldOutNGardenRFront00)
                 return Color.Transparent.ToArgb();
             var baseOfs = acre * 32 * 32 * 4;
 
