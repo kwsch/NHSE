@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 
 namespace NHSE.Core
 {
@@ -151,14 +152,14 @@ namespace NHSE.Core
             return TerrainTileColor.GetTileColor(tile).ToArgb();
         }
 
-        private byte GetTileAcre(int x, int y)
+        private ushort GetTileAcre(int x, int y)
         {
             var acreX = 1 + (x / 16);
             var acreY = 1 + (y / 16);
 
             var acreIndex = ((AcreWidth + 2) * acreY) + acreX;
             var ofs = acreIndex * 2;
-            return BaseAcres[ofs]; // u16 array, never > 255
+            return BitConverter.ToUInt16(BaseAcres, ofs);
         }
     }
 }
