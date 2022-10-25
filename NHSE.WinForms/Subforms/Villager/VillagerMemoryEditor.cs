@@ -42,12 +42,15 @@ namespace NHSE.WinForms
         private void UpdatePlayerIslandStrings()
         {
             if (LB_Players.Items.Count < 1)
+            {
                 for (int i = 0; i < Memories.Length; i++)
                     LB_Players.Items.Add($"{i} - {Memories[i].PlayerName} ({Memories[i].TownName})");
+            }
             else
+            {
                 for (int i = 0; i < LB_Players.Items.Count; i++)
                     LB_Players.Items[i] = $"{i} - {Memories[i].PlayerName} ({Memories[i].TownName})";
-                
+            }
         }
 
         private void B_Cancel_Click(object sender, EventArgs e) => Close();
@@ -130,7 +133,7 @@ namespace NHSE.WinForms
             memory.NickName = TB_NickName.Text;
             for (int i = 0; i < Greetings.Length; i++)
                 memory.SetGreeting(Greetings[i].Text, i);
-            memory.GreetingSetDate = CAL_GreetDate.Value == CAL_GreetDate.MinDate ? new GSaveDate() : (GSaveDate)CAL_GreetDate.Value;
+            memory.GreetingSetDate = CAL_GreetDate.Value == CAL_GreetDate.MinDate ? new GSaveDate() : CAL_GreetDate.Value;
         }
 
         private void B_Dump_Click(object sender, EventArgs e)

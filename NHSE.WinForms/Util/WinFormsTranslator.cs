@@ -65,9 +65,7 @@ namespace NHSE.WinForms
                 {
                     return File.ReadAllLines(externalLangPath);
                 }
-#pragma warning disable CA1031 // Do not catch general exception types
                 catch (Exception e)
-#pragma warning restore CA1031 // Do not catch general exception types
                 {
                     /* In use? Just return the internal resource. */
                     Console.WriteLine(e.Message);
@@ -193,9 +191,7 @@ namespace NHSE.WinForms
                 {
                     var _ = Activator.CreateInstance(t, new object[argCount]);
                 }
-#pragma warning disable CA1031 // Do not catch general exception types
                 catch
-#pragma warning restore CA1031 // Do not catch general exception types
                 {
                     // ignored
                 }

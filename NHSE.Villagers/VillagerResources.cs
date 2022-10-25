@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using NHSE.Core;
 using static NHSE.Villagers.Properties.Resources;
 
@@ -25,8 +26,14 @@ namespace NHSE.Villagers
             var nv = GetResourceNameVillager(villagerName);
             var nh = GetResourceNameHouse(villagerName);
 
-            var bv = (byte[])ResourceManager.GetObject(nv);
-            var bh = (byte[])ResourceManager.GetObject(nh);
+            var bv = (byte[]?)ResourceManager.GetObject(nv);
+            if (bv == null)
+                throw new ArgumentException($"Villager data not found for {villagerName} ({nv})", nameof(villagerName));
+
+            var bh = (byte[]?)ResourceManager.GetObject(nh);
+            if (bh == null)
+                throw new ArgumentException($"House data not found for {villagerName} ({nh})", nameof(villagerName));
+
             Debug.Assert(bv.Length == Villager2.SIZE);
             Debug.Assert(bh.Length == VillagerHouse2.SIZE);
 

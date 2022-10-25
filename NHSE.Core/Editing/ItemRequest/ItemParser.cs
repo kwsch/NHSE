@@ -37,9 +37,7 @@ namespace NHSE.Core
                 var split = requestHex.Split(SplittersHex, StringSplitOptions.RemoveEmptyEntries);
                 return GetItemsHexCode(split, cfg, type);
             }
-#pragma warning disable CA1031 // Do not catch general exception types
             catch
-#pragma warning restore CA1031 // Do not catch general exception types
             {
                 var split = requestHex.Split(SplittersName, StringSplitOptions.RemoveEmptyEntries);
                 return GetItemsLanguage(split, cfg, type, GameLanguage.DefaultLanguage);
@@ -61,9 +59,7 @@ namespace NHSE.Core
                 var split = requestHex.Split(SplittersHex, StringSplitOptions.RemoveEmptyEntries);
                 return GetDIYItemsHexCode(split);
             }
-#pragma warning disable CA1031 // Do not catch general exception types
             catch
-#pragma warning restore CA1031 // Do not catch general exception types
             {
                 var split = requestHex.Split(SplittersName, StringSplitOptions.RemoveEmptyEntries);
                 return GetDIYItemsLanguage(split);

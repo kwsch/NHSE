@@ -69,9 +69,7 @@ namespace NHSE.WinForms
             {
                 SAV.Save((uint) DateTime.Now.Ticks);
             }
-#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
-#pragma warning restore CA1031 // Do not catch general exception types
             {
                 WinFormsUtil.Error(MessageStrings.MsgSaveDataExportFail, ex.Message);
                 return;
@@ -322,9 +320,7 @@ namespace NHSE.WinForms
                 var photo = pers.GetPhotoData();
                 PB_Player.Image = new Bitmap(new MemoryStream(photo));
             }
-#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception e)
-#pragma warning restore CA1031 // Do not catch general exception types
             {
                 Console.WriteLine(e);
             }

@@ -57,7 +57,7 @@ namespace NHSE.WinForms
 
         private void Main_DragDrop(object sender, DragEventArgs e)
         {
-            var files = (string[]?)e.Data.GetData(DataFormats.FileDrop);
+            var files = (string[]?)e.Data?.GetData(DataFormats.FileDrop);
             if (files == null || files.Length == 0)
                 return;
             Open(files[0]);
@@ -99,9 +99,7 @@ namespace NHSE.WinForms
                 OpenFileOrPath(path);
             }
             #if !DEBUG
-#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
-#pragma warning restore CA1031 // Do not catch general exception types
             {
                 WinFormsUtil.Error(ex.Message);
             }

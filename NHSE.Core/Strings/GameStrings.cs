@@ -227,7 +227,6 @@ namespace NHSE.Core
                 return new List<ComboItem>();
         }
 
-
         public bool HasAssociatedItems(string baseName, out List<ComboItem>? items)
         {
             if (string.IsNullOrWhiteSpace(baseName))

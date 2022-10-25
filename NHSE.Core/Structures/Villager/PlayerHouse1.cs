@@ -87,13 +87,12 @@ namespace NHSE.Core
         }
 
         // cockroach @ 0x263f0 -- meh
-        
         public PlayerHouse2 Upgrade()
         {
             var data = new byte[PlayerHouse2.SIZE];
             Data.Slice(0x0, 0x120).CopyTo(data, 0); // HouseLevel -> EventFlag
             for (int i = 0; i < MaxRoom; i++)
-                ((PlayerRoom1)GetRoom(i)).Upgrade().Write().CopyTo(data, 0x120 + i * PlayerRoom2.SIZE); // RoomList
+                ((PlayerRoom1)GetRoom(i)).Upgrade().Write().CopyTo(data, 0x120 + (i * PlayerRoom2.SIZE)); // RoomList
             Data.Slice(0x263D0, 0x30).CopyTo(data, 0x289F8); // PlayerList -> Cockroach
             return new PlayerHouse2(data);
         }

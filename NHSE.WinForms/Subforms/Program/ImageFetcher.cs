@@ -41,7 +41,11 @@ namespace NHSE.WinForms
             return splitHosts;
         }
 
+#if NETFRAMEWORK
         private void B_Download_Click(object sender, EventArgs e)
+#elif NETCOREAPP
+        private async void B_Download_Click(object sender, EventArgs e)
+#endif
         {
             var path = ItemSprite.PlatformAppDataPath;
             var hostSelected = AllHosts[CB_HostSelect.SelectedIndex];
@@ -54,15 +58,19 @@ namespace NHSE.WinForms
             {
                 if (!Directory.Exists(path))
                     Directory.CreateDirectory(path);
-
+#if NETFRAMEWORK
                 using var webClient = new WebClient();
                 webClient.DownloadFileCompleted += Completed;
                 webClient.DownloadProgressChanged += ProgressChanged;
                 webClient.DownloadFileAsync(new Uri(hostSelected), ZipFilePath);
+#elif NETCOREAPP
+                using var httpClient = new System.Net.Http.HttpClient();
+                using var stream = await httpClient.GetStreamAsync(hostSelected).ConfigureAwait(false);
+                using var fileStream = new FileStream(ZipFilePath, FileMode.CreateNew);
+                await stream.CopyToAsync(fileStream).ConfigureAwait(false);
+#endif
             }
-#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
-#pragma warning restore CA1031 // Do not catch general exception types
             {
                 WinFormsUtil.Error(ex.Message, ex.InnerException == null ? string.Empty : ex.InnerException.Message);
                 SetUIDownloadState(true);
@@ -100,9 +108,7 @@ namespace NHSE.WinForms
 
                 SetUIDownloadState(true, true);
             }
-#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
-#pragma warning restore CA1031 // Do not catch general exception types
             {
                 WinFormsUtil.Error(ex.Message, ex.InnerException == null ? string.Empty : ex.InnerException.Message);
                 SetUIDownloadState(true);
@@ -136,9 +142,17 @@ namespace NHSE.WinForms
             L_FileSize.Text = string.Empty;
             try
             {
+                var host = AllHosts[CB_HostSelect.SelectedIndex];
+#if NETFRAMEWORK
                 using var webClient = new WebClient();
-                await webClient.OpenReadTaskAsync(new Uri(AllHosts[CB_HostSelect.SelectedIndex], UriKind.Absolute)).ConfigureAwait(false);
+                await webClient.OpenReadTaskAsync(new Uri(host, UriKind.Absolute)).ConfigureAwait(false);
                 var hdr = webClient.ResponseHeaders?["Content-Length"];
+#elif NETCOREAPP
+                using var httpClient = new System.Net.Http.HttpClient();
+                var httpInitialResponse = await httpClient.GetAsync(host).ConfigureAwait(false);
+                var hdr = httpInitialResponse.Content.Headers.ContentLength;
+#endif
+
                 if (hdr == null)
                 {
                     L_FileSize.Text = "Failed.";
@@ -148,9 +162,7 @@ namespace NHSE.WinForms
                 var totalSizeMb = totalSizeBytes / 1e+6;
                 L_FileSize.Text = $"{totalSizeMb:0.##}MB";
             }
-#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
-#pragma warning restore CA1031 // Do not catch general exception types
             {
                 L_FileSize.Text = ex.Message;
             }

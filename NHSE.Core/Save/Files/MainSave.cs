@@ -69,7 +69,6 @@ namespace NHSE.Core
         public IPlayerHouse GetPlayerHouse(int index) => Offsets.ReadPlayerHouse(Data, index);
         public void SetPlayerHouse(IPlayerHouse value, int index) => Offsets.WritePlayerHouse(value, Data, index);
 
-
         public IPlayerHouse[] GetPlayerHouses()
         {
             var players = new IPlayerHouse[MainSaveOffsets.PlayerCount];

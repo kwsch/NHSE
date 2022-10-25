@@ -1012,8 +1012,9 @@ namespace NHSE.WinForms
             if (value == oldValue)
                 return;
             byte[] ValueBytes = BitConverter.GetBytes(value);
-            Map.Terrain.BaseAcres[index * 2] = ValueBytes[0];
-            Map.Terrain.BaseAcres[index * 2 + 1] = ValueBytes[1];
+            var a = index * 2;
+            Map.Terrain.BaseAcres[a] = ValueBytes[0];
+            Map.Terrain.BaseAcres[a + 1] = ValueBytes[1];
             ReloadBuildingsTerrain();
         }
 

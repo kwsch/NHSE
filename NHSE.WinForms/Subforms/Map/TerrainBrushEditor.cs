@@ -25,359 +25,260 @@ namespace NHSE.WinForms.Subforms.Map
         public TerrainBrushEditor(PropertyGrid pG_TerrainTile, FieldItemEditor fieWindow)
         {
             InitializeComponent();
-            this.PG_TerrainTile = pG_TerrainTile;
-            this.FIEWindow = fieWindow;
+            PG_TerrainTile = pG_TerrainTile;
+            FIEWindow = fieWindow;
         }
 
         #region Tiles buttons
 
         #region Dirt tiles
 
-        private void nw_rounded_tile_Click(object sender, EventArgs e)
+        private void NW_Rounded_Tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.Cliff3B;
-            newTile.LandMakingAngle = 0;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.Cliff3B,
+            LandMakingAngle = 0,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void n_tile_Click(object sender, EventArgs e)
+        private void N_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.Cliff5B;
-            newTile.LandMakingAngle = 3;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.Cliff5B,
+            LandMakingAngle = 3,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void ne_rounded_tile_Click(object sender, EventArgs e)
+        private void NE_rounded_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.Cliff3B;
-            newTile.LandMakingAngle = 3;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.Cliff3B,
+            LandMakingAngle = 3,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void w_tile_Click(object sender, EventArgs e)
+        private void W_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.Cliff5B;
-            newTile.LandMakingAngle = 0;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.Cliff5B,
+            LandMakingAngle = 0,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void middle_tile_Click(object sender, EventArgs e)
+        private void Middle_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void e_tile_Click(object sender, EventArgs e)
+        private void E_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.Cliff5B;
-            newTile.LandMakingAngle = 2;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.Cliff5B,
+            LandMakingAngle = 2,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void sw_rounded_tile_Click(object sender, EventArgs e)
+        private void SW_rounded_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.Cliff3B;
-            newTile.LandMakingAngle = 1;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.Cliff3B,
+            LandMakingAngle = 1,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void s_tile_Click(object sender, EventArgs e)
+        private void S_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.Cliff5B;
-            newTile.LandMakingAngle = 1;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.Cliff5B,
+            LandMakingAngle = 1,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void se_rounded_tile_Click(object sender, EventArgs e)
+        private void SE_rounded_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.Cliff3B;
-            newTile.LandMakingAngle = 2;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.Cliff3B,
+            LandMakingAngle = 2,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void nw_angular_tile_Click(object sender, EventArgs e)
+        private void NW_angular_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.Cliff3C;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.Cliff3C,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void ne_angular_tile_Click(object sender, EventArgs e)
+        private void NE_angular_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.Cliff3C;
-            newTile.LandMakingAngle = 3;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.Cliff3C,
+            LandMakingAngle = 3,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void sw_angular_tile_Click(object sender, EventArgs e)
+        private void SW_angular_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.Cliff3C;
-            newTile.LandMakingAngle = 1;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.Cliff3C,
+            LandMakingAngle = 1,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void se_angular_tile_Click(object sender, EventArgs e)
+        private void SE_angular_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.Cliff3C;
-            newTile.LandMakingAngle = 2;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.Cliff3C,
+            LandMakingAngle = 2,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void tr_dirt_inside_Click(object sender, EventArgs e)
+        private void TR_dirt_inside_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.Cliff7A;
-            newTile.LandMakingAngle = 2;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.Cliff7A,
+            LandMakingAngle = 2,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void dl_dirt_inside_Click(object sender, EventArgs e)
+        private void DL_dirt_inside_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.Cliff7A;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.Cliff7A,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void dr_dirt_inside_Click(object sender, EventArgs e)
+        private void DR_dirt_inside_Click(object sender, EventArgs e)
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.Cliff7A;
-            newTile.LandMakingAngle = 1;
-            newTile.Elevation = (ushort)slider_elevation.Value;
-
-            PG_TerrainTile.SelectedObject = newTile;
+            PG_TerrainTile.SelectedObject = new TerrainTile
+            {
+                UnitModel = TerrainUnitModel.Cliff7A,
+                LandMakingAngle = 1,
+                Elevation = (ushort)slider_elevation.Value,
+            };
         }
 
         #endregion Dirt tiles
 
         #region Water tiles
 
-        private void nw_diagonal_water_tile_Click(object sender, EventArgs e)
+        private void NW_diagonal_water_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.River3B;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.River3B,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void n_water_tile_Click(object sender, EventArgs e)
+        private void N_water_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.River5B;
-            newTile.LandMakingAngle = 3;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.River5B,
+            LandMakingAngle = 3,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void ne_diagonal_water_tile_Click(object sender, EventArgs e)
+        private void NE_diagonal_water_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.River3B;
-            newTile.LandMakingAngle = 3;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.River3B,
+            LandMakingAngle = 3,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void w_water_tile_Click(object sender, EventArgs e)
+        private void W_water_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.River5B;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.River5B,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void center_water_tile_Click(object sender, EventArgs e)
+        private void Center_water_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.River8A;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.River8A,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void e_water_tile_Click(object sender, EventArgs e)
+        private void e_water_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.River5B;
-            newTile.LandMakingAngle = 2;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.River5B,
+            LandMakingAngle = 2,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void sw_diagonal_water_tile_Click(object sender, EventArgs e)
+        private void sw_diagonal_water_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.River3B;
-            newTile.LandMakingAngle = 1;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.River3B,
+            LandMakingAngle = 1,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void s_water_tile_Click(object sender, EventArgs e)
+        private void s_water_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.River5B;
-            newTile.LandMakingAngle = 1;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.River5B,
+            LandMakingAngle = 1,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void se_diagonal_water_tile_Click(object sender, EventArgs e)
+        private void SE_diagonal_water_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.River3B;
-            newTile.LandMakingAngle = 2;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.River3B,
+            LandMakingAngle = 2,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void nw_angular_water_tile_Click(object sender, EventArgs e)
+        private void NW_angular_water_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.River3C;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.River3C,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void ne_angular_water_tile_Click(object sender, EventArgs e)
+        private void NE_angular_water_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.River3C;
-            newTile.LandMakingAngle = 3;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.River3C,
+            LandMakingAngle = 3,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void sw_angular_water_tile_Click(object sender, EventArgs e)
+        private void SW_angular_water_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.River3C;
-            newTile.LandMakingAngle = 1;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.River3C,
+            LandMakingAngle = 1,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void se_angular_water_tile_Click(object sender, EventArgs e)
+        private void SE_angular_water_tile_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.River3C;
-            newTile.LandMakingAngle = 2;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.River3C,
+            LandMakingAngle = 2,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void tl_dirt_inside_Click(object sender, EventArgs e)
+        private void TL_dirt_inside_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.Cliff7A;
-            newTile.LandMakingAngle = 3;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.Cliff7A,
+            LandMakingAngle = 3,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void tl_water_inside_Click(object sender, EventArgs e)
+        private void TL_water_inside_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.River7A;
-            newTile.LandMakingAngle = 3;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.River7A,
+            LandMakingAngle = 3,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void tr_water_inside_Click(object sender, EventArgs e)
+        private void TR_water_inside_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.River7A;
-            newTile.LandMakingAngle = 2;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.River7A,
+            LandMakingAngle = 2,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void dl_water_inside_Click(object sender, EventArgs e)
+        private void DL_water_inside_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.River7A;
-            newTile.Elevation = (ushort)slider_elevation.Value;
+            UnitModel = TerrainUnitModel.River7A,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
-            PG_TerrainTile.SelectedObject = newTile;
-        }
-
-        private void dr_water_inside_Click(object sender, EventArgs e)
+        private void DR_water_inside_Click(object sender, EventArgs e) => PG_TerrainTile.SelectedObject = new TerrainTile
         {
-            TerrainTile newTile = new TerrainTile();
-            newTile.UnitModel = TerrainUnitModel.River7A;
-            newTile.LandMakingAngle = 1;
-            newTile.Elevation = (ushort)slider_elevation.Value;
-
-            PG_TerrainTile.SelectedObject = newTile;
-        }
+            UnitModel = TerrainUnitModel.River7A,
+            LandMakingAngle = 1,
+            Elevation = (ushort)slider_elevation.Value,
+        };
 
         #endregion Water tiles
 
         #endregion Tiles buttons
 
-        private void slider_thickness_ValueChanged(object sender, EventArgs e)
+        private void SliderThicknessValueChanged(object sender, EventArgs e)
         {
             lbl_size_count.Text = slider_thickness.Value.ToString();
         }
 
-        private void slider_elevation_ValueChanged(object sender, EventArgs e)
+        private void SliderElevationValueChanged(object sender, EventArgs e)
         {
             lbl_elevation_count.Text = slider_elevation.Value.ToString();
             TerrainTile currentTile = (TerrainTile)PG_TerrainTile.SelectedObject;
@@ -385,7 +286,7 @@ namespace NHSE.WinForms.Subforms.Map
             PG_TerrainTile.SelectedObject = currentTile;
         }
 
-        private void btn_brush_Click(object sender, EventArgs e)
+        private void B_Brush_Click(object sender, EventArgs e)
         {
             brushSelected = true;
         }
@@ -395,12 +296,12 @@ namespace NHSE.WinForms.Subforms.Map
             brushSelected = false;
         }
 
-        private void btn_normal_click_Click(object sender, EventArgs e)
+        private void B_Normal_Click(object sender, EventArgs e)
         {
             brushSelected = false;
         }
 
-        private void cb_tileVariation_CheckedChanged(object sender, EventArgs e)
+        private void CB_TileVariation_CheckedChanged(object sender, EventArgs e)
         {
             randomizeVariation = cb_tileVariation.Checked;
         }

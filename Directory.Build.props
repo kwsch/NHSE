@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>10</LangVersion>
+    <Nullable>enable</Nullable>
+    <Product>NHSE</Product>
+  </PropertyGroup>
+</Project>

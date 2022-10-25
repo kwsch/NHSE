@@ -74,9 +74,7 @@ namespace NHSE.WinForms
                 {
                     ReflectUtil.SetValue(t, prop, value);
                 }
-#pragma warning disable CA1031 // Do not catch general exception types
                 catch (Exception e)
-#pragma warning restore CA1031 // Do not catch general exception types
                 {
                     Debug.WriteLine($"Property not present: {prop} || Value written: {value}");
                     Debug.WriteLine(e.Message);

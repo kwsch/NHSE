@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.InteropServices;
 
-#pragma warning disable CS8618, CA1815, CA1819, IDE1006
 namespace NHSE.Core
 {
     [StructLayout(LayoutKind.Sequential, Pack = 4)]

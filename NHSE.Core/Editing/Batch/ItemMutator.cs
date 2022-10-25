@@ -21,10 +21,8 @@ namespace NHSE.Core
                     if (!IsFilterMatch(cmd, item, pi))
                         return ModifyResult.Filtered;
                 }
-#pragma warning disable CA1031 // Do not catch general exception types
                 // Swallow any error because this can be malformed user input.
                 catch (Exception ex)
-#pragma warning restore CA1031 // Do not catch general exception types
                 {
                     Debug.WriteLine($"Failed to compare: {ex.Message} - {cmd.PropertyName} {cmd.PropertyValue}");
                     return ModifyResult.Error;
@@ -40,10 +38,8 @@ namespace NHSE.Core
                     if (tmp != ModifyResult.Modified)
                         result = tmp;
                 }
-#pragma warning disable CA1031 // Do not catch general exception types
                 // Swallow any error because this can be malformed user input.
                 catch (Exception ex)
-#pragma warning restore CA1031 // Do not catch general exception types
                 {
                     Debug.WriteLine($"Failed to modify: {ex.Message} - {cmd.PropertyName} {cmd.PropertyValue}");
                 }
@@ -199,10 +195,8 @@ namespace NHSE.Core
                     if (pi.IsValueEqual(obj, cmd.PropertyValue) == cmd.Evaluator)
                         continue;
                 }
-#pragma warning disable CA1031 // Do not catch general exception types
                 // User provided inputs can mismatch the type's required value format, and fail to be compared.
                 catch (Exception e)
-#pragma warning restore CA1031 // Do not catch general exception types
                 {
                     Debug.WriteLine($"Unable to compare {cmd.PropertyName} to {cmd.PropertyValue}.");
                     Debug.WriteLine(e.Message);

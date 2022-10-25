@@ -2,16 +2,11 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net46;net5.0-windows</TargetFrameworks>
+    <TargetFrameworks>net46;net6.0-windows</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
-    <AssemblyName>NHSE</AssemblyName>
-    <PackageId>NHSE</PackageId>
-    <Product>NHSE</Product>
     <Description>Animal Crossing - New Horizons Save Editor</Description>
     <StartupObject>NHSE.WinForms.Program</StartupObject>
     <ApplicationIcon>icon.ico</ApplicationIcon>
-    <LangVersion>9</LangVersion>
-    <Nullable>enable</Nullable>
     <Platforms>AnyCPU;x86</Platforms>
   </PropertyGroup>
 

@@ -25,9 +25,7 @@ namespace NHSE.WinForms
             {
                 Bot.Connect(ip, p);
             }
-#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
-#pragma warning restore CA1031 // Do not catch general exception types
             {
                 WinFormsUtil.Error(ex.Message);
                 return false;

@@ -1,9 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net46;netstandard2.0</TargetFrameworks>
-    <LangVersion>9</LangVersion>
-    <Nullable>enable</Nullable>
+    <TargetFrameworks>net46;net6.0-windows</TargetFrameworks>
+    <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,9 +24,9 @@
     </EmbeddedResource>
   </ItemGroup>
 
-  <ItemGroup Condition="$(TargetFramework.StartsWith('net5'))">
-    <PackageReference Include="System.Drawing.Common" Version="5.0.0" />
-    <PackageReference Include="System.Resources.Extensions" Version="5.0.0" />
+  <ItemGroup Condition="$(TargetFramework.StartsWith('net6'))">
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+    <PackageReference Include="System.Resources.Extensions" Version="6.0.0" />
   </ItemGroup>
 
 </Project>

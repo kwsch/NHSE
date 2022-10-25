@@ -127,17 +127,16 @@ namespace NHSE.WinForms
             sysbot.Show();
         }
 
-        private void ItemEditor_DragEnter(object sender, DragEventArgs e)
+        private void ItemEditor_DragEnter(object? sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            if (e.Data?.GetDataPresent(DataFormats.FileDrop) == true)
                 e.Effect = DragDropEffects.Copy;
         }
 
-        private void PlayerItemEditor_DragDrop(object sender, DragEventArgs e)
+        private void PlayerItemEditor_DragDrop(object? sender, DragEventArgs e)
         {
-            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-
-            if (files.Length != 1 || Directory.Exists(files[0]))
+            var files = (string[]?)e.Data?.GetData(DataFormats.FileDrop);
+            if (files?.Length != 1 || Directory.Exists(files[0]))
                 return;
 
             string path = files[0]; // open first D&D

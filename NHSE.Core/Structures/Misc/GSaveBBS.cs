@@ -78,4 +78,3 @@ namespace NHSE.Core
         public uint VerticesNum { get; set; }
     }
 }
-#pragma warning restore CS8618, CA1815, CA1819, IDE1006

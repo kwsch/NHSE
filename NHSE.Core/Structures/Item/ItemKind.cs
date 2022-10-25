@@ -6,9 +6,7 @@ namespace NHSE.Core
     /// <summary>
     /// Kinds of items
     /// </summary>
-#pragma warning disable CA1027 // Mark enums with FlagsAttribute
     public enum ItemKind : byte
-#pragma warning restore CA1027 // Mark enums with FlagsAttribute
     {
         Bottoms_Long,
         Bottoms_Middle,

@@ -51,9 +51,7 @@ namespace NHSE.WinForms
             {
                 Bot.Bot.Disconnect();
             }
-#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
-#pragma warning restore CA1031 // Do not catch general exception types
             {
                 Console.WriteLine(ex.Message);
             }
@@ -87,9 +85,7 @@ namespace NHSE.WinForms
                     return;
                 WinFormsUtil.Alert(result.ToString());
             }
-#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
-#pragma warning restore CA1031 // Do not catch general exception types
             {
                 WinFormsUtil.Error(ex.Message);
             }
@@ -105,9 +101,7 @@ namespace NHSE.WinForms
                     return;
                 WinFormsUtil.Alert(result.ToString());
             }
-#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
-#pragma warning restore CA1031 // Do not catch general exception types
             {
                 WinFormsUtil.Error(ex.Message);
             }
@@ -161,9 +155,7 @@ namespace NHSE.WinForms
                     return;
                 WinFormsUtil.Alert(result.ToString());
             }
-#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
-#pragma warning restore CA1031 // Do not catch general exception types
             {
                 WinFormsUtil.Error(ex.Message);
             }
@@ -193,9 +185,7 @@ namespace NHSE.WinForms
                     return;
                 WinFormsUtil.Alert(result.ToString());
             }
-#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
-#pragma warning restore CA1031 // Do not catch general exception types
             {
                 WinFormsUtil.Error(ex.Message);
             }

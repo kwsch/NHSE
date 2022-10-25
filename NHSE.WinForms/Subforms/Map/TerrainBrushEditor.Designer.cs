@@ -99,7 +99,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.nw_rounded_tile.TabIndex = 0;
             this.nw_rounded_tile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.nw_rounded_tile.UseVisualStyleBackColor = true;
-            this.nw_rounded_tile.Click += new System.EventHandler(this.nw_rounded_tile_Click);
+            this.nw_rounded_tile.Click += new System.EventHandler(this.NW_Rounded_Tile_Click);
             // 
             // n_tile
             // 
@@ -110,7 +110,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.n_tile.Size = new System.Drawing.Size(64, 64);
             this.n_tile.TabIndex = 1;
             this.n_tile.UseVisualStyleBackColor = true;
-            this.n_tile.Click += new System.EventHandler(this.n_tile_Click);
+            this.n_tile.Click += new System.EventHandler(this.N_tile_Click);
             // 
             // ne_rounded_tile
             // 
@@ -121,7 +121,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.ne_rounded_tile.Size = new System.Drawing.Size(64, 64);
             this.ne_rounded_tile.TabIndex = 2;
             this.ne_rounded_tile.UseVisualStyleBackColor = true;
-            this.ne_rounded_tile.Click += new System.EventHandler(this.ne_rounded_tile_Click);
+            this.ne_rounded_tile.Click += new System.EventHandler(this.NE_rounded_tile_Click);
             // 
             // w_tile
             // 
@@ -132,7 +132,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.w_tile.Size = new System.Drawing.Size(64, 64);
             this.w_tile.TabIndex = 3;
             this.w_tile.UseVisualStyleBackColor = true;
-            this.w_tile.Click += new System.EventHandler(this.w_tile_Click);
+            this.w_tile.Click += new System.EventHandler(this.W_tile_Click);
             // 
             // middle_tile
             // 
@@ -143,7 +143,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.middle_tile.Size = new System.Drawing.Size(64, 64);
             this.middle_tile.TabIndex = 4;
             this.middle_tile.UseVisualStyleBackColor = true;
-            this.middle_tile.Click += new System.EventHandler(this.middle_tile_Click);
+            this.middle_tile.Click += new System.EventHandler(this.Middle_tile_Click);
             // 
             // e_tile
             // 
@@ -154,7 +154,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.e_tile.Size = new System.Drawing.Size(64, 64);
             this.e_tile.TabIndex = 5;
             this.e_tile.UseVisualStyleBackColor = true;
-            this.e_tile.Click += new System.EventHandler(this.e_tile_Click);
+            this.e_tile.Click += new System.EventHandler(this.E_tile_Click);
             // 
             // sw_rounded_tile
             // 
@@ -165,7 +165,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.sw_rounded_tile.Size = new System.Drawing.Size(64, 64);
             this.sw_rounded_tile.TabIndex = 6;
             this.sw_rounded_tile.UseVisualStyleBackColor = true;
-            this.sw_rounded_tile.Click += new System.EventHandler(this.sw_rounded_tile_Click);
+            this.sw_rounded_tile.Click += new System.EventHandler(this.SW_rounded_tile_Click);
             // 
             // s_tile
             // 
@@ -176,7 +176,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.s_tile.Size = new System.Drawing.Size(64, 64);
             this.s_tile.TabIndex = 7;
             this.s_tile.UseVisualStyleBackColor = true;
-            this.s_tile.Click += new System.EventHandler(this.s_tile_Click);
+            this.s_tile.Click += new System.EventHandler(this.S_tile_Click);
             // 
             // se_rounded_tile
             // 
@@ -187,7 +187,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.se_rounded_tile.Size = new System.Drawing.Size(64, 64);
             this.se_rounded_tile.TabIndex = 8;
             this.se_rounded_tile.UseVisualStyleBackColor = true;
-            this.se_rounded_tile.Click += new System.EventHandler(this.se_rounded_tile_Click);
+            this.se_rounded_tile.Click += new System.EventHandler(this.SE_rounded_tile_Click);
             // 
             // nw_angular_tile
             // 
@@ -199,7 +199,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.nw_angular_tile.TabIndex = 9;
             this.nw_angular_tile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.nw_angular_tile.UseVisualStyleBackColor = true;
-            this.nw_angular_tile.Click += new System.EventHandler(this.nw_angular_tile_Click);
+            this.nw_angular_tile.Click += new System.EventHandler(this.NW_angular_tile_Click);
             // 
             // ne_angular_tile
             // 
@@ -211,7 +211,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.ne_angular_tile.TabIndex = 10;
             this.ne_angular_tile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ne_angular_tile.UseVisualStyleBackColor = true;
-            this.ne_angular_tile.Click += new System.EventHandler(this.ne_angular_tile_Click);
+            this.ne_angular_tile.Click += new System.EventHandler(this.NE_angular_tile_Click);
             // 
             // sw_angular_tile
             // 
@@ -223,7 +223,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.sw_angular_tile.TabIndex = 11;
             this.sw_angular_tile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.sw_angular_tile.UseVisualStyleBackColor = true;
-            this.sw_angular_tile.Click += new System.EventHandler(this.sw_angular_tile_Click);
+            this.sw_angular_tile.Click += new System.EventHandler(this.SW_angular_tile_Click);
             // 
             // se_angular_tile
             // 
@@ -235,7 +235,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.se_angular_tile.TabIndex = 12;
             this.se_angular_tile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.se_angular_tile.UseVisualStyleBackColor = true;
-            this.se_angular_tile.Click += new System.EventHandler(this.se_angular_tile_Click);
+            this.se_angular_tile.Click += new System.EventHandler(this.SE_angular_tile_Click);
             // 
             // lbl_angular_borders
             // 
@@ -263,7 +263,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.slider_thickness.Size = new System.Drawing.Size(104, 45);
             this.slider_thickness.TabIndex = 15;
             this.slider_thickness.Value = 1;
-            this.slider_thickness.ValueChanged += new System.EventHandler(this.slider_thickness_ValueChanged);
+            this.slider_thickness.ValueChanged += new System.EventHandler(this.SliderThicknessValueChanged);
             // 
             // btn_normal_click
             // 
@@ -273,7 +273,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.btn_normal_click.Size = new System.Drawing.Size(43, 39);
             this.btn_normal_click.TabIndex = 16;
             this.btn_normal_click.UseVisualStyleBackColor = true;
-            this.btn_normal_click.Click += new System.EventHandler(this.btn_normal_click_Click);
+            this.btn_normal_click.Click += new System.EventHandler(this.B_Normal_Click);
             // 
             // btn_brush
             // 
@@ -283,7 +283,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.btn_brush.Size = new System.Drawing.Size(43, 39);
             this.btn_brush.TabIndex = 17;
             this.btn_brush.UseVisualStyleBackColor = true;
-            this.btn_brush.Click += new System.EventHandler(this.btn_brush_Click);
+            this.btn_brush.Click += new System.EventHandler(this.B_Brush_Click);
             // 
             // lbl_brush
             // 
@@ -328,7 +328,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.slider_elevation.Name = "slider_elevation";
             this.slider_elevation.Size = new System.Drawing.Size(104, 45);
             this.slider_elevation.TabIndex = 20;
-            this.slider_elevation.ValueChanged += new System.EventHandler(this.slider_elevation_ValueChanged);
+            this.slider_elevation.ValueChanged += new System.EventHandler(this.SliderElevationValueChanged);
             // 
             // tabControl1
             // 
@@ -380,7 +380,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.dr_dirt_inside.TabIndex = 19;
             this.dr_dirt_inside.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.dr_dirt_inside.UseVisualStyleBackColor = true;
-            this.dr_dirt_inside.Click += new System.EventHandler(this.dr_dirt_inside_Click);
+            this.dr_dirt_inside.Click += new System.EventHandler(this.DR_dirt_inside_Click);
             // 
             // tr_dirt_inside
             // 
@@ -392,7 +392,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.tr_dirt_inside.TabIndex = 17;
             this.tr_dirt_inside.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tr_dirt_inside.UseVisualStyleBackColor = true;
-            this.tr_dirt_inside.Click += new System.EventHandler(this.tr_dirt_inside_Click);
+            this.tr_dirt_inside.Click += new System.EventHandler(this.TR_dirt_inside_Click);
             // 
             // dl_dirt_inside
             // 
@@ -404,7 +404,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.dl_dirt_inside.TabIndex = 18;
             this.dl_dirt_inside.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.dl_dirt_inside.UseVisualStyleBackColor = true;
-            this.dl_dirt_inside.Click += new System.EventHandler(this.dl_dirt_inside_Click);
+            this.dl_dirt_inside.Click += new System.EventHandler(this.DL_dirt_inside_Click);
             // 
             // tl_dirt_inside
             // 
@@ -416,7 +416,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.tl_dirt_inside.TabIndex = 16;
             this.tl_dirt_inside.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tl_dirt_inside.UseVisualStyleBackColor = true;
-            this.tl_dirt_inside.Click += new System.EventHandler(this.tl_dirt_inside_Click);
+            this.tl_dirt_inside.Click += new System.EventHandler(this.TL_dirt_inside_Click);
             // 
             // label3
             // 
@@ -467,7 +467,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.dr_water_inside.TabIndex = 34;
             this.dr_water_inside.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.dr_water_inside.UseVisualStyleBackColor = true;
-            this.dr_water_inside.Click += new System.EventHandler(this.dr_water_inside_Click);
+            this.dr_water_inside.Click += new System.EventHandler(this.DR_water_inside_Click);
             // 
             // tr_water_inside
             // 
@@ -479,7 +479,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.tr_water_inside.TabIndex = 32;
             this.tr_water_inside.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tr_water_inside.UseVisualStyleBackColor = true;
-            this.tr_water_inside.Click += new System.EventHandler(this.tr_water_inside_Click);
+            this.tr_water_inside.Click += new System.EventHandler(this.TR_water_inside_Click);
             // 
             // dl_water_inside
             // 
@@ -491,7 +491,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.dl_water_inside.TabIndex = 33;
             this.dl_water_inside.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.dl_water_inside.UseVisualStyleBackColor = true;
-            this.dl_water_inside.Click += new System.EventHandler(this.dl_water_inside_Click);
+            this.dl_water_inside.Click += new System.EventHandler(this.DL_water_inside_Click);
             // 
             // tl_water_inside
             // 
@@ -503,7 +503,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.tl_water_inside.TabIndex = 31;
             this.tl_water_inside.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tl_water_inside.UseVisualStyleBackColor = true;
-            this.tl_water_inside.Click += new System.EventHandler(this.tl_water_inside_Click);
+            this.tl_water_inside.Click += new System.EventHandler(this.TL_water_inside_Click);
             // 
             // label4
             // 
@@ -524,7 +524,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.nw_angular_water_tile.TabIndex = 15;
             this.nw_angular_water_tile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.nw_angular_water_tile.UseVisualStyleBackColor = true;
-            this.nw_angular_water_tile.Click += new System.EventHandler(this.nw_angular_water_tile_Click);
+            this.nw_angular_water_tile.Click += new System.EventHandler(this.NW_angular_water_tile_Click);
             // 
             // label1
             // 
@@ -544,7 +544,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.n_water_tile.Size = new System.Drawing.Size(64, 64);
             this.n_water_tile.TabIndex = 16;
             this.n_water_tile.UseVisualStyleBackColor = true;
-            this.n_water_tile.Click += new System.EventHandler(this.n_water_tile_Click);
+            this.n_water_tile.Click += new System.EventHandler(this.N_water_tile_Click);
             // 
             // ne_angular_water_tile
             // 
@@ -555,7 +555,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.ne_angular_water_tile.Size = new System.Drawing.Size(64, 64);
             this.ne_angular_water_tile.TabIndex = 17;
             this.ne_angular_water_tile.UseVisualStyleBackColor = true;
-            this.ne_angular_water_tile.Click += new System.EventHandler(this.ne_angular_water_tile_Click);
+            this.ne_angular_water_tile.Click += new System.EventHandler(this.NE_angular_water_tile_Click);
             // 
             // w_water_tile
             // 
@@ -566,7 +566,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.w_water_tile.Size = new System.Drawing.Size(64, 64);
             this.w_water_tile.TabIndex = 18;
             this.w_water_tile.UseVisualStyleBackColor = true;
-            this.w_water_tile.Click += new System.EventHandler(this.w_water_tile_Click);
+            this.w_water_tile.Click += new System.EventHandler(this.W_water_tile_Click);
             // 
             // center_water_tile
             // 
@@ -577,7 +577,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.center_water_tile.Size = new System.Drawing.Size(64, 64);
             this.center_water_tile.TabIndex = 19;
             this.center_water_tile.UseVisualStyleBackColor = true;
-            this.center_water_tile.Click += new System.EventHandler(this.center_water_tile_Click);
+            this.center_water_tile.Click += new System.EventHandler(this.Center_water_tile_Click);
             // 
             // e_water_tile
             // 
@@ -610,7 +610,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.sw_angular_water_tile.Size = new System.Drawing.Size(64, 64);
             this.sw_angular_water_tile.TabIndex = 21;
             this.sw_angular_water_tile.UseVisualStyleBackColor = true;
-            this.sw_angular_water_tile.Click += new System.EventHandler(this.sw_angular_water_tile_Click);
+            this.sw_angular_water_tile.Click += new System.EventHandler(this.SW_angular_water_tile_Click);
             // 
             // label2
             // 
@@ -630,7 +630,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.se_angular_water_tile.Size = new System.Drawing.Size(64, 64);
             this.se_angular_water_tile.TabIndex = 23;
             this.se_angular_water_tile.UseVisualStyleBackColor = true;
-            this.se_angular_water_tile.Click += new System.EventHandler(this.se_angular_water_tile_Click);
+            this.se_angular_water_tile.Click += new System.EventHandler(this.SE_angular_water_tile_Click);
             // 
             // se_diagonal_water_tile
             // 
@@ -642,7 +642,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.se_diagonal_water_tile.TabIndex = 27;
             this.se_diagonal_water_tile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.se_diagonal_water_tile.UseVisualStyleBackColor = true;
-            this.se_diagonal_water_tile.Click += new System.EventHandler(this.se_diagonal_water_tile_Click);
+            this.se_diagonal_water_tile.Click += new System.EventHandler(this.SE_diagonal_water_tile_Click);
             // 
             // ne_diagonal_water_tile
             // 
@@ -654,7 +654,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.ne_diagonal_water_tile.TabIndex = 25;
             this.ne_diagonal_water_tile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ne_diagonal_water_tile.UseVisualStyleBackColor = true;
-            this.ne_diagonal_water_tile.Click += new System.EventHandler(this.ne_diagonal_water_tile_Click);
+            this.ne_diagonal_water_tile.Click += new System.EventHandler(this.NE_diagonal_water_tile_Click);
             // 
             // sw_diagonal_water_tile
             // 
@@ -678,7 +678,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.nw_diagonal_water_tile.TabIndex = 24;
             this.nw_diagonal_water_tile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.nw_diagonal_water_tile.UseVisualStyleBackColor = true;
-            this.nw_diagonal_water_tile.Click += new System.EventHandler(this.nw_diagonal_water_tile_Click);
+            this.nw_diagonal_water_tile.Click += new System.EventHandler(this.NW_diagonal_water_tile_Click);
             // 
             // cb_tileVariation
             // 
@@ -689,7 +689,7 @@ namespace NHSE.WinForms.Subforms.Map
             this.cb_tileVariation.TabIndex = 24;
             this.cb_tileVariation.Text = "Randomize tile variation";
             this.cb_tileVariation.UseVisualStyleBackColor = true;
-            this.cb_tileVariation.CheckedChanged += new System.EventHandler(this.cb_tileVariation_CheckedChanged);
+            this.cb_tileVariation.CheckedChanged += new System.EventHandler(this.CB_TileVariation_CheckedChanged);
             // 
             // TerrainBrushEditor
             // 
