@@ -23,6 +23,9 @@ namespace NHSE.Core
         public abstract int PatternFlag { get; }
         public abstract int PatternTailor { get; }
 
+        public abstract int PatternsEditFlagStart { get; }
+        public abstract int PatternsProEditFlagStart { get; }
+
         public abstract int WeatherArea { get; }
         public abstract int WeatherRandSeed { get; }
 
@@ -107,11 +110,15 @@ namespace NHSE.Core
             return new DesignPattern(v);
         }
 
-        public void WritePattern(DesignPattern p, byte[] data, int index)
+        public void WritePattern(DesignPattern p, byte[] data, int index, byte[] playerID, byte[] townID)
         {
             if ((uint)index >= PatternCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
+            playerID.CopyTo(p.Data, 0x54); // overwrite playerID bytes so player owns
+            townID.CopyTo(p.Data, 0x38); // overwrite townID bytes so player owns
             p.Data.CopyTo(data, LandMyDesign + (index * DesignPattern.SIZE));
+            byte[] editedflag = new byte[] { 0x00 };
+            editedflag.CopyTo(data, PatternsEditFlagStart + index); // set edited flag for name import to work
         }
 
         public DesignPatternPRO ReadPatternPRO(byte[] data, int index)
@@ -128,11 +135,15 @@ namespace NHSE.Core
             return new DesignPatternPRO(v);
         }
 
-        public void WritePatternPRO(DesignPatternPRO p, byte[] data, int index)
+        public void WritePatternPRO(DesignPatternPRO p, byte[] data, int index, byte[] playerID, byte[] townID)
         {
             if ((uint)index >= PatternCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
+            playerID.CopyTo(p.Data, 0x54); // overwrite playerID bytes so player owns
+            townID.CopyTo(p.Data, 0x38); // overwrite townID bytes so player owns
             p.Data.CopyTo(data, PatternsPRO + (index * DesignPatternPRO.SIZE));
+            byte[] editedflag = new byte[] { 0x00 };
+            editedflag.CopyTo(data, PatternsProEditFlagStart + index);
         }
 
         public IVillager ReadVillager(byte[] data, int index)
