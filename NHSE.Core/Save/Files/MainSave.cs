@@ -50,9 +50,9 @@ namespace NHSE.Core
         }
 
         public DesignPattern GetDesign(int index) => Offsets.ReadPattern(Data, index);
-        public void SetDesign(DesignPattern value, int index) => Offsets.WritePattern(value, Data, index);
+        public void SetDesign(DesignPattern value, int index, byte[] playerID, byte[] townID) => Offsets.WritePattern(value, Data, index, playerID, townID);
         public DesignPatternPRO GetDesignPRO(int index) => Offsets.ReadPatternPRO(Data, index);
-        public void SetDesignPRO(DesignPatternPRO value, int index) => Offsets.WritePatternPRO(value, Data, index);
+        public void SetDesignPRO(DesignPatternPRO value, int index, byte[] playerID, byte[] townID) => Offsets.WritePatternPRO(value, Data, index, playerID, townID);
 
         public IReadOnlyList<Item> RecycleBin
         {
@@ -91,11 +91,11 @@ namespace NHSE.Core
             return result;
         }
 
-        public void SetDesigns(IReadOnlyList<DesignPattern> value)
+        public void SetDesigns(IReadOnlyList<DesignPattern> value, byte[] playerID, byte[] townID)
         {
             var count = Math.Min(Offsets.PatternCount, value.Count);
             for (int i = 0; i < count; i++)
-                SetDesign(value[i], i);
+                SetDesign(value[i], i, playerID, townID);
         }
 
         public DesignPatternPRO[] GetDesignsPRO()
@@ -106,11 +106,11 @@ namespace NHSE.Core
             return result;
         }
 
-        public void SetDesignsPRO(IReadOnlyList<DesignPatternPRO> value)
+        public void SetDesignsPRO(IReadOnlyList<DesignPatternPRO> value, byte[] playerID, byte[] townID)
         {
             var count = Math.Min(Offsets.PatternCount, value.Count);
             for (int i = 0; i < count; i++)
-                SetDesignPRO(value[i], i);
+                SetDesignPRO(value[i], i, playerID, townID);
         }
 
         public DesignPattern FlagMyDesign

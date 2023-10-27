@@ -15,6 +15,9 @@
         public override int PatternFlag => PatternsPRO + (PatternCount * DesignPatternPRO.SIZE);
         public override int PatternTailor => PatternFlag + DesignPattern.SIZE;
 
+        public override int PatternsEditFlagStart => GSaveLandStart + 0x8BE150; // x100, HasPlayerEdited?
+        public override int PatternsProEditFlagStart => PatternsEditFlagStart + 0x64; // x100, HasPlayerEdited?
+
         public const int GSaveWeather = GSaveLandStart + 0x1e23B0;
         public override int WeatherArea => GSaveWeather + 0x14; // Hemisphere
         public override int WeatherRandSeed => GSaveWeather + 0x18;
