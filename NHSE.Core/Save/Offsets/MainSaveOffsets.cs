@@ -116,6 +116,8 @@ namespace NHSE.Core
                 throw new ArgumentOutOfRangeException(nameof(index));
             playerID.CopyTo(p.Data, 0x54); // overwrite playerID bytes so player owns
             townID.CopyTo(p.Data, 0x38); // overwrite townID bytes so player owns
+            byte[] wipeflag = new byte[] { 0x00, 0x00, 0x00, 0x00 }; // wipe so player owns
+            wipeflag.CopyTo(p.Data, 0x70);
             p.Data.CopyTo(data, LandMyDesign + (index * DesignPattern.SIZE));
             byte[] editedflag = new byte[] { 0x00 };
             editedflag.CopyTo(data, PatternsEditFlagStart + index); // set edited flag for name import to work
@@ -141,6 +143,8 @@ namespace NHSE.Core
                 throw new ArgumentOutOfRangeException(nameof(index));
             playerID.CopyTo(p.Data, 0x54); // overwrite playerID bytes so player owns
             townID.CopyTo(p.Data, 0x38); // overwrite townID bytes so player owns
+            byte[] wipeflag = new byte[] { 0x00, 0x00, 0x00, 0x00 }; // wipe so player owns
+            wipeflag.CopyTo(p.Data, 0x70);
             p.Data.CopyTo(data, PatternsPRO + (index * DesignPatternPRO.SIZE));
             byte[] editedflag = new byte[] { 0x00 };
             editedflag.CopyTo(data, PatternsProEditFlagStart + index);
