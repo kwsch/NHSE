@@ -166,7 +166,7 @@ namespace NHSE.WinForms
         {
             var p0 = SAV.Players[0].Personal;
             var villagers = SAV.Main.GetVillagers();
-            var v = new VillagerEditor(villagers, p0, SAV.Main, true) {Dock = DockStyle.Fill};
+            var v = new VillagerEditor(villagers, p0, SAV, true) {Dock = DockStyle.Fill};
             Tab_Villagers.Controls.Add(v);
             return v;
         }

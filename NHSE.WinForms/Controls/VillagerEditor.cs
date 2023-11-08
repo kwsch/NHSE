@@ -12,11 +12,11 @@ namespace NHSE.WinForms
     {
         public IVillager[] Villagers;
         public IVillagerOrigin Origin;
-        private readonly MainSave SAV;
+        private readonly HorizonSave SAV;
         private int VillagerIndex = -1;
         private bool Loading;
 
-        public VillagerEditor(IVillager[] villagers, IVillagerOrigin origin, MainSave sav, bool hasHouses)
+        public VillagerEditor(IVillager[] villagers, IVillagerOrigin origin, HorizonSave sav, bool hasHouses)
         {
             InitializeComponent();
             Villagers = villagers;
@@ -132,7 +132,7 @@ namespace NHSE.WinForms
                 return;
 
             var path = ofd.FileName;
-            var expectLength = SAV.Offsets.VillagerSize;
+            var expectLength = SAV.Main.Offsets.VillagerSize;
             var fi = new FileInfo(path);
             if (!VillagerConverter.IsCompatible((int)fi.Length, expectLength))
             {
@@ -148,7 +148,7 @@ namespace NHSE.WinForms
                 return;
             }
 
-            var v = SAV.Offsets.ReadVillager(data);
+            var v = SAV.Main.Offsets.ReadVillager(data);
             var player0 = Origin;
             if (!v.IsOriginatedFrom(player0))
             {
@@ -203,11 +203,11 @@ namespace NHSE.WinForms
         private void B_EditHouse_Click(object sender, EventArgs e)
         {
             SaveVillager(VillagerIndex);
-            var villagers = SAV.GetVillagers();
-            var houses = SAV.GetVillagerHouses();
-            using var editor = new VillagerHouseEditor(houses, villagers, SAV, VillagerIndex);
+            var villagers = SAV.Main.GetVillagers();
+            var houses = SAV.Main.GetVillagerHouses();
+            using var editor = new VillagerHouseEditor(houses, villagers, SAV.Main, VillagerIndex);
             if (editor.ShowDialog() == DialogResult.OK)
-                SAV.SetVillagerHouses(houses);
+                SAV.Main.SetVillagerHouses(houses);
         }
 
         private static void ShowContextMenuBelow(ToolStripDropDown c, Control n) => c.Show(n.PointToScreen(new System.Drawing.Point(0, n.Height)));
@@ -223,9 +223,13 @@ namespace NHSE.WinForms
 
         private void B_EditVillagerDesign_Click(object sender, EventArgs e)
         {
+            var playerID = SAV.Players[0].Personal.GetPlayerIdentity(); // fetch ID for overwrite ownership
+            var townID = SAV.Players[0].Personal.GetTownIdentity(); // fetch ID for overwrite ownership
             var v = Villagers[VillagerIndex];
             var tmp = new[] {v.Design};
             using var editor = new PatternEditorPRO(tmp);
+            playerID.CopyTo(tmp[0].Data, 0x54); // overwrite playerID bytes
+            townID.CopyTo(tmp[0].Data, 0x38); // overwrite townID bytes
             if (editor.ShowDialog() == DialogResult.OK)
                 v.Design = tmp[0];
         }
@@ -306,13 +310,13 @@ namespace NHSE.WinForms
                 return;
             }
 
-            var houses = SAV.GetVillagerHouses();
+            var houses = SAV.Main.GetVillagerHouses();
             var houseIndex = Array.FindIndex(houses, z => z.NPC1 == index);
             var exist = new VillagerInfo(v2, houses[houseIndex]);
             var replace = VillagerSwap.GetReplacementVillager(exist, internalName);
 
             var nh = new VillagerHouse1(replace.House);
-            SAV.SetVillagerHouse(nh, houseIndex);
+            SAV.Main.SetVillagerHouse(nh, houseIndex);
             var nv = new Villager2(replace.Villager);
             LoadVillager(Villagers[index] = nv);
             System.Media.SystemSounds.Asterisk.Play();
