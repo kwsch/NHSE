@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Windows.Forms;
 using NHSE.Core;
 
@@ -60,6 +61,17 @@ namespace NHSE.WinForms
             if (data.Length != 0)
                 Buffer.BlockCopy(data, 0, Counts, 0, data.Length);
             LB_Counts.SelectedIndex = LB_Counts.SelectedIndex;
+        }
+
+        private void B_Copy_Click(object sender, EventArgs e)
+        {
+            var exportBuffer = new StringBuilder();
+
+            var str = GameInfo.Strings.InternalNameTranslation;
+            for (ushort i = 0; i < Counts.Length; i++)
+                exportBuffer.AppendLine(EventFlagPlayer.GetName(i, Counts[i], str));
+
+            MiscDumpHelper.DumpFlagsToClipboard(exportBuffer.ToString());
         }
     }
 }

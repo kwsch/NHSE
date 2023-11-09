@@ -35,6 +35,7 @@
             this.L_Count = new System.Windows.Forms.Label();
             this.B_Load = new System.Windows.Forms.Button();
             this.B_Dump = new System.Windows.Forms.Button();
+            this.B_Copy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Count)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,11 +124,23 @@
             this.B_Dump.UseVisualStyleBackColor = true;
             this.B_Dump.Click += new System.EventHandler(this.B_Dump_Click);
             // 
+            // B_Copy
+            // 
+            this.B_Copy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.B_Copy.Location = new System.Drawing.Point(200, 100);
+            this.B_Copy.Name = "B_Copy";
+            this.B_Copy.Size = new System.Drawing.Size(72, 23);
+            this.B_Copy.TabIndex = 10;
+            this.B_Copy.Text = "Copy";
+            this.B_Copy.UseVisualStyleBackColor = true;
+            this.B_Copy.Click += new System.EventHandler(this.B_Copy_Click);
+            // 
             // FlagEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.B_Copy);
             this.Controls.Add(this.B_Load);
             this.Controls.Add(this.B_Dump);
             this.Controls.Add(this.L_Count);
@@ -156,5 +169,6 @@
         private System.Windows.Forms.Label L_Count;
         private System.Windows.Forms.Button B_Load;
         private System.Windows.Forms.Button B_Dump;
+        private System.Windows.Forms.Button B_Copy;
     }
 }

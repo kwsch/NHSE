@@ -231,6 +231,10 @@ namespace NHSE.WinForms
             if (sfd.ShowDialog() == DialogResult.OK)
                 File.WriteAllBytes(sfd.FileName, data);
         }
+        public static void DumpFlagsToClipboard(string data)
+        {
+            Clipboard.SetData(DataFormats.Text, data);
+        }
 
         public static byte[] LoadFlags(int size, string name)
         {
