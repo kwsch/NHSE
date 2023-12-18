@@ -116,7 +116,7 @@ namespace NHSE.Core
                 throw new ArgumentOutOfRangeException(nameof(index));
             playerID.CopyTo(p.Data, 0x54); // overwrite playerID bytes so player owns
             townID.CopyTo(p.Data, 0x38); // overwrite townID bytes so player owns
-            byte[] wipeflag = new byte[] { 0x00, 0x00, 0x00, 0x00 }; // wipe so player owns
+            byte[] wipeflag = new byte[] { 0x02, 0xEE, 0x00, 0x00 }; // wipe so player owns
             wipeflag.CopyTo(p.Data, 0x70);
             p.Data.CopyTo(data, LandMyDesign + (index * DesignPattern.SIZE));
             byte[] editedflag = new byte[] { 0x00 };
