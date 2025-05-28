@@ -21,6 +21,7 @@ namespace NHSE.Core
                 26 => new WhereAreNOffsets20(),
                 27 => new WhereAreNOffsets20(),
                 28 => new WhereAreNOffsets20(),
+                29 => new WhereAreNOffsets20(),
                 _ => throw new IndexOutOfRangeException("Unknown revision!" + Environment.NewLine + Info),
             };
         }
