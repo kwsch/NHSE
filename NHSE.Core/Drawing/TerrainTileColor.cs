@@ -77,10 +77,18 @@ namespace NHSE.Core
             {
                 return landAngle switch
                 {
-                    LandAngles.Default when IsPointInMultiTriangle(relativeX, relativeY, new(4, 15), new(0, 0), new(15, 4), new(0, 15), new(15, 0)) || IsNubOnBottomRight(relativeX, relativeY) => Color.ForestGreen,
-                    LandAngles.Rotate90ClockAnverse when IsPointInMultiTriangle(relativeX, relativeY, new(4, 0), new(0, 15), new(15, 12), new(0, 0), new(15, 15)) || IsNubOnTopRight(relativeX, relativeY) => Color.ForestGreen,
-                    LandAngles.Rotate180ClockAnverse when IsPointInMultiTriangle(relativeX, relativeY, new(0, 12), new(15, 15), new(12, 0), new(0, 15), new(15, 0)) || IsNubOnTopLeft(relativeX, relativeY) => Color.ForestGreen,
-                    LandAngles.Rotate270ClockAnverse when IsPointInMultiTriangle(relativeX, relativeY, new(0, 4), new(15, 0), new(12, 15), new(0, 0), new(15, 15)) || IsNubOnBottomLeft(relativeX, relativeY) => Color.ForestGreen,
+                    LandAngles.Default when IsPointInMultiTriangle(relativeX, relativeY, new(4, 15), new(0, 0), new(15, 4), new(0, 15), new(15, 0))
+                        || IsNubOnBottomRight(relativeX, relativeY)
+                        || relativeX < 4 || relativeY < 4 => Color.ForestGreen,
+                    LandAngles.Rotate90ClockAnverse when IsPointInMultiTriangle(relativeX, relativeY, new(4, 0), new(0, 15), new(15, 12), new(0, 0), new(15, 15))
+                        || IsNubOnTopRight(relativeX, relativeY)
+                        || relativeX < 4 || relativeY >= 12 => Color.ForestGreen,
+                    LandAngles.Rotate180ClockAnverse when IsPointInMultiTriangle(relativeX, relativeY, new(0, 12), new(15, 15), new(12, 0), new(0, 15), new(15, 0))
+                        || IsNubOnTopLeft(relativeX, relativeY)
+                        || relativeX >= 12 || relativeY >= 12 => Color.ForestGreen,
+                    LandAngles.Rotate270ClockAnverse when IsPointInMultiTriangle(relativeX, relativeY, new(0, 4), new(15, 0), new(12, 15), new(0, 0), new(15, 15))
+                        || IsNubOnBottomLeft(relativeX, relativeY)
+                        || relativeX >= 12 || relativeY < 4 => Color.ForestGreen,
                     _ => River
                 };
             }
