@@ -255,6 +255,14 @@ namespace NHSE.Core
         RoadWood8A = 0x111,
     }
 
+    public enum LandAngles
+    {
+        Default = 0,
+        Rotate90ClockAnverse = 1,
+        Rotate180ClockAnverse = 2,
+        Rotate270ClockAnverse = 3,
+    }
+
     public static class TerrainUnitModelExtensions
     {
         public static bool IsRoad(this TerrainUnitModel t) => t >= RoadBrick0A || (RoadSoil0A <= t && t <= RoadStone8A);
