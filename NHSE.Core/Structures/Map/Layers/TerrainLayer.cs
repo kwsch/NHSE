@@ -8,8 +8,8 @@ namespace NHSE.Core
     /// </summary>
     public class TerrainLayer : MapGrid
     {
-        public readonly TerrainTile[] Tiles;
-        public readonly byte[] BaseAcres;
+        public TerrainTile[] Tiles { get; init; }
+        public byte[] BaseAcres { get; init; }
 
         public TerrainLayer(TerrainTile[] tiles, byte[] acres) : base(16, 16, AcreWidth * 16, AcreHeight * 16)
         {
@@ -46,6 +46,7 @@ namespace NHSE.Core
                 var bytes = tile.ToBytesClass();
                 bytes.CopyTo(result, i * TerrainTile.SIZE);
             }
+
             return result;
         }
 
@@ -138,7 +139,7 @@ namespace NHSE.Core
             return true;
         }
 
-        public int GetTileColor(int x, in int y)
+        public int GetTileColor(int x, in int y, int relativeX, int relativeY)
         {
             var acre = GetTileAcre(x, y);
             if (acre != 0)
@@ -149,7 +150,7 @@ namespace NHSE.Core
             }
 
             var tile = GetTile(x, y);
-            return TerrainTileColor.GetTileColor(tile).ToArgb();
+            return TerrainTileColor.GetTileColor(tile, relativeX, relativeY).ToArgb();
         }
 
         private ushort GetTileAcre(int x, int y)
