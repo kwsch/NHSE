@@ -47,15 +47,15 @@ namespace NHSE.WinForms
                 switch (sender)
                 {
                     case ToolStripItem t:
-                        sender = t.Owner;
+                        sender = t.Owner!;
                         continue;
                     case ContextMenuStrip c:
-                        sender = c.SourceControl;
+                        sender = c.SourceControl!;
                         continue;
                     case T p:
                         return p;
                     default:
-                        return default;
+                        return null;
                 }
             }
         }

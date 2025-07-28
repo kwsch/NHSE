@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using NHSE.Core;
+using System.Collections.Generic;
 using System.Drawing;
-using NHSE.Core;
 
 namespace NHSE.Sprites
 {
@@ -23,17 +23,9 @@ namespace NHSE.Sprites
             {
                 for (int x = 0; x < mgr.MaxWidth; x++, i++)
                 {
-                    pixels[i] = mgr.GetTileColor(x, y);
+                    pixels[i] = mgr.GetTileColor(x, y, x, y);
                 }
             }
-        }
-
-        public static Bitmap CreateMap(TerrainLayer mgr, int scale, int x, int y, int[] scale1, int[] scaleX, Bitmap map)
-        {
-            CreateMap(mgr, scale1);
-            ImageUtil.ScalePixelImage(scale1, scaleX, map.Width, map.Height, scale);
-            ImageUtil.SetBitmapData(map, scaleX);
-            return DrawReticle(map, mgr, x, y, scale);
         }
 
         public static Bitmap CreateMap(TerrainLayer mgr, int[] scale1, int[] scaleX, Bitmap map, int scale, int acreIndex = -1)
@@ -111,17 +103,28 @@ namespace NHSE.Sprites
         private static void SetAcreTerrainPixels(int x, int y, TerrainLayer t, int[] data, int[] scaleX, int scale)
         {
             GetAcre1(x, y, t, data);
-            ImageUtil.ScalePixelImage(data, scaleX, 16 * scale, 16 * scale, scale);
+            ImageUtil.ScalePixelImage(data, scaleX, 16 * scale, 16 * scale, scale / 16);
         }
 
-        private static void GetAcre1(int topX, int topY, TerrainLayer t, int[] data)
+        private static void GetAcre1(int tileTopX, int tileTopY, TerrainLayer t, int[] data)
         {
             int index = 0;
-            for (int y = 0; y < 16; y++)
+
+            for (int tileY = 0; tileY < 16; tileY++)
             {
-                var yi = y + topY;
-                for (int x = 0; x < 16; x++, index++)
-                    data[index] = t.GetTileColor(x + topX, yi);
+                var tileYIx = tileY + tileTopY;
+                for (int pixelY = 0; pixelY < 16; pixelY++)
+                {
+                    for (int tileX = 0; tileX < 16; tileX++)
+                    {
+                        var tileXIx = tileX + tileTopX;
+                        for (int pixelX = 0; pixelX < 16; pixelX++)
+                        {
+                            data[index] = t.GetTileColor(tileXIx, tileYIx, pixelX, pixelY);
+                            index++;
+                        }
+                    }
+                }
             }
         }
 
@@ -149,9 +152,10 @@ namespace NHSE.Sprites
                 var pen = index == i ? Selected : Others;
                 if (tbuild != byte.MaxValue)
                 {
-                    var orig = ((SolidBrush) pen).Color;
+                    var orig = ((SolidBrush)pen).Color;
                     pen = new SolidBrush(Color.FromArgb(tbuild, orig));
                 }
+
                 DrawBuilding(gfx, null, m.TerrainScale, pen, x, y, b, Text);
             }
 
@@ -177,7 +181,7 @@ namespace NHSE.Sprites
 
         private static void DrawTerrainTileNames(int topX, int topY, Graphics gfx, TerrainLayer t, Font f, int scale, byte transparency)
         {
-            var pen= transparency != byte.MaxValue ? new SolidBrush(Color.FromArgb(transparency, Color.Black)) : Tile;
+            var pen = transparency != byte.MaxValue ? new SolidBrush(Color.FromArgb(transparency, Color.Black)) : Tile;
 
             for (int y = 0; y < 16; y++)
             {

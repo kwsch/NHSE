@@ -99,16 +99,18 @@ namespace NHSE.Sprites
         public static void ScalePixelImage(int[] data, int[] scaled, int fW, int fH, int scale)
         {
             // For each pixel, copy to the X indexes, then block copy the row to the other rows.
-            for (int y = 0, i = 0; y < fH; y += scale)
+            int i = 0;
+            for (int y = 0; y < fH; y += scale)
             {
                 // Fill the X pixels
                 var baseIndex = y * fW;
-                for (int x = 0; x < fW; x += scale, i++)
+                for (int x = 0; x < fW; x += scale)
                 {
                     var v = data[i];
                     var xi = baseIndex + x;
                     for (int x1 = 0; x1 < scale; x1++)
                         scaled[xi + x1] = v;
+                    i++;
                 }
 
                 // Copy entire pixel row down
