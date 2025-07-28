@@ -726,11 +726,11 @@ namespace NHSE.WinForms
             }
             else if (!Menu_SavePNGItems.Checked)
             {
-                PB_Map.BackgroundImage.Save(sfd.FileName, ImageFormat.Png);
+                PB_Map.BackgroundImage!.Save(sfd.FileName, ImageFormat.Png);
             }
             else
             {
-                var img = (Bitmap)PB_Map.BackgroundImage.Clone();
+                var img = (Bitmap)PB_Map.BackgroundImage!.Clone();
                 using var gfx = Graphics.FromImage(img);
                 gfx.DrawImage(PB_Map.Image, new Point(0, 0));
                 img.Save(sfd.FileName, ImageFormat.Png);

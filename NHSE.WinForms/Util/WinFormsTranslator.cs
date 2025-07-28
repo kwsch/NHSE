@@ -45,7 +45,7 @@ namespace NHSE.WinForms
                 }
                 else if (c is ToolStripItem t)
                 {
-                    var current = t.Text;
+                    var current = t.Text!;
                     var updated = context.GetTranslatedText($"{formname}.{t.Name}", current);
                     if (!ReferenceEquals(current, updated))
                         t.Text = updated;
