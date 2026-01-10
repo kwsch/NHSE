@@ -149,7 +149,7 @@ public sealed class GameStrings : IRemakeString
                 return $"{display} - {item.Genes}";
         }
 
-        if (kind == ItemKind.Kind_DIYRecipe || kind == ItemKind.Kind_MessageBottle)
+        if (kind is ItemKind.Kind_DIYRecipe or ItemKind.Kind_MessageBottle)
         {
             var display = itemlistdisplay[index];
             var recipeID = (ushort)item.FreeParam;

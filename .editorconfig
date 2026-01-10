@@ -2,7 +2,7 @@ root = true
 
 # All Files
 [*]
-charset = utf-8
+charset = utf-8-bom
 indent_style = space
 indent_size = 4
 trim_trailing_whitespace = true
@@ -100,8 +100,6 @@ dotnet_naming_style.pascal_case.required_suffix =
 dotnet_naming_style.pascal_case.word_separator = 
 dotnet_naming_style.pascal_case.capitalization = pascal_case
 dotnet_style_operator_placement_when_wrapping = beginning_of_line
-tab_width = 4
-end_of_line = crlf
 dotnet_style_coalesce_expression = true:suggestion
 dotnet_style_null_propagation = true:suggestion
 dotnet_style_prefer_is_null_check_over_reference_equality_method = true:suggestion

@@ -102,7 +102,7 @@ public static class WinFormsTranslator
                             yield return obj;
                     }
 
-                    if (z is ListControl || z is TextBoxBase || z is LinkLabel || z is NumericUpDown || z is ContainerControl)
+                    if (z is ListControl or TextBoxBase or LinkLabel or NumericUpDown or ContainerControl)
                         break; // undesirable to modify, ignore
 
                     if (!string.IsNullOrWhiteSpace(z.Text))

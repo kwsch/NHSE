@@ -14,7 +14,7 @@ public static class VillagerHouseConverter
     /// <returns>True if it matches any size.</returns>
     public static bool IsHouse(int size)
     {
-        return size == VillagerHouse1.SIZE || size == VillagerHouse2.SIZE;
+        return size is VillagerHouse1.SIZE or VillagerHouse2.SIZE;
     }
 
     /// <summary>

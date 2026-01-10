@@ -256,7 +256,7 @@ public sealed record StringInstruction(string PropertyName, string PropertyValue
     public static bool TryParseInstruction(ReadOnlySpan<char> line, [NotNullWhen(true)] out StringInstruction? entry)
     {
         entry = null;
-        if (line.Length is 0 || line[0] is not Apply)
+        if (!line.StartsWith(Apply))
             return false;
         return TryParseSplitTuple(line[1..], ref entry);
     }

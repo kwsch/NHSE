@@ -12,7 +12,7 @@ public static class PlayerRoomConverter
     /// <returns>True if it matches any size.</returns>
     public static bool IsRoom(int size)
     {
-        return size == PlayerRoom1.SIZE || size == PlayerRoom2.SIZE;
+        return size is PlayerRoom1.SIZE or PlayerRoom2.SIZE;
     }
 
     /// <summary>
