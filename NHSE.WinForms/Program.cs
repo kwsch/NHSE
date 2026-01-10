@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace NHSE.WinForms;
@@ -13,6 +13,14 @@ internal static class Program
     {
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
+
+        var args = Environment.GetCommandLineArgs();
+        if (args.Length > 1)
+        {
+            if (args.Contains("-dark"))
+                Application.SetColorMode(SystemColorMode.Dark);
+        }
+
         Application.Run(new Main());
     }
 }

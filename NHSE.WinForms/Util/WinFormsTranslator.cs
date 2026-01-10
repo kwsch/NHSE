@@ -96,19 +96,73 @@ public static class WinFormsTranslator
                     if (string.IsNullOrWhiteSpace(z.Name))
                         break;
 
-                    if (z.ContextMenuStrip != null) // control has attached menustrip
+                    if (z.ContextMenuStrip is not null) // control has attached MenuStrip
                     {
                         foreach (var obj in GetToolStripMenuItems(z.ContextMenuStrip))
                             yield return obj;
                     }
 
+                    if (Application.IsDarkModeEnabled) // NET10
+                        ReformatDark(z);
+
                     if (z is ListControl or TextBoxBase or LinkLabel or NumericUpDown or ContainerControl)
                         break; // undesirable to modify, ignore
+
+                    if (z is DataGridView { ColumnHeadersVisible: true } dgv)
+                    {
+                        foreach (DataGridViewColumn col in dgv.Columns)
+                        {
+                            if (col.Visible && !string.IsNullOrWhiteSpace(col.HeaderText))
+                                yield return col;
+                        }
+                    }
 
                     if (!string.IsNullOrWhiteSpace(z.Text))
                         yield return z;
                     break;
             }
+        }
+    }
+
+    private static void ReformatDark(Control z)
+    {
+        if (z is TabControl tc)
+        {
+            foreach (TabPage tab in tc.TabPages)
+                tab.UseVisualStyleBackColor = false;
+        }
+        else if (z is DataGridView dg)
+        {
+            dg.EnableHeadersVisualStyles = false;
+            dg.BorderStyle = BorderStyle.None;
+        }
+        else if (z is ComboBox cb)
+        {
+            cb.FlatStyle = FlatStyle.Popup;
+        }
+        else if (z is ListBox lb)
+        {
+            lb.BorderStyle = BorderStyle.None;
+        }
+        else if (z is TextBoxBase tb)
+        {
+            tb.BorderStyle = BorderStyle.FixedSingle;
+        }
+        else if (z is NumericUpDown nud)
+        {
+            nud.BorderStyle = BorderStyle.FixedSingle;
+        }
+        else if (z is GroupBox gb)
+        {
+            gb.FlatStyle = FlatStyle.Popup;
+        }
+        else if (z is RichTextBox rtb)
+        {
+            rtb.BorderStyle = BorderStyle.None;
+        }
+        else if (z is ButtonBase b)
+        {
+            b.FlatStyle = FlatStyle.Popup;
         }
     }
 
