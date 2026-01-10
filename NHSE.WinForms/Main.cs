@@ -29,9 +29,12 @@ public partial class Main : Form
         Show();
         WindowState = FormWindowState.Normal;
 
-        var args = Environment.GetCommandLineArgs();
-        for (int i = 1; i < args.Length; i++)
-            Open(args[i]);
+        var args = Environment.GetCommandLineArgs().AsSpan();
+        foreach (var arg in args)
+        {
+            if (Directory.Exists(arg))
+                Open(arg);
+        }
     }
 
     private static void Open(HorizonSave file)
