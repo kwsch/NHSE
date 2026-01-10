@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace NHSE.Core
 {
@@ -16,7 +17,7 @@ namespace NHSE.Core
         public readonly Dictionary<string, string> VillagerMap;
         public readonly Dictionary<string, string> VillagerDefaultPhraseMap;
         public readonly List<ComboItem> ItemDataSource;
-        public readonly Dictionary<string, string> InternalNameTranslation = new();
+        public readonly Dictionary<string, string> InternalNameTranslation = [];
 
         public IReadOnlyDictionary<string, string> BodyParts { get; }
         public IReadOnlyDictionary<string, string> BodyColor { get; }
@@ -42,7 +43,7 @@ namespace NHSE.Core
             FabricColor = GetDictionary(Get("fabric_color"));
         }
 
-        private static IReadOnlyDictionary<string, string> GetDictionary(IEnumerable<string> lines, char split = '\t')
+        private static Dictionary<string, string> GetDictionary(ReadOnlySpan<string> lines, char split = '\t')
         {
             var result = new Dictionary<string, string>();
             foreach (var s in lines)
@@ -50,14 +51,14 @@ namespace NHSE.Core
                 if (s.Length == 0)
                     continue;
                 var index = s.IndexOf(split);
-                var key = s.Substring(0, index);
-                var value = s.Substring(index + 1);
+                var key = s[..index];
+                var value = s[(index + 1)..];
                 result.Add(key, value);
             }
             return result;
         }
 
-        private List<ComboItem> CreateItemDataSource(string[] strings)
+        private List<ComboItem> CreateItemDataSource(ReadOnlySpan<string> strings)
         {
             var dataSource = ComboItemUtil.GetArray(strings);
 
@@ -68,10 +69,10 @@ namespace NHSE.Core
             return dataSource;
         }
 
-        public List<ComboItem> CreateItemDataSource(IReadOnlyCollection<ushort> dict, bool none = true)
+        public List<ComboItem> CreateItemDataSource(ReadOnlySpan<ushort> dict, bool none = true)
         {
             var display = itemlistdisplay;
-            var result = new List<ComboItem>(dict.Count);
+            var result = new List<ComboItem>(dict.Length);
             foreach (var x in dict)
                 result.Add(new ComboItem(display[x], x));
 
@@ -96,34 +97,28 @@ namespace NHSE.Core
             return result;
         }
 
-        private static Dictionary<string, string> GetMap(IReadOnlyCollection<string> arr)
+        private static Dictionary<string, string> GetMap(ReadOnlySpan<string> arr)
         {
-            var map = new Dictionary<string, string>(arr.Count);
+            var map = new Dictionary<string, string>(arr.Length);
             foreach (var kvp in arr)
             {
                 var index = kvp.IndexOf('\t');
                 if (index < 0)
                     continue;
-                var abbrev = kvp.Substring(0, index);
-                var name = kvp.Substring(index + 1);
+                var abbrev = kvp[..index];
+                var name = kvp[(index + 1)..];
                 map.Add(abbrev, name);
             }
             return map;
         }
 
-        public string GetVillager(string name)
-        {
-            return VillagerMap.TryGetValue(name, out var result) ? result : name;
-        }
+        public string GetVillager(string name) => VillagerMap.GetValueOrDefault(name, name);
 
-        public string GetVillagerDefaultPhrase(string name)
-        {
-            return VillagerDefaultPhraseMap.TryGetValue(name, out var result) ? result : name; // I know it shouldn't be name but I have to return something
-        }
+        public string GetVillagerDefaultPhrase(string name) => VillagerDefaultPhraseMap.GetValueOrDefault(name, name); // I know it shouldn't be `name` but I have to return something
 
-        public static string[] GetItemDisplayList(string[] items)
+        public static string[] GetItemDisplayList(ReadOnlySpan<string> arr)
         {
-            items = (string[])items.Clone();
+            var items = arr.ToArray();
             items[0] = string.Empty;
             var set = new HashSet<string>();
             for (int i = 0; i < items.Length; i++)
@@ -131,10 +126,8 @@ namespace NHSE.Core
                 var item = items[i];
                 if (string.IsNullOrEmpty(item))
                     items[i] = $"(Item #{i:000})";
-                else if (set.Contains(item))
+                else if (!set.Add(item))
                     items[i] += $" (#{i:000})";
-                else
-                    set.Add(item);
             }
             return items;
         }
@@ -218,13 +211,12 @@ namespace NHSE.Core
             var stringMatch = GetItemName(id);
             var index = stringMatch.IndexOf('(');
             if (index < 0)
-                return new List<ComboItem>();
+                return [];
 
-            var search = baseItemName = stringMatch.Substring(0, index);
+            var search = baseItemName = stringMatch[..index];
             if (!string.IsNullOrWhiteSpace(search))
                 return ItemDataSource.FindAll(x => x.Text.StartsWith(search));
-            else
-                return new List<ComboItem>();
+            return [];
         }
 
         public bool HasAssociatedItems(string baseName, out List<ComboItem>? items)
@@ -236,11 +228,11 @@ namespace NHSE.Core
             }
 
             baseName = baseName.Trim().ToLower();
-            if (!baseName.EndsWith(" "))
+            if (!baseName.EndsWith(' '))
                 baseName += " ";
             baseName += "(";
 
-            items = ItemDataSource.FindAll(x => x.Text.ToLower().StartsWith(baseName));
+            items = ItemDataSource.FindAll(x => x.Text.StartsWith(baseName, StringComparison.CurrentCultureIgnoreCase));
             return items.Count > 0;
         }
     }

@@ -1,4 +1,4 @@
-﻿using System.Linq;
+﻿using System;
 
 namespace NHSE.Core
 {
@@ -6,8 +6,8 @@ namespace NHSE.Core
     {
         string PlayerName { get; }
         string TownName { get; }
-        byte[] GetTownIdentity();
-        byte[] GetPlayerIdentity();
+        Span<byte> GetTownIdentity();
+        Span<byte> GetPlayerIdentity();
     }
 
     public static class VillagerOriginExtensions

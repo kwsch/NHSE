@@ -26,14 +26,14 @@ namespace NHSE.Core
         public Reaction[] UIList { get; set; }
 
         /// <summary>
-        /// Flags indicating if an Reaction (at the same index?) is newly learned or not.
+        /// Flags indicating if a Reaction (at the same index?) is newly learned or not.
         /// </summary>
         [field: MarshalAs(UnmanagedType.ByValArray, ArraySubType = UnmanagedType.I1, SizeConst = MaxCount)]
         public bool[] NewFlag { get; set; }
 
         public void AddMissingReactions()
         {
-            var all = (Reaction[])Enum.GetValues(typeof(Reaction));
+            var all = Enum.GetValues<Reaction>();
             foreach (var react in all)
                 AddReaction(react);
         }
@@ -55,7 +55,7 @@ namespace NHSE.Core
             return false;
         }
 
-        private int EmptyIndex => Array.FindIndex(ManpuBit, z => z == 0);
+        private readonly int EmptyIndex => Array.FindIndex(ManpuBit, z => z == 0);
     }
 
     /// <summary>
@@ -81,14 +81,14 @@ namespace NHSE.Core
         public Reaction[] UIList { get; set; }
 
         /// <summary>
-        /// Flags indicating if an Reaction (at the same index?) is newly learned or not.
+        /// Flags indicating if a Reaction (at the same index?) is newly learned or not.
         /// </summary>
         [field: MarshalAs(UnmanagedType.ByValArray, ArraySubType = UnmanagedType.I1, SizeConst = MaxCount)]
         public bool[] NewFlag { get; set; }
 
         public void AddMissingReactions()
         {
-            var all = (Reaction[])Enum.GetValues(typeof(Reaction));
+            var all = Enum.GetValues<Reaction>();
             foreach (var react in all)
                 AddReaction(react);
         }
@@ -110,7 +110,7 @@ namespace NHSE.Core
             return false;
         }
 
-        private int EmptyIndex => Array.FindIndex(ManpuBit, z => z == 0);
+        private readonly int EmptyIndex => Array.FindIndex(ManpuBit, z => z == 0);
     }
 
     public interface IReactionStore

@@ -7,7 +7,7 @@ namespace NHSE.Core
         public new const int SIZE = 0x28A28;
         public override string Extension => "nhph2";
 
-        public PlayerHouse2(byte[] data) : base(data) { }
+        public PlayerHouse2(Memory<byte> data) : base(data) { }
 
         public override IPlayerRoom GetRoom(int roomIndex)
         {
@@ -15,7 +15,7 @@ namespace NHSE.Core
                 throw new ArgumentOutOfRangeException(nameof(roomIndex));
 
             var data = Data.Slice(RoomStart + (roomIndex * PlayerRoom2.SIZE), PlayerRoom2.SIZE);
-            return new PlayerRoom2(data);
+            return new PlayerRoom2(data.ToArray());
         }
 
         public override void SetRoom(int roomIndex, IPlayerRoom room)
@@ -23,7 +23,8 @@ namespace NHSE.Core
             if ((uint)roomIndex >= MaxRoom)
                 throw new ArgumentOutOfRangeException(nameof(roomIndex));
 
-            room.Write().CopyTo(Data, RoomStart + (roomIndex * PlayerRoom2.SIZE));
+            var dest = Data.Slice(RoomStart + (roomIndex * PlayerRoom2.SIZE), PlayerRoom2.SIZE);
+            room.Write().CopyTo(dest);
         }
 
         public new sbyte NPC1 { get => (sbyte)Data[0x289F8]; set => Data[0x289F8] = (byte)value; }
@@ -33,22 +34,22 @@ namespace NHSE.Core
 
         public new Item DoorDecoItemName
         {
-            get => Data.Slice(0x289FC, 8).ToClass<Item>();
-            set => value.ToBytesClass().CopyTo(Data, 0x289FC);
+            get => Data.Slice(0x289FC, 8).ToArray().ToClass<Item>();
+            set => value.ToBytesClass().CopyTo(Data[0x289FC..]);
         }
 
         public new bool PlayerHouseFlag { get => Data[0x28A04] != 0; set => Data[0x28A04] = (byte)(value ? 1 : 0); }
 
         public new Item PostItemName
         {
-            get => Data.Slice(0x28A08, 8).ToClass<Item>();
-            set => value.ToBytesClass().CopyTo(Data, 0x28A08);
+            get => Data.Slice(0x28A08, 8).ToArray().ToClass<Item>();
+            set => value.ToBytesClass().CopyTo(Data[0x28A08..]);
         }
 
         public new Item OrderPostItemName
         {
-            get => Data.Slice(0x28A10, 8).ToClass<Item>();
-            set => value.ToBytesClass().CopyTo(Data, 0x28A10);
+            get => Data.Slice(0x28A10, 8).ToArray().ToClass<Item>();
+            set => value.ToBytesClass().CopyTo(Data[0x28A10..]);
         }
 
         // cockroach @ 0x28A18 -- meh
@@ -56,10 +57,10 @@ namespace NHSE.Core
         public PlayerHouse1 Downgrade()
         {
             var data = new byte[PlayerHouse1.SIZE];
-            Data.Slice(0x0, 0x120).CopyTo(data, 0); // HouseLevel -> EventFlag
+            Data.Slice(0x0, 0x120).CopyTo(data); // HouseLevel -> EventFlag
             for (int i = 0; i < MaxRoom; i++)
-                ((PlayerRoom2)GetRoom(i)).Downgrade().Data.CopyTo(data, 0x120 + i * PlayerRoom1.SIZE); // RoomList
-            Data.Slice(0x289F8, 0x30).CopyTo(data, 0x263D0); // PlayerList -> Cockroach
+                ((PlayerRoom2)GetRoom(i)).Downgrade().Data.CopyTo(data.AsSpan(0x120 + (i * PlayerRoom1.SIZE))); // RoomList
+            Data.Slice(0x289F8, 0x30).CopyTo(data.AsSpan(0x263D0)); // PlayerList -> Cockroach
             return new PlayerHouse1(data);
         }
     }

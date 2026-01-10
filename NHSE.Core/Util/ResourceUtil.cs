@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Reflection;
+using System.Resources;
+using System.Threading;
 
 namespace NHSE.Core
 {
@@ -14,7 +17,7 @@ namespace NHSE.Core
         private static readonly string[] manifestResourceNames = thisAssembly.GetManifestResourceNames();
         private static readonly Dictionary<string, string> resourceNameMap = new();
         private static readonly Dictionary<string, string[]> stringListCache = new();
-        private static readonly object getStringListLoadLock = new();
+        private static readonly Lock getStringListLoadLock = new();
 
         public static string[] GetStringList(string fileName)
         {
@@ -24,7 +27,7 @@ namespace NHSE.Core
             return LoadStringList(fileName, txt);
         }
 
-        public static bool IsStringListCached(string fileName, out string[] result)
+        public static bool IsStringListCached(string fileName, [NotNullWhen(true)] out string[]? result)
         {
             lock (getStringListLoadLock) // Make sure only one thread can read the cache
                 return stringListCache.TryGetValue(fileName, out result);
@@ -33,16 +36,13 @@ namespace NHSE.Core
         public static string[] LoadStringList(string file, string? txt)
         {
             if (txt == null)
-                return Array.Empty<string>();
+                return [];
             string[] rawlist = txt.TrimEnd('\r', '\n').Split('\n');
             for (int i = 0; i < rawlist.Length; i++)
                 rawlist[i] = rawlist[i].TrimEnd('\r');
 
             lock (getStringListLoadLock) // Make sure only one thread can write to the cache
-            {
-                if (!stringListCache.ContainsKey(file)) // Check cache again in case of race condition
-                    stringListCache.Add(file, rawlist);
-            }
+                stringListCache.TryAdd(file, rawlist); // Check cache again in case of race condition
 
             return (string[])rawlist.Clone();
         }
@@ -51,9 +51,10 @@ namespace NHSE.Core
 
         public static byte[] GetBinaryResource(string name)
         {
-            using var resource = thisAssembly.GetManifestResourceStream($"NHSE.Core.Resources.byte.{name}");
+            using var resource = thisAssembly.GetManifestResourceStream($"NHSE.Core.Resources.byte.{name}")
+                                 ?? throw new MissingManifestResourceException($"Resource not found: {name}");
             var buffer = new byte[resource.Length];
-            resource.Read(buffer, 0, (int)resource.Length);
+            _ = resource.Read(buffer, 0, (int)resource.Length);
             return buffer;
         }
 

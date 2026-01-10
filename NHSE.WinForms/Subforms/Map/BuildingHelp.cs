@@ -24,8 +24,7 @@ namespace NHSE.WinForms
             var name = CB_StructureType.Text;
             var values = HelpDictionary[name];
             CB_StructureValues.Items.Clear();
-            foreach (var item in values)
-                CB_StructureValues.Items.Add(item);
+            CB_StructureValues.Items.AddRange(values);
             CB_StructureValues.SelectedIndex = 0;
         }
     }

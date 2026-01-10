@@ -11,7 +11,7 @@ namespace NHSE.Core
     {
         public static byte[] ReadCode(string paste)
         {
-            var lines = paste.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            var lines = paste.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
             return ReadCode(lines);
         }
 

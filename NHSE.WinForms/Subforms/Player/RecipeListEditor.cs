@@ -22,7 +22,7 @@ namespace NHSE.WinForms
             gotoSource.SortByText();
             CB_Goto.DisplayMember = nameof(ComboItem.Text);
             CB_Goto.ValueMember = nameof(ComboItem.Value);
-            CB_Goto.DataSource = new BindingSource(gotoSource, null);
+            CB_Goto.DataSource = new BindingSource(gotoSource, string.Empty);
         }
 
         private List<ComboItem> FillCheckBoxes()
@@ -37,7 +37,7 @@ namespace NHSE.WinForms
             return GetJumpList(max, recipes, strings, gotoSource);
         }
 
-        private void FillListBox(ushort max, IReadOnlyDictionary<ushort, ushort> recipes, string[] strings, RecipeBook book)
+        private void FillListBox(ushort max, IReadOnlyDictionary<ushort, ushort> recipes, ReadOnlySpan<string> strings, RecipeBook book)
         {
             Loading = true;
             for (ushort i = 0; i <= max; i++)
@@ -49,7 +49,7 @@ namespace NHSE.WinForms
             Loading = false;
         }
 
-        private static List<ComboItem> GetJumpList(ushort max, IReadOnlyDictionary<ushort, ushort> recipes, string[] strings, List<ComboItem> gotoSource)
+        private static List<ComboItem> GetJumpList(ushort max, IReadOnlyDictionary<ushort, ushort> recipes, ReadOnlySpan<string> strings, List<ComboItem> gotoSource)
         {
             for (ushort i = 0; i <= max; i++)
             {
@@ -61,7 +61,7 @@ namespace NHSE.WinForms
             return gotoSource;
         }
 
-        private static string GetItemName(ushort index, IReadOnlyDictionary<ushort, ushort> recipes, string[] itemNames)
+        private static string GetItemName(ushort index, IReadOnlyDictionary<ushort, ushort> recipes, ReadOnlySpan<string> itemNames)
         {
             bool exists = recipes.TryGetValue(index, out var value);
             string item = exists ? itemNames[value] : Unknown;
@@ -70,7 +70,7 @@ namespace NHSE.WinForms
             return item;
         }
 
-        private static object GetEntryText(RecipeBook recipeBook, ushort index, string item)
+        private static string GetEntryText(RecipeBook recipeBook, ushort index, string item)
         {
             var known = recipeBook.GetIsKnown(index) ? "✅" : "❌";
             return $"0x{index:X3} - {known} {item}";

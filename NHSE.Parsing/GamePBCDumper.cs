@@ -12,14 +12,12 @@ namespace NHSE.Parsing
             var files = Directory.EnumerateFiles(modelPath, "*.pbc", SearchOption.AllDirectories);
 
             const int acreSize = 32 * 32 * 4;
-            var maxAcre = Enum.GetValues(typeof(OutsideAcre)).Cast<OutsideAcre>().Max();
+            var maxAcre = Enum.GetValues<OutsideAcre>().Max();
             var result = new byte[acreSize * ((int)maxAcre + 1)];
 
             foreach (var f in files)
             {
                 var fn = Path.GetFileNameWithoutExtension(f);
-                if (fn == null)
-                    continue;
                 if (!Enum.TryParse<OutsideAcre>(fn, out var acre))
                     continue;
 

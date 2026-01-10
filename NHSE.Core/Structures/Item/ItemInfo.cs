@@ -50,7 +50,7 @@ namespace NHSE.Core
         public static bool TryGetMaxStackCount(ushort id, out ushort max)
         {
             var kind = GetItemKind(id);
-            if (kind.IsFlowerPicked())
+            if (kind.IsFlowerPicked)
                 kind = Kind_Flower;
             return MaxCountByKind.TryGetValue(kind, out max);
         }
@@ -286,7 +286,6 @@ namespace NHSE.Core
             return kind switch
             {
                 Kind_DIYRecipe => 1,
-
                 Kind_Flower => 2,
                 _ => 1,
             };
@@ -356,7 +355,7 @@ namespace NHSE.Core
                 return false;
 
             // Sanitize Values
-            if (item.ItemId == Item.MessageBottle || item.ItemId == Item.MessageBottleEgg)
+            if (item.ItemId is Item.MessageBottle or Item.MessageBottleEgg)
             {
                 item.ItemId = Item.DIYRecipe;
                 item.FreeParam = 0;

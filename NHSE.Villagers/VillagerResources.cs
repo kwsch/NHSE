@@ -26,12 +26,10 @@ namespace NHSE.Villagers
             var nv = GetResourceNameVillager(villagerName);
             var nh = GetResourceNameHouse(villagerName);
 
-            var bv = (byte[]?)ResourceManager.GetObject(nv);
-            if (bv == null)
+            if (ResourceManager.GetObject(nv) is not byte[] bv)
                 throw new ArgumentException($"Villager data not found for {villagerName} ({nv})", nameof(villagerName));
 
-            var bh = (byte[]?)ResourceManager.GetObject(nh);
-            if (bh == null)
+            if (ResourceManager.GetObject(nh) is not byte[] bh)
                 throw new ArgumentException($"House data not found for {villagerName} ({nh})", nameof(villagerName));
 
             Debug.Assert(bv.Length == Villager2.SIZE);

@@ -54,7 +54,7 @@ namespace NHSE.Core
             set => StringUtil.GetBytes(value, 10).CopyTo(Data, PersonalOffset + 0x04);
         }
 
-        public byte[] GetTownIdentity() => Data.Slice(PersonalOffset + 0x00, 4 + 20);
+        public Span<byte> GetTownIdentity() => Data.AsSpan(PersonalOffset + 0x00, 4 + 20);
 
         public uint PlayerID
         {
@@ -68,7 +68,7 @@ namespace NHSE.Core
             set => StringUtil.GetBytes(value, 10).CopyTo(Data, PersonalOffset + 0x20);
         }
 
-        public byte[] GetPlayerIdentity() => Data.Slice(PersonalOffset + 0x1C, 4 + 20);
+        public Span<byte> GetPlayerIdentity() => Data.AsSpan(PersonalOffset + 0x1C, 4 + 20);
 
         public void SetPixelAtIndex(int sheet, int index, int value)
         {

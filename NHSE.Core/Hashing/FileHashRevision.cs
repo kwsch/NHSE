@@ -20,10 +20,8 @@
         internal const int REV_100_PHOTO = 0x263B4;
         internal const int REV_100_PROFILE = 0x69508;
 
-        public static readonly FileHashInfo REV_100 = new(new FileHashDetails[]
-        {
-            new(FN_MAIN, REV_100_MAIN, new FileHashRegion[]
-            {
+        public static readonly FileHashInfo REV_100 = new([
+            new(FN_MAIN, REV_100_MAIN, [
                 new(0x000108, 0x1D6D4C),
                 new(0x1D6E58, 0x323384),
                 new(0x4FA2E8, 0x035AC4),
@@ -43,25 +41,21 @@
                 new(0x7EC918, 0x035AC4),
                 new(0x8223E0, 0x03607C),
                 new(0x858460, 0x2684D4)
-            }),
-            new(FN_PERSONAL, REV_100_PERSONAL, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PERSONAL, REV_100_PERSONAL, [
                 new(0x00108, 0x35AC4),
                 new(0x35BD0, 0x3607C)
-            }),
-            new(FN_POSTBOX, REV_100_POSTBOX, new FileHashRegion[]
-            {
+            ]),
+            new(FN_POSTBOX, REV_100_POSTBOX, [
                 new(0x000100, 0xB4447C)
-            }),
-            new(FN_PHOTO, REV_100_PHOTO, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PHOTO, REV_100_PHOTO, [
                 new(0x000100, 0x262B0)
-            }),
-            new(FN_PROFILE, REV_100_PROFILE, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PROFILE, REV_100_PROFILE, [
                 new(0x000100, 0x69404)
-            }),
-        });
+            ])
+        ]);
 
         #endregion
 
@@ -73,10 +67,8 @@
         internal const int REV_110_PHOTO = 0x263C0;
         internal const int REV_110_PROFILE = 0x69560;
 
-        public static readonly FileHashInfo REV_110 = new(new FileHashDetails[]
-        {
-            new(FN_MAIN, REV_110_MAIN, new FileHashRegion[]
-            {
+        public static readonly FileHashInfo REV_110 = new([
+            new(FN_MAIN, REV_110_MAIN, [
                 new(0x000110, 0x1D6D5C),
                 new(0x1D6E70, 0x323C0C),
                 new(0x4FAB90, 0x035AFC),
@@ -96,25 +88,21 @@
                 new(0x7EE340, 0x035AFC),
                 new(0x823E40, 0x0362BC),
                 new(0x85A100, 0x26899C)
-            }),
-            new(FN_PERSONAL, REV_110_PERSONAL, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PERSONAL, REV_110_PERSONAL, [
                 new(0x00110, 0x35AFC),
                 new(0x35C10, 0x362BC)
-            }),
-            new(FN_POSTBOX, REV_110_POSTBOX, new FileHashRegion[]
-            {
+            ]),
+            new(FN_POSTBOX, REV_110_POSTBOX, [
                 new(0x000100, 0xB4448C)
-            }),
-            new(FN_PHOTO, REV_110_PHOTO, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PHOTO, REV_110_PHOTO, [
                 new(0x000100, 0x262BC)
-            }),
-            new(FN_PROFILE, REV_110_PROFILE, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PROFILE, REV_110_PROFILE, [
                 new(0x000100, 0x6945C)
-            }),
-        });
+            ])
+        ]);
 
         #endregion
 
@@ -126,10 +114,8 @@
         internal const int REV_120_PHOTO = 0x2C9C0;
         internal const int REV_120_PROFILE = REV_110_PROFILE;
 
-        public static readonly FileHashInfo REV_120 = new(new FileHashDetails[]
-        {
-            new(FN_MAIN, REV_120_MAIN, new FileHashRegion[]
-            {
+        public static readonly FileHashInfo REV_120 = new([
+            new(FN_MAIN, REV_120_MAIN, [
                 new(0x000110, 0x1D6D5C),
                 new(0x1D6E70, 0x323EBC),
                 new(0x4FAE40, 0x035D2C),
@@ -149,25 +135,21 @@
                 new(0x7F8D80, 0x035D2C),
                 new(0x82EAB0, 0x03787C),
                 new(0x866330, 0x26899C)
-            }),
-            new(FN_PERSONAL, REV_120_PERSONAL, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PERSONAL, REV_120_PERSONAL, [
                 new(0x00110, 0x35D2C),
                 new(0x35E40, 0x3787C)
-            }),
-            new(FN_POSTBOX, REV_120_POSTBOX, new FileHashRegion[]
-            {
+            ]),
+            new(FN_POSTBOX, REV_120_POSTBOX, [
                 new(0x000100, 0xB4448C)
-            }),
-            new(FN_PHOTO, REV_120_PHOTO, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PHOTO, REV_120_PHOTO, [
                 new(0x000100, 0x2C8BC)
-            }),
-            new(FN_PROFILE, REV_120_PROFILE, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PROFILE, REV_120_PROFILE, [
                 new(0x000100, 0x6945C)
-            }),
-        });
+            ])
+        ]);
 
         #endregion
 
@@ -179,10 +161,8 @@
         internal const int REV_130_PHOTO = REV_120_PHOTO;
         internal const int REV_130_PROFILE = REV_110_PROFILE;
 
-        public static readonly FileHashInfo REV_130 = new(new FileHashDetails[]
-        {
-            new(FN_MAIN, REV_130_MAIN, new FileHashRegion[]
-            {
+        public static readonly FileHashInfo REV_130 = new([
+            new(FN_MAIN, REV_130_MAIN, [
                 new(0x000110, 0x1D6D5C),
                 new(0x1D6E70, 0x323EEC),
                 new(0x4FAE70, 0x035D2C),
@@ -202,25 +182,21 @@
                 new(0x7F8E20, 0x035D2C),
                 new(0x82EB50, 0x03788C),
                 new(0x8663E0, 0x26899C)
-            }),
-            new(FN_PERSONAL, REV_130_PERSONAL, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PERSONAL, REV_130_PERSONAL, [
                 new(0x00110, 0x35D2C),
                 new(0x35E40, 0x3788C)
-            }),
-            new(FN_POSTBOX, REV_130_POSTBOX, new FileHashRegion[]
-            {
+            ]),
+            new(FN_POSTBOX, REV_130_POSTBOX, [
                 new(0x000100, 0xB4448C)
-            }),
-            new(FN_PHOTO, REV_130_PHOTO, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PHOTO, REV_130_PHOTO, [
                 new(0x000100, 0x2C8BC)
-            }),
-            new(FN_PROFILE, REV_130_PROFILE, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PROFILE, REV_130_PROFILE, [
                 new(0x000100, 0x6945C)
-            }),
-        });
+            ])
+        ]);
 
         #endregion
 
@@ -232,10 +208,8 @@
         internal const int REV_140_PHOTO = REV_120_PHOTO;
         internal const int REV_140_PROFILE = REV_110_PROFILE;
 
-        public static readonly FileHashInfo REV_140 = new(new FileHashDetails[]
-        {
-            new(FN_MAIN, REV_140_MAIN, new FileHashRegion[]
-            {
+        public static readonly FileHashInfo REV_140 = new([
+            new(FN_MAIN, REV_140_MAIN, [
                 new(0x000110, 0x1d6d5c),
                 new(0x1d6e70, 0x323f2c),
                 new(0x4faeb0, 0x035d2c),
@@ -255,25 +229,21 @@
                 new(0x828b90, 0x035d2c),
                 new(0x85e8c0, 0x03e5dc),
                 new(0x89cea0, 0x2688ec)
-            }),
-            new(FN_PERSONAL, REV_140_PERSONAL, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PERSONAL, REV_140_PERSONAL, [
                 new(0x00110, 0x35D2C),
                 new(0x35E40, 0x3E5DC)
-            }),
-            new(FN_POSTBOX, REV_140_POSTBOX, new FileHashRegion[]
-            {
+            ]),
+            new(FN_POSTBOX, REV_140_POSTBOX, [
                 new(0x000100, 0xB4448C)
-            }),
-            new(FN_PHOTO, REV_140_PHOTO, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PHOTO, REV_140_PHOTO, [
                 new(0x000100, 0x2C8BC)
-            }),
-            new(FN_PROFILE, REV_140_PROFILE, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PROFILE, REV_140_PROFILE, [
                 new(0x000100, 0x6945C)
-            }),
-        });
+            ])
+        ]);
 
         #endregion
 
@@ -285,10 +255,8 @@
         internal const int REV_150_PHOTO = REV_120_PHOTO;
         internal const int REV_150_PROFILE = REV_110_PROFILE;
 
-        public static readonly FileHashInfo REV_150 = new(new FileHashDetails[]
-        {
-            new(FN_MAIN, REV_150_MAIN, new FileHashRegion[]
-            {
+        public static readonly FileHashInfo REV_150 = new([
+            new(FN_MAIN, REV_150_MAIN, [
                 new(0x000110, 0x1e215c),
                 new(0x1e2270, 0x323f6c),
                 new(0x5062f0, 0x03693c),
@@ -308,25 +276,21 @@
                 new(0x841be0, 0x03693c),
                 new(0x878520, 0x03f93c),
                 new(0x8b7e60, 0x2688ec)
-            }),
-            new(FN_PERSONAL, REV_150_PERSONAL, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PERSONAL, REV_150_PERSONAL, [
                 new(0x00110, 0x3693c),
                 new(0x36a50, 0x3f93c)
-            }),
-            new(FN_POSTBOX, REV_150_POSTBOX, new FileHashRegion[]
-            {
+            ]),
+            new(FN_POSTBOX, REV_150_POSTBOX, [
                 new(0x000100, 0xB4448C)
-            }),
-            new(FN_PHOTO, REV_150_PHOTO, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PHOTO, REV_150_PHOTO, [
                 new(0x000100, 0x2C8BC)
-            }),
-            new(FN_PROFILE, REV_150_PROFILE, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PROFILE, REV_150_PROFILE, [
                 new(0x000100, 0x6945C)
-            }),
-        });
+            ])
+        ]);
 
         #endregion
 
@@ -338,10 +302,8 @@
         internal const int REV_160_PHOTO = REV_120_PHOTO;
         internal const int REV_160_PROFILE = REV_110_PROFILE;
 
-        public static readonly FileHashInfo REV_160 = new(new FileHashDetails[]
-        {
-            new(FN_MAIN, REV_160_MAIN, new FileHashRegion[]
-            {
+        public static readonly FileHashInfo REV_160 = new([
+            new(FN_MAIN, REV_160_MAIN, [
                 new(0x000110, 0x1e215c),
                 new(0x1e2270, 0x32403c),
                 new(0x5063c0, 0x03693c),
@@ -361,25 +323,21 @@
                 new(0x845e50, 0x03693c),
                 new(0x87c790, 0x04029c),
                 new(0x8bca30, 0x268eac)
-            }),
-            new(FN_PERSONAL, REV_160_PERSONAL, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PERSONAL, REV_160_PERSONAL, [
                 new(0x00110, 0x3693c),
                 new(0x36a50, 0x4029c)
-            }),
-            new(FN_POSTBOX, REV_160_POSTBOX, new FileHashRegion[]
-            {
+            ]),
+            new(FN_POSTBOX, REV_160_POSTBOX, [
                 new(0x000100, 0xB4448C)
-            }),
-            new(FN_PHOTO, REV_160_PHOTO, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PHOTO, REV_160_PHOTO, [
                 new(0x000100, 0x2C8BC)
-            }),
-            new(FN_PROFILE, REV_160_PROFILE, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PROFILE, REV_160_PROFILE, [
                 new(0x000100, 0x6945C)
-            }),
-        });
+            ])
+        ]);
 
         #endregion
 
@@ -391,10 +349,8 @@
         internal const int REV_170_PHOTO = REV_120_PHOTO;
         internal const int REV_170_PROFILE = REV_110_PROFILE;
 
-        public static readonly FileHashInfo REV_170 = new(new FileHashDetails[]
-        {
-            new(FN_MAIN, REV_170_MAIN, new FileHashRegion[]
-            {
+        public static readonly FileHashInfo REV_170 = new([
+            new(FN_MAIN, REV_170_MAIN, [
                 new(0x000110, 0x1e215c),
                 new(0x1e2270, 0x3221fc),
                 new(0x504580, 0x03693c),
@@ -413,26 +369,22 @@
                 new(0x793640, 0x02d6ec),
                 new(0x7c0e40, 0x03693c),
                 new(0x7f7780, 0x02d6ec),
-                new(0x824e70, 0x024dbc),
-            }),
-            new(FN_PERSONAL, REV_170_PERSONAL, new FileHashRegion[]
-            {
+                new(0x824e70, 0x024dbc)
+            ]),
+            new(FN_PERSONAL, REV_170_PERSONAL, [
                 new(0x00110, 0x3693c),
-                new(0x36a50, 0x2d6ec),
-            }),
-            new(FN_POSTBOX, REV_170_POSTBOX, new FileHashRegion[]
-            {
+                new(0x36a50, 0x2d6ec)
+            ]),
+            new(FN_POSTBOX, REV_170_POSTBOX, [
                 new(0x000100, 0x4732c)
-            }),
-            new(FN_PHOTO, REV_170_PHOTO, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PHOTO, REV_170_PHOTO, [
                 new(0x000100, 0x2C8BC)
-            }),
-            new(FN_PROFILE, REV_170_PROFILE, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PROFILE, REV_170_PROFILE, [
                 new(0x000100, 0x6945C)
-            }),
-        });
+            ])
+        ]);
 
         #endregion
 
@@ -456,10 +408,8 @@
         internal const int REV_190_PHOTO = REV_120_PHOTO;
         internal const int REV_190_PROFILE = REV_110_PROFILE;
 
-        public static readonly FileHashInfo REV_190 = new(new FileHashDetails[]
-        {
-            new(FN_MAIN, REV_190_MAIN, new FileHashRegion[]
-            {
+        public static readonly FileHashInfo REV_190 = new([
+            new(FN_MAIN, REV_190_MAIN, [
                 new(0x000110, 0x1e215c),
                 new(0x1e2270, 0x34582c),
                 new(0x527bb0, 0x03693c),
@@ -478,26 +428,22 @@
                 new(0x7b6d30, 0x02d70c),
                 new(0x7e4550, 0x03693c),
                 new(0x81ae90, 0x02d70c),
-                new(0x8485a0, 0x024fbc),
-            }),
-            new(FN_PERSONAL, REV_190_PERSONAL, new FileHashRegion[]
-            {
+                new(0x8485a0, 0x024fbc)
+            ]),
+            new(FN_PERSONAL, REV_190_PERSONAL, [
                 new(0x00110, 0x3693c),
-                new(0x36a50, 0x2d70c),
-            }),
-            new(FN_POSTBOX, REV_190_POSTBOX, new FileHashRegion[]
-            {
+                new(0x36a50, 0x2d70c)
+            ]),
+            new(FN_POSTBOX, REV_190_POSTBOX, [
                 new(0x000100, 0x4732c)
-            }),
-            new(FN_PHOTO, REV_190_PHOTO, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PHOTO, REV_190_PHOTO, [
                 new(0x000100, 0x2C8BC)
-            }),
-            new(FN_PROFILE, REV_190_PROFILE, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PROFILE, REV_190_PROFILE, [
                 new(0x000100, 0x6945C)
-            }),
-        });
+            ])
+        ]);
 
         #endregion
 
@@ -509,10 +455,8 @@
         internal const int REV_1100_PHOTO = 0x2C9D0;
         internal const int REV_1100_PROFILE = REV_110_PROFILE;
 
-        public static readonly FileHashInfo REV_1100 = new(new FileHashDetails[]
-        {
-            new(FN_MAIN, REV_1100_MAIN, new FileHashRegion[]
-            {
+        public static readonly FileHashInfo REV_1100 = new([
+            new(FN_MAIN, REV_1100_MAIN, [
                 new(0x000110, 0x1e216c),
                 new(0x1e2280, 0x34582c),
                 new(0x527bc0, 0x03693c),
@@ -531,26 +475,22 @@
                 new(0x7b6d40, 0x02d70c),
                 new(0x7e4560, 0x03693c),
                 new(0x81aea0, 0x02d70c),
-                new(0x8485b0, 0x024fbc),
-            }),
-            new(FN_PERSONAL, REV_1100_PERSONAL, new FileHashRegion[]
-            {
+                new(0x8485b0, 0x024fbc)
+            ]),
+            new(FN_PERSONAL, REV_1100_PERSONAL, [
                 new(0x00110, 0x3693c),
-                new(0x36a50, 0x2d70c),
-            }),
-            new(FN_POSTBOX, REV_1100_POSTBOX, new FileHashRegion[]
-            {
+                new(0x36a50, 0x2d70c)
+            ]),
+            new(FN_POSTBOX, REV_1100_POSTBOX, [
                 new(0x000100, 0x4732c)
-            }),
-            new(FN_PHOTO, REV_1100_PHOTO, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PHOTO, REV_1100_PHOTO, [
                 new(0x000100, 0x2c8cc)
-            }),
-            new(FN_PROFILE, REV_1100_PROFILE, new FileHashRegion[]
-            {
+            ]),
+            new(FN_PROFILE, REV_1100_PROFILE, [
                 new(0x000100, 0x6945C)
-            }),
-        });
+            ])
+        ]);
 
         #endregion
 
@@ -575,10 +515,8 @@
         internal const int REV_200_PROFILE = REV_110_PROFILE;
         internal const int REV_200_WHEREAREN = 0xB8A4E0;
 
-        public static readonly FileHashInfo REV_200 = new(new FileHashDetails[]
-        {
-            new(FN_MAIN, REV_200_MAIN, new FileHashRegion[]
-            {
+        public static readonly FileHashInfo REV_200 = new([
+            new(FN_MAIN, REV_200_MAIN, [
                 new(0x000110, 0x1e339c),
                 new(0x1e34b0, 0x36406c),
                 new(0x547630, 0x03693c),
@@ -597,30 +535,25 @@
                 new(0x7fbe30, 0x033acc),
                 new(0x82fa10, 0x03693c),
                 new(0x866350, 0x033acc),
-                new(0x899e20, 0x057d8c),
-            }),
-            new(FN_PERSONAL, REV_200_PERSONAL, new FileHashRegion[]
-            {
+                new(0x899e20, 0x057d8c)
+            ]),
+            new(FN_PERSONAL, REV_200_PERSONAL, [
                 new(0x00110, 0x3693c),
-                new(0x36a50, 0x33acc),
-            }),
-            new(FN_POSTBOX, REV_200_POSTBOX, new FileHashRegion[]
-            {
-                new(0x100, 0x4732c),
-            }),
-            new(FN_PHOTO, REV_200_PHOTO, new FileHashRegion[]
-            {
-                new(0x100, 0x2f54c),
-            }),
-            new(FN_PROFILE, REV_200_PROFILE, new FileHashRegion[]
-            {
-                new(0x100, 0x6945c),
-            }),
-            new(FN_WHEREAREN, REV_200_WHEREAREN, new FileHashRegion[]
-            {
-                new(0x100, 0xB8A3DC),
-            }),
-        } );
+                new(0x36a50, 0x33acc)
+            ]),
+            new(FN_POSTBOX, REV_200_POSTBOX, [
+                new(0x100, 0x4732c)
+            ]),
+            new(FN_PHOTO, REV_200_PHOTO, [
+                new(0x100, 0x2f54c)
+            ]),
+            new(FN_PROFILE, REV_200_PROFILE, [
+                new(0x100, 0x6945c)
+            ]),
+            new(FN_WHEREAREN, REV_200_WHEREAREN, [
+                new(0x100, 0xB8A3DC)
+            ])
+        ]);
 
         #endregion
     }

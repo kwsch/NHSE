@@ -13,7 +13,7 @@ namespace NHSE.Core
         /// Unique save file size list by patch.
         /// </summary>
         private static readonly SaveFileSizes[] SizesByRevision =
-        {
+        [
             new(REV_100_MAIN, REV_100_PERSONAL, REV_100_PHOTO, REV_100_POSTBOX, REV_100_PROFILE), // 1.0.0
             new(REV_110_MAIN, REV_110_PERSONAL, REV_110_PHOTO, REV_110_POSTBOX, REV_110_PROFILE), // 1.1.0
             new(REV_120_MAIN, REV_120_PERSONAL, REV_120_PHOTO, REV_120_POSTBOX, REV_120_PROFILE), // 1.2.0
@@ -26,11 +26,11 @@ namespace NHSE.Core
             new(REV_190_MAIN, REV_190_PERSONAL, REV_190_PHOTO, REV_190_POSTBOX, REV_190_PROFILE), // 1.9.0
             new(REV_1100_MAIN,REV_1100_PERSONAL,REV_1100_PHOTO,REV_1100_POSTBOX,REV_1100_PROFILE),// 1.10.0
             new(REV_1110_MAIN,REV_1110_PERSONAL,REV_1110_PHOTO,REV_1110_POSTBOX,REV_1110_PROFILE),// 1.11.0
-            new(REV_200_MAIN, REV_200_PERSONAL, REV_200_PHOTO, REV_200_POSTBOX, REV_200_PROFILE, REV_200_WHEREAREN), // 2.0.0
-        };
+            new(REV_200_MAIN, REV_200_PERSONAL, REV_200_PHOTO, REV_200_POSTBOX, REV_200_PROFILE, REV_200_WHEREAREN) // 2.0.0
+        ];
 
         private static readonly FileHeaderInfo[] RevisionInfo =
-        {
+        [
             new() { Major = 0x00067, Minor = 0x0006F, HeaderRevision = 0, Unk1 = 2, SaveRevision = 00, Unk2 = 2 }, // 1.0.0
             new() { Major = 0x0006D, Minor = 0x00078, HeaderRevision = 0, Unk1 = 2, SaveRevision = 01, Unk2 = 2 }, // 1.1.0
             new() { Major = 0x0006D, Minor = 0x00078, HeaderRevision = 0, Unk1 = 2, SaveRevision = 02, Unk2 = 2 }, // 1.1.1
@@ -61,11 +61,11 @@ namespace NHSE.Core
             new() { Major = 0x80009, Minor = 0x80085, HeaderRevision = 0, Unk1 = 2, SaveRevision = 27, Unk2 = 2 }, // 2.0.5
             new() { Major = 0x80009, Minor = 0x80085, HeaderRevision = 0, Unk1 = 2, SaveRevision = 28, Unk2 = 2 }, // 2.0.6
             new() { Major = 0x80009, Minor = 0x80085, HeaderRevision = 0, Unk1 = 2, SaveRevision = 29, Unk2 = 2 }, // 2.0.7
-            new() { Major = 0x80009, Minor = 0x80085, HeaderRevision = 0, Unk1 = 2, SaveRevision = 30, Unk2 = 2 }, // 2.0.8
-        };
+            new() { Major = 0x80009, Minor = 0x80085, HeaderRevision = 0, Unk1 = 2, SaveRevision = 30, Unk2 = 2 } // 2.0.8
+        ];
 
-        public static readonly IReadOnlyList<SaveFileSizes> SizeInfo = new[]
-        {
+        public static readonly IReadOnlyList<SaveFileSizes> SizeInfo =
+        [
             SizesByRevision[0], // 1.0.0
             SizesByRevision[1], // 1.1.0
             SizesByRevision[1], // 1.1.1
@@ -96,11 +96,11 @@ namespace NHSE.Core
             SizesByRevision[12], // 2.0.5
             SizesByRevision[12], // 2.0.6
             SizesByRevision[12], // 2.0.7
-            SizesByRevision[12], // 2.0.8
-        };
+            SizesByRevision[12] // 2.0.8
+        ];
 
-        public static readonly IReadOnlyList<FileHashInfo> HashInfo = new[]
-        {
+        public static readonly IReadOnlyList<FileHashInfo> HashInfo =
+        [
             REV_100, // 1.0.0
             REV_110, // 1.1.0
             REV_110, // 1.1.1
@@ -131,10 +131,13 @@ namespace NHSE.Core
             REV_200, // 2.0.5
             REV_200, // 2.0.6
             REV_200, // 2.0.7
-            REV_200, // 2.0.8
-        };
+            REV_200 // 2.0.8
+        ];
 
-        public static bool IsRevisionKnown(this FileHeaderInfo info) => info.GetKnownRevisionIndex() >= 0;
-        public static int GetKnownRevisionIndex(this FileHeaderInfo info) => Array.FindIndex(RevisionInfo, z => z.Equals(info));
+        extension(FileHeaderInfo info)
+        {
+            public bool IsRevisionKnown() => info.GetKnownRevisionIndex() >= 0;
+            public int GetKnownRevisionIndex() => Array.FindIndex(RevisionInfo, z => z.Equals(info));
+        }
     }
 }

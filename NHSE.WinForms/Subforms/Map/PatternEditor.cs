@@ -74,11 +74,9 @@ namespace NHSE.WinForms
 
             var original = Patterns[Index];
             var name = original.DesignName;
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Design Pattern (*.nhd)|*.nhd|All files (*.*)|*.*",
-                FileName = $"{name}.nhd",
-            };
+            using var sfd = new SaveFileDialog();
+            sfd.Filter = "New Horizons Design Pattern (*.nhd)|*.nhd|All files (*.*)|*.*";
+            sfd.FileName = $"{name}.nhd";
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
@@ -106,11 +104,9 @@ namespace NHSE.WinForms
 
             var original = Patterns[Index];
             var name = original.DesignName;
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Design Pattern (*.nhd)|*.nhd|All files (*.*)|*.*",
-                FileName = $"{name}.nhd",
-            };
+            using var ofd = new OpenFileDialog();
+            ofd.Filter = "New Horizons Design Pattern (*.nhd)|*.nhd|All files (*.*)|*.*";
+            ofd.FileName = $"{name}.nhd";
             if (ofd.ShowDialog() != DialogResult.OK)
                 return;
 
@@ -164,19 +160,16 @@ namespace NHSE.WinForms
 
         private void Menu_SavePNG_Click(object sender, EventArgs e)
         {
-            var pb = WinFormsUtil.GetUnderlyingControl<PictureBox>(sender);
-            if (pb?.Image == null)
+            if (!WinFormsUtil.TryGetUnderlying<PictureBox>(sender, out var pb) || pb.Image is null)
             {
                 WinFormsUtil.Alert(MessageStrings.MsgNoPictureLoaded);
                 return;
             }
 
             var name = Patterns[Index].DesignName;
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "png file (*.png)|*.png|All files (*.*)|*.*",
-                FileName = $"{name}.png",
-            };
+            using var sfd = new SaveFileDialog();
+            sfd.Filter = "png file (*.png)|*.png|All files (*.*)|*.*";
+            sfd.FileName = $"{name}.png";
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 

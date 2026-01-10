@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
 
@@ -34,11 +35,11 @@ namespace NHSE.WinForms
             FillRemake(items);
         }
 
-        private void FillCollect(IReadOnlyList<string> items)
+        private void FillCollect(ReadOnlySpan<string> items)
         {
             var ofs = Player.Personal.Offsets.ItemCollectBit;
             var data = Player.Personal.Data;
-            for (int i = 0; i < items.Count; i++)
+            for (int i = 0; i < items.Length; i++)
             {
                 var flag = FlagUtil.GetFlag(data, ofs, i);
                 string value = items[i];
@@ -47,7 +48,7 @@ namespace NHSE.WinForms
             }
         }
 
-        private void FillRemake(IReadOnlyList<string> items)
+        private void FillRemake(ReadOnlySpan<string> items)
         {
             var str = GameInfo.Strings;
             var invert = ItemRemakeUtil.GetInvertedDictionary();
@@ -59,7 +60,7 @@ namespace NHSE.WinForms
                 var remakeIndex = i >> 3; // ItemRemakeInfo.BodyColorCountMax
                 var variant = i & 7;
 
-                ushort itemId = invert.TryGetValue((short)remakeIndex, out var id) ? id : (ushort)0;
+                ushort itemId = invert.GetValueOrDefault((short)remakeIndex, (ushort)0);
                 var itemName = remakeIndex == 0652 ? "photo" : items[itemId];
 
                 var flag = FlagUtil.GetFlag(data, ofs, i);
@@ -72,14 +73,14 @@ namespace NHSE.WinForms
             }
         }
 
-        public void GiveAll(IReadOnlyList<ushort> indexes, bool value = true)
+        public void GiveAll(ReadOnlySpan<ushort> indexes, bool value = true)
         {
             foreach (var item in indexes)
                 GiveItem(item, value, CB_VariantBodiesOnly.Checked);
             System.Media.SystemSounds.Asterisk.Play();
         }
 
-        private void GiveEverything(IReadOnlyList<string> items, bool value = true)
+        private void GiveEverything(ReadOnlySpan<string> items, bool value = true)
         {
             if (!value)
             {
@@ -100,13 +101,16 @@ namespace NHSE.WinForms
             System.Media.SystemSounds.Asterisk.Play();
         }
 
-        private void GiveAllFurniture(IReadOnlyList<string> items, bool value = true)
+        private void GiveAllFurniture(ReadOnlySpan<string> items, bool value = true)
         {
-            var skip = new HashSet<ushort>(GameLists.NoCheckReceived);
-            skip.UnionWith(GameLists.Bugs);
-            skip.UnionWith(GameLists.Fish);
-            skip.UnionWith(GameLists.Art);
-            skip.UnionWith(GameLists.Dive);
+            var skip = new List<ushort>();
+            skip.AddRange(GameLists.NoCheckReceived);
+            skip.AddRange(GameLists.Bugs);
+            skip.AddRange(GameLists.Fish);
+            skip.AddRange(GameLists.Art);
+            skip.AddRange(GameLists.Dive);
+
+            skip = skip.Distinct().ToList();
 
             for (ushort i = 1; i < CLB_Items.Items.Count; i++)
             {

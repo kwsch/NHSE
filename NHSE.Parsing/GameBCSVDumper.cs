@@ -56,7 +56,7 @@ namespace NHSE.Parsing
                 Console.WriteLine($"Created {fn}");
             }
 
-            void DumpD<T, S>(string fn, Dictionary<T, S> dict, string dir = "text")
+            void DumpD<T, S>(string fn, Dictionary<T, S> dict, string dir = "text") where T : notnull
             {
                 Directory.CreateDirectory(Path.Combine(dest, dir));
                 var lines = dict.Select(z => $"{{{z.Key}, {z.Value:00000}}},");
@@ -109,7 +109,7 @@ namespace NHSE.Parsing
             BCSVConverter.DumpAll(pathBCSV, dest, delim);
         }
 
-        private static IEnumerable<string> GetPossibleEnumValues(string pathBCSV, string fn, uint key)
+        private static HashSet<string> GetPossibleEnumValues(string pathBCSV, string fn, uint key)
         {
             var path = Path.Combine(pathBCSV, fn);
             var data = File.ReadAllBytes(path);
@@ -122,14 +122,13 @@ namespace NHSE.Parsing
             for (int i = 0; i < bcsv.EntryCount; i++)
             {
                 var type = bcsv.ReadValue(i, fType).TrimEnd('\0');
-                if (!types.Contains(type))
-                    types.Add(type);
+                types.Add(type);
             }
 
             return types;
         }
 
-        private static IEnumerable<string> GetNumberedEnumValues(string pathBCSV, string fn, uint keyName, uint keyValue)
+        private static List<string> GetNumberedEnumValues(string pathBCSV, string fn, uint keyName, uint keyValue)
         {
             var path = Path.Combine(pathBCSV, fn);
             var data = File.ReadAllBytes(path);
@@ -166,7 +165,7 @@ namespace NHSE.Parsing
         private static IEnumerable<string> GetPossibleEnum(string pathBCSV, string fn, uint key)
         {
             var kinds = GetPossibleEnumValues(pathBCSV, fn, key);
-            var ordered = kinds.OrderBy(z => z);
+            var ordered = kinds.Order();
             return ordered.Select(z => $"{z},");
         }
 
@@ -250,8 +249,8 @@ namespace NHSE.Parsing
             // clothing is split out more granularly in ItemKind and would cause errors
             // since it's not likely to ever be stackable, we can skip
             // none-type can be skipped and doesn't exist in ItemKind either
-            List<string> skipLabels = new()
-            {
+            List<string> skipLabels =
+            [
                 "TopsDefault",
                 "Tops",
                 "OnePiece",
@@ -260,7 +259,7 @@ namespace NHSE.Parsing
                 "Bottoms",
                 "Shoes",
                 "None"
-            };
+            ];
 
             var result = new Dictionary<ItemKind, ushort>();
             for (int i = 0; i < bcsv.EntryCount; i++)
@@ -339,7 +338,7 @@ namespace NHSE.Parsing
             var fs = dict[0x87BF00E8];
             var fc = dict[0x977ADFCE];
 
-            string[] result = new string[bcsv.EntryCount];
+            var result = new string[bcsv.EntryCount];
 
             const string prefix = nameof(ItemSizeType) + "." + ItemSizeExtensions.EnumPrefix;
             for (int i = 0; i < bcsv.EntryCount; i++)
@@ -403,7 +402,7 @@ namespace NHSE.Parsing
             var result = new List<string>();
             for (int i = 0; i < bcsv.EntryCount; i++)
             {
-                int readHex(BCSVFieldParam p) => int.Parse(bcsv.ReadValue(i, p).Substring(2), NumberStyles.HexNumber);
+                int readHex(BCSVFieldParam p) => int.Parse(bcsv.ReadValue(i, p)[2..], NumberStyles.HexNumber);
 
                 var iid = bcsv.ReadValue(i, findex);
                 var index = ushort.Parse(iid);
@@ -426,7 +425,7 @@ namespace NHSE.Parsing
 
                 var values = $"{max}, {t1:0000}, {t2:0000}, {t3:0000}, {t4:0000}, {t5:0000}";
 
-                var v = $"new {nameof(LifeSupportAchievement)}({index:000}, {values}, {land,3}, {player,3}, {paddedName})";
+                var v = $"new({index:000}, {values}, {land,3}, {player,3}, {paddedName})";
                 var kvp = $"{{0x{index:X2}, {v}}}, // {comment}";
                 result.Add(kvp);
             }
@@ -479,7 +478,7 @@ namespace NHSE.Parsing
             return fossils.Select(z => $"{z:00000}, // {items[z]}");
         }
 
-        private static IEnumerable<ushort> GetItemList(string pathBCSV, string fn, uint keyItemIDColumn)
+        private static List<ushort> GetItemList(string pathBCSV, string fn, uint keyItemIDColumn)
         {
             var bcsv = BCSVConverter.GetBCSV(pathBCSV, fn);
             var dict = bcsv.GetFieldDictionary();
@@ -497,7 +496,7 @@ namespace NHSE.Parsing
             return result;
         }
 
-        private static IEnumerable<string> GetAcreNames(string pathBCSV, string fn = "FieldOutsideParts.bcsv")
+        private static List<string> GetAcreNames(string pathBCSV, string fn = "FieldOutsideParts.bcsv")
         {
             var bcsv = BCSVConverter.GetBCSV(pathBCSV, fn);
             var dict = bcsv.GetFieldDictionary();
@@ -520,7 +519,7 @@ namespace NHSE.Parsing
             return result;
         }
 
-        private static IEnumerable<string> GetPlantedNames(string pathBCSV, string fn = "FgMainParam.bcsv")
+        private static List<string> GetPlantedNames(string pathBCSV, string fn = "FgMainParam.bcsv")
         {
             var bcsv = BCSVConverter.GetBCSV(pathBCSV, fn);
             var dict = bcsv.GetFieldDictionary();
@@ -561,7 +560,7 @@ namespace NHSE.Parsing
             return result;
         }
 
-        private static IEnumerable<string> GetEventFlagNames(string pathBCSV, string fn = "EventFlagsPlayerParam.bcsv")
+        private static List<string> GetEventFlagNames(string pathBCSV, string fn = "EventFlagsPlayerParam.bcsv")
         {
             var bcsv = BCSVConverter.GetBCSV(pathBCSV, fn);
             var dict = bcsv.GetFieldDictionary();
@@ -574,10 +573,10 @@ namespace NHSE.Parsing
             var result = new List<string>();
             for (int i = 0; i < bcsv.EntryCount; i++)
             {
-                var iv1 = bcsv.ReadValue(i, fv1).Substring(2);
+                var iv1 = bcsv.ReadValue(i, fv1)[2..];
                 var iv1a = short.Parse(iv1, NumberStyles.HexNumber);
 
-                var iv2 = bcsv.ReadValue(i, fv2).Substring(2);
+                var iv2 = bcsv.ReadValue(i, fv2)[2..];
                 var iv2a = short.Parse(iv2, NumberStyles.HexNumber);
 
                 var iid = bcsv.ReadValue(i, findex);
@@ -596,7 +595,7 @@ namespace NHSE.Parsing
             return result;
         }
 
-        private static IEnumerable<string> GetEventFlagHouse(string pathBCSV, string fn = "EventFlagsHouseParam.bcsv")
+        private static List<string> GetEventFlagHouse(string pathBCSV, string fn = "EventFlagsHouseParam.bcsv")
         {
             var bcsv = BCSVConverter.GetBCSV(pathBCSV, fn);
             var dict = bcsv.GetFieldDictionary();
@@ -610,10 +609,10 @@ namespace NHSE.Parsing
             var result = new List<string>();
             for (int i = 0; i < bcsv.EntryCount; i++)
             {
-                var ivd = bcsv.ReadValue(i, fdefault).Substring(2);
+                var ivd = bcsv.ReadValue(i, fdefault)[2..];
                 var vd = short.Parse(ivd, NumberStyles.HexNumber);
 
-                var ivm = bcsv.ReadValue(i, fmax).Substring(2);
+                var ivm = bcsv.ReadValue(i, fmax)[2..];
                 var vm = short.Parse(ivm, NumberStyles.HexNumber);
 
                 var iid = bcsv.ReadValue(i, findex);
@@ -632,7 +631,7 @@ namespace NHSE.Parsing
             return result;
         }
 
-        private static IEnumerable<string> GetVillagerEventFlagNames(string pathBCSV, string fn = "EventFlagsNpcSaveParam.bcsv")
+        private static List<string> GetVillagerEventFlagNames(string pathBCSV, string fn = "EventFlagsNpcSaveParam.bcsv")
         {
             var bcsv = BCSVConverter.GetBCSV(pathBCSV, fn);
             var dict = bcsv.GetFieldDictionary();
@@ -645,10 +644,10 @@ namespace NHSE.Parsing
             var result = new List<string>();
             for (int i = 0; i < bcsv.EntryCount; i++)
             {
-                var iv1 = bcsv.ReadValue(i, fv1).Substring(2);
+                var iv1 = bcsv.ReadValue(i, fv1)[2..];
                 var iv1a = short.Parse(iv1, NumberStyles.HexNumber);
 
-                var iv2 = bcsv.ReadValue(i, fv2).Substring(2);
+                var iv2 = bcsv.ReadValue(i, fv2)[2..];
                 var iv2a = short.Parse(iv2, NumberStyles.HexNumber);
 
                 var iid = bcsv.ReadValue(i, findex);
@@ -667,7 +666,7 @@ namespace NHSE.Parsing
             return result;
         }
 
-        private static IEnumerable<string> GetVillagerEventFlagNamesMemoryPlayer(string pathBCSV, string fn = "EventFlagsNpcMemoryParam.bcsv")
+        private static List<string> GetVillagerEventFlagNamesMemoryPlayer(string pathBCSV, string fn = "EventFlagsNpcMemoryParam.bcsv")
         {
             var bcsv = BCSVConverter.GetBCSV(pathBCSV, fn);
             var dict = bcsv.GetFieldDictionary();
@@ -702,7 +701,7 @@ namespace NHSE.Parsing
             return result;
         }
 
-        private static IEnumerable<string> GetLandEventFlagNames(string pathBCSV, string fn = "EventFlagsLandParam.bcsv")
+        private static List<string> GetLandEventFlagNames(string pathBCSV, string fn = "EventFlagsLandParam.bcsv")
         {
             var bcsv = BCSVConverter.GetBCSV(pathBCSV, fn);
             var dict = bcsv.GetFieldDictionary();
@@ -715,10 +714,10 @@ namespace NHSE.Parsing
             var result = new List<string>();
             for (int i = 0; i < bcsv.EntryCount; i++)
             {
-                var iv1 = bcsv.ReadValue(i, fv1).Substring(2);
+                var iv1 = bcsv.ReadValue(i, fv1)[2..];
                 var iv1a = short.Parse(iv1, NumberStyles.HexNumber);
 
-                var iv2 = bcsv.ReadValue(i, fv2).Substring(2);
+                var iv2 = bcsv.ReadValue(i, fv2)[2..];
                 var iv2a = short.Parse(iv2, NumberStyles.HexNumber);
 
                 var iid = bcsv.ReadValue(i, findex);
@@ -814,10 +813,10 @@ namespace NHSE.Parsing
             var f71 = dict[0x0E3FFB75]; // ReFabricPattern7Color1
 
             var str = GameInfo.Strings.itemlist;
-            var bc0 = new[] { b00, b10, b20, b30, b40, b50, b60, b70 };
-            var bc1 = new[] { b01, b11, b21, b31, b41, b51, b61, b71 };
-            var fc0 = new[] { f00, f10, f20, f30, f40, f50, f60, f70 };
-            var fc1 = new[] { f01, f11, f21, f31, f41, f51, f61, f71 };
+            BCSVFieldParam[] bc0 = [b00, b10, b20, b30, b40, b50, b60, b70];
+            BCSVFieldParam[] bc1 = [b01, b11, b21, b31, b41, b51, b61, b71];
+            BCSVFieldParam[] fc0 = [f00, f10, f20, f30, f40, f50, f60, f70];
+            BCSVFieldParam[] fc1 = [f01, f11, f21, f31, f41, f51, f61, f71];
 
             for (int i = 0; i < bcsv.EntryCount; i++)
             {
@@ -832,7 +831,7 @@ namespace NHSE.Parsing
                 {
                     var entries = arr.Select(get).Select(z => z.ToString("00"));
                     var bytes = string.Join(", ", entries);
-                    return $"new byte[] {{{bytes}}}";
+                    return $"[{bytes}]";
                 }
 
                 var vbc0 = getArr(bc0);
@@ -848,7 +847,7 @@ namespace NHSE.Parsing
                 var vrd = get(rid);
 
                 // (short index, ushort id, sbyte count, byte[] bc0, byte[] bc1, byte[] fc0, byte[] fc1, bool fp0)
-                yield return $"{{{vrd:0000}, new {nameof(ItemRemakeInfo)}({vrd:0000}, {vid:00000}, {(sbyte)ct,2}, {vbc0}, {vbc1}, {vfc0}, {vfc1}, {(vfvf ? " true": "false")})}}, // {str[vid]}";
+                yield return $"{{{vrd:0000}, new({vrd:0000}, {vid:00000}, {(sbyte)ct,2}, {vbc0}, {vbc1}, {vfc0}, {vfc1}, {(vfvf ? " true": "false")})}}, // {str[vid]}";
             }
         }
     }

@@ -9,30 +9,33 @@ namespace NHSE.Core
     /// </summary>
     public static class StructConverter
     {
-        public static T ToStructure<T>(this byte[] bytes) where T : struct
+        extension(byte[] bytes)
         {
-            var handle = GCHandle.Alloc(bytes, GCHandleType.Pinned);
-            try { return (T)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(T)); }
-            finally { handle.Free(); }
-        }
+            public T ToStructure<T>() where T : struct
+            {
+                var handle = GCHandle.Alloc(bytes, GCHandleType.Pinned);
+                try { return Marshal.PtrToStructure<T>(handle.AddrOfPinnedObject()); }
+                finally { handle.Free(); }
+            }
 
-        public static T ToClass<T>(this byte[] bytes) where T : class
-        {
-            var handle = GCHandle.Alloc(bytes, GCHandleType.Pinned);
-            try { return (T)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(T)); }
-            finally { handle.Free(); }
-        }
+            public T ToClass<T>() where T : class
+            {
+                var handle = GCHandle.Alloc(bytes, GCHandleType.Pinned);
+                try { return Marshal.PtrToStructure<T>(handle.AddrOfPinnedObject())!; }
+                finally { handle.Free(); }
+            }
 
-        public static T ToStructure<T>(this byte[] bytes, int offset, int length) where T : struct
-        {
-            var slice = bytes.Slice(offset, length);
-            return slice.ToStructure<T>();
-        }
+            public T ToStructure<T>(int offset, int length) where T : struct
+            {
+                var slice = bytes.Slice(offset, length);
+                return slice.ToStructure<T>();
+            }
 
-        public static T ToClass<T>(this byte[] bytes, int offset, int length) where T : class
-        {
-            var slice = bytes.Slice(offset, length);
-            return slice.ToClass<T>();
+            public T ToClass<T>(int offset, int length) where T : class
+            {
+                var slice = bytes.Slice(offset, length);
+                return slice.ToClass<T>();
+            }
         }
 
         public static byte[] ToBytesClass<T>(this T obj) where T : class

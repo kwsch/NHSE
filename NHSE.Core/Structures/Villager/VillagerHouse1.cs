@@ -40,7 +40,7 @@ namespace NHSE.Core
             Data.CopyTo(data, 0);
             for (int i = 0; i < 236; i++)
                 empty.CopyTo(data, 0x1D8 + (i * 0xC));
-            VillagerHouse2.Footer.CopyTo(data, 0x1270);
+            VillagerHouse2.Footer.CopyTo(data.AsSpan(0x1270));
             return new VillagerHouse2(data);
         }
     }

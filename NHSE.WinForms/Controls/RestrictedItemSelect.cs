@@ -1,14 +1,15 @@
-﻿using System;
+﻿using NHSE.Core;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
-using NHSE.Core;
 
 namespace NHSE.WinForms
 {
     public partial class RestrictedItemSelect : UserControl
     {
-        private IList<ComboItem> DataSource = Array.Empty<ComboItem>();
+        private IList<ComboItem> DataSource = [];
 
         public RestrictedItemSelect() => InitializeComponent();
 
@@ -22,6 +23,7 @@ namespace NHSE.WinForms
                 CB_ItemID.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ushort Value
         {
             get => CHK_CustomItem.Checked ? (ushort) NUD_CustomItem.Value : (ushort) WinFormsUtil.GetIndex(CB_ItemID);

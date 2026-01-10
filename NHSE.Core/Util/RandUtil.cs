@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading;
 
 namespace NHSE.Core
 {
@@ -10,9 +9,7 @@ namespace NHSE.Core
     public static class RandUtil
     {
         // Multi-thread safe rand, ha
-        public static Random Rand => _local.Value;
-
-        private static readonly ThreadLocal<Random> _local = new(() => new Random());
+        public static Random Rand => Random.Shared;
 
         public static uint Rand32() => Rand32(Rand);
         public static uint Rand32(Random rnd) => (uint)rnd.Next(1 << 30) << 2 | (uint)rnd.Next(1 << 2);
@@ -37,9 +34,7 @@ namespace NHSE.Core
             for (int i = start; i < end; i++)
             {
                 int index = i + rnd.Next(end - i);
-                T t = items[index];
-                items[index] = items[i];
-                items[i] = t;
+                (items[index], items[i]) = (items[i], items[index]);
             }
         }
     }

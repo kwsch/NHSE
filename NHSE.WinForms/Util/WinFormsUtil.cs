@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -40,22 +41,29 @@ namespace NHSE.WinForms
         }
         #endregion
 
-        public static T? GetUnderlyingControl<T>(object sender) where T : Control
+        /// <summary>
+        /// Searches upwards through the control hierarchy to find the first parent control of type <typeparamref name="T"/>.
+        /// </summary>
+        /// <param name="sender">Child control to start searching from.</param>
+        /// <param name="result">The first parent control of type <typeparamref name="T"/>, or null if none found.</param>
+        public static bool TryGetUnderlying<T>(object sender, [NotNullWhen(true)] out T? result) where T : class
         {
             while (true)
             {
                 switch (sender)
                 {
-                    case ToolStripItem t:
-                        sender = t.Owner!;
-                        continue;
-                    case ContextMenuStrip c:
-                        sender = c.SourceControl!;
-                        continue;
                     case T p:
-                        return p;
+                        result = p;
+                        return true;
+                    case ToolStripItem { Owner: { } o }:
+                        sender = o;
+                        continue;
+                    case ContextMenuStrip { SourceControl: { } s }:
+                        sender = s;
+                        continue;
                     default:
-                        return null;
+                        result = null;
+                        return false;
                 }
             }
         }

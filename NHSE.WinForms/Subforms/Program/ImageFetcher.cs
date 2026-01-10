@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.IO.Compression;
@@ -15,7 +14,7 @@ namespace NHSE.WinForms
         private const string Filename = "image.zip";
         private static string ZipFilePath => Path.Combine(ItemSprite.PlatformAppDataPath, Filename);
 
-        private readonly IReadOnlyList<string> AllHosts;
+        private readonly string[] AllHosts;
 
         public ImageFetcher()
         {
@@ -36,39 +35,28 @@ namespace NHSE.WinForms
         private static string[] LoadHosts()
         {
             var hosts = Properties.Resources.hosts_images;
-            var splitHosts = hosts.Split(new[] { "\r", "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            var splitHosts = hosts.Split(["\r", "\n", "\r\n"], StringSplitOptions.RemoveEmptyEntries);
 
             return splitHosts;
         }
 
-#if NETFRAMEWORK
-        private void B_Download_Click(object sender, EventArgs e)
-#elif NETCOREAPP
         private async void B_Download_Click(object sender, EventArgs e)
-#endif
         {
-            var path = ItemSprite.PlatformAppDataPath;
-            var hostSelected = AllHosts[CB_HostSelect.SelectedIndex];
-
-            SetUIDownloadState(false);
-
-            L_Status.Text = "Downloading...";
-
             try
             {
+                var path = ItemSprite.PlatformAppDataPath;
+                var hostSelected = AllHosts[CB_HostSelect.SelectedIndex];
+
+                SetUIDownloadState(false);
+
+                L_Status.Text = "Downloading...";
+
                 if (!Directory.Exists(path))
                     Directory.CreateDirectory(path);
-#if NETFRAMEWORK
-                using var webClient = new WebClient();
-                webClient.DownloadFileCompleted += Completed;
-                webClient.DownloadProgressChanged += ProgressChanged;
-                webClient.DownloadFileAsync(new Uri(hostSelected), ZipFilePath);
-#elif NETCOREAPP
                 using var httpClient = new System.Net.Http.HttpClient();
-                using var stream = await httpClient.GetStreamAsync(hostSelected).ConfigureAwait(false);
-                using var fileStream = new FileStream(ZipFilePath, FileMode.CreateNew);
+                await using var stream = await httpClient.GetStreamAsync(hostSelected).ConfigureAwait(false);
+                await using var fileStream = new FileStream(ZipFilePath, FileMode.CreateNew);
                 await stream.CopyToAsync(fileStream).ConfigureAwait(false);
-#endif
             }
             catch (Exception ex)
             {
@@ -139,9 +127,9 @@ namespace NHSE.WinForms
 
         private async void CheckNetworkFileSizeAsync()
         {
-            L_FileSize.Text = string.Empty;
             try
             {
+                L_FileSize.Text = string.Empty;
                 var host = AllHosts[CB_HostSelect.SelectedIndex];
 #if NETFRAMEWORK
                 using var webClient = new WebClient();

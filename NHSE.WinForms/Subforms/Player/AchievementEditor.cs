@@ -23,7 +23,7 @@ namespace NHSE.WinForms
             for (int i = 0; i < list.Counts.Length; i++)
                 LB_Counts.Items.Add(LifeSupportAchievement.GetName(i, list.Counts[i], str));
 
-            Rows = new[] {AR_1, AR_2, AR_3, AR_4, AR_5, AR_6};
+            Rows = [AR_1, AR_2, AR_3, AR_4, AR_5, AR_6];
 
             LB_Counts.SelectedIndex = 0;
         }

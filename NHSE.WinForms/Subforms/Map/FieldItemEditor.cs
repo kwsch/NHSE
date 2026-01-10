@@ -184,7 +184,7 @@ namespace NHSE.WinForms
             var x = View.X + HoverX;
             var y = View.Y + HoverY;
             var tile = Map.Terrain.GetTile(x / 2, y / 2);
-            if (tbeForm?.brushSelected != true)
+            if (tbeForm?.IsBrushSelected != true)
             {
                 OmniTileTerrain(tile);
                 return;
@@ -196,7 +196,7 @@ namespace NHSE.WinForms
                 return;
             }
 
-            List<TerrainTile> selectedTiles = new();
+            List<TerrainTile> selectedTiles = [];
             int radius = tbeForm.Slider_thickness.Value;
             int threshold = (radius * radius) / 2;
             for (int i = -radius; i < radius; i++)
@@ -287,7 +287,7 @@ namespace NHSE.WinForms
                 MoveDrag(e);
                 return;
             }
-            if (e.Button == MouseButtons.Left && tbeForm?.brushSelected == true)
+            if (e.Button == MouseButtons.Left && tbeForm?.IsBrushSelected == true)
             {
                 OmniTileTerrain(e);
             }
@@ -367,7 +367,7 @@ namespace NHSE.WinForms
 
         private void ViewTile(TerrainTile tile)
         {
-            var pgt = (TerrainTile)PG_TerrainTile.SelectedObject;
+            var pgt = (TerrainTile)PG_TerrainTile.SelectedObject!;
             pgt.CopyFrom(tile);
             PG_TerrainTile.SelectedObject = pgt;
             TC_Editor.SelectedTab = Tab_Terrain;
@@ -455,8 +455,8 @@ namespace NHSE.WinForms
 
         private void SetTile(TerrainTile tile)
         {
-            var pgt = (TerrainTile)PG_TerrainTile.SelectedObject;
-            if (tbeForm?.randomizeVariation == true)
+            var pgt = (TerrainTile)PG_TerrainTile.SelectedObject!;
+            if (tbeForm?.RandomizeVariation == true)
             {
                 switch (pgt.UnitModel)
                 {
@@ -475,7 +475,7 @@ namespace NHSE.WinForms
 
         private void SetTiles(IEnumerable<TerrainTile> tiles)
         {
-            var pgt = (TerrainTile)PG_TerrainTile.SelectedObject;
+            var pgt = (TerrainTile)PG_TerrainTile.SelectedObject!;
             foreach (TerrainTile tile in tiles)
             {
                 tile.CopyFrom(pgt);
@@ -702,8 +702,7 @@ namespace NHSE.WinForms
 
         private void Menu_SavePNG_Click(object sender, EventArgs e)
         {
-            var pb = WinFormsUtil.GetUnderlyingControl<PictureBox>(sender);
-            if (pb?.Image == null)
+            if (!WinFormsUtil.TryGetUnderlying<PictureBox>(sender, out var pb) || pb.Image is null)
             {
                 WinFormsUtil.Alert(MessageStrings.MsgNoPictureLoaded);
                 return;
@@ -712,17 +711,15 @@ namespace NHSE.WinForms
             CM_Picture.Close(ToolStripDropDownCloseReason.CloseCalled);
 
             const string name = "map";
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "png file (*.png)|*.png|All files (*.*)|*.*",
-                FileName = $"{name}.png",
-            };
+            using var sfd = new SaveFileDialog();
+            sfd.Filter = "png file (*.png)|*.png|All files (*.*)|*.*";
+            sfd.FileName = $"{name}.png";
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
             if (!Menu_SavePNGTerrain.Checked)
             {
-                PB_Map.Image.Save(sfd.FileName, ImageFormat.Png);
+                PB_Map.Image!.Save(sfd.FileName, ImageFormat.Png);
             }
             else if (!Menu_SavePNGItems.Checked)
             {
@@ -732,7 +729,7 @@ namespace NHSE.WinForms
             {
                 var img = (Bitmap)PB_Map.BackgroundImage!.Clone();
                 using var gfx = Graphics.FromImage(img);
-                gfx.DrawImage(PB_Map.Image, new Point(0, 0));
+                gfx.DrawImage(PB_Map.Image!, new Point(0, 0));
                 img.Save(sfd.FileName, ImageFormat.Png);
             }
         }
@@ -1008,13 +1005,12 @@ namespace NHSE.WinForms
             var index = CB_MapAcre.SelectedIndex;
             var value = WinFormsUtil.GetIndex(CB_MapAcreSelect);
 
-            var oldValue = Map.Terrain.BaseAcres[index * 2];
+            var span = Map.Terrain.BaseAcres.AsSpan(index * 2, 2);
+            var oldValue = span[0];
             if (value == oldValue)
                 return;
-            byte[] ValueBytes = BitConverter.GetBytes(value);
-            var a = index * 2;
-            Map.Terrain.BaseAcres[a] = ValueBytes[0];
-            Map.Terrain.BaseAcres[a + 1] = ValueBytes[1];
+
+            System.Buffers.Binary.BinaryPrimitives.WriteUInt16LittleEndian(span, (ushort)value);
             ReloadBuildingsTerrain();
         }
 
@@ -1051,7 +1047,7 @@ namespace NHSE.WinForms
             if (DialogResult.Yes != WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgTerrainSetAll))
                 return;
 
-            var pgt = (TerrainTile)PG_TerrainTile.SelectedObject;
+            var pgt = (TerrainTile)PG_TerrainTile.SelectedObject!;
             bool interiorOnly = DialogResult.Yes == WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgTerrainSetAllSkipExterior);
             Map.Terrain.SetAll(pgt, interiorOnly);
 
@@ -1064,7 +1060,7 @@ namespace NHSE.WinForms
             if (DialogResult.Yes != WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgTerrainSetAll))
                 return;
 
-            var pgt = (TerrainTile)PG_TerrainTile.SelectedObject;
+            var pgt = (TerrainTile)PG_TerrainTile.SelectedObject!;
             bool interiorOnly = DialogResult.Yes == WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgTerrainSetAllSkipExterior);
             Map.Terrain.SetAllRoad(pgt, interiorOnly);
 
@@ -1080,11 +1076,9 @@ namespace NHSE.WinForms
 
         private void B_ExportPlacedDesigns_Click(object sender, EventArgs e)
         {
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "nhmd file (*.nhmd)|*.nhmd",
-                FileName = "Island MyDesignMap.nhmd",
-            };
+            using var sfd = new SaveFileDialog();
+            sfd.Filter = "nhmd file (*.nhmd)|*.nhmd";
+            sfd.FileName = "Island MyDesignMap.nhmd";
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
@@ -1096,11 +1090,9 @@ namespace NHSE.WinForms
 
         private void B_ImportPlacedDesigns_Click(object sender, EventArgs e)
         {
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "nhmd file (*.nhmd)|*.nhmd",
-                FileName = "Island MyDesignMap.nhmd",
-            };
+            using var ofd = new OpenFileDialog();
+            ofd.Filter = "nhmd file (*.nhmd)|*.nhmd";
+            ofd.FileName = "Island MyDesignMap.nhmd";
             if (ofd.ShowDialog() != DialogResult.OK)
                 return;
 

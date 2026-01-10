@@ -27,7 +27,7 @@ namespace NHSE.Core
             get => StringUtil.GetString(Data, 0x04, 10);
             set => StringUtil.GetBytes(value, 10).CopyTo(Data, 0x04);
         }
-        public byte[] GetTownIdentity() => Data.Slice(0x00, 4 + 20);
+        public Span<byte> GetTownIdentity() => Data.AsSpan(0x00, 4 + 20);
 
         public uint PlayerID
         {
@@ -41,7 +41,7 @@ namespace NHSE.Core
             set => StringUtil.GetBytes(value, 10).CopyTo(Data, 0x20);
         }
 
-        public byte[] GetPlayerIdentity() => Data.Slice(0x1C, 4 + 20);
+        public Span<byte> GetPlayerIdentity() => Data.AsSpan(0x1C, 4 + 20);
 
         public byte[] GetEventFlags() => Data.Slice(0x38, 0x100);
         public void SetEventFlags(byte[] value) => value.CopyTo(Data, 0x38);

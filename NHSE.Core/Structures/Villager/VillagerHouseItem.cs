@@ -1,9 +1,11 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 
 namespace NHSE.Core
 {
     [StructLayout(LayoutKind.Explicit, Size = SIZE, Pack = 1)]
     public struct VillagerHouseItem // GFtrData
+        : IEquatable<VillagerHouseItem>
     {
         public const int SIZE = 0xC;
 
@@ -19,9 +21,9 @@ namespace NHSE.Core
         [field: FieldOffset(0xB)] public byte Layer { get; set; }
 
         // ReSharper disable once NonReadonlyMemberInGetHashCode
-        public override int GetHashCode() => ItemId;
-        public override bool Equals(object obj) => obj is VillagerHouseItem i && i.Equals(this);
-        public bool Equals(VillagerHouseItem obj) => obj.ItemId == ItemId && obj.Flags0 == Flags0 && obj.Flags1 == Flags1;
+        public readonly override int GetHashCode() => ItemId;
+        public readonly override bool Equals(object? obj) => obj is VillagerHouseItem i && i.Equals(this);
+        public readonly bool Equals(VillagerHouseItem obj) => obj.ItemId == ItemId && obj.Flags0 == Flags0 && obj.Flags1 == Flags1;
         public static bool operator ==(VillagerHouseItem left, VillagerHouseItem right) => left.Equals(right);
         public static bool operator !=(VillagerHouseItem left, VillagerHouseItem right) => !(left == right);
     }

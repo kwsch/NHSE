@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net46;net8.0-windows</TargetFrameworks>
     <NeutralLanguage>en</NeutralLanguage>
+    <NoWarn>$(NoWarn);CA1416</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,9 +10,9 @@
     <Folder Include="Resources\Villagers\" />
   </ItemGroup>
 
-  <ItemGroup Condition="$(TargetFramework.StartsWith('net8'))">
-    <PackageReference Include="System.Drawing.Common" Version="8.0.18" />
-    <PackageReference Include="System.Resources.Extensions" Version="8.0.0" />
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="10.0.1" />
+    <PackageReference Include="System.Resources.Extensions" Version="10.0.1" />
   </ItemGroup>
   
   <ItemGroup>

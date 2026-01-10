@@ -21,20 +21,20 @@ namespace NHSE.WinForms
         {
             InitializeComponent();
 
-            CB_WrapColor.Items.AddRange(Enum.GetNames(typeof(ItemWrappingPaper)));
-            CB_WrapType.Items.AddRange(Enum.GetNames(typeof(ItemWrapping)));
+            CB_WrapColor.Items.AddRange(Enum.GetNames<ItemWrappingPaper>());
+            CB_WrapType.Items.AddRange(Enum.GetNames<ItemWrapping>());
 
-            Watered = new[]
-            {
+            Watered =
+            [
                 CHK_WV0, CHK_WV1,
                 CHK_WV2, CHK_WV3,
                 CHK_WV4, CHK_WV5,
                 CHK_WV6, CHK_WV7,
-                CHK_WV8, CHK_WV9,
-            };
+                CHK_WV8, CHK_WV9
+            ];
         }
 
-        private IReadOnlyList<ComboItem> AllItems = Array.Empty<ComboItem>();
+        private IReadOnlyList<ComboItem> AllItems = [];
 
         public void Initialize(IReadOnlyList<ComboItem> items, bool canExtend = false)
         {

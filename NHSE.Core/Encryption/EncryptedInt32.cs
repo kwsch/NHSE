@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Core
 {
@@ -27,7 +28,8 @@ namespace NHSE.Core
             Value = Decrypt(encryptedValue, shift, adjust);
         }
 
-        public void Write(byte[] data, int offset) => Write(this, data, offset);
+        public void Write(Span<byte> data) => Write(this, data);
+        public void Write(byte[] data, int offset) => Write(data.AsSpan(offset));
 
         // Calculates a checksum for a given encrypted value
         // Checksum calculation is every byte of the encrypted in added together minus 0x2D.
@@ -47,35 +49,34 @@ namespace NHSE.Core
 
         public static uint Encrypt(uint value, byte shift, ushort adjust)
         {
-            ulong val = (ulong) (value + (adjust - ENCRYPTION_CONSTANT)) << (shift + SHIFT_BASE);
+            ulong val = (ulong) (value + unchecked(adjust - ENCRYPTION_CONSTANT)) << (shift + SHIFT_BASE);
             return (uint) ((val >> 32) + val);
         }
 
-        public static EncryptedInt32 ReadVerify(byte[] data, int offset)
+        public static EncryptedInt32 ReadVerify(ReadOnlySpan<byte> data, int offset)
         {
-            var val = Read(data, offset);
+            var val = Read(data[offset..]);
             if (val.Checksum != CalculateChecksum(val.OriginalEncrypted))
                 throw new ArgumentException($"Failed to verify the {nameof(EncryptedInt32)} at {nameof(offset)}");
             return val;
         }
 
-        public static EncryptedInt32 Read(byte[] data, int offset)
+        public static EncryptedInt32 Read(ReadOnlySpan<byte> data)
         {
-            var enc = BitConverter.ToUInt32(data, offset + 0);
-            var adjust = BitConverter.ToUInt16(data, offset + 4);
-            var shift = data[offset + 6];
-            var chk = data[offset + 7];
-            return new EncryptedInt32(enc, adjust, shift, chk);
+            var encrypted = ReadUInt32LittleEndian(data);
+            var adjust = ReadUInt16LittleEndian(data[4..]);
+            var shift = data[6];
+            var chk = data[7];
+            return new EncryptedInt32(encrypted, adjust, shift, chk);
         }
 
-        public static void Write(EncryptedInt32 value, byte[] data, int offset)
+        public static void Write(EncryptedInt32 value, Span<byte> data)
         {
-            uint enc = Encrypt(value.Value, value.Shift, value.Adjust);
-            byte chk = CalculateChecksum(enc);
-            BitConverter.GetBytes(enc).CopyTo(data, offset + 0);
-            BitConverter.GetBytes(value.Adjust).CopyTo(data, offset + 4);
-            data[offset + 6] = value.Shift;
-            data[offset + 7] = chk;
+            var encrypted = Encrypt(value.Value, value.Shift, value.Adjust);
+            WriteUInt32LittleEndian(data, encrypted);
+            WriteUInt16LittleEndian(data[4..], value.Adjust);
+            data[6] = value.Shift;
+            data[7] = CalculateChecksum(encrypted);
         }
     }
 }

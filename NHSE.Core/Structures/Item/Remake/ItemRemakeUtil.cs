@@ -7,7 +7,7 @@ namespace NHSE.Core
     /// </summary>
     public static class ItemRemakeUtil
     {
-        public static short GetRemakeIndex(ushort id) => List.TryGetValue(id, out var value) ? value : (short)-1;
+        public static short GetRemakeIndex(ushort id) => List.GetValueOrDefault(id, (short)-1);
 
         public static Dictionary<short, ushort> GetInvertedDictionary()
         {

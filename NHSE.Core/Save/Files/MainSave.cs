@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace NHSE.Core
 {
@@ -50,9 +51,9 @@ namespace NHSE.Core
         }
 
         public DesignPattern GetDesign(int index) => Offsets.ReadPattern(Data, index);
-        public void SetDesign(DesignPattern value, int index, byte[] playerID, byte[] townID) => Offsets.WritePattern(value, Data, index, playerID, townID);
+        public void SetDesign(DesignPattern value, int index, Span<byte> playerID, Span<byte> townID) => Offsets.WritePattern(value, Data, index, playerID, townID);
         public DesignPatternPRO GetDesignPRO(int index) => Offsets.ReadPatternPRO(Data, index);
-        public void SetDesignPRO(DesignPatternPRO value, int index, byte[] playerID, byte[] townID) => Offsets.WritePatternPRO(value, Data, index, playerID, townID);
+        public void SetDesignPRO(DesignPatternPRO value, int index, Span<byte> playerID, Span<byte> townID) => Offsets.WritePatternPRO(value, Data, index, playerID, townID);
 
         public IReadOnlyList<Item> RecycleBin
         {
@@ -91,7 +92,7 @@ namespace NHSE.Core
             return result;
         }
 
-        public void SetDesigns(IReadOnlyList<DesignPattern> value, byte[] playerID, byte[] townID)
+        public void SetDesigns(IReadOnlyList<DesignPattern> value, Span<byte> playerID, Span<byte> townID)
         {
             var count = Math.Min(Offsets.PatternCount, value.Count);
             for (int i = 0; i < count; i++)
@@ -106,7 +107,7 @@ namespace NHSE.Core
             return result;
         }
 
-        public void SetDesignsPRO(IReadOnlyList<DesignPatternPRO> value, byte[] playerID, byte[] townID)
+        public void SetDesignsPRO(IReadOnlyList<DesignPatternPRO> value, Span<byte> playerID, Span<byte> townID)
         {
             var count = Math.Min(Offsets.PatternCount, value.Count);
             for (int i = 0; i < count; i++)
@@ -136,17 +137,7 @@ namespace NHSE.Core
 
         private const int EventFlagsSaveCount = 0x400;
 
-        public short[] GetEventFlagLand()
-        {
-            var value = new short[EventFlagsSaveCount];
-            Buffer.BlockCopy(Data, Offsets.EventFlagLand, value, 0, sizeof(short) * value.Length);
-            return value;
-        }
-
-        public void SetEventFlagLand(short[] value)
-        {
-            Buffer.BlockCopy(value, 0, Data, Offsets.EventFlagLand, sizeof(short) * value.Length);
-        }
+        public Span<short> EventFlagLand => MemoryMarshal.Cast<byte, short>(Data.AsSpan(Offsets.EventFlagLand, sizeof(short) * EventFlagsSaveCount));
 
         public TurnipStonk Turnips
         {
@@ -181,11 +172,11 @@ namespace NHSE.Core
 
         public byte[] GetAcreBytes() => Data.Slice(Offsets.OutsideField, AcreSizeAll);
 
-        public void SetAcreBytes(byte[] data)
+        public void SetAcreBytes(ReadOnlySpan<byte> data)
         {
             if (data.Length != AcreSizeAll)
                 throw new ArgumentOutOfRangeException(nameof(data.Length));
-            data.CopyTo(Data, Offsets.OutsideField);
+            data.CopyTo(Data.AsSpan(Offsets.OutsideField));
         }
 
         public TerrainTile[] GetTerrainTiles() => TerrainTile.GetArray(Data.Slice(Offsets.LandMakingMap, MapGrid.MapTileCount16x16 * TerrainTile.SIZE));

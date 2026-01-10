@@ -1,0 +1,15 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="NHSE.Core/NHSE.Core.csproj" />
+  <Project Path="NHSE.Injection/NHSE.Injection.csproj" />
+  <Project Path="NHSE.Parsing/NHSE.Parsing.csproj" />
+  <Project Path="NHSE.Sprites/NHSE.Sprites.csproj" />
+  <Project Path="NHSE.Tests/NHSE.Tests.csproj" />
+  <Project Path="NHSE.Villagers/NHSE.Villagers.csproj" />
+  <Project Path="NHSE.WinForms/NHSE.WinForms.csproj">
+    <Platform Solution="*|x86" Project="x86" />
+  </Project>
+</Solution>

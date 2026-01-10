@@ -38,7 +38,7 @@ namespace NHSE.Parsing
         public readonly string Name;
         public ParseItem(string line)
         {
-            var split = line.Split(new[] { ", " }, 0);
+            var split = line.Split(", ");
             Index = int.Parse(split[0], System.Globalization.NumberStyles.HexNumber);
             Name = split[1];
         }

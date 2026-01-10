@@ -81,7 +81,7 @@ namespace NHSE.Parsing
                 var file = Path.Combine(folder, "Remake", msbt);
 
                 var lines = GameMSBTDumper.GetLabelList(file);
-                var result = lines.Select(z => z.Label.Substring(z.Label.IndexOf('_') + 1) + "\t" + z.Text).OrderBy(z => z);
+                var result = lines.Select(z => z.Label[(z.Label.IndexOf('_') + 1)..] + "\t" + z.Text).Order();
                 File.WriteAllLines(dest, result);
             }
         }

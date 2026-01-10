@@ -6,30 +6,22 @@ using System.Text;
 
 namespace NHSE.Parsing
 {
-    internal class BinaryReaderX : BinaryReader
+    internal class BinaryReaderX(Stream input, ByteOrder byteOrder = ByteOrder.LittleEndian) : BinaryReader(input)
     {
-        public ByteOrder ByteOrder { get; set; }
-
-        public BinaryReaderX(Stream input, ByteOrder byteOrder = ByteOrder.LittleEndian)
-            : base(input)
-        {
-            ByteOrder = byteOrder;
-        }
+        public ByteOrder ByteOrder { get; set; } = byteOrder;
 
         public override ushort ReadUInt16()
         {
             if (ByteOrder == ByteOrder.LittleEndian)
                 return base.ReadUInt16();
-            else
-                return BitConverter.ToUInt16(base.ReadBytes(2).Reverse().ToArray(), 0);
+            return BitConverter.ToUInt16(base.ReadBytes(2).Reverse().ToArray(), 0);
         }
 
         public override uint ReadUInt32()
         {
             if (ByteOrder == ByteOrder.LittleEndian)
                 return base.ReadUInt32();
-            else
-                return BitConverter.ToUInt32(base.ReadBytes(4).Reverse().ToArray(), 0);
+            return BitConverter.ToUInt32(base.ReadBytes(4).Reverse().ToArray(), 0);
         }
 
         public string ReadString(int length)
@@ -39,7 +31,7 @@ namespace NHSE.Parsing
 
         public string PeekString(int length = 4)
         {
-            List<byte> bytes = new();
+            List<byte> bytes = [];
             long startOffset = BaseStream.Position;
 
             for (int i = 0; i < length; i++)

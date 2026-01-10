@@ -19,8 +19,8 @@ namespace NHSE.WinForms
 
             Editor = editor;
 
-            CB_SpawnType.Items.AddRange(Enum.GetNames(typeof(SpawnType)));
-            CB_SpawnArrange.Items.AddRange(Enum.GetNames(typeof(SpawnArrangement)));
+            CB_SpawnType.Items.AddRange(Enum.GetNames<SpawnType>());
+            CB_SpawnArrange.Items.AddRange(Enum.GetNames<SpawnArrangement>());
 
             CB_SpawnType.SelectedIndex = 0;
             CB_SpawnArrange.SelectedIndex = 0;
@@ -44,12 +44,12 @@ namespace NHSE.WinForms
                 var min = (ushort)NUD_DIYStart.Value;
                 var max = (ushort)NUD_DIYStop.Value;
                 var diy = RecipeList.Recipes
-                    .Where(z => z.Key is not RecipeList.BridgeConstructionKit or RecipeList.CampsiteConstructionKit && min <= z.Key && z.Key <= max)
+                    .Where(z => z.Key is not (RecipeList.BridgeConstructionKit or RecipeList.CampsiteConstructionKit) && min <= z.Key && z.Key <= max)
                     .Select(z => z.Key)
                     .Select(z => new Item(Item.DIYRecipe) {FreeParam = z});
 
                 if (type == SpawnType.AlphabeticalDIY)
-                    diy = diy.OrderBy(x => GameInfo.Strings.GetItemName(x));
+                    diy = diy.OrderBy(z => GameInfo.Strings.GetItemName(z));
 
                 items = Enumerable.Repeat(diy, count).SelectMany(z => z).ToArray();
                 sizeX = sizeY = 2;
@@ -63,13 +63,13 @@ namespace NHSE.WinForms
                 }
 
                 // read non-empty slots into item array
-                var data = File.ReadAllBytes(this.NHIFilePath);
+                var data = File.ReadAllBytes(NHIFilePath);
                 var array = data.GetArray<Item>(Item.SIZE).Where(item => !item.IsNone);
                 items = Enumerable.Repeat(array, count).SelectMany(z => z).ToArray();
 
                 // set flag0 = 0x20 for each item to ensure it gets dropped
                 // this also forces a 2x2 item size
-                foreach (Item item in items)
+                foreach (var item in items)
                     item.SystemParam = 0x20;
 
                 sizeX = sizeY = 2;
@@ -79,8 +79,8 @@ namespace NHSE.WinForms
                 var item = Editor.ItemProvider.SetItem(new Item());
                 items = Enumerable.Repeat(item, count).ToArray();
                 var size = ItemInfo.GetItemSize(item);
-                sizeX = size.GetWidth();
-                sizeY = size.GetHeight();
+                sizeX = size.Width;
+                sizeY = size.Height;
             }
 
             if (sizeX % 2 == 1)
@@ -166,11 +166,9 @@ namespace NHSE.WinForms
 
         private void L_NHIFileName_Click(object sender, EventArgs e)
         {
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Inventory (*.nhi)|*.nhi|All files (*.*)|*.*",
-                FileName = "items.nhi",
-            };
+            using var ofd = new OpenFileDialog();
+            ofd.Filter = "New Horizons Inventory (*.nhi)|*.nhi|All files (*.*)|*.*";
+            ofd.FileName = "items.nhi";
 
             if (ofd.ShowDialog() != DialogResult.OK)
                 return;

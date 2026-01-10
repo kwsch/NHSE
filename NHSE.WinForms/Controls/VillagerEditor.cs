@@ -32,9 +32,8 @@ namespace NHSE.WinForms
         private void LoadVillagers()
         {
             CB_Personality.Items.Clear();
-            var personalities = Enum.GetNames(typeof(VillagerPersonality));
-            foreach (var p in personalities)
-                CB_Personality.Items.Add(p);
+            var personalities = Enum.GetNames<VillagerPersonality>();
+            CB_Personality.Items.AddRange(personalities);
 
             VillagerIndex = -1;
             LoadVillager(0);
@@ -103,13 +102,11 @@ namespace NHSE.WinForms
             }
 
             var name = L_ExternalName.Text;
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Villager (*.nhv)|*.nhv|" +
+            using var sfd = new SaveFileDialog();
+            sfd.Filter = "New Horizons Villager (*.nhv)|*.nhv|" +
                          "New Horizons Villager (*.nhv2)|*.nhv2|" +
-                         "All files (*.*)|*.*",
-                FileName = $"{name}.{Villagers[VillagerIndex].Extension}",
-            };
+                         "All files (*.*)|*.*";
+            sfd.FileName = $"{name}.{Villagers[VillagerIndex].Extension}";
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
@@ -121,13 +118,11 @@ namespace NHSE.WinForms
         private void B_LoadVillager_Click(object sender, EventArgs e)
         {
             var name = L_ExternalName.Text;
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Villager (*.nhv)|*.nhv|" +
+            using var ofd = new OpenFileDialog();
+            ofd.Filter = "New Horizons Villager (*.nhv)|*.nhv|" +
                          "New Horizons Villager (*.nhv2)|*.nhv2|" +
-                         "All files (*.*)|*.*",
-                FileName = $"{name}.{Villagers[VillagerIndex].Extension}",
-            };
+                         "All files (*.*)|*.*";
+            ofd.FileName = $"{name}.{Villagers[VillagerIndex].Extension}";
             if (ofd.ShowDialog() != DialogResult.OK)
                 return;
 
@@ -226,10 +221,10 @@ namespace NHSE.WinForms
             var playerID = SAV.Players[0].Personal.GetPlayerIdentity(); // fetch ID for overwrite ownership
             var townID = SAV.Players[0].Personal.GetTownIdentity(); // fetch ID for overwrite ownership
             var v = Villagers[VillagerIndex];
-            var tmp = new[] {v.Design};
+            DesignPatternPRO[] tmp = [v.Design];
             using var editor = new PatternEditorPRO(tmp);
-            playerID.CopyTo(tmp[0].Data, 0x54); // overwrite playerID bytes
-            townID.CopyTo(tmp[0].Data, 0x38); // overwrite townID bytes
+            playerID.CopyTo(tmp[0].Data.AsSpan(0x54)); // overwrite playerID bytes
+            townID.CopyTo(tmp[0].Data.AsSpan(0x38)); // overwrite townID bytes
             if (editor.ShowDialog() == DialogResult.OK)
                 v.Design = tmp[0];
         }
@@ -295,7 +290,7 @@ namespace NHSE.WinForms
             if (!VillagerResources.IsVillagerDataKnown(internalName))
             {
                 internalName = GameInfo.Strings.VillagerMap.FirstOrDefault(z => string.Equals(z.Value, internalName, StringComparison.InvariantCultureIgnoreCase)).Key;
-                if (internalName == default)
+                if (internalName is null)
                 {
                     WinFormsUtil.Error(string.Format(MessageStrings.MsgVillagerReplaceUnknownName, internalName));
                     return;

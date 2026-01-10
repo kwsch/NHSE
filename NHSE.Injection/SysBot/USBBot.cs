@@ -13,7 +13,7 @@ namespace NHSE.Injection
 
         public bool Connected { get; private set; }
 
-        private readonly object _sync = new();
+        private readonly Lock _sync = new();
 
         public bool Connect()
         {
@@ -73,14 +73,11 @@ namespace NHSE.Injection
         {
             lock (_sync)
             {
-                if (SwDevice != null)
+                if (SwDevice is { IsOpen: true })
                 {
-                    if (SwDevice.IsOpen)
-                    {
-                        if (SwDevice is IUsbDevice wholeUsbDevice)
-                            wholeUsbDevice.ReleaseInterface(0);
-                        SwDevice.Close();
-                    }
+                    if (SwDevice is IUsbDevice wholeUsbDevice)
+                        wholeUsbDevice.ReleaseInterface(0);
+                    SwDevice.Close();
                 }
 
                 reader?.Dispose();
@@ -91,12 +88,11 @@ namespace NHSE.Injection
 
         private int ReadInternal(byte[] buffer)
         {
-            byte[] sizeOfReturn = new byte[4];
-
-            //read size, no error checking as of yet, should be the required 368 bytes
+            //read size, no error checking yet, should be the required 368 bytes
             if (reader == null)
                 throw new Exception("USB writer is null, you may have disconnected the device during previous function");
 
+            var sizeOfReturn = new byte[4];
             reader.Read(sizeOfReturn, 5000, out _);
 
             //read stack
@@ -144,7 +140,7 @@ namespace NHSE.Injection
                 Thread.Sleep((length / 256) + 100);
 
                 var buffer = new byte[length];
-                var _ = ReadInternal(buffer);
+                _ = ReadInternal(buffer);
                 //return Decoder.ConvertHexByteStringToBytes(buffer);
                 return buffer;
             }

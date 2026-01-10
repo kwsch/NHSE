@@ -3,12 +3,8 @@ using System.Linq;
 
 namespace NHSE.Core
 {
-    public class ItemProcessor : BatchProcessor<Item>
+    public class ItemProcessor(BatchMutator<Item> mut) : BatchProcessor<Item>(mut)
     {
-        public ItemProcessor(BatchMutator<Item> mut) : base(mut)
-        {
-        }
-
         protected override bool CanModify(Item item) => true;
         protected override bool Finalize(Item item) => true;
 
@@ -16,13 +12,13 @@ namespace NHSE.Core
         /// Initializes the <see cref="StringInstruction"/> list with a context-sensitive value. If the provided value is a string, it will attempt to convert that string to its corresponding index.
         /// </summary>
         /// <param name="il">Instructions to initialize.</param>
-        public void ScreenStrings(IEnumerable<StringInstruction> il)
+        public static void ScreenStrings(IEnumerable<StringInstruction> il)
         {
             foreach (var i in il.Where(i => !i.PropertyValue.All(char.IsDigit)))
             {
                 string pv = i.PropertyValue;
-                if (pv.StartsWith("$") && pv.Contains(","))
-                    i.SetRandRange(pv);
+                if (pv.StartsWith('$') && pv.Contains(','))
+                    i.SetRandomRange(pv);
 
                 SetInstructionScreenedValue(i);
             }

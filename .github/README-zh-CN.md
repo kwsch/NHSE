@@ -10,10 +10,6 @@ NHSE
 
 可以编辑你从Nintendo Switch中导出的存档。
 * 请自行解决存档导出问题，本程序并不能直接从你的Switch中导出存档。
-## 参见
-
-[MyHorizons](https://github.com/Cuyler36/MyHorizons) by [Cuyler36](https://github.com/Cuyler36/)
-* 代码的某些部分完全改编自Cuyler36的项目。
 
 ## 其他
 

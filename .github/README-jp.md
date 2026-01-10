@@ -11,11 +11,6 @@ NHSE
 Nintendo Switch から抽出したセーブデータを編集します。
 * 自分のセーブデータを用意してください。このプログラムはコンソールからセーブデータを抽出しません。
 
-## 参考
-
-[MyHorizons](https://github.com/Cuyler36/MyHorizons) by [Cuyler36](https://github.com/Cuyler36/)
-* コードの一部は上記の Cuyler36 のプロジェクトから大いに翻案されています。
-
 ## その他
 
 詳しくは [Wiki](https://github.com/kwsch/NHSE/wiki) を参照してください。

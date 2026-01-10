@@ -1,9 +1,10 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 
 namespace NHSE.Core
 {
     [StructLayout(LayoutKind.Explicit, Size = SIZE, Pack = 1)]
-    public struct GSaveTime
+    public struct GSaveTime : IEquatable<GSaveTime>
     {
         public const int SIZE = 0x08;
         [field: FieldOffset(0x00)] public ushort Year { get; set; }
@@ -15,11 +16,10 @@ namespace NHSE.Core
 
         // 0x07 unused, alignment
 
-        public string TimeStamp => $"{Year:0000}-{Month:00}-{Day:00} {Hour:00}:{Minute:00}:{Second:00}";
-
-        public override int GetHashCode() => TimeStamp.GetHashCode();
-        public override bool Equals(object obj) => obj is GSaveTime i && i.Equals(this);
-        public bool Equals(GSaveTime obj) => TimeStamp == obj.TimeStamp;
+        public readonly string TimeStamp => $"{Year:0000}-{Month:00}-{Day:00} {Hour:00}:{Minute:00}:{Second:00}";
+        public readonly override int GetHashCode() => TimeStamp.GetHashCode();
+        public readonly override bool Equals(object? obj) => obj is GSaveTime i && i.Equals(this);
+        public readonly bool Equals(GSaveTime obj) => TimeStamp == obj.TimeStamp;
         public static bool operator ==(GSaveTime left, GSaveTime right) => left.Equals(right);
         public static bool operator !=(GSaveTime left, GSaveTime right) => !(left == right);
     }

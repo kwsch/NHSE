@@ -3,18 +3,10 @@
     /// <summary>
     /// Specifies the region that a validation hash is calculated over.
     /// </summary>
-    public readonly struct FileHashRegion
+    /// <param name="HashOffset">Offset of the calculated hash.</param>
+    /// <param name="Size">Length of the hashed data.</param>
+    public readonly record struct FileHashRegion(int HashOffset, int Size)
     {
-        /// <summary>
-        /// Offset of the calculated hash.
-        /// </summary>
-        public readonly int HashOffset;
-
-        /// <summary>
-        /// Length of the hashed data.
-        /// </summary>
-        public readonly int Size;
-
         /// <summary>
         /// Offset where the data to be hashed starts at (calculated).
         /// </summary>
@@ -26,30 +18,5 @@
         public int EndOffset => BeginOffset + Size;
 
         public override string ToString() => $"0x{HashOffset:X}: (0x{BeginOffset:X}-0x{EndOffset:X})";
-
-        public FileHashRegion(int hashOfs, int size)
-        {
-            HashOffset = hashOfs;
-            Size = size;
-        }
-
-        #region Equality Comparison
-        public override bool Equals(object obj) => obj is FileHashRegion r && r == this;
-        // ReSharper disable once PossiblyImpureMethodCallOnReadonlyVariable
-        public override int GetHashCode() => BeginOffset.GetHashCode();
-
-        public static bool operator !=(FileHashRegion left, FileHashRegion right) => !(left == right);
-
-        public static bool operator ==(FileHashRegion left, FileHashRegion right)
-        {
-            if (left.HashOffset != right.HashOffset)
-                return false;
-            if (left.BeginOffset != right.BeginOffset)
-                return false;
-            if (left.Size != right.Size)
-                return false;
-            return true;
-        }
-        #endregion
     }
 }

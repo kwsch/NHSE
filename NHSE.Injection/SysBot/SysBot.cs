@@ -10,7 +10,7 @@ namespace NHSE.Injection
         public Socket Connection = new(SocketType.Stream, ProtocolType.Tcp);
         public bool Connected { get; private set; }
 
-        private readonly object _sync = new();
+        private readonly Lock _sync = new();
 
         public void Connect(string ip, int port)
         {
@@ -59,7 +59,7 @@ namespace NHSE.Injection
                 // give it time to push data back
                 Thread.Sleep((length / 256) + 100);
                 var buffer = new byte[(length * 2) + 1];
-                var _ = ReadInternal(buffer);
+                _ = ReadInternal(buffer);
                 return Decoder.ConvertHexByteStringToBytes(buffer);
             }
         }

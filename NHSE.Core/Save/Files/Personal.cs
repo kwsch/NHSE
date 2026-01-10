@@ -24,7 +24,7 @@ namespace NHSE.Core
             set => GetBytes(value, 10).CopyTo(Data, Offsets.PersonalId + 0x04);
         }
 
-        public byte[] GetTownIdentity() => Data.Slice(Offsets.PersonalId + 0x00, 4 + 20);
+        public Span<byte> GetTownIdentity() => Data.AsSpan(Offsets.PersonalId + 0x00, 4 + 20);
 
         public uint PlayerID
         {
@@ -38,7 +38,7 @@ namespace NHSE.Core
             set => GetBytes(value, 10).CopyTo(Data, Offsets.PersonalId + 0x20);
         }
 
-        public byte[] GetPlayerIdentity() => Data.Slice(Offsets.PersonalId + 0x1C, 4 + 20);
+        public Span<byte> GetPlayerIdentity() => Data.AsSpan(Offsets.PersonalId + 0x1C, 4 + 20);
 
         public EncryptedInt32 Wallet
         {
@@ -138,7 +138,7 @@ namespace NHSE.Core
 
             // Expect jpeg marker
             if (BitConverter.ToUInt16(Data, offset) != 0xD8FF)
-                return Array.Empty<byte>();
+                return [];
             var len = BitConverter.ToInt32(Data, offset - 4);
             return Data.Slice(offset, len);
         }

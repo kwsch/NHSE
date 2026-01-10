@@ -20,9 +20,9 @@ namespace NHSE.Core
         public VillagerPersonality Personality { get => (VillagerPersonality)Data[2]; set => Data[2] = (byte)value; }
 
         public string TownName => GetMemory(0).TownName;
-        public byte[] GetTownIdentity() => GetMemory(0).GetTownIdentity();
+        public Span<byte> GetTownIdentity() => GetMemory(0).GetTownIdentity();
         public string PlayerName => GetMemory(0).PlayerName;
-        public byte[] GetPlayerIdentity() => GetMemory(0).GetPlayerIdentity();
+        public Span<byte> GetPlayerIdentity() => GetMemory(0).GetPlayerIdentity();
 
         public const int PlayerMemoryCount = 8;
 

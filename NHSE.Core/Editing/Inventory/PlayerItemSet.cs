@@ -121,15 +121,15 @@ namespace NHSE.Core
         /// </summary>
         /// <param name="data">Player Inventory packet</param>
         /// <param name="source">40 Item array</param>
-        public static void WritePlayerInventory(byte[] data, IReadOnlyList<Item> source)
+        public static void WritePlayerInventory(Span<byte> data, IReadOnlyList<Item> source)
         {
             var pocket2 = source.Take(20).ToArray();
             var pocket1 = source.Skip(20).ToArray();
             var p1 = Item.SetArray(pocket1);
             var p2 = Item.SetArray(pocket2);
 
-            p1.CopyTo(data, 0);
-            p2.CopyTo(data, ItemSet_ItemSize + 0x18);
+            p1.CopyTo(data);
+            p2.CopyTo(data[(ItemSet_ItemSize + 0x18)..]);
         }
     }
 }

@@ -46,11 +46,9 @@ namespace NHSE.WinForms
 
         private void B_Dump_Click(object sender, EventArgs e)
         {
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Inventory (*.nhi)|*.nhi|All files (*.*)|*.*",
-                FileName = "items.nhi",
-            };
+            using var sfd = new SaveFileDialog();
+            sfd.Filter = "New Horizons Inventory (*.nhi)|*.nhi|All files (*.*)|*.*";
+            sfd.FileName = "items.nhi";
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
             var bytes = ItemArray.Write();
@@ -72,11 +70,9 @@ namespace NHSE.WinForms
                 }
             }
 
-            using var sfd = new OpenFileDialog
-            {
-                Filter = "New Horizons Inventory (*.nhi)|*.nhi|All files (*.*)|*.*",
-                FileName = "items.nhi",
-            };
+            using var sfd = new OpenFileDialog();
+            sfd.Filter = "New Horizons Inventory (*.nhi)|*.nhi|All files (*.*)|*.*";
+            sfd.FileName = "items.nhi";
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 

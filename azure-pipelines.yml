@@ -10,7 +10,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  solution: '**/*.sln'
+  solution: '**/*.slnx'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
@@ -24,19 +24,6 @@ steps:
     WriteBOM: false
     VersionNumber: '$(Build.BuildNumber)'
     PackageVersion: '$(Build.BuildNumber)'
-    LogLevel: 'verbose'
-    FailOnWarning: false
-    DisableTelemetry: false
-
-- task: Assembly-Info-NetFramework@2
-  inputs:
-    Path: '$(Build.SourcesDirectory)'
-    FileNames: '**\AssemblyInfo.cs'
-    InsertAttributes: false
-    FileEncoding: 'auto'
-    WriteBOM: false
-    VersionNumber: '$(Build.BuildNumber)'
-    FileVersionNumber: '$(Build.BuildNumber)'
     LogLevel: 'verbose'
     FailOnWarning: false
     DisableTelemetry: false
@@ -56,6 +43,6 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: NHSE'
   inputs:
-    PathtoPublish: 'NHSE.WinForms\bin\Release\net46'
+    PathtoPublish: 'NHSE.WinForms\bin\Release\net10.0-windows'
     ArtifactName: NHSE
   condition: succeededOrFailed()

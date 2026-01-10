@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace NHSE.Parsing
 {
-    public class TXT2 : MSBTSection
+    public class TXT2() : MSBTSection(string.Empty, [])
     {
         public uint NumberOfStrings;
 
-        public readonly List<MSBTTextString> Strings = new();
-
-        public TXT2() : base(string.Empty, Array.Empty<byte>())
-        {
-        }
+        public readonly List<MSBTTextString> Strings = [];
     }
 }

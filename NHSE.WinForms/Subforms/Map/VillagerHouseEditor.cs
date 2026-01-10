@@ -79,13 +79,11 @@ namespace NHSE.WinForms
 
             var h = Houses[Index];
             var name = GetVillagerName(h);
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Villager House (*.nhvh)|*.nhvh|" +
+            using var sfd = new SaveFileDialog();
+            sfd.Filter = "New Horizons Villager House (*.nhvh)|*.nhvh|" +
                          "New Horizons Villager House (*.nhvh2)|*.nhvh2|" +
-                         "All files (*.*)|*.*",
-                FileName = $"{name}.{h.Extension}",
-            };
+                         "All files (*.*)|*.*";
+            sfd.FileName = $"{name}.{h.Extension}";
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
@@ -99,13 +97,11 @@ namespace NHSE.WinForms
             var name = GetVillagerName(Houses[Index]);
             if (name == "???")
                 name = "*";
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Villager House (*.nhvh)|*.nhvh|" +
+            using var ofd = new OpenFileDialog();
+            ofd.Filter = "New Horizons Villager House (*.nhvh)|*.nhvh|" +
                          "New Horizons Villager House (*.nhvh2)|*.nhvh2|" +
-                         "All files (*.*)|*.*",
-                FileName = $"{name}.{h.Extension}",
-            };
+                         "All files (*.*)|*.*";
+            ofd.FileName = $"{name}.{h.Extension}";
             if (ofd.ShowDialog() != DialogResult.OK)
                 return;
 

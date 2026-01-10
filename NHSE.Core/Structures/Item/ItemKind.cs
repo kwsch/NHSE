@@ -218,8 +218,8 @@ namespace NHSE.Core
 
     public static class ItemKindExtensions
     {
-        private static readonly HashSet<ItemKind> Clothing = new()
-        {
+        private static readonly HashSet<ItemKind> Clothing =
+        [
             Bottoms_Long,
             Bottoms_Middle,
             Bottoms_Short,
@@ -238,11 +238,11 @@ namespace NHSE.Core
             Shoes_Pumps,
             Top_Long,
             Top_Middle,
-            Top_Short,
-        };
+            Top_Short
+        ];
 
-        private static readonly HashSet<ItemKind> Furniture = new()
-        {
+        private static readonly HashSet<ItemKind> Furniture =
+        [
             Ftr_1x1_Chair,
             Ftr_1x1_Floor,
             Ftr_2x1_Bed,
@@ -250,14 +250,17 @@ namespace NHSE.Core
             Ftr_2x2_Floor,
             Kind_DummyFtr,
             Kind_EventObjFtr,
-            Kind_Ftr,
-        };
+            Kind_Ftr
+        ];
 
-        public static bool IsFlower(this ItemKind k) => (Kind_Flower <= k && k <= Kind_FlowerBud) || (UnitIcon_FlwAnemone <= k && k <= UnitIcon_FlwTulip);
-        public static bool IsFlowerPicked(this ItemKind k) => k == Kind_Flower || (UnitIcon_FlwAnemone <= k && k <= UnitIcon_FlwTulip);
-        public static bool IsFlowerGene(this ItemKind k, ushort id) => k.IsFlower() && (id >= 60_000 || !k.IsFlowerPicked());
-        public static bool IsClothing(this ItemKind k) => Clothing.Contains(k);
-        public static bool IsCrafting(this ItemKind k) => k == Kind_Ore || k == Kind_CraftMaterial || k == Kind_CraftPhoneCase || k == Kind_CraftRemake;
-        public static bool IsFurniture(this ItemKind k) => Furniture.Contains(k);
+        extension(ItemKind k)
+        {
+            public bool IsFlower => k is >= Kind_Flower and <= Kind_FlowerBud or >= UnitIcon_FlwAnemone and <= UnitIcon_FlwTulip;
+            public bool IsFlowerPicked => k is Kind_Flower or >= UnitIcon_FlwAnemone and <= UnitIcon_FlwTulip;
+            public bool IsFlowerGene(ushort id) => k.IsFlower && (id >= 60_000 || !k.IsFlowerPicked);
+            public bool IsClothing => Clothing.Contains(k);
+            public bool IsCrafting => k is Kind_Ore or Kind_CraftMaterial or Kind_CraftPhoneCase or Kind_CraftRemake;
+            public bool IsFurniture => Furniture.Contains(k);
+        }
     }
 }

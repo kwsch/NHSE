@@ -7,14 +7,14 @@ namespace NHSE.Parsing
 {
     public class BCSVEnumDictionary
     {
-        private readonly Dictionary<uint, string> Lookup = new();
+        private readonly Dictionary<uint, string> Lookup = [];
 
         public BCSVEnumDictionary(IEnumerable<string> lines)
         {
             foreach (var line in lines)
             {
                 var trim = line.Trim();
-                if (trim.StartsWith("("))
+                if (trim.StartsWith('('))
                     AddEnumName(trim);
                 if (trim.Contains(" = "))
                     AddColumnName(trim);
@@ -23,17 +23,17 @@ namespace NHSE.Parsing
 
         private void AddColumnName(string trim)
         {
-            if (!trim.EndsWith(")"))
+            if (!trim.EndsWith(')'))
                 return;
-            if (trim.StartsWith("_"))
+            if (trim.StartsWith('_'))
                 return;
 
-            var text = trim.Split(new [] {" = "}, 0);
+            var text = trim.Split(" = ");
 
             var name = text[0];
-            var value = text[1].Substring(text[1].IndexOf('(') + 1);
-            value = value.Substring(2, value.Length - 3);
-            var hex = StringUtil.GetHexValue(value);
+            var value = text[1][(text[1].IndexOf('(') + 1)..];
+            var slice = value.AsSpan(2, value.Length - 3);
+            var hex = StringUtil.GetHexValue(slice);
 
             if (Lookup.TryGetValue(hex, out var exist))
             {

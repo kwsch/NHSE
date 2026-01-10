@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using NHSE.Core;
@@ -9,11 +10,9 @@ namespace NHSE.WinForms
     {
         public static void DumpVillagerMemoryPlayer(IVillager v, GSaveMemory memory)
         {
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Villager Player Memory (*.nhvpm)|*.nhvpm|All files (*.*)|*.*",
-                FileName = $"{v.InternalName}.nhvpm",
-            };
+            using var sfd = new SaveFileDialog();
+            sfd.Filter = "New Horizons Villager Player Memory (*.nhvpm)|*.nhvpm|All files (*.*)|*.*";
+            sfd.FileName = $"{v.InternalName}.nhvpm";
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
@@ -23,11 +22,9 @@ namespace NHSE.WinForms
 
         public static bool LoadVillagerMemoryPlayer(IVillager v, GSaveMemory[] memories, int index)
         {
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Villager Player Memory (*.nhvpm)|*.nhvpm|All files (*.*)|*.*",
-                FileName = $"{v.InternalName}.nhvpm",
-            };
+            using var ofd = new OpenFileDialog();
+            ofd.Filter = "New Horizons Villager Player Memory (*.nhvpm)|*.nhvpm|All files (*.*)|*.*";
+            ofd.FileName = $"{v.InternalName}.nhvpm";
             if (ofd.ShowDialog() != DialogResult.OK)
                 return false;
 
@@ -60,11 +57,9 @@ namespace NHSE.WinForms
 
         public static void DumpMuseum(Museum museum)
         {
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Museum (*.nhm)|*.nhm|All files (*.*)|*.*",
-                FileName = "museum.nhm",
-            };
+            using var sfd = new SaveFileDialog();
+            sfd.Filter = "New Horizons Museum (*.nhm)|*.nhm|All files (*.*)|*.*";
+            sfd.FileName = "museum.nhm";
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
@@ -74,11 +69,9 @@ namespace NHSE.WinForms
 
         public static bool LoadMuseum(Museum museum)
         {
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Museum (*.nhm)|*.nhm|All files (*.*)|*.*",
-                FileName = "museum.nhm",
-            };
+            using var ofd = new OpenFileDialog();
+            ofd.Filter = "New Horizons Museum (*.nhm)|*.nhm|All files (*.*)|*.*";
+            ofd.FileName = "museum.nhm";
             if (ofd.ShowDialog() != DialogResult.OK)
                 return false;
 
@@ -92,7 +85,7 @@ namespace NHSE.WinForms
             }
 
             var data = File.ReadAllBytes(file);
-            data.CopyTo(museum.Data);
+            data.AsSpan().CopyTo(museum.Data);
             return true;
         }
 
@@ -108,13 +101,11 @@ namespace NHSE.WinForms
         {
             var house = houses[index];
             var name = PlayerHouseEditor.GetHouseSummary(players, house, index);
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Player House (*.nhph)|*.nhph|" +
+            using var sfd = new SaveFileDialog();
+            sfd.Filter = "New Horizons Player House (*.nhph)|*.nhph|" +
                          "New Horizons Player House (*.nhph2)|*.nhph2|" +
-                         "All files (*.*)|*.*",
-                FileName = $"{name}.{house.Extension}",
-            };
+                         "All files (*.*)|*.*";
+            sfd.FileName = $"{name}.{house.Extension}";
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
@@ -138,13 +129,11 @@ namespace NHSE.WinForms
         {
             var h = houses[index];
             var name = PlayerHouseEditor.GetHouseSummary(players, houses[index], index);
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Player House (*.nhph)|*.nhph|" +
+            using var ofd = new OpenFileDialog();
+            ofd.Filter = "New Horizons Player House (*.nhph)|*.nhph|" +
                          "New Horizons Player House (*.nhph2)|*.nhph2|" +
-                         "All files (*.*)|*.*",
-                FileName = $"{name}.{h.Extension}",
-            };
+                         "All files (*.*)|*.*";
+            ofd.FileName = $"{name}.{h.Extension}";
             if (ofd.ShowDialog() != DialogResult.OK)
                 return false;
 
@@ -174,13 +163,11 @@ namespace NHSE.WinForms
 
         public static void DumpRoom(IPlayerRoom room, int index)
         {
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Player House Room (*.nhpr)|*.nhpr|" +
+            using var sfd = new SaveFileDialog();
+            sfd.Filter = "New Horizons Player House Room (*.nhpr)|*.nhpr|" +
                          "New Horizons Player House Room (*.nhpr2)|*.nhpr2|" +
-                         "All files (*.*)|*.*",
-                FileName = $"Room {index + 1}.{room.Extension}",
-            };
+                         "All files (*.*)|*.*";
+            sfd.FileName = $"Room {index + 1}.{room.Extension}";
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
@@ -190,13 +177,11 @@ namespace NHSE.WinForms
 
         public static bool LoadRoom(MainSaveOffsets offsets, ref IPlayerRoom room, int index)
         {
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Player House Room (*.nhpr)|*.nhpr|" +
+            using var ofd = new OpenFileDialog();
+            ofd.Filter = "New Horizons Player House Room (*.nhpr)|*.nhpr|" +
                          "New Horizons Player House Room (*.nhpr2)|*.nhpr2|" +
-                         "All files (*.*)|*.*",
-                FileName = $"Room {index + 1}.{room.Extension}",
-            };
+                         "All files (*.*)|*.*";
+            ofd.FileName = $"Room {index + 1}.{room.Extension}";
             if (ofd.ShowDialog() != DialogResult.OK)
                 return false;
 
@@ -221,13 +206,11 @@ namespace NHSE.WinForms
             return true;
         }
 
-        public static void DumpFlags(byte[] data, string name)
+        public static void DumpFlags(ReadOnlySpan<byte> data, string name)
         {
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Flag List (*.nhfl)|*.nhfl|All files (*.*)|*.*",
-                FileName = $"{name}.nhfl",
-            };
+            using var sfd = new SaveFileDialog();
+            sfd.Filter = "New Horizons Flag List (*.nhfl)|*.nhfl|All files (*.*)|*.*";
+            sfd.FileName = $"{name}.nhfl";
             if (sfd.ShowDialog() == DialogResult.OK)
                 File.WriteAllBytes(sfd.FileName, data);
         }
@@ -238,13 +221,11 @@ namespace NHSE.WinForms
 
         public static byte[] LoadFlags(int size, string name)
         {
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Flag List (*.nhfl)|*.nhfl|All files (*.*)|*.*",
-                FileName = $"{name}.nhfl",
-            };
+            using var ofd = new OpenFileDialog();
+            ofd.Filter = "New Horizons Flag List (*.nhfl)|*.nhfl|All files (*.*)|*.*";
+            ofd.FileName = $"{name}.nhfl";
             if (ofd.ShowDialog() != DialogResult.OK)
-                return System.Array.Empty<byte>();
+                return [];
 
             var file = ofd.FileName;
             var fi = new FileInfo(file);
@@ -252,7 +233,7 @@ namespace NHSE.WinForms
             if (fi.Length != expectLength)
             {
                 WinFormsUtil.Error(MessageStrings.MsgCanceling, string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expectLength));
-                return System.Array.Empty<byte>();
+                return [];
             }
 
             return File.ReadAllBytes(file);

@@ -17,8 +17,8 @@ namespace NHSE.Core
             RecipeList.Recipes.ToDictionary(z => z.Value, z => z.Key);
 
         // Users can put spaces between item codes, or newlines. Recognize both!
-        private static readonly string[] SplittersHex = {" ", "\n", "\r\n"};
-        private static readonly string[] SplittersName = {",", "\n", "\r\n"};
+        private static readonly string[] SplittersHex = [" ", "\n", "\r\n"];
+        private static readonly string[] SplittersName = [",", "\n", "\r\n"];
 
         /// <summary>
         /// Gets a list of items from the requested hex string(s).
@@ -95,7 +95,7 @@ namespace NHSE.Core
         /// Gets a list of DIY item cards from the requested list of item name strings.
         /// </summary>
         /// <remarks>
-        /// If a item name parse fails or a recipe ID does not exist, exceptions will be thrown.
+        /// If an item name parse fails or a recipe ID does not exist, exceptions will be thrown.
         /// </remarks>
         /// <param name="split">List of item names</param>
         /// <param name="lang">Language code to parse with. If the first entry in <see cref="split"/> is a language code, it will be used instead of <see cref="lang"/>.</param>
@@ -125,7 +125,7 @@ namespace NHSE.Core
         /// Gets a list of items from the requested list of item name strings.
         /// </summary>
         /// <remarks>
-        /// If a item name parse fails or the item ID does not exist as a known item, exceptions will be thrown.
+        /// If an item name parse fails or the item ID does not exist as a known item, exceptions will be thrown.
         /// </remarks>
         /// <param name="split">List of item names</param>
         /// <param name="config">Item packaging options</param>
@@ -246,7 +246,7 @@ namespace NHSE.Core
         private static CompareOptions GetCompareOption(string str) => str.Any(ch => !char.IsLetterOrDigit(ch) && !char.IsWhiteSpace(ch)) ? optIgnoreSymbols & ~CompareOptions.IgnoreSymbols : optIgnoreSymbols;
 
         /// <summary>
-        /// Gets the first item name-value that contains the <see cref="itemName"/> (case insensitive).
+        /// Gets the first item name-value that contains the <see cref="itemName"/> (case-insensitive).
         /// </summary>
         /// <param name="itemName">Requested Item</param>
         /// <param name="lang">Game strings language to fetch with</param>
@@ -269,7 +269,7 @@ namespace NHSE.Core
         }
 
         /// <summary>
-        /// Gets the first item name-value that contains the <see cref="itemName"/> (case insensitive).
+        /// Gets the first item name-value that contains the <see cref="itemName"/> (case-insensitive).
         /// </summary>
         /// <param name="itemName">Requested Item</param>
         /// <param name="strings">Game strings</param>
@@ -282,7 +282,7 @@ namespace NHSE.Core
         }
 
         /// <summary>
-        /// Gets the first item name-value that contains the <see cref="itemName"/> (case insensitive).
+        /// Gets the first item name-value that contains the <see cref="itemName"/> (case-insensitive).
         /// </summary>
         /// <param name="itemName">Requested Item</param>
         /// <param name="strings">List of item name-values</param>
@@ -312,7 +312,7 @@ namespace NHSE.Core
         }
 
         /// <summary>
-        /// Gets an enumerable list of item key-value pairs that contain (case insensitive) the requested <see cref="itemName"/>.
+        /// Gets an enumerable list of item key-value pairs that contain (case-insensitive) the requested <see cref="itemName"/>.
         /// </summary>
         /// <param name="itemName">Item name</param>
         /// <param name="strings">Item names (and their Item ID values)</param>
@@ -329,7 +329,7 @@ namespace NHSE.Core
         }
 
         /// <summary>
-        /// Gets an enumerable list of item key-value pairs that contain (case insensitive) the requested <see cref="itemName"/>.
+        /// Gets an enumerable list of item key-value pairs that contain (case-insensitive) the requested <see cref="itemName"/>.
         /// </summary>
         /// <remarks>
         /// Orders the items based on the closest match (<see cref="LevenshteinDistance"/>).

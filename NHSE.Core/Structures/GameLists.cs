@@ -1,20 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System;
 
 namespace NHSE.Core
 {
     public static class GameLists
     {
-        public static readonly IReadOnlyList<ushort> Fruits = new ushort[]
-        {
+        public static ReadOnlySpan<ushort> Fruits =>
+        [
             2213, // apple
             2287, // Cherry
             2214, // Orange
             2286, // Peach
-            2285, // Pear
-        };
+            2285 // Pear
+        ];
 
-        public static readonly IReadOnlyList<ushort> Bugs = new ushort[]
-        {
+        public static ReadOnlySpan<ushort> Bugs =>
+        [
             00582, // brown cicada
             00583, // tiger butterfly
             00584, // Rajah Brooke's birdwing
@@ -99,11 +99,11 @@ namespace NHSE.Core
             05157, // giant water bug
             05339, // damselfly
             05859, // cherry-blossom petal
-            07374, // maple leaf
-        };
+            07374 // maple leaf
+        ];
 
-        public static readonly IReadOnlyList<ushort> Fish = new ushort[]
-        {
+        public static ReadOnlySpan<ushort> Fish =>
+        [
             00328, // crucian carp
             00329, // goldfish
             02215, // bitterling
@@ -188,11 +188,11 @@ namespace NHSE.Core
             04203, // suckerfish
             04204, // barreleye
             05254, // ranchu goldfish
-            12514, // water egg
-        };
+            12514 // water egg
+        ];
 
-        public static readonly IReadOnlyList<ushort> Fossils = new ushort[]
-        {
+        public static ReadOnlySpan<ushort> Fossils =>
+        [
             00169, // ankylo skull
             00170, // ankylo torso
             00171, // ankylo tail
@@ -265,11 +265,11 @@ namespace NHSE.Core
             04697, // quetzal torso
             04698, // right quetzal wing
             04699, // left quetzal wing
-            07251, // diplo tail tip
-        };
+            07251 // diplo tail tip
+        ];
 
-        public static readonly IReadOnlyList<ushort> Art = new ushort[]
-        {
+        public static ReadOnlySpan<ushort> Art =>
+        [
             00002, // scenic painting 
             00005, // graceful painting (forgery) 
             00006, // graceful painting 
@@ -339,11 +339,11 @@ namespace NHSE.Core
             12623, // detailed painting (forgery) 
             12624, // glowing painting 
             12625, // mysterious painting 
-            12629, // scenic painting (forgery) 
-        };
+            12629 // scenic painting (forgery) 
+        ];
 
-        public static readonly IReadOnlyList<ushort> Dive = new ushort[]
-        {
+        public static ReadOnlySpan<ushort> Dive =>
+        [
             02620, // seaweed
             02830, // sea grapes
             02831, // sea urchin
@@ -383,11 +383,11 @@ namespace NHSE.Core
             07303, // sea pig
             07308, // Dungeness crab
             07318, // Venus' flower basket
-            07411, // mussel
-        };
+            07411 // mussel
+        ];
 
-        public static readonly HashSet<ushort> Shells = new()
-        {
+        public static ReadOnlySpan<ushort> Shells =>
+        [
             1374, // sea snail
             1375, // venus comb
             1376, // conch
@@ -398,11 +398,27 @@ namespace NHSE.Core
             1382, // cowrie
 
             5982, // summer shell
-            12968, // pearl
-        };
+            12968 // pearl
+        ];
 
-        public static readonly HashSet<ushort> Terraforming = new()
-        {
+        public static ReadOnlySpan<ushort> Terraforming =>
+        [
+            3075, // path construction permit
+            3247, // waterscaping permit
+            8773, // stone path permit
+            8774, // brick path permit
+            8775, // dark dirt path permit
+            8776, // arched tile path permit
+            8777, // sand path permit
+            8778, // terra-cotta tile permit
+            8779, // wooden path permit
+            8780, // waterscaping permit
+            8781, // cliff construction permit
+            9771 // custom design path permit
+        ];
+
+        public static ReadOnlySpan<ushort> NoCheckReceived =>
+        [
             3075, // path construction permit
             3247, // waterscaping permit
             8773, // stone path permit
@@ -415,10 +431,7 @@ namespace NHSE.Core
             8780, // waterscaping permit
             8781, // cliff construction permit
             9771, // custom design path permit
-        };
 
-        public static readonly HashSet<ushort> NoCheckReceived = new(Terraforming)
-        {
             Item.DIYRecipe,
 
             9046, // Vaulting Pole Recipe
@@ -436,7 +449,7 @@ namespace NHSE.Core
 
             12294, // Flimsy Axe Recipe
 
-            12327, // Ladder Recipe
-        };
+            12327 // Ladder Recipe
+        ];
     }
 }

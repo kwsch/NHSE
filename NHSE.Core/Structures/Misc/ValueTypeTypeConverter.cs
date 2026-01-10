@@ -9,14 +9,19 @@ namespace NHSE.Core
     /// </summary>
     public class ValueTypeTypeConverter : ExpandableObjectConverter
     {
-        public override bool GetCreateInstanceSupported(ITypeDescriptorContext context) => true;
+        public override bool GetCreateInstanceSupported(ITypeDescriptorContext? context) => true;
 
-        public override object CreateInstance(ITypeDescriptorContext context, IDictionary propertyValues)
+        public override object? CreateInstance(ITypeDescriptorContext? context, IDictionary propertyValues)
         {
-            object boxed = context.PropertyDescriptor.GetValue(context.Instance);
+            if (context?.PropertyDescriptor is not { } pd)
+                return null;
+
+            var boxed = pd.GetValue(context.Instance);
             foreach (DictionaryEntry entry in propertyValues)
             {
-                var pi = context.PropertyDescriptor.PropertyType.GetProperty(entry.Key.ToString());
+                if (entry.Key.ToString() is not { } propName)
+                    continue;
+                var pi = pd.PropertyType.GetProperty(propName);
                 if (pi?.CanWrite == true)
                     pi.SetValue(boxed, Convert.ChangeType(entry.Value, pi.PropertyType), null);
             }

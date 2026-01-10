@@ -9,7 +9,7 @@ namespace NHSE.Sprites
 {
     public static class ItemSprite
     {
-        private static string[] ItemNames = Array.Empty<string>(); // currently only used as length check for FieldItem
+        private static string[] ItemNames = []; // currently only used as length check for FieldItem
 
         // %appdata%/NHSE
         public static string PlatformAppDataPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), nameof(NHSE));

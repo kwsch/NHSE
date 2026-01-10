@@ -93,16 +93,12 @@ namespace NHSE.Core
         private void GetTileWidthHeight(Item tile, int x, int y, out int w, out int h)
         {
             var type = ItemInfo.GetItemSize(tile);
-            w = type.GetWidth();
-            h = type.GetHeight();
+            w = type.Width;
+            h = type.Height;
 
             // Rotation
             if ((tile.Rotation & 1) == 1)
-            {
-                var tmp = w;
-                w = h;
-                h = tmp;
-            }
+                (w, h) = (h, w);
 
             // Clamp to grid bounds
             if (x + w - 1 >= MaxWidth)
@@ -118,15 +114,11 @@ namespace NHSE.Core
         public PlacedItemPermission IsOccupied(Item tile, in int x, in int y)
         {
             var type = ItemInfo.GetItemSize(tile);
-            var w = type.GetWidth();
-            var h = type.GetHeight();
+            var w = type.Width;
+            var h = type.Height;
 
             if ((tile.Rotation & 1) == 1)
-            {
-                var tmp = w;
-                w = h;
-                h = tmp;
-            }
+                (w, h) = (h, w);
 
             if (x + w - 1 >= MaxWidth)
                 return PlacedItemPermission.OutOfBounds;

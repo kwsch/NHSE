@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using NHSE.Core;
@@ -9,11 +10,9 @@ namespace NHSE.WinForms
     {
         public static bool ImportToLayerAcreSingle(FieldItemLayer layer, int acreIndex, string acre, int layerIndex)
         {
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Field Item Layer (*.nhl)|*.nhl|All files (*.*)|*.*",
-                FileName = $"{acre}-{layerIndex}.nhl",
-            };
+            using var ofd = new OpenFileDialog();
+            ofd.Filter = "New Horizons Field Item Layer (*.nhl)|*.nhl|All files (*.*)|*.*";
+            ofd.FileName = $"{acre}-{layerIndex}.nhl";
             if (ofd.ShowDialog() != DialogResult.OK)
                 return false;
 
@@ -34,11 +33,9 @@ namespace NHSE.WinForms
 
         public static bool ImportToLayerAcreAll(FieldItemLayer layer)
         {
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Field Item Layer (*.nhl)|*.nhl|All files (*.*)|*.*",
-                FileName = "acres.nhl",
-            };
+            using var ofd = new OpenFileDialog();
+            ofd.Filter = "New Horizons Field Item Layer (*.nhl)|*.nhl|All files (*.*)|*.*";
+            ofd.FileName = "acres.nhl";
             if (ofd.ShowDialog() != DialogResult.OK)
                 return false;
 
@@ -59,11 +56,9 @@ namespace NHSE.WinForms
 
         public static void DumpLayerAcreSingle(FieldItemLayer layer, int acreIndex, string acre, int layerIndex)
         {
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Field Item Layer (*.nhl)|*.nhl|All files (*.*)|*.*",
-                FileName = $"{acre}-{layerIndex}.nhl",
-            };
+            using var sfd = new SaveFileDialog();
+            sfd.Filter = "New Horizons Field Item Layer (*.nhl)|*.nhl|All files (*.*)|*.*";
+            sfd.FileName = $"{acre}-{layerIndex}.nhl";
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
@@ -74,11 +69,9 @@ namespace NHSE.WinForms
 
         public static void DumpLayerAcreAll(FieldItemLayer layer)
         {
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Field Item Layer (*.nhl)|*.nhl|All files (*.*)|*.*",
-                FileName = "acres.nhl",
-            };
+            using var sfd = new SaveFileDialog();
+            sfd.Filter = "New Horizons Field Item Layer (*.nhl)|*.nhl|All files (*.*)|*.*";
+            sfd.FileName = "acres.nhl";
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
@@ -89,11 +82,9 @@ namespace NHSE.WinForms
 
         public static bool ImportTerrainAcre(TerrainLayer m, int acreIndex, string acre)
         {
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Terrain (*.nht)|*.nht|All files (*.*)|*.*",
-                FileName = $"{acre}.nht",
-            };
+            using var ofd = new OpenFileDialog();
+            ofd.Filter = "New Horizons Terrain (*.nht)|*.nht|All files (*.*)|*.*";
+            ofd.FileName = $"{acre}.nht";
             if (ofd.ShowDialog() != DialogResult.OK)
                 return false;
 
@@ -114,11 +105,9 @@ namespace NHSE.WinForms
 
         public static bool ImportTerrainAll(TerrainLayer m)
         {
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Terrain (*.nht)|*.nht|All files (*.*)|*.*",
-                FileName = "terrainAcres.nht",
-            };
+            using var ofd = new OpenFileDialog();
+            ofd.Filter = "New Horizons Terrain (*.nht)|*.nht|All files (*.*)|*.*";
+            ofd.FileName = "terrainAcres.nht";
             if (ofd.ShowDialog() != DialogResult.OK)
                 return false;
 
@@ -139,11 +128,9 @@ namespace NHSE.WinForms
 
         public static void DumpTerrainAcre(TerrainLayer m, int acreIndex, string acre)
         {
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Terrain (*.nht)|*.nht|All files (*.*)|*.*",
-                FileName = $"{acre}.nht",
-            };
+            using var sfd = new SaveFileDialog();
+            sfd.Filter = "New Horizons Terrain (*.nht)|*.nht|All files (*.*)|*.*";
+            sfd.FileName = $"{acre}.nht";
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
@@ -154,11 +141,9 @@ namespace NHSE.WinForms
 
         public static void DumpTerrainAll(TerrainLayer m)
         {
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Terrain (*.nht)|*.nht|All files (*.*)|*.*",
-                FileName = "terrainAcres.nht",
-            };
+            using var sfd = new SaveFileDialog();
+            sfd.Filter = "New Horizons Terrain (*.nht)|*.nht|All files (*.*)|*.*";
+            sfd.FileName = "terrainAcres.nht";
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
@@ -169,11 +154,9 @@ namespace NHSE.WinForms
 
         public static void DumpBuildings(IReadOnlyList<Building> buildings)
         {
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Building List (*.nhb)|*.nhb|All files (*.*)|*.*",
-                FileName = "buildings.nhb",
-            };
+            using var sfd = new SaveFileDialog();
+            sfd.Filter = "New Horizons Building List (*.nhb)|*.nhb|All files (*.*)|*.*";
+            sfd.FileName = "buildings.nhb";
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
@@ -184,11 +167,9 @@ namespace NHSE.WinForms
 
         public static bool ImportBuildings(IReadOnlyList<Building> buildings)
         {
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Building List (*.nhb)|*.nhb|All files (*.*)|*.*",
-                FileName = "buildings.nhb",
-            };
+            using var ofd = new OpenFileDialog();
+            ofd.Filter = "New Horizons Building List (*.nhb)|*.nhb|All files (*.*)|*.*";
+            ofd.FileName = "buildings.nhb";
             if (ofd.ShowDialog() != DialogResult.OK)
                 return false;
 
@@ -210,13 +191,11 @@ namespace NHSE.WinForms
             return true;
         }
 
-        public static bool DumpMapAcresAll(byte[] data)
+        public static bool DumpMapAcresAll(ReadOnlySpan<byte> data)
         {
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "New Horizons Acres (*.nha)|*.nha|All files (*.*)|*.*",
-                FileName = "acres.nha",
-            };
+            using var sfd = new SaveFileDialog();
+            sfd.Filter = "New Horizons Acres (*.nha)|*.nha|All files (*.*)|*.*";
+            sfd.FileName = "acres.nha";
 
             if (sfd.ShowDialog() != DialogResult.OK)
                 return false;
@@ -225,13 +204,11 @@ namespace NHSE.WinForms
             return true;
         }
 
-        public static bool ImportMapAcresAll(byte[] data)
+        public static bool ImportMapAcresAll(Span<byte> data)
         {
-            using var ofd = new OpenFileDialog
-            {
-                Filter = "New Horizons Acres (*.nha)|*.nha|All files (*.*)|*.*",
-                FileName = "acres.nha",
-            };
+            using var ofd = new OpenFileDialog();
+            ofd.Filter = "New Horizons Acres (*.nha)|*.nha|All files (*.*)|*.*";
+            ofd.FileName = "acres.nha";
 
             if (ofd.ShowDialog() != DialogResult.OK)
                 return false;
@@ -245,7 +222,7 @@ namespace NHSE.WinForms
                 return false;
             }
 
-            modified.CopyTo(data, 0);
+            modified.CopyTo(data);
             return true;
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace NHSE.Core
 {
@@ -53,22 +54,24 @@ namespace NHSE.Core
             return result;
         }
 
-        public int GiveAll(string[] englishNames, int interval = 20)
+        public int GiveAll(ReadOnlySpan<string> englishNames, int interval = 20)
         {
-            var items = new[]
+            var list = new List<ushort>(GameLists.Art.Length);
+            foreach (var item in GameLists.Art)
             {
-                GameLists.Art.Where(z => !englishNames[z].Contains('(')), // ignore forgeries
-                GameLists.Fish,
-                GameLists.Fossils,
-                GameLists.Bugs,
-                GameLists.Dive,
-            }.SelectMany(z => z).ToArray();
-
-            RandUtil.Shuffle(items);
-            return AddItems(items, interval);
+                // ignore forgeries
+                if (!englishNames[item].Contains('('))
+                    list.Add(item);
+            }
+            list.AddRange(GameLists.Fish);
+            list.AddRange(GameLists.Fossils);
+            list.AddRange(GameLists.Bugs);
+            list.AddRange(GameLists.Dive);
+            RandUtil.Shuffle(list);
+            return AddItems(CollectionsMarshal.AsSpan(list), interval);
         }
 
-        private int AddItems(IEnumerable<ushort> items, int interval = 20)
+        private int AddItems(ReadOnlySpan<ushort> items, int interval = 20)
         {
             var processed = Items.Select(z => z.ItemId).Where(z => z != Item.NONE).Distinct();
             var hashset = new HashSet<ushort>(processed);

@@ -1,15 +1,16 @@
-﻿using System;
+﻿using NHSE.Core;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
-using NHSE.Core;
 
 namespace NHSE.WinForms
 {
     public static class WinFormsTranslator
     {
-        private static readonly Dictionary<string, TranslationContext> Context = new();
+        private static readonly Dictionary<string, TranslationContext> Context = [];
         internal static void TranslateInterface(this Control form, string lang) => TranslateForm(form, GetContext(lang));
 
         private static string GetTranslationFileNameInternal(string lang) => $"lang_{lang}";
@@ -54,10 +55,10 @@ namespace NHSE.WinForms
             form.ResumeLayout();
         }
 
-        private static IEnumerable<string> GetTranslationFile(string lang)
+        private static string[] GetTranslationFile(string lang)
         {
             var file = GetTranslationFileNameInternal(lang);
-            // Check to see if a the translation file exists in the same folder as the executable
+            // Check to see if the translation file exists in the same folder as the executable
             string externalLangPath = GetTranslationFileNameExternal(file);
             if (File.Exists(externalLangPath))
             {
@@ -76,7 +77,7 @@ namespace NHSE.WinForms
                 return result;
             var obj = Properties.Resources.ResourceManager.GetObject(file);
             if (obj is not string txt)
-                return Array.Empty<string>();
+                return [];
             return ResourceUtil.LoadStringList(file, txt);
         }
 
@@ -121,7 +122,7 @@ namespace NHSE.WinForms
                 if (!child.HasChildren)
                     continue;
 
-                foreach (var descendant in GetChildrenOfType<T>(child))
+                foreach (var descendant in child.GetChildrenOfType<T>())
                     yield return descendant;
             }
         }
@@ -171,29 +172,40 @@ namespace NHSE.WinForms
             }
         }
 
-        public static void LoadAllForms(params string[] banlist)
+        private static bool IsBannedStartsWith(ReadOnlySpan<char> line, ReadOnlySpan<string> banlist)
         {
-            LoadSpecialForms();
-
-            var q = from t in System.Reflection.Assembly.GetExecutingAssembly().GetTypes()
-                    where t.BaseType == typeof(Form) && !banlist.Contains(t.Name)
-                    select t;
-            foreach (var t in q)
+            foreach (var banned in banlist)
             {
+                if (line.StartsWith(banned, StringComparison.Ordinal))
+                    return true;
+            }
+            return false;
+        }
+
+        public static void LoadAllForms(IEnumerable<Type> types, ReadOnlySpan<string> banlist)
+        {
+            foreach (var t in types)
+            {
+                if (!typeof(Form).IsAssignableFrom(t) || IsBannedStartsWith(t.Name, banlist))
+                    continue;
+
                 var constructors = t.GetConstructors();
                 if (constructors.Length == 0)
-                {
-                    Console.WriteLine($"No constructors: {t.Name}");
-                    continue;
-                }
+                { System.Diagnostics.Debug.WriteLine($"No constructors: {t.Name}"); continue; }
                 var argCount = constructors[0].GetParameters().Length;
                 try
                 {
-                    var _ = Activator.CreateInstance(t, new object[argCount]);
+                    var form = (Form?)Activator.CreateInstance(t, new object[argCount]);
+                    form?.Dispose();
+                }
+                // This is a debug utility method, will always be logging. Shouldn't ever fail.
+                catch (TargetInvocationException)
+                {
+                    // Don't care; forms will sometimes fail to load.
                 }
                 catch
                 {
-                    // ignored
+                    System.Diagnostics.Debug.Write($"Failed to create a new form {t}");
                 }
             }
         }
@@ -228,24 +240,24 @@ namespace NHSE.WinForms
         public bool AddNew { private get; set; }
         public bool RemoveUsedKeys { private get; set; }
         public const char Separator = '=';
-        private readonly Dictionary<string, string> Translation = new();
+        private readonly Dictionary<string, string> Translation = [];
 
-        public TranslationContext(IEnumerable<string> content, char separator = Separator)
+        public TranslationContext(string[] content, char separator = Separator)
         {
             var entries = GetContent(content, separator);
             foreach (var kvp in entries.Where(z => !Translation.ContainsKey(z.Key)))
                 Translation.Add(kvp.Key, kvp.Value);
         }
 
-        private static IEnumerable<KeyValuePair<string, string>> GetContent(IEnumerable<string> content, char separator)
+        private static IEnumerable<KeyValuePair<string, string>> GetContent(string[] content, char separator)
         {
             foreach (var line in content)
             {
                 var index = line.IndexOf(separator);
                 if (index < 0)
                     continue;
-                var key = line.Substring(0, index);
-                var value = line.Substring(index + 1);
+                var key = line[..index];
+                var value = line[(index + 1)..];
                 yield return new KeyValuePair<string, string>(key, value);
             }
         }
@@ -265,7 +277,7 @@ namespace NHSE.WinForms
 
         public IEnumerable<string> Write(char separator = Separator)
         {
-            return Translation.Select(z => $"{z.Key}{separator}{z.Value}").OrderBy(z => z.Contains(".")).ThenBy(z => z);
+            return Translation.Select(z => $"{z.Key}{separator}{z.Value}").OrderBy(z => z.Contains('.')).ThenBy(z => z);
         }
 
         public void UpdateFrom(TranslationContext other)

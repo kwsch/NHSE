@@ -4,10 +4,10 @@ namespace NHSE.Core
 {
     public static class Encryption
     {
-        private static byte[] GetParam(uint[] data, in int index)
+        private static byte[] GetParam(ReadOnlySpan<uint> data, in int index)
         {
-            var rand = new XorShift128(data[data[index] & 0x7F]);
-            var prms = data[data[index + 1] & 0x7F] & 0x7F;
+            var rand = new XorShift128(data[(int)data[index] & 0x7F]);
+            var prms = data[(int)(data[index + 1] & 0x7F)] & 0x7F;
 
             var rndRollCount = (prms & 0xF) + 1;
             for (var i = 0; i < rndRollCount; i++)

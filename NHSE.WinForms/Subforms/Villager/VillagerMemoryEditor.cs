@@ -12,7 +12,7 @@ namespace NHSE.WinForms
 
         private int PlayerIndex = -1;
         private int FlagIndex = -1;
-        private byte[] Flags = Array.Empty<byte>();
+        private byte[] Flags = [];
 
         private readonly TextBox[] Greetings;
 
@@ -21,12 +21,12 @@ namespace NHSE.WinForms
             InitializeComponent();
             this.TranslateInterface(GameInfo.CurrentLanguage);
 
-            Greetings = new[]
-            {
+            Greetings =
+            [
                 TB_Greeting,
                 TB_Greeting1, TB_Greeting2, TB_Greeting3, TB_Greeting4, TB_Greeting5,
                 TB_Greeting6, TB_Greeting7, TB_Greeting8, TB_Greeting9, TB_Greeting10
-            };
+            ];
 
             Villager = villager;
             Memories = villager.GetMemories();
@@ -63,7 +63,7 @@ namespace NHSE.WinForms
             Close();
         }
 
-        private static string GetFlagDescription(int index, IReadOnlyList<byte> flags, IReadOnlyDictionary<string, string> str)
+        private static string GetFlagDescription(int index, ReadOnlySpan<byte> flags, IReadOnlyDictionary<string, string> str)
         {
             return EventFlagVillagerMemoryPlayer.GetName((ushort)index, flags[index], str);
         }

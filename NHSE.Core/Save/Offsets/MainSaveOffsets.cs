@@ -99,33 +99,33 @@ namespace NHSE.Core
             };
         }
 
-        public DesignPattern ReadPattern(byte[] data, int index)
+        public DesignPattern ReadPattern(ReadOnlySpan<byte> data, int index)
         {
             if ((uint)index >= PatternCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
             return ReadPatternAtOffset(data, LandMyDesign + (index * DesignPattern.SIZE));
         }
 
-        public static DesignPattern ReadPatternAtOffset(byte[] data, int offset)
+        public static DesignPattern ReadPatternAtOffset(ReadOnlySpan<byte> data, int offset)
         {
-            var v = data.Slice(offset, DesignPattern.SIZE);
+            var v = data.Slice(offset, DesignPattern.SIZE).ToArray();
             return new DesignPattern(v);
         }
 
-        public void WritePattern(DesignPattern p, byte[] data, int index, byte[] playerID, byte[] townID)
+        public void WritePattern(DesignPattern p, Span<byte> data, int index, Span<byte> playerID, Span<byte> townID)
         {
             if ((uint)index >= PatternCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
-            playerID.CopyTo(p.Data, 0x54); // overwrite playerID bytes so player owns
-            townID.CopyTo(p.Data, 0x38); // overwrite townID bytes so player owns
-            byte[] wipeflag = new byte[] { 0x02, 0xEE, 0x00, 0x00 }; // wipe so player owns
-            wipeflag.CopyTo(p.Data, 0x70);
-            p.Data.CopyTo(data, LandMyDesign + (index * DesignPattern.SIZE));
-            byte[] editedflag = new byte[] { 0x00 };
-            editedflag.CopyTo(data, PatternsEditFlagStart + index); // set edited flag for name import to work
+            playerID.CopyTo(p.Data.AsSpan(0x54)); // overwrite playerID bytes so player owns
+            townID.CopyTo(p.Data.AsSpan(0x38)); // overwrite townID bytes so player owns
+            byte[] wipeflag = [0x02, 0xEE, 0x00, 0x00]; // wipe so player owns
+            wipeflag.CopyTo(p.Data.AsSpan(0x70));
+            p.Data.CopyTo(data[(LandMyDesign + (index * DesignPattern.SIZE))..]);
+            byte[] editedflag = [0x00];
+            editedflag.CopyTo(data[(PatternsEditFlagStart + index)..]); // set edited flag for name import to work
         }
 
-        public DesignPatternPRO ReadPatternPRO(byte[] data, int index)
+        public DesignPatternPRO ReadPatternPRO(ReadOnlySpan<byte> data, int index)
         {
             if ((uint)index >= PatternCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
@@ -133,77 +133,77 @@ namespace NHSE.Core
             return ReadPatternPROAtOffset(data, ofs);
         }
 
-        public static DesignPatternPRO ReadPatternPROAtOffset(byte[] data, int ofs)
+        public static DesignPatternPRO ReadPatternPROAtOffset(ReadOnlySpan<byte> data, int ofs)
         {
-            var v = data.Slice(ofs, DesignPatternPRO.SIZE);
+            var v = data.Slice(ofs, DesignPatternPRO.SIZE).ToArray();
             return new DesignPatternPRO(v);
         }
 
-        public void WritePatternPRO(DesignPatternPRO p, byte[] data, int index, byte[] playerID, byte[] townID)
+        public void WritePatternPRO(DesignPatternPRO p, Span<byte> data, int index, Span<byte> playerID, Span<byte> townID)
         {
             if ((uint)index >= PatternCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
-            playerID.CopyTo(p.Data, 0x54); // overwrite playerID bytes so player owns
-            townID.CopyTo(p.Data, 0x38); // overwrite townID bytes so player owns
-            byte[] wipeflag = new byte[] { 0x00, 0x00, 0x00, 0x00 }; // wipe so player owns
-            wipeflag.CopyTo(p.Data, 0x70);
-            p.Data.CopyTo(data, PatternsPRO + (index * DesignPatternPRO.SIZE));
-            byte[] editedflag = new byte[] { 0x00 };
-            editedflag.CopyTo(data, PatternsProEditFlagStart + index);
+            playerID.CopyTo(p.Data.AsSpan(0x54)); // overwrite playerID bytes so player owns
+            townID.CopyTo(p.Data.AsSpan(0x38)); // overwrite townID bytes so player owns
+            ReadOnlySpan<byte> wipeflag = [0x00, 0x00, 0x00, 0x00]; // wipe so player owns
+            wipeflag.CopyTo(p.Data.AsSpan(0x70));
+            p.Data.CopyTo(data[(PatternsPRO + (index * DesignPatternPRO.SIZE))..]);
+            byte[] editedflag = [0x00];
+            editedflag.CopyTo(data[(PatternsProEditFlagStart + index)..]); // set edited flag for name import to work
         }
 
-        public IVillager ReadVillager(byte[] data, int index)
+        public IVillager ReadVillager(ReadOnlySpan<byte> data, int index)
         {
             if ((uint)index >= VillagerCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
 
             var size = VillagerSize;
-            var v = data.Slice(Animal + (index * size), size);
+            var v = data.Slice(Animal + (index * size), size).ToArray();
             return ReadVillager(v);
         }
 
-        public void WriteVillager(IVillager v, byte[] data, int index)
+        public void WriteVillager(IVillager v, Span<byte> data, int index)
         {
             if ((uint)index >= VillagerCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
             var size = VillagerSize;
-            v.Write().CopyTo(data, Animal + (index * size));
+            v.Write().CopyTo(data[(Animal + (index * size))..]);
         }
 
-        public IVillagerHouse ReadVillagerHouse(byte[] data, int index)
+        public IVillagerHouse ReadVillagerHouse(ReadOnlySpan<byte> data, int index)
         {
             if ((uint)index >= VillagerCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
 
             var size = VillagerHouseSize;
-            var v = data.Slice(NpcHouseList + (index * size), size);
+            var v = data.Slice(NpcHouseList + (index * size), size).ToArray();
             return ReadVillagerHouse(v);
         }
 
-        public void WriteVillagerHouse(IVillagerHouse v, byte[] data, int index)
+        public void WriteVillagerHouse(IVillagerHouse v, Span<byte> data, int index)
         {
             if ((uint)index >= VillagerCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
             var size = VillagerHouseSize;
-            v.Write().CopyTo(data, NpcHouseList + (index * size));
+            v.Write().CopyTo(data[(NpcHouseList + (index * size))..]);
         }
 
-        public IPlayerHouse ReadPlayerHouse(byte[] data, int index)
+        public IPlayerHouse ReadPlayerHouse(ReadOnlySpan<byte> data, int index)
         {
             if ((uint)index >= PlayerCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
 
             var size = PlayerHouseSize;
-            var v = data.Slice(PlayerHouseList + (index * size), size);
+            var v = data.Slice(PlayerHouseList + (index * size), size).ToArray();
             return ReadPlayerHouse(v);
         }
 
-        public void WritePlayerHouse(IPlayerHouse v, byte[] data, int index)
+        public void WritePlayerHouse(IPlayerHouse v, Span<byte> data, int index)
         {
             if ((uint)index >= PlayerCount)
                 throw new ArgumentOutOfRangeException(nameof(index));
             var size = PlayerHouseSize;
-            v.Write().CopyTo(data, PlayerHouseList + (index * size));
+            v.Write().CopyTo(data[(PlayerHouseList + (index * size))..]);
         }
     }
 }

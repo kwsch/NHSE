@@ -99,10 +99,11 @@ namespace NHSE.WinForms
 
         private void B_EditFlags_Click(object sender, EventArgs e)
         {
-            var flags = Houses[Index].GetEventFlags();
-            using var editor = new PlayerHouseFlagEditor(flags);
+            var flags = Houses[Index].EventFlags;
+            var edit = flags.ToArray();
+            using var editor = new PlayerHouseFlagEditor(edit);
             if (editor.ShowDialog() == DialogResult.OK)
-                Houses[Index].SetEventFlags(flags);
+                edit.CopyTo(flags);
         }
 
         private int HoverX;
@@ -165,7 +166,7 @@ namespace NHSE.WinForms
         {
             var w = layer.MaxWidth;
             var h = layer.MaxHeight;
-            int[] scale1 = new int[w * h];
+            Span<int> scale1 = stackalloc int[w * h];
             int[] scaleX = new int[scale * scale * scale1.Length];
             var bmp = new Bitmap(scale * w, scale * h);
             PB_Room.Image = ItemLayerSprite.GetBitmapItemLayerViewGrid(layer, 0, 0, scale, scale1, scaleX, bmp, gridlineColor: 0x7F000000);

@@ -24,9 +24,9 @@ namespace NHSE.Core
         #region Override Implementations
         public IEnumerator<EncryptedFilePair> GetEnumerator()
         {
-            IEnumerable<EncryptedFilePair> baseFiles = new EncryptedFilePair[] { Personal, Photo, PostBox, Profile };
+            IEnumerable<EncryptedFilePair> baseFiles = [Personal, Photo, PostBox, Profile];
             if (WhereAreN is not null)
-                baseFiles = baseFiles.Concat(new EncryptedFilePair[] { WhereAreN });
+                baseFiles = baseFiles.Concat([WhereAreN]);
             return baseFiles.AsEnumerable().GetEnumerator();
         }
 

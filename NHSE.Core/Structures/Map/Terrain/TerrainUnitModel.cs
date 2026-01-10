@@ -265,18 +265,20 @@ namespace NHSE.Core
 
     public static class TerrainUnitModelExtensions
     {
-        public static bool IsRoad(this TerrainUnitModel t) => t >= RoadBrick0A || (RoadSoil0A <= t && t <= RoadStone8A);
-        public static bool IsRoadWood(this TerrainUnitModel t) => RoadWood0A <= t && t <= RoadWood8A;
-        public static bool IsRoadTile(this TerrainUnitModel t) => RoadTile0A <= t && t <= RoadTile8A;
-        public static bool IsRoadSand(this TerrainUnitModel t) => RoadSand0A <= t && t <= RoadSand8A;
-        public static bool IsRoadPattern(this TerrainUnitModel t) => RoadFanPattern0A <= t && t <= RoadFanPattern8A;
-        public static bool IsRoadDarkSoil(this TerrainUnitModel t) => RoadDarkSoil0A <= t && t <= RoadDarkSoil8A;
-        public static bool IsRoadBrick(this TerrainUnitModel t) => RoadBrick0A <= t && t <= RoadBrick8A;
-        public static bool IsRoadStone(this TerrainUnitModel t) => RoadStone0A <= t && t <= RoadStone8A;
-        public static bool IsRoadSoil(this TerrainUnitModel t) => RoadSoil0A <= t && t <= RoadSoil8A;
-
-        public static bool IsFall(this TerrainUnitModel t) => (Fall101 <= t && t <= Fall404) || (Fall103 <= t && t <= Fall424);
-        public static bool IsCliff(this TerrainUnitModel t) => (Cliff0A <= t && t <= Cliff8) || (t == Cliff2B);
-        public static bool IsRiver(this TerrainUnitModel t) => River0A <= t && t <= River8A;
+        extension(TerrainUnitModel t)
+        {
+            public bool IsRoad => t is >= RoadBrick0A or (>= RoadSoil0A and <= RoadStone8A);
+            public bool IsRoadWood => t is (>= RoadWood0A and <= RoadWood8A);
+            public bool IsRoadTile => t is (>= RoadTile0A and <= RoadTile8A);
+            public bool IsRoadSand => t is (>= RoadSand0A and <= RoadSand8A);
+            public bool IsRoadPattern => t is (>= RoadFanPattern0A and <= RoadFanPattern8A);
+            public bool IsRoadDarkSoil => t is (>= RoadDarkSoil0A and <= RoadDarkSoil8A);
+            public bool IsRoadBrick => t is (>= RoadBrick0A and <= RoadBrick8A);
+            public bool IsRoadStone => t is (>= RoadStone0A and <= RoadStone8A);
+            public bool IsRoadSoil => t is (>= RoadSoil0A and <= RoadSoil8A);
+            public bool IsFall => t is (>= Fall101 and <= Fall404) or (>= Fall103 and <= Fall424);
+            public bool IsCliff => t is (>= Cliff0A and <= Cliff8) or Cliff2B;
+            public bool IsRiver => t is (>= River0A and <= River8A);
+        }
     }
 }

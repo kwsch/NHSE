@@ -84,7 +84,7 @@ namespace NHSE.Core
             }
         }
 
-        private static void Dump(this IPlayerHouse h, string path, IVillagerOrigin p) => h.Dump(p.PlayerName, path);
+        private static void Dump(this IPlayerHouse h, string path, Personal p) => h.Dump(p.PlayerName, path);
 
         private static void Dump(this IPlayerHouse h, string player, string path)
         {

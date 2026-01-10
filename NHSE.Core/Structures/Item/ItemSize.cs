@@ -5,16 +5,7 @@ namespace NHSE.Core
     /// <summary>
     /// Detail about an item's dimensions
     /// </summary>
-    public class ItemSize
-    {
-        public readonly int Width;
-        public readonly int Height;
-
-        public ItemSize(int w, int h)
-        {
-            Width = w; Height = h;
-        }
-    }
+    public readonly record struct ItemSize(int Width, int Height);
 
     public static class ItemSizeExtensions
     {
@@ -50,7 +41,10 @@ namespace NHSE.Core
             {ItemSizeType.S_5_0x5_0_Rug , new ItemSize(10, 10)}, // 5x5(ラグ)
         };
 
-        public static int GetWidth(this ItemSizeType s) => Dictionary.TryGetValue(s, out var val) ? val.Width : 2;
-        public static int GetHeight(this ItemSizeType s) => Dictionary.TryGetValue(s, out var val) ? val.Height : 2;
+        extension(ItemSizeType s)
+        {
+            public int Width => Dictionary.TryGetValue(s, out var val) ? val.Width : 2;
+            public int Height => Dictionary.TryGetValue(s, out var val) ? val.Height : 2;
+        }
     }
 }

@@ -80,12 +80,10 @@ namespace NHSE.WinForms
                 }
             }
 
-            using var ofd = new OpenFileDialog
-            {
-                Title = "Open main.dat ...",
-                Filter = "New Horizons Save File (main.dat)|main.dat",
-                FileName = "main.dat",
-            };
+            using var ofd = new OpenFileDialog();
+            ofd.Title = "Open main.dat ...";
+            ofd.Filter = "New Horizons Save File (main.dat)|main.dat";
+            ofd.FileName = "main.dat";
             if (ofd.ShowDialog() == DialogResult.OK)
                 Open(ofd.FileName);
         }

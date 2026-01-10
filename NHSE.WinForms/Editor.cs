@@ -88,12 +88,10 @@ namespace NHSE.WinForms
 
         private void Menu_LoadDecrypted_Click(object sender, EventArgs e)
         {
-            using var ofd = new OpenFileDialog
-            {
-                Title = "Open main.dat ...",
-                Filter = "New Horizons Save File (main.dat)|main.dat",
-                FileName = "main.dat",
-            };
+            using var ofd = new OpenFileDialog();
+            ofd.Title = "Open main.dat ...";
+            ofd.Filter = "New Horizons Save File (main.dat)|main.dat";
+            ofd.FileName = "main.dat";
 
             if (ofd.ShowDialog() == DialogResult.OK)
                 LoadDecryptedFromPath(ofd.FileName);
@@ -182,14 +180,12 @@ namespace NHSE.WinForms
         private void LoadMain()
         {
             var m = SAV.Main;
-            var names = Enum.GetNames(typeof(Hemisphere));
-            foreach (var n in names)
-                CB_Hemisphere.Items.Add(n);
+            var names = Enum.GetNames<Hemisphere>();
+            CB_Hemisphere.Items.AddRange(names);
             CB_Hemisphere.SelectedIndex = (int)m.Hemisphere;
 
-            names = Enum.GetNames(typeof(AirportColor));
-            foreach (var n in names)
-                CB_AirportColor.Items.Add(n);
+            names = Enum.GetNames<AirportColor>();
+            CB_AirportColor.Items.AddRange(names);
             CB_AirportColor.SelectedIndex = (int)m.AirportThemeColor;
             NUD_WeatherSeed.Value = m.WeatherSeed;
         }
@@ -232,8 +228,8 @@ namespace NHSE.WinForms
                 if (editor.ShowDialog() != DialogResult.OK)
                     return;
 
-                pers.Pocket = items.Take(pocket.Count).ToArray();
-                pers.Bag = items.Skip(pocket.Count).Take(bag.Count).ToArray();
+                pers.Pocket = items.AsSpan(0, pocket.Count).ToArray();
+                pers.Bag = items.AsSpan(pocket.Count, bag.Count).ToArray();
             }
         }
 
@@ -401,8 +397,7 @@ namespace NHSE.WinForms
 
         private void Menu_SavePNG_Click(object sender, EventArgs e)
         {
-            var pb = WinFormsUtil.GetUnderlyingControl<PictureBox>(sender);
-            if (pb?.Image == null)
+            if (!WinFormsUtil.TryGetUnderlying<PictureBox>(sender, out var pb) || pb.Image is null)
             {
                 WinFormsUtil.Alert(MessageStrings.MsgNoPictureLoaded);
                 return;
@@ -410,11 +405,9 @@ namespace NHSE.WinForms
 
             string name = SAV.Players[PlayerIndex].Personal.PlayerName;
             var bmp = pb.Image;
-            using var sfd = new SaveFileDialog
-            {
-                Filter = "png file (*.png)|*.png|All files (*.*)|*.*",
-                FileName = $"{name}.png",
-            };
+            using var sfd = new SaveFileDialog();
+            sfd.Filter = "png file (*.png)|*.png|All files (*.*)|*.*";
+            sfd.FileName = $"{name}.png";
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
 
@@ -437,10 +430,11 @@ namespace NHSE.WinForms
 
         private void B_EditLandFlags_Click(object sender, EventArgs e)
         {
-            var flags = SAV.Main.GetEventFlagLand();
-            using var editor = new LandFlagEditor(flags);
+            var flags = SAV.Main.EventFlagLand;
+            var edit = flags.ToArray();
+            using var editor = new LandFlagEditor(edit);
             if (editor.ShowDialog() == DialogResult.OK)
-                SAV.Main.SetEventFlagLand(flags);
+                edit.CopyTo(flags);
         }
 
         private void B_EditPatterns_Click(object sender, EventArgs e)

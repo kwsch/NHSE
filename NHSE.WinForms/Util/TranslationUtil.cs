@@ -16,7 +16,7 @@ namespace NHSE.WinForms
         /// <param name="input">Enumerable of translation definitions in the form "Property = Value".</param>
         private static string[] GetProperties(IEnumerable<string> input)
         {
-            return input.Select(l => l.Substring(0, l.IndexOf(TranslationSplitter)))
+            return input.Select(l => l[..l.IndexOf(TranslationSplitter)])
                 .ToArray();
         }
 
@@ -58,17 +58,17 @@ namespace NHSE.WinForms
         /// </summary>
         /// <param name="t">Type of the static class containing the desired strings.</param>
         /// <param name="lines">Lines containing the localized strings</param>
-        private static void SetLocalization(Type t, IReadOnlyCollection<string> lines)
+        private static void SetLocalization(Type t, ReadOnlySpan<string> lines)
         {
-            if (lines.Count == 0)
+            if (lines.Length == 0)
                 return;
             foreach (var line in lines)
             {
                 var index = line.IndexOf(TranslationSplitter);
                 if (index < 0)
                     continue;
-                var prop = line.Substring(0, index);
-                var value = line.Substring(index + 1);
+                var prop = line[..index];
+                var value = line[(index + 1)..];
 
                 try
                 {
@@ -87,17 +87,17 @@ namespace NHSE.WinForms
         /// </summary>
         /// <param name="dict">Dictionary of translatable strings</param>
         /// <param name="lines">Lines containing the localized strings</param>
-        private static void SetLocalization(IDictionary<string, string> dict, IReadOnlyCollection<string> lines)
+        private static void SetLocalization(Dictionary<string, string> dict, ReadOnlySpan<string> lines)
         {
-            if (lines.Count == 0)
+            if (lines.Length == 0)
                 return;
             foreach (var line in lines)
             {
                 var index = line.IndexOf(TranslationSplitter);
                 if (index < 0)
                     continue;
-                var prop = line.Substring(0, index);
-                dict[prop] = line.Substring(index + 1);
+                var prop = line[..index];
+                dict[prop] = line[(index + 1)..];
             }
         }
 
@@ -123,7 +123,7 @@ namespace NHSE.WinForms
             SetLocalization(t, t.Name, currentCultureCode);
         }
 
-        public static void SetLocalization(IDictionary<string, string> dict, string currentCultureCode)
+        public static void SetLocalization(Dictionary<string, string> dict, string currentCultureCode)
         {
             var lines = ResourceUtil.GetStringList($"internal_{currentCultureCode}");
             SetLocalization(dict, lines);

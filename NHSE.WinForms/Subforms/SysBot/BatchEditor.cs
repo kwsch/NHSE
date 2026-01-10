@@ -51,7 +51,7 @@ namespace NHSE.WinForms
 
             var prefix = StringInstruction.Prefixes;
             string s = prefix[CB_Require.SelectedIndex] + CB_Property.Items[CB_Property.SelectedIndex]!.ToString() + StringInstruction.SplitInstruction;
-            if (RTB_Instructions.Lines.Length != 0 && RTB_Instructions.Lines.Last().Length > 0)
+            if (RTB_Instructions.Lines.Length != 0 && RTB_Instructions.Lines[^1].Length > 0)
                 s = Environment.NewLine + s;
 
             RTB_Instructions.AppendText(s);

@@ -11,11 +11,6 @@ Modificatore di salvataggi per Animal Crossing: New Horizons
 Puoi modificare i salvataggi esportati dalla tua Nintendo Switch.
 * Esporta i tuoi salvataggi; Questo programma non può esportare direttamente i salvataggi dalla tua console.
 
-## Guarda Anche
-
-[MyHorizons](https://github.com/Cuyler36/MyHorizons) di [Cuyler36](https://github.com/Cuyler36/)
-* Alcune porzioni del codice sono completamente adattate dal progetto di Cuyler36.
-
 ## Altro
 
 Per ulteriori informazioni, consultare la nostra [Wiki](https://github.com/kwsch/NHSE/wiki) (in inglese).

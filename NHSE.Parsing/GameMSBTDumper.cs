@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -21,7 +22,7 @@ namespace NHSE.Parsing
             return result!;
         }
 
-        private static void FinalizeItemList(string language, string[] result)
+        private static void FinalizeItemList(string language, Span<string> result)
         {
             result[0] = $"({GetNoneName(language)})";
             result[5794] = $"({GetDIYRecipeName(language)})";
@@ -39,7 +40,7 @@ namespace NHSE.Parsing
             {
                 var label = Label;
                 var underscore = label.IndexOf('_');
-                var itemIDs = label.Substring(underscore + 1);
+                var itemIDs = label[(underscore + 1)..];
                 ushort itemID = ushort.Parse(itemIDs);
 
                 var fake = label.Contains("Fake") ? " (forgery)" : string.Empty;
@@ -53,7 +54,7 @@ namespace NHSE.Parsing
         {
             var file = Path.Combine(msgPath, "Npc", "STR_NNpcPhrase.msbt");
             var list = GetLabelList(file);
-            var normal = list.Select(z => $"{z.Label}\t{z.Text}").OrderBy(z => z);
+            var normal = list.Select(z => $"{z.Label}\t{z.Text}").Order();
             return normal.ToArray();
         }
 
@@ -61,11 +62,11 @@ namespace NHSE.Parsing
         {
             var file = Path.Combine(msgPath, "Npc", "STR_NNpcName.msbt");
             var list = GetLabelList(file);
-            var normal = list.Select(z => $"{z.Label}\t{z.Text}").OrderBy(z => z);
+            var normal = list.Select(z => $"{z.Label}\t{z.Text}").Order();
 
             file = Path.Combine(msgPath, "Npc", "STR_SNpcName.msbt");
             list = GetLabelList(file);
-            var special = list.Select(z => $"{z.Label}\t{z.Text}").OrderBy(z => z);
+            var special = list.Select(z => $"{z.Label}\t{z.Text}").Order();
 
             return normal.Concat(special).ToArray();
         }
@@ -78,7 +79,7 @@ namespace NHSE.Parsing
             return result;
         }
 
-        private static void AddRegularItems(IDictionary<ushort, string> result, string msgPath, string language)
+        private static void AddRegularItems(Dictionary<ushort, string> result, string msgPath, string language)
         {
             var pitem = Path.Combine(msgPath, "Item");
             var fitem = Directory.EnumerateFiles(pitem);
@@ -91,7 +92,7 @@ namespace NHSE.Parsing
                     continue;
 
                 var underscore = label.IndexOf('_');
-                var itemIDs = label.Substring(underscore + 1);
+                var itemIDs = label[(underscore + 1)..];
                 ushort itemID = ushort.Parse(itemIDs);
 
                 var itemText = text;
@@ -102,60 +103,51 @@ namespace NHSE.Parsing
             }
         }
 
-        private static string GetNoneName(string language)
+        private static string GetNoneName(string language) => language switch
         {
-            return language switch
-            {
-                "de" => "Leer",
-                "es" => "Ningun",
-                "fr" => "Aucun",
-                "it" => "Nessuna",
-                "ko" => "없음",
-                "ja" => "無し",
-                "chs" => "没有",
-                "cht" => "沒有",
-                _ => "None",
-            };
-        }
+            "de" => "Leer",
+            "es" => "Ningun",
+            "fr" => "Aucun",
+            "it" => "Nessuna",
+            "ko" => "없음",
+            "ja" => "無し",
+            "chs" => "没有",
+            "cht" => "沒有",
+            _ => "None",
+        };
 
-        private static string GetDIYRecipeName(string language)
+        private static string GetDIYRecipeName(string language) => language switch
         {
-            return language switch
-            {
-                "de" => "DIY recipe",
-                "es" => "DIY recipe",
-                "fr" => "DIY recipe",
-                "it" => "DIY recipe",
-                "ko" => "DIY recipe",
-                "ja" => "DIY recipe",
-                "chs" => "DIY recipe",
-                "cht" => "DIY recipe",
-                _ => "DIY recipe",
-            };
-        }
+            "de" => "DIY recipe",
+            "es" => "DIY recipe",
+            "fr" => "DIY recipe",
+            "it" => "DIY recipe",
+            "ko" => "DIY recipe",
+            "ja" => "DIY recipe",
+            "chs" => "DIY recipe",
+            "cht" => "DIY recipe",
+            _ => "DIY recipe",
+        };
 
-        private static string GetForgerySuffix(string language)
+        private static string GetForgerySuffix(string language) => language switch
         {
-            return language switch
-            {
-                "de" => "fälschung",
-                "es" => "falsificación",
-                "fr" => "falsification",
-                "it" => "falsificazione",
-                "ko" => "위조",
-                "ja" => "偽造",
-                "chs" => "伪造",
-                "cht" => "偽造",
-                _ => "forgery",
-            };
-        }
+            "de" => "fälschung",
+            "es" => "falsificación",
+            "fr" => "falsification",
+            "it" => "falsificazione",
+            "ko" => "위조",
+            "ja" => "偽造",
+            "chs" => "伪造",
+            "cht" => "偽造",
+            _ => "forgery",
+        };
 
         private static readonly Dictionary<int, string> InternalItemList = new()
         {
             {4200, "k.k. slider's guitar (internal)"},
         };
 
-        private static void AddColoredItems(IDictionary<ushort, string> result, string msgPath)
+        private static void AddColoredItems(Dictionary<ushort, string> result, string msgPath)
         {
             var pgname = Path.Combine(msgPath, "Outfit", "GroupName"); // (baseItemName, groupID)
             var pgcolor = Path.Combine(msgPath, "Outfit", "GroupColor"); // (itemID_type_groupID, color)
@@ -194,7 +186,7 @@ namespace NHSE.Parsing
                 yield return GetCleanLabelText(e, msbt.TXT2.Strings);
         }
 
-        private static (string Label, string Text) GetCleanLabelText(MSBTLabel lbl, IList<MSBTTextString> txt)
+        private static (string Label, string Text) GetCleanLabelText(MSBTLabel lbl, List<MSBTTextString> txt)
         {
             var label = lbl.Name;
             var index = (int)lbl.Index;

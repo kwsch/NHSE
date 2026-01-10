@@ -29,7 +29,15 @@ namespace NHSE.Core
     public sealed class Aes128CounterMode : SymmetricAlgorithm
     {
         private readonly byte[] _counter;
-        private readonly AesManaged _aes = new() {Mode = CipherMode.ECB, Padding = PaddingMode.None};
+        private readonly Aes _aes = GetAes();
+
+        private static Aes GetAes()
+        {
+            var result = Aes.Create();
+            result.Mode = CipherMode.ECB;
+            result.Padding = PaddingMode.None;
+            return result;
+        }
 
         public Aes128CounterMode(byte[] counter)
         {
@@ -39,8 +47,8 @@ namespace NHSE.Core
             _counter = counter;
         }
 
-        public override ICryptoTransform CreateEncryptor(byte[] rgbKey, byte[] ignoredParameter) => new CounterModeCryptoTransform(_aes, rgbKey, _counter);
-        public override ICryptoTransform CreateDecryptor(byte[] rgbKey, byte[] ignoredParameter) => new CounterModeCryptoTransform(_aes, rgbKey, _counter);
+        public override ICryptoTransform CreateEncryptor(byte[] rgbKey, byte[]? ignoredParameter) => new CounterModeCryptoTransform(_aes, rgbKey, _counter);
+        public override ICryptoTransform CreateDecryptor(byte[] rgbKey, byte[]? ignoredParameter) => new CounterModeCryptoTransform(_aes, rgbKey, _counter);
 
         public override void GenerateKey() => _aes.GenerateKey();
         public override void GenerateIV() { /* IV not needed in Counter Mode */ }

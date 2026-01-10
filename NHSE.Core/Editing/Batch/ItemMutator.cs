@@ -10,6 +10,7 @@ namespace NHSE.Core
     public class ItemMutator : BatchMutator<Item>
     {
         public readonly ItemReflection Reflect = ItemReflection.Default;
+        private const char CONST_POINTER = '*';
 
         public override ModifyResult Modify(Item item, IEnumerable<StringInstruction> filters, IEnumerable<StringInstruction> modifications)
         {
@@ -48,13 +49,13 @@ namespace NHSE.Core
         }
 
         /// <summary>
-        /// Sets the if the <see cref="Item"/> should be filtered due to the <see cref="StringInstruction"/> provided.
+        /// Sets if the <see cref="Item"/> should be filtered due to the <see cref="StringInstruction"/> provided.
         /// </summary>
         /// <param name="cmd">Command Filter</param>
         /// <param name="item">Pokémon to check.</param>
         /// <param name="props">PropertyInfo cache (optional)</param>
         /// <returns>True if filtered, else false.</returns>
-        private static ModifyResult SetProperty(StringInstruction cmd, Item item, IReadOnlyDictionary<string, PropertyInfo> props)
+        private static ModifyResult SetProperty(StringInstruction cmd, Item item, Dictionary<string, PropertyInfo>.AlternateLookup<ReadOnlySpan<char>> props)
         {
             if (SetComplexProperty(item, cmd))
                 return ModifyResult.Modified;
@@ -65,8 +66,10 @@ namespace NHSE.Core
             if (!pi.CanWrite)
                 return ModifyResult.Error;
 
-            object val = cmd.Random ? (object)cmd.RandomValue : cmd.PropertyValue;
-            ReflectUtil.SetValue(pi, item, val);
+            if (cmd.Random)
+                ReflectUtil.SetValue(pi, item, cmd.RandomValue);
+            else
+                ReflectUtil.SetValue(pi, item, cmd.PropertyValue);
             return ModifyResult.Modified;
         }
 
@@ -77,7 +80,7 @@ namespace NHSE.Core
             {
                 if (!int.TryParse(cmd.PropertyValue, out var val))
                     return false;
-                if (val is not 0 or 0xFFFE)
+                if (val is not (0 or 0xFFFE))
                     return false;
                 item.Delete();
                 return true;
@@ -157,7 +160,7 @@ namespace NHSE.Core
         /// <param name="item">Pokémon to check.</param>
         /// <param name="props">PropertyInfo cache (optional)</param>
         /// <returns>True if filter matches, else false.</returns>
-        private static bool IsFilterMatch(StringInstruction cmd, Item item, IReadOnlyDictionary<string, PropertyInfo> props)
+        private static bool IsFilterMatch(StringInstruction cmd, Item item, Dictionary<string, PropertyInfo>.AlternateLookup<ReadOnlySpan<char>> props)
         {
             return IsPropertyFiltered(cmd, item, props);
         }
@@ -169,13 +172,20 @@ namespace NHSE.Core
         /// <param name="item">Pokémon to check.</param>
         /// <param name="props">PropertyInfo cache</param>
         /// <returns>True if filtered, else false.</returns>
-        private static bool IsPropertyFiltered(StringInstruction cmd, Item item, IReadOnlyDictionary<string, PropertyInfo> props)
+        private static bool IsPropertyFiltered(StringInstruction cmd, Item item, Dictionary<string, PropertyInfo>.AlternateLookup<ReadOnlySpan<char>> props)
         {
             if (!props.TryGetValue(cmd.PropertyName, out var pi))
                 return false;
             if (!pi.CanRead)
                 return false;
-            return pi.IsValueEqual(item, cmd.PropertyValue) == cmd.Evaluator;
+
+            var val = cmd.PropertyValue;
+            if (val.StartsWith(CONST_POINTER) && props.TryGetValue(val.AsSpan(1), out var opi))
+            {
+                var result = opi.GetValue(item) ?? throw new NullReferenceException();
+                return cmd.Comparer.IsCompareOperator(pi.CompareTo(item, result));
+            }
+            return cmd.Comparer.IsCompareOperator(pi.CompareTo(item, val));
         }
 
         /// <summary>
@@ -192,7 +202,7 @@ namespace NHSE.Core
                     return false;
                 try
                 {
-                    if (pi.IsValueEqual(obj, cmd.PropertyValue) == cmd.Evaluator)
+                    if (cmd.Comparer.IsCompareOperator(pi.CompareTo(obj, cmd.PropertyValue)))
                         continue;
                 }
                 // User provided inputs can mismatch the type's required value format, and fail to be compared.

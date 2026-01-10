@@ -1,4 +1,6 @@
-﻿namespace NHSE.Core
+﻿using System;
+
+namespace NHSE.Core
 {
     public interface IPlayerHouse : IHouseInfo
     {
@@ -8,8 +10,7 @@
         sbyte NPC1 { get; set; }
         sbyte NPC2 { get; set; }
         string Extension { get; }
-        short[] GetEventFlags();
-        void SetEventFlags(short[] value);
+        Span<short> EventFlags { get; }
         IPlayerRoom GetRoom(int roomIndex);
         void SetRoom(int roomIndex, IPlayerRoom room);
     }

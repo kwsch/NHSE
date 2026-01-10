@@ -12,7 +12,7 @@ namespace NHSE.Core
 
         public static Color GetTileColor(TerrainTile tile, int relativeX, int relativeY)
         {
-            if (tile.UnitModelRoad.IsRoad())
+            if (tile.UnitModelRoad.IsRoad)
                 return GetRoadColor(tile.UnitModelRoad);
             var baseColor = GetTileDefaultColor(tile.UnitModel, tile.LandMakingAngle, relativeX, relativeY);
             if (tile.Elevation == 0)
@@ -23,19 +23,19 @@ namespace NHSE.Core
 
         private static Color GetRoadColor(TerrainUnitModel mdl)
         {
-            if (mdl.IsRoadBrick())
+            if (mdl.IsRoadBrick)
                 return Color.Firebrick;
-            if (mdl.IsRoadDarkSoil())
+            if (mdl.IsRoadDarkSoil)
                 return Color.SaddleBrown;
-            if (mdl.IsRoadSoil())
+            if (mdl.IsRoadSoil)
                 return Color.Peru;
-            if (mdl.IsRoadStone())
+            if (mdl.IsRoadStone)
                 return Color.DarkGray;
-            if (mdl.IsRoadPattern())
+            if (mdl.IsRoadPattern)
                 return Color.Ivory;
-            if (mdl.IsRoadTile())
+            if (mdl.IsRoadTile)
                 return Color.SteelBlue;
-            if (mdl.IsRoadSand())
+            if (mdl.IsRoadSand)
                 return Color.SandyBrown;
             return Color.BurlyWood;
         }
@@ -71,7 +71,7 @@ namespace NHSE.Core
                 {
                     Default when IsPointInMultiTriangle(relativeX, relativeY, new(4, 15), new(0, 0), new(15, 4), new(0, 15), new(15, 0)) || IsNubOnBottomRight(relativeX, relativeY) || relativeX < 4 || relativeY < 4 => Grass,
                     Rotate90ClockAnverse when IsPointInMultiTriangle(relativeX, relativeY, new(4, 0), new(0, 15), new(15, 12), new(0, 0), new(15, 15)) || IsNubOnTopRight(relativeX, relativeY) || relativeX < 4 || relativeY >= 12 => Grass,
-                    Rotate180ClockAnverse when IsPointInMultiTriangle(relativeX, relativeY, new(0, 12), new(15, 15), new(12, 0), new(0, 15), new(15, 0)) || IsNubOnTopLeft(relativeX, relativeY) || relativeX >= 12 || relativeY >= 12 => Grass, 
+                    Rotate180ClockAnverse when IsPointInMultiTriangle(relativeX, relativeY, new(0, 12), new(15, 15), new(12, 0), new(0, 15), new(15, 0)) || IsNubOnTopLeft(relativeX, relativeY) || relativeX >= 12 || relativeY >= 12 => Grass,
                     Rotate270ClockAnverse when IsPointInMultiTriangle(relativeX, relativeY, new(0, 4), new(15, 0), new(12, 15), new(0, 0), new(15, 15)) || IsNubOnBottomLeft(relativeX, relativeY) || relativeX >= 12 || relativeY < 4 => Grass,
                     _ => River
                 },
@@ -205,11 +205,11 @@ namespace NHSE.Core
             return Math.Abs(areaTotal - (area1 + area2 + area3)) < 0.0001f;
         }
 
-        private static float GetTriangleArea(Coordinate A, Coordinate B, Coordinate C)
+        private static float GetTriangleArea(Coordinate a, Coordinate b, Coordinate c)
         {
-            return Math.Abs((A.X * (B.Y - C.Y) +
-                             B.X * (C.Y - A.Y) +
-                             C.X * (A.Y - B.Y)) / 2.0f);
+            return Math.Abs(((a.X * (b.Y - c.Y)) +
+                             (b.X * (c.Y - a.Y)) +
+                             (c.X * (a.Y - b.Y))) / 2.0f);
         }
 
         private readonly record struct Coordinate(int X, int Y);
@@ -219,24 +219,22 @@ namespace NHSE.Core
         private static Color GetTileDefaultColor(TerrainUnitModel mdl, ushort landAngle, int relativeX, int relativeY)
         {
             var angle = (LandAngles)landAngle;
-            if (mdl.IsRiver())
+            if (mdl.IsRiver)
                 return GetRiverColor(mdl, angle, relativeX, relativeY);
-            if (mdl.IsFall())
+            if (mdl.IsFall)
                 return Color.DeepSkyBlue;
-            if (mdl.IsCliff())
+            if (mdl.IsCliff)
                 return CliffBase;
             return Grass;
         }
 
-        private static readonly char[] Numbers = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-
         public static string GetTileName(TerrainTile tile)
         {
             var name = tile.UnitModel.ToString();
-            var num = name.IndexOfAny(Numbers);
+            var num = name.IndexOfAnyInRange('0', '9');
             if (num < 0)
                 return name;
-            return name.Substring(0, num) + Environment.NewLine + name.Substring(num);
+            return name[..num] + Environment.NewLine + name[num..];
         }
     }
 }

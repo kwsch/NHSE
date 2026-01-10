@@ -10,7 +10,7 @@ namespace NHSE.Core
 
     public static class ComboItemUtil
     {
-        public static List<ComboItem> GetArray(string[] items)
+        public static List<ComboItem> GetArray(ReadOnlySpan<string> items)
         {
             var result = new List<ComboItem>(items.Length / 2);
             for (int i = 0; i < items.Length; i++)
@@ -37,9 +37,9 @@ namespace NHSE.Core
             return acres;
         }
 
-        public static List<ComboItem> GetArray(IReadOnlyList<ushort> values, string[] names)
+        public static List<ComboItem> GetArray(ReadOnlySpan<ushort> values, ReadOnlySpan<string> names)
         {
-            var result = new List<ComboItem>(values.Count);
+            var result = new List<ComboItem>(values.Length);
             foreach (var value in values)
             {
                 var text = names[value];
@@ -76,11 +76,14 @@ namespace NHSE.Core
         private static readonly FunctorComparer<ComboItem> Comparer =
             new((a, b) => string.CompareOrdinal(a.Text, b.Text));
 
-        private sealed class FunctorComparer<T> : IComparer<T>
+        private sealed class FunctorComparer<T>(Comparison<T> Comparison) : IComparer<T> where T : notnull
         {
-            private readonly Comparison<T> Comparison;
-            public FunctorComparer(Comparison<T> comparison) => Comparison = comparison;
-            public int Compare(T x, T y) => Comparison(x, y);
+            public int Compare(T? x, T? y)
+            {
+                if (x is null)
+                    return y is null ? 0 : -1;
+                return y is null ? 1 : Comparison(x, y);
+            }
         }
     }
 }

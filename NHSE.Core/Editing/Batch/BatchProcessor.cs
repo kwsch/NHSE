@@ -7,14 +7,11 @@ namespace NHSE.Core
     /// <summary>
     /// Carries out a batch edit and contains information summarizing the results.
     /// </summary>
-    public abstract class BatchProcessor<T> where T : class
+    public abstract class BatchProcessor<T>(BatchMutator<T> Mutator) where T : class
     {
         private int Modified { get; set; }
         private int Iterated { get; set; }
         private int Failed { get; set; }
-
-        protected readonly BatchMutator<T> Mutator;
-        protected BatchProcessor(BatchMutator<T> mut) => Mutator = mut;
 
         protected abstract bool CanModify(T item);
         protected abstract bool Finalize(T item);
@@ -62,7 +59,7 @@ namespace NHSE.Core
             return result;
         }
 
-        public void Execute(IList<string> lines, IEnumerable<T> data)
+        public void Execute(ReadOnlySpan<string> lines, IEnumerable<T> data)
         {
             var sets = StringInstructionSet.GetBatchSets(lines).ToArray();
             foreach (var pk in data)

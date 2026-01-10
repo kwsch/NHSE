@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using NHSE.Core;
 
 namespace NHSE.Sprites
@@ -17,7 +18,7 @@ namespace NHSE.Sprites
             return ImageUtil.GetBitmap(bmpData, width, height);
         }
 
-        private static void LoadBitmapLayer(Item[] items, int[] bmpData, int width, int height)
+        private static void LoadBitmapLayer(ReadOnlySpan<Item> items, Span<int> bmpData, int width, int height)
         {
             for (int x = 0; x < width; x++)
             {
@@ -31,7 +32,7 @@ namespace NHSE.Sprites
             }
         }
 
-        private static void LoadPixelsFromLayer(ItemLayer layer, int x0, int y0, int width, int[] bmpData)
+        private static void LoadPixelsFromLayer(ItemLayer layer, int x0, int y0, int width, Span<int> bmpData)
         {
             var stride = layer.GridWidth;
 
@@ -49,7 +50,7 @@ namespace NHSE.Sprites
         }
 
         // non-allocation image generator
-        public static Bitmap GetBitmapItemLayerViewGrid(ItemLayer layer, int x0, int y0, int scale, int[] acre1, int[] acreScale, Bitmap dest, int transparency = -1, int gridlineColor = 0)
+        public static Bitmap GetBitmapItemLayerViewGrid(ItemLayer layer, int x0, int y0, int scale, Span<int> acre1, int[] acreScale, Bitmap dest, int transparency = -1, int gridlineColor = 0)
         {
             var w = layer.GridWidth;
             var h = layer.GridHeight;
@@ -58,7 +59,7 @@ namespace NHSE.Sprites
             h *= scale;
             ImageUtil.ScalePixelImage(acre1, acreScale, w, h, scale);
 
-            if (transparency >> 24 != 0xFF)
+            if (transparency >>> 24 != 0xFF)
                 ImageUtil.ClampAllTransparencyTo(acreScale, transparency);
 
             // draw symbols over special items now?
@@ -72,7 +73,7 @@ namespace NHSE.Sprites
             return dest;
         }
 
-        private static void DrawDirectionals(int[] data, ItemLayer layer, int w, int x0, int y0, int scale)
+        private static void DrawDirectionals(Span<int> data, ItemLayer layer, int w, int x0, int y0, int scale)
         {
             for (int x = x0; x < x0 + layer.GridWidth; x++)
             {
@@ -113,13 +114,13 @@ namespace NHSE.Sprites
             }
         }
 
-        private static void DrawGene(int[] data, int x0, int y0, int scale, int w, uint geneValue, int geneIndex)
+        private static void DrawGene(Span<int> data, int x0, int y0, int scale, int w, uint geneValue, int geneIndex)
         {
             var c = ShiftToGeneCoordinate(ref x0, ref y0, scale, geneIndex);
             FillSquare(data, x0, y0, scale / 2, w, c, geneValue == 3 ? 1 : 2);
         }
 
-        private static void FillSquare(int[] data, int x0, int y0, int scale, int w, int color, int increment)
+        private static void FillSquare(Span<int> data, int x0, int y0, int scale, int w, int color, int increment)
         {
             var baseIndex = (y0 * w) + x0;
             for (int i = 0; i < scale * scale; i += increment)
@@ -150,7 +151,7 @@ namespace NHSE.Sprites
             }
         }
 
-        private static void DrawPlus(int[] data, int x0, int y0, int scale, int w)
+        private static void DrawPlus(Span<int> data, int x0, int y0, int scale, int w)
         {
             var x0y0 = (w * y0) + x0;
             var s2 = scale / 2;
@@ -168,7 +169,7 @@ namespace NHSE.Sprites
             }
         }
 
-        private static void DrawX(int[] data, int x0, int y0, int scale, int w)
+        private static void DrawX(Span<int> data, int x0, int y0, int scale, int w)
         {
             var opposite = scale - 1;
             var wo = w * opposite;
@@ -187,7 +188,7 @@ namespace NHSE.Sprites
             }
         }
 
-        private static void DrawDirectional(int[] data, Item tile, int x0, int y0, int scale, int w)
+        private static void DrawDirectional(Span<int> data, Item tile, int x0, int y0, int scale, int w)
         {
             var eX = tile.ExtensionX;
             var eY = tile.ExtensionY;
@@ -206,7 +207,7 @@ namespace NHSE.Sprites
             }
         }
 
-        public static void DrawGrid(int[] data, int w, int h, int scale, int gridlineColor)
+        public static void DrawGrid(Span<int> data, int w, int h, int scale, int gridlineColor)
         {
             // Horizontal Lines
             for (int y = scale; y < h; y += scale)
@@ -234,7 +235,7 @@ namespace NHSE.Sprites
         public static Bitmap GetBitmapItemLayer(ItemLayer layer, int x, int y, int[] data, Bitmap dest, int transparency = -1)
         {
             LoadBitmapLayer(layer.Tiles, data, layer.MaxWidth, layer.MaxHeight);
-            if (transparency >> 24 != 0xFF)
+            if (transparency >>> 24 != 0xFF)
                 ImageUtil.ClampAllTransparencyTo(data, transparency);
             ImageUtil.SetBitmapData(dest, data);
             return DrawViewReticle(dest, layer, x, y);

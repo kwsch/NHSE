@@ -10,11 +10,6 @@ NHSE
 Modifiez les données de sauvegarde extraites de votre Nintendo Switch. 
 * Veuillez préparer vos propres données de sauvegarde. Ce programme n'extrait pas les données de sauvegarde de la console.
 
-## Voir également
-
-[MyHorizons](https://github.com/Cuyler36/MyHorizons) par [Cuyler36](https://github.com/Cuyler36/)
-* Une partie du code est fortement adaptée du projet de Cuyler36 ci-dessus.
-
 ## Autre
 
 Consultez le [Wiki](https://github.com/kwsch/NHSE/wiki) pour plus d'informations.

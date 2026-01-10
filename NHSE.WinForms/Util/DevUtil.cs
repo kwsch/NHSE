@@ -11,7 +11,7 @@ namespace NHSE.WinForms
 #if DEBUG
     public static class DevUtil
     {
-        private static readonly string[] Languages = { "jp", "de", "es", "fr", "it", "ko", "zhs", "zht" };
+        private static readonly string[] Languages = ["jp", "de", "es", "fr", "it", "ko", "zhs", "zht"];
         private const string DefaultLanguage = GameLanguage.DefaultLanguage;
 
         public static bool IsUpdatingTranslations { get; private set; }
@@ -32,13 +32,15 @@ namespace NHSE.WinForms
 
         private static void UpdateTranslations()
         {
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            var types = assembly.GetTypes();
             WinFormsTranslator.LoadSpecialForms = LoadSpecialForms;
             WinFormsTranslator.SetRemovalMode(false); // add mode
-            WinFormsTranslator.LoadAllForms(LoadBanlist); // populate with every possible control
+            WinFormsTranslator.LoadAllForms(types, LoadBanlist); // populate with every possible control
             WinFormsTranslator.UpdateAll(DefaultLanguage, Languages); // propagate to others
             WinFormsTranslator.DumpAll(Banlist); // dump current to file
             WinFormsTranslator.SetRemovalMode(); // remove used keys, don't add any
-            WinFormsTranslator.LoadAllForms(LoadBanlist); // de-populate
+            WinFormsTranslator.LoadAllForms(types, LoadBanlist); // de-populate
             WinFormsTranslator.RemoveAll(DefaultLanguage, PurgeBanlist); // remove all lines from above generated files that still remain
 
             // Move translated files from the debug exe loc to their project location
@@ -71,13 +73,13 @@ namespace NHSE.WinForms
         }
 
         private static readonly string[] LoadBanlist =
-        {
+        [
             nameof(SettingsEditor),
-            nameof(Editor), // special handling above
-        };
+            nameof(Editor) // special handling above
+        ];
 
         private static readonly string[] Banlist =
-        {
+        [
             "Editor=NHSE", // Program Title
             "InternalName=",
             "ExternalName=",
@@ -87,13 +89,13 @@ namespace NHSE.WinForms
             "L_PatternName=",
             "L_RemakeBody=",
             "L_RemakeFabric=",
-            "AchievementEditor.L_Threshold",
-        };
+            "AchievementEditor.L_Threshold"
+        ];
 
         private static readonly string[] PurgeBanlist =
-        {
-            nameof(SettingsEditor),
-        };
+        [
+            nameof(SettingsEditor)
+        ];
 
         private static void UpdateInternalNameTranslations()
         {
@@ -160,7 +162,7 @@ namespace NHSE.WinForms
             var path = Application.StartupPath;
             const string projname = "NHSE\\";
             var pos = path.LastIndexOf(projname, StringComparison.Ordinal);
-            var str = path.Substring(0, pos + projname.Length);
+            var str = path[..(pos + projname.Length)];
             return Path.Combine(str, "NHSE.Core", "Resources", "text");
         }
     }

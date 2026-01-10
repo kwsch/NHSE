@@ -26,7 +26,7 @@ namespace NHSE.Core
                 var result = new s_665e9093[2];
                 for (int i = 0; i < result.Length; i++)
                 {
-                    var slice = Data.Slice(0x65C8 + i * s_665e9093.SIZE, s_665e9093.SIZE);
+                    var slice = Data.Slice(0x65C8 + (i * s_665e9093.SIZE), s_665e9093.SIZE);
                     result[i] = slice.ToStructure<s_665e9093>();
                 }
                 return result;
@@ -35,7 +35,7 @@ namespace NHSE.Core
             set
             {
                 for (int i = 0; i < value.Length; i++)
-                    value[i].ToBytes().CopyTo(Data, 0x65C8 + i * s_665e9093.SIZE);
+                    value[i].ToBytes().CopyTo(Data, 0x65C8 + (i * s_665e9093.SIZE));
             }
         }
 

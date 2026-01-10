@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace NHSE.Core
@@ -51,7 +52,7 @@ namespace NHSE.Core
                 yield return hash;
         }
 
-        public void ChangeIdentity(byte[] original, byte[] updated)
+        public void ChangeIdentity(ReadOnlySpan<byte> original, ReadOnlySpan<byte> updated)
         {
             Main.Data.ReplaceOccurrences(original, updated);
             foreach (var pair in Players.SelectMany(z => z))

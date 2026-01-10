@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Core
 {
@@ -24,29 +25,43 @@ namespace NHSE.Core
         /// <returns>Calculated hash.</returns>
         public static uint GetMurmur3Hash(byte[] data, int offset, uint size, uint seed = 0)
         {
-            uint checksum = seed;
-            if (size > 3)
+            ArgumentNullException.ThrowIfNull(data);
+            return GetMurmur3Hash(data.AsSpan(offset, checked((int)size)), seed);
+        }
+
+        public static uint GetMurmur3Hash(ReadOnlySpan<byte> data, uint seed = 0)
+        {
+            var checksum = seed;
+            var remaining = data;
+            while (remaining.Length >= sizeof(uint))
             {
-                for (var i = 0; i < (size / sizeof(uint)); i++)
-                {
-                    var val = BitConverter.ToUInt32(data, offset);
-                    checksum ^= Murmur32_Scramble(val);
-                    checksum = (checksum >> 19) | (checksum << 13);
-                    checksum = (checksum * 5) + 0xE6546B64;
-                    offset += 4;
-                }
+                var val = ReadUInt32LittleEndian(remaining);
+                checksum ^= Murmur32_Scramble(val);
+                checksum = (checksum >> 19) | (checksum << 13);
+                checksum = (checksum * 5) + 0xE6546B64;
+                remaining = remaining[sizeof(uint)..];
             }
 
-            var remainder = size % sizeof(uint);
-            if (remainder != 0)
+            if (!remaining.IsEmpty)
             {
-                uint val = BitConverter.ToUInt32(data, (int)((offset + size) - remainder));
-                for (var i = 0; i < (sizeof(uint) - remainder); i++)
-                    val >>= 8;
+                uint val = 0;
+                switch (remaining.Length)
+                {
+                    case 3:
+                        val |= (uint)remaining[2] << 16;
+                        goto case 2;
+                    case 2:
+                        val |= (uint)remaining[1] << 8;
+                        goto case 1;
+                    case 1:
+                        val |= remaining[0];
+                        break;
+                }
+
                 checksum ^= Murmur32_Scramble(val);
             }
 
-            checksum ^= size;
+            checksum ^= (uint)data.Length;
             checksum ^= checksum >> 16;
             checksum *= 0x85EBCA6B;
             checksum ^= checksum >> 13;
@@ -65,9 +80,21 @@ namespace NHSE.Core
         /// <returns>Calculated hash that was written back to the data.</returns>
         public static uint UpdateMurmur32(byte[] data, int hashOffset, int readOffset, uint readSize)
         {
-            var newHash = GetMurmur3Hash(data, readOffset, readSize);
-            var hashBytes = BitConverter.GetBytes(newHash);
-            hashBytes.CopyTo(data, hashOffset);
+            ArgumentNullException.ThrowIfNull(data);
+            return UpdateMurmur32(data.AsSpan(), hashOffset, readOffset, readSize);
+        }
+
+        public static uint UpdateMurmur32(Span<byte> data, int hashOffset, int readOffset, uint readSize)
+        {
+            var newHash = GetMurmur3Hash(data.Slice(readOffset, checked((int)readSize)));
+            WriteUInt32LittleEndian(data.Slice(hashOffset, sizeof(uint)), newHash);
+            return newHash;
+        }
+
+        public static uint UpdateMurmur32(ReadOnlySpan<byte> data, Span<byte> hashDestination)
+        {
+            var newHash = GetMurmur3Hash(data);
+            WriteUInt32LittleEndian(hashDestination, newHash);
             return newHash;
         }
 
@@ -80,6 +107,12 @@ namespace NHSE.Core
         /// <param name="readSize">Amount of data to hash</param>
         /// <returns>Calculated hash matches the currently stored hash.</returns>
         public static bool VerifyMurmur32(byte[] data, int hashOffset, int readOffset, uint readSize)
-            => BitConverter.ToUInt32(data, hashOffset) == GetMurmur3Hash(data, readOffset, readSize);
+        {
+            ArgumentNullException.ThrowIfNull(data);
+            return VerifyMurmur32(data.AsSpan(), hashOffset, readOffset, readSize);
+        }
+
+        public static bool VerifyMurmur32(ReadOnlySpan<byte> data, int hashOffset, int readOffset, uint readSize)
+            => ReadUInt32LittleEndian(data.Slice(hashOffset, sizeof(uint))) == GetMurmur3Hash(data.Slice(readOffset, checked((int)readSize)));
     }
 }

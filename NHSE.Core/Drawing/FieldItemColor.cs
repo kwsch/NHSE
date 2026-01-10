@@ -22,19 +22,19 @@ namespace NHSE.Core
                 return Color.DarkGreen;
 
             var kind = def.Kind;
-            if (kind.IsTree())
+            if (kind.IsTree)
                 return GetTreeColor(id);
-            if (kind.IsFlower())
+            if (kind.IsFlower)
                 return Color.HotPink;
-            if (kind.IsWeed())
+            if (kind.IsWeed)
                 return Color.DarkOliveGreen;
-            if (kind.IsFence())
+            if (kind.IsFence)
                 return Color.LightCoral;
             if (kind == FieldItemKind.UnitIconHole)
                 return Color.Black;
-            if (kind.IsBush())
+            if (kind.IsBush)
                 return Color.LightGreen;
-            if (kind.IsStone())
+            if (kind.IsStone)
                 return Color.LightGray;
 
             return Color.DarkGreen; // shouldn't reach here, but ok
@@ -42,7 +42,7 @@ namespace NHSE.Core
 
         private static Color GetTreeColor(ushort id)
         {
-            if (0xEC9C <= id && id <= 0xECA0) // money tree
+            if (id is >= 0xEC9C and <= 0xECA0) // money tree
                 return Color.Gold;
 
             return id switch

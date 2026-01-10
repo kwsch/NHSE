@@ -1,10 +1,11 @@
-﻿using System;
+﻿using NHSE.Core;
+using NHSE.Sprites;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using NHSE.Core;
-using NHSE.Sprites;
 
 namespace NHSE.WinForms
 {
@@ -14,11 +15,14 @@ namespace NHSE.WinForms
         private readonly ItemEditor Editor;
         private readonly IReadOnlyList<Item> Items;
 
-        private IList<PictureBox> SlotPictureBoxes = Array.Empty<PictureBox>();
+        private List<PictureBox> SlotPictureBoxes = [];
         private int Count => Items.Count;
         private int Page;
         private int ItemsPerPage;
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Action? ItemChanged { private get; set; }
+
         private void ItemUpdated() => ItemChanged?.Invoke();
 
         public ItemGridEditor(ItemEditor editor, IReadOnlyList<Item> items)
@@ -113,8 +117,7 @@ namespace NHSE.WinForms
 
         private void ClickView(object sender, EventArgs e)
         {
-            var pb = WinFormsUtil.GetUnderlyingControl<PictureBox>(sender);
-            if (pb == null)
+            if (!WinFormsUtil.TryGetUnderlying<PictureBox>(sender, out var pb))
                 return;
             var index = SlotPictureBoxes.IndexOf(pb);
             LoadItem(index);
@@ -122,8 +125,7 @@ namespace NHSE.WinForms
 
         private void ClickSet(object sender, EventArgs e)
         {
-            var pb = WinFormsUtil.GetUnderlyingControl<PictureBox>(sender);
-            if (pb == null)
+            if (!WinFormsUtil.TryGetUnderlying<PictureBox>(sender, out var pb))
                 return;
             var index = SlotPictureBoxes.IndexOf(pb);
             var item = SetItem(index);
@@ -133,8 +135,7 @@ namespace NHSE.WinForms
 
         private void ClickDelete(object sender, EventArgs e)
         {
-            var pb = WinFormsUtil.GetUnderlyingControl<PictureBox>(sender);
-            if (pb == null)
+            if (!WinFormsUtil.TryGetUnderlying<PictureBox>(sender, out var pb))
                 return;
             var index = SlotPictureBoxes.IndexOf(pb);
             var item = GetItem(index);
@@ -145,8 +146,7 @@ namespace NHSE.WinForms
 
         private void ClickClone(object sender, EventArgs e)
         {
-            var pb = WinFormsUtil.GetUnderlyingControl<PictureBox>(sender);
-            if (pb == null)
+            if (!WinFormsUtil.TryGetUnderlying<PictureBox>(sender, out var pb))
                 return;
             var index = SlotPictureBoxes.IndexOf(pb);
             var item = GetItem(index);
@@ -279,7 +279,7 @@ namespace NHSE.WinForms
             SetEditorItems(sortedItemsCopy);
         }
 
-        private void SetEditorItems(IReadOnlyList<Item> items)
+        private void SetEditorItems(List<Item> items)
         {
             if (items.Count > Items.Count)
                 return;
@@ -297,9 +297,9 @@ namespace NHSE.WinForms
         }
 
         private void B_ClearAll_Click(object sender, EventArgs e) => ClearItemIf(_ => true);
-        private void B_ClearClothing_Click(object sender, EventArgs e) => ClearItemIf(z => ItemInfo.GetItemKind(z).IsClothing());
-        private void B_ClearCrafting_Click(object sender, EventArgs e) => ClearItemIf(z => ItemInfo.GetItemKind(z).IsCrafting());
-        private void B_ClearFurniture_Click(object sender, EventArgs e) => ClearItemIf(z => ItemInfo.GetItemKind(z).IsFurniture());
+        private void B_ClearClothing_Click(object sender, EventArgs e) => ClearItemIf(z => ItemInfo.GetItemKind(z).IsClothing);
+        private void B_ClearCrafting_Click(object sender, EventArgs e) => ClearItemIf(z => ItemInfo.GetItemKind(z).IsCrafting);
+        private void B_ClearFurniture_Click(object sender, EventArgs e) => ClearItemIf(z => ItemInfo.GetItemKind(z).IsFurniture);
         private void B_ClearBugs_Click(object sender, EventArgs e) => ClearItemIf(z => GameLists.Bugs.Contains(z.ItemId));
         private void B_ClearFish_Click(object sender, EventArgs e) => ClearItemIf(z => GameLists.Fish.Contains(z.ItemId));
         private void B_ClearDive_Click(object sender, EventArgs e) => ClearItemIf(z => GameLists.Dive.Contains(z.ItemId));

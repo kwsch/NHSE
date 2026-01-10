@@ -22,7 +22,7 @@ namespace NHSE.Parsing
 			Header = new MSBTHeader(br);
             FileEncoding = (Header.EncodingByte == MSBTEncodingByte.UTF8 ? Encoding.UTF8 : Encoding.Unicode);
 
-			SectionOrder = new List<string>();
+			SectionOrder = [];
 			for (int i = 0; i < Header.NumberOfSections; i++)
             {
                 var peek = br.PeekString();
@@ -140,7 +140,7 @@ namespace NHSE.Parsing
 			long remainder = br.BaseStream.Position % 16;
             if (remainder <= 0)
                 return;
-            var _ = br.ReadByte();
+            _ = br.ReadByte();
             br.BaseStream.Seek(-1, SeekOrigin.Current);
             br.BaseStream.Seek(16 - remainder, SeekOrigin.Current);
         }

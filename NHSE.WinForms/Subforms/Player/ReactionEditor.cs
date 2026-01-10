@@ -24,14 +24,14 @@ namespace NHSE.WinForms
         private void B_Save_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
-            var val = (IReactionStore) PG_Manpu.SelectedObject;
+            var val = (IReactionStore) PG_Manpu.SelectedObject!;
             Personal.Reactions = val;
             Close();
         }
 
         private void B_GiveAll_Click(object sender, EventArgs e)
         {
-            var val = (IReactionStore)PG_Manpu.SelectedObject;
+            var val = (IReactionStore)PG_Manpu.SelectedObject!;
             val.AddMissingReactions();
             PG_Manpu.SelectedObject = val;
             System.Media.SystemSounds.Asterisk.Play();

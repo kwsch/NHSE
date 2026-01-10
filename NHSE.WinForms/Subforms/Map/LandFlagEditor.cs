@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using NHSE.Core;
 
@@ -50,8 +51,7 @@ namespace NHSE.WinForms
 
         private void B_Dump_Click(object sender, EventArgs e)
         {
-            byte[] data = new byte[Counts.Length * 2];
-            Buffer.BlockCopy(Counts, 0, data, 0, data.Length);
+            var data = MemoryMarshal.Cast<short, byte>(Counts);
             MiscDumpHelper.DumpFlags(data, nameof(EventFlagLand));
         }
 

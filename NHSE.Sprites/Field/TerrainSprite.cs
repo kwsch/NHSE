@@ -1,4 +1,5 @@
-﻿using NHSE.Core;
+﻿using System;
+using NHSE.Core;
 using System.Collections.Generic;
 using System.Drawing;
 
@@ -16,7 +17,7 @@ namespace NHSE.Sprites
         private const int PlazaWidth = 6 * 2;
         private const int PlazaHeight = 5 * 2;
 
-        public static void CreateMap(TerrainLayer mgr, int[] pixels)
+        public static void CreateMap(TerrainLayer mgr, Span<int> pixels)
         {
             int i = 0;
             for (int y = 0; y < mgr.MaxHeight; y++)
@@ -28,7 +29,7 @@ namespace NHSE.Sprites
             }
         }
 
-        public static Bitmap CreateMap(TerrainLayer mgr, int[] scale1, int[] scaleX, Bitmap map, int scale, int acreIndex = -1)
+        public static Bitmap CreateMap(TerrainLayer mgr, Span<int> scale1, int[] scaleX, Bitmap map, int scale, int acreIndex = -1)
         {
             CreateMap(mgr, scale1);
             ImageUtil.ScalePixelImage(scale1, scaleX, map.Width, map.Height, scale);
@@ -55,7 +56,7 @@ namespace NHSE.Sprites
             return map;
         }
 
-        public static Bitmap GetMapWithBuildings(MapTerrainStructure m, Font? f, int[] scale1, int[] scaleX, Bitmap map, int scale = 4, int index = -1)
+        public static Bitmap GetMapWithBuildings(MapTerrainStructure m, Font? f, Span<int> scale1, int[] scaleX, Bitmap map, int scale = 4, int index = -1)
         {
             CreateMap(m.Terrain, scale1, scaleX, map, scale);
             using var gfx = Graphics.FromImage(map);
@@ -93,20 +94,20 @@ namespace NHSE.Sprites
         {
             gfx.FillRectangle(pen, x - scale, y - scale, scale * 2, scale * 2);
 
-            if (f != null)
-            {
-                var name = b.BuildingType.ToString();
-                gfx.DrawString(name, f, text, new PointF(x, y - (scale * 2)), BuildingTextFormat);
-            }
+            if (f == null)
+                return;
+
+            var name = b.BuildingType.ToString();
+            gfx.DrawString(name, f, text, new PointF(x, y - (scale * 2)), BuildingTextFormat);
         }
 
-        private static void SetAcreTerrainPixels(int x, int y, TerrainLayer t, int[] data, int[] scaleX, int scale)
+        private static void SetAcreTerrainPixels(int x, int y, TerrainLayer t, Span<int> data, Span<int> scaleX, int scale)
         {
             GetAcre1(x, y, t, data);
             ImageUtil.ScalePixelImage(data, scaleX, 16 * scale, 16 * scale, scale / 16);
         }
 
-        private static void GetAcre1(int tileTopX, int tileTopY, TerrainLayer t, int[] data)
+        private static void GetAcre1(int tileTopX, int tileTopY, TerrainLayer t, Span<int> data)
         {
             int index = 0;
 
@@ -128,7 +129,7 @@ namespace NHSE.Sprites
             }
         }
 
-        public static Bitmap GetAcre(MapView m, Font f, int[] scale1, int[] scaleX, Bitmap acre, int index, byte tbuild, byte tterrain)
+        public static Bitmap GetAcre(MapView m, Font f, Span<int> scale1, int[] scaleX, Bitmap acre, int index, byte tbuild, byte tterrain)
         {
             int mx = m.X / 2;
             int my = m.Y / 2;

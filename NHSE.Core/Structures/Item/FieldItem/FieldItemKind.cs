@@ -86,23 +86,26 @@ namespace NHSE.Core
 
     public static class FieldItemKindExtensions
     {
-        public static bool IsWeed(this FieldItemKind type) => type is >= PltWeedAut0 and <= PltWeedWin1;
-        public static bool IsPlant(this FieldItemKind type) => type is >= PltFlwAnemone and <= PltWeedWin1;
-        public static bool IsFence(this FieldItemKind type) => type is >= FenceBamboo and <= FenceWoodWhite;
-        public static bool IsBush(this FieldItemKind type) => type is >= PltBushAzalea and <= PltBushOsmanthus;
-        public static bool IsFlower(this FieldItemKind type) => type is >= PltFlwAnemone and <= PltFlwYuri;
-        public static bool IsTree(this FieldItemKind type) => type is >= PltTreeBamboo and <= PltTreePalm;
-        public static bool IsStone(this FieldItemKind type) => type is >= StoneA and <= StoneE;
-
-        public static ItemKind ToItemKind(this FieldItemKind type)
+        extension(FieldItemKind type)
         {
-            if (type.IsTree())
-                return ItemKind.Kind_Tree;
-            if (type.IsFlower())
-                return ItemKind.Kind_Flower;
-            if (type.IsWeed())
-                return ItemKind.Kind_Weed;
-            return ItemKind.Unknown;
+            public bool IsWeed => type is (>= PltWeedAut0 and <= PltWeedWin1);
+            public bool IsPlant => type is (>= PltFlwAnemone and <= PltWeedWin1);
+            public bool IsFence => type is (>= FenceBamboo and <= FenceWoodWhite);
+            public bool IsBush => type is (>= PltBushAzalea and <= PltBushOsmanthus);
+            public bool IsFlower => type is (>= PltFlwAnemone and <= PltFlwYuri);
+            public bool IsTree => type is (>= PltTreeBamboo and <= PltTreePalm);
+            public bool IsStone => type is (>= StoneA and <= StoneE);
+
+            public ItemKind ToItemKind()
+            {
+                if (type.IsTree)
+                    return ItemKind.Kind_Tree;
+                if (type.IsFlower)
+                    return ItemKind.Kind_Flower;
+                if (type.IsWeed)
+                    return ItemKind.Kind_Weed;
+                return ItemKind.Unknown;
+            }
         }
     }
 }

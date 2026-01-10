@@ -226,16 +226,13 @@ namespace NHSE.Core
         public static Item[] GetArray(byte[] data) => data.GetArray<Item>(SIZE);
         public static byte[] SetArray(IReadOnlyList<Item> data) => data.SetArray(SIZE);
 
-        public ushort GetWrappedItemName()
+        public ushort GetWrappedItemName() => WrappingType switch
         {
-            return WrappingType switch
-            {
-                ItemWrapping.WrappingPaper => (ushort) (0x1E13 + (ushort)WrappingPaper),
-                ItemWrapping.Present => 0x1180,
-                ItemWrapping.Delivery => 0x1225,
-                _ => ItemId,
-            };
-        }
+            ItemWrapping.WrappingPaper => (ushort) (0x1E13 + (ushort)WrappingPaper),
+            ItemWrapping.Present => 0x1180,
+            ItemWrapping.Delivery => 0x1225,
+            _ => ItemId,
+        };
 
         public bool Equals(Item? other)
         {
@@ -252,6 +249,7 @@ namespace NHSE.Core
             return Equals((Item) obj);
         }
 
+        // ReSharper disable once NonReadonlyMemberInGetHashCode
         public override int GetHashCode() => RawValue.GetHashCode();
         public static bool operator ==(Item? left, Item? right) => Equals(left, right);
         public static bool operator !=(Item? left, Item? right) => !Equals(left, right);

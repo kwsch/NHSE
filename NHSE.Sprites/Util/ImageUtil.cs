@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using NHSE.Core;
 
@@ -9,32 +10,27 @@ namespace NHSE.Sprites
 {
     public static class ImageUtil
     {
-        public static Bitmap GetImage(this DesignPattern bg)
+        extension(DesignPattern bg)
         {
-            return GetBitmap(bg.GetBitmap(), DesignPattern.Width, DesignPattern.Height);
+            public Bitmap GetImage() => GetBitmap(bg.GetBitmap(), DesignPattern.Width, DesignPattern.Height);
+
+            public Bitmap GetPalette() => GetBitmap(bg.GetPaletteBitmap(), DesignPattern.PaletteColorCount, 1, PixelFormat.Format24bppRgb);
         }
 
-        public static Bitmap GetPalette(this DesignPattern bg)
+        extension(DesignPatternPRO bg)
         {
-            return GetBitmap(bg.GetPaletteBitmap(), DesignPattern.PaletteColorCount, 1, PixelFormat.Format24bppRgb);
+            public Bitmap GetImage(int sheet) => GetBitmap(bg.GetBitmap(sheet), DesignPatternPRO.Width, DesignPatternPRO.Height);
+
+            public Bitmap GetPalette() => GetBitmap(bg.GetPaletteBitmap(), DesignPatternPRO.PaletteColorCount, 1, PixelFormat.Format24bppRgb);
         }
 
-        public static Bitmap GetImage(this DesignPatternPRO bg, int sheet)
-        {
-            return GetBitmap(bg.GetBitmap(sheet), DesignPatternPRO.Width, DesignPatternPRO.Height);
-        }
-
-        public static Bitmap GetPalette(this DesignPatternPRO bg)
-        {
-            return GetBitmap(bg.GetPaletteBitmap(), DesignPatternPRO.PaletteColorCount, 1, PixelFormat.Format24bppRgb);
-        }
-
-        public static Bitmap GetBitmap(byte[] data, int width, int height, PixelFormat format = PixelFormat.Format32bppArgb)
+        public static Bitmap GetBitmap(ReadOnlySpan<byte> data, int width, int height, PixelFormat format = PixelFormat.Format32bppArgb)
         {
             var bmp = new Bitmap(width, height, format);
             var bmpData = bmp.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.WriteOnly, format);
-            var ptr = bmpData.Scan0;
-            Marshal.Copy(data, 0, ptr, data.Length);
+            var length = data.Length;
+            var span = MemoryMarshal.CreateSpan(ref Unsafe.AddByteOffset(ref Unsafe.NullRef<byte>(), bmpData.Scan0), length);
+            data[..length].CopyTo(span);
             bmp.UnlockBits(bmpData);
             return bmp;
         }
@@ -85,7 +81,7 @@ namespace NHSE.Sprites
             return destImage;
         }
 
-        public static int[] ScalePixelImage(int[] data, int scale, int w, int h, out int fW, out int fH)
+        public static int[] ScalePixelImage(ReadOnlySpan<int> data, int scale, int w, int h, out int fW, out int fH)
         {
             fW = scale * w;
             fH = scale * h;
@@ -96,7 +92,7 @@ namespace NHSE.Sprites
             return scaled;
         }
 
-        public static void ScalePixelImage(int[] data, int[] scaled, int fW, int fH, int scale)
+        public static void ScalePixelImage(ReadOnlySpan<int> data, Span<int> scaled, int fW, int fH, int scale)
         {
             // For each pixel, copy to the X indexes, then block copy the row to the other rows.
             int i = 0;
@@ -115,14 +111,18 @@ namespace NHSE.Sprites
 
                 // Copy entire pixel row down
                 for (int y1 = 1; y1 < scale; y1++)
-                    Array.Copy(scaled, baseIndex, scaled, baseIndex + (y1 * fW), fW);
+                {
+                    var src = scaled.Slice(baseIndex, fW);
+                    var dest = scaled.Slice(baseIndex + (y1 * fW), fW);
+                    src.CopyTo(dest);
+                }
             }
         }
 
         /// <summary>
         /// Sets a bitwise and of the requested transparency; this is assuming the pixel value is 0xFF_xx_xx_xx. Single operation laziness!
         /// </summary>
-        public static void ClampAllTransparencyTo(int[] data, int trans)
+        public static void ClampAllTransparencyTo(Span<int> data, int trans)
         {
             for (int i = 0; i < data.Length; i++)
                 data[i] &= trans;

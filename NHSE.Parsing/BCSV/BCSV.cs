@@ -110,7 +110,7 @@ namespace NHSE.Parsing
             for (int entry = 0; entry < EntryCount; entry++)
             {
                 var ofs = GetEntryOffset(start, entry);
-                string[] fields = new string[FieldCount];
+                var fields = new string[FieldCount];
                 for (int f = 0; f < fields.Length; f++)
                 {
                     var fo = ofs + FieldOffsets[f].Offset;

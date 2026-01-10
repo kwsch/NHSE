@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Runtime.CompilerServices;
 using System.Text;
 
@@ -20,7 +21,7 @@ namespace NHSE.Core
         private static string TrimFromFirst(string input, char c)
         {
             int index = input.IndexOf(c);
-            return index < 0 ? input : input.Substring(0, index);
+            return index < 0 ? input : input[..index];
         }
 
         public static string GetString(byte[] data, int offset, int maxLength)
@@ -32,7 +33,7 @@ namespace NHSE.Core
         public static byte[] GetBytes(string value, int maxLength)
         {
             if (value.Length > maxLength)
-                value = value.Substring(0, maxLength);
+                value = value[..maxLength];
             else if (value.Length < maxLength)
                 value = value.PadRight(maxLength, '\0');
             return Encoding.Unicode.GetBytes(value);
@@ -48,35 +49,31 @@ namespace NHSE.Core
         /// </summary>
         /// <param name="value">Hex String to parse</param>
         /// <returns>Parsed value</returns>
-        public static uint GetHexValue(string value)
+        public static uint GetHexValue(ReadOnlySpan<char> value)
         {
             uint result = 0;
-            if (string.IsNullOrEmpty(value))
+            if (value.Length == 0)
                 return result;
 
             foreach (var c in value)
             {
-                if (IsNum(c))
+                if (char.IsAsciiDigit(c))
                 {
                     result <<= 4;
-                    result += (uint)(c - '0');
+                    result |= (uint)(c - '0');
                 }
-                else if (IsHexUpper(c))
+                else if (char.IsAsciiHexDigitUpper(c))
                 {
                     result <<= 4;
-                    result += (uint)(c - 'A' + 10);
+                    result |= (uint)(c - 'A' + 10);
                 }
-                else if (IsHexLower(c))
+                else if (char.IsAsciiHexDigitLower(c))
                 {
                     result <<= 4;
-                    result += (uint)(c - 'a' + 10);
+                    result |= (uint)(c - 'a' + 10);
                 }
             }
             return result;
         }
-
-        private static bool IsNum(char c) => (uint)(c - '0') <= 9;
-        private static bool IsHexUpper(char c) => (uint)(c - 'A') <= 5;
-        private static bool IsHexLower(char c) => (uint)(c - 'a') <= 5;
     }
 }
