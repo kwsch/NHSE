@@ -4,191 +4,190 @@ using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
 
-namespace NHSE.WinForms
+namespace NHSE.WinForms;
+
+public partial class ItemReceivedEditor : Form
 {
-    public partial class ItemReceivedEditor : Form
+    private readonly Player Player;
+
+    public ItemReceivedEditor(Player player)
     {
-        private readonly Player Player;
+        Player = player;
+        InitializeComponent();
+        this.TranslateInterface(GameInfo.CurrentLanguage);
+        FillCheckBoxes();
+        Initialize(GameInfo.Strings.ItemDataSource);
+        CLB_Remake.SelectedIndex = 0;
+        CLB_Items.SelectedIndex = 0x50; // clackercart
+    }
 
-        public ItemReceivedEditor(Player player)
+    public void Initialize(List<ComboItem> items)
+    {
+        CB_Item.DisplayMember = nameof(ComboItem.Text);
+        CB_Item.ValueMember = nameof(ComboItem.Value);
+        CB_Item.DataSource = items;
+    }
+
+    private void FillCheckBoxes()
+    {
+        var items = GameInfo.Strings.itemlistdisplay;
+        FillCollect(items);
+        FillRemake(items);
+    }
+
+    private void FillCollect(ReadOnlySpan<string> items)
+    {
+        var ofs = Player.Personal.Offsets.ItemCollectBit;
+        var data = Player.Personal.Data;
+        for (int i = 0; i < items.Length; i++)
         {
-            Player = player;
-            InitializeComponent();
-            this.TranslateInterface(GameInfo.CurrentLanguage);
-            FillCheckBoxes();
-            Initialize(GameInfo.Strings.ItemDataSource);
-            CLB_Remake.SelectedIndex = 0;
-            CLB_Items.SelectedIndex = 0x50; // clackercart
+            var flag = FlagUtil.GetFlag(data, ofs, i);
+            string value = items[i];
+            string name = $"0x{i:X3} - {value}";
+            CLB_Items.Items.Add(name, flag);
+        }
+    }
+
+    private void FillRemake(ReadOnlySpan<string> items)
+    {
+        var str = GameInfo.Strings;
+        var invert = ItemRemakeUtil.GetInvertedDictionary();
+        var ofs = Player.Personal.Offsets.ItemRemakeCollectBit;
+        var max = Player.Personal.Offsets.MaxRemakeBitFlag;
+        var data = Player.Personal.Data;
+        for (int i = 0; i < max; i++)
+        {
+            var remakeIndex = i >> 3; // ItemRemakeInfo.BodyColorCountMax
+            var variant = i & 7;
+
+            ushort itemId = invert.GetValueOrDefault((short)remakeIndex, (ushort)0);
+            var itemName = remakeIndex == 0652 ? "photo" : items[itemId];
+
+            var flag = FlagUtil.GetFlag(data, ofs, i);
+            string name = $"{remakeIndex:0000} V{variant:0} - {itemName}";
+
+            if (ItemRemakeInfoData.List.TryGetValue((short)remakeIndex, out var info))
+                name = $"{name} ({info.GetBodyDescription(variant, str)})";
+
+            CLB_Remake.Items.Add(name, flag);
+        }
+    }
+
+    public void GiveAll(ReadOnlySpan<ushort> indexes, bool value = true)
+    {
+        foreach (var item in indexes)
+            GiveItem(item, value, CB_VariantBodiesOnly.Checked);
+        System.Media.SystemSounds.Asterisk.Play();
+    }
+
+    private void GiveEverything(ReadOnlySpan<string> items, bool value = true)
+    {
+        if (!value)
+        {
+            for (ushort i = 0; i < CLB_Items.Items.Count; i++)
+                GiveItem(i, false, CB_VariantBodiesOnly.Checked);
+            return;
         }
 
-        public void Initialize(List<ComboItem> items)
+        var skip = GameLists.NoCheckReceived;
+        for (ushort i = 1; i < CLB_Items.Items.Count; i++)
         {
-            CB_Item.DisplayMember = nameof(ComboItem.Text);
-            CB_Item.ValueMember = nameof(ComboItem.Value);
-            CB_Item.DataSource = items;
+            if (string.IsNullOrEmpty(items[i]))
+                continue;
+            if (skip.Contains(i))
+                continue;
+            GiveItem(i, remakeOnly: CB_VariantBodiesOnly.Checked);
         }
+        System.Media.SystemSounds.Asterisk.Play();
+    }
 
-        private void FillCheckBoxes()
+    private void GiveAllFurniture(ReadOnlySpan<string> items, bool value = true)
+    {
+        var skip = new List<ushort>();
+        skip.AddRange(GameLists.NoCheckReceived);
+        skip.AddRange(GameLists.Bugs);
+        skip.AddRange(GameLists.Fish);
+        skip.AddRange(GameLists.Art);
+        skip.AddRange(GameLists.Dive);
+
+        skip = skip.Distinct().ToList();
+
+        for (ushort i = 1; i < CLB_Items.Items.Count; i++)
         {
-            var items = GameInfo.Strings.itemlistdisplay;
-            FillCollect(items);
-            FillRemake(items);
+            if (string.IsNullOrEmpty(items[i]))
+                continue;
+            if (skip.Contains(i))
+                continue;
+            GiveItem(i, value, CB_VariantBodiesOnly.Checked);
         }
+        System.Media.SystemSounds.Asterisk.Play();
+    }
+    private void GiveItem(ushort item, bool value = true, bool remakeOnly = false)
+    {
+        if (!remakeOnly)
+            CLB_Items.SetItemChecked(item, value);
 
-        private void FillCollect(ReadOnlySpan<string> items)
+        var remakeIndex = ItemRemakeUtil.GetRemakeIndex(item);
+        if (!ItemRemakeInfoData.List.TryGetValue(remakeIndex, out var info))
+            return;
+
+        for (int i = 0; i < ItemRemakeInfo.BodyColorCountMax; i++)
         {
-            var ofs = Player.Personal.Offsets.ItemCollectBit;
-            var data = Player.Personal.Data;
-            for (int i = 0; i < items.Length; i++)
-            {
-                var flag = FlagUtil.GetFlag(data, ofs, i);
-                string value = items[i];
-                string name = $"0x{i:X3} - {value}";
-                CLB_Items.Items.Add(name, flag);
-            }
+            if (!info.HasBodyColor(i))
+                continue;
+            int rIndex = (remakeIndex * ItemRemakeInfo.BodyColorCountMax) + i;
+            CLB_Remake.SetItemChecked(rIndex, value);
         }
+    }
 
-        private void FillRemake(ReadOnlySpan<string> items)
-        {
-            var str = GameInfo.Strings;
-            var invert = ItemRemakeUtil.GetInvertedDictionary();
-            var ofs = Player.Personal.Offsets.ItemRemakeCollectBit;
-            var max = Player.Personal.Offsets.MaxRemakeBitFlag;
-            var data = Player.Personal.Data;
-            for (int i = 0; i < max; i++)
-            {
-                var remakeIndex = i >> 3; // ItemRemakeInfo.BodyColorCountMax
-                var variant = i & 7;
+    private static void ShowContextMenuBelow(ToolStripDropDown c, Control n) => c.Show(n.PointToScreen(new System.Drawing.Point(0, n.Height)));
+    private void B_GiveAll_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_Buttons, (Control)sender);
+    private void B_AllBugs_Click(object sender, EventArgs e) => GiveAll(GameLists.Bugs, ModifierKeys != Keys.Alt);
+    private void B_AllFish_Click(object sender, EventArgs e) => GiveAll(GameLists.Fish, ModifierKeys != Keys.Alt);
+    private void B_AllArt_Click(object sender, EventArgs e) => GiveAll(GameLists.Art, ModifierKeys != Keys.Alt);
+    private void B_AllDive_Click(object sender, EventArgs e) => GiveAll(GameLists.Dive, ModifierKeys != Keys.Alt);
+    private void B_AllFurniture_Click(object sender, EventArgs e) => GiveAllFurniture(GameInfo.Strings.itemlist, ModifierKeys != Keys.Alt);
+    private void B_GiveEverything_Click(object sender, EventArgs e) => GiveEverything(GameInfo.Strings.itemlist, ModifierKeys != Keys.Alt);
+    private void B_Cancel_Click(object sender, EventArgs e) => Close();
 
-                ushort itemId = invert.GetValueOrDefault((short)remakeIndex, (ushort)0);
-                var itemName = remakeIndex == 0652 ? "photo" : items[itemId];
+    private void B_Save_Click(object sender, EventArgs e)
+    {
+        SetCollect();
+        SetRemake();
+        Close();
+    }
 
-                var flag = FlagUtil.GetFlag(data, ofs, i);
-                string name = $"{remakeIndex:0000} V{variant:0} - {itemName}";
+    private void SetCollect()
+    {
+        var ofs = Player.Personal.Offsets.ItemCollectBit;
+        var data = Player.Personal.Data;
+        for (int i = 0; i < CLB_Items.Items.Count; i++)
+            FlagUtil.SetFlag(data, ofs, i, CLB_Items.GetItemChecked(i));
+    }
 
-                if (ItemRemakeInfoData.List.TryGetValue((short)remakeIndex, out var info))
-                    name = $"{name} ({info.GetBodyDescription(variant, str)})";
+    private void SetRemake()
+    {
+        var ofs = Player.Personal.Offsets.ItemRemakeCollectBit;
+        var data = Player.Personal.Data;
+        for (int i = 0; i < CLB_Remake.Items.Count; i++)
+            FlagUtil.SetFlag(data, ofs, i, CLB_Remake.GetItemChecked(i));
+    }
 
-                CLB_Remake.Items.Add(name, flag);
-            }
-        }
+    private void CB_Item_SelectedValueChanged(object sender, EventArgs e)
+    {
+        var index = WinFormsUtil.GetIndex(CB_Item);
+        if ((uint)index >= CLB_Items.Items.Count)
+            index = 0;
+        CLB_Items.SelectedIndex = index;
 
-        public void GiveAll(ReadOnlySpan<ushort> indexes, bool value = true)
-        {
-            foreach (var item in indexes)
-                GiveItem(item, value, CB_VariantBodiesOnly.Checked);
-            System.Media.SystemSounds.Asterisk.Play();
-        }
+        var remake = ItemRemakeUtil.GetRemakeIndex((ushort)index);
+        if (remake > 0)
+            CLB_Remake.SelectedIndex = remake * ItemRemakeInfo.BodyColorCountMax;
+    }
 
-        private void GiveEverything(ReadOnlySpan<string> items, bool value = true)
-        {
-            if (!value)
-            {
-                for (ushort i = 0; i < CLB_Items.Items.Count; i++)
-                    GiveItem(i, false, CB_VariantBodiesOnly.Checked);
-                return;
-            }
-
-            var skip = GameLists.NoCheckReceived;
-            for (ushort i = 1; i < CLB_Items.Items.Count; i++)
-            {
-                if (string.IsNullOrEmpty(items[i]))
-                    continue;
-                if (skip.Contains(i))
-                    continue;
-                GiveItem(i, remakeOnly: CB_VariantBodiesOnly.Checked);
-            }
-            System.Media.SystemSounds.Asterisk.Play();
-        }
-
-        private void GiveAllFurniture(ReadOnlySpan<string> items, bool value = true)
-        {
-            var skip = new List<ushort>();
-            skip.AddRange(GameLists.NoCheckReceived);
-            skip.AddRange(GameLists.Bugs);
-            skip.AddRange(GameLists.Fish);
-            skip.AddRange(GameLists.Art);
-            skip.AddRange(GameLists.Dive);
-
-            skip = skip.Distinct().ToList();
-
-            for (ushort i = 1; i < CLB_Items.Items.Count; i++)
-            {
-                if (string.IsNullOrEmpty(items[i]))
-                    continue;
-                if (skip.Contains(i))
-                    continue;
-                GiveItem(i, value, CB_VariantBodiesOnly.Checked);
-            }
-            System.Media.SystemSounds.Asterisk.Play();
-        }
-        private void GiveItem(ushort item, bool value = true, bool remakeOnly = false)
-        {
-            if (!remakeOnly)
-                CLB_Items.SetItemChecked(item, value);
-
-            var remakeIndex = ItemRemakeUtil.GetRemakeIndex(item);
-            if (!ItemRemakeInfoData.List.TryGetValue(remakeIndex, out var info))
-                return;
-
-            for (int i = 0; i < ItemRemakeInfo.BodyColorCountMax; i++)
-            {
-                if (!info.HasBodyColor(i))
-                    continue;
-                int rIndex = (remakeIndex * ItemRemakeInfo.BodyColorCountMax) + i;
-                CLB_Remake.SetItemChecked(rIndex, value);
-            }
-        }
-
-        private static void ShowContextMenuBelow(ToolStripDropDown c, Control n) => c.Show(n.PointToScreen(new System.Drawing.Point(0, n.Height)));
-        private void B_GiveAll_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_Buttons, (Control)sender);
-        private void B_AllBugs_Click(object sender, EventArgs e) => GiveAll(GameLists.Bugs, ModifierKeys != Keys.Alt);
-        private void B_AllFish_Click(object sender, EventArgs e) => GiveAll(GameLists.Fish, ModifierKeys != Keys.Alt);
-        private void B_AllArt_Click(object sender, EventArgs e) => GiveAll(GameLists.Art, ModifierKeys != Keys.Alt);
-        private void B_AllDive_Click(object sender, EventArgs e) => GiveAll(GameLists.Dive, ModifierKeys != Keys.Alt);
-        private void B_AllFurniture_Click(object sender, EventArgs e) => GiveAllFurniture(GameInfo.Strings.itemlist, ModifierKeys != Keys.Alt);
-        private void B_GiveEverything_Click(object sender, EventArgs e) => GiveEverything(GameInfo.Strings.itemlist, ModifierKeys != Keys.Alt);
-        private void B_Cancel_Click(object sender, EventArgs e) => Close();
-
-        private void B_Save_Click(object sender, EventArgs e)
-        {
-            SetCollect();
-            SetRemake();
-            Close();
-        }
-
-        private void SetCollect()
-        {
-            var ofs = Player.Personal.Offsets.ItemCollectBit;
-            var data = Player.Personal.Data;
-            for (int i = 0; i < CLB_Items.Items.Count; i++)
-                FlagUtil.SetFlag(data, ofs, i, CLB_Items.GetItemChecked(i));
-        }
-
-        private void SetRemake()
-        {
-            var ofs = Player.Personal.Offsets.ItemRemakeCollectBit;
-            var data = Player.Personal.Data;
-            for (int i = 0; i < CLB_Remake.Items.Count; i++)
-                FlagUtil.SetFlag(data, ofs, i, CLB_Remake.GetItemChecked(i));
-        }
-
-        private void CB_Item_SelectedValueChanged(object sender, EventArgs e)
-        {
-            var index = WinFormsUtil.GetIndex(CB_Item);
-            if ((uint)index >= CLB_Items.Items.Count)
-                index = 0;
-            CLB_Items.SelectedIndex = index;
-
-            var remake = ItemRemakeUtil.GetRemakeIndex((ushort)index);
-            if (remake > 0)
-                CLB_Remake.SelectedIndex = remake * ItemRemakeInfo.BodyColorCountMax;
-        }
-
-        private void CLB_Items_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var index = CLB_Items.SelectedIndex;
-            CB_Item.SelectedValue = index;
-        }
+    private void CLB_Items_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        var index = CLB_Items.SelectedIndex;
+        CB_Item.SelectedValue = index;
     }
 }

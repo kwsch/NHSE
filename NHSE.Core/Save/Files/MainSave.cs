@@ -2,256 +2,255 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-namespace NHSE.Core
+namespace NHSE.Core;
+
+/// <summary>
+/// main.dat
+/// </summary>
+public sealed class MainSave : EncryptedFilePair
 {
-    /// <summary>
-    /// main.dat
-    /// </summary>
-    public sealed class MainSave : EncryptedFilePair
+    public readonly MainSaveOffsets Offsets;
+    public MainSave(string folder) : base(folder, "main") => Offsets = MainSaveOffsets.GetOffsets(Info);
+
+    public Hemisphere Hemisphere { get => (Hemisphere)Data[Offsets.WeatherArea]; set => Data[Offsets.WeatherArea] = (byte)value; }
+    public AirportColor AirportThemeColor { get => (AirportColor)Data[Offsets.AirportThemeColor]; set => Data[Offsets.AirportThemeColor] = (byte)value; }
+    public uint WeatherSeed { get => BitConverter.ToUInt32(Data, Offsets.WeatherRandSeed); set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.WeatherRandSeed); }
+
+    public IVillager GetVillager(int index) => Offsets.ReadVillager(Data, index);
+    public void SetVillager(IVillager value, int index) => Offsets.WriteVillager(value, Data, index);
+
+    public IVillagerHouse GetVillagerHouse(int index) => Offsets.ReadVillagerHouse(Data, index);
+    public void SetVillagerHouse(IVillagerHouse value, int index) => Offsets.WriteVillagerHouse(value, Data, index);
+
+    public IVillager[] GetVillagers()
     {
-        public readonly MainSaveOffsets Offsets;
-        public MainSave(string folder) : base(folder, "main") => Offsets = MainSaveOffsets.GetOffsets(Info);
+        var villagers = new IVillager[MainSaveOffsets.VillagerCount];
+        for (int i = 0; i < villagers.Length; i++)
+            villagers[i] = GetVillager(i);
+        return villagers;
+    }
 
-        public Hemisphere Hemisphere { get => (Hemisphere)Data[Offsets.WeatherArea]; set => Data[Offsets.WeatherArea] = (byte)value; }
-        public AirportColor AirportThemeColor { get => (AirportColor)Data[Offsets.AirportThemeColor]; set => Data[Offsets.AirportThemeColor] = (byte)value; }
-        public uint WeatherSeed { get => BitConverter.ToUInt32(Data, Offsets.WeatherRandSeed); set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.WeatherRandSeed); }
+    public void SetVillagers(IReadOnlyList<IVillager> villagers)
+    {
+        for (int i = 0; i < villagers.Count; i++)
+            SetVillager(villagers[i], i);
+    }
 
-        public IVillager GetVillager(int index) => Offsets.ReadVillager(Data, index);
-        public void SetVillager(IVillager value, int index) => Offsets.WriteVillager(value, Data, index);
+    public IVillagerHouse[] GetVillagerHouses()
+    {
+        var villagers = new IVillagerHouse[MainSaveOffsets.VillagerCount];
+        for (int i = 0; i < villagers.Length; i++)
+            villagers[i] = GetVillagerHouse(i);
+        return villagers;
+    }
 
-        public IVillagerHouse GetVillagerHouse(int index) => Offsets.ReadVillagerHouse(Data, index);
-        public void SetVillagerHouse(IVillagerHouse value, int index) => Offsets.WriteVillagerHouse(value, Data, index);
+    public void SetVillagerHouses(IReadOnlyList<IVillagerHouse> villagers)
+    {
+        for (int i = 0; i < villagers.Count; i++)
+            SetVillagerHouse(villagers[i], i);
+    }
 
-        public IVillager[] GetVillagers()
-        {
-            var villagers = new IVillager[MainSaveOffsets.VillagerCount];
-            for (int i = 0; i < villagers.Length; i++)
-                villagers[i] = GetVillager(i);
-            return villagers;
-        }
+    public DesignPattern GetDesign(int index) => Offsets.ReadPattern(Data, index);
+    public void SetDesign(DesignPattern value, int index, Span<byte> playerID, Span<byte> townID) => Offsets.WritePattern(value, Data, index, playerID, townID);
+    public DesignPatternPRO GetDesignPRO(int index) => Offsets.ReadPatternPRO(Data, index);
+    public void SetDesignPRO(DesignPatternPRO value, int index, Span<byte> playerID, Span<byte> townID) => Offsets.WritePatternPRO(value, Data, index, playerID, townID);
 
-        public void SetVillagers(IReadOnlyList<IVillager> villagers)
-        {
-            for (int i = 0; i < villagers.Count; i++)
-                SetVillager(villagers[i], i);
-        }
+    public IReadOnlyList<Item> RecycleBin
+    {
+        get => Item.GetArray(Data.Slice(Offsets.LostItemBox, MainSaveOffsets.RecycleBinCount * Item.SIZE));
+        set => Item.SetArray(value).CopyTo(Data, Offsets.LostItemBox);
+    }
 
-        public IVillagerHouse[] GetVillagerHouses()
-        {
-            var villagers = new IVillagerHouse[MainSaveOffsets.VillagerCount];
-            for (int i = 0; i < villagers.Length; i++)
-                villagers[i] = GetVillagerHouse(i);
-            return villagers;
-        }
+    public IReadOnlyList<Building> Buildings
+    {
+        get => Building.GetArray(Data.Slice(Offsets.MainFieldStructure, MainSaveOffsets.BuildingCount * Building.SIZE));
+        set => Building.SetArray(value).CopyTo(Data, Offsets.MainFieldStructure);
+    }
 
-        public void SetVillagerHouses(IReadOnlyList<IVillagerHouse> villagers)
-        {
-            for (int i = 0; i < villagers.Count; i++)
-                SetVillagerHouse(villagers[i], i);
-        }
+    public IPlayerHouse GetPlayerHouse(int index) => Offsets.ReadPlayerHouse(Data, index);
+    public void SetPlayerHouse(IPlayerHouse value, int index) => Offsets.WritePlayerHouse(value, Data, index);
 
-        public DesignPattern GetDesign(int index) => Offsets.ReadPattern(Data, index);
-        public void SetDesign(DesignPattern value, int index, Span<byte> playerID, Span<byte> townID) => Offsets.WritePattern(value, Data, index, playerID, townID);
-        public DesignPatternPRO GetDesignPRO(int index) => Offsets.ReadPatternPRO(Data, index);
-        public void SetDesignPRO(DesignPatternPRO value, int index, Span<byte> playerID, Span<byte> townID) => Offsets.WritePatternPRO(value, Data, index, playerID, townID);
+    public IPlayerHouse[] GetPlayerHouses()
+    {
+        var players = new IPlayerHouse[MainSaveOffsets.PlayerCount];
+        for (int i = 0; i < players.Length; i++)
+            players[i] = GetPlayerHouse(i);
+        return players;
+    }
 
-        public IReadOnlyList<Item> RecycleBin
-        {
-            get => Item.GetArray(Data.Slice(Offsets.LostItemBox, MainSaveOffsets.RecycleBinCount * Item.SIZE));
-            set => Item.SetArray(value).CopyTo(Data, Offsets.LostItemBox);
-        }
+    public void SetPlayerHouses(IReadOnlyList<IPlayerHouse> houses)
+    {
+        for (int i = 0; i < houses.Count; i++)
+            SetPlayerHouse(houses[i], i);
+    }
 
-        public IReadOnlyList<Building> Buildings
-        {
-            get => Building.GetArray(Data.Slice(Offsets.MainFieldStructure, MainSaveOffsets.BuildingCount * Building.SIZE));
-            set => Building.SetArray(value).CopyTo(Data, Offsets.MainFieldStructure);
-        }
+    public DesignPattern[] GetDesigns()
+    {
+        var result = new DesignPattern[Offsets.PatternCount];
+        for (int i = 0; i <result.Length; i++)
+            result[i] = GetDesign(i);
+        return result;
+    }
 
-        public IPlayerHouse GetPlayerHouse(int index) => Offsets.ReadPlayerHouse(Data, index);
-        public void SetPlayerHouse(IPlayerHouse value, int index) => Offsets.WritePlayerHouse(value, Data, index);
+    public void SetDesigns(IReadOnlyList<DesignPattern> value, Span<byte> playerID, Span<byte> townID)
+    {
+        var count = Math.Min(Offsets.PatternCount, value.Count);
+        for (int i = 0; i < count; i++)
+            SetDesign(value[i], i, playerID, townID);
+    }
 
-        public IPlayerHouse[] GetPlayerHouses()
-        {
-            var players = new IPlayerHouse[MainSaveOffsets.PlayerCount];
-            for (int i = 0; i < players.Length; i++)
-                players[i] = GetPlayerHouse(i);
-            return players;
-        }
+    public DesignPatternPRO[] GetDesignsPRO()
+    {
+        var result = new DesignPatternPRO[Offsets.PatternCount];
+        for (int i = 0; i < result.Length; i++)
+            result[i] = GetDesignPRO(i);
+        return result;
+    }
 
-        public void SetPlayerHouses(IReadOnlyList<IPlayerHouse> houses)
-        {
-            for (int i = 0; i < houses.Count; i++)
-                SetPlayerHouse(houses[i], i);
-        }
+    public void SetDesignsPRO(IReadOnlyList<DesignPatternPRO> value, Span<byte> playerID, Span<byte> townID)
+    {
+        var count = Math.Min(Offsets.PatternCount, value.Count);
+        for (int i = 0; i < count; i++)
+            SetDesignPRO(value[i], i, playerID, townID);
+    }
 
-        public DesignPattern[] GetDesigns()
-        {
-            var result = new DesignPattern[Offsets.PatternCount];
-            for (int i = 0; i <result.Length; i++)
-                result[i] = GetDesign(i);
-            return result;
-        }
+    public DesignPattern FlagMyDesign
+    {
+        get => MainSaveOffsets.ReadPatternAtOffset(Data, Offsets.PatternFlag);
+        set => value.Data.CopyTo(Data, Offsets.PatternFlag);
+    }
 
-        public void SetDesigns(IReadOnlyList<DesignPattern> value, Span<byte> playerID, Span<byte> townID)
-        {
-            var count = Math.Min(Offsets.PatternCount, value.Count);
-            for (int i = 0; i < count; i++)
-                SetDesign(value[i], i, playerID, townID);
-        }
+    public DesignPatternPRO[] GetDesignsTailor()
+    {
+        var result = new DesignPatternPRO[MainSaveOffsets.PatternTailorCount];
+        for (int i = 0; i < result.Length; i++)
+            result[i] = MainSaveOffsets.ReadPatternPROAtOffset(Data, Offsets.PatternTailor + (i * DesignPatternPRO.SIZE));
+        return result;
+    }
 
-        public DesignPatternPRO[] GetDesignsPRO()
-        {
-            var result = new DesignPatternPRO[Offsets.PatternCount];
-            for (int i = 0; i < result.Length; i++)
-                result[i] = GetDesignPRO(i);
-            return result;
-        }
+    public void SetDesignsTailor(IReadOnlyList<DesignPatternPRO> value)
+    {
+        var count = Math.Min(Offsets.PatternCount, value.Count);
+        for (int i = 0; i < count; i++)
+            value[i].Data.CopyTo(Data, Offsets.PatternTailor + (i * DesignPatternPRO.SIZE));
+    }
 
-        public void SetDesignsPRO(IReadOnlyList<DesignPatternPRO> value, Span<byte> playerID, Span<byte> townID)
-        {
-            var count = Math.Min(Offsets.PatternCount, value.Count);
-            for (int i = 0; i < count; i++)
-                SetDesignPRO(value[i], i, playerID, townID);
-        }
+    private const int EventFlagsSaveCount = 0x400;
 
-        public DesignPattern FlagMyDesign
-        {
-            get => MainSaveOffsets.ReadPatternAtOffset(Data, Offsets.PatternFlag);
-            set => value.Data.CopyTo(Data, Offsets.PatternFlag);
-        }
+    public Span<short> EventFlagLand => MemoryMarshal.Cast<byte, short>(Data.AsSpan(Offsets.EventFlagLand, sizeof(short) * EventFlagsSaveCount));
 
-        public DesignPatternPRO[] GetDesignsTailor()
-        {
-            var result = new DesignPatternPRO[MainSaveOffsets.PatternTailorCount];
-            for (int i = 0; i < result.Length; i++)
-                result[i] = MainSaveOffsets.ReadPatternPROAtOffset(Data, Offsets.PatternTailor + (i * DesignPatternPRO.SIZE));
-            return result;
-        }
+    public TurnipStonk Turnips
+    {
+        get => Data.Slice(Offsets.ShopKabu, TurnipStonk.SIZE).ToClass<TurnipStonk>();
+        set => value.ToBytesClass().CopyTo(Data, Offsets.ShopKabu);
+    }
 
-        public void SetDesignsTailor(IReadOnlyList<DesignPatternPRO> value)
-        {
-            var count = Math.Min(Offsets.PatternCount, value.Count);
-            for (int i = 0; i < count; i++)
-                value[i].Data.CopyTo(Data, Offsets.PatternTailor + (i * DesignPatternPRO.SIZE));
-        }
+    public Museum Museum
+    {
+        get => new(Data.Slice(Offsets.Museum, Museum.SIZE));
+        set => value.Data.CopyTo(Data, Offsets.Museum);
+    }
 
-        private const int EventFlagsSaveCount = 0x400;
+    public const int AcreWidth = 7 + (2 * 1); // 1 on each side cannot be traversed
+    private const int AcreHeight = 6 + (2 * 1); // 1 on each side cannot be traversed
+    private const int AcreMax = AcreWidth * AcreHeight;
+    private const int AcreSizeAll = AcreMax * 2;
 
-        public Span<short> EventFlagLand => MemoryMarshal.Cast<byte, short>(Data.AsSpan(Offsets.EventFlagLand, sizeof(short) * EventFlagsSaveCount));
+    public ushort GetAcre(int index)
+    {
+        if ((uint)index > AcreMax)
+            throw new ArgumentOutOfRangeException(nameof(index));
+        return BitConverter.ToUInt16(Data, Offsets.OutsideField + (index * 2));
+    }
 
-        public TurnipStonk Turnips
-        {
-            get => Data.Slice(Offsets.ShopKabu, TurnipStonk.SIZE).ToClass<TurnipStonk>();
-            set => value.ToBytesClass().CopyTo(Data, Offsets.ShopKabu);
-        }
+    public void SetAcre(int index, ushort value)
+    {
+        if ((uint)index > AcreMax)
+            throw new ArgumentOutOfRangeException(nameof(index));
+        BitConverter.GetBytes(value).CopyTo(Data, Offsets.OutsideField + (index * 2));
+    }
 
-        public Museum Museum
-        {
-            get => new(Data.Slice(Offsets.Museum, Museum.SIZE));
-            set => value.Data.CopyTo(Data, Offsets.Museum);
-        }
+    public byte[] GetAcreBytes() => Data.Slice(Offsets.OutsideField, AcreSizeAll);
 
-        public const int AcreWidth = 7 + (2 * 1); // 1 on each side cannot be traversed
-        private const int AcreHeight = 6 + (2 * 1); // 1 on each side cannot be traversed
-        private const int AcreMax = AcreWidth * AcreHeight;
-        private const int AcreSizeAll = AcreMax * 2;
+    public void SetAcreBytes(ReadOnlySpan<byte> data)
+    {
+        if (data.Length != AcreSizeAll)
+            throw new ArgumentOutOfRangeException(nameof(data.Length));
+        data.CopyTo(Data.AsSpan(Offsets.OutsideField));
+    }
 
-        public ushort GetAcre(int index)
-        {
-            if ((uint)index > AcreMax)
-                throw new ArgumentOutOfRangeException(nameof(index));
-            return BitConverter.ToUInt16(Data, Offsets.OutsideField + (index * 2));
-        }
+    public TerrainTile[] GetTerrainTiles() => TerrainTile.GetArray(Data.Slice(Offsets.LandMakingMap, MapGrid.MapTileCount16x16 * TerrainTile.SIZE));
+    public void SetTerrainTiles(IReadOnlyList<TerrainTile> array) => TerrainTile.SetArray(array).CopyTo(Data, Offsets.LandMakingMap);
 
-        public void SetAcre(int index, ushort value)
-        {
-            if ((uint)index > AcreMax)
-                throw new ArgumentOutOfRangeException(nameof(index));
-            BitConverter.GetBytes(value).CopyTo(Data, Offsets.OutsideField + (index * 2));
-        }
+    public const int MapDesignNone = 0xF800;
 
-        public byte[] GetAcreBytes() => Data.Slice(Offsets.OutsideField, AcreSizeAll);
+    public ushort[] GetMapDesignTiles()
+    {
+        var value = new ushort[112*96];
+        Buffer.BlockCopy(Data, Offsets.MyDesignMap, value, 0, sizeof(ushort) * value.Length);
+        return value;
+    }
 
-        public void SetAcreBytes(ReadOnlySpan<byte> data)
-        {
-            if (data.Length != AcreSizeAll)
-                throw new ArgumentOutOfRangeException(nameof(data.Length));
-            data.CopyTo(Data.AsSpan(Offsets.OutsideField));
-        }
+    public void SetMapDesignTiles(ushort[] value)
+    {
+        Buffer.BlockCopy(value, 0, Data, Offsets.MyDesignMap, sizeof(ushort) * value.Length);
+    }
 
-        public TerrainTile[] GetTerrainTiles() => TerrainTile.GetArray(Data.Slice(Offsets.LandMakingMap, MapGrid.MapTileCount16x16 * TerrainTile.SIZE));
-        public void SetTerrainTiles(IReadOnlyList<TerrainTile> array) => TerrainTile.SetArray(array).CopyTo(Data, Offsets.LandMakingMap);
+    private const int FieldItemLayerSize = MapGrid.MapTileCount32x32 * Item.SIZE;
+    private const int FieldItemFlagSize = MapGrid.MapTileCount32x32 / 8; // bitflags
 
-        public const int MapDesignNone = 0xF800;
+    private int FieldItemLayer1 => Offsets.FieldItem;
+    private int FieldItemLayer2 => Offsets.FieldItem + FieldItemLayerSize;
+    public int FieldItemFlag1 => Offsets.FieldItem + (FieldItemLayerSize * 2);
+    public int FieldItemFlag2 => Offsets.FieldItem + (FieldItemLayerSize * 2) + FieldItemFlagSize;
 
-        public ushort[] GetMapDesignTiles()
-        {
-            var value = new ushort[112*96];
-            Buffer.BlockCopy(Data, Offsets.MyDesignMap, value, 0, sizeof(ushort) * value.Length);
-            return value;
-        }
+    public Item[] GetFieldItemLayer1() => Item.GetArray(Data.Slice(FieldItemLayer1, FieldItemLayerSize));
+    public void SetFieldItemLayer1(IReadOnlyList<Item> array) => Item.SetArray(array).CopyTo(Data, FieldItemLayer1);
 
-        public void SetMapDesignTiles(ushort[] value)
-        {
-            Buffer.BlockCopy(value, 0, Data, Offsets.MyDesignMap, sizeof(ushort) * value.Length);
-        }
+    public Item[] GetFieldItemLayer2() => Item.GetArray(Data.Slice(FieldItemLayer2, FieldItemLayerSize));
+    public void SetFieldItemLayer2(IReadOnlyList<Item> array) => Item.SetArray(array).CopyTo(Data, FieldItemLayer2);
 
-        private const int FieldItemLayerSize = MapGrid.MapTileCount32x32 * Item.SIZE;
-        private const int FieldItemFlagSize = MapGrid.MapTileCount32x32 / 8; // bitflags
+    public ushort OutsideFieldTemplateUniqueId
+    {
+        get => BitConverter.ToUInt16(Data, Offsets.OutsideField + AcreSizeAll);
+        set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.OutsideField + AcreSizeAll);
+    }
 
-        private int FieldItemLayer1 => Offsets.FieldItem;
-        private int FieldItemLayer2 => Offsets.FieldItem + FieldItemLayerSize;
-        public int FieldItemFlag1 => Offsets.FieldItem + (FieldItemLayerSize * 2);
-        public int FieldItemFlag2 => Offsets.FieldItem + (FieldItemLayerSize * 2) + FieldItemFlagSize;
+    public ushort MainFieldParamUniqueID
+    {
+        get => BitConverter.ToUInt16(Data, Offsets.OutsideField + AcreSizeAll + 2);
+        set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.OutsideField + AcreSizeAll + 2);
+    }
 
-        public Item[] GetFieldItemLayer1() => Item.GetArray(Data.Slice(FieldItemLayer1, FieldItemLayerSize));
-        public void SetFieldItemLayer1(IReadOnlyList<Item> array) => Item.SetArray(array).CopyTo(Data, FieldItemLayer1);
+    public uint EventPlazaLeftUpX
+    {
+        get => BitConverter.ToUInt32(Data, Offsets.OutsideField + AcreSizeAll + 4);
+        set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.OutsideField + AcreSizeAll + 4);
+    }
 
-        public Item[] GetFieldItemLayer2() => Item.GetArray(Data.Slice(FieldItemLayer2, FieldItemLayerSize));
-        public void SetFieldItemLayer2(IReadOnlyList<Item> array) => Item.SetArray(array).CopyTo(Data, FieldItemLayer2);
+    public uint EventPlazaLeftUpZ
+    {
+        get => BitConverter.ToUInt32(Data, Offsets.OutsideField + AcreSizeAll + 8);
+        set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.OutsideField + AcreSizeAll + 8);
+    }
 
-        public ushort OutsideFieldTemplateUniqueId
-        {
-            get => BitConverter.ToUInt16(Data, Offsets.OutsideField + AcreSizeAll);
-            set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.OutsideField + AcreSizeAll);
-        }
+    public GSaveVisitorNpc Visitor
+    {
+        get => Data.ToClass<GSaveVisitorNpc>(Offsets.Visitor, GSaveVisitorNpc.SIZE);
+        set => value.ToBytesClass().CopyTo(Data, Offsets.Visitor);
+    }
 
-        public ushort MainFieldParamUniqueID
-        {
-            get => BitConverter.ToUInt16(Data, Offsets.OutsideField + AcreSizeAll + 2);
-            set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.OutsideField + AcreSizeAll + 2);
-        }
+    public GSaveFg SaveFg
+    {
+        get => Data.ToClass<GSaveFg>(Offsets.SaveFg, GSaveFg.SIZE);
+        set => value.ToBytesClass().CopyTo(Data, Offsets.SaveFg);
+    }
 
-        public uint EventPlazaLeftUpX
-        {
-            get => BitConverter.ToUInt32(Data, Offsets.OutsideField + AcreSizeAll + 4);
-            set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.OutsideField + AcreSizeAll + 4);
-        }
+    public GSaveTime LastSaved => Data.Slice(Offsets.LastSavedTime, GSaveTime.SIZE).ToStructure<GSaveTime>();
 
-        public uint EventPlazaLeftUpZ
-        {
-            get => BitConverter.ToUInt32(Data, Offsets.OutsideField + AcreSizeAll + 8);
-            set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.OutsideField + AcreSizeAll + 8);
-        }
-
-        public GSaveVisitorNpc Visitor
-        {
-            get => Data.ToClass<GSaveVisitorNpc>(Offsets.Visitor, GSaveVisitorNpc.SIZE);
-            set => value.ToBytesClass().CopyTo(Data, Offsets.Visitor);
-        }
-
-        public GSaveFg SaveFg
-        {
-            get => Data.ToClass<GSaveFg>(Offsets.SaveFg, GSaveFg.SIZE);
-            set => value.ToBytesClass().CopyTo(Data, Offsets.SaveFg);
-        }
-
-        public GSaveTime LastSaved => Data.Slice(Offsets.LastSavedTime, GSaveTime.SIZE).ToStructure<GSaveTime>();
-
-        public GSaveBulletinBoard Bulletin
-        {
-            get => Data.Slice(Offsets.BulletinBoard, GSaveBulletinBoard.SIZE).ToStructure<GSaveBulletinBoard>();
-            set => value.ToBytes().CopyTo(Data, Offsets.BulletinBoard);
-        }
+    public GSaveBulletinBoard Bulletin
+    {
+        get => Data.Slice(Offsets.BulletinBoard, GSaveBulletinBoard.SIZE).ToStructure<GSaveBulletinBoard>();
+        set => value.ToBytes().CopyTo(Data, Offsets.BulletinBoard);
     }
 }

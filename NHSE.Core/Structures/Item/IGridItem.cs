@@ -1,8 +1,7 @@
-﻿namespace NHSE.Core
+﻿namespace NHSE.Core;
+
+public interface IGridItem
 {
-    public interface IGridItem
-    {
-        int Width { get; }
-        int Height { get; }
-    }
+    int Width { get; }
+    int Height { get; }
 }

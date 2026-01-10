@@ -2,30 +2,29 @@
 using System.Windows.Forms;
 using NHSE.Core;
 
-namespace NHSE.WinForms
+namespace NHSE.WinForms;
+
+public partial class SingleObjectEditor<T> : Form where T : class
 {
-    public partial class SingleObjectEditor<T> : Form where T : class
+    public SingleObjectEditor(T obj, PropertySort sort, bool showHelp)
     {
-        public SingleObjectEditor(T obj, PropertySort sort, bool showHelp)
-        {
-            InitializeComponent();
-            this.TranslateInterface(GameInfo.CurrentLanguage);
-            DialogResult = DialogResult.Cancel;
-            PG_Item.HelpVisible = showHelp;
-            PG_Item.PropertySort = sort;
-            PG_Item.SelectedObject = obj;
-        }
+        InitializeComponent();
+        this.TranslateInterface(GameInfo.CurrentLanguage);
+        DialogResult = DialogResult.Cancel;
+        PG_Item.HelpVisible = showHelp;
+        PG_Item.PropertySort = sort;
+        PG_Item.SelectedObject = obj;
+    }
 
-        private void B_Cancel_Click(object sender, EventArgs e) => Close();
+    private void B_Cancel_Click(object sender, EventArgs e) => Close();
 
-        private void B_Save_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.OK;
-            Close();
-        }
+    private void B_Save_Click(object sender, EventArgs e)
+    {
+        DialogResult = DialogResult.OK;
+        Close();
+    }
 
-        private void PG_Item_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
-        {
-        }
+    private void PG_Item_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
+    {
     }
 }

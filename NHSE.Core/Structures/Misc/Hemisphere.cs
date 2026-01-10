@@ -1,8 +1,7 @@
-﻿namespace NHSE.Core
+﻿namespace NHSE.Core;
+
+public enum Hemisphere
 {
-    public enum Hemisphere
-    {
-        Northern = 0,
-        Southern = 1,
-    }
+    Northern = 0,
+    Southern = 1,
 }

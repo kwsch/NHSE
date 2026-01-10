@@ -1,51 +1,50 @@
 ﻿using System;
 using NHSE.Injection;
 
-namespace NHSE.WinForms
+namespace NHSE.WinForms;
+
+public class USBBotController
 {
-    public class USBBotController
+    public readonly USBBot Bot = new();
+
+    public bool Connect()
     {
-        public readonly USBBot Bot = new();
-
-        public bool Connect()
+        try
         {
-            try
-            {
-                return Bot.Connect();
-            }
-            catch (Exception ex)
-            {
-                WinFormsUtil.Error(ex.Message);
-                return false;
-            }
+            return Bot.Connect();
         }
-
-        public void Disconnect()
+        catch (Exception ex)
         {
-            Bot.Disconnect();
+            WinFormsUtil.Error(ex.Message);
+            return false;
         }
+    }
 
-        //todo: this
-        //public uint GetDefaultOffset()
-        //{
-        //    return Settings.Default.SysBotPouchOffset;
-        //}
+    public void Disconnect()
+    {
+        Bot.Disconnect();
+    }
 
-        //public void PopPrompt()
-        //{
-        //}
+    //todo: this
+    //public uint GetDefaultOffset()
+    //{
+    //    return Settings.Default.SysBotPouchOffset;
+    //}
 
-        public void WriteBytes(byte[] data, uint offset)
-        {
-            Bot.WriteBytes(data, offset);
-            //SetOffset(offset);
-        }
+    //public void PopPrompt()
+    //{
+    //}
 
-        public byte[] ReadBytes(uint offset, int length)
-        {
-            var result = Bot.ReadBytes(offset, length);
-            //SetOffset(offset);
-            return result;
-        }
+    public void WriteBytes(byte[] data, uint offset)
+    {
+        Bot.WriteBytes(data, offset);
+        //SetOffset(offset);
+    }
+
+    public byte[] ReadBytes(uint offset, int length)
+    {
+        var result = Bot.ReadBytes(offset, length);
+        //SetOffset(offset);
+        return result;
     }
 }

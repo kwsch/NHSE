@@ -3,32 +3,31 @@ using System.IO;
 using System.Linq;
 using NHSE.Core;
 
-namespace NHSE.Parsing
+namespace NHSE.Parsing;
+
+public static class GamePBCDumper
 {
-    public static class GamePBCDumper
+    public static void DumpOutsideAcrePixels(string modelPath, string path)
     {
-        public static void DumpOutsideAcrePixels(string modelPath, string path)
+        var files = Directory.EnumerateFiles(modelPath, "*.pbc", SearchOption.AllDirectories);
+
+        const int acreSize = 32 * 32 * 4;
+        var maxAcre = Enum.GetValues<OutsideAcre>().Max();
+        var result = new byte[acreSize * ((int)maxAcre + 1)];
+
+        foreach (var f in files)
         {
-            var files = Directory.EnumerateFiles(modelPath, "*.pbc", SearchOption.AllDirectories);
+            var fn = Path.GetFileNameWithoutExtension(f);
+            if (!Enum.TryParse<OutsideAcre>(fn, out var acre))
+                continue;
 
-            const int acreSize = 32 * 32 * 4;
-            var maxAcre = Enum.GetValues<OutsideAcre>().Max();
-            var result = new byte[acreSize * ((int)maxAcre + 1)];
+            var data = File.ReadAllBytes(f);
+            var pbc = new PBC(data);
 
-            foreach (var f in files)
-            {
-                var fn = Path.GetFileNameWithoutExtension(f);
-                if (!Enum.TryParse<OutsideAcre>(fn, out var acre))
-                    continue;
-
-                var data = File.ReadAllBytes(f);
-                var pbc = new PBC(data);
-
-                var index = (int)acre;
-                var offset = acreSize * index;
-                pbc.Tiles.CopyTo(result, offset);
-            }
-            File.WriteAllBytes(path, result);
-		}
+            var index = (int)acre;
+            var offset = acreSize * index;
+            pbc.Tiles.CopyTo(result, offset);
+        }
+        File.WriteAllBytes(path, result);
     }
 }

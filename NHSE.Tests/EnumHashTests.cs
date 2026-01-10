@@ -2,18 +2,17 @@
 using NHSE.Parsing;
 using Xunit;
 
-namespace NHSE.Tests
+namespace NHSE.Tests;
+
+public class EnumHashTests
 {
-    public class EnumHashTests
+    [Theory]
+    [InlineData("Base", 0x6086515F)]
+    [InlineData("River", 0x3422482F)]
+    [InlineData("RoadStone", 0x13011867)]
+    public void ChecksumMatches(string str, uint val)
     {
-        [Theory]
-        [InlineData("Base", 0x6086515F)]
-        [InlineData("River", 0x3422482F)]
-        [InlineData("RoadStone", 0x13011867)]
-        public void ChecksumMatches(string str, uint val)
-        {
-            var computed = CRC32.Compute(str);
-            computed.Should().Be(val);
-        }
+        var computed = CRC32.Compute(str);
+        computed.Should().Be(val);
     }
 }

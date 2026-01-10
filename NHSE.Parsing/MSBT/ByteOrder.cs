@@ -1,8 +1,7 @@
-﻿namespace NHSE.Parsing
+﻿namespace NHSE.Parsing;
+
+public enum ByteOrder
 {
-    public enum ByteOrder
-    {
-        LittleEndian = 0,
-        BigEndian = 1
-    }
+    LittleEndian = 0,
+    BigEndian = 1
 }

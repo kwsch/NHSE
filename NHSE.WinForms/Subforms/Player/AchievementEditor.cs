@@ -2,135 +2,134 @@
 using System.Windows.Forms;
 using NHSE.Core;
 
-namespace NHSE.WinForms
+namespace NHSE.WinForms;
+
+public partial class AchievementEditor : Form
 {
-    public partial class AchievementEditor : Form
+    private readonly Personal Personal;
+    private readonly AchievementList List;
+    private readonly AchievementRow[] Rows;
+
+    private int Index = -1;
+
+    public AchievementEditor(Personal personal)
     {
-        private readonly Personal Personal;
-        private readonly AchievementList List;
-        private readonly AchievementRow[] Rows;
+        InitializeComponent();
+        this.TranslateInterface(GameInfo.CurrentLanguage);
 
-        private int Index = -1;
+        Personal = personal;
+        var list = List = personal.Achievements;
+        var str = GameInfo.Strings.InternalNameTranslation;
+        for (int i = 0; i < list.Counts.Length; i++)
+            LB_Counts.Items.Add(LifeSupportAchievement.GetName(i, list.Counts[i], str));
 
-        public AchievementEditor(Personal personal)
-        {
-            InitializeComponent();
-            this.TranslateInterface(GameInfo.CurrentLanguage);
+        Rows = [AR_1, AR_2, AR_3, AR_4, AR_5, AR_6];
 
-            Personal = personal;
-            var list = List = personal.Achievements;
-            var str = GameInfo.Strings.InternalNameTranslation;
-            for (int i = 0; i < list.Counts.Length; i++)
-                LB_Counts.Items.Add(LifeSupportAchievement.GetName(i, list.Counts[i], str));
+        LB_Counts.SelectedIndex = 0;
+    }
 
-            Rows = [AR_1, AR_2, AR_3, AR_4, AR_5, AR_6];
+    private void B_Cancel_Click(object sender, EventArgs e) => Close();
 
-            LB_Counts.SelectedIndex = 0;
-        }
+    private void B_Save_Click(object sender, EventArgs e)
+    {
+        SaveIndex(Index);
+        Personal.Achievements = List;
+        Close();
+    }
 
-        private void B_Cancel_Click(object sender, EventArgs e) => Close();
+    private void NUD_Count_ValueChanged(object sender, EventArgs e)
+    {
+        if (Index < 0)
+            return;
 
-        private void B_Save_Click(object sender, EventArgs e)
-        {
-            SaveIndex(Index);
-            Personal.Achievements = List;
-            Close();
-        }
+        List.Counts[Index] = (uint) NUD_Count.Value;
 
-        private void NUD_Count_ValueChanged(object sender, EventArgs e)
-        {
-            if (Index < 0)
-                return;
+        for (int i = 0; i < Rows.Length; i++)
+            Rows[i].ChangeCount(Index, i, List.Counts[Index]);
 
-            List.Counts[Index] = (uint) NUD_Count.Value;
+        SetEntryDescription(Index);
+    }
 
-            for (int i = 0; i < Rows.Length; i++)
-                Rows[i].ChangeCount(Index, i, List.Counts[Index]);
+    private void SetEntryDescription(int index)
+    {
+        LB_Counts.Items[index] = LifeSupportAchievement.GetName(index, List.Counts[index], GameInfo.Strings.InternalNameTranslation);
+    }
 
-            SetEntryDescription(Index);
-        }
+    private void LB_Counts_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (LB_Counts.SelectedIndex < 0)
+            return;
 
-        private void SetEntryDescription(int index)
-        {
-            LB_Counts.Items[index] = LifeSupportAchievement.GetName(index, List.Counts[index], GameInfo.Strings.InternalNameTranslation);
-        }
+        SaveIndex(Index);
+        LoadIndex(Index = LB_Counts.SelectedIndex);
+    }
 
-        private void LB_Counts_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (LB_Counts.SelectedIndex < 0)
-                return;
+    private void LoadIndex(int index)
+    {
+        if (index < 0)
+            return;
 
-            SaveIndex(Index);
-            LoadIndex(Index = LB_Counts.SelectedIndex);
-        }
+        for (int i = 0; i < Rows.Length; i++)
+            Rows[i].LoadRow(List, Index, i);
 
-        private void LoadIndex(int index)
-        {
-            if (index < 0)
-                return;
+        NUD_Unk.Value = List.Flags[index];
 
-            for (int i = 0; i < Rows.Length; i++)
-                Rows[i].LoadRow(List, Index, i);
+        var val = List.Counts[index];
+        NUD_Count.Value = (int)val;
+    }
 
-            NUD_Unk.Value = List.Flags[index];
+    private void SaveIndex(in int index)
+    {
+        if (index < 0)
+            return;
 
-            var val = List.Counts[index];
-            NUD_Count.Value = (int)val;
-        }
+        for (int i = 0; i < Rows.Length; i++)
+            Rows[i].SaveRow(List, index, i);
 
-        private void SaveIndex(in int index)
-        {
-            if (index < 0)
-                return;
+        List.Flags[index] = (byte)NUD_Unk.Value;
 
-            for (int i = 0; i < Rows.Length; i++)
-                Rows[i].SaveRow(List, index, i);
+        // count updated on value changed
+    }
 
-            List.Flags[index] = (byte)NUD_Unk.Value;
+    private void B_Clear_Click(object sender, EventArgs e)
+    {
+        List.ClearAll(Index);
+        LoadIndex(Index);
+        System.Media.SystemSounds.Asterisk.Play();
+    }
 
-            // count updated on value changed
-        }
+    private void B_Max_Click(object sender, EventArgs e)
+    {
+        List.GiveAll(Index, DateTime.Now);
+        LoadIndex(Index);
+        System.Media.SystemSounds.Asterisk.Play();
+    }
 
-        private void B_Clear_Click(object sender, EventArgs e)
-        {
-            List.ClearAll(Index);
-            LoadIndex(Index);
-            System.Media.SystemSounds.Asterisk.Play();
-        }
+    private void B_GiveAll_Click(object sender, EventArgs e)
+    {
+        SaveIndex(Index);
+        var index = Index;
+        Index = -1;
 
-        private void B_Max_Click(object sender, EventArgs e)
-        {
-            List.GiveAll(Index, DateTime.Now);
-            LoadIndex(Index);
-            System.Media.SystemSounds.Asterisk.Play();
-        }
+        List.GiveAll(DateTime.Now);
+        for (int i = 0; i < List.Counts.Length; i++)
+            SetEntryDescription(i);
 
-        private void B_GiveAll_Click(object sender, EventArgs e)
-        {
-            SaveIndex(Index);
-            var index = Index;
-            Index = -1;
+        LoadIndex(Index = index);
+        System.Media.SystemSounds.Asterisk.Play();
+    }
 
-            List.GiveAll(DateTime.Now);
-            for (int i = 0; i < List.Counts.Length; i++)
-                SetEntryDescription(i);
+    private void B_ClearAll_Click(object sender, EventArgs e)
+    {
+        SaveIndex(Index);
+        var index = Index;
+        Index = -1;
 
-            LoadIndex(Index = index);
-            System.Media.SystemSounds.Asterisk.Play();
-        }
+        List.ClearAll();
+        for (int i = 0; i < List.Counts.Length; i++)
+            SetEntryDescription(i);
 
-        private void B_ClearAll_Click(object sender, EventArgs e)
-        {
-            SaveIndex(Index);
-            var index = Index;
-            Index = -1;
-
-            List.ClearAll();
-            for (int i = 0; i < List.Counts.Length; i++)
-                SetEntryDescription(i);
-
-            LoadIndex(Index = index);
-            System.Media.SystemSounds.Asterisk.Play();
-        }
+        LoadIndex(Index = index);
+        System.Media.SystemSounds.Asterisk.Play();
     }
 }

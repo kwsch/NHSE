@@ -1,12 +1,11 @@
-﻿namespace NHSE.Injection
+﻿namespace NHSE.Injection;
+
+public enum InjectionResult
 {
-    public enum InjectionResult
-    {
-        Skipped,
-        Success,
-        FailValidate,
-        FailConnectionError,
-        FailBadSize,
-        Same,
-    }
+    Skipped,
+    Success,
+    FailValidate,
+    FailConnectionError,
+    FailBadSize,
+    Same,
 }

@@ -1,11 +1,10 @@
-﻿namespace NHSE.Injection
+﻿namespace NHSE.Injection;
+
+/// <summary>
+/// Controller Stick differentiation
+/// </summary>
+public enum SwitchStick
 {
-    /// <summary>
-    /// Controller Stick differentiation
-    /// </summary>
-    public enum SwitchStick
-    {
-        LEFT,
-        RIGHT,
-    }
+    LEFT,
+    RIGHT,
 }
