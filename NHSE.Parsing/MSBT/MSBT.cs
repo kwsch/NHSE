@@ -16,7 +16,7 @@ public class MSBT
 
     public MSBT(byte[] rawBytes)
     {
-        using var stream = new MemoryStream(rawBytes);
+        using var stream = new MemoryStream(rawBytes, writable: false);
         using var br = new BinaryReaderX(stream);
 
         Header = new MSBTHeader(br);

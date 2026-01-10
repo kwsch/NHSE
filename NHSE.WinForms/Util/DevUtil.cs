@@ -10,6 +10,7 @@ namespace NHSE.WinForms;
 #if DEBUG
 public static class DevUtil
 {
+    // excludes default language
     private static readonly string[] Languages = ["jp", "de", "es", "fr", "it", "ko", "zhs", "zht"];
     private const string DefaultLanguage = GameLanguage.DefaultLanguage;
 
@@ -98,7 +99,7 @@ public static class DevUtil
 
     private static void UpdateInternalNameTranslations()
     {
-        var langs = new[] { DefaultLanguage }.Concat(Languages);
+        string[] langs = [DefaultLanguage, .. Languages];
         var available = new[]
         {
             LifeSupportAchievement.List.Values.Select(z => z.Name),
@@ -134,7 +135,7 @@ public static class DevUtil
 
     private static void DumpStrings(Type t)
     {
-        var langs = new[] { DefaultLanguage }.Concat(Languages);
+        string[] langs = [DefaultLanguage, ..Languages];
         var dir = GetResourcePath();
         foreach (var lang in langs)
         {

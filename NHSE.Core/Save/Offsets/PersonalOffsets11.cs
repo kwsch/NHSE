@@ -1,4 +1,6 @@
-﻿namespace NHSE.Core;
+﻿using System;
+
+namespace NHSE.Core;
 
 /// <summary>
 /// <inheritdoc cref="PersonalOffsets"/>
@@ -41,6 +43,6 @@ public sealed class PersonalOffsets11 : PersonalOffsets
     public override int MaxRecipeID => 0x2C8;
     public override int MaxRemakeBitFlag => 0x7D0 * 32;
 
-    public override IReactionStore ReadReactions(byte[] data) => data.Slice(Manpu, GSavePlayerManpu.SIZE).ToStructure<GSavePlayerManpu>();
-    public override void SetReactions(byte[] data, IReactionStore value) => ((GSavePlayerManpu)value).ToBytes().CopyTo(data, Manpu);
+    public override IReactionStore ReadReactions(ReadOnlySpan<byte> data) => data.Slice(Manpu, GSavePlayerManpu.SIZE).ToStructure<GSavePlayerManpu>();
+    public override void SetReactions(Span<byte> data, IReactionStore value) => ((GSavePlayerManpu)value).ToBytes().CopyTo(data[Manpu..]);
 }

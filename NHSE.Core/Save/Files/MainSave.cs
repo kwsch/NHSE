@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Core;
 
@@ -14,7 +15,12 @@ public sealed class MainSave : EncryptedFilePair
 
     public Hemisphere Hemisphere { get => (Hemisphere)Data[Offsets.WeatherArea]; set => Data[Offsets.WeatherArea] = (byte)value; }
     public AirportColor AirportThemeColor { get => (AirportColor)Data[Offsets.AirportThemeColor]; set => Data[Offsets.AirportThemeColor] = (byte)value; }
-    public uint WeatherSeed { get => BitConverter.ToUInt32(Data, Offsets.WeatherRandSeed); set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.WeatherRandSeed); }
+
+    public uint WeatherSeed
+    {
+        get => ReadUInt32LittleEndian(Data[Offsets.WeatherRandSeed..]);
+        set => WriteUInt32LittleEndian(Data[Offsets.WeatherRandSeed..], value);
+    }
 
     public IVillager GetVillager(int index) => Offsets.ReadVillager(Data, index);
     public void SetVillager(IVillager value, int index) => Offsets.WriteVillager(value, Data, index);
@@ -58,13 +64,13 @@ public sealed class MainSave : EncryptedFilePair
     public IReadOnlyList<Item> RecycleBin
     {
         get => Item.GetArray(Data.Slice(Offsets.LostItemBox, MainSaveOffsets.RecycleBinCount * Item.SIZE));
-        set => Item.SetArray(value).CopyTo(Data, Offsets.LostItemBox);
+        set => Item.SetArray(value).CopyTo(Data[Offsets.LostItemBox..]);
     }
 
     public IReadOnlyList<Building> Buildings
     {
         get => Building.GetArray(Data.Slice(Offsets.MainFieldStructure, MainSaveOffsets.BuildingCount * Building.SIZE));
-        set => Building.SetArray(value).CopyTo(Data, Offsets.MainFieldStructure);
+        set => Building.SetArray(value).CopyTo(Data[Offsets.MainFieldStructure..]);
     }
 
     public IPlayerHouse GetPlayerHouse(int index) => Offsets.ReadPlayerHouse(Data, index);
@@ -117,7 +123,7 @@ public sealed class MainSave : EncryptedFilePair
     public DesignPattern FlagMyDesign
     {
         get => MainSaveOffsets.ReadPatternAtOffset(Data, Offsets.PatternFlag);
-        set => value.Data.CopyTo(Data, Offsets.PatternFlag);
+        set => value.Data.CopyTo(Data[Offsets.PatternFlag..]);
     }
 
     public DesignPatternPRO[] GetDesignsTailor()
@@ -132,23 +138,23 @@ public sealed class MainSave : EncryptedFilePair
     {
         var count = Math.Min(Offsets.PatternCount, value.Count);
         for (int i = 0; i < count; i++)
-            value[i].Data.CopyTo(Data, Offsets.PatternTailor + (i * DesignPatternPRO.SIZE));
+            value[i].Data.CopyTo(Data.Slice(Offsets.PatternTailor + (i * DesignPatternPRO.SIZE)));
     }
 
     private const int EventFlagsSaveCount = 0x400;
 
-    public Span<short> EventFlagLand => MemoryMarshal.Cast<byte, short>(Data.AsSpan(Offsets.EventFlagLand, sizeof(short) * EventFlagsSaveCount));
+    public Span<short> EventFlagLand => MemoryMarshal.Cast<byte, short>(Data.Slice(Offsets.EventFlagLand, sizeof(short) * EventFlagsSaveCount));
 
     public TurnipStonk Turnips
     {
-        get => Data.Slice(Offsets.ShopKabu, TurnipStonk.SIZE).ToClass<TurnipStonk>();
-        set => value.ToBytesClass().CopyTo(Data, Offsets.ShopKabu);
+        get => Data.Slice(Offsets.ShopKabu, TurnipStonk.SIZE).ToArray().ToClass<TurnipStonk>();
+        set => value.ToBytesClass().CopyTo(Data[Offsets.ShopKabu..]);
     }
 
     public Museum Museum
     {
-        get => new(Data.Slice(Offsets.Museum, Museum.SIZE));
-        set => value.Data.CopyTo(Data, Offsets.Museum);
+        get => new(Data.Slice(Offsets.Museum, Museum.SIZE).ToArray());
+        set => value.Data.CopyTo(Data[Offsets.Museum..]);
     }
 
     public const int AcreWidth = 7 + (2 * 1); // 1 on each side cannot be traversed
@@ -160,40 +166,40 @@ public sealed class MainSave : EncryptedFilePair
     {
         if ((uint)index > AcreMax)
             throw new ArgumentOutOfRangeException(nameof(index));
-        return BitConverter.ToUInt16(Data, Offsets.OutsideField + (index * 2));
+        return ReadUInt16LittleEndian(Data.Slice(Offsets.OutsideField + (index * 2)));
     }
 
     public void SetAcre(int index, ushort value)
     {
         if ((uint)index > AcreMax)
             throw new ArgumentOutOfRangeException(nameof(index));
-        BitConverter.GetBytes(value).CopyTo(Data, Offsets.OutsideField + (index * 2));
+        WriteUInt16LittleEndian(Data.Slice(Offsets.OutsideField + (index * 2)), value);
     }
 
-    public byte[] GetAcreBytes() => Data.Slice(Offsets.OutsideField, AcreSizeAll);
+    public byte[] GetAcreBytes() => Data.Slice(Offsets.OutsideField, AcreSizeAll).ToArray();
 
     public void SetAcreBytes(ReadOnlySpan<byte> data)
     {
         if (data.Length != AcreSizeAll)
             throw new ArgumentOutOfRangeException(nameof(data.Length));
-        data.CopyTo(Data.AsSpan(Offsets.OutsideField));
+        data.CopyTo(Data.Slice(Offsets.OutsideField));
     }
 
     public TerrainTile[] GetTerrainTiles() => TerrainTile.GetArray(Data.Slice(Offsets.LandMakingMap, MapGrid.MapTileCount16x16 * TerrainTile.SIZE));
-    public void SetTerrainTiles(IReadOnlyList<TerrainTile> array) => TerrainTile.SetArray(array).CopyTo(Data, Offsets.LandMakingMap);
+    public void SetTerrainTiles(IReadOnlyList<TerrainTile> array) => TerrainTile.SetArray(array).CopyTo(Data[Offsets.LandMakingMap..]);
 
     public const int MapDesignNone = 0xF800;
 
     public ushort[] GetMapDesignTiles()
     {
-        var value = new ushort[112*96];
-        Buffer.BlockCopy(Data, Offsets.MyDesignMap, value, 0, sizeof(ushort) * value.Length);
-        return value;
+        var slice = Data.Slice(Offsets.MyDesignMap, 112 * 96 * sizeof(ushort));
+        return MemoryMarshal.Cast<byte, ushort>(slice).ToArray();
     }
 
-    public void SetMapDesignTiles(ushort[] value)
+    public void SetMapDesignTiles(ReadOnlySpan<ushort> value)
     {
-        Buffer.BlockCopy(value, 0, Data, Offsets.MyDesignMap, sizeof(ushort) * value.Length);
+        var cast = MemoryMarshal.Cast<ushort, byte>(value);
+        cast.CopyTo(Data[Offsets.MyDesignMap..]);
     }
 
     private const int FieldItemLayerSize = MapGrid.MapTileCount32x32 * Item.SIZE;
@@ -205,45 +211,45 @@ public sealed class MainSave : EncryptedFilePair
     public int FieldItemFlag2 => Offsets.FieldItem + (FieldItemLayerSize * 2) + FieldItemFlagSize;
 
     public Item[] GetFieldItemLayer1() => Item.GetArray(Data.Slice(FieldItemLayer1, FieldItemLayerSize));
-    public void SetFieldItemLayer1(IReadOnlyList<Item> array) => Item.SetArray(array).CopyTo(Data, FieldItemLayer1);
+    public void SetFieldItemLayer1(IReadOnlyList<Item> array) => Item.SetArray(array).CopyTo(Data[FieldItemLayer1..]);
 
     public Item[] GetFieldItemLayer2() => Item.GetArray(Data.Slice(FieldItemLayer2, FieldItemLayerSize));
-    public void SetFieldItemLayer2(IReadOnlyList<Item> array) => Item.SetArray(array).CopyTo(Data, FieldItemLayer2);
+    public void SetFieldItemLayer2(IReadOnlyList<Item> array) => Item.SetArray(array).CopyTo(Data[FieldItemLayer2..]);
 
     public ushort OutsideFieldTemplateUniqueId
     {
-        get => BitConverter.ToUInt16(Data, Offsets.OutsideField + AcreSizeAll);
-        set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.OutsideField + AcreSizeAll);
+        get => ReadUInt16LittleEndian(Data[(Offsets.OutsideField + AcreSizeAll)..]);
+        set => WriteUInt16LittleEndian(Data[(Offsets.OutsideField + AcreSizeAll)..], value);
     }
 
     public ushort MainFieldParamUniqueID
     {
-        get => BitConverter.ToUInt16(Data, Offsets.OutsideField + AcreSizeAll + 2);
-        set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.OutsideField + AcreSizeAll + 2);
+        get => ReadUInt16LittleEndian(Data.Slice(Offsets.OutsideField + AcreSizeAll + 2));
+        set => WriteUInt16LittleEndian(Data.Slice(Offsets.OutsideField + AcreSizeAll + 2), value);
     }
 
     public uint EventPlazaLeftUpX
     {
-        get => BitConverter.ToUInt32(Data, Offsets.OutsideField + AcreSizeAll + 4);
-        set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.OutsideField + AcreSizeAll + 4);
+        get => ReadUInt32LittleEndian(Data.Slice(Offsets.OutsideField + AcreSizeAll + 4));
+        set => WriteUInt32LittleEndian(Data.Slice(Offsets.OutsideField + AcreSizeAll + 4), value);
     }
 
     public uint EventPlazaLeftUpZ
     {
-        get => BitConverter.ToUInt32(Data, Offsets.OutsideField + AcreSizeAll + 8);
-        set => BitConverter.GetBytes(value).CopyTo(Data, Offsets.OutsideField + AcreSizeAll + 8);
+        get => ReadUInt32LittleEndian(Data.Slice(Offsets.OutsideField + AcreSizeAll + 8));
+        set => WriteUInt32LittleEndian(Data.Slice(Offsets.OutsideField + AcreSizeAll + 8), value);
     }
 
     public GSaveVisitorNpc Visitor
     {
-        get => Data.ToClass<GSaveVisitorNpc>(Offsets.Visitor, GSaveVisitorNpc.SIZE);
-        set => value.ToBytesClass().CopyTo(Data, Offsets.Visitor);
+        get => Data.Slice(Offsets.Visitor, GSaveVisitorNpc.SIZE).ToArray().ToClass<GSaveVisitorNpc>();
+        set => value.ToBytesClass().CopyTo(Data[Offsets.Visitor..]);
     }
 
     public GSaveFg SaveFg
     {
-        get => Data.ToClass<GSaveFg>(Offsets.SaveFg, GSaveFg.SIZE);
-        set => value.ToBytesClass().CopyTo(Data, Offsets.SaveFg);
+        get => Data.Slice(Offsets.SaveFg, GSaveFg.SIZE).ToArray().ToClass<GSaveFg>();
+        set => value.ToBytesClass().CopyTo(Data[Offsets.SaveFg..]);
     }
 
     public GSaveTime LastSaved => Data.Slice(Offsets.LastSavedTime, GSaveTime.SIZE).ToStructure<GSaveTime>();
@@ -251,6 +257,6 @@ public sealed class MainSave : EncryptedFilePair
     public GSaveBulletinBoard Bulletin
     {
         get => Data.Slice(Offsets.BulletinBoard, GSaveBulletinBoard.SIZE).ToStructure<GSaveBulletinBoard>();
-        set => value.ToBytes().CopyTo(Data, Offsets.BulletinBoard);
+        set => value.ToBytes().CopyTo(Data[Offsets.BulletinBoard..]);
     }
 }

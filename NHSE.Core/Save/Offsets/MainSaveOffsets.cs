@@ -54,10 +54,10 @@ public abstract class MainSaveOffsets
     public abstract int PlayerHouseSize { get; }
     public abstract int PlayerRoomSize { get; }
 
-    public abstract IVillager ReadVillager(byte[] data);
-    public abstract IVillagerHouse ReadVillagerHouse(byte[] data);
-    public abstract IPlayerHouse ReadPlayerHouse(byte[] data);
-    public abstract IPlayerRoom ReadPlayerRoom(byte[] data);
+    public abstract IVillager ReadVillager(Memory<byte> data);
+    public abstract IVillagerHouse ReadVillagerHouse(Memory<byte> data);
+    public abstract IPlayerHouse ReadPlayerHouse(Memory<byte> data);
+    public abstract IPlayerRoom ReadPlayerRoom(Memory<byte> data);
 
     public static MainSaveOffsets GetOffsets(FileHeaderInfo Info)
     {
@@ -116,12 +116,12 @@ public abstract class MainSaveOffsets
     {
         if ((uint)index >= PatternCount)
             throw new ArgumentOutOfRangeException(nameof(index));
-        playerID.CopyTo(p.Data.AsSpan(0x54)); // overwrite playerID bytes so player owns
-        townID.CopyTo(p.Data.AsSpan(0x38)); // overwrite townID bytes so player owns
-        byte[] wipeflag = [0x02, 0xEE, 0x00, 0x00]; // wipe so player owns
-        wipeflag.CopyTo(p.Data.AsSpan(0x70));
+        playerID.CopyTo(p.Data[0x54..]); // overwrite playerID bytes so player owns
+        townID.CopyTo(p.Data[0x38..]); // overwrite townID bytes so player owns
+        ReadOnlySpan<byte> wipeflag = [0x02, 0xEE, 0x00, 0x00]; // wipe so player owns
+        wipeflag.CopyTo(p.Data[0x70..]);
         p.Data.CopyTo(data[(LandMyDesign + (index * DesignPattern.SIZE))..]);
-        byte[] editedflag = [0x00];
+        ReadOnlySpan<byte> editedflag = [0x00];
         editedflag.CopyTo(data[(PatternsEditFlagStart + index)..]); // set edited flag for name import to work
     }
 
@@ -143,12 +143,12 @@ public abstract class MainSaveOffsets
     {
         if ((uint)index >= PatternCount)
             throw new ArgumentOutOfRangeException(nameof(index));
-        playerID.CopyTo(p.Data.AsSpan(0x54)); // overwrite playerID bytes so player owns
-        townID.CopyTo(p.Data.AsSpan(0x38)); // overwrite townID bytes so player owns
+        playerID.CopyTo(p.Data[0x54..]); // overwrite playerID bytes so player owns
+        townID.CopyTo(p.Data[0x38..]); // overwrite townID bytes so player owns
         ReadOnlySpan<byte> wipeflag = [0x00, 0x00, 0x00, 0x00]; // wipe so player owns
-        wipeflag.CopyTo(p.Data.AsSpan(0x70));
+        wipeflag.CopyTo(p.Data[0x70..]);
         p.Data.CopyTo(data[(PatternsPRO + (index * DesignPatternPRO.SIZE))..]);
-        byte[] editedflag = [0x00];
+        ReadOnlySpan<byte> editedflag = [0x00];
         editedflag.CopyTo(data[(PatternsProEditFlagStart + index)..]); // set edited flag for name import to work
     }
 

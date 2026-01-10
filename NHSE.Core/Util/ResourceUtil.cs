@@ -4,7 +4,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Reflection;
 using System.Resources;
+using System.Runtime.InteropServices;
 using System.Threading;
+using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Core;
 
@@ -60,11 +62,12 @@ public static class ResourceUtil
 
     public static ushort[] GetBinaryResourceAsUshort(string name)
     {
-        var byteBuffer = GetBinaryResource(name);
-        var buffer = new ushort[byteBuffer.Length / 2];
-        for (int i = 0; i < byteBuffer.Length / 2; i++)
-            buffer[i] = BitConverter.ToUInt16(byteBuffer, i*2);
-        return buffer;
+        ReadOnlySpan<byte> byteBuffer = GetBinaryResource(name);
+        var result = MemoryMarshal.Cast<byte, ushort>(byteBuffer).ToArray();
+        if (!BitConverter.IsLittleEndian)
+            ReverseEndianness(result, result);
+        return result;
+        
     }
 
     public static string? GetStringResource(string name)

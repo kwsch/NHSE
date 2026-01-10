@@ -144,7 +144,7 @@ public partial class PlayerItemEditor : Form
         var data = File.ReadAllBytes(path);
         if (sender == ItemEditor)
         {
-            var item = new Item(BitConverter.ToUInt64(data, 0));
+            var item = new Item(System.Buffers.Binary.BinaryPrimitives.ReadUInt64LittleEndian(data));
             ItemEditor.LoadItem(item);
         }
         else

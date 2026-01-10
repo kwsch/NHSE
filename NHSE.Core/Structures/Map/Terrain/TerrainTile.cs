@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 
@@ -41,7 +42,7 @@ public class TerrainTile
     [Category(Details), Description("How high the terrain tile is elevated.")]
     public ushort Elevation { get; set; }
 
-    public static TerrainTile[] GetArray(byte[] data) => data.GetArray<TerrainTile>(SIZE);
+    public static TerrainTile[] GetArray(ReadOnlySpan<byte> data) => data.GetArray<TerrainTile>(SIZE);
     public static byte[] SetArray(IReadOnlyList<TerrainTile> data) => data.SetArray(SIZE);
 
     public void Clear()

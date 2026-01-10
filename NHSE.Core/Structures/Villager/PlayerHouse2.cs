@@ -57,7 +57,7 @@ public class PlayerHouse2 : PlayerHouse1
     public PlayerHouse1 Downgrade()
     {
         var data = new byte[PlayerHouse1.SIZE];
-        Data.Slice(0x0, 0x120).CopyTo(data); // HouseLevel -> EventFlag
+        Data[..0x120].CopyTo(data); // HouseLevel -> EventFlag
         for (int i = 0; i < MaxRoom; i++)
             ((PlayerRoom2)GetRoom(i)).Downgrade().Data.CopyTo(data.AsSpan(0x120 + (i * PlayerRoom1.SIZE))); // RoomList
         Data.Slice(0x289F8, 0x30).CopyTo(data.AsSpan(0x263D0)); // PlayerList -> Cockroach

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Runtime.InteropServices;
+using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Core;
 
@@ -19,55 +21,56 @@ public class DesignPattern : IVillagerOrigin
     private const int PixelCount = 0x400; // Width * Height
     //private const int PixelDataSize = PixelCount / 2; // 4bit|4bit pixel packing
 
-    public readonly byte[] Data;
+    public readonly Memory<byte> Raw;
+    public Span<byte> Data => Raw.Span;
 
-    public DesignPattern(byte[] data) => Data = data;
+    public DesignPattern(Memory<byte> data) => Raw = data;
 
     public uint Hash
     {
-        get => BitConverter.ToUInt32(Data, 0x00);
-        set => BitConverter.GetBytes(value).CopyTo(Data, 0x00);
+        get => ReadUInt32LittleEndian(Data);
+        set => WriteUInt32LittleEndian(Data, value);
     }
 
     public uint Version
     {
-        get => BitConverter.ToUInt32(Data, 0x04);
-        set => BitConverter.GetBytes(value).CopyTo(Data, 0x04);
+        get => ReadUInt32LittleEndian(Data[0x04..]);
+        set => WriteUInt32LittleEndian(Data[0x04..], value);
     }
 
     public string DesignName
     {
         get => StringUtil.GetString(Data, 0x10, 20);
-        set => StringUtil.GetBytes(value, 20).CopyTo(Data, 0x10);
+        set => StringUtil.GetBytes(value, 20).CopyTo(Data[0x10..]);
     }
 
     public uint TownID
     {
-        get => BitConverter.ToUInt32(Data, PersonalOffset);
-        set => BitConverter.GetBytes(value).CopyTo(Data, PersonalOffset);
+        get => ReadUInt32LittleEndian(Data[PersonalOffset..]);
+        set => WriteUInt32LittleEndian(Data[PersonalOffset..], value);
     }
 
     public string TownName
     {
         get => StringUtil.GetString(Data, PersonalOffset + 0x04, 10);
-        set => StringUtil.GetBytes(value, 10).CopyTo(Data, PersonalOffset + 0x04);
+        set => StringUtil.GetBytes(value, 10).CopyTo(Data[(PersonalOffset + 0x04)..]);
     }
 
-    public Span<byte> GetTownIdentity() => Data.AsSpan(PersonalOffset + 0x00, 4 + 20);
+    public Span<byte> GetTownIdentity() => Data.Slice(PersonalOffset + 0x00, 4 + 20);
 
     public uint PlayerID
     {
-        get => BitConverter.ToUInt32(Data, PersonalOffset + 0x1C);
-        set => BitConverter.GetBytes(value).CopyTo(Data, PersonalOffset + 0x1C);
+        get => ReadUInt32LittleEndian(Data[(PersonalOffset + 0x1C)..]);
+        set => WriteUInt32LittleEndian(Data[(PersonalOffset + 0x1C)..], value);
     }
 
     public string PlayerName
     {
         get => StringUtil.GetString(Data, PersonalOffset + 0x20, 10);
-        set => StringUtil.GetBytes(value, 10).CopyTo(Data, PersonalOffset + 0x20);
+        set => StringUtil.GetBytes(value, 10).CopyTo(Data[(PersonalOffset + 0x20)..]);
     }
 
-    public Span<byte> GetPlayerIdentity() => Data.AsSpan(PersonalOffset + 0x1C, 4 + 20);
+    public Span<byte> GetPlayerIdentity() => Data.Slice(PersonalOffset + 0x1C, 4 + 20);
 
     /// <summary>
     /// Gets/Sets the color choice (1-15) for the pixel at the given <see cref="index"/>.
@@ -87,7 +90,7 @@ public class DesignPattern : IVillagerOrigin
             var val = Data[ofs];
             var update = ((index & 1) == 0)
                 ? (val & 0xF0) | (value & 0xF)
-                : (value & 0xF) << 4 | (val & 0xF);
+                : ((value & 0xF) << 4) | (val & 0xF);
             Data[ofs] = (byte)update;
         }
     }

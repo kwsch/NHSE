@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Core;
 
@@ -190,7 +191,9 @@ public static class ItemParser
     {
         if (!ulong.TryParse(text, NumberStyles.AllowHexSpecifier, CultureInfo.CurrentCulture, out var value))
             return Item.NONE.ToBytes();
-        return BitConverter.GetBytes(value);
+        var bytes = new byte[sizeof(ulong)];
+        WriteUInt64LittleEndian(bytes, value);
+        return bytes;
     }
 
     private static Item CreateItem(string name, int requestIndex, IConfigItem config, ItemDestination type, string lang = "en")
@@ -358,7 +361,7 @@ public static class ItemParser
     /// <param name="item">Item value</param>
     public static string GetItemText(Item item)
     {
-        var value = BitConverter.ToUInt64(item.ToBytesClass(), 0);
+        var value = ReadUInt64LittleEndian(item.ToBytesClass());
         var name = GameInfo.Strings.GetItemName(item.ItemId);
         return $"{name}: {value:X16}";
     }

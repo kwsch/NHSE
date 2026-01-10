@@ -1,4 +1,6 @@
-﻿namespace NHSE.Core;
+﻿using System;
+
+namespace NHSE.Core;
 
 /// <summary>
 /// Converts Villager House objects to different revisions.
@@ -43,7 +45,7 @@ public static class VillagerHouseConverter
     /// <param name="data">Current format</param>
     /// <param name="expect">Target size</param>
     /// <returns>Converted data</returns>
-    public static byte[] GetCompatible(byte[] data, int expect)
+    public static Memory<byte> GetCompatible(Memory<byte> data, int expect)
     {
         if (data.Length == expect)
             return data;
@@ -61,12 +63,12 @@ public static class VillagerHouseConverter
     /// </summary>
     /// <param name="h1"><see cref="VillagerHouse1"/> object byte array</param>
     /// <returns><see cref="VillagerHouse2"/> object byte array</returns>
-    private static byte[] Convert12(byte[] h1) => new VillagerHouse1(h1).Upgrade().Data;
+    private static byte[] Convert12(Memory<byte> h1) => new VillagerHouse1(h1).Upgrade().Write();
 
     /// <summary>
     /// Converts a <see cref="VillagerHouse2"/> object byte array to a <see cref="VillagerHouse1"/>
     /// </summary>
     /// <param name="h2"><see cref="VillagerHouse2"/> object byte array</param>
     /// <returns><see cref="VillagerHouse1"/> object byte array</returns>
-    private static byte[] Convert21(byte[] h2) => new VillagerHouse2(h2).Downgrade().Data;
+    private static byte[] Convert21(Memory<byte> h2) => new VillagerHouse2(h2).Downgrade().Write();
 }

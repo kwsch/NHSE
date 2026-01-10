@@ -79,6 +79,6 @@ public abstract class PersonalOffsets
         };
     }
 
-    public abstract IReactionStore ReadReactions(byte[] data);
-    public abstract void SetReactions(byte[] data, IReactionStore value);
+    public abstract IReactionStore ReadReactions(ReadOnlySpan<byte> data);
+    public abstract void SetReactions(Span<byte> data, IReactionStore value);
 }

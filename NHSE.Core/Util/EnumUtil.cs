@@ -5,17 +5,16 @@ namespace NHSE.Core;
 
 public static class EnumUtil
 {
-    public static KeyValuePair<string, string[]> GetEnumList<T>() where T : Enum
+    public static KeyValuePair<string, string[]> GetEnumList<T>() where T : struct, Enum
     {
-        var type = typeof(T);
-        var name = type.Name;
-        var values = GetTypeValues<T>(type);
+        var name = typeof(T).Name;
+        var values = GetTypeValues<T>();
         return new KeyValuePair<string, string[]>(name, values);
     }
 
-    private static string[] GetTypeValues<T>(Type type) where T : Enum
+    private static string[] GetTypeValues<T>() where T : struct, Enum
     {
-        var arr = (T[])Enum.GetValues(type);
+        var arr = Enum.GetValues<T>();
         var result = new string[arr.Length];
         for (int i = 0; i < arr.Length; i++)
             result[i] = GetSummary(arr[i]);

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using NHSE.Core;
 
@@ -12,7 +12,7 @@ public class PocketInjector : IDataInjector
 
     public uint WriteOffset { private get; set; }
     public bool ValidateEnabled { get; set; } = true;
-    public bool SpoofInventoryWrite { get; set; } = false;
+    public bool SpoofInventoryWrite { get; set; }
     private static readonly Item DroppableOnlyItem = new(0x9C9); // Gold nugget
 
     public PocketInjector(IReadOnlyList<Item> items, IRAMReadWriter bot)
@@ -72,7 +72,7 @@ public class PocketInjector : IDataInjector
 
     public bool Validate() => ReadValidate(out _);
 
-    public bool Validate(byte[] data)
+    public bool Validate(System.ReadOnlySpan<byte> data)
     {
         if (!ValidateEnabled)
             return true;

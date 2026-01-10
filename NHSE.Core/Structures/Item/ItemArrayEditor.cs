@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace NHSE.Core;
 
@@ -11,7 +12,7 @@ public class ItemArrayEditor<T> where T : Item, ICopyableItem<T>
 
     public byte[] Write() => Items.SetArray(ItemSize);
 
-    public void ImportItemDataX(byte[] data, bool skipOccupiedSlots, int start = 0)
+    public void ImportItemDataX(ReadOnlySpan<byte> data, bool skipOccupiedSlots, int start = 0)
     {
         int expect = ItemSize;
         var import = data.GetArray<T>(expect);

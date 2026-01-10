@@ -114,7 +114,7 @@ public partial class VillagerHouseEditor : Form
             return;
         }
 
-        var data = File.ReadAllBytes(ofd.FileName);
+        Memory<byte> data = File.ReadAllBytes(ofd.FileName);
         data = VillagerHouseConverter.GetCompatible(data, expectLength);
         if (data.Length != expectLength)
         {

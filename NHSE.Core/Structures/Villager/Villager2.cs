@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Core;
 
@@ -11,9 +13,10 @@ public sealed class Villager2 : IVillager
     public const int SIZE = 0x13230; // + 160*0xC (0x780) -- GSaveLightMemory increased size.
     public string Extension => "nhv2";
 
-    public readonly byte[] Data;
-    public Villager2(byte[] data) => Data = data;
-    public byte[] Write() => Data;
+    public readonly Memory<byte> Raw;
+    public Span<byte> Data => Raw.Span;
+    public Villager2(Memory<byte> data) => Raw = data;
+    public byte[] Write() => Data.ToArray();
 
     public byte Species { get => Data[0]; set => Data[0] = value; }
     public byte Variant { get => Data[1]; set => Data[1] = value; }
@@ -31,7 +34,7 @@ public sealed class Villager2 : IVillager
         if ((uint)index >= PlayerMemoryCount)
             throw new ArgumentOutOfRangeException(nameof(index));
 
-        var bytes = Data.Slice(0x4 + (index * GSaveMemory.SIZE), GSaveMemory.SIZE);
+        var bytes = Raw.Slice(0x4 + (index * GSaveMemory.SIZE), GSaveMemory.SIZE);
         return new GSaveMemory(bytes);
     }
 
@@ -48,7 +51,7 @@ public sealed class Villager2 : IVillager
         if ((uint)index >= PlayerMemoryCount)
             throw new ArgumentOutOfRangeException(nameof(index));
 
-        memory.Data.CopyTo(Data, 0x4 + (index * GSaveMemory.SIZE));
+        memory.Data.CopyTo(Data[(0x4 + (index * GSaveMemory.SIZE))..]);
     }
 
     public void SetMemories(IReadOnlyList<GSaveMemory> memories)
@@ -60,7 +63,7 @@ public sealed class Villager2 : IVillager
     public string CatchPhrase
     {
         get => StringUtil.GetString(Data, 0x10768 + 0x2C, 2 * 12);
-        set => StringUtil.GetBytes(value, 2 * 12).CopyTo(Data, 0x10768 + 0x2C);
+        set => StringUtil.GetBytes(value, 2 * 12).CopyTo(Data[(0x10768 + 0x2C)..]);
     }
 
     private const int WearCount = 24;
@@ -68,7 +71,7 @@ public sealed class Villager2 : IVillager
     public IReadOnlyList<VillagerItem> WearStockList
     {
         get => VillagerItem.GetArray(Data.Slice(0x1094c, WearCount * VillagerItem.SIZE));
-        set => VillagerItem.SetArray(value).CopyTo(Data, 0x1094c);
+        set => VillagerItem.SetArray(value).CopyTo(Data[0x1094c..]);
     }
 
     private const int FurnitureCount = 32;
@@ -76,7 +79,7 @@ public sealed class Villager2 : IVillager
     public IReadOnlyList<VillagerItem> FtrStockList
     {
         get => VillagerItem.GetArray(Data.Slice(0x10d6c, FurnitureCount * VillagerItem.SIZE));
-        set => VillagerItem.SetArray(value).CopyTo(Data, 0x10d6c);
+        set => VillagerItem.SetArray(value).CopyTo(Data[0x10d6c..]);
     }
 
     // State Flags
@@ -91,13 +94,13 @@ public sealed class Villager2 : IVillager
     public ushort[] GetEventFlagsSave()
     {
         var value = new ushort[EventFlagsSaveCount];
-        Buffer.BlockCopy(Data, 0x1267c, value, 0, sizeof(ushort) * value.Length);
+        MemoryMarshal.Cast<byte, ushort>(Data.Slice(0x1267c, EventFlagsSaveCount * sizeof(ushort))).CopyTo(value);
         return value;
     }
 
-    public void SetEventFlagsSave(ushort[] value)
+    public void SetEventFlagsSave(ReadOnlySpan<ushort> value)
     {
-        Buffer.BlockCopy(value, 0, Data, 0x1267c, sizeof(ushort) * value.Length);
+        MemoryMarshal.Cast<ushort, byte>(value).CopyTo(Data[0x1267c..]);
     }
 
     public override string ToString() => InternalName;
@@ -107,19 +110,24 @@ public sealed class Villager2 : IVillager
     public GSaveRoomFloorWall Room
     {
         get => Data.Slice(0x12880, GSaveRoomFloorWall.SIZE).ToStructure<GSaveRoomFloorWall>();
-        set => value.ToBytes().CopyTo(Data, 0x12880);
+        set => value.ToBytes().CopyTo(Data[0x12880..]);
     }
 
     public DesignPatternPRO Design
     {
-        get => new(Data.Slice(0x128a8, DesignPatternPRO.SIZE));
-        set => value.Data.CopyTo(Data, 0x128a8);
+        get => new(Raw.Slice(0x128a8, DesignPatternPRO.SIZE));
+        set => value.Data.CopyTo(Data[0x128a8..]);
     }
 
     public byte DIYEndHour { get => Data[0x13151]; set => Data[0x13151] = value; }
     public byte DIYEndMinute { get => Data[0x13152]; set => Data[0x13152] = value; }
     public byte DIYEndSecond { get => Data[0x13153]; set => Data[0x13153] = value; }
-    public ushort DIYRecipeIndex { get => BitConverter.ToUInt16(Data, 0x13154); set => BitConverter.GetBytes(value).CopyTo(Data, 0x13154); }
+
+    public ushort DIYRecipeIndex
+    {
+        get => ReadUInt16LittleEndian(Data[0x13154..]); 
+        set => WriteUInt16LittleEndian(Data[0x13154..], value);
+    }
 
     public void SetFriendshipAll(byte value = byte.MaxValue)
     {

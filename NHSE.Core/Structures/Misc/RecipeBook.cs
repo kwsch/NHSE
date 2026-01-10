@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace NHSE.Core;
 
@@ -9,10 +10,11 @@ public class RecipeBook
     public const int SIZE = BitFlagArraySize * BitFlagArrayCount;
     public const ushort RecipeCount = BitFlagArraySize * 8;
 
-    private readonly byte[] Data;
-    public RecipeBook(byte[] data) => Data = data;
+    private readonly Memory<byte> Raw;
+    private Span<byte> Data => Raw.Span;
+    public RecipeBook(Memory<byte> raw) => Raw = raw;
 
-    public void Save(byte[] data, int offset) => Data.CopyTo(data, offset);
+    public void Save(Span<byte> data) => Data.CopyTo(data);
 
     public bool GetIsKnown(int recipe) => FlagUtil.GetFlag(Data, 0 * BitFlagArraySize, recipe);
     public void SetIsKnown(int recipe, bool value = true) => FlagUtil.SetFlag(Data, 0 * BitFlagArraySize, recipe, value);

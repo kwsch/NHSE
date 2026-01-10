@@ -69,9 +69,9 @@ public abstract class BatchProcessor<T>(BatchMutator<T> Mutator) where T : class
         }
     }
 
-    protected abstract void Initialize(StringInstructionSet[] sets);
+    protected abstract void Initialize(ReadOnlySpan<StringInstructionSet> sets);
 
-    public void Process(StringInstructionSet[] sets, IReadOnlyList<T> items)
+    public void Process(ReadOnlySpan<StringInstructionSet> sets, IReadOnlyList<T> items)
     {
         Initialize(sets);
         foreach (var s in sets)

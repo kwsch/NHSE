@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
+using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Parsing;
 
@@ -14,14 +13,20 @@ internal class BinaryReaderX(Stream input, ByteOrder byteOrder = ByteOrder.Littl
     {
         if (ByteOrder == ByteOrder.LittleEndian)
             return base.ReadUInt16();
-        return BitConverter.ToUInt16(base.ReadBytes(2).Reverse().ToArray(), 0);
+        var buffer = base.ReadBytes(sizeof(ushort));
+        if (buffer.Length != sizeof(ushort))
+            throw new EndOfStreamException();
+        return ReadUInt16BigEndian(buffer);
     }
 
     public override uint ReadUInt32()
     {
         if (ByteOrder == ByteOrder.LittleEndian)
             return base.ReadUInt32();
-        return BitConverter.ToUInt32(base.ReadBytes(4).Reverse().ToArray(), 0);
+        var buffer = base.ReadBytes(sizeof(uint));
+        if (buffer.Length != sizeof(uint))
+            throw new EndOfStreamException();
+        return ReadUInt32BigEndian(buffer);
     }
 
     public string ReadString(int length)

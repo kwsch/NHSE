@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Core;
 
@@ -37,14 +38,14 @@ public static class PlayerItemSet
     /// </summary>
     /// <param name="data">Raw RAM from the game from the offset read (as per <see cref="GetOffsetLength"/>).</param>
     /// <returns>True if valid, false if not valid or corrupt.</returns>
-    public static bool ValidateItemBinary(byte[] data)
+    public static bool ValidateItemBinary(ReadOnlySpan<byte> data)
     {
         // Check the unlocked slot count -- expect 0,10,20
-        var bagCount = BitConverter.ToUInt32(data, ItemSet_ItemSize);
+        var bagCount = ReadUInt32LittleEndian(data[ItemSet_ItemSize..]);
         if (bagCount > ItemSet_ItemCount || bagCount % 10 != 0) // pouch21-39 count
             return false;
 
-        var pocketCount = BitConverter.ToUInt32(data, ItemSet_ItemSize + ItemSet_MetaSize + ItemSet_ItemSize);
+        var pocketCount = ReadUInt32LittleEndian(data[(ItemSet_ItemSize + ItemSet_MetaSize + ItemSet_ItemSize)..]);
         if (pocketCount != ItemSet_ItemCount) // pouch0-19 count should be 20.
             return false;
 
@@ -60,7 +61,7 @@ public static class PlayerItemSet
         return true;
     }
 
-    private static bool ValidateBindList(byte[] data, int bindStart, ICollection<byte> bound)
+    private static bool ValidateBindList(ReadOnlySpan<byte> data, int bindStart, ICollection<byte> bound)
     {
         for (int i = 0; i < ItemSet_ItemCount; i++)
         {
@@ -82,7 +83,7 @@ public static class PlayerItemSet
     /// Reads the items present in the player inventory packet and returns the list of items.
     /// </summary>
     /// <param name="data">Player Inventory packet</param>
-    public static Item[] ReadPlayerInventory(byte[] data)
+    public static Item[] ReadPlayerInventory(ReadOnlySpan<byte> data)
     {
         var items = GetEmptyItemArray(40);
         ReadPlayerInventory(data, items);
@@ -102,11 +103,11 @@ public static class PlayerItemSet
     /// </summary>
     /// <param name="data">Player Inventory packet</param>
     /// <param name="destination">40 Item array</param>
-    public static void ReadPlayerInventory(byte[] data, IReadOnlyList<Item> destination)
+    public static void ReadPlayerInventory(ReadOnlySpan<byte> data, IReadOnlyList<Item> destination)
     {
         var pocket2 = destination.Take(20).ToArray();
         var pocket1 = destination.Skip(20).ToArray();
-        var p1 = Item.GetArray(data.Slice(0, ItemSet_ItemSize));
+        var p1 = Item.GetArray(data[..ItemSet_ItemSize]);
         var p2 = Item.GetArray(data.Slice(ItemSet_ItemSize + 0x18, ItemSet_ItemSize));
 
         for (int i = 0; i < pocket1.Length; i++)

@@ -1,4 +1,6 @@
-﻿namespace NHSE.Core;
+﻿using System;
+
+namespace NHSE.Core;
 
 /// <summary>
 /// <inheritdoc cref="MainSaveOffsets"/>
@@ -51,13 +53,13 @@ public class MainSaveOffsets17 : MainSaveOffsets
     #endregion
 
     public override int VillagerSize => Villager2.SIZE;
-    public override IVillager ReadVillager(byte[] data) => new Villager2(data);
+    public override IVillager ReadVillager(Memory<byte> data) => new Villager2(data);
 
     public override int VillagerHouseSize => VillagerHouse1.SIZE;
-    public override IVillagerHouse ReadVillagerHouse(byte[] data) => new VillagerHouse1(data);
+    public override IVillagerHouse ReadVillagerHouse(Memory<byte> data) => new VillagerHouse1(data);
 
     public override int PlayerHouseSize => PlayerHouse1.SIZE;
-    public override IPlayerHouse ReadPlayerHouse(byte[] data) => new PlayerHouse1(data);
+    public override IPlayerHouse ReadPlayerHouse(Memory<byte> data) => new PlayerHouse1(data);
     public override int PlayerRoomSize => PlayerRoom1.SIZE;
-    public override IPlayerRoom ReadPlayerRoom(byte[] data) => new PlayerRoom1(data);
+    public override IPlayerRoom ReadPlayerRoom(Memory<byte> data) => new PlayerRoom1(data);
 }

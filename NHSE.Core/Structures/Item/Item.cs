@@ -223,7 +223,7 @@ public class Item : ICopyableItem<Item>, IEquatable<Item>
         FreeParam = item.FreeParam;
     }
 
-    public static Item[] GetArray(byte[] data) => data.GetArray<Item>(SIZE);
+    public static Item[] GetArray(ReadOnlySpan<byte> data) => data.GetArray<Item>(SIZE);
     public static byte[] SetArray(IReadOnlyList<Item> data) => data.SetArray(SIZE);
 
     public ushort GetWrappedItemName() => WrappingType switch

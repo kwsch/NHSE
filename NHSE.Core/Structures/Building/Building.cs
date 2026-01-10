@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
 namespace NHSE.Core;
@@ -47,7 +48,7 @@ public class Building
         Unused = building.Unused;
     }
 
-    public static Building[] GetArray(byte[] data) => data.GetArray<Building>(SIZE);
+    public static Building[] GetArray(ReadOnlySpan<byte> data) => data.GetArray<Building>(SIZE);
     public static byte[] SetArray(IReadOnlyList<Building> data) => data.SetArray(SIZE);
     public override string ToString() => $"{X:000},{Y:000} - {BuildingType}";
 }

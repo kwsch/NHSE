@@ -24,9 +24,10 @@ public static class StringUtil
         return index < 0 ? input : input[..index];
     }
 
-    public static string GetString(byte[] data, int offset, int maxLength)
+    public static string GetString(ReadOnlySpan<byte> data, int offset, int maxLength)
     {
-        var str = Encoding.Unicode.GetString(data, offset, maxLength * 2);
+        var slice = data.Slice(offset, maxLength * 2);
+        var str = Encoding.Unicode.GetString(slice);
         return TrimFromZero(str);
     }
 

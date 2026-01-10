@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace NHSE.Core;
 
@@ -32,10 +33,10 @@ public class MapManager : MapTerrainStructure
         return result;
     }
 
-    public static void ImportDesignTiles(MainSave sav, byte[] result)
+    public static void ImportDesignTiles(MainSave sav, ReadOnlySpan<byte> result)
     {
         var tiles = sav.GetMapDesignTiles();
-        Buffer.BlockCopy(result, 0, tiles, 0, result.Length);
+        MemoryMarshal.Cast<byte, ushort>(result).CopyTo(tiles);
         sav.SetMapDesignTiles(tiles);
     }
 }

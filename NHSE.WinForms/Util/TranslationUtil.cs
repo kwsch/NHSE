@@ -33,27 +33,6 @@ public static class TranslationUtil
     public static string[] GetLocalization(Type t) => DumpStrings(t).ToArray();
 
     /// <summary>
-    /// Gets the current localization in a static class containing language-specific strings
-    /// </summary>
-    /// <param name="t"></param>
-    /// <param name="existingLines">Existing localization lines (if provided)</param>
-    public static string[] GetLocalization(Type t, string[] existingLines)
-    {
-        var currentLines = GetLocalization(t);
-        var existing = GetProperties(existingLines);
-        var current = GetProperties(currentLines);
-
-        var result = new string[currentLines.Length];
-        for (int i = 0; i < current.Length; i++)
-        {
-            int index = Array.IndexOf(existing, current[i]);
-            result[i] = index < 0 ? currentLines[i] : existingLines[index];
-        }
-
-        return result;
-    }
-
-    /// <summary>
     /// Applies localization to a static class containing language-specific strings.
     /// </summary>
     /// <param name="t">Type of the static class containing the desired strings.</param>

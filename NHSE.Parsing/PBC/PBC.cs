@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Drawing;
 using NHSE.Core;
+using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Parsing;
 
@@ -9,11 +10,12 @@ public class PBC
 {
     private const uint MAGIC = 0x00636270; // pbc\0
 
-    public readonly byte[] Data;
+    public readonly Memory<byte> Raw;
+    private Span<byte> Data => Raw.Span;
 
-    public PBC(byte[] data)
+    public PBC(Memory<byte> data)
     {
-        Data = data;
+        Raw = data;
         Debug.Assert(Magic == MAGIC);
 
         Tiles = GetTiles();
@@ -47,7 +49,7 @@ public class PBC
     public byte GetTile(int x, int y) => Tiles[(y * Width) + x];
     public Color GetTileColor(int x, int y) => CollisionUtil.Dict[GetTile(x, y)];
 
-    public uint Magic => BitConverter.ToUInt32(Data, 0x00);
-    public uint Width => BitConverter.ToUInt32(Data, 0x04);
-    public uint Height => BitConverter.ToUInt32(Data, 0x08);
+    public uint Magic => ReadUInt32LittleEndian(Data);
+    public uint Width => ReadUInt32LittleEndian(Data[0x04..]);
+    public uint Height => ReadUInt32LittleEndian(Data[0x08..]);
 }

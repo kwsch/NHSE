@@ -33,7 +33,7 @@ public abstract class ItemLayer : MapGrid
         return result;
     }
 
-    public void ImportAll(byte[] data)
+    public void ImportAll(ReadOnlySpan<byte> data)
     {
         var tiles = Item.GetArray(data);
         for (int i = 0; i < tiles.Length; i++)

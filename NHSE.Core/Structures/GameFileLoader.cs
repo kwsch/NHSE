@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace NHSE.Core;
 
@@ -44,7 +45,7 @@ public static class GameFileLoader
         Load(path, pair.Data, pair.NameData);
     }
 
-    private static void Load(string path, byte[] data, string name)
+    private static void Load(string path, Span<byte> data, string name)
     {
         if (!Directory.Exists(path))
             return;
@@ -57,6 +58,6 @@ public static class GameFileLoader
         if (data.Length != import.Length)
             return;
 
-        import.CopyTo(data, 0);
+        import.CopyTo(data);
     }
 }

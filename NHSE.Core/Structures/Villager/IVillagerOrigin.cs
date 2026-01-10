@@ -31,13 +31,13 @@ public static class VillagerOriginExtensions
         return hostPlayer.SequenceEqual(visitPlayer);
     }
 
-    public static void ChangeOrigins(this IVillagerOrigin visit, IVillagerOrigin host, byte[] visitData)
+    public static void ChangeOrigins(this IVillagerOrigin visit, IVillagerOrigin host, Span<byte> visitData)
     {
         visit.ChangeToHostTown(host, visitData);
         visit.ChangeToHostPlayer(host, visitData);
     }
 
-    private static void ChangeToHostTown(this IVillagerOrigin visit, IVillagerOrigin host, byte[] visitData)
+    private static void ChangeToHostTown(this IVillagerOrigin visit, IVillagerOrigin host, Span<byte> visitData)
     {
         var hostTown = host.GetTownIdentity();
         var visitTown = visit.GetTownIdentity();
@@ -46,7 +46,7 @@ public static class VillagerOriginExtensions
         visitData.ReplaceOccurrences(visitTown, hostTown);
     }
 
-    private static void ChangeToHostPlayer(this IVillagerOrigin visit, IVillagerOrigin host, byte[] visitData)
+    private static void ChangeToHostPlayer(this IVillagerOrigin visit, IVillagerOrigin host, Span<byte> visitData)
     {
         var hostPlayer = host.GetPlayerIdentity();
         var visitPlayer = visit.GetPlayerIdentity();

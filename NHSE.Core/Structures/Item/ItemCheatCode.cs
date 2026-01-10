@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Core;
 
@@ -59,7 +60,8 @@ public static class ItemCheatCode
     {
         if (!uint.TryParse(lastChunk, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out var hex))
             return;
-        var bytes = BitConverter.GetBytes(hex);
+        var bytes = new byte[sizeof(uint)];
+        WriteUInt32LittleEndian(bytes, hex);
         result.AddRange(bytes);
     }
 
@@ -69,8 +71,8 @@ public static class ItemCheatCode
         foreach (var item in items)
         {
             var bytes = item.ToBytesClass();
-            var lower = BitConverter.ToUInt32(bytes, 0);
-            var upper = BitConverter.ToUInt32(bytes, 4);
+            var lower = ReadUInt32LittleEndian(bytes.AsSpan(0));
+            var upper = ReadUInt32LittleEndian(bytes.AsSpan(4));
             yield return $"04100000 {offset + (ctr++*4):X8} {lower:X8}";
             yield return $"04100000 {offset + (ctr++*4):X8} {upper:X8}";
         }

@@ -63,12 +63,12 @@ public static class PlayerHouseConverter
     /// </summary>
     /// <param name="h1"><see cref="PlayerHouse1"/> object byte array</param>
     /// <returns><see cref="PlayerHouse2"/> object byte array</returns>
-    private static byte[] Convert12(Memory<byte> h1) => new PlayerHouse1(h1).Upgrade().Data.ToArray();
+    private static byte[] Convert12(Memory<byte> h1) => new PlayerHouse1(h1).Upgrade().Write();
 
     /// <summary>
     /// Converts a <see cref="PlayerHouse2"/> object byte array to a <see cref="PlayerHouse1"/>
     /// </summary>
     /// <param name="h2"><see cref="PlayerHouse2"/> object byte array</param>
     /// <returns><see cref="PlayerHouse1"/> object byte array</returns>
-    private static byte[] Convert21(Memory<byte> h2) => new PlayerHouse2(h2).Downgrade().Data.ToArray();
+    private static byte[] Convert21(Memory<byte> h2) => new PlayerHouse2(h2).Downgrade().Write();
 }

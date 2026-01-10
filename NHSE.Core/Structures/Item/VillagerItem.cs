@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
 namespace NHSE.Core;
@@ -19,7 +20,7 @@ public sealed class VillagerItem : Item, ICopyableItem<VillagerItem>
     public uint U24;
     public uint U28;
 
-    public new static VillagerItem[] GetArray(byte[] data) => data.GetArray<VillagerItem>(SIZE);
+    public new static VillagerItem[] GetArray(ReadOnlySpan<byte> data) => data.GetArray<VillagerItem>(SIZE);
     public static byte[] SetArray(IReadOnlyList<VillagerItem> data) => data.SetArray(SIZE);
 
     public void CopyFrom(VillagerItem item)

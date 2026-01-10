@@ -223,8 +223,8 @@ public partial class VillagerEditor : UserControl
         var v = Villagers[VillagerIndex];
         DesignPatternPRO[] tmp = [v.Design];
         using var editor = new PatternEditorPRO(tmp);
-        playerID.CopyTo(tmp[0].Data.AsSpan(0x54)); // overwrite playerID bytes
-        townID.CopyTo(tmp[0].Data.AsSpan(0x38)); // overwrite townID bytes
+        playerID.CopyTo(tmp[0].Data[0x54..]); // overwrite playerID bytes
+        townID.CopyTo(tmp[0].Data[0x38..]); // overwrite townID bytes
         if (editor.ShowDialog() == DialogResult.OK)
             v.Design = tmp[0];
     }

@@ -46,7 +46,7 @@ public static class GameFileDumper
         Dump(path, pair.Data, pair.NameData);
     }
 
-    private static void Dump(string path, byte[] data, string name)
+    private static void Dump(string path, ReadOnlySpan<byte> data, string name)
     {
         Directory.CreateDirectory(path);
         var file = Path.Combine(path, name);

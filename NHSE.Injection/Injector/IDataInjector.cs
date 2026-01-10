@@ -1,4 +1,6 @@
-﻿namespace NHSE.Injection;
+﻿using System;
+
+namespace NHSE.Injection;
 
 public interface IDataInjector
 {
@@ -7,7 +9,7 @@ public interface IDataInjector
     InjectionResult Write();
 
     bool Validate();
-    bool Validate(byte[] data);
+    bool Validate(ReadOnlySpan<byte> data);
     uint WriteOffset { set; }
     bool Connected { get; }
     bool ValidateEnabled { get; set; }

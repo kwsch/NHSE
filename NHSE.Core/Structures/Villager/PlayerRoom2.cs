@@ -9,7 +9,7 @@ public class PlayerRoom2 : PlayerRoom1
     public new const int SIZE = 0x6C24;
     public new virtual string Extension => "nhpr2";
 
-    public PlayerRoom2(byte[] data) : base(data) { }
+    public PlayerRoom2(Memory<byte> data) : base(data) { }
 
     /*
       s_665e9093                        ExtraEffectLayerList[2];                   // @0x65c8 size 0x320, align 2
@@ -35,14 +35,14 @@ public class PlayerRoom2 : PlayerRoom1
         set
         {
             for (int i = 0; i < value.Length; i++)
-                value[i].ToBytes().CopyTo(Data, 0x65C8 + (i * s_665e9093.SIZE));
+                value[i].ToBytes().CopyTo(Data[(0x65C8 + (i * s_665e9093.SIZE))..]);
         }
     }
 
     public GSaveMusicBoxInfo MusicBoxInfo
     {
         get => Data.Slice(0x6C08, GSaveMusicBoxInfo.SIZE).ToStructure<GSaveMusicBoxInfo>();
-        set => value.ToBytes().CopyTo(Data, 0x6C08);
+        set => value.ToBytes().CopyTo(Data[0x6C08..]);
     }
 
     public SoundAmbientKind SoundAmbientUniqueID { get => (SoundAmbientKind)Data[0x6C0C]; set => Data[0x6C0C]= (byte)value; }
@@ -52,13 +52,13 @@ public class PlayerRoom2 : PlayerRoom1
     public s_e13a81f4 _cfb139b9
     {
         get => Data.Slice(0x6C10, s_e13a81f4.SIZE).ToStructure<s_e13a81f4>();
-        set => value.ToBytes().CopyTo(Data, 0x6C10);
+        set => value.ToBytes().CopyTo(Data[0x6C10..]);
     }
 
     public PlayerRoom1 Downgrade()
     {
         var result = new byte[PlayerRoom1.SIZE];
-        Array.Copy(Data, result, PlayerRoom1.SIZE);
+        Data[..PlayerRoom1.SIZE].CopyTo(result);
         return new PlayerRoom1(result);
     }
 }

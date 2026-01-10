@@ -19,16 +19,8 @@ public static class Murmur3
     /// Updates the hash at the specified offset, using the input parameters.
     /// </summary>
     /// <param name="data">Data to hash</param>
-    /// <param name="offset">Where the data-to-be-hashed starts</param>
-    /// <param name="size">Amount of data to hash</param>
     /// <param name="seed">Initial Murmur seed (optional)</param>
     /// <returns>Calculated hash.</returns>
-    public static uint GetMurmur3Hash(byte[] data, int offset, uint size, uint seed = 0)
-    {
-        ArgumentNullException.ThrowIfNull(data);
-        return GetMurmur3Hash(data.AsSpan(offset, checked((int)size)), seed);
-    }
-
     public static uint GetMurmur3Hash(ReadOnlySpan<byte> data, uint seed = 0)
     {
         var checksum = seed;
@@ -74,44 +66,12 @@ public static class Murmur3
     /// Updates the hash at the specified offset, using the input parameters.
     /// </summary>
     /// <param name="data">Data to hash</param>
-    /// <param name="hashOffset">Offset to write the hash</param>
-    /// <param name="readOffset">Where the data-to-be-hashed starts</param>
-    /// <param name="readSize">Amount of data to hash</param>
+    /// <param name="hashDestination">Location two write the hash</param>
     /// <returns>Calculated hash that was written back to the data.</returns>
-    public static uint UpdateMurmur32(byte[] data, int hashOffset, int readOffset, uint readSize)
-    {
-        ArgumentNullException.ThrowIfNull(data);
-        return UpdateMurmur32(data.AsSpan(), hashOffset, readOffset, readSize);
-    }
-
-    public static uint UpdateMurmur32(Span<byte> data, int hashOffset, int readOffset, uint readSize)
-    {
-        var newHash = GetMurmur3Hash(data.Slice(readOffset, checked((int)readSize)));
-        WriteUInt32LittleEndian(data.Slice(hashOffset, sizeof(uint)), newHash);
-        return newHash;
-    }
-
     public static uint UpdateMurmur32(ReadOnlySpan<byte> data, Span<byte> hashDestination)
     {
         var newHash = GetMurmur3Hash(data);
         WriteUInt32LittleEndian(hashDestination, newHash);
         return newHash;
     }
-
-    /// <summary>
-    /// Checks the hash at the specified offset to see if the stored value matches the calculated value.
-    /// </summary>
-    /// <param name="data">Data to hash</param>
-    /// <param name="hashOffset">Offset to write the hash</param>
-    /// <param name="readOffset">Where the data-to-be-hashed starts</param>
-    /// <param name="readSize">Amount of data to hash</param>
-    /// <returns>Calculated hash matches the currently stored hash.</returns>
-    public static bool VerifyMurmur32(byte[] data, int hashOffset, int readOffset, uint readSize)
-    {
-        ArgumentNullException.ThrowIfNull(data);
-        return VerifyMurmur32(data.AsSpan(), hashOffset, readOffset, readSize);
-    }
-
-    public static bool VerifyMurmur32(ReadOnlySpan<byte> data, int hashOffset, int readOffset, uint readSize)
-        => ReadUInt32LittleEndian(data.Slice(hashOffset, sizeof(uint))) == GetMurmur3Hash(data.Slice(readOffset, checked((int)readSize)));
 }

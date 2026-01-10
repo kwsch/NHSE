@@ -12,6 +12,6 @@ public sealed class WhereAreN : EncryptedFilePair
     public EncryptedInt32 Poki
     {
         get => EncryptedInt32.ReadVerify(Data, Offsets.Poki);
-        set => value.Write(Data, Offsets.Poki);
+        set => value.Write(Data[Offsets.Poki..]);
     }
 }

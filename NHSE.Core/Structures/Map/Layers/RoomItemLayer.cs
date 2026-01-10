@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace NHSE.Core;
 
@@ -8,10 +9,10 @@ public class RoomItemLayer : ItemLayer
     private const int Width = 20;
     private const int Height = 20;
 
-    public RoomItemLayer(byte[] data) : this(Item.GetArray(data)) { }
+    public RoomItemLayer(ReadOnlySpan<byte> data) : this(Item.GetArray(data)) { }
     public RoomItemLayer(Item[] tiles) : base(tiles, Width, Height) { }
 
-    public static RoomItemLayer[] GetArray(byte[] data)
+    public static RoomItemLayer[] GetArray(ReadOnlySpan<byte> data)
     {
         var result = new RoomItemLayer[data.Length / SIZE];
         for (int i = 0; i < result.Length; i++)

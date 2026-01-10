@@ -29,7 +29,7 @@ public class FieldItemLayer : ItemLayer
         return result;
     }
 
-    public void ImportAcre(int acre, byte[] data)
+    public void ImportAcre(int acre, ReadOnlySpan<byte> data)
     {
         int count = GridTileCount;
         var tiles = Item.GetArray(data);

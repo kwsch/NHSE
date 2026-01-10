@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Core;
 
@@ -9,8 +10,11 @@ namespace NHSE.Core;
 /// </summary>
 public abstract class EncryptedFilePair
 {
-    public readonly byte[] Data;
-    public readonly byte[] Header;
+    private readonly byte[] RawData;
+    private readonly byte[] RawHeader;
+
+    public Span<byte> Data => RawData;
+    public Span<byte> Header => RawHeader;
 
     public readonly FileHeaderInfo Info;
 
@@ -40,17 +44,17 @@ public abstract class EncryptedFilePair
 
         Encryption.Decrypt(hd, md);
 
-        Header = hd;
-        Data = md;
+        RawHeader = hd;
+        RawData = md;
         DataPath = dat;
         HeaderPath = hdr;
 
-        Info = Header.Slice(0, FileHeaderInfo.SIZE).ToClass<FileHeaderInfo>();
+        Info = RawHeader[..FileHeaderInfo.SIZE].ToClass<FileHeaderInfo>();
     }
 
     public void Save(uint seed)
     {
-        var encrypt = Encryption.Encrypt(Data, seed, Header);
+        var encrypt = Encryption.Encrypt(RawData, seed, RawHeader);
         File.WriteAllBytes(DataPath, encrypt.Data);
         File.WriteAllBytes(HeaderPath, encrypt.Header);
     }
@@ -66,7 +70,7 @@ public abstract class EncryptedFilePair
         if (details == null)
             throw new ArgumentNullException(nameof(NameData));
         foreach (var h in details.HashRegions)
-            Murmur3.UpdateMurmur32(Data, h.HashOffset, h.BeginOffset, (uint)h.Size);
+            Murmur3.UpdateMurmur32(Data.Slice(h.BeginOffset, h.Size), Data[h.HashOffset..]);
     }
 
     public IEnumerable<FileHashRegion> InvalidHashes()
@@ -78,8 +82,8 @@ public abstract class EncryptedFilePair
             throw new ArgumentNullException(nameof(NameData));
         foreach (var h in details.HashRegions)
         {
-            var current = Murmur3.GetMurmur3Hash(Data, h.BeginOffset, (uint)h.Size);
-            var saved = BitConverter.ToUInt32(Data, h.HashOffset);
+            var current = Murmur3.GetMurmur3Hash(Data.Slice(h.BeginOffset, h.Size));
+            var saved = ReadUInt32LittleEndian(Data[h.HashOffset..]);
             if (current != saved)
                 yield return h;
         }

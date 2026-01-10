@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
+using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Core;
 
@@ -9,19 +10,19 @@ public class VillagerHouse2 : VillagerHouse1
     public new const int SIZE = 0x12E8;
     public override string Extension => "nhvh2";
 
-    public VillagerHouse2(byte[] data) : base(data) { }
+    public VillagerHouse2(Memory<byte> data) : base(data) { }
 
     // 0x1D4-0x12DB -- 0x1108 sized structure
     // 0x12DC -- 8 byte item
     // 0x12E4 -- 1 byte
 
     public s_f9acc222 ReadCustom() => Data.Slice(0x1D4, s_f9acc222.SIZE).ToStructure<s_f9acc222>();
-    public void WriteCustom(s_f9acc222 value) => value.ToBytes().CopyTo(Data, 0x1D4);
+    public void WriteCustom(s_f9acc222 value) => value.ToBytes().CopyTo(Data[0x1D4..]);
 
     public Item ExtraItem
     {
-        get => new(BitConverter.ToUInt64(Data, 0x12DC));
-        set => BitConverter.GetBytes(value.RawValue).CopyTo(Data, 0x12DC);
+        get => new(ReadUInt64LittleEndian(Data[0x12DC..]));
+        set => WriteUInt64LittleEndian(Data[0x12DC..], value.RawValue);
     }
 
     public byte Flag { get => Data[0x12E4]; set => Data[0x12E4] = value; }
@@ -29,7 +30,7 @@ public class VillagerHouse2 : VillagerHouse1
     public VillagerHouse1 Downgrade()
     {
         var result = new byte[VillagerHouse1.SIZE];
-        Data.CopyTo(result, 0);
+        Data.CopyTo(result);
         return new VillagerHouse1(result);
     }
 

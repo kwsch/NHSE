@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Core;
 
@@ -50,14 +51,14 @@ public class TerrainLayer : MapGrid
         return result;
     }
 
-    public void ImportAll(byte[] data)
+    public void ImportAll(ReadOnlySpan<byte> data)
     {
         var tiles = TerrainTile.GetArray(data);
         for (int i = 0; i < tiles.Length; i++)
             Tiles[i].CopyFrom(tiles[i]);
     }
 
-    public void ImportAcre(int acre, byte[] data)
+    public void ImportAcre(int acre, ReadOnlySpan<byte> data)
     {
         int count = GridTileCount;
         var tiles = TerrainTile.GetArray(data);
@@ -160,6 +161,6 @@ public class TerrainLayer : MapGrid
 
         var acreIndex = ((AcreWidth + 2) * acreY) + acreX;
         var ofs = acreIndex * 2;
-        return BitConverter.ToUInt16(BaseAcres, ofs);
+        return ReadUInt16LittleEndian(BaseAcres.AsSpan(ofs));
     }
 }

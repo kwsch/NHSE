@@ -2,6 +2,7 @@
 using System.Threading;
 using LibUsbDotNet;
 using LibUsbDotNet.Main;
+using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Injection;
 
@@ -106,7 +107,9 @@ public class USBBot : IRAMReadWriter
             throw new Exception("USB writer is null, you may have disconnected the device during previous function");
 
         uint pack = (uint)buffer.Length + 2;
-        var ec = writer.Write(BitConverter.GetBytes(pack), 2000, out _);
+        var lengthBytes = new byte[sizeof(uint)];
+        WriteUInt32LittleEndian(lengthBytes, pack);
+        var ec = writer.Write(lengthBytes, 2000, out _);
         if (ec != ErrorCode.None)
         {
             Disconnect();

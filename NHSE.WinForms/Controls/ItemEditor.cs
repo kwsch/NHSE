@@ -394,7 +394,7 @@ public partial class ItemEditor : UserControl
             var text = Clipboard.GetText();
             if (!ulong.TryParse(text, NumberStyles.AllowHexSpecifier, CultureInfo.CurrentCulture, out var val))
                 return;
-            var import = BitConverter.GetBytes(val).ToClass<Item>();
+            var import = new Item(val);
             LoadItem(import);
             System.Media.SystemSounds.Asterisk.Play();
             return;
@@ -403,7 +403,7 @@ public partial class ItemEditor : UserControl
         // Otherwise, export
         var item = SetItem(new Item());
         var data = item.ToBytesClass();
-        var u64 = BitConverter.ToUInt64(data, 0);
+        var u64 = System.Buffers.Binary.BinaryPrimitives.ReadUInt64LittleEndian(data);
         Clipboard.SetText($"{u64:X16}");
         System.Media.SystemSounds.Asterisk.Play();
     }

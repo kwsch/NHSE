@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace NHSE.Core;
 
@@ -36,7 +37,7 @@ public interface IVillager : IVillagerOrigin
     void SetMemories(IReadOnlyList<GSaveMemory> memories);
 
     ushort[] GetEventFlagsSave();
-    void SetEventFlagsSave(ushort[] value);
+    void SetEventFlagsSave(ReadOnlySpan<ushort> value);
 
     void SetFriendshipAll(byte value = byte.MaxValue);
 

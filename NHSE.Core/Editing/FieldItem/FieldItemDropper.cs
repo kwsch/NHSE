@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace NHSE.Core;
@@ -81,7 +82,7 @@ public static class FieldItemDropper
         return result;
     }
 
-    private static byte[] GetColumnRoot(Item[] items)
+    private static byte[] GetColumnRoot(ReadOnlySpan<Item> items)
     {
         var col = new Item[items.Length * 2];
         for (int i = 0; i < items.Length; i++)
@@ -94,7 +95,7 @@ public static class FieldItemDropper
         return Item.SetArray(col);
     }
 
-    private static byte[] GetColumnExtension(Item[] items)
+    private static byte[] GetColumnExtension(ReadOnlySpan<Item> items)
     {
         var col = new Item[items.Length * 2];
         for (int i = 0; i < items.Length; i++)

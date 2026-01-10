@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NHSE.Parsing.Properties;
+using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Parsing;
 
@@ -12,8 +13,6 @@ public class BCSV
     public static bool DecodeColumnNames { private get; set; } = true;
 
     public const int MAGIC = 0x42435356; // BCSV
-
-    public readonly byte[] Data;
 
     public readonly uint EntryCount;
     public readonly uint EntryLength;
@@ -29,23 +28,28 @@ public class BCSV
     private readonly int FieldTableStart;
     public readonly IReadOnlyList<BCSVFieldParam> FieldOffsets;
 
-    public BCSV(byte[] data)
-    {
-        Data = data;
 
-        EntryCount = BitConverter.ToUInt32(data, 0x0);
-        EntryLength = BitConverter.ToUInt32(data, 0x4);
-        FieldCount = BitConverter.ToUInt16(data, 0x8);
-        HasBCSVHeader = data[0xA] == 1;
-        Flag2 = data[0xB] == 1;
+    public readonly Memory<byte> Raw;
+    private Span<byte> Data => Raw.Span;
+
+    public BCSV(Memory<byte> raw)
+    {
+        Raw = raw;
+
+        var span = Data;
+        EntryCount = ReadUInt32LittleEndian(span);
+        EntryLength = ReadUInt32LittleEndian(span[0x4..]);
+        FieldCount = ReadUInt16LittleEndian(span[0x8..]);
+        HasBCSVHeader = span[0xA] == 1;
+        Flag2 = span[0xB] == 1;
         if (HasBCSVHeader)
         {
-            Magic = BitConverter.ToUInt32(data, 0xC);
+            Magic = ReadUInt32LittleEndian(span[0xC..]);
             if (Magic != MAGIC)
                 throw new ArgumentException(nameof(Magic));
-            Unknown = BitConverter.ToInt32(data, 0x10);
-            Unknown1 = BitConverter.ToInt32(data, 0x14);
-            Unknown2 = BitConverter.ToInt32(data, 0x18);
+            Unknown = ReadInt32LittleEndian(span[0x10..]);
+            Unknown1 = ReadInt32LittleEndian(span[0x14..]);
+            Unknown2 = ReadInt32LittleEndian(span[0x18..]);
             FieldTableStart = 0x1C;
         }
         else
@@ -57,8 +61,8 @@ public class BCSV
         for (int i = 0; i < fields.Length; i++)
         {
             var ofs = FieldTableStart + (i * BCSVFieldParam.SIZE);
-            var ident = BitConverter.ToUInt32(data, ofs);
-            var fo = BitConverter.ToInt32(data, ofs + 4);
+            var ident = ReadUInt32LittleEndian(span[ofs..]);
+            var fo = ReadInt32LittleEndian(span[(ofs + 4)..]);
 
             fields[i] = new BCSVFieldParam(ident, fo, i);
         }
@@ -75,19 +79,19 @@ public class BCSV
         return length switch
         {
             1 => Data[offset].ToString(),
-            2 => BitConverter.ToInt16(Data, offset).ToString(),
-            4 => EnumLookup[BitConverter.ToUInt32(Data, offset)],
+            2 => ReadInt16LittleEndian(Data[offset..]).ToString(),
+            4 => EnumLookup[ReadUInt32LittleEndian(Data[offset..])],
             5 => $"0x{FiveByteLong(offset):X10}",
-            8 => $"0x{BitConverter.ToUInt64(Data, offset):X16}",
-            _ => Encoding.UTF8.GetString(Data, offset, length),
+            8 => $"0x{ReadUInt64LittleEndian(Data[offset..]):X16}",
+            _ => Encoding.UTF8.GetString(Data.Slice(offset, length)),
         };
     }
 
     private ulong FiveByteLong(in int offset)
     {
-        var tmpBytes = new byte[8];
-        Array.Copy(Data, offset, tmpBytes, 0, 5);
-        return BitConverter.ToUInt64(tmpBytes, 0);
+        Span<byte> tmpBytes = stackalloc byte[8];
+        Data.Slice(offset, 5).CopyTo(tmpBytes);
+        return ReadUInt64LittleEndian(tmpBytes);
     }
 
     private int GetFieldLength(in int i)

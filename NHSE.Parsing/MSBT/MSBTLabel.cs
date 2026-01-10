@@ -16,5 +16,5 @@ public class MSBTLabel
 
     public uint Index { get; set; }
     public override string ToString() => Length > 0 ? Name : (Index + 1).ToString();
-    public string ToString(Encoding encoding) => encoding.GetString(String.Value);
+    public string ToString(Encoding encoding) => encoding.GetString(String.Value.Span);
 }

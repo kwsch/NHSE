@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace NHSE.Core;
@@ -36,7 +37,7 @@ public class ItemProcessor(BatchMutator<Item> mut) : BatchProcessor<Item>(mut)
         }
     }
 
-    protected override void Initialize(StringInstructionSet[] sets)
+    protected override void Initialize(ReadOnlySpan<StringInstructionSet> sets)
     {
         foreach (var set in sets)
         {

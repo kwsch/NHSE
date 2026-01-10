@@ -7,22 +7,19 @@ namespace NHSE.Core;
 /// </summary>
 public static class ArrayUtil
 {
-    public static byte[] Slice(this byte[] src, int offset, int length)
-    {
-        byte[] data = new byte[length];
-        Buffer.BlockCopy(src, offset, data, 0, data.Length);
-        return data;
-    }
-
     public static int ReplaceOccurrences(this Span<byte> array, ReadOnlySpan<byte> pattern, ReadOnlySpan<byte> swap)
     {
         int count = 0;
+        int ofs = 0;
         while (true)
         {
-            int ofs = array.IndexOf(pattern);
-            if (ofs == -1)
+            var index = array[ofs..].IndexOf(pattern);
+            if (index == -1)
                 return count;
+            ofs += index;
+
             swap.CopyTo(array[ofs..]);
+            ofs += swap.Length; // skip past swapped data
             ++count;
         }
     }
