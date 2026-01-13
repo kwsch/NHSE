@@ -1,8 +1,7 @@
-﻿namespace NHSE.Core
+﻿namespace NHSE.Core;
+
+public interface INamedValue
 {
-    public interface INamedValue
-    {
-        string Name { get; }
-        ushort Index { get; }
-    }
+    string Name { get; }
+    ushort Index { get; }
 }

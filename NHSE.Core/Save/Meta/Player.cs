@@ -3,63 +3,62 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace NHSE.Core
+namespace NHSE.Core;
+
+/// <summary>
+/// Stores references for all files in the Villager (<see cref="DirectoryName"/>) folder.
+/// </summary>
+public sealed class Player : IEnumerable<EncryptedFilePair>
 {
+    public readonly Personal Personal;
+    public readonly PhotoStudioIsland Photo;
+    public readonly PostBox PostBox;
+    public readonly Profile Profile;
+    public readonly WhereAreN? WhereAreN;
+
     /// <summary>
-    /// Stores references for all files in the Villager (<see cref="DirectoryName"/>) folder.
+    /// Directory Name where the player data was loaded from. Not the full path.
     /// </summary>
-    public sealed class Player : IEnumerable<EncryptedFilePair>
+    public readonly string DirectoryName;
+
+    #region Override Implementations
+    public IEnumerator<EncryptedFilePair> GetEnumerator()
     {
-        public readonly Personal Personal;
-        public readonly PhotoStudioIsland Photo;
-        public readonly PostBox PostBox;
-        public readonly Profile Profile;
-        public readonly WhereAreN? WhereAreN;
+        IEnumerable<EncryptedFilePair> baseFiles = [Personal, Photo, PostBox, Profile];
+        if (WhereAreN is not null)
+            baseFiles = baseFiles.Concat([WhereAreN]);
+        return baseFiles.AsEnumerable().GetEnumerator();
+    }
 
-        /// <summary>
-        /// Directory Name where the player data was loaded from. Not the full path.
-        /// </summary>
-        public readonly string DirectoryName;
+    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
-        #region Override Implementations
-        public IEnumerator<EncryptedFilePair> GetEnumerator()
-        {
-            IEnumerable<EncryptedFilePair> baseFiles = new EncryptedFilePair[] { Personal, Photo, PostBox, Profile };
-            if (WhereAreN is not null)
-                baseFiles = baseFiles.Concat(new EncryptedFilePair[] { WhereAreN });
-            return baseFiles.AsEnumerable().GetEnumerator();
-        }
+    public override string ToString() => Personal.PlayerName;
+    #endregion
 
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+    /// <summary>
+    /// Imports Player data from the requested <see cref="folder"/>.
+    /// </summary>
+    /// <param name="folder">Folder that contains the Player Villager sub-folders.</param>
+    /// <returns>Player object array loaded from the <see cref="folder"/>.</returns>
+    public static Player[] ReadMany(string folder)
+    {
+        var dirs = Directory.GetDirectories(folder, "Villager*", SearchOption.TopDirectoryOnly);
+        var result = new Player[dirs.Length];
+        for (int i = 0; i < result.Length; i++)
+            result[i] = new Player(dirs[i]);
+        return result;
+    }
 
-        public override string ToString() => Personal.PlayerName;
-        #endregion
+    private Player(string folder)
+    {
+        DirectoryName = new DirectoryInfo(folder).Name;
 
-        /// <summary>
-        /// Imports Player data from the requested <see cref="folder"/>.
-        /// </summary>
-        /// <param name="folder">Folder that contains the Player Villager sub-folders.</param>
-        /// <returns>Player object array loaded from the <see cref="folder"/>.</returns>
-        public static Player[] ReadMany(string folder)
-        {
-            var dirs = Directory.GetDirectories(folder, "Villager*", SearchOption.TopDirectoryOnly);
-            var result = new Player[dirs.Length];
-            for (int i = 0; i < result.Length; i++)
-                result[i] = new Player(dirs[i]);
-            return result;
-        }
+        Personal = new Personal(folder);
+        Photo = new PhotoStudioIsland(folder);
+        PostBox = new PostBox(folder);
+        Profile = new Profile(folder);
 
-        private Player(string folder)
-        {
-            DirectoryName = new DirectoryInfo(folder).Name;
-
-            Personal = new Personal(folder);
-            Photo = new PhotoStudioIsland(folder);
-            PostBox = new PostBox(folder);
-            Profile = new Profile(folder);
-
-            if (EncryptedFilePair.Exists(folder, WhereAreN.FileName))
-                WhereAreN = new WhereAreN(folder);
-        }
+        if (EncryptedFilePair.Exists(folder, WhereAreN.FileName))
+            WhereAreN = new WhereAreN(folder);
     }
 }

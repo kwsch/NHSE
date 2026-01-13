@@ -1,15 +1,14 @@
-﻿namespace NHSE.Core
+﻿namespace NHSE.Core;
+
+public enum VillagerPersonality : byte
 {
-    public enum VillagerPersonality : byte
-    {
-        Lazy,
-        Jock,
-        Cranky,
-        Smug,
-        Normal,
-        Peppy,
-        Snooty,
-        Uchi,
-        None,
-    }
+    Lazy,
+    Jock,
+    Cranky,
+    Smug,
+    Normal,
+    Peppy,
+    Snooty,
+    Uchi,
+    None,
 }

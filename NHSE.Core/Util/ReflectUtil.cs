@@ -5,139 +5,220 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
-namespace NHSE.Core
+namespace NHSE.Core;
+
+/// <summary>
+/// Utility class for reflection.
+/// </summary>
+public static class ReflectUtil
 {
-    public static class ReflectUtil
+    /// <summary>
+    /// Fetches the requested property from <see cref="obj"/>, and compares it to <see cref="value"/>.
+    /// </summary>
+    /// <param name="pi">Property to fetch</param>
+    /// <param name="obj">Object to fetch property from</param>
+    /// <param name="value">Value to compare to</param>
+    /// <returns>Comparison result</returns>
+    public static int CompareTo(this PropertyInfo pi, object obj, object value)
     {
-        public static bool IsValueEqual(this PropertyInfo pi, object obj, object value)
+        var v = pi.GetValue(obj, null);
+        var c = ConvertValue(value, pi.PropertyType);
+        if (v is null)
+            return 0;
+        if (c is IComparable c1 && v is IComparable c2)
+            return c2.CompareTo(c1);
+        return 0;
+    }
+
+    public static void SetValue(PropertyInfo pi, object obj, object value)
+    {
+        var c = ConvertValue(value, pi.PropertyType);
+        pi.SetValue(obj, c, null);
+    }
+
+    public static object? GetValue(object obj, string name)
+    {
+        if (obj.GetType().GetTypeInfo().TryGetPropertyInfo(name, out var pi))
+            return pi.GetValue(obj, null);
+        return null;
+    }
+
+    public static bool SetValue(object obj, string name, object value)
+    {
+        if (!obj.GetType().GetTypeInfo().TryGetPropertyInfo(name, out var pi))
+            return false;
+        if (!pi.CanWrite)
+            return false;
+        pi.SetValue(obj, value);
+        return true;
+    }
+
+    public static IEnumerable<string> GetPropertiesStartWithPrefix(Type type, string prefix)
+    {
+        return type.GetTypeInfo().GetAllTypeInfo().SelectMany(GetAllProperties)
+                .Where(p => p.Name.StartsWith(prefix, StringComparison.Ordinal))
+                .Select(p => p.Name)
+                .Distinct()
+            ;
+    }
+
+    public static IEnumerable<string> GetPropertiesCanWritePublic(Type type)
+    {
+        return GetAllPropertyInfoCanWritePublic(type).Select(p => p.Name)
+                .Distinct()
+            ;
+    }
+
+    public static IEnumerable<PropertyInfo> GetAllPropertyInfoCanWritePublic(Type type)
+    {
+        return type.GetTypeInfo().GetAllTypeInfo().SelectMany(GetAllProperties)
+            .Where(CanWritePublic);
+    }
+
+    public static IEnumerable<PropertyInfo> GetAllPropertyInfoPublic(Type type)
+    {
+        return type.GetTypeInfo().GetAllTypeInfo().SelectMany(GetAllProperties)
+            .Where(p => p.CanReadPublic() || p.CanWritePublic());
+    }
+
+    extension(PropertyInfo p)
+    {
+        private bool CanReadPublic() => p.CanRead && (p.GetMethod?.IsPublic ?? false);
+        private bool CanWritePublic() => p.CanWrite && (p.SetMethod?.IsPublic ?? false);
+
+        public bool IsValueEqual(object obj, object? value)
         {
-            var v = pi.GetValue(obj, null);
-            var c = ConvertValue(value, pi.PropertyType);
+            var v = p.GetValue(obj, null);
+            if (v is null)
+                return value == null;
+            if (value is null)
+                return false;
+            var c = ConvertValue(value, p.PropertyType);
             return v.Equals(c);
         }
+    }
 
-        public static void SetValue(PropertyInfo pi, object obj, object value)
+    public static IEnumerable<string> GetPropertiesPublic(Type type)
+    {
+        return GetAllPropertyInfoPublic(type).Select(p => p.Name)
+                .Distinct()
+            ;
+    }
+
+    public static IEnumerable<string> GetPropertiesCanWritePublicDeclared(Type type)
+    {
+        return type.GetTypeInfo().GetAllProperties()
+                .Where(CanWritePublic)
+                .Select(p => p.Name)
+                .Distinct()
+            ;
+    }
+
+    private static object? ConvertValue(object value, Type type)
+    {
+        if (type == typeof(DateOnly?)) // Used for PKM.MetDate and other similar properties
         {
-            var c = ConvertValue(value, pi.PropertyType);
-            pi.SetValue(obj, c, null);
+            return DateOnly.TryParseExact(value.ToString(), "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateOnly dateValue)
+                ? new DateOnly?(dateValue)
+                : null;
         }
 
-        public static object? GetValue(object obj, string name) => GetPropertyInfo(obj.GetType().GetTypeInfo(), name)?.GetValue(obj);
-        public static void SetValue(object obj, string name, object value) => GetPropertyInfo(obj.GetType().GetTypeInfo(), name)?.SetValue(obj, value, null);
-        public static object GetValue(Type t, string propertyName) => t.GetTypeInfo().GetDeclaredProperty(propertyName).GetValue(null);
-        public static void SetValue(Type t, string propertyName, object value) => t.GetTypeInfo().GetDeclaredProperty(propertyName).SetValue(null, value);
-
-        public static IEnumerable<string> GetPropertiesStartWithPrefix(Type type, string prefix)
+        if (type.IsEnum)
         {
-            return type.GetTypeInfo().GetAllTypeInfo().SelectMany(GetAllProperties)
-                    .Where(p => p.Name.StartsWith(prefix, StringComparison.Ordinal))
-                    .Select(p => p.Name)
-                    .Distinct()
-                ;
+            var str = value.ToString() ?? string.Empty;
+            if (Enum.IsDefined(type, str) && int.TryParse(str, out var integer))
+                return Convert.ChangeType(integer, type);
+            return Enum.Parse(type, str, true);
         }
+        // Convert.ChangeType is suitable for most things
+        return Convert.ChangeType(value, type);
+    }
 
-        public static IEnumerable<string> GetPropertiesCanWritePublic(Type type)
+    extension(TypeInfo typeInfo)
+    {
+        public IEnumerable<ConstructorInfo> GetAllConstructors() => typeInfo.GetAll(ti => ti.DeclaredConstructors);
+        public IEnumerable<EventInfo> GetAllEvents() => typeInfo.GetAll(ti => ti.DeclaredEvents);
+        public IEnumerable<FieldInfo> GetAllFields() => typeInfo.GetAll(ti => ti.DeclaredFields);
+        public IEnumerable<MemberInfo> GetAllMembers() => typeInfo.GetAll(ti => ti.DeclaredMembers);
+        public IEnumerable<MethodInfo> GetAllMethods() => typeInfo.GetAll(ti => ti.DeclaredMethods);
+        public IEnumerable<TypeInfo> GetAllNestedTypes() => typeInfo.GetAll(ti => ti.DeclaredNestedTypes);
+        public IEnumerable<PropertyInfo> GetAllProperties() => typeInfo.GetAll(ti => ti.DeclaredProperties);
+    }
+
+    public static IEnumerable<TypeInfo> GetAllTypeInfo(this TypeInfo? typeInfo)
+    {
+        while (typeInfo is not null)
         {
-            return GetAllPropertyInfoCanWritePublic(type).Select(p => p.Name)
-                    .Distinct()
-                ;
+            yield return typeInfo;
+            typeInfo = typeInfo.BaseType?.GetTypeInfo();
         }
+    }
 
-        public static IEnumerable<PropertyInfo> GetAllPropertyInfoCanWritePublic(Type type)
-        {
-            return type.GetTypeInfo().GetAllTypeInfo().SelectMany(GetAllProperties)
-                .Where(p => p.CanWrite && p.SetMethod.IsPublic);
-        }
+    /// <summary>
+    /// Checks if the <see cref="obj"/> has the requested property <see cref="name"/>.
+    /// </summary>
+    /// <param name="obj">Object to check for property existence.</param>
+    /// <param name="name">Name of the property.</param>
+    /// <param name="pi">Reference to the property info for the object, if it exists.</param>
+    /// <returns>True if it has property, and false if it does not have property. <see cref="pi"/> is null when returning false.</returns>
+    public static bool HasProperty(object obj, string name, [NotNullWhen(true)] out PropertyInfo? pi)
+    {
+        var type = obj.GetType();
+        return type.GetTypeInfo().TryGetPropertyInfo(name, out pi);
+    }
 
-        public static IEnumerable<PropertyInfo> GetAllPropertyInfoPublic(Type type)
+    extension(TypeInfo typeInfo)
+    {
+        public bool TryGetPropertyInfo(string name, [NotNullWhen(true)] out PropertyInfo? pi)
         {
-            return type.GetTypeInfo().GetAllTypeInfo().SelectMany(GetAllProperties)
-                .Where(p => (p.CanRead && p.GetMethod.IsPublic) || (p.CanWrite && p.SetMethod.IsPublic));
-        }
-
-        public static IEnumerable<string> GetPropertiesPublic(Type type)
-        {
-            return GetAllPropertyInfoPublic(type).Select(p => p.Name)
-                    .Distinct()
-                ;
-        }
-
-        public static IEnumerable<string> GetPropertiesCanWritePublicDeclared(Type type)
-        {
-            return type.GetTypeInfo().GetAllProperties()
-                    .Where(p => p.CanWrite && p.SetMethod.IsPublic)
-                    .Select(p => p.Name)
-                    .Distinct()
-                ;
-        }
-
-        private static object? ConvertValue(object value, Type type)
-        {
-            if (type == typeof(DateTime?)) // Used for PKM.MetDate and other similar properties
+            foreach (var t in typeInfo.GetAllTypeInfo())
             {
-                return DateTime.TryParseExact(value.ToString(), "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dateValue)
-                    ? new DateTime?(dateValue)
-                    : null;
+                pi = t.GetDeclaredProperty(name);
+                if (pi is not null)
+                    return true;
+                foreach (var i in t.ImplementedInterfaces)
+                {
+                    pi = i.GetTypeInfo().GetDeclaredProperty(name);
+                    if (pi is not null)
+                        return true;
+                }
             }
-
-            // Convert.ChangeType is suitable for most things
-            return Convert.ChangeType(value, type);
+            pi = null;
+            return false;
         }
 
-        public static IEnumerable<ConstructorInfo> GetAllConstructors(this TypeInfo typeInfo)
-            => GetAll(typeInfo, ti => ti.DeclaredConstructors);
-
-        public static IEnumerable<EventInfo> GetAllEvents(this TypeInfo typeInfo)
-            => GetAll(typeInfo, ti => ti.DeclaredEvents);
-
-        public static IEnumerable<FieldInfo> GetAllFields(this TypeInfo typeInfo)
-            => GetAll(typeInfo, ti => ti.DeclaredFields);
-
-        public static IEnumerable<MemberInfo> GetAllMembers(this TypeInfo typeInfo)
-            => GetAll(typeInfo, ti => ti.DeclaredMembers);
-
-        public static IEnumerable<MethodInfo> GetAllMethods(this TypeInfo typeInfo)
-            => GetAll(typeInfo, ti => ti.DeclaredMethods);
-
-        public static IEnumerable<TypeInfo> GetAllNestedTypes(this TypeInfo typeInfo)
-            => GetAll(typeInfo, ti => ti.DeclaredNestedTypes);
-
-        public static IEnumerable<PropertyInfo> GetAllProperties(this TypeInfo typeInfo)
-            => GetAll(typeInfo, ti => ti.DeclaredProperties);
-
-        public static IEnumerable<TypeInfo> GetAllTypeInfo(this TypeInfo? typeInfo)
+        private IEnumerable<T> GetAll<T>(Func<TypeInfo, IEnumerable<T>> accessor)
         {
-            while (typeInfo != null)
-            {
-                yield return typeInfo;
-                typeInfo = typeInfo.BaseType?.GetTypeInfo();
-            }
+            return typeInfo.GetAllTypeInfo().SelectMany(_ => accessor(typeInfo));
         }
+    }
 
-        public static bool HasProperty(object obj, string name, [NotNullWhen(true)] out PropertyInfo? pi) => (pi = GetPropertyInfo(obj.GetType().GetTypeInfo(), name)) != null;
-
-        public static PropertyInfo? GetPropertyInfo(this TypeInfo typeInfo, string name)
-        {
-            return typeInfo.GetAllTypeInfo().Select(t => t.GetDeclaredProperty(name)).FirstOrDefault(pi => pi != null);
-        }
-
-        private static IEnumerable<T> GetAll<T>(this TypeInfo typeInfo, Func<TypeInfo, IEnumerable<T>> accessor)
-        {
-            return GetAllTypeInfo(typeInfo).SelectMany(_ => accessor(typeInfo));
-        }
-
-        public static Dictionary<T, string> GetAllConstantsOfType<T>(this Type type) where T : struct
+    extension(Type type)
+    {
+        public Dictionary<T, string> GetAllConstantsOfType<T>() where T : struct
         {
             var fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.FlattenHierarchy);
-            var consts = fields.Where(fi => fi.IsLiteral && !fi.IsInitOnly && fi.FieldType == typeof(T));
-            return consts.ToDictionary(x => (T)x.GetRawConstantValue(), z => z.Name);
+            var consts = fields.Where(fi => fi is { IsLiteral: true, IsInitOnly: false } && fi.FieldType == typeof(T));
+            return consts.ToDictionary(z => (T)(z.GetRawConstantValue() ?? throw new NullReferenceException(nameof(z.Name))), z => z.Name);
         }
 
-        public static Dictionary<T, string> GetAllPropertiesOfType<T>(this Type type, object obj) where T : class
+        public Dictionary<string, T> GetAllPropertiesOfType<T>(object obj) where T : class
         {
             var props = type.GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly);
-            var ofType = props.Where(fi => typeof(T).IsAssignableFrom(fi.PropertyType));
-            return ofType.ToDictionary(x => (T)x.GetValue(obj), z => z.Name);
+            var result = new Dictionary<string, T>(props.Length);
+            var requestType = typeof(T);
+            foreach (var pi in props)
+            {
+                if (!requestType.IsAssignableFrom(pi.PropertyType))
+                    continue;
+
+                var name = pi.Name;
+                var value = pi.GetValue(obj);
+                if (value is not T t)
+                    continue;
+                result.TryAdd(name, t);
+            }
+            return result;
         }
     }
 }

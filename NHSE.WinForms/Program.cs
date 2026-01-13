@@ -1,22 +1,26 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 
-namespace NHSE.WinForms
+namespace NHSE.WinForms;
+
+internal static class Program
 {
-    internal static class Program
+    /// <summary>
+    /// The main entry point for the application.
+    /// </summary>
+    [STAThread]
+    private static void Main()
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        private static void Main()
+        Application.EnableVisualStyles();
+        Application.SetCompatibleTextRenderingDefault(false);
+
+        var args = Environment.GetCommandLineArgs();
+        if (args.Length > 1)
         {
-#if NETCOREAPP
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
-#endif
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            if (args.Contains("-dark"))
+                Application.SetColorMode(SystemColorMode.Dark);
         }
+
+        Application.Run(new Main());
     }
 }

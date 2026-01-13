@@ -1,9 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>net46;netstandard2.0</TargetFrameworks>
-  </PropertyGroup>
-
   <ItemGroup>
     <None Remove="Resources\byte\item_kind.bin" />
     <None Remove="Resources\byte\item_menuicon.bin" />

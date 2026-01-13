@@ -1,83 +1,82 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using NHSE.Core;
 
-namespace NHSE.Injection
+namespace NHSE.Injection;
+
+public class PocketInjector : IDataInjector
 {
-    public class PocketInjector : IDataInjector
+    private readonly IReadOnlyList<Item> Items;
+    private readonly IRAMReadWriter Bot;
+    public bool Connected => Bot.Connected;
+
+    public uint WriteOffset { private get; set; }
+    public bool ValidateEnabled { get; set; } = true;
+    public bool SpoofInventoryWrite { get; set; }
+    private static readonly Item DroppableOnlyItem = new(0x9C9); // Gold nugget
+
+    public PocketInjector(IReadOnlyList<Item> items, IRAMReadWriter bot)
     {
-        private readonly IReadOnlyList<Item> Items;
-        private readonly IRAMReadWriter Bot;
-        public bool Connected => Bot.Connected;
+        Items = items;
+        Bot = bot;
+    }
 
-        public uint WriteOffset { private get; set; }
-        public bool ValidateEnabled { get; set; } = true;
-        public bool SpoofInventoryWrite { get; set; } = false;
-        private static readonly Item DroppableOnlyItem = new(0x9C9); // Gold nugget
+    public bool ReadValidate(out byte[] data)
+    {
+        PlayerItemSet.GetOffsetLength(WriteOffset, out var offset, out var size);
+        data = Bot.ReadBytes(offset, size);
+        return Validate(data);
+    }
 
-        public PocketInjector(IReadOnlyList<Item> items, IRAMReadWriter bot)
-        {
-            Items = items;
-            Bot = bot;
-        }
+    private byte[]? LastData;
 
-        public bool ReadValidate(out byte[] data)
-        {
-            PlayerItemSet.GetOffsetLength(WriteOffset, out var offset, out var size);
-            data = Bot.ReadBytes(offset, size);
-            return Validate(data);
-        }
+    public InjectionResult Read()
+    {
+        if (!ReadValidate(out var data))
+            return InjectionResult.FailValidate;
 
-        private byte[]? LastData;
+        if (LastData?.SequenceEqual(data) == true)
+            return InjectionResult.Same;
 
-        public InjectionResult Read()
-        {
-            if (!ReadValidate(out var data))
-                return InjectionResult.FailValidate;
+        PlayerItemSet.ReadPlayerInventory(data, Items);
 
-            if (LastData?.SequenceEqual(data) == true)
-                return InjectionResult.Same;
+        LastData = data;
 
-            PlayerItemSet.ReadPlayerInventory(data, Items);
+        return InjectionResult.Success;
+    }
 
-            LastData = data;
+    public InjectionResult Write()
+    {
+        if (!ReadValidate(out var data))
+            return InjectionResult.FailValidate;
 
-            return InjectionResult.Success;
-        }
+        var orig = (byte[])data.Clone();
 
-        public InjectionResult Write()
-        {
-            if (!ReadValidate(out var data))
-                return InjectionResult.FailValidate;
+        var items = !SpoofInventoryWrite ? Items : Enumerable.Repeat(DroppableOnlyItem, Items.Count).ToArray();
 
-            var orig = (byte[])data.Clone();
+        PlayerItemSet.WritePlayerInventory(data, items);
 
-            var items = !SpoofInventoryWrite ? Items : Enumerable.Repeat(DroppableOnlyItem, Items.Count).ToArray();
+        if (data.SequenceEqual(orig))
+            return InjectionResult.Same;
 
-            PlayerItemSet.WritePlayerInventory(data, items);
+        PlayerItemSet.GetOffsetLength(WriteOffset, out var offset, out var size);
+        if (size != data.Length)
+            return InjectionResult.FailBadSize;
 
-            if (data.SequenceEqual(orig))
-                return InjectionResult.Same;
+        Bot.WriteBytes(data, offset);
 
-            PlayerItemSet.GetOffsetLength(WriteOffset, out var offset, out var size);
-            if (size != data.Length)
-                return InjectionResult.FailBadSize;
+        LastData = data;
 
-            Bot.WriteBytes(data, offset);
+        return InjectionResult.Success;
+    }
 
-            LastData = data;
+    public bool Validate() => ReadValidate(out _);
 
-            return InjectionResult.Success;
-        }
+    public bool Validate(System.ReadOnlySpan<byte> data)
+    {
+        if (!ValidateEnabled)
+            return true;
 
-        public bool Validate() => ReadValidate(out _);
-
-        public bool Validate(byte[] data)
-        {
-            if (!ValidateEnabled)
-                return true;
-
-            return PlayerItemSet.ValidateItemBinary(data);
-        }
+        return PlayerItemSet.ValidateItemBinary(data);
     }
 }

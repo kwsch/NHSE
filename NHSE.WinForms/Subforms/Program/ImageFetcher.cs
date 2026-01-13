@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.IO.Compression;
@@ -8,44 +7,42 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NHSE.Sprites;
 
-namespace NHSE.WinForms
+namespace NHSE.WinForms;
+
+public sealed partial class ImageFetcher : Form
 {
-    public sealed partial class ImageFetcher : Form
+    private const string Filename = "image.zip";
+    private static string ZipFilePath => Path.Combine(ItemSprite.PlatformAppDataPath, Filename);
+
+    private readonly string[] AllHosts;
+
+    public ImageFetcher()
     {
-        private const string Filename = "image.zip";
-        private static string ZipFilePath => Path.Combine(ItemSprite.PlatformAppDataPath, Filename);
+        InitializeComponent();
+        L_Status.Text = L_FileSize.Text = string.Empty;
 
-        private readonly IReadOnlyList<string> AllHosts;
+        var splitHosts = AllHosts = LoadHosts();
 
-        public ImageFetcher()
-        {
-            InitializeComponent();
-            L_Status.Text = L_FileSize.Text = string.Empty;
+        CB_HostSelect.Items.Clear();
+        foreach (var host in splitHosts)
+            CB_HostSelect.Items.Add(CleanUrl(host));
 
-            var splitHosts = AllHosts = LoadHosts();
+        CB_HostSelect.SelectedIndex = 0; // set outside of initialise to update filesize via HEAD response
 
-            CB_HostSelect.Items.Clear();
-            foreach (var host in splitHosts)
-                CB_HostSelect.Items.Add(CleanUrl(host));
+        CheckFileStatusLabel();
+    }
 
-            CB_HostSelect.SelectedIndex = 0; // set outside of initialise to update filesize via HEAD response
+    private static string[] LoadHosts()
+    {
+        var hosts = Properties.Resources.hosts_images;
+        var splitHosts = hosts.Split(["\r", "\n", "\r\n"], StringSplitOptions.RemoveEmptyEntries);
 
-            CheckFileStatusLabel();
-        }
+        return splitHosts;
+    }
 
-        private static string[] LoadHosts()
-        {
-            var hosts = Properties.Resources.hosts_images;
-            var splitHosts = hosts.Split(new[] { "\r", "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-
-            return splitHosts;
-        }
-
-#if NETFRAMEWORK
-        private void B_Download_Click(object sender, EventArgs e)
-#elif NETCOREAPP
-        private async void B_Download_Click(object sender, EventArgs e)
-#endif
+    private async void B_Download_Click(object sender, EventArgs e)
+    {
+        try
         {
             var path = ItemSprite.PlatformAppDataPath;
             var hostSelected = AllHosts[CB_HostSelect.SelectedIndex];
@@ -54,126 +51,116 @@ namespace NHSE.WinForms
 
             L_Status.Text = "Downloading...";
 
-            try
-            {
-                if (!Directory.Exists(path))
-                    Directory.CreateDirectory(path);
-#if NETFRAMEWORK
-                using var webClient = new WebClient();
-                webClient.DownloadFileCompleted += Completed;
-                webClient.DownloadProgressChanged += ProgressChanged;
-                webClient.DownloadFileAsync(new Uri(hostSelected), ZipFilePath);
-#elif NETCOREAPP
-                using var httpClient = new System.Net.Http.HttpClient();
-                using var stream = await httpClient.GetStreamAsync(hostSelected).ConfigureAwait(false);
-                using var fileStream = new FileStream(ZipFilePath, FileMode.CreateNew);
-                await stream.CopyToAsync(fileStream).ConfigureAwait(false);
-#endif
-            }
-            catch (Exception ex)
-            {
-                WinFormsUtil.Error(ex.Message, ex.InnerException == null ? string.Empty : ex.InnerException.Message);
-                SetUIDownloadState(true);
-            }
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            using var httpClient = new System.Net.Http.HttpClient();
+            await using var stream = await httpClient.GetStreamAsync(hostSelected).ConfigureAwait(false);
+            await using var fileStream = new FileStream(ZipFilePath, FileMode.CreateNew);
+            await stream.CopyToAsync(fileStream).ConfigureAwait(false);
         }
-
-        private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e) => PBar_MultiUse.Value = e.ProgressPercentage;
-
-        private void Completed(object? sender, AsyncCompletedEventArgs e)
+        catch (Exception ex)
         {
-            if (e.Error != null)
-            {
-                WinFormsUtil.Error(e.Error.Message, e.Error.InnerException == null ? string.Empty : e.Error.InnerException.Message);
-                SetUIDownloadState(true);
-                return;
-            }
-
-            PBar_MultiUse.Value = 100;
-            L_Status.Text = "Unzipping...";
-            UnzipFile();
+            WinFormsUtil.Error(ex.Message, ex.InnerException == null ? string.Empty : ex.InnerException.Message);
+            SetUIDownloadState(true);
         }
+    }
 
-        private async void UnzipFile()
+    private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e) => PBar_MultiUse.Value = e.ProgressPercentage;
+
+    private void Completed(object? sender, AsyncCompletedEventArgs e)
+    {
+        if (e.Error != null)
         {
-            try
-            {
-                var outputFolderPath = ItemSprite.PlatformAppDataImagePath;
-
-                if (Directory.Exists(outputFolderPath)) // overwrite existing
-                    Directory.Delete(outputFolderPath, true);
-
-                Directory.CreateDirectory(outputFolderPath);
-
-                await Task.Run(() => ZipFile.ExtractToDirectory(ZipFilePath, outputFolderPath)).ConfigureAwait(false);
-
-                SetUIDownloadState(true, true);
-            }
-            catch (Exception ex)
-            {
-                WinFormsUtil.Error(ex.Message, ex.InnerException == null ? string.Empty : ex.InnerException.Message);
-                SetUIDownloadState(true);
-            }
+            WinFormsUtil.Error(e.Error.Message, e.Error.InnerException == null ? string.Empty : e.Error.InnerException.Message);
+            SetUIDownloadState(true);
+            return;
         }
 
-        private void SetUIDownloadState(bool val, bool success = false)
+        PBar_MultiUse.Value = 100;
+        L_Status.Text = "Unzipping...";
+        UnzipFile();
+    }
+
+    private async void UnzipFile()
+    {
+        try
         {
-            ControlBox = val;
-            B_Download.Enabled = val;
-            PBar_MultiUse.Value = 0;
+            var outputFolderPath = ItemSprite.PlatformAppDataImagePath;
 
-            L_Status.Text = success ? "Images installed successfully." : string.Empty;
+            if (Directory.Exists(outputFolderPath)) // overwrite existing
+                Directory.Delete(outputFolderPath, true);
 
-            CheckFileStatusLabel();
+            Directory.CreateDirectory(outputFolderPath);
 
-            if (success)
-                ItemSprite.Initialize(Core.GameInfo.GetStrings("en").itemlist);
+            await Task.Run(() => ZipFile.ExtractToDirectory(ZipFilePath, outputFolderPath)).ConfigureAwait(false);
 
-            if (File.Exists(ZipFilePath))
-                File.Delete(ZipFilePath);
+            SetUIDownloadState(true, true);
         }
-
-        private void CB_HostSelect_SelectedIndexChanged(object sender, EventArgs e)
+        catch (Exception ex)
         {
-            CheckNetworkFileSizeAsync();
+            WinFormsUtil.Error(ex.Message, ex.InnerException == null ? string.Empty : ex.InnerException.Message);
+            SetUIDownloadState(true);
         }
+    }
 
-        private async void CheckNetworkFileSizeAsync()
+    private void SetUIDownloadState(bool val, bool success = false)
+    {
+        ControlBox = val;
+        B_Download.Enabled = val;
+        PBar_MultiUse.Value = 0;
+
+        L_Status.Text = success ? "Images installed successfully." : string.Empty;
+
+        CheckFileStatusLabel();
+
+        if (success)
+            ItemSprite.Initialize(Core.GameInfo.GetStrings("en").itemlist);
+
+        if (File.Exists(ZipFilePath))
+            File.Delete(ZipFilePath);
+    }
+
+    private void CB_HostSelect_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        CheckNetworkFileSizeAsync();
+    }
+
+    private async void CheckNetworkFileSizeAsync()
+    {
+        try
         {
             L_FileSize.Text = string.Empty;
-            try
-            {
-                var host = AllHosts[CB_HostSelect.SelectedIndex];
+            var host = AllHosts[CB_HostSelect.SelectedIndex];
 #if NETFRAMEWORK
                 using var webClient = new WebClient();
                 await webClient.OpenReadTaskAsync(new Uri(host, UriKind.Absolute)).ConfigureAwait(false);
                 var hdr = webClient.ResponseHeaders?["Content-Length"];
 #elif NETCOREAPP
-                using var httpClient = new System.Net.Http.HttpClient();
-                var httpInitialResponse = await httpClient.GetAsync(host).ConfigureAwait(false);
-                var hdr = httpInitialResponse.Content.Headers.ContentLength;
+            using var httpClient = new System.Net.Http.HttpClient();
+            var httpInitialResponse = await httpClient.GetAsync(host).ConfigureAwait(false);
+            var hdr = httpInitialResponse.Content.Headers.ContentLength;
 #endif
 
-                if (hdr == null)
-                {
-                    L_FileSize.Text = "Failed.";
-                    return;
-                }
-                var totalSizeBytes = Convert.ToInt64(hdr);
-                var totalSizeMb = totalSizeBytes / 1e+6;
-                L_FileSize.Text = $"{totalSizeMb:0.##}MB";
-            }
-            catch (Exception ex)
+            if (hdr == null)
             {
-                L_FileSize.Text = ex.Message;
+                L_FileSize.Text = "Failed.";
+                return;
             }
+            var totalSizeBytes = Convert.ToInt64(hdr);
+            var totalSizeMb = totalSizeBytes / 1e+6;
+            L_FileSize.Text = $"{totalSizeMb:0.##}MB";
         }
-
-        private static string CleanUrl(string url)
+        catch (Exception ex)
         {
-            var uri = new Uri(url);
-            return uri.Segments.Length < 2 ? url : $"{uri.Host}/{uri.Segments[1]}";
+            L_FileSize.Text = ex.Message;
         }
-
-        private bool CheckFileStatusLabel() => L_ImgStatus.Visible = ItemSprite.SingleSpriteExists;
     }
+
+    private static string CleanUrl(string url)
+    {
+        var uri = new Uri(url);
+        return uri.Segments.Length < 2 ? url : $"{uri.Host}/{uri.Segments[1]}";
+    }
+
+    private bool CheckFileStatusLabel() => L_ImgStatus.Visible = ItemSprite.SingleSpriteExists;
 }

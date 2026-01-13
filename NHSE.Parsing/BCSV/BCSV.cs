@@ -3,130 +3,133 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NHSE.Parsing.Properties;
+using static System.Buffers.Binary.BinaryPrimitives;
 
-namespace NHSE.Parsing
+namespace NHSE.Parsing;
+
+public class BCSV
 {
-    public class BCSV
+    public static readonly BCSVEnumDictionary EnumLookup = new(Resources.specs_130.Split('\n'));
+    public static bool DecodeColumnNames { private get; set; } = true;
+
+    public const int MAGIC = 0x42435356; // BCSV
+
+    public readonly uint EntryCount;
+    public readonly uint EntryLength;
+    public readonly ushort FieldCount;
+    public readonly bool HasBCSVHeader;
+    public readonly bool Flag2;
+
+    public readonly uint Magic;
+    public readonly int Unknown;
+    public readonly int Unknown1;
+    public readonly int Unknown2;
+
+    private readonly int FieldTableStart;
+    public readonly IReadOnlyList<BCSVFieldParam> FieldOffsets;
+
+
+    public readonly Memory<byte> Raw;
+    private Span<byte> Data => Raw.Span;
+
+    public BCSV(Memory<byte> raw)
     {
-        public static readonly BCSVEnumDictionary EnumLookup = new(Resources.specs_130.Split('\n'));
-        public static bool DecodeColumnNames { private get; set; } = true;
+        Raw = raw;
 
-        public const int MAGIC = 0x42435356; // BCSV
-
-        public readonly byte[] Data;
-
-        public readonly uint EntryCount;
-        public readonly uint EntryLength;
-        public readonly ushort FieldCount;
-        public readonly bool HasBCSVHeader;
-        public readonly bool Flag2;
-
-        public readonly uint Magic;
-        public readonly int Unknown;
-        public readonly int Unknown1;
-        public readonly int Unknown2;
-
-        private readonly int FieldTableStart;
-        public readonly IReadOnlyList<BCSVFieldParam> FieldOffsets;
-
-        public BCSV(byte[] data)
+        var span = Data;
+        EntryCount = ReadUInt32LittleEndian(span);
+        EntryLength = ReadUInt32LittleEndian(span[0x4..]);
+        FieldCount = ReadUInt16LittleEndian(span[0x8..]);
+        HasBCSVHeader = span[0xA] == 1;
+        Flag2 = span[0xB] == 1;
+        if (HasBCSVHeader)
         {
-            Data = data;
-
-            EntryCount = BitConverter.ToUInt32(data, 0x0);
-            EntryLength = BitConverter.ToUInt32(data, 0x4);
-            FieldCount = BitConverter.ToUInt16(data, 0x8);
-            HasBCSVHeader = data[0xA] == 1;
-            Flag2 = data[0xB] == 1;
-            if (HasBCSVHeader)
-            {
-                Magic = BitConverter.ToUInt32(data, 0xC);
-                if (Magic != MAGIC)
-                    throw new ArgumentException(nameof(Magic));
-                Unknown = BitConverter.ToInt32(data, 0x10);
-                Unknown1 = BitConverter.ToInt32(data, 0x14);
-                Unknown2 = BitConverter.ToInt32(data, 0x18);
-                FieldTableStart = 0x1C;
-            }
-            else
-            {
-                FieldTableStart = 0x0C;
-            }
-
-            var fields = new BCSVFieldParam[FieldCount];
-            for (int i = 0; i < fields.Length; i++)
-            {
-                var ofs = FieldTableStart + (i * BCSVFieldParam.SIZE);
-                var ident = BitConverter.ToUInt32(data, ofs);
-                var fo = BitConverter.ToInt32(data, ofs + 4);
-
-                fields[i] = new BCSVFieldParam(ident, fo, i);
-            }
-
-            FieldOffsets = fields;
+            Magic = ReadUInt32LittleEndian(span[0xC..]);
+            if (Magic != MAGIC)
+                throw new ArgumentException(nameof(Magic));
+            Unknown = ReadInt32LittleEndian(span[0x10..]);
+            Unknown1 = ReadInt32LittleEndian(span[0x14..]);
+            Unknown2 = ReadInt32LittleEndian(span[0x18..]);
+            FieldTableStart = 0x1C;
+        }
+        else
+        {
+            FieldTableStart = 0x0C;
         }
 
-        private int GetFirstEntryOffset() => FieldTableStart + (FieldCount * BCSVFieldParam.SIZE);
-        private int GetEntryOffset(int start, int entry) => start + (entry * (int)EntryLength);
-
-        private string ReadFieldUnknownType(in int offset, in int fieldIndex)
+        var fields = new BCSVFieldParam[FieldCount];
+        for (int i = 0; i < fields.Length; i++)
         {
-            var length = GetFieldLength(fieldIndex);
-            return length switch
-            {
-                1 => Data[offset].ToString(),
-                2 => BitConverter.ToInt16(Data, offset).ToString(),
-                4 => EnumLookup[BitConverter.ToUInt32(Data, offset)],
-                5 => $"0x{FiveByteLong(offset):X10}",
-                8 => $"0x{BitConverter.ToUInt64(Data, offset):X16}",
-                _ => Encoding.UTF8.GetString(Data, offset, length),
-            };
+            var ofs = FieldTableStart + (i * BCSVFieldParam.SIZE);
+            var ident = ReadUInt32LittleEndian(span[ofs..]);
+            var fo = ReadInt32LittleEndian(span[(ofs + 4)..]);
+
+            fields[i] = new BCSVFieldParam(ident, fo, i);
         }
 
-        private ulong FiveByteLong(in int offset)
+        FieldOffsets = fields;
+    }
+
+    private int GetFirstEntryOffset() => FieldTableStart + (FieldCount * BCSVFieldParam.SIZE);
+    private int GetEntryOffset(int start, int entry) => start + (entry * (int)EntryLength);
+
+    private string ReadFieldUnknownType(in int offset, in int fieldIndex)
+    {
+        var length = GetFieldLength(fieldIndex);
+        return length switch
         {
-            var tmpBytes = new byte[8];
-            Array.Copy(Data, offset, tmpBytes, 0, 5);
-            return BitConverter.ToUInt64(tmpBytes, 0);
-        }
+            1 => Data[offset].ToString(),
+            2 => ReadInt16LittleEndian(Data[offset..]).ToString(),
+            4 => EnumLookup[ReadUInt32LittleEndian(Data[offset..])],
+            5 => $"0x{FiveByteLong(offset):X10}",
+            8 => $"0x{ReadUInt64LittleEndian(Data[offset..]):X16}",
+            _ => Encoding.UTF8.GetString(Data.Slice(offset, length)),
+        };
+    }
 
-        private int GetFieldLength(in int i)
+    private ulong FiveByteLong(in int offset)
+    {
+        Span<byte> tmpBytes = stackalloc byte[8];
+        Data.Slice(offset, 5).CopyTo(tmpBytes);
+        return ReadUInt64LittleEndian(tmpBytes);
+    }
+
+    private int GetFieldLength(in int i)
+    {
+        var next = (i + 1 == FieldCount) ? (int)(EntryLength) : FieldOffsets[i + 1].Offset;
+        var ofs = FieldOffsets[i].Offset;
+        return next - ofs;
+    }
+
+    public string[] ReadCSV(string delim = "\t")
+    {
+        var result = new string[EntryCount + 1];
+
+        if (DecodeColumnNames)
+            result[0] = string.Join(delim, FieldOffsets.Select(z => EnumLookup[z.ColumnKey]));
+        else
+            result[0] = string.Join(delim, FieldOffsets.Select(z => $"0x{z.ColumnKey:X8}"));
+
+        var start = GetFirstEntryOffset();
+        for (int entry = 0; entry < EntryCount; entry++)
         {
-            var next = (i + 1 == FieldCount) ? (int)(EntryLength) : FieldOffsets[i + 1].Offset;
-            var ofs = FieldOffsets[i].Offset;
-            return next - ofs;
-        }
-
-        public string[] ReadCSV(string delim = "\t")
-        {
-            var result = new string[EntryCount + 1];
-
-            if (DecodeColumnNames)
-                result[0] = string.Join(delim, FieldOffsets.Select(z => EnumLookup[z.ColumnKey]));
-            else
-                result[0] = string.Join(delim, FieldOffsets.Select(z => $"0x{z.ColumnKey:X8}"));
-
-            var start = GetFirstEntryOffset();
-            for (int entry = 0; entry < EntryCount; entry++)
-            {
-                var ofs = GetEntryOffset(start, entry);
-                string[] fields = new string[FieldCount];
-                for (int f = 0; f < fields.Length; f++)
-                {
-                    var fo = ofs + FieldOffsets[f].Offset;
-                    fields[f] = ReadFieldUnknownType(fo, f);
-                }
-                result[entry + 1] = string.Join(delim, fields);
-            }
-
-            return result;
-        }
-
-        public string ReadValue(int entry, BCSVFieldParam f)
-        {
-            var start = GetFirstEntryOffset();
             var ofs = GetEntryOffset(start, entry);
-            return ReadFieldUnknownType(ofs + f.Offset, f.Index);
+            var fields = new string[FieldCount];
+            for (int f = 0; f < fields.Length; f++)
+            {
+                var fo = ofs + FieldOffsets[f].Offset;
+                fields[f] = ReadFieldUnknownType(fo, f);
+            }
+            result[entry + 1] = string.Join(delim, fields);
         }
+
+        return result;
+    }
+
+    public string ReadValue(int entry, BCSVFieldParam f)
+    {
+        var start = GetFirstEntryOffset();
+        var ofs = GetEntryOffset(start, entry);
+        return ReadFieldUnknownType(ofs + f.Offset, f.Index);
     }
 }

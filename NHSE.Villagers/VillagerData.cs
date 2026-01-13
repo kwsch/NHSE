@@ -1,14 +1,15 @@
-﻿namespace NHSE.Villagers
-{
-    public class VillagerData
-    {
-        public readonly byte[] Villager;
-        public readonly byte[] House;
+﻿using System;
 
-        public VillagerData(byte[] villager, byte[] house)
-        {
-            Villager = villager;
-            House = house;
-        }
+namespace NHSE.Villagers;
+
+public class VillagerData
+{
+    public readonly Memory<byte> Villager;
+    public readonly Memory<byte> House;
+
+    public VillagerData(Memory<byte> villager, Memory<byte> house)
+    {
+        Villager = villager;
+        House = house;
     }
 }

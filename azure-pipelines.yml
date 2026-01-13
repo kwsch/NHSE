@@ -9,53 +9,53 @@ trigger:
 pool:
   vmImage: 'windows-latest'
 
+# Build number format: YYYYMMDD.<run>
+# Example: 20260110.3
+name: $(Date:yyyyMMdd).$(Rev:r)
+
 variables:
-  solution: '**/*.sln'
+  solution: '**/*.slnx'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
 steps:
-- task: Assembly-Info-NetCore@2
-  inputs:
-    Path: '$(Build.SourcesDirectory)'
-    FileNames: '**/*.csproj'
-    InsertAttributes: false
-    FileEncoding: 'auto'
-    WriteBOM: false
-    VersionNumber: '$(Build.BuildNumber)'
-    PackageVersion: '$(Build.BuildNumber)'
-    LogLevel: 'verbose'
-    FailOnWarning: false
-    DisableTelemetry: false
-
-- task: Assembly-Info-NetFramework@2
-  inputs:
-    Path: '$(Build.SourcesDirectory)'
-    FileNames: '**\AssemblyInfo.cs'
-    InsertAttributes: false
-    FileEncoding: 'auto'
-    WriteBOM: false
-    VersionNumber: '$(Build.BuildNumber)'
-    FileVersionNumber: '$(Build.BuildNumber)'
-    LogLevel: 'verbose'
-    FailOnWarning: false
-    DisableTelemetry: false
-
+# Restore
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
 
+# Build with version stamping
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    msbuildArgs: >
+      /p:AssemblyVersion=$(Build.BuildId)
+      /p:Version=$(Build.BuildNumber)
+      /p:FileVersion=$(Build.BuildId)
+      /p:InformationalVersion=$(Build.SourceVersion)
 
+# Dynamically detect the TFM folder (net9.0-windows, net10.0-windows, etc.)
+- powershell: |
+    $path = Get-ChildItem -Recurse -Directory -Path "$(Build.SourcesDirectory)\NHSE.WinForms\bin\Release" |
+            Where-Object { $_.Name -match '^net.*-windows$' } |
+            Select-Object -First 1 -ExpandProperty FullName
+
+    if (-not $path) {
+        Write-Error "Could not find TFM output folder"
+        exit 1
+    }
+
+    Write-Host "##vso[task.setvariable variable=PublishPath]$path"
+  displayName: "Detect TFM output folder"
+
+# Publish
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: NHSE'
   inputs:
-    PathtoPublish: 'NHSE.WinForms\bin\Release\net46'
+    PathtoPublish: '$(PublishPath)'
     ArtifactName: NHSE
   condition: succeededOrFailed()

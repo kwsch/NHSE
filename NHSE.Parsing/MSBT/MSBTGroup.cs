@@ -1,8 +1,7 @@
-﻿namespace NHSE.Parsing
+﻿namespace NHSE.Parsing;
+
+public class MSBTGroup
 {
-    public class MSBTGroup
-    {
-        public uint NumberOfLabels;
-        public uint Offset;
-    }
+    public uint NumberOfLabels;
+    public uint Offset;
 }

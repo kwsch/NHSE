@@ -3,57 +3,56 @@ using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Injection;
 
-namespace NHSE.WinForms
+namespace NHSE.WinForms;
+
+public partial class SysBotRAMEdit : Form
 {
-    public partial class SysBotRAMEdit : Form
+    private readonly SysBotController Bot;
+
+    public SysBotRAMEdit(InjectionType type)
     {
-        private readonly SysBotController Bot;
+        InitializeComponent();
+        this.TranslateInterface(GameInfo.CurrentLanguage);
+        Bot = new SysBotController(type);
+        RamOffset.Text = Bot.GetDefaultOffset().ToString("X8");
 
-        public SysBotRAMEdit(InjectionType type)
+        TB_IP.Text = Bot.IP;
+        TB_Port.Text = Bot.Port;
+        Bot.PopPrompt();
+    }
+
+    private void B_Connect_Click(object sender, EventArgs e)
+    {
+        if (!Bot.Connect(TB_IP.Text, TB_Port.Text))
+            return;
+        GB_Inject.Enabled = true;
+    }
+
+    private void SysBotRAMEdit_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        if (!Bot.Bot.Connected)
+            return;
+
+        try
         {
-            InitializeComponent();
-            this.TranslateInterface(GameInfo.CurrentLanguage);
-            Bot = new SysBotController(type);
-            RamOffset.Text = Bot.GetDefaultOffset().ToString("X8");
+            Bot.Bot.Disconnect();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
 
-            TB_IP.Text = Bot.IP;
-            TB_Port.Text = Bot.Port;
-            Bot.PopPrompt();
+    private void B_Edit_Click(object sender, EventArgs e)
+    {
+        var offset = StringUtil.GetHexValue(RamOffset.Text);
+        if (offset == 0)
+        {
+            WinFormsUtil.Error(MessageStrings.MsgInvalidHexValue);
+            return;
         }
 
-        private void B_Connect_Click(object sender, EventArgs e)
-        {
-            if (!Bot.Connect(TB_IP.Text, TB_Port.Text))
-                return;
-            GB_Inject.Enabled = true;
-        }
-
-        private void SysBotRAMEdit_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (!Bot.Bot.Connected)
-                return;
-
-            try
-            {
-                Bot.Bot.Disconnect();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-        }
-
-        private void B_Edit_Click(object sender, EventArgs e)
-        {
-            var offset = StringUtil.GetHexValue(RamOffset.Text);
-            if (offset == 0)
-            {
-                WinFormsUtil.Error(MessageStrings.MsgInvalidHexValue);
-                return;
-            }
-
-            var length = (int)NUD_Offset.Value;
-            Bot.HexEdit(offset, length);
-        }
+        var length = (int)NUD_Offset.Value;
+        Bot.HexEdit(offset, length);
     }
 }

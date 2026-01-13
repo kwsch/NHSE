@@ -1,48 +1,48 @@
 ﻿using System;
 using System.Text;
+using static System.Buffers.Binary.BinaryPrimitives;
 
-namespace NHSE.Parsing
+namespace NHSE.Parsing;
+
+public class MSBTTextString
 {
-    public class MSBTTextString
+    public readonly Memory<byte> Value;
+    public readonly uint Index;
+
+    public static readonly MSBTTextString Empty = new(default, 0);
+
+    public MSBTTextString(Memory<byte> v, uint i)
     {
-        public readonly byte[] Value;
-        public readonly uint Index;
+        Value = v;
+        Index = i;
+    }
 
-        public static readonly MSBTTextString Empty = new(Array.Empty<byte>(), 0);
+    public override string ToString() => (Index + 1).ToString();
 
-        public MSBTTextString(byte[] v, uint i)
+    public string ToString(Encoding encoding) => encoding.GetString(Value.Span);
+
+    public string ToStringNoAtoms() => GetTextWithoutAtoms(Value.Span);
+
+    public static string GetTextWithoutAtoms(ReadOnlySpan<byte> data)
+    {
+        var sb = new StringBuilder(data.Length / 2);
+        for (int i = 0; i < data.Length; i += 2)
         {
-            Value = v;
-            Index = i;
-        }
-
-        public override string ToString() => (Index + 1).ToString();
-
-        public string ToString(Encoding encoding) => encoding.GetString(Value);
-
-        public string ToStringNoAtoms() => GetTextWithoutAtoms(Value);
-
-        public static string GetTextWithoutAtoms(byte[] data)
-        {
-            var sb = new StringBuilder();
-            for (int i = 0; i < data.Length; i += 2)
+            var c = (char)ReadUInt16LittleEndian(data[i..]);
+            if (c == 0xE) // atom
             {
-                char c = BitConverter.ToChar(data, i);
-                if (c == 0xE) // atom
-                {
-                    // skip over atom and the u16,u16
-                    i += 2 * 3;
-                    var len = BitConverter.ToUInt16(data, i);
-                    i += len; // skip over extra atom data
-                    continue;
-                }
-
-                if (c == '\0')
-                    break;
-                sb.Append(c);
+                // skip over atom and the u16,u16
+                i += 2 * 3;
+                var len = ReadUInt16LittleEndian(data[i..]);
+                i += len; // skip over extra atom data
+                continue;
             }
 
-            return sb.ToString();
+            if (c == '\0')
+                break;
+            sb.Append(c);
         }
+
+        return sb.ToString();
     }
 }

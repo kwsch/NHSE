@@ -1,53 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
+using static System.Buffers.Binary.BinaryPrimitives;
 
-namespace NHSE.Parsing
+namespace NHSE.Parsing;
+
+internal class BinaryReaderX(Stream input, ByteOrder byteOrder = ByteOrder.LittleEndian) : BinaryReader(input)
 {
-    internal class BinaryReaderX : BinaryReader
+    public ByteOrder ByteOrder { get; set; } = byteOrder;
+
+    public override ushort ReadUInt16()
     {
-        public ByteOrder ByteOrder { get; set; }
+        if (ByteOrder == ByteOrder.LittleEndian)
+            return base.ReadUInt16();
+        var buffer = base.ReadBytes(sizeof(ushort));
+        if (buffer.Length != sizeof(ushort))
+            throw new EndOfStreamException();
+        return ReadUInt16BigEndian(buffer);
+    }
 
-        public BinaryReaderX(Stream input, ByteOrder byteOrder = ByteOrder.LittleEndian)
-            : base(input)
-        {
-            ByteOrder = byteOrder;
-        }
+    public override uint ReadUInt32()
+    {
+        if (ByteOrder == ByteOrder.LittleEndian)
+            return base.ReadUInt32();
+        var buffer = base.ReadBytes(sizeof(uint));
+        if (buffer.Length != sizeof(uint))
+            throw new EndOfStreamException();
+        return ReadUInt32BigEndian(buffer);
+    }
 
-        public override ushort ReadUInt16()
-        {
-            if (ByteOrder == ByteOrder.LittleEndian)
-                return base.ReadUInt16();
-            else
-                return BitConverter.ToUInt16(base.ReadBytes(2).Reverse().ToArray(), 0);
-        }
+    public string ReadString(int length)
+    {
+        return Encoding.ASCII.GetString(ReadBytes(length)).TrimEnd('\0');
+    }
 
-        public override uint ReadUInt32()
-        {
-            if (ByteOrder == ByteOrder.LittleEndian)
-                return base.ReadUInt32();
-            else
-                return BitConverter.ToUInt32(base.ReadBytes(4).Reverse().ToArray(), 0);
-        }
+    public string PeekString(int length = 4)
+    {
+        List<byte> bytes = [];
+        long startOffset = BaseStream.Position;
 
-        public string ReadString(int length)
-        {
-            return Encoding.ASCII.GetString(ReadBytes(length)).TrimEnd('\0');
-        }
+        for (int i = 0; i < length; i++)
+            bytes.Add(ReadByte());
 
-        public string PeekString(int length = 4)
-        {
-            List<byte> bytes = new();
-            long startOffset = BaseStream.Position;
+        BaseStream.Seek(startOffset, SeekOrigin.Begin);
 
-            for (int i = 0; i < length; i++)
-                bytes.Add(ReadByte());
-
-            BaseStream.Seek(startOffset, SeekOrigin.Begin);
-
-            return Encoding.ASCII.GetString(bytes.ToArray());
-        }
+        return Encoding.ASCII.GetString(bytes.ToArray());
     }
 }

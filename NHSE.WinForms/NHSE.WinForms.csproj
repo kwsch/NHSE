@@ -1,13 +1,16 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net46;net8.0-windows</TargetFrameworks>
+    <TargetFramework>net10.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
+    <ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
     <Description>Animal Crossing - New Horizons Save Editor</Description>
     <StartupObject>NHSE.WinForms.Program</StartupObject>
     <ApplicationIcon>icon.ico</ApplicationIcon>
-    <Platforms>AnyCPU;x86</Platforms>
+    <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,15 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Controls\ItemEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Controls\ItemEditor.Designer.cs">
-      <DependentUpon>ItemEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Update="Editor.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -37,80 +31,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Update="Subforms\Map\BuildingHelp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Subforms\Map\BulkSpawn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Subforms\Map\MuseumEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Subforms\Map\LandFlagEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Subforms\Map\PatternEditorPRO.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Subforms\Map\PatternEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Subforms\Map\PlayerHouseEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Subforms\Map\VillagerHouseEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Subforms\Map\PlayerHouseFlagEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Subforms\Player\MiscPlayerEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Subforms\Player\ReactionEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Subforms\Player\FlagEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Subforms\PropertyEditor - Copy.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Subforms\Map\FieldItemEditor.cs" />
-    <Compile Update="Subforms\SingleObjectEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Subforms\SingleItemEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Subforms\PropertyEditor - Copy.Designer.cs">
-      <DependentUpon>PropertyEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Update="Subforms\Player\ItemReceivedEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Subforms\Player\AchievementEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Subforms\SysBot\BatchEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Subforms\SysBot\SysBotRAMEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Subforms\Villager\SaveRoomFloorWallEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Subforms\Villager\VillagerMemoryEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Subforms\Villager\VillagerFlagEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup Condition="$(TargetFramework.StartsWith('net4')) AND '$(Configuration)' == 'Release'">
-    <PackageReference Include="Costura.Fody" Version="4.1.0" />
   </ItemGroup>
 
   <ItemGroup>

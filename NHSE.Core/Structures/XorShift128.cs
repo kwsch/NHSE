@@ -1,38 +1,37 @@
-﻿namespace NHSE.Core
+﻿namespace NHSE.Core;
+
+/// <summary>
+/// Xorshift128 RNG Implementation (xor128)
+/// <see href="https://en.wikipedia.org/wiki/Xorshift#Example_implementation"/>
+/// </summary>
+internal ref struct XorShift128
 {
+    private uint a, b, c, d;
+    private const int Mersenne = 0x6C078965;
+
     /// <summary>
-    /// Xorshift128 RNG Implementation (xor128)
-    /// <see href="https://en.wikipedia.org/wiki/Xorshift#Example_implementation"/>
+    /// Initialize the generator from a seed.
     /// </summary>
-    internal ref struct XorShift128
+    /// <param name="seed">Ticks, usually.</param>
+    public XorShift128(uint seed)
     {
-        private uint a, b, c, d;
-        private const int Mersenne = 0x6C078965;
-
-        /// <summary>
-        /// Initialize the generator from a seed.
-        /// </summary>
-        /// <param name="seed">Ticks, usually.</param>
-        public XorShift128(uint seed)
-        {
-            // Unrolled Mersenne Twister initialization loop
-            a = (Mersenne * (seed ^ (seed >> 30))) + 1;
-            b = (Mersenne * (  a  ^ (  a  >> 30))) + 2;
-            c = (Mersenne * (  b  ^ (  b  >> 30))) + 3;
-            d = (Mersenne * (  c  ^ (  c  >> 30))) + 4;
-        }
-
-        public uint GetU32()
-        {
-            uint t = a;
-            a = b;
-            b = c;
-            c = d;
-            t ^= t << 11;
-            t ^= t >> 8;
-            return d = t ^ d ^ (d >> 19);
-        }
-
-        public ulong GetU64() => ((ulong)GetU32() << 32) | GetU32();
+        // Unrolled Mersenne Twister initialization loop
+        a = (Mersenne * (seed ^ (seed >> 30))) + 1;
+        b = (Mersenne * (  a  ^ (  a  >> 30))) + 2;
+        c = (Mersenne * (  b  ^ (  b  >> 30))) + 3;
+        d = (Mersenne * (  c  ^ (  c  >> 30))) + 4;
     }
+
+    public uint GetU32()
+    {
+        uint t = a;
+        a = b;
+        b = c;
+        c = d;
+        t ^= t << 11;
+        t ^= t >> 8;
+        return d = t ^ d ^ (d >> 19);
+    }
+
+    public ulong GetU64() => ((ulong)GetU32() << 32) | GetU32();
 }
