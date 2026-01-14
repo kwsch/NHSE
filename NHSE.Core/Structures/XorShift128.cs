@@ -22,7 +22,10 @@ internal ref struct XorShift128
         d = (Mersenne * (  c  ^ (  c  >> 30))) + 4;
     }
 
-    public uint GetU32()
+    /// <summary>
+    /// Returns the next random uint.
+    /// </summary>
+    public uint Next()
     {
         uint t = a;
         a = b;
@@ -33,5 +36,5 @@ internal ref struct XorShift128
         return d = t ^ d ^ (d >> 19);
     }
 
-    public ulong GetU64() => ((ulong)GetU32() << 32) | GetU32();
+    public ulong Next64() => ((ulong)Next() << 32) | Next();
 }

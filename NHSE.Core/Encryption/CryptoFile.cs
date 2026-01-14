@@ -1,3 +1,5 @@
-﻿namespace NHSE.Core;
+﻿using System;
 
-internal readonly record struct CryptoFile(byte[] Data, byte[] Key, byte[] Ctr);
+namespace NHSE.Core;
+
+internal record struct CryptoFile(Memory<byte> Data, Memory<byte> Key, Memory<byte> Ctr);

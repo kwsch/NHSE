@@ -55,8 +55,8 @@ public abstract class EncryptedFilePair
     public void Save(uint seed)
     {
         var encrypt = Encryption.Encrypt(RawData, seed, RawHeader);
-        File.WriteAllBytes(DataPath, encrypt.Data);
-        File.WriteAllBytes(HeaderPath, encrypt.Header);
+        File.WriteAllBytes(DataPath, encrypt.Data.Span);
+        File.WriteAllBytes(HeaderPath, encrypt.Header.Span);
     }
 
     /// <summary>

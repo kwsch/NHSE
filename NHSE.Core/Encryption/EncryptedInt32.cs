@@ -57,7 +57,7 @@ public sealed class EncryptedInt32
     {
         var val = Read(data[offset..]);
         if (val.Checksum != CalculateChecksum(val.OriginalEncrypted))
-            throw new ArgumentException($"Failed to verify the {nameof(EncryptedInt32)} at {nameof(offset)}");
+            throw new ArgumentException($"Failed to verify the {nameof(EncryptedInt32)} at {nameof(offset)} 0x{offset:X8}.");
         return val;
     }
 
