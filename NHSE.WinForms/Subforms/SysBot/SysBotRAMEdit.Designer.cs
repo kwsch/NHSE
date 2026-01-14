@@ -139,7 +139,7 @@
             this.RamOffset.Name = "RamOffset";
             this.RamOffset.Size = new System.Drawing.Size(63, 20);
             this.RamOffset.TabIndex = 20;
-            this.RamOffset.Text = "AD3C7FD8";
+            this.RamOffset.Text = "B27BB758";
             // 
             // L_Offset
             // 
