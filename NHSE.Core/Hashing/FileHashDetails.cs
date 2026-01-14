@@ -5,27 +5,8 @@ namespace NHSE.Core;
 /// <summary>
 /// Contains the <see cref="HashRegions"/> for a <see cref="FileName"/>.
 /// </summary>
-public sealed class FileHashDetails
-{
-    /// <summary>
-    /// Name of the File that these <see cref="HashRegions"/> apply to.
-    /// </summary>
-    public readonly string FileName;
-
-    /// <summary>
-    /// Expected file size of the <see cref="FileName"/>.
-    /// </summary>
-    public readonly uint FileSize;
-
-    /// <summary>
-    /// Hash specs that are done in this file.
-    /// </summary>
-    public readonly IReadOnlyList<FileHashRegion> HashRegions;
-
-    public FileHashDetails(string fileName, uint fileSize, IReadOnlyList<FileHashRegion> regions)
-    {
-        FileName = fileName;
-        FileSize = fileSize;
-        HashRegions = regions;
-    }
-}
+/// <param name="FileName">Name of the File that these <see cref="HashRegions"/> apply to.</param>
+/// <param name="FileSize">Expected file size of the <see cref="FileName"/>.</param>
+/// <param name="HashRegions">Hash specs that are done in this file.</param>
+/// <remarks>Checking equality is fine to do the regular shallow check; length essentially governs hash regions.</remarks>
+public sealed record FileHashDetails(string FileName, uint FileSize, IReadOnlyList<FileHashRegion> HashRegions);

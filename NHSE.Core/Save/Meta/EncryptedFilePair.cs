@@ -67,10 +67,9 @@ public abstract class EncryptedFilePair
         var ver = Info.GetKnownRevisionIndex();
         var hash = RevisionChecker.HashInfo[ver];
         var details = hash.GetFile(NameData);
-        if (details == null)
-            throw new ArgumentNullException(nameof(NameData));
+        ArgumentNullException.ThrowIfNull(details, nameof(NameData));
         foreach (var h in details.HashRegions)
-            Murmur3.UpdateMurmur32(Data.Slice(h.BeginOffset, h.Size), Data[h.HashOffset..]);
+            WriteUInt32LittleEndian(Data[h.HashOffset..], Murmur3.Hash(Data[h.HashedRange]));
     }
 
     public IEnumerable<FileHashRegion> InvalidHashes()
@@ -78,11 +77,10 @@ public abstract class EncryptedFilePair
         var ver = Info.GetKnownRevisionIndex();
         var hash = RevisionChecker.HashInfo[ver];
         var details = hash.GetFile(NameData);
-        if (details == null)
-            throw new ArgumentNullException(nameof(NameData));
+        ArgumentNullException.ThrowIfNull(details, nameof(NameData));
         foreach (var h in details.HashRegions)
         {
-            var current = Murmur3.GetMurmur3Hash(Data.Slice(h.BeginOffset, h.Size));
+            var current = Murmur3.Hash(Data[h.HashedRange]);
             var saved = ReadUInt32LittleEndian(Data[h.HashOffset..]);
             if (current != saved)
                 yield return h;

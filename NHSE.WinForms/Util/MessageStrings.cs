@@ -26,6 +26,7 @@ public static class MessageStrings
     public static string MsgSaveDataExportFail { get; set; } = "Unable to save files to their original location.";
     public static string MsgSaveDataHashesValid { get; set; } = "Hashes are valid.";
     public static string MsgSaveDataSizeMismatch { get; set; } = "Save file sizes appear to be incorrect.";
+    public static string MsgSaveDataHashMismatch { get; set; } = "Save file hashes appear to be incorrect.";
 
     public static string MsgMoveOut { get; set; } = "Are you trying to make the Villager move out?";
     public static string MsgMoveOutSuggest { get; set; } = "If so, set the Event Flag (024 - ForceMoveOut) to 1 so that the Villager is removed by the game.";

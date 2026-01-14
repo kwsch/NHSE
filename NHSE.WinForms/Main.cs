@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Injection;
@@ -43,6 +44,13 @@ public partial class Main : Form
         if (!sized)
         {
             var prompt = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgSaveDataSizeMismatch, MessageStrings.MsgAskContinue);
+            if (prompt != DialogResult.Yes)
+                return;
+        }
+        var isAnyHashBad = file.GetInvalidHashes().Any();
+        if (isAnyHashBad)
+        {
+            var prompt = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgSaveDataHashMismatch, MessageStrings.MsgAskContinue);
             if (prompt != DialogResult.Yes)
                 return;
         }
