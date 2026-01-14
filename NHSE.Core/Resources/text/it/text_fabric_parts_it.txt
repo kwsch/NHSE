@@ -1,14 +1,29 @@
 00079	Colore della coperta
 00725	Carta
+00767	Paralume
+00769	Genere
 00833	Adesivi
+00854	Copertina del libro
+00856	Tovagliolo
+00859	Stile delle lanterne
 00922	Logo
 00941	Bandierina
 00950	Adesivi
+00952	Adesivi
+00959	Squadra
+00960	Squadra
+00961	Squadra
 01029	Pannello
 01032	Riviste
+01035	Rivista
+01037	Sedile
+01101	Copriletto
+01102	Pannelli
 01133	Colore del manico
 01222	Immagine
 01235	Lati/Retro
+01262	Colore
+01276	Pannello
 01499	Fiocco
 01500	Maglia
 01501	Maglia
@@ -209,6 +224,7 @@
 13639	Tramezzo
 13640	Immagine
 13647	Cartello
+13650	Adesivi
 13651	Pergamena appesa
 13652	Variazione
 13655	Immagine

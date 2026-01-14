@@ -35,6 +35,7 @@ brd15	Lukas
 brd16	Pierre
 brd17	Picko
 brd18	Nestor
+brd20	Tulin
 bul00	Angus
 bul01	Toro
 bul03	Carlos
@@ -114,6 +115,7 @@ der08	Vroni
 der09	Erik
 der10	Chelsea
 der11	Yoshino
+der12	Mineru
 dog00	Bienchen
 dog01	Hasso
 dog02	Viktor
@@ -392,6 +394,8 @@ squ15	Trita
 squ16	Steffen
 squ17	Huschke
 squ18	Nadine
+squ19	A-Chan
+squ20	L-Pyon
 squ21	Vega
 tig00	Boris
 tig01	Gisbert
@@ -437,9 +441,13 @@ hgc	Minna
 hgh	Tina
 hgs	Sina
 kpg	Bonnie
+kpgB	Bonnie
 kpm	Lore
+kpmB	Lore
 kpp	Käpten
+kppB	Käpten
 kps	Lotte
+kpsB	Lotte
 lom	Katja
 man	Sigmar
 mka	Blanka

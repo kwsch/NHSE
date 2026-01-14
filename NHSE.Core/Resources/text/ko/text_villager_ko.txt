@@ -35,6 +35,7 @@ brd15	마스카라스
 brd16	쪼끼
 brd17	문대
 brd18	춘섭
+brd20	튤리
 bul00	반데스
 bul01	로데오
 bul03	모리스
@@ -114,6 +115,7 @@ der08	나탈리
 der09	자끄
 der10	첼시
 der11	요비
+der12	미넬
 dog00	카라멜
 dog01	존
 dog02	럭키
@@ -392,6 +394,8 @@ squ15	다람
 squ16	크리스
 squ17	쭈니
 squ18	아이리스
+squ19	나기사
+squ20	미사키
 squ21	스피카
 tig00	호랭이
 tig01	고메스
@@ -437,9 +441,13 @@ hgc	고숙이
 hgh	고순이
 hgs	고옥이
 kpg	귀녀
+kpgB	귀녀
 kpm	갑순
+kpmB	갑순
 kpp	갑돌
+kppB	갑돌
 kps	꼬미
+kpsB	꼬미
 lom	미야
 man	너티
 mka	아트고양이

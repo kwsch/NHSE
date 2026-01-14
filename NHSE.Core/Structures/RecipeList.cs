@@ -779,7 +779,7 @@ public static class RecipeList
         {0x390, 14003}, // sea-bass pie
         {0x391, 14010}, // salad
         {0x392, 14048}, // mushroom potage
-        {0x393, 14104}, // fish and chips
+        {0x393, 14104}, // fish-and-chips
         {0x394, 14105}, // french fries
         {0x395, 14109}, // plain scones
         {0x396, 14110}, // veggie cupcakes

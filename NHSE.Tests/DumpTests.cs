@@ -8,15 +8,14 @@ public static class DumpTests
 {
     private const string RepoPath = @"C:\Users\kapho\source\repos";
     private const string PatchDumpPath = @"E:\acnh\" + PatchFolderName;
-    private const string PatchFolderName = "v20";
+    private const string PatchFolderName = "v30";
     private const string MessageDumpFormat = @"Message\String_{0}";
 
     [Fact]
     public static void DumpBCSV()
     {
         const string folder = PatchDumpPath + @"\bcsv";
-        if (!Directory.Exists(folder)) // skip this test if not properly configured for this test
-            return;
+        Assert.SkipUnless(Directory.Exists(folder), "Directory not found, skip."); // skip this test if not properly configured for this test
 
         GameBCSVDumper.UpdateDumps(folder, folder, true);
     }
@@ -25,11 +24,10 @@ public static class DumpTests
     public static void DumpMSBT()
     {
         const string folder = RepoPath;
-        if (!Directory.Exists(folder)) // skip this test if not properly configured for this test
-            return;
         const string dump = PatchDumpPath;
-        if (!Directory.Exists(dump)) // skip this test if not properly configured for this test
-            return;
+        Assert.SkipUnless(Directory.Exists(folder), "Repo not found, skip."); // skip this test if not properly configured for this test
+        Assert.SkipUnless(Directory.Exists(dump), "Dump not found, skip."); // skip this test if not properly configured for this test
+
         GameMSBTDumperNHSE.Dump(folder, dump, MessageDumpFormat);
     }
 }

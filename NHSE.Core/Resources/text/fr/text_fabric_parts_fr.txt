@@ -1,14 +1,29 @@
 00079	Couverture
 00725	Papier
+00767	Abat-jour
+00769	Genre
 00833	Autocollants
+00854	Couverture du livre
+00856	Serviette
+00859	Lanternes
 00922	Logo
 00941	Drapeau
 00950	Autocollants
+00952	Autocollants
+00959	Camp
+00960	Camp
+00961	Camp
 01029	Écran
 01032	Revues
+01035	Revues
+01037	Assise
+01101	Draps
+01102	Paravent
 01133	Couleur de la barre
 01222	Vidéo
 01235	Devant/derrière
+01262	Couleur
+01276	Cadre
 01499	Ruban
 01500	Habit
 01501	Habit
@@ -209,6 +224,7 @@
 13639	Modèle
 13640	À l'écran
 13647	Panneau
+13650	Décoration
 13651	Rouleau
 13652	Variation
 13655	Cadre

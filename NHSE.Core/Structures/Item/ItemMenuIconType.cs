@@ -1,10 +1,13 @@
-namespace NHSE.Core;
+﻿namespace NHSE.Core;
 
 /// <summary>
 /// Menu icons (image shown in the inventory) of Items
 /// </summary>
 public enum ItemMenuIconType : ushort
 {
+    _0x6DC40167,
+    _0x7A38C58E,
+    _0xCA743497,
     Akoyagai,
     Amaebi,
     Anemone0,

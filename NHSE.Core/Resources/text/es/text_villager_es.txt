@@ -35,6 +35,7 @@ brd15	Plumerio
 brd16	Gorrelmo
 brd17	Picuet
 brd18	Jaime
+brd20	Tureli
 bul00	Aliste
 bul01	Rodeo
 bul03	Vitorino
@@ -114,6 +115,7 @@ der08	Bambina
 der09	Cervasio
 der10	Chelsea
 der11	Yuki
+der12	Mineru
 dog00	Tere
 dog01	Bruno
 dog02	Pupas
@@ -392,6 +394,8 @@ squ15	Encina
 squ16	Matracas
 squ17	Munchi
 squ18	Anacarda
+squ19	Arduna
+squ20	Ardelta
 squ21	Auri
 tig00	Albino
 tig01	Miguelón
@@ -437,9 +441,13 @@ hgc	Tili
 hgh	Pili
 hgs	Mili
 kpg	Rosauria
+kpgB	Rosauria
 kpm	Marimar
+kpmB	Marimar
 kpp	Capitán
+kppB	Capitán
 kps	Conchita
+kpsB	Conchita
 lom	Cati
 man	Matías
 mka	Blanca

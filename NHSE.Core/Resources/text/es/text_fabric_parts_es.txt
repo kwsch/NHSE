@@ -1,14 +1,29 @@
 00079	Color de la mantita
 00725	Motivo
+00767	Globo
+00769	Género
 00833	Pegatina
+00854	Color del libro
+00856	Servilleta
+00859	Color de los farolillos
 00922	Logotipo
 00941	Frontal
 00950	Pegatina
+00952	Estilo de pegatinas/grafitis
+00959	Equipo
+00960	Equipo
+00961	Equipo
 01029	Lateral
 01032	Revistas
+01035	Revistas
+01037	Asiento
+01101	Edredón
+01102	Paneles
 01133	Color de la barra
 01222	Vídeo
 01235	Laterales
+01262	Color
+01276	Cuadro
 01499	Lazo
 01500	Camiseta
 01501	Camiseta
@@ -209,6 +224,7 @@
 13639	Motivo
 13640	Gráfico
 13647	Cartel
+13650	Pegatinas
 13651	Pergamino
 13652	Variación
 13655	Variación

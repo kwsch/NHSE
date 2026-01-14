@@ -556,4 +556,55 @@ public static class FileHashRevision
     ]);
 
     #endregion
+
+    #region REVISION 3.0.0
+
+    internal const int REV_300_MAIN = 0x9B0E90;
+    internal const int REV_300_PERSONAL = 0x74A40;
+    internal const int REV_300_POSTBOX = REV_170_POSTBOX;
+    internal const int REV_300_PHOTO = REV_200_PHOTO;
+    internal const int REV_300_PROFILE = REV_110_PROFILE;
+    internal const int REV_300_WHEREAREN = 0xB8A4E0; // todo?
+
+    public static readonly FileHashInfo REV_300 = new([
+        new(FN_MAIN, REV_300_MAIN, [
+            new(0x000110, 0x1e339c),
+            new(0x1e34b0, 0x36406c),
+            new(0x547630, 0x03693c),
+            new(0x57df70, 0x033acc),
+            new(0x5b1b50, 0x03693c),
+            new(0x5e8490, 0x033acc),
+            new(0x61c070, 0x03693c),
+            new(0x6529b0, 0x033acc),
+            new(0x686590, 0x03693c),
+            new(0x6bced0, 0x033acc),
+            new(0x6f0ab0, 0x03693c),
+            new(0x7273f0, 0x033acc),
+            new(0x75afd0, 0x03693c),
+            new(0x791910, 0x033acc),
+            new(0x7c54f0, 0x03693c),
+            new(0x7fbe30, 0x033acc),
+            new(0x82fa10, 0x03693c),
+            new(0x866350, 0x033acc),
+            new(0x899e20, 0x057d8c)
+        ]),
+        new(FN_PERSONAL, REV_300_PERSONAL, [
+            new(0x00110, 0x3693c),
+            new(0x36a50, 0x33acc)
+        ]),
+        new(FN_POSTBOX, REV_300_POSTBOX, [
+            new(0x100, 0x4732c)
+        ]),
+        new(FN_PHOTO, REV_300_PHOTO, [
+            new(0x100, 0x2f54c)
+        ]),
+        new(FN_PROFILE, REV_300_PROFILE, [
+            new(0x100, 0x6945c)
+        ]),
+        new(FN_WHEREAREN, REV_300_WHEREAREN, [
+            new(0x100, 0xB8A3DC)
+        ])
+    ]);
+
+    #endregion
 }

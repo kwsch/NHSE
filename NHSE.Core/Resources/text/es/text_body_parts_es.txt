@@ -46,52 +46,91 @@
 00742	Color
 00743	Iluminación
 00744	Color
+00765	Color de la maceta
+00766	Color
+00767	Color de la base
+00769	Color
+00770	Color
+00772	Color
+00773	Color
+00776	Color
+00779	Color
+00781	Color del jarrón
 00787	Color
 00796	Color
 00805	Hongo
+00807	Color
 00808	Hongo
+00817	Color
+00822	Color
 00832	Color
 00833	Color
 00839	Color
 00840	Color
+00843	Color
 00849	Color
+00854	Color
+00856	Color
+00858	Variación
+00859	Postes
+00862	Color
 00863	Color del tapete
 00865	Color de la pintura
 00870	Color
 00889	Color del quemador
 00891	Color
 00896	Color
+00904	Color
 00907	Color
 00908	Color
+00912	Color de la rupia
 00915	Color
+00916	Variación
 00918	Diseño
 00922	Color
 00928	Color
 00929	Color
 00941	Color del mueble
+00947	Color de la tinta
 00950	Color
+00952	Color
 00954	Color
 00955	Variación
 00957	Color de las aspas
+00958	Color
 00963	Color
 00967	Color
 00971	Color
+00985	Color
 00987	Color
+00994	Color
 00997	Aroma
 00998	Color
+01015	Color
+01018	Color
 01019	Color
 01029	Color de la madera
 01032	Color
+01035	Color
+01037	Color de la pintura
 01042	Color
 01043	Color
 01050	Variación
 01051	Color
 01058	Color
 01072	Color
+01077	Color
 01081	Color
 01082	Color
 01087	Color
+01088	Color
+01089	Color
+01090	Color
+01091	Color
 01092	Color
+01099	Color
+01101	Color de la estructura
+01102	Color de la estructura
 01103	Color
 01108	Color
 01111	Color
@@ -107,6 +146,7 @@
 01170	Color
 01171	Color
 01177	Color
+01179	Color de la maceta
 01185	Color
 01189	Color
 01199	Color
@@ -121,7 +161,15 @@
 01235	Color
 01241	Color de la pintura
 01243	Variación
+01251	Color
+01253	Color
 01263	Color
+01274	Color
+01275	Color
+01276	Color
+01278	Color
+01279	Color
+01286	Color
 01288	Color de la maceta
 01308	Color
 01314	Color
@@ -1037,6 +1085,7 @@
 13645	Color
 13647	Color
 13649	Color
+13650	Color
 13651	Color
 13655	Marco
 13657	Color del pie

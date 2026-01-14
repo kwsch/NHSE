@@ -185,6 +185,8 @@ public class EventFlagVillagerMemoryPlayer : INamedValue
         {0xA7, new EventFlagVillagerMemoryPlayer(0 , 1  , 167, "WHEREAREN_VisitWherearenWithPlayer"         )}, // OneRoom|おみやげチョコレートを受け取ってウェアラン諸島に行ったことがあるか？
         {0xA8, new EventFlagVillagerMemoryPlayer(0 , 1  , 168, "TalkProgressMuseumBuiltCafe"                )}, // 博物館（カフェ）への拡張に関するFreeH_Progressを聞いたか？
         {0xA9, new EventFlagVillagerMemoryPlayer(0 , 1  , 169, "WHEREAREN_GetChocolate"                     )}, // OneRoom|おみやげチョコレートを受け取ったことがあるか？
+        {0xAA, new EventFlagVillagerMemoryPlayer(0 , 10 , 170, "BromideRewardSkipCount"                     )}, // 報酬としてブロマイドを選ばないようにするカウンタ
+        {0xAB, new EventFlagVillagerMemoryPlayer(0 , 5  , 171, "DownFriendShipCount"                        )}, // 今日強制会話で親密度を下げた回数（Megaphone、Hit、Push）
     };
 
     private const string Unknown = "???";

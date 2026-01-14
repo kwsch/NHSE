@@ -493,6 +493,47 @@ public class EventFlagLand : INamedValue
         {0x21E, new EventFlagLand(0 , 10   , 0542, "GrowHaniwaPieceNum"                         )}, // Tips|ハニワのかけらがハニワに成長した個数
         {0x21F, new EventFlagLand(0 , 1    , 0543, "UnlockSzaResetHouse"                        )}, // しずえ｜NPCの家リセット解禁（家コーデが村の誰かのところで解禁）
         {0x220, new EventFlagLand(0 , 1    , 0544, "RcoTipsDisableNoticeLoginBonus"             )}, // Tips|タヌポートログボ出すの禁止か？（工事当日＆大晦日にON）
+        {0x221, new EventFlagLand(0 , 1    , 0545, "HotelBuilt"                                 )}, // ホテル｜2_建物が建設済み（オープンしてない可能性あり）
+        {0x222, new EventFlagLand(0 , 1    , 0546, "HotelConstruction"                          )}, // ホテル｜0_工事中である
+        {0x223, new EventFlagLand(0 , 1    , 0547, "HotelBuiltDay"                              )}, // ホテル｜1_建物完成当日か
+        {0x224, new EventFlagLand(0 , 1    , 0548, "HotelOpend"                                 )}, // ホテル｜5_オープン済み（１部屋作って来客がいる）
+        {0x225, new EventFlagLand(0 , 1    , 0549, "HotelOpenDay"                               )}, // ホテル｜4_オープン当日か（１部屋目作った日）
+        {0x226, new EventFlagLand(0 , 10000, 0550, "HotelBuiltDaysCount"                        )}, // ホテル｜3_建物完成からの経過日数（初日が１）
+        {0x227, new EventFlagLand(0 , 1    , 0551, "GrowUpAfterPatch3_0"                        )}, // 3.0適用して成長処理をした
+        {0x228, new EventFlagLand(0 , 10000, 0552, "HotelOpenDaysCount"                         )}, // ホテル｜6_オープンしてからの経過日数（初日が１）
+        {0x229, new EventFlagLand(0 , 1    , 0553, "HotelIsCompletedVipEditTutorialAnyone"      )}, // ホテル｜島のだれかがVIP部屋エディットのチュートリアルを完了したか
+        {0x22A, new EventFlagLand(0 , 9999 , 0554, "HotelUnlockItemFromPoint"                   )}, // ホテル｜入手経路解禁実績ポイント
+        {0x22B, new EventFlagLand(0 , 1    , 0555, "HotelIsCompletedEditTutorialAnyone"         )}, // ホテル｜島のだれかが客室エディットのチュートリアルを完了したか
+        {0x22C, new EventFlagLand(0 , 1    , 0556, "ReserveVisitNpcTidy"                        )}, // リセットさん | リセットさんの来訪予約フラグ
+        {0x22D, new EventFlagLand(0 , 1    , 0557, "HotelIsLotItemEditTutorialAfterDay"         )}, // ホテル｜島のだれかが客室エディットをクリアしてから後日、商品抽選をしたか
+        {0x22E, new EventFlagLand(0 , 8    , 0558, "HotelUnlockNormalRoomNumber"                )}, // ホテル | 解禁されている一般客室の番号（4なら4号室まで解禁扱い）
+        {0x22F, new EventFlagLand(0 , 8    , 0559, "HotelUnlockNormalRoomNumberReserve"         )}, // ホテル | 解禁予約する一般客室の番号（4なら日跨ぎ時に4号室まで解禁）
+        {0x230, new EventFlagLand(0 , 1    , 0560, "HotelUnlockVipRoom"                         )}, // ホテル | VIPルームが解禁されているか
+        {0x231, new EventFlagLand(0 , 1    , 0561, "HotelUnlockVipRoomReserve"                  )}, // ホテル | VIPルームが解禁予約（1の時に日跨ぎでVIPルームを解禁）
+        {0x232, new EventFlagLand(0 , 1    , 0562, "TidyingToday"                               )}, // リセットさん | 今日島のだれかがお片付けをしたか
+        {0x233, new EventFlagLand(0 , 3    , 0563, "ReasonForNoRoomNpc"                         )}, // ホテル｜宿無しNPCがホテルの予約をしてない理由 0：未設定　1～3：設定済み
+        {0x234, new EventFlagLand(0 , 1    , 0564, "IsVisitNpcTidyToday"                        )}, // リセットさん | 今日リセットさんが来訪してくるか
+        {0x235, new EventFlagLand(0 , 1    , 0565, "IsCallNpcTidy"                              )}, // リセットさん | リセットさんを呼び出したか
+        {0x236, new EventFlagLand(0 , 1    , 0566, "UnlockCallNpcTidy"                          )}, // リセットさん | リセットさん呼び出し機能が解禁したか
+        {0x237, new EventFlagLand(0 , 32   , 0567, "NpcTidyVisitControlFlags"                   )}, // リセットさん | リセットさん定期来訪制御用フラグ
+        {0x238, new EventFlagLand(0 , 1    , 0568, "HotelMannequinOpen"                         )}, // ホテル | 島の誰かがマネキンチュートリアルをクリアしたか？
+        {0x239, new EventFlagLand(0 , 1    , 0569, "UnlockCallNpcTidyToday"                     )}, // リセットさん|  リセットさん呼び出し機能が解禁の当日か
+        {0x23A, new EventFlagLand(0 , 1    , 0570, "TipsAllHotelRoomCoordinated"                )}, // Tips|ホテル1～8号室全て完成か？
+        {0x23B, new EventFlagLand(0 , 3    , 0571, "NpcTidyVisitType"                           )}, // リセットさん｜来訪タイプ制御用
+        {0x23C, new EventFlagLand(0 , 1    , 0572, "HeardAnnounceHotelConstruction"             )}, // ホテル｜島のだれかがホテル「工事中」の放送を聞いた
+        {0x23D, new EventFlagLand(0 , 1    , 0573, "VineOrFixLadderIsExisted"                   )}, // ツルまたはFIXはしごが設置されている
+        {0x23E, new EventFlagLand(0 , 3    , 0574, "UnlockHotelItemFromLevel"                   )}, // ホテル｜解禁された入手経路の解禁レベル
+        {0x23F, new EventFlagLand(0 , 1    , 0575, "HotelFurnitureIntroductionDoneAnyone"       )}, // ホテル｜島のプレイヤーの誰かがホテルの土産屋初回チュートリアルを受けたか？
+        {0x240, new EventFlagLand(0 , 1    , 0576, "HotelSideTripPlayerTodayAnyone"             )}, // ホテル｜今日、島のプレイヤーの誰かがホテルに訪れたか？
+        {0x241, new EventFlagLand(0 , 1    , 0577, "HotelShopUnlockItemFromOnlyMode"            )}, // ホテル｜土産屋の店頭に解禁した入手経路のみを並べるか？
+        {0x242, new EventFlagLand(0 , 1    , 0578, "HotelShopUnlockNewItemFromNeedLot"          )}, // ホテル｜新しい入手経路を解禁した当日で商品を抽選しなおすか
+        {0x243, new EventFlagLand(0 , 1    , 0579, "HotelIsEditedMannequin0"                    )}, // ホテル｜マネキン0番のコーデを一度でも編集したか
+        {0x244, new EventFlagLand(0 , 1    , 0580, "HotelIsEditedMannequin1"                    )}, // ホテル｜マネキン1番のコーデを一度でも編集したか
+        {0x245, new EventFlagLand(0 , 1    , 0581, "SzaResetSymbolRecently"                     )}, // しずえ｜直前の旗のデザイン変更は「リセット」？
+        {0x246, new EventFlagLand(0 , 4    , 0582, "SzaResetTownTuneRecentlyNo"                 )}, // しずえ｜直前の島メロ「リセット」の曲　0なし、1～4初期パターンのいずれか
+        {0x247, new EventFlagLand(0 , 1    , 0583, "SzaSetTownTuneOriginalRecently"             )}, // しずえ｜直前の島メロ変更がオリジナル曲の提案か？（v3.0.0以降）
+        {0x248, new EventFlagLand(0 , 1    , 0584, "HotelIsFullAllRoomWithVisitor"              )}, // ホテル｜全部屋完成後宿泊客で満室になったかどうか
+        {0x249, new EventFlagLand(0 , 1    , 0585, "HotelShopOpen"                              )}, // ホテル | 島の誰かがみやげやのチュートリアルをクリアしたか？
     };
 
     private const string Unknown = "???";

@@ -35,6 +35,7 @@ brd15	까아악
 brd16	체키라웃
 brd17	츠츠츠
 brd18	섭섭
+brd20	바람을
 bul00	후후
 bul01	디용
 bul03	알것소
@@ -114,6 +115,7 @@ der08	라니까
 der09	뚜비뚜바
 der10	하트하트
 der11	아무튼
+der12	골렘
 dog00	왈왈
 dog01	아니
 dog02	그렇대
@@ -392,6 +394,8 @@ squ15	도톨도톨
 squ16	땡글땡글
 squ17	어차피
 squ18	알아알아
+squ19	아이가
+squ20	이니라
 squ21	빤짝
 tig00	근데
 tig01	내참

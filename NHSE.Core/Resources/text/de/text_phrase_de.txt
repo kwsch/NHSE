@@ -35,6 +35,7 @@ brd15	mauser
 brd16	piepiep
 brd17	flatter
 brd18	birtz
+brd20	wind
 bul00	brrruzzl
 bul01	oléolé
 bul03	muhuhu
@@ -114,6 +115,7 @@ der08	kitz
 der09	hirschl
 der10	denkpink
 der11	okido
+der12	konstrukt
 dog00	wuff
 dog01	GRRUFF
 dog02	rrr-awau
@@ -392,6 +394,8 @@ squ15	nussi
 squ16	hoppi
 squ17	huschhusch
 squ18	kekeke
+squ19	beute
+squ20	surimi
 squ21	knibbi
 tig00	brüll
 tig01	mango

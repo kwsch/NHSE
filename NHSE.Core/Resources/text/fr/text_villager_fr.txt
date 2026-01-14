@@ -35,6 +35,7 @@ brd15	Condor
 brd16	Jacky
 brd17	Pec
 brd18	Darius
+brd20	Babil
 bul00	Angus
 bul01	Flèche
 bul03	Beubeu
@@ -114,6 +115,7 @@ der08	Didi
 der09	Abraham
 der10	Chelsea
 der11	Shino
+der12	Mineru
 dog00	Mirza
 dog01	Avril
 dog02	Ramsès
@@ -392,6 +394,8 @@ squ15	Irène
 squ16	Roy
 squ17	Mathéo
 squ18	Pamela
+squ19	Kala
+squ20	Mara
 squ21	Terra
 tig00	Ralf
 tig01	Marito
@@ -437,9 +441,13 @@ hgc	Tiquette
 hgh	Layette
 hgs	Cousette
 kpg	Mamiral
+kpgB	Mamiral
 kpm	Liliane
+kpmB	Liliane
 kpp	Amiral
+kppB	Amiral
 kps	Lila
+kpsB	Lila
 lom	Cathie
 man	Mantin
 mka	Blanca

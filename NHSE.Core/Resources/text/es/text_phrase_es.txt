@@ -35,6 +35,7 @@ brd15	picopico
 brd16	chapó
 brd17	muy fuerte
 brd18	gorrión
+brd20	viento
 bul00	cuernos
 bul01	olé
 bul03	olé y olé
@@ -114,6 +115,7 @@ der08	braaavo
 der09	ñume-ñume
 der10	melomelo
 der11	oni
+der12	gólem
 dog00	guau-guau
 dog01	gruf-gruf
 dog02	guuuuAY
@@ -392,6 +394,8 @@ squ15	albricias
 squ16	zasca
 squ17	tecuén
 squ18	castaña
+squ19	cosmegan
+squ20	cosangie
 squ21	destello
 tig00	grooorf
 tig01	turista

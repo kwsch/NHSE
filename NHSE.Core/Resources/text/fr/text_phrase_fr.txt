@@ -35,6 +35,7 @@ brd15	yaaaah
 brd16	ploc ploc
 brd17	poupousse
 brd18	piaaaaf
+brd20	rafale
 bul00	meuh meuh
 bul01	crac
 bul03	meuh quoi
@@ -114,6 +115,7 @@ der08	bichouchou
 der09	breuh
 der10	bibiche
 der11	bramaka
+der12	golem
 dog00	ouaf
 dog01	WROOOOUF
 dog02	graaaouch
@@ -392,6 +394,8 @@ squ15	scratchy
 squ16	toutouffe
 squ17	nanache
 squ18	tac tac
+squ19	requinou
+squ20	murmurène
 squ21	albedou
 tig00	grrrufff
 tig01	banane

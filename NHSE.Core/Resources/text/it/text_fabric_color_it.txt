@@ -10,11 +10,48 @@
 00725_2	Estate
 00725_3	Autunno
 00725_4	Inverno
+00767_0	Blu
+00767_1	Verde
+00767_2	Rosa
+00767_3	Arancio
+00767_4	Rosso
+00767_5	Giallo
+00767_6	Bianco
+00767_7	Menta
+00769_0	Cucina
+00769_1	Manuali
+00769_2	Musica
+00769_3	Turismo
+00769_4	Sport
+00769_5	Per bambini
+00769_6	Automobili
+00769_7	Viaggi
 00833_0	Nessun adesivo
 00833_1	Spavaldo
 00833_2	Grazioso
 00833_3	Pop
 00833_4	Messaggi
+00854_0	Blu
+00854_1	Verde
+00854_2	Rosa
+00854_3	Arancio
+00854_4	Rosso
+00854_5	Giallo
+00854_6	Bianco
+00854_7	Nero
+00856_0	Verde
+00856_1	Giallo
+00856_2	Rosa
+00856_3	Beige
+00856_4	Blu
+00859_0	Pop
+00859_1	Fiaba
+00859_2	Brioso
+00859_3	Pastello
+00859_4	Rosso
+00859_5	Blu
+00859_6	Giallo
+00859_7	Verde
 00922_0	Nessuno
 00922_1	Blu
 00922_2	Bianco
@@ -39,6 +76,21 @@
 00950_5	Foglietto di carta
 00950_6	Pop
 00950_7	Grazioso
+00952_0	Pop
+00952_1	Urbano
+00952_2	Sogno
+00952_3	Vintage
+00952_4	Pericolo
+00952_5	Alternativo
+00959_0	Fiori
+00959_1	Forbice
+00959_2	Mantaleo
+00960_0	Pesci
+00960_1	Carta
+00960_2	Morena
+00961_0	Insetti
+00961_1	Sasso
+00961_2	Pinnuccia
 01029_0	Semplice
 01029_1	Primavera
 01029_2	Estate
@@ -51,6 +103,31 @@
 01032_4	Fumetti
 01032_5	Per bambini
 01032_6	Settimanale
+01035_0	Arredamento
+01035_1	Sport
+01035_2	Moda
+01035_3	Animali domestici
+01035_4	Viaggi
+01035_5	Fumetti
+01035_6	Per giovani
+01037_0	Bianco
+01037_1	Arancione
+01037_2	Verde scuro
+01037_3	Nero
+01037_4	Blu scuro
+01037_5	Rosso bordeaux
+01101_0	Bianco
+01101_1	Arancione
+01101_2	Verde scuro
+01101_3	Nero
+01101_4	Blu scuro
+01101_5	Rosso bordeaux
+01102_0	Bianco
+01102_1	Arancione
+01102_2	Verde scuro
+01102_3	Nero
+01102_4	Blu scuro
+01102_5	Rosso bordeaux
 01133_0	Blu
 01133_1	Rosso
 01133_2	Giallo
@@ -64,6 +141,16 @@
 01235_2	Poster di assunzione
 01235_3	Poster di viaggio
 01235_4	Scarabocchi e adesivi
+01262_0	Bianco
+01262_1	Marrone
+01262_2	Giallo
+01262_3	Arancio
+01262_4	Blu
+01262_5	Rosa
+01262_6	Verde
+01262_7	Nero
+01276_0	LEGO
+01276_1	Vita selvaggia
 01499_0	Nulla
 01499_1	Rosso
 01499_2	Blu
@@ -1251,6 +1338,14 @@
 13647_4	Annuncio
 13647_5	Cartello rétro
 13647_6	Regole sulla raccolta rifiuti
+13650_0	Nessun adesivo
+13650_1	Viaggio
+13650_2	Rock
+13650_3	Logo
+13650_4	Spedizione
+13650_5	Floreali
+13650_6	Bimbi
+13650_7	Pop
 13651_0	Calligrafia
 13651_1	Montagna
 13651_2	Drago

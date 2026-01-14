@@ -10,11 +10,48 @@
 00725_2	Verano
 00725_3	Otoño
 00725_4	Invierno
+00767_0	Azul
+00767_1	Verde
+00767_2	Rosa
+00767_3	Naranja
+00767_4	Rojo
+00767_5	Amarillo
+00767_6	Blanco
+00767_7	Menta
+00769_0	Recetas
+00769_1	Ciencias
+00769_2	Música
+00769_3	Guías hoteleras
+00769_4	Deportes
+00769_5	Cómics
+00769_6	Motor
+00769_7	Viajes
 00833_0	Ninguna
 00833_1	Moderna
 00833_2	Adorable
 00833_3	Pop
 00833_4	Notas
+00854_0	Azul
+00854_1	Verde
+00854_2	Rosa
+00854_3	Naranja
+00854_4	Rojo
+00854_5	Amarillo
+00854_6	Blanco
+00854_7	Negro
+00856_0	Verde
+00856_1	Amarillo
+00856_2	Rosa
+00856_3	Beis
+00856_4	Azul
+00859_0	Pop
+00859_1	Cuento de hadas
+00859_2	Alegre
+00859_3	Tonos pastel
+00859_4	Rojo
+00859_5	Azul
+00859_6	Amarillo
+00859_7	Verde
 00922_0	Sin logo
 00922_1	Logo azul
 00922_2	Logo blanco
@@ -39,6 +76,21 @@
 00950_5	Firma
 00950_6	Pop
 00950_7	Adorable
+00952_0	Pop
+00952_1	Urbano
+00952_2	Fantasía
+00952_3	Retro
+00952_4	Acceso prohibido
+00952_5	Alternativo
+00959_0	Flores
+00959_1	Tijeras
+00959_2	Rayan
+00960_0	Peces
+00960_1	Papel
+00960_2	Angie
+00961_0	Bichos
+00961_1	Piedra
+00961_2	Megan
 01029_0	Sencillo
 01029_1	Primavera
 01029_2	Verano
@@ -51,6 +103,31 @@
 01032_4	Cómics
 01032_5	Infantiles
 01032_6	Actualidad
+01035_0	Diseño
+01035_1	Deportes
+01035_2	Moda
+01035_3	Mascotas
+01035_4	Viajes
+01035_5	Cómics
+01035_6	Belleza
+01037_0	Blanco
+01037_1	Naranja
+01037_2	Verde
+01037_3	Negro
+01037_4	Azul oscuro
+01037_5	Marrón
+01101_0	Blanco
+01101_1	Naranja
+01101_2	Verde
+01101_3	Negro
+01101_4	Azul oscuro
+01101_5	Marrón
+01102_0	Blanco
+01102_1	Naranja
+01102_2	Verde
+01102_3	Negro
+01102_4	Azul oscuro
+01102_5	Marrón
 01133_0	Azul
 01133_1	Rojo
 01133_2	Amarillo
@@ -64,6 +141,16 @@
 01235_2	Oferta de trabajo
 01235_3	Folleto agencia de viajes
 01235_4	Pegatinas y grafiti
+01262_0	Blanco
+01262_1	Marrón
+01262_2	Amarillo
+01262_3	Naranja
+01262_4	Azul
+01262_5	Rosa
+01262_6	Verde
+01262_7	Negro
+01276_0	Logotipo LEGO
+01276_1	Forestal y tal
 01499_0	Ninguno
 01499_1	Rojo
 01499_2	Azul
@@ -1251,6 +1338,14 @@
 13647_4	Publicidad institucional
 13647_5	Anuncio antiguo
 13647_6	Recogida de basuras
+13650_0	Ninguna
+13650_1	Viajes
+13650_2	Roqueras
+13650_3	Logotipo
+13650_4	Aduanas
+13650_5	Florales
+13650_6	Infantiles
+13650_7	Fantasía
 13651_0	Caligrafía
 13651_1	Monte
 13651_2	Dragón

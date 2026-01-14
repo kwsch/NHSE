@@ -10,11 +10,48 @@
 00725_2	Summer
 00725_3	Fall
 00725_4	Winter
+00767_0	Blue
+00767_1	Green
+00767_2	Pink
+00767_3	Orange
+00767_4	Red
+00767_5	Yellow
+00767_6	White
+00767_7	Mint
+00769_0	Food
+00769_1	Field guide
+00769_2	Music
+00769_3	Resort
+00769_4	Sports
+00769_5	Children's magazine
+00769_6	Cars
+00769_7	Travel
 00833_0	None
 00833_1	Cool
 00833_2	Cute
 00833_3	Pop
 00833_4	Notes
+00854_0	Blue
+00854_1	Green
+00854_2	Pink
+00854_3	Orange
+00854_4	Red
+00854_5	Yellow
+00854_6	White
+00854_7	Black
+00856_0	Green
+00856_1	Yellow
+00856_2	Pink
+00856_3	Beige
+00856_4	Blue
+00859_0	Pop
+00859_1	Fairy tale
+00859_2	Vivid
+00859_3	Pastel
+00859_4	Red
+00859_5	Blue
+00859_6	Yellow
+00859_7	Green
 00922_0	None
 00922_1	Blue logo
 00922_2	White logo
@@ -39,6 +76,21 @@
 00950_5	Handwritten logo
 00950_6	Pop logo
 00950_7	Cute logo
+00952_0	Pop
+00952_1	Street
+00952_2	Dream
+00952_3	Retro
+00952_4	Dangerous
+00952_5	Underground
+00959_0	Flowers
+00959_1	Scissors
+00959_2	Big Man
+00960_0	Fish
+00960_1	Paper
+00960_2	Frye
+00961_0	Bugs
+00961_1	Rock
+00961_2	Shiver
 01029_0	Plain
 01029_1	Spring
 01029_2	Summer
@@ -51,6 +103,31 @@
 01032_4	Comics
 01032_5	Kids
 01032_6	Weekly news
+01035_0	Design magazine
+01035_1	Sports magazine
+01035_2	Fashion magazine
+01035_3	Pet magazine
+01035_4	Travel guide
+01035_5	Comic magazine
+01035_6	Teen magazine
+01037_0	White
+01037_1	Orange
+01037_2	Deep green
+01037_3	Black
+01037_4	Dark blue
+01037_5	Azuki red
+01101_0	White
+01101_1	Orange
+01101_2	Deep green
+01101_3	Black
+01101_4	Dark blue
+01101_5	Azuki red
+01102_0	White
+01102_1	Orange
+01102_2	Deep green
+01102_3	Black
+01102_4	Dark blue
+01102_5	Azuki red
 01133_0	Blue
 01133_1	Red
 01133_2	Yellow
@@ -64,6 +141,16 @@
 01235_2	Recruitment flier
 01235_3	Travel flier
 01235_4	Graffiti & stickers
+01262_0	White
+01262_1	Brown
+01262_2	Yellow
+01262_3	Orange
+01262_4	Blue
+01262_5	Pink
+01262_6	Green
+01262_7	Black
+01276_0	LEGO
+01276_1	Forest Life
 01499_0	None
 01499_1	Red
 01499_2	Blue
@@ -1251,6 +1338,14 @@
 13647_4	PR poster
 13647_5	Vintage sign
 13647_6	Trash-collection rules
+13650_0	None
+13650_1	Travel
+13650_2	Rock 'n' roll
+13650_3	Logo
+13650_4	Shipping
+13650_5	Flowers
+13650_6	Kiddie
+13650_7	Pop
 13651_0	Calligraphy
 13651_1	Mountain
 13651_2	Dragon

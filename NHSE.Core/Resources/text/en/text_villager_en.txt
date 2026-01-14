@@ -35,6 +35,7 @@ brd15	Lucha
 brd16	Jacques
 brd17	Peck
 brd18	Sparro
+brd20	Tulin
 bul00	Angus
 bul01	Rodeo
 bul03	Stu
@@ -114,6 +115,7 @@ der08	Diana
 der09	Erik
 der10	Chelsea
 der11	Shino
+der12	Mineru
 dog00	Goldie
 dog01	Butch
 dog02	Lucky
@@ -392,6 +394,8 @@ squ15	Poppy
 squ16	Sheldon
 squ17	Marshal
 squ18	Hazel
+squ19	Cece
+squ20	Viché
 squ21	Ione
 tig00	Rolf
 tig01	Rowan
@@ -437,9 +441,13 @@ hgc	Label
 hgh	Mabel
 hgs	Sable
 kpg	Grams
+kpgB	Grams
 kpm	Leilani
+kpmB	Leilani
 kpp	Kapp'n
+kppB	Kapp'n
 kps	Leila
+kpsB	Leila
 lom	Katie
 man	Wardell
 mka	Blanca

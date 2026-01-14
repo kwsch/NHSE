@@ -1,14 +1,29 @@
 00079	Blanket
 00725	Paper
+00767	Lampshade
+00769	Feature
 00833	Sticker area
+00854	Book cover
+00856	Napkin
+00859	Lanterns
 00922	Logo
 00941	Flag
 00950	Sticker area
+00952	Sticker area
+00959	Team
+00960	Team
+00961	Team
 01029	Screen
 01032	Magazine
+01035	Magazine
+01037	Seat
+01101	Bedding
+01102	Screen
 01133	Handle color
 01222	Video
 01235	Side/Back
+01262	Color
+01276	Panel
 01499	Ribbon
 01500	Shirt
 01501	Shirt
@@ -209,6 +224,7 @@
 13639	Panel
 13640	Display
 13647	Sign
+13650	Sticker area
 13651	Hanging scroll
 13652	Variation
 13655	Variation

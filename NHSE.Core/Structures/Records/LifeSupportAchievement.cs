@@ -189,6 +189,9 @@ public class LifeSupportAchievement : INamedValue
         {0x6B, new(107, 5, 0005, 0030, 0100, 0300, 0500,  -1,  -1, "CookFood"                    )}, // 料理した回数
         {0x6C, new(108, 5, 0005, 0010, 0020, 0030, 0050,  -1,  -1, "DrinkCoffee"                 )}, // 喫茶店でコーヒーを飲んだ回数
         {0x6D, new(109, 5, 0003, 0010, 0020, 0030, 0050,  -1,  -1, "JoinRadioGymnastics"         )}, // ラジオ体操した回数
+        {0x6E, new(110, 5, 0005, 0050, 0150, 0300, 0500,  -1, 1794, "DIYTrade"                   )}, // DIYトレードをした
+        {0x6F, new(111, 3, 0001, 0005, 0010, 0000, 0000,  -1,  -1, "GuideNoRoomNPC"              )}, // 宿無しNPCをホテルに導いた
+        {0x70, new(112, 3, 0001, 0005, 0020, 0000, 0000,  -1,  -1, "CoordinateHotelRoom"         )}, // ホテルの客室コーディネートをした
     };
 
     public static string GetName(int index, uint count, IReadOnlyDictionary<string, string> str)

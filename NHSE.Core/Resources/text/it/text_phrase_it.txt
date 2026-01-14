@@ -35,6 +35,7 @@ brd15	lorito
 brd16	pio pio
 brd17	sprint
 brd18	adiós
+brd20	folata
 bul00	macmoo
 bul01	oléolé
 bul03	ciaumù
@@ -114,6 +115,7 @@ der08	mamy
 der09	relax
 der10	melodì
 der11	bramì
+der12	golem
 dog00	wuf wuf
 dog01	ROOOOOF
 dog02	ossorrr
@@ -392,6 +394,8 @@ squ15	squittole
 squ16	flash
 squ17	ardillà
 squ18	blink
+squ19	sec-sec-sec-sec
+squ20	in playback
 squ21	brillbrill
 tig00	grrrolf
 tig01	mango

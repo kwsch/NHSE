@@ -82,6 +82,10 @@ public class EventFlagVillager : INamedValue
         {0x04A, new EventFlagVillager(0 , 3   , 0074, "ReserveDIYStatus"                           )}, // 家コーディネートの作業台の状態予約
         {0x04B, new EventFlagVillager(0 , 3   , 0075, "AudioShuffleState"                          )}, // 編集された部屋のオーディオのシャッフル設定
         {0x04C, new EventFlagVillager(0 , 3   , 0076, "IslandKitchenStandPos"                      )}, // 調理行動時アイランドキッチンの正面側に立つか
+        {0x04D, new EventFlagVillager(0 , 1   , 0077, "WeddingDishEventSet"                        )}, // 「リサとカイゾーのえざら」がイベント用処理として配置中か
+        {0x04E, new EventFlagVillager(0 , 10  , 0078, "RoseBouquetEventSet"                        )}, // 「ハートのバラブーケ」がイベント用処理として配置中か
+        {0x04F, new EventFlagVillager(0 , 1   , 0079, "MarketBuildingSupportToday"                 )}, // 今日お店の資材集め応援会話発生したか？
+        {0x050, new EventFlagVillager(0 , 1   , 0080, "MileTourTicketSupport"                      )}, // ツアーのヒント会話が発生したか？
     };
 
     private const string Unknown = "???";

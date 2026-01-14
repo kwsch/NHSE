@@ -46,52 +46,91 @@
 00742	Colore
 00743	Illuminazione
 00744	Colore
+00765	Colore del vaso
+00766	Colore
+00767	Colore della base
+00769	Colore
+00770	Colore
+00772	Colore
+00773	Colore
+00776	Colore
+00779	Colore
+00781	Colore del vaso
 00787	Colore
 00796	Colore
 00805	Tipo di fungo
+00807	Colore
 00808	Tipo di fungo
+00817	Colore
+00822	Colore
 00832	Colore
 00833	Colore
 00839	Colore
 00840	Colore
+00843	Colore
 00849	Colore
+00854	Colore
+00856	Colore
+00858	Variazione
+00859	Aste
+00862	Colore
 00863	Colore del panno
 00865	Modello
 00870	Colore
 00889	Colore del fornello
 00891	Colore
 00896	Colore
+00904	Colore
 00907	Colore
 00908	Colore
+00912	Colore della rupia
 00915	Colore
+00916	Variazione
 00918	Design
 00922	Colore
 00928	Colore
 00929	Colore
 00941	Modello
+00947	Colore dell'inchiostro
 00950	Colore
+00952	Colore
 00954	Colore
 00955	Variazione
 00957	Colore delle pale
+00958	Colore
 00963	Colore
 00967	Colore
 00971	Colore
+00985	Colore
 00987	Colore
+00994	Colore
 00997	Tipo
 00998	Modello
+01015	Colore
+01018	Colore
 01019	Colore
 01029	Modello
 01032	Colore
+01035	Colore
+01037	Struttura
 01042	Colore
 01043	Colore
 01050	Variazione
 01051	Colore
 01058	Colore
 01072	Colore
+01077	Colore
 01081	Colore
 01082	Colore
 01087	Colore
+01088	Colore
+01089	Colore
+01090	Colore
+01091	Colore
 01092	Colore
+01099	Colore
+01101	Struttura
+01102	Struttura
 01103	Colore
 01108	Colore
 01111	Colore
@@ -107,6 +146,7 @@
 01170	Colore
 01171	Colore
 01177	Colore
+01179	Colore del vaso
 01185	Colore
 01189	Colore
 01199	Colore
@@ -121,7 +161,15 @@
 01235	Colore
 01241	Modello
 01243	Variazione
+01251	Colore
+01253	Colore
 01263	Colore
+01274	Colore
+01275	Colore
+01276	Colore
+01278	Colore
+01279	Colore
+01286	Colore
 01288	Colore del vaso
 01308	Colore
 01314	Colore
@@ -1037,6 +1085,7 @@
 13645	Colore
 13647	Colore
 13649	Colore
+13650	Colore
 13651	Colore
 13655	Colore della cornice
 13657	Colore della base

@@ -95,11 +95,16 @@ public static class GameLists
         03487, // rosalia batesi beetle
         03539, // snowflake
         03540, // large snowflake
+     // 03541, // red feather
+     // 03542, // blue feather
+     // 03543, // green feather
+     // 03545, // purple feather
+     // 03548, // rainbow feather
         04702, // Wisp spirit piece
         05157, // giant water bug
         05339, // damselfly
         05859, // cherry-blossom petal
-        07374 // maple leaf
+        07374, // maple leaf
     ];
 
     public static ReadOnlySpan<ushort> Fish =>
@@ -188,7 +193,7 @@ public static class GameLists
         04203, // suckerfish
         04204, // barreleye
         05254, // ranchu goldfish
-        12514 // water egg
+        12514, // water egg
     ];
 
     public static ReadOnlySpan<ushort> Fossils =>
@@ -265,7 +270,7 @@ public static class GameLists
         04697, // quetzal torso
         04698, // right quetzal wing
         04699, // left quetzal wing
-        07251 // diplo tail tip
+        07251, // diplo tail tip
     ];
 
     public static ReadOnlySpan<ushort> Art =>
@@ -383,7 +388,9 @@ public static class GameLists
         07303, // sea pig
         07308, // Dungeness crab
         07318, // Venus' flower basket
-        07411 // mussel
+        07411, // mussel
+        12968, // pearl
+        13105, // communicator
     ];
 
     public static ReadOnlySpan<ushort> Shells =>

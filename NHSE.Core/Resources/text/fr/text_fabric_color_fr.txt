@@ -10,11 +10,48 @@
 00725_2	Été
 00725_3	Automne
 00725_4	Hiver
+00767_0	Bleu
+00767_1	Vert
+00767_2	Rose
+00767_3	Orange
+00767_4	Rouge
+00767_5	Jaune
+00767_6	Blanc
+00767_7	Menthe
+00769_0	Cuisine
+00769_1	Nature
+00769_2	Musique
+00769_3	Tourisme
+00769_4	Sport
+00769_5	Enfants
+00769_6	Automobile
+00769_7	Voyage
 00833_0	Sans
 00833_1	Cool
 00833_2	Mignons
 00833_3	Pop
 00833_4	Pense-bêtes
+00854_0	Bleu
+00854_1	Vert
+00854_2	Rose
+00854_3	Orange
+00854_4	Rouge
+00854_5	Jaune
+00854_6	Blanc
+00854_7	Noir
+00856_0	Vert
+00856_1	Jaune
+00856_2	Rose
+00856_3	Beige
+00856_4	Bleu
+00859_0	Pop
+00859_1	Conte de fées
+00859_2	Pop
+00859_3	Pastel
+00859_4	Rouge
+00859_5	Bleu
+00859_6	Jaune
+00859_7	Vert
 00922_0	Basique
 00922_1	Logo bleu
 00922_2	Logo blanc
@@ -39,6 +76,21 @@
 00950_5	Signature
 00950_6	Pop
 00950_7	Mignon
+00952_0	Pop
+00952_1	Urbain
+00952_2	Songe
+00952_3	Rétro
+00952_4	Danger
+00952_5	Alternatif
+00959_0	Fleurs
+00959_1	Ciseaux
+00959_2	Raimi
+00960_0	Poissons
+00960_1	Feuille
+00960_2	Angie
+00961_0	Insectes
+00961_1	Pierre
+00961_2	Pasquale
 01029_0	Uni
 01029_1	Printemps
 01029_2	Été
@@ -51,6 +103,31 @@
 01032_4	People
 01032_5	Enfants
 01032_6	Actualité
+01035_0	Déco
+01035_1	Sport
+01035_2	Mode
+01035_3	Animaux
+01035_4	Voyage
+01035_5	Bédés
+01035_6	Jeunesse
+01037_0	Blanc
+01037_1	Orange
+01037_2	Vert bouteille
+01037_3	Noir
+01037_4	Bleu foncé
+01037_5	Rouge bordeaux
+01101_0	Blanc
+01101_1	Orange
+01101_2	Vert bouteille
+01101_3	Noir
+01101_4	Bleu foncé
+01101_5	Rouge bordeaux
+01102_0	Blanc
+01102_1	Orange
+01102_2	Vert bouteille
+01102_3	Noir
+01102_4	Bleu foncé
+01102_5	Rouge bordeaux
 01133_0	Bleu
 01133_1	Rouge
 01133_2	Jaune
@@ -64,6 +141,16 @@
 01235_2	Affiche de recrutement
 01235_3	Affiche de voyage
 01235_4	Graffitis et autocollants
+01262_0	Blanc
+01262_1	Brun
+01262_2	Jaune
+01262_3	Orange
+01262_4	Bleu
+01262_5	Rose
+01262_6	Vert
+01262_7	Noir
+01276_0	LEGO
+01276_1	Vie de forêt
 01499_0	Sans
 01499_1	Rouge
 01499_2	Bleu
@@ -1251,6 +1338,14 @@
 13647_4	Affiche relations publiques
 13647_5	Rétro
 13647_6	Collecte des déchets
+13650_0	Sans
+13650_1	Voyage
+13650_2	Rock
+13650_3	Logo
+13650_4	Douanes
+13650_5	Fleurs
+13650_6	Enfantin
+13650_7	Fantaisie
 13651_0	Calligraphie
 13651_1	Montagne
 13651_2	Dragon

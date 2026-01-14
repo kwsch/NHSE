@@ -35,6 +35,7 @@ brd15	摔角鸦
 brd16	赵奇
 brd17	文雄
 brd18	周之翔
+brd20	丘栗
 bul00	施万德
 bul01	罗迪欧
 bul03	毛乐时
@@ -114,6 +115,7 @@ der08	倪家莉
 der09	查克
 der10	雀儿喜
 der11	佳芝
+der12	米涅鲁
 dog00	牛奶糖
 dog01	约翰
 dog02	大吉
@@ -392,6 +394,8 @@ squ15	软糖
 squ16	克栗斯
 squ17	小润
 squ18	艾栗丝
+squ19	霓莎
+squ20	弥莎
 squ21	穗星
 tig00	朱穆朗
 tig01	戈麦斯
@@ -437,9 +441,13 @@ hgc	绵儿
 hgh	绢儿
 hgs	麻儿
 kpg	阿玉婆婆
+kpgB	阿玉婆婆
 kpm	沽玉
+kpmB	沽玉
 kpp	航平
+kppB	航平
 kps	沽沽
+kpsB	沽沽
 lom	咪露
 man	纳提
 mka	无脸猫

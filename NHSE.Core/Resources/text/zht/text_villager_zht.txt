@@ -35,6 +35,7 @@ brd15	摔角鴉
 brd16	趙奇
 brd17	文雄
 brd18	周之翔
+brd20	丘栗
 bul00	施萬德
 bul01	羅迪歐
 bul03	毛樂時
@@ -114,6 +115,7 @@ der08	倪家莉
 der09	查克
 der10	雀兒喜
 der11	佳芝
+der12	米涅魯
 dog00	牛奶糖
 dog01	約翰
 dog02	大吉
@@ -392,6 +394,8 @@ squ15	軟糖
 squ16	克栗斯
 squ17	小潤
 squ18	艾栗絲
+squ19	霓莎
+squ20	瀰莎
 squ21	穗星
 tig00	朱穆朗
 tig01	戈麥斯
@@ -437,9 +441,13 @@ hgc	綿兒
 hgh	絹兒
 hgs	麻兒
 kpg	阿玉婆婆
+kpgB	阿玉婆婆
 kpm	沽玉
+kpmB	沽玉
 kpp	航平
+kppB	航平
 kps	沽沽
+kpsB	沽沽
 lom	咪露
 man	納提
 mka	無臉貓

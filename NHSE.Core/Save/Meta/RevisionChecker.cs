@@ -26,7 +26,8 @@ public static class RevisionChecker
         new(REV_190_MAIN, REV_190_PERSONAL, REV_190_PHOTO, REV_190_POSTBOX, REV_190_PROFILE), // 1.9.0
         new(REV_1100_MAIN,REV_1100_PERSONAL,REV_1100_PHOTO,REV_1100_POSTBOX,REV_1100_PROFILE),// 1.10.0
         new(REV_1110_MAIN,REV_1110_PERSONAL,REV_1110_PHOTO,REV_1110_POSTBOX,REV_1110_PROFILE),// 1.11.0
-        new(REV_200_MAIN, REV_200_PERSONAL, REV_200_PHOTO, REV_200_POSTBOX, REV_200_PROFILE, REV_200_WHEREAREN) // 2.0.0
+        new(REV_200_MAIN, REV_200_PERSONAL, REV_200_PHOTO, REV_200_POSTBOX, REV_200_PROFILE, REV_200_WHEREAREN), // 2.0.0
+        new(REV_300_MAIN, REV_300_PERSONAL, REV_300_PHOTO, REV_300_POSTBOX, REV_300_PROFILE, REV_300_WHEREAREN), // 3.0.0
     ];
 
     private static readonly FileHeaderInfo[] RevisionInfo =
@@ -61,7 +62,8 @@ public static class RevisionChecker
         new() { Major = 0x80009, Minor = 0x80085, HeaderRevision = 0, Unk1 = 2, SaveRevision = 27, Unk2 = 2 }, // 2.0.5
         new() { Major = 0x80009, Minor = 0x80085, HeaderRevision = 0, Unk1 = 2, SaveRevision = 28, Unk2 = 2 }, // 2.0.6
         new() { Major = 0x80009, Minor = 0x80085, HeaderRevision = 0, Unk1 = 2, SaveRevision = 29, Unk2 = 2 }, // 2.0.7
-        new() { Major = 0x80009, Minor = 0x80085, HeaderRevision = 0, Unk1 = 2, SaveRevision = 30, Unk2 = 2 } // 2.0.8
+        new() { Major = 0x80009, Minor = 0x80085, HeaderRevision = 0, Unk1 = 2, SaveRevision = 30, Unk2 = 2 }, // 2.0.8
+        new() { Major = 0xA0002, Minor = 0xA0028, HeaderRevision = 0, Unk1 = 2, SaveRevision = 31, Unk2 = 2 }, // 2.0.8
     ];
 
     public static readonly IReadOnlyList<SaveFileSizes> SizeInfo =
@@ -96,7 +98,8 @@ public static class RevisionChecker
         SizesByRevision[12], // 2.0.5
         SizesByRevision[12], // 2.0.6
         SizesByRevision[12], // 2.0.7
-        SizesByRevision[12] // 2.0.8
+        SizesByRevision[12], // 2.0.8
+        SizesByRevision[13], // 3.0.0
     ];
 
     public static readonly IReadOnlyList<FileHashInfo> HashInfo =
@@ -131,7 +134,8 @@ public static class RevisionChecker
         REV_200, // 2.0.5
         REV_200, // 2.0.6
         REV_200, // 2.0.7
-        REV_200 // 2.0.8
+        REV_200, // 2.0.8
+        REV_300, // 2.0.8
     ];
 
     extension(FileHeaderInfo info)

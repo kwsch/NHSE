@@ -35,6 +35,7 @@ brd15	マスカラス
 brd16	ジョッキー
 brd17	ふみたろう
 brd18	ちゅんのすけ
+brd20	チューリ
 bul00	セルバンテス
 bul01	ロデオ
 bul03	モーリス
@@ -114,6 +115,7 @@ der08	ナタリー
 der09	チャック
 der10	チェルシー
 der11	よしの
+der12	ミネル
 dog00	キャラメル
 dog01	ジョン
 dog02	ラッキー
@@ -392,6 +394,8 @@ squ15	グミ
 squ16	クリス
 squ17	ジュン
 squ18	アイリス
+squ19	なぎさ
+squ20	みさき
 squ21	スピカ
 tig00	チョモラン
 tig01	ゴメス
@@ -437,9 +441,13 @@ hgc	ことの
 hgh	きぬよ
 hgs	あさみ
 kpg	ゲコ
+kpgB	ゲコ
 kpm	クーコ
+kpmB	クーコ
 kpp	かっぺい
+kppB	かっぺい
 kps	クク
+kpsB	クク
 lom	まいこちゃん
 man	ナッティー
 mka	あやしいネコ

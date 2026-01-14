@@ -35,6 +35,7 @@ brd15	嘎
 brd16	唷唷唷
 brd17	噗噗
 brd18	啁啁
+brd20	吹风
 bul00	呼呼
 bul01	了不起
 bul03	奔驰
@@ -114,6 +115,7 @@ der08	是吧
 der09	鹿鹿
 der10	喜喜
 der11	总芝
+der12	魔像
 dog00	汪
 dog01	侬
 dog02	大概
@@ -392,6 +394,8 @@ squ15	甜甜
 squ16	鼓栗鼓栗
 squ17	不管怎样
 squ18	当然哦
+squ19	就鲨这样
+squ20	鳗好的
 squ21	亮晶晶
 tig00	王
 tig01	完全

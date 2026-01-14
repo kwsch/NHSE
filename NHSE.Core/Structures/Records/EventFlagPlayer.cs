@@ -497,14 +497,14 @@ public class EventFlagPlayer : INamedValue
         {0x262, new EventFlagPlayer(0 , 1   , 0610, "ItemRingEnable"                             )}, // アイテムリング解禁
         {0x263, new EventFlagPlayer(0 , 1   , 0611, "RcoTalkAboutOfficeWork"                     )}, // たぬきち|案内所での業務内容聞いた？
         {0x264, new EventFlagPlayer(0 , 1   , 0612, "TwinTurnipExplanation"                      )}, // まめつぶからカブ価と高額買取品の説明聞いた？
-        {0x265, new EventFlagPlayer(0 , 1   , 0613, "HeldCeremonyMarket1"                        )}, // セレモニ|商店（小）を開いた
-        {0x266, new EventFlagPlayer(0 , 1   , 0614, "HeldCeremonyMarket2"                        )}, // セレモニ|商店（大）を開いた
-        {0x267, new EventFlagPlayer(0 , 1   , 0615, "HerdCeremonyOffice"                         )}, // セレモニ|案内所を開いた
-        {0x268, new EventFlagPlayer(0 , 1   , 0616, "HeldCeremonyMuseum"                         )}, // セレモニ|博物館を開いた
-        {0x269, new EventFlagPlayer(0 , 1   , 0617, "HeldCeremonyTailor"                         )}, // セレモニ|仕立て屋を開いた
-        {0x26A, new EventFlagPlayer(0 , 1   , 0618, "HeldCeremonyCampSite"                       )}, // セレモニ|キャンプ場を開いた
-        {0x26B, new EventFlagPlayer(0 , 1   , 0619, "HeldCeremonyBridge"                         )}, // セレモニ|橋を開いた
-        {0x26C, new EventFlagPlayer(0 , 1   , 0620, "HeldCeremonySlope"                          )}, // セレモニ|坂を開いた
+        {0x265, new EventFlagPlayer(0 , 1   , 0613, "HeldCeremonyMarket1"                        )}, // セレモニー|商店（小）を開いた
+        {0x266, new EventFlagPlayer(0 , 1   , 0614, "HeldCeremonyMarket2"                        )}, // セレモニー|商店（大）を開いた
+        {0x267, new EventFlagPlayer(0 , 1   , 0615, "HerdCeremonyOffice"                         )}, // セレモニー|案内所を開いた
+        {0x268, new EventFlagPlayer(0 , 1   , 0616, "HeldCeremonyMuseum"                         )}, // セレモニー|博物館を開いた
+        {0x269, new EventFlagPlayer(0 , 1   , 0617, "HeldCeremonyTailor"                         )}, // セレモニー|仕立て屋を開いた
+        {0x26A, new EventFlagPlayer(0 , 1   , 0618, "HeldCeremonyCampSite"                       )}, // セレモニー|キャンプ場を開いた
+        {0x26B, new EventFlagPlayer(0 , 1   , 0619, "HeldCeremonyBridge"                         )}, // セレモニー|橋を開いた
+        {0x26C, new EventFlagPlayer(0 , 1   , 0620, "HeldCeremonySlope"                          )}, // セレモニー|坂を開いた
         {0x26D, new EventFlagPlayer(0 , 1   , 0621, "HghPeddlerPurchaceToday"                    )}, // きぬよ行商|今回の来訪で商品購入した
         {0x26E, new EventFlagPlayer(0 , 1   , 0622, "RollanBuyWallpaperCount"                    )}, // ローラン|今日フシギなかべがみを買った？
         {0x26F, new EventFlagPlayer(0 , 1   , 0623, "RollanBuyCarpetCount"                       )}, // ローラン|今日フシギなゆかを買った？
@@ -595,8 +595,8 @@ public class EventFlagPlayer : INamedValue
         {0x2C9, new EventFlagPlayer(0 , -1  , 0713, "BDayMsgRandomSead"                          )}, // バースデーメッセージの内容を決定する乱数のシード値
         {0x2CA, new EventFlagPlayer(0 , 1   , 0714, "UnlockMyDesignProCategory"                  )}, // スマホUI|PROデザインのタブカテゴリ解禁
         {0x2D5, new EventFlagPlayer(0 , 30  , 0725, "BalloonShootCountToday"                     )}, // 今日風船をいくつ撃ったか？
-        {0x2D6, new EventFlagPlayer(0 , 1   , 0726, "ContributedBuildBridgeorSlope"              )}, // セレモニ|橋か坂の建設に貢献した
-        {0x2D7, new EventFlagPlayer(0 , 1   , 0727, "ContributedTodaysCeremonyBridgeorSlope"     )}, // セレモニ|今日の橋か坂のセレモニーに貢献した
+        {0x2D6, new EventFlagPlayer(0 , 1   , 0726, "ContributedBuildBridgeorSlope"              )}, // セレモニー|橋か坂の建設に貢献した
+        {0x2D7, new EventFlagPlayer(0 , 1   , 0727, "ContributedTodaysCeremonyBridgeorSlope"     )}, // セレモニー|今日の橋か坂のセレモニーに貢献した
         {0x2D8, new EventFlagPlayer(0 , 1   , 0728, "Mobile1stBootAfterUnlockPro_Mydesign"       )}, // プロ編集解禁後スマホアプリ初起動|マイデザイン
         {0x2D9, new EventFlagPlayer(0 , 1   , 0729, "TkkBirthdayMessageFlag"                     )}, // とたけけ|バースデーメッセージ送った？
         {0x2DA, new EventFlagPlayer(0 , 1   , 0730, "TalkFirstCamperAfterSetHousing"             )}, // たぬきち|１人目のキャンプ客とハウジングキットセット後会話した
@@ -792,7 +792,7 @@ public class EventFlagPlayer : INamedValue
         {0x3A7, new EventFlagPlayer(0 , 1   , 0935, "Owl1stTalkMuseum2"                          )}, // フータ|博物館②完成後の挨拶した？
         {0x3A8, new EventFlagPlayer(0 , 1   , 0936, "OwlPaintingQuestExplain"                    )}, // フータ|絵画クエストの説明を受けたか？
         {0x3A9, new EventFlagPlayer(0 , 1   , 0937, "FutaReadyForMuseum2"                        )}, // フータ|博物館②建設条件達成の報告を聞いたか？
-        {0x3AA, new EventFlagPlayer(0 , 1   , 0938, "HeldCeremonyMuseum2"                        )}, // セレモニ|博物館②を開いた
+        {0x3AA, new EventFlagPlayer(0 , 1   , 0938, "HeldCeremonyMuseum2"                        )}, // セレモニー|博物館②を開いた
         {0x3AB, new EventFlagPlayer(0 , 2   , 0939, "EarthdayDailyClearNum"                      )}, // アースデー専用クエストを今日クリアした数
         {0x3AC, new EventFlagPlayer(0 , 1   , 0940, "OwlShowPaintingBeforeQuest"                 )}, // フータ|絵画クエスト前に絵画を見せたか？
         {0x3AD, new EventFlagPlayer(0 , 1   , 0941, "OwlPaintingQuestDeclined"                   )}, // フータ|絵画クエストで寄贈を断ったことある
@@ -1284,7 +1284,7 @@ public class EventFlagPlayer : INamedValue
         {0x5F6, new EventFlagPlayer(0 , 1   , 1526, "DodSelectWherearen1st"                      )}, // モーリー|「お仕事に行く」の説明を聞いた
         {0x5F7, new EventFlagPlayer(0 , 1   , 1527, "FortuneApproachTalked"                      )}, // 占い結果でのアプローチ会話発生済み
         {0x5F8, new EventFlagPlayer(0 , 1   , 1528, "SawMuseumCafeTakeoutNpc"                    )}, // 喫茶ハトの巣|テイクアウトで来店した特殊NPCを見た
-        {0x5F9, new EventFlagPlayer(0 , 7   , 1529, "LastSawMuseumCafeTakeoutNpc"                )}, // 喫茶ハトの巣|最後にテイクアウトで来店するのを見たNPC
+        {0x5F9, new EventFlagPlayer(0 , 8   , 1529, "LastSawMuseumCafeTakeoutNpc"                )}, // 喫茶ハトの巣|最後にテイクアウトで来店するのを見たNPC
         {0x5FA, new EventFlagPlayer(0 , 1   , 1530, "KppTourDone_RareStarpiece"                  )}, // かっぺいツアー｜レア島行った：星のかけら
         {0x5FB, new EventFlagPlayer(0 , 1   , 1531, "KppTourDone_RareCherryBlossom"              )}, // かっぺいツアー｜レア島行った：桜の花びら
         {0x5FC, new EventFlagPlayer(0 , 1   , 1532, "KppTourDone_RareSpringBamboo"               )}, // かっぺいツアー｜レア島行った：春のわかたけ
@@ -1317,7 +1317,7 @@ public class EventFlagPlayer : INamedValue
         {0x619, new EventFlagPlayer(0 , 1   , 1561, "SelectedGotoCafe"                           )}, // 日課「喫茶店に行こうキャンペーン」を今日達成した
         {0x61A, new EventFlagPlayer(0 , 2   , 1562, "SelectedDoRadioGymnastics"                  )}, // 日課「ラジオ体操をしよう」が出現カウンター
         {0x61B, new EventFlagPlayer(0 , 1   , 1563, "TtlB_Acorn_Today"                           )}, // コトブキ｜今日どんぐり貰った？
-        {0x61C, new EventFlagPlayer(0 , 1   , 1564, "HeldCeremonyMuseum3"                        )}, // セレモニ|博物館③を開いた
+        {0x61C, new EventFlagPlayer(0 , 1   , 1564, "HeldCeremonyMuseum3"                        )}, // セレモニー|博物館③を開いた
         {0x61D, new EventFlagPlayer(0 , 1   , 1565, "StandByPhoneCallNpcNG"                      )}, // 電話デモ|NPCを呼び出せなかった入電するか？
         {0x61E, new EventFlagPlayer(0 , 1   , 1566, "PgeTalkTakeOutFlag"                         )}, // マスター|テイクアウトの話聞いた？
         {0x61F, new EventFlagPlayer(0 , 1   , 1567, "UnlockPlayerHair37"                         )}, // 髪型解禁：Hair37センターわけ
@@ -1526,6 +1526,189 @@ public class EventFlagPlayer : INamedValue
         {0x6FA, new EventFlagPlayer(0 , 1   , 1786, "SloRecommendbush"                           )}, // レイジ｜コミューン島今週のおすすめの低木を伝えたか
         {0x6FB, new EventFlagPlayer(0 , 2   , 1787, "PMovingTmpDustCloth"                        )}, // プレイヤーだけ引越し｜まごころ雑巾をP引越し時に一時的に使えなくするためのtmpフラグ
         {0x6FC, new EventFlagPlayer(0 , 1   , 1788, "RcoTipsRcoMachineLoginBonus"                )}, // Tips|タヌポートログボのTips出す？
+        {0x6FD, new EventFlagPlayer(0 , -1  , 1789, "RollbackedYear"                             )}, // Blanco|ロールバックが行われた年
+        {0x6FE, new EventFlagPlayer(0 , 12  , 1790, "RollbackedMonth"                            )}, // Blanco|ロールバックが行われた月
+        {0x6FF, new EventFlagPlayer(0 , 31  , 1791, "RollbackedDay"                              )}, // Blanco|ロールバックが行われた日
+        {0x700, new EventFlagPlayer(0 , 1   , 1792, "Checked_NoticeAboutMagokoro_MainIsland"     )}, // まごころ雑巾解禁時の自宅、撮影所の初回ダイアログ表示を行うべきかをチェック済み
+        {0x701, new EventFlagPlayer(0 , 1   , 1793, "NoticeBlackFridayToday"                     )}, // ブラックフライデー｜今日開催中告知を聞いた？
+        {0x702, new EventFlagPlayer(0 , 1   , 1794, "HotelUnlockDIYTrade"                        )}, // 本島ホテル｜DIY家具トレードを解禁した？
+        {0x703, new EventFlagPlayer(0 , 1   , 1795, "ReserveTotalTradeBonus"                     )}, // かっぺい |今回のDIY家具トレードで長期ボーナスが発生したか
+        {0x704, new EventFlagPlayer(0 , 1   , 1796, "ReserveTradeRemakeBonus"                    )}, // かっぺい |今回のDIY家具トレードでリメイクボーナスが発生したか 
+        {0x705, new EventFlagPlayer(0 , 1   , 1797, "ReserveTotalTradeBonusMultiPlay"            )}, // かっぺい |通信中にDIY家具トレードで長期ボーナスが発生したか
+        {0x706, new EventFlagPlayer(0 , 1   , 1798, "ReserveTradeRemakeBonusMultiPlay"           )}, // かっぺい |通信中にDIY家具トレードでリメイクボーナスが発生したか
+        {0x707, new EventFlagPlayer(0 , 9999, 1799, "ReserveTradeBonusTicketNum"                 )}, // かっぺい |次回会話時に受け取るボーナスチケットの総枚数
+        {0x708, new EventFlagPlayer(0 , 1   , 1800, "IsClearHotelWorkDataByOther"                )}, // ホテル｜自分の作業途中のデータが他者に破棄されたか
+        {0x70A, new EventFlagPlayer(0 , 3   , 1802, "OpenedHotelCatalogLevel"                    )}, // ホテル｜閲覧済みの新規家具交換カタログUIの解禁段階
+        {0x70C, new EventFlagPlayer(0 , 1   , 1804, "IsOpenedHotelCatalogBefore"                 )}, // ホテル｜新規家具交換カタログUIを開いたことがあるか
+        {0x70D, new EventFlagPlayer(0 , 1   , 1805, "IsFirstEnterToCloudIslandThisTime"          )}, // オンライン島｜今回のセッションですでに入場したか
+        {0x70F, new EventFlagPlayer(0 , 1   , 1807, "SeqHotelEditTutorialDone"                   )}, // ホテル | 部屋編集チュートリアルが完了したか？
+        {0x712, new EventFlagPlayer(0 , 1   , 1810, "HeardThanksToMakeVIPRoom"                   )}, // ホテル｜VIPルーム作ったお礼を聞いた
+        {0x713, new EventFlagPlayer(0 , 1   , 1811, "FinishEditVIPRoomToday"                     )}, // ホテル｜今日の分のVIPルームを作成済み
+        {0x714, new EventFlagPlayer(0 , 2   , 1812, "HotelVIPInvitePattern"                      )}, // ホテル｜VIP客の誘致パターン
+        {0x715, new EventFlagPlayer(0 , 1   , 1813, "WHEREAREN_Is1stKKFesDone"                   )}, // OneRoom｜初回けけフェスを見たか？
+        {0x716, new EventFlagPlayer(0 , 1   , 1814, "SeqHotelIntroductionDone"                   )}, // ホテル | ホテルの初回説明チュートリアルが完了したか？
+        {0x717, new EventFlagPlayer(0 , 1   , 1815, "SeqHotelFurnitureIntroductionDone"          )}, // ホテル | ホテル家具交換の初回説明チュートリアルが完了したか？
+        {0x719, new EventFlagPlayer(0 , 1   , 1817, "HotelSpeakTokpm"                            )}, // ホテル | 今日クーコに話しかけたか？
+        {0x71A, new EventFlagPlayer(0 , 8   , 1818, "HotelKnownUnlockRoom"                       )}, // ホテル | 解禁告知を聞いた一般客室の番号（4なら4号室まで解禁扱い）
+        {0x71B, new EventFlagPlayer(0 , 1   , 1819, "HotelVipRoomIntroductionDone"               )}, // ホテル | VIPルームの初回説明チュートリアルが完了したか？
+        {0x71C, new EventFlagPlayer(0 , 1   , 1820, "HotelNotOpenIntroductionDone"               )}, // ホテル | 未営業時の立て付け説明を受けたか？
+        {0x71D, new EventFlagPlayer(0 , 1   , 1821, "ReserveHotelMannequinTutorial"              )}, // ホテル | マネキンの初回説明チュートリアルの発生予約フラグ
+        {0x71E, new EventFlagPlayer(0 , 1   , 1822, "SeqHotelMannequinTutorialDone"              )}, // ホテル | マネキンの初回説明チュートリアルが完了したか？
+        {0x71F, new EventFlagPlayer(0 , 1   , 1823, "NpcTidyFirstTalk"                           )}, // リセットさん|面識ある？
+        {0x720, new EventFlagPlayer(0 , 1   , 1824, "PAnnounceHotelBuint"                        )}, // 島内放送｜ホテル建物完成告知を聞いたか？
+        {0x721, new EventFlagPlayer(0 , 1   , 1825, "PAnnounceHotelOpend"                        )}, // 島内放送｜ホテル営業開始告知を聞いたか？
+        {0x722, new EventFlagPlayer(0 , 2   , 1826, "TodayWanderingNpcInvitePattern"             )}, // ホテル |今日の宿案内NPCの誘致パターン
+        {0x728, new EventFlagPlayer(0 , 1   , 1832, "NoticeUsingStorageForDIY"                   )}, // DIYまたは調理台で収納が利用できる通知をみたか
+        {0x729, new EventFlagPlayer(0 , 1   , 1833, "GrowUpAfterPatch3_0"                        )}, // 3.0を適用して成長処理をした
+        {0x72B, new EventFlagPlayer(0 , 1   , 1835, "WasEnableStorageBefore3_0"                  )}, // 3.0適用前に収納を解放していた
+        {0x72C, new EventFlagPlayer(0 , 1   , 1836, "NpcTidyTalkToday"                           )}, // リセットさん|今日すでに会話した？
+        {0x72D, new EventFlagPlayer(0 , 1   , 1837, "NpcTidyFirstTalkToday"                      )}, // リセットさん|今日初めて会話した？
+        {0x72E, new EventFlagPlayer(0 , 1   , 1838, "NpcTidyCall"                                )}, // リセットさん|今日リセットさんを呼びだした本人？
+        {0x72F, new EventFlagPlayer(0 , 1   , 1839, "HeldCeremonyHotel"                          )}, // セレモニー|ホテルを開いた
+        {0x730, new EventFlagPlayer(0 , 1   , 1840, "NpcTidyRequestBeforeFlag"                   )}, // リセットさん|今までに片付け依頼したことある？
+        {0x731, new EventFlagPlayer(0 , 1   , 1841, "NpcTidyRequestTodayFlag"                    )}, // リセットさん|今日自分が片付け依頼した？
+        {0x732, new EventFlagPlayer(0 , 1   , 1842, "UnlockCloudIsland"                          )}, // オンライン島｜ベッド選択肢解禁している？
+        {0x733, new EventFlagPlayer(0 , 1   , 1843, "IsFirstExplainedCloudIsland"                )}, // オンライン島（持ち帰り）｜初回説明済んでいる？
+        {0x734, new EventFlagPlayer(0 , 1   , 1844, "FirstVisitCloudIsland"                      )}, // オンライン島（持ち帰り）｜自分の島に行ったことがある？
+        {0x735, new EventFlagPlayer(0 , 1   , 1845, "IsExplainedLoadCloudIsland"                 )}, // オンライン島（持ち帰り）｜ロード説明済んでいる？
+        {0x736, new EventFlagPlayer(0 , 1   , 1846, "NoticeEnableMultiCreationDIY"               )}, // DIYまたは調理台で複数作成ができる通知を見たか
+        {0x737, new EventFlagPlayer(0 , 1   , 1847, "FirstForceTalkCloudIsland"                  )}, // オンライン島（持ち帰り）｜オン島の最初の強制会話聞いた？
+        {0x738, new EventFlagPlayer(0 , 1   , 1848, "IsBedWaitRightSideCloudIsland"              )}, // オンライン島に行くときにベッドの右側に寝たか
+        {0x739, new EventFlagPlayer(0 , 1   , 1849, "NoticeUsingStorageForRemake"                )}, // リメイクで収納のリメイクキットが利用できる通知を見たか
+        {0x73A, new EventFlagPlayer(0 , -1  , 1850, "HotelCoordinatedVIPCount_VisitingNPC"       )}, // ホテル｜1-8号室NPCにVIPを作った回数
+        {0x73B, new EventFlagPlayer(0 , -1  , 1851, "HotelCoordinatedVIPCount_amiibo"            )}, // ホテル｜amiiboでNPCを招待してVIPを作った回数
+        {0x73C, new EventFlagPlayer(0 , -1  , 1852, "HotelCoordinatedVIPCount"                   )}, // ホテル｜VIPルームを作った回数
+        {0x73D, new EventFlagPlayer(0 , 1   , 1853, "SeoNotGetPearlFlag"                         )}, // ラコスケ|持ち物いっぱいでしんじゅ貰えなかった
+        {0x73E, new EventFlagPlayer(0 , 1   , 1854, "NpcTidyPayTodayFlag"                        )}, // リセットさん|今日自分が片付け料金払った？
+        {0x73F, new EventFlagPlayer(0 , -1  , 1855, "DiyCountUpdatedVer3_0"                      )}, // Tips|Ver3.0アプデ後にDIYまたは料理をおこなった回数
+        {0x740, new EventFlagPlayer(0 , -1  , 1856, "DiyCountMultiMake"                          )}, // Tips|複数作成をDIYまたは料理でおこなった回数
+        {0x741, new EventFlagPlayer(0 , 1   , 1857, "NpcTidyFirstRequestTodayFlag"               )}, // リセットさん|今日初回無料？
+        {0x742, new EventFlagPlayer(0 , 1   , 1858, "HotelRoom4UnlockIntroductionDone"           )}, // ホテル | 4号室解禁の前振りを聞いたか？
+        {0x743, new EventFlagPlayer(0 , 1   , 1859, "UnlockZeldaCollabo"                         )}, // コラボ解禁_ゼルダ
+        {0x744, new EventFlagPlayer(0 , 1   , 1860, "UnlockSplatoonCollabo"                      )}, // コラボ解禁_スプラトゥーン
+        {0x745, new EventFlagPlayer(0 , 1   , 1861, "HotelVipRoomLeadIn"                         )}, // ホテル | VIP解禁の前振りを聞いたか？
+        {0x746, new EventFlagPlayer(0 , 1   , 1862, "HotelRoom6UnlockIntroductionDone"           )}, // ホテル | 6号室解禁の前振りを聞いたか？
+        {0x747, new EventFlagPlayer(0 , 1   , 1863, "HotelRoom8UnlockIntroductionDone"           )}, // ホテル | 8号室解禁の前振りを聞いたか？
+        {0x748, new EventFlagPlayer(0 , 1   , 1864, "HotelMakingRoom1"                           )}, // ホテル | 1号室を完成させた本人か？
+        {0x749, new EventFlagPlayer(0 , 1   , 1865, "HotelOpenVipRoom"                           )}, // ホテル | VIP解禁条件を達成した本人か？
+        {0x74A, new EventFlagPlayer(0 , 1   , 1866, "IsAnyNpcCalledWithMegaphone"                )}, // いずれかのNPCをメガホンで呼び出したか？
+        {0x74B, new EventFlagPlayer(0 , 1   , 1867, "IsExplainedSwitch2EditionMode"              )}, // おでかけ｜Switch2Editionの説明をした？
+        {0x74C, new EventFlagPlayer(0 , 1   , 1868, "HotelNotListenToHowToEdit"                  )}, // ホテル | コーディネートの進め方について説明を聞いていない
+        {0x74D, new EventFlagPlayer(0 , 1   , 1869, "HotelTutorialSkip"                          )}, // ホテル | エディットチュートリアルをスキップしたか？
+        {0x74E, new EventFlagPlayer(0 , 1   , 1870, "NpcKpmFirstTalk"                            )}, // クーコ | 面識ある？
+        {0x74F, new EventFlagPlayer(0 , 1   , 1871, "NpcKpgFirstTalk"                            )}, // ゲコ | 面識ある？
+        {0x750, new EventFlagPlayer(0 , 1   , 1872, "NpcKpsFirstTalk"                            )}, // クク | 面識ある？
+        {0x751, new EventFlagPlayer(0 , 1   , 1873, "TodayVisitTapCloudIndoor"                   )}, // オンライン島（持ち帰り）｜今日ゆめみシーンに行った
+        {0x752, new EventFlagPlayer(0 , 1   , 1874, "SelCloudIslandOnBed"                        )}, // オンライン島｜ベッド選択肢選んだことある？
+        {0x753, new EventFlagPlayer(0 , 1   , 1875, "SloExplainWeeding_After3"                   )}, // レイジ|3.0パッチ後に初めて草むしりサービスの説明聞いた
+        {0x754, new EventFlagPlayer(0 , 1   , 1876, "SloExplainWeedingPriceDown"                 )}, // レイジ|3.0パッチ後に草むしりサービス価格変更の説明聞いた
+        {0x755, new EventFlagPlayer(0 , -1  , 1877, "HotelDiyTradeAchieveOrderNum"               )}, // Tips|DIY家具トレードをクリアした回数
+        {0x756, new EventFlagPlayer(0 , -1  , 1878, "HighPriceTradeOrderBonusPoint"              )}, // DIY家具トレード|高値ボーナスポイント
+        {0x757, new EventFlagPlayer(0 , -1  , 1879, "HighPriceTradeOrderBonusPointBackup"        )}, // DIY家具トレード|高値ボーナスポイント(予備)
+        {0x758, new EventFlagPlayer(0 , -1  , 1880, "HighPriceTradeOrderBonusItemRecipeID"       )}, // DIY家具トレード|高値ボーナスアイテムレシピID
+        {0x759, new EventFlagPlayer(0 , -1  , 1881, "HighPriceTradeOrderBonusItemLapsedDays"     )}, // DIY家具トレード|高値ボーナスアイテム設定経過日数
+        {0x75A, new EventFlagPlayer(0 , -1  , 1882, "HighPriceTradeOrderBonusTicketNum"          )}, // DIY家具トレード|高値ボーナスアイテム報酬枚数
+        {0x75B, new EventFlagPlayer(0 , -1  , 1883, "HighPriceTradeOrderBonusCandidateTicketNum" )}, // DIY家具トレード|高値ボーナス候補アイテム報酬枚数
+        {0x75C, new EventFlagPlayer(0 , 1   , 1884, "TodayHighPriceTradeOrderBonusEvent"         )}, // DIY家具トレード|高値ボーナスイベントが今日の発生状況制御用
+        {0x75D, new EventFlagPlayer(0 , 7   , 1885, "HighPriceTradeOrderBonusOccurCount"         )}, // DIY家具トレード|高値ボーナスイベント発生までの日数カウンタ
+        {0x75E, new EventFlagPlayer(0 , 1   , 1886, "DodRemoveMannequinRentalCode"               )}, // モーリー | モーリーにマネキンレンタルコーデを強制解除されたことがある？
+        {0x760, new EventFlagPlayer(0 , 1   , 1888, "HasSetVineOrFixLadderAfterVer3_0"           )}, // Ver3.0.0を適用後にツルまたは設置はしごを配置したことがある
+        {0x761, new EventFlagPlayer(0 , 1   , 1889, "NotEditTutorialTalkNpcKpg"                  )}, // ゲコ | エディットチュートリアル前にゲコと話した？
+        {0x763, new EventFlagPlayer(0 , 1   , 1891, "IsAchivedTradeOrderBonusOnce"               )}, // DIY家具トレード|ボーナスを一度でも達成したか？
+        {0x764, new EventFlagPlayer(0 , 4   , 1892, "OpenNewFurnitureNews"                       )}, // ゲコ | 新規家具解禁のお知らせを聞いた段階
+        {0x765, new EventFlagPlayer(0 , 1   , 1893, "HotelStoreFirstBuyItem"                     )}, // ゲコ | みやげやで、家具が増えることについての説明を聞いたか？
+        {0x766, new EventFlagPlayer(0 , 1   , 1894, "NpcKpgFirstTalkToday"                       )}, // ゲコ | 今日ゲコと話した？
+        {0x76A, new EventFlagPlayer(0 , 1   , 1898, "NoticeAboutMouseInteriorMode"               )}, // マウス | インテリアモードでマウス操作説明ダイアログを見たか
+        {0x76B, new EventFlagPlayer(0 , 1   , 1899, "NoticeAboutMouseMyDesign"                   )}, // マウス | マイデザインでマウス操作説明ダイアログを見たか
+        {0x76C, new EventFlagPlayer(0 , 1   , 1900, "NoticeAboutMouseBoard"                      )}, // マウス | 掲示板でマウス操作説明ダイアログを見たか
+        {0x76D, new EventFlagPlayer(0 , 1   , 1901, "HasBoughtFromHotelCatalog"                  )}, // ホテル | ホテルカタログで買い物をしたことがあるか
+        {0x76E, new EventFlagPlayer(0 , 1   , 1902, "Mobile1stBoot_MydesignCloudIsland"          )}, // スマホアプリ初起動|マイデザインをオン島で初起動
+        {0x76F, new EventFlagPlayer(0 , 1   , 1903, "Mobile1stBoot_MydesignCloudIsland_Guest"    )}, // スマホアプリ初起動|マイデザインをよそのオン島で初起動
+        {0x770, new EventFlagPlayer(0 , 1   , 1904, "FamicomCheckFlag1"                          )}, // ファミコン家具|ファミリーコンピュータをチェックしたことある？
+        {0x771, new EventFlagPlayer(0 , 1   , 1905, "FamicomCheckFlag2"                          )}, // ファミコン家具|NESをチェックしたことある？
+        {0x772, new EventFlagPlayer(0 , 1   , 1906, "FamicomCheckFlag3"                          )}, // ファミコン家具|ディスクシステムをチェックしたことある？
+        {0x773, new EventFlagPlayer(0 , 1   , 1907, "FamicomCheckFlag4"                          )}, // ファミコン家具|スーパーファミコンをチェックしたことある？
+        {0x774, new EventFlagPlayer(0 , 1   , 1908, "FamicomCheckFlag5"                          )}, // ファミコン家具|SUPER NINTENDO EUをチェックしたことある？
+        {0x775, new EventFlagPlayer(0 , 1   , 1909, "FamicomCheckFlag6"                          )}, // ファミコン家具|SUPER NINTENDO USをチェックしたことある？
+        {0x776, new EventFlagPlayer(0 , 1   , 1910, "FamicomCheckFlag7"                          )}, // ファミコン家具|ゲームボーイをチェックしたことある？
+        {0x777, new EventFlagPlayer(0 , 1   , 1911, "FamicomCheckNSOFlag"                        )}, // ファミコン家具|ファミコン家具をチェックしたことある？
+        {0x778, new EventFlagPlayer(0 , 1   , 1912, "NoticeAboutLiveFaceIntroduceDialog"         )}, // LiveFace | LiveFace紹介ダイアログを表示したか
+        {0x779, new EventFlagPlayer(0 , 1   , 1913, "NoticeAboutLiveFaceMinusBtnMenuDialog"      )}, // LiveFace | 初回説明ダイアログを表示したか
+        {0x77A, new EventFlagPlayer(0 , 1   , 1914, "HotelHasEditedMannequin"                    )}, // ホテル | マネキンコーデを1度でも編集して保存した
+        {0x77B, new EventFlagPlayer(0 , 1   , 1915, "PlayOnceAfterUpdateAOC"                     )}, // メガホン｜メガホン手紙配送のチェックをしたか
+        {0x77C, new EventFlagPlayer(0 , 1   , 1916, "ExplainMegaphone"                           )}, // メガホン｜まめきちからメガホンの説明を聞いたか
+        {0x77D, new EventFlagPlayer(0 , 1   , 1917, "UnlockBuyMegaphone"                         )}, // お店｜メガホンの陳列開始
+        {0x77E, new EventFlagPlayer(0 , 2   , 1918, "RcoStorageExpansion_v300"                   )}, // たぬきち|収納の拡張（v3.0.0）追加段階0～2
+        {0x77F, new EventFlagPlayer(0 , 1   , 1919, "MailSend_Notice_v300_AddStorage"            )}, // たぬきち|収納の拡張（v3.0.0）段階追加お知らせの手紙判定したか？
+        {0x780, new EventFlagPlayer(0 , 1   , 1920, "RcoStandbyNotice_v300_AddStorage"           )}, // たぬきち|収納の拡張（v3.0.0）段階追加のお知らせ強制会話するか？
+        {0x782, new EventFlagPlayer(0 , 1   , 1922, "KpsNpcInviteBefore"                         )}, // クク | 宿案内のボーナスもらったことある？
+        {0x783, new EventFlagPlayer(0 , 1   , 1923, "ReserveHotelintroduction"                   )}, // ホテル｜初回説明チュートリアルを予約する（ON後OFFにしない）
+        {0x784, new EventFlagPlayer(0 , 1   , 1924, "IsAccessHotelMannequin"                     )}, // ホテル｜マネキンに一度でもアクセスしたことがあるか？
+        {0x785, new EventFlagPlayer(0 , 1   , 1925, "RcoStorageMax5000_Before_v300"              )}, // たぬきち|収納の拡張（v3.0.0）v3.0アプデ時点で最大5000拡張済み？
+        {0x786, new EventFlagPlayer(0 , 1   , 1926, "KpmTalkToOpenHotel"                         )}, // ホテル | ホテルが営業開始したというクーコのセリフを聞いた？
+        {0x787, new EventFlagPlayer(0 , 1   , 1927, "KpmEditTutorialFirstTalk"                   )}, // ホテル | エディットチュートリアルの最初の受付セリフを聞いた？
+        {0x788, new EventFlagPlayer(0 , 1   , 1928, "HotelEditCompletedToday"                    )}, // ホテル | 今日ホテルの部屋編集を完了させたか？
+        {0x789, new EventFlagPlayer(0 , 1   , 1929, "SelectPitfallCloudIslnad"                   )}, // オンライン島（持ち帰り）｜おとしあなのタネの説明済んでいる？
+        {0x78A, new EventFlagPlayer(0 , 1   , 1930, "KppFirstTalkHotel"                          )}, // かっぺい|ホテルチュートリアルで初対面だった
+        {0x78B, new EventFlagPlayer(0 , 1   , 1931, "HeardMileTourHintFromHAAN"                  )}, // メインシーケンス｜マイルツアーのヒントをHAやANから聞いた？
+        {0x78C, new EventFlagPlayer(0 , 1   , 1932, "KppFirstTalkHotel_BoatTalk"                 )}, // かっぺい|ホテルチュートリアルで初対面の後、ボートツアーの説明した
+        {0x78D, new EventFlagPlayer(0 , -1  , 1933, "FamicomPlayCount1"                          )}, // ファミコン家具|ファミリーコンピュータを遊んだ回数
+        {0x78E, new EventFlagPlayer(0 , -1  , 1934, "FamicomPlayCount2"                          )}, // ファミコン家具|NESを遊んだ回数
+        {0x78F, new EventFlagPlayer(0 , -1  , 1935, "FamicomPlayCount3"                          )}, // ファミコン家具|ディスクシステムを遊んだ回数
+        {0x790, new EventFlagPlayer(0 , -1  , 1936, "FamicomPlayCount4"                          )}, // ファミコン家具|スーパーファミコンを遊んだ回数
+        {0x791, new EventFlagPlayer(0 , -1  , 1937, "FamicomPlayCount5"                          )}, // ファミコン家具|SUPER NINTENDO EUを遊んだ回数
+        {0x792, new EventFlagPlayer(0 , -1  , 1938, "FamicomPlayCount6"                          )}, // ファミコン家具|SUPER NINTENDO USを遊んだ回数
+        {0x793, new EventFlagPlayer(0 , -1  , 1939, "FamicomPlayCount7"                          )}, // ファミコン家具|ゲームボーイを遊んだ回数
+        {0x794, new EventFlagPlayer(0 , -1  , 1940, "MegaphoneUseCount"                          )}, // メガホン｜使用回数
+        {0x795, new EventFlagPlayer(0 , 1   , 1941, "TodayGetHotelCoupon"                        )}, // ホテル | 今日エディット報酬もらった？
+        {0x796, new EventFlagPlayer(0 , -1  , 1942, "GetHighPriceTradeOrderBonusCount"           )}, // DIY家具トレード|高値ボーナスを受け取った回数
+        {0x797, new EventFlagPlayer(0 , -1  , 1943, "ChangeStickUseCount"                        )}, // 変身ステッキ|使用回数
+        {0x798, new EventFlagPlayer(0 , 1   , 1944, "EditFirstRoundExplain"                      )}, // ホテル | エディット１周目の説明を聞いた？
+        {0x799, new EventFlagPlayer(0 , 1   , 1945, "SzaTalkAboutFutureNature"                   )}, // しずえ|島の評判：花の成長を待つアドバイスを今日聞いた
+        {0x79A, new EventFlagPlayer(0 , 1   , 1946, "EditFirstRoundFinish"                       )}, // ホテル | エディット１周目を終えたか？
+        {0x79B, new EventFlagPlayer(0 , 1   , 1947, "EditTutorialFirstCustomer"                  )}, // ホテル | エディットチュートリアルでお客様1人目が来た
+        {0x79C, new EventFlagPlayer(0 , -1  , 1948, "GetTotalTradeBonusCount"                    )}, // DIY家具トレード|アチーブボーナスが発生した回数
+        {0x79D, new EventFlagPlayer(0 , -1  , 1949, "GetTradeRemakeBonusCount"                   )}, // DIY家具トレード|リメイクボーナスが発生した回数
+        {0x79F, new EventFlagPlayer(0 , 1   , 1951, "VIPOpenExplanationAtFloor"                  )}, // ホテル | VIPが解禁された説明を受付で聞いた？
+        {0x7A0, new EventFlagPlayer(0 , 1   , 1952, "EditRework"                                 )}, // ホテル | 手直しは報酬がもらえないという説明を聞いた？
+        {0x7A1, new EventFlagPlayer(0 , 1   , 1953, "ReserveFirstTradeBonus"                     )}, // かっぺい | 初回ボーナス発生予約
+        {0x7A2, new EventFlagPlayer(0 , 1   , 1954, "HasActivateChatMultiPlay"                   )}, // LiveFace | 通信プレイ中に本体チャット機能を起動したことがあるか
+        {0x7A3, new EventFlagPlayer(0 , 1   , 1955, "EditVIPRoomFirstRound"                      )}, // ホテル | VIPエディット1周目か？
+        {0x7A4, new EventFlagPlayer(0 , 1   , 1956, "EditTutorialFirstTalkKpm"                   )}, // ホテル | エディットチュートリアルの受付セリフ１回目を聞いた？
+        {0x7A5, new EventFlagPlayer(0 , 1   , 1957, "EditTutorialFirstTalkKpmAfterHotelOpen"     )}, // ホテル | エディットチュートリアルの受付セリフ１回目を聞いた？（ホテルオープン後）
+        {0x7A6, new EventFlagPlayer(0 , 1   , 1958, "HotelEditCameraExplanation"                 )}, // ホテル | カメラアプリで写真を撮ってほしいという説明を聞いた？
+        {0x7A7, new EventFlagPlayer(0 , 1   , 1959, "AfterEditFirstRound"                        )}, // ホテル | エディット2周目以降の説明を予約
+        {0x7A8, new EventFlagPlayer(0 , 1   , 1960, "HotelKpmTodayGreeting"                      )}, // ホテル | クーコの今日の挨拶を聞いたか？
+        {0x7A9, new EventFlagPlayer(0 , 1   , 1961, "HotelStoreKpgTalkEdit"                      )}, // ホテル | ゲコとエディットチュートリアルの話をしたか？（チュートリアル前）
+        {0x7AA, new EventFlagPlayer(0 , 1   , 1962, "HotelStoreKpgTalkItem"                      )}, // ホテル | ゲコと陳列商品の話をしたか？（チュートリアル前）
+        {0x7AB, new EventFlagPlayer(0 , 1   , 1963, "WHEREAREN_IsFirstKKFesDay"                  )}, // OneRoom｜初回けけフェス当日か？
+        {0x7AC, new EventFlagPlayer(0 , 1   , 1964, "NpcKpmMorningGreeting"                      )}, // クーコ | 朝の挨拶を聞いた？
+        {0x7AD, new EventFlagPlayer(0 , 1   , 1965, "NpcKpmAfternoonGreeting"                    )}, // クーコ | 昼の挨拶を聞いた？
+        {0x7AE, new EventFlagPlayer(0 , 1   , 1966, "NpcKpmNightGreeting"                        )}, // クーコ | 夜の挨拶を聞いた？
+        {0x7AF, new EventFlagPlayer(0 , 1   , 1967, "HotelOpenElplanation"                       )}, // ホテル | ホテルがオープンしたという話を聞いた？
+        {0x7B0, new EventFlagPlayer(0 , 1   , 1968, "HotelVIPTutorialEndExplanation"             )}, // ホテル | （2人目以降限定）VIPチュートリアル終わりの説明を予約
+        {0x7B1, new EventFlagPlayer(0 , 1   , 1969, "UnlockRoomNewsNext"                         )}, // ホテル | 客室解禁予告の次のテキストを予約
+        {0x7B2, new EventFlagPlayer(0 , 1   , 1970, "HotelNewVIPRoomText"                        )}, // ホテル | VIP（新規）の〆テキスト予約
+        {0x7B3, new EventFlagPlayer(0 , 1   , 1971, "HotelRoomReworkText"                        )}, // ホテル | 手直しの〆テキスト予約
+        {0x7B4, new EventFlagPlayer(0 , 1   , 1972, "HotelNewRoomText"                           )}, // ホテル | 一般客室（新規）の〆テキスト予約
+        {0x7B5, new EventFlagPlayer(0 , 1   , 1973, "HotelRoomText"                              )}, // ホテル | はじめから作り直すの〆テキスト予約
+        {0x7B6, new EventFlagPlayer(0 , 1   , 1974, "PAnnounceHotelConstruct"                    )}, // 島内放送｜ホテル工事中告知を聞いたか？
+        {0x7B7, new EventFlagPlayer(0 , 1   , 1975, "CanNotGetHotelCouponToday"                  )}, // ホテル | 今日はもうホテルクーポンがもらえないって聞いた？
+        {0x7B8, new EventFlagPlayer(0 , 7   , 1976, "ClearedHotelWorkRoomIndex"                  )}, // ホテル｜破棄された作業中データで編集していた部屋インデックス
+        {0x7B9, new EventFlagPlayer(0 , 1   , 1977, "HotelInvitedOtg"                            )}, // ホテル｜タクミをVIPとして招待した（部屋完成した）ことがある
+        {0x7BA, new EventFlagPlayer(0 , 1   , 1978, "BocSendBambooShoots"                        )}, // ウリ|たけのこ送ったことある？
+        {0x7BB, new EventFlagPlayer(0 , 1   , 1979, "KppTakeTour2TodayFlag"                      )}, // かっぺい|今日2回目のかっぺいツアー参加した？
+        {0x7BC, new EventFlagPlayer(0 , 1   , 1980, "HotelIsAddForHotelEditSPToday"              )}, // ホテル｜今日客室エディットでHotelSPを加算したか
+        {0x7BD, new EventFlagPlayer(0 , 1   , 1981, "KppTakeTour2ExplainFlag"                    )}, // かっぺい|かっぺいツアー2回行ける説明聞いたことある？
+        {0x7BE, new EventFlagPlayer(0 , 1   , 1982, "RcoNoticeHotelCeremony"                     )}, // たぬきち｜ホテルオープン当日1部屋目作成者にセレモニー告知した？
+        {0x7BF, new EventFlagPlayer(0 , 1   , 1983, "Kpp2ndBoatTourTips"                         )}, // Tips|かっぺいの1日2度目のボートツアーのtips開始
+        {0x7C1, new EventFlagPlayer(0 , 1   , 1985, "KpgTalkToHotelCoupon"                       )}, // ホテル | ホテルクーポンについてゲコが触れたことがある？
+        {0x7C5, new EventFlagPlayer(0 , 1   , 1989, "KpsTodayTalk"                               )}, // クク | 今日ククと会話した？
+        {0x7C6, new EventFlagPlayer(0 , -1  , 1990, "HotelDiyTradeAchieveOrderNumNowIsland"      )}, // DIY家具トレード｜今の島でDIY家具トレードをクリアした回数
+        {0x7C7, new EventFlagPlayer(0 , 1   , 1991, "PlayerMovingWithHotelCoupon"                )}, // プレイヤーだけ引越し|ホテルクーポンを所持してPだけ引越しした？
+        {0x7C8, new EventFlagPlayer(0 , 1   , 1992, "NoticeAboutPMovinghTapDream"                )}, // ゆめみ|面識を作った状態で、プレイヤーだけ引越しをした通知を行う
+        {0x7C9, new EventFlagPlayer(0 , 1   , 1993, "ReadFixedWalkTecnique"                      )}, // 島クリエイター｜向き固定歩きテクニックを見た？
+        {0x7CA, new EventFlagPlayer(0 , 1   , 1994, "HotelIsRentalFromOtherIsland"               )}, // ホテル | 他人の島でレンタルしたか
     };
 
     private const string Unknown = "???";

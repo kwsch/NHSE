@@ -46,52 +46,91 @@
 00742	Couleur
 00743	Illumination
 00744	Couleur
+00765	Couleur du pot
+00766	Couleur
+00767	Couleur du pied
+00769	Couleur
+00770	Couleur
+00772	Couleur
+00773	Couleur
+00776	Couleur
+00779	Couleur
+00781	Couleur du vase
 00787	Couleur
 00796	Couleur
 00805	Type de champignon
+00807	Couleur
 00808	Type de champignon
+00817	Couleur
+00822	Couleur
 00832	Couleur
 00833	Couleur
 00839	Couleur
 00840	Couleur
+00843	Couleur
 00849	Couleur
+00854	Couleur
+00856	Couleur
+00858	Variation
+00859	Poteaux
+00862	Couleur
 00863	Couleur du tapis
 00865	Coloris
 00870	Couleur
 00889	Couleur de la bouteille
 00891	Couleur
 00896	Couleur
+00904	Couleur
 00907	Couleur
 00908	Couleur
+00912	Couleur du rubis
 00915	Couleur
+00916	Variation
 00918	Modèle
 00922	Couleur
 00928	Couleur
 00929	Couleur
 00941	Couleur du meuble
+00947	Couleur de l'encre
 00950	Couleur
+00952	Couleur
 00954	Couleur
 00955	Variation
 00957	Couleur des pales
+00958	Couleur
 00963	Couleur
 00967	Couleur
 00971	Couleur
+00985	Couleur
 00987	Couleur
+00994	Couleur
 00997	Senteur
 00998	Couleur
+01015	Couleur
+01018	Couleur
 01019	Couleur
 01029	Cadre
 01032	Couleur
+01035	Couleur
+01037	Cadre
 01042	Couleur
 01043	Couleur
 01050	Variation
 01051	Couleur
 01058	Couleur
 01072	Couleur
+01077	Couleur
 01081	Couleur
 01082	Couleur
 01087	Couleur
+01088	Couleur
+01089	Couleur
+01090	Couleur
+01091	Couleur
 01092	Couleur
+01099	Couleur
+01101	Cadre
+01102	Cadre
 01103	Couleur
 01108	Couleur
 01111	Couleur
@@ -107,6 +146,7 @@
 01170	Couleur
 01171	Couleur
 01177	Couleur
+01179	Couleur du pot
 01185	Couleur
 01189	Couleur
 01199	Couleur
@@ -121,7 +161,15 @@
 01235	Couleur
 01241	Coloris
 01243	Variation
+01251	Couleur
+01253	Couleur
 01263	Couleur
+01274	Couleur
+01275	Couleur
+01276	Couleur
+01278	Couleur
+01279	Couleur
+01286	Couleur
 01288	Couleur du pot
 01308	Couleur
 01314	Couleur
@@ -1037,6 +1085,7 @@
 13645	Couleur
 13647	Couleur
 13649	Couleur
+13650	Couleur
 13651	Couleur
 13655	Type
 13657	Couleur du pied

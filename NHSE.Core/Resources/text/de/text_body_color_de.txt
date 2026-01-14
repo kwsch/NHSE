@@ -220,6 +220,57 @@
 00744_5	Hellblau
 00744_6	Hellgrün
 00744_7	Blau
+00765_0	Braun
+00765_1	Dunkelbraun
+00765_2	Blau
+00765_3	Grün
+00765_4	Künstlerisch
+00766_0	Weiß
+00766_1	Schwarz
+00766_2	Grau
+00766_3	Beige
+00766_4	Grün
+00766_5	Rot
+00766_6	Blau
+00766_7	Rosa
+00767_0	Silber
+00767_1	Gold
+00767_2	Kupfer
+00767_3	Schwarz
+00767_4	Rot
+00767_5	Blau
+00767_6	Grün
+00767_7	Rosa
+00769_0	Natur
+00769_1	Braun
+00769_2	Dunkelbraun
+00769_3	Weiß
+00769_4	Edelstahl
+00770_0	Silber
+00770_1	Gold
+00770_2	Kupfer
+00770_3	Schwarz
+00770_4	Rot
+00770_5	Blau
+00770_6	Grün
+00770_7	Rosa
+00772_0	Weiß
+00772_1	Schwarz
+00772_2	Grau
+00772_3	Beige
+00772_4	Grün
+00772_5	Rot
+00772_6	Blau
+00772_7	Rosa
+00773_0	Rot
+00776_0	Blau
+00779_0	Rot
+00781_0	Hellblau
+00781_1	Rosa
+00781_2	Blau
+00781_3	Beige
+00781_4	Schwarz
+00781_5	Weiß
 00787_0	Silber
 00787_1	Orange
 00787_2	Weiß
@@ -231,11 +282,33 @@
 00805_2	Mysteriöser Pilz
 00805_3	Roter Pilz
 00805_4	Gelber Pilz
+00807_0	Weiß
+00807_1	Schwarz
+00807_2	Grau
+00807_3	Beige
+00807_4	Grün
+00807_5	Rot
+00807_6	Blau
+00807_7	Rosa
 00808_0	Gewöhnlicher Pilz
 00808_1	Weißer Pilz
 00808_2	Mysteriöser Pilz
 00808_3	Roter Pilz
 00808_4	Gelber Pilz
+00817_0	Helles Holz
+00817_1	Oranges Holz
+00817_2	Dunkles Holz
+00817_3	Schwarz
+00817_4	Kirschholz
+00817_5	Weiß
+00822_0	Weiß
+00822_1	Schwarz
+00822_2	Grau
+00822_3	Beige
+00822_4	Grün
+00822_5	Rot
+00822_6	Blau
+00822_7	Rosa
 00832_0	Blau
 00832_1	Grün
 00832_2	Gelb
@@ -258,6 +331,14 @@
 00840_1	Beige & Naturholz
 00840_2	Schwarz & Naturholz
 00840_3	Grau
+00843_0	Weiß
+00843_1	Schwarz
+00843_2	Grau
+00843_3	Beige
+00843_4	Grün
+00843_5	Rot
+00843_6	Blau
+00843_7	Rosa
 00849_0	Schwarz
 00849_1	Weiß
 00849_2	Orange
@@ -265,6 +346,31 @@
 00849_4	Blau
 00849_5	Rot
 00849_6	Rosa
+00854_0	Silber
+00854_1	Gold
+00854_2	Kupfer
+00854_3	Schwarz
+00854_4	Rot
+00854_5	Blau
+00854_6	Grün
+00854_7	Rosa
+00856_0	Silber
+00856_1	Gold
+00856_2	Weiß
+00858_0	Wasser
+00858_1	Eistee
+00858_2	Kaffee
+00858_3	Grüntee
+00858_4	Orangensaft
+00858_5	Milch
+00859_0	Natur
+00859_1	Braun
+00859_2	Schwarz
+00859_3	Weiß
+00862_0	Pop
+00862_1	Natur
+00862_2	Süß
+00862_3	Edel
 00863_0	Grün
 00863_1	Rot
 00863_2	Blau
@@ -294,6 +400,14 @@
 00896_3	Grau
 00896_4	Rosa
 00896_5	Weiß
+00904_0	Silber
+00904_1	Gold
+00904_2	Kupfer
+00904_3	Schwarz
+00904_4	Rot
+00904_5	Blau
+00904_6	Grün
+00904_7	Rosa
 00907_0	Rot
 00907_1	Gelb
 00907_2	Grün
@@ -306,6 +420,12 @@
 00908_4	Orange
 00908_5	Grün
 00908_6	Rosa
+00912_0	Grün
+00912_1	Blau
+00912_2	Rot
+00912_3	Violett
+00912_4	Silber
+00912_5	Gold
 00915_0	Natur
 00915_1	Grün
 00915_2	Blau
@@ -313,6 +433,10 @@
 00915_4	Rot
 00915_5	Weiß
 00915_6	Schwarz
+00916_0	Ohne Schmuck
+00916_1	Kakariko
+00916_2	Goronia
+00916_3	Dorf der Orni
 00918_0	Schlicht
 00918_1	Blumen
 00918_2	Pünktchen
@@ -339,12 +463,26 @@
 00941_1	Weiß
 00941_2	Braun
 00941_3	Rosa
+00947_0	Gelb
+00947_1	Lila
+00947_2	Rosa
+00947_3	Grün
+00947_4	Orange
+00947_5	Blau
 00950_0	Schwarz
 00950_1	Weiß
 00950_2	Orange
 00950_3	Blau
 00950_4	Rot
 00950_5	Rosa
+00952_0	Silber
+00952_1	Weiß
+00952_2	Schwarz
+00952_3	Rosa
+00952_4	Gelb
+00952_5	Hellblau
+00952_6	Blau
+00952_7	Abgenutzt
 00954_0	Silber
 00954_1	Rot
 00954_2	Gelb
@@ -361,6 +499,12 @@
 00957_2	Blau
 00957_3	Grün
 00957_4	Orange
+00958_0	Gelb
+00958_1	Lila
+00958_2	Rosa
+00958_3	Grün
+00958_4	Orange
+00958_5	Blau
 00963_0	Rot
 00963_1	Gelb
 00963_2	Grün
@@ -376,11 +520,27 @@
 00971_1	Weiß
 00971_2	Rot
 00971_3	Silber
+00985_0	Original
+00985_1	Rot
+00985_2	Gelb
+00985_3	Grün
+00985_4	Schwarz
+00985_5	Weiß
+00985_6	Transparent
+00985_7	Blau
 00987_0	Braun
 00987_1	Hellbraun
 00987_2	Dunkelbraun
 00987_3	Weiß
 00987_4	Schwarz
+00994_0	Rot
+00994_1	Grau
+00994_2	Weiß
+00994_3	Schwarz
+00994_4	Tricolor
+00994_5	Weiß-braun
+00994_6	Grau
+00994_7	Gelb
 00997_0	Rose
 00997_1	Sandelholz
 00997_2	Ozean
@@ -394,6 +554,14 @@
 00998_4	Dunkelbraun
 00998_5	Schwarz
 00998_6	Silber
+01015_0	Gelb
+01015_1	Lila
+01015_2	Rosa
+01015_3	Grün
+01015_4	Orange
+01015_5	Blau
+01018_0	Silber
+01018_1	Gold
 01019_0	Natur
 01019_1	Weiß
 01029_0	Hellbraun
@@ -407,6 +575,20 @@
 01032_5	Gelb
 01032_6	Grün
 01032_7	Rot
+01035_0	Silber
+01035_1	Gold
+01035_2	Kupfer
+01035_3	Schwarz
+01035_4	Rot
+01035_5	Blau
+01035_6	Grün
+01035_7	Rosa
+01037_0	Helles Holz
+01037_1	Oranges Holz
+01037_2	Dunkles Holz
+01037_3	Schwarz
+01037_4	Kirschholz
+01037_5	Weiß
 01042_0	Rot
 01042_1	Cremefarben
 01042_2	Blau
@@ -441,6 +623,11 @@
 01072_5	Weiß
 01072_6	Bronzefarben-gelb
 01072_7	Grün-grau
+01077_0	Silber
+01077_1	Schwarz
+01077_2	Weiß
+01077_3	Braun
+01077_4	Rostig
 01081_0	Schwarz
 01081_1	Weiß
 01081_2	Walnuss
@@ -456,11 +643,45 @@
 01087_2	Blau
 01087_3	Schwarz
 01087_4	Braun
+01088_0	Helles Holz
+01088_1	Oranges Holz
+01088_2	Dunkles Holz
+01088_3	Schwarz
+01088_4	Kirschholz
+01088_5	Weiß
+01089_0	Pop
+01089_1	Natur
+01089_2	Süß
+01089_3	Edel
+01090_0	Pop
+01090_1	Natur
+01090_2	Süß
+01090_3	Edel
+01091_0	Pop
+01091_1	Natur
+01091_2	Süß
+01091_3	Edel
 01092_0	Rot
 01092_1	Grün
 01092_2	Rosa
 01092_3	Blau
 01092_4	Schwarz
+01099_0	Pop
+01099_1	Natur
+01099_2	Süß
+01099_3	Edel
+01101_0	Helles Holz
+01101_1	Oranges Holz
+01101_2	Dunkles Holz
+01101_3	Schwarz
+01101_4	Kirschholz
+01101_5	Weiß
+01102_0	Helles Holz
+01102_1	Oranges Holz
+01102_2	Dunkles Holz
+01102_3	Schwarz
+01102_4	Kirschholz
+01102_5	Weiß
 01103_0	Helles Holz
 01103_1	Naturholz
 01103_2	Dunkles Holz
@@ -522,6 +743,12 @@
 01177_0	Braun
 01177_1	Dunkelbraun
 01177_2	Blau
+01179_0	Weiß
+01179_1	Schwarz
+01179_2	Braun
+01179_3	Grau
+01179_4	Gold
+01179_5	Silber
 01185_0	Rot
 01185_1	Grün
 01185_2	Blau
@@ -588,8 +815,40 @@
 01243_0	Pop
 01243_1	Süß
 01243_2	Elegant
+01251_0	Natur
+01251_1	Braun
+01251_2	Dunkelbraun
+01251_3	Weiß
+01253_0	Bunt
+01253_1	Modern
+01253_2	Süß
+01253_3	Edel
 01263_0	Grüne Birne
 01263_1	Gelbe Birne
+01274_0	Bunt
+01274_1	Modern
+01274_2	Süß
+01274_3	Edel
+01275_0	Bunt
+01275_1	Modern
+01275_2	Süß
+01275_3	Edel
+01276_0	Bunt
+01276_1	Modern
+01276_2	Süß
+01276_3	Edel
+01278_0	Bunt
+01278_1	Modern
+01278_2	Süß
+01278_3	Edel
+01279_0	Bunt
+01279_1	Modern
+01279_2	Süß
+01279_3	Edel
+01286_0	Bunt
+01286_1	Modern
+01286_2	Süß
+01286_3	Edel
 01288_0	Schwarz
 01288_1	Weiß
 01288_2	Braun
@@ -5426,6 +5685,14 @@
 13649_0	Grün
 13649_1	Gelb
 13649_2	Orange
+13650_0	Rot
+13650_1	Gelb
+13650_2	Grün
+13650_3	Hellblau
+13650_4	Blau
+13650_5	Rosa
+13650_6	Schwarz
+13650_7	Weiß
 13651_0	Grün
 13651_1	Weiß
 13651_2	Rot

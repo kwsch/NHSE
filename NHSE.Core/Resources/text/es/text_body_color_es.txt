@@ -220,6 +220,57 @@
 00744_5	Celeste
 00744_6	Verde claro
 00744_7	Azul
+00765_0	Marrón
+00765_1	Marrón oscuro
+00765_2	Azul
+00765_3	Verde
+00765_4	Artístico
+00766_0	Blanco
+00766_1	Negro
+00766_2	Gris
+00766_3	Beis
+00766_4	Verde
+00766_5	Rojo
+00766_6	Azul
+00766_7	Rosa
+00767_0	Plateado
+00767_1	Dorado
+00767_2	Cobre
+00767_3	Negro
+00767_4	Rojo
+00767_5	Azul
+00767_6	Verde
+00767_7	Rosa
+00769_0	Natural
+00769_1	Marrón
+00769_2	Marrón oscuro
+00769_3	Blanco
+00769_4	Acero inoxidable
+00770_0	Plateado
+00770_1	Dorado
+00770_2	Cobre
+00770_3	Negro
+00770_4	Rojo
+00770_5	Azul
+00770_6	Verde
+00770_7	Rosa
+00772_0	Blanco
+00772_1	Negro
+00772_2	Gris
+00772_3	Beis
+00772_4	Verde
+00772_5	Rojo
+00772_6	Azul
+00772_7	Rosa
+00773_0	Rojo
+00776_0	Azul
+00779_0	Rojo
+00781_0	Celeste
+00781_1	Rosa
+00781_2	Azul
+00781_3	Beis
+00781_4	Negro
+00781_5	Blanco
 00787_0	Plateado
 00787_1	Naranja
 00787_2	Blanco
@@ -231,11 +282,33 @@
 00805_2	Misterioso
 00805_3	Rojo
 00805_4	Amarillo
+00807_0	Blanco
+00807_1	Negro
+00807_2	Gris
+00807_3	Beis
+00807_4	Verde
+00807_5	Rojo
+00807_6	Azul
+00807_7	Rosa
 00808_0	Común
 00808_1	Blanco
 00808_2	Misterioso
 00808_3	Rojo
 00808_4	Amarillo
+00817_0	Madera clara
+00817_1	Madera naranja
+00817_2	Madera oscura
+00817_3	Negro
+00817_4	Cereza
+00817_5	Blanco
+00822_0	Blanco
+00822_1	Negro
+00822_2	Gris
+00822_3	Beis
+00822_4	Verde
+00822_5	Rojo
+00822_6	Azul
+00822_7	Rosa
 00832_0	Azul
 00832_1	Verde
 00832_2	Amarillo
@@ -258,6 +331,14 @@
 00840_1	Blanco y madera
 00840_2	Negro y madera
 00840_3	Gris
+00843_0	Blanco
+00843_1	Negro
+00843_2	Gris
+00843_3	Beis
+00843_4	Verde
+00843_5	Rojo
+00843_6	Azul
+00843_7	Rosa
 00849_0	Negro
 00849_1	Blanco
 00849_2	Naranja
@@ -265,6 +346,31 @@
 00849_4	Azul
 00849_5	Rojo
 00849_6	Rosa
+00854_0	Plateado
+00854_1	Dorado
+00854_2	Cobre
+00854_3	Negro
+00854_4	Rojo
+00854_5	Azul
+00854_6	Verde
+00854_7	Rosa
+00856_0	Plateado
+00856_1	Dorado
+00856_2	Blanco
+00858_0	Agua
+00858_1	Té helado
+00858_2	Café
+00858_3	Té verde
+00858_4	Zumo de naranja
+00858_5	Leche
+00859_0	Natural
+00859_1	Marrón
+00859_2	Negro
+00859_3	Blanco
+00862_0	Pop
+00862_1	Natural
+00862_2	Adorable
+00862_3	Chic
 00863_0	Verde
 00863_1	Rojo
 00863_2	Azul
@@ -294,6 +400,14 @@
 00896_3	Gris
 00896_4	Rosa
 00896_5	Blanco
+00904_0	Plateado
+00904_1	Dorado
+00904_2	Cobre
+00904_3	Negro
+00904_4	Rojo
+00904_5	Azul
+00904_6	Verde
+00904_7	Rosa
 00907_0	Rojo
 00907_1	Amarillo
 00907_2	Verde
@@ -306,6 +420,12 @@
 00908_4	Naranja
 00908_5	Verde
 00908_6	Rosa
+00912_0	Verde
+00912_1	Azul
+00912_2	Rojo
+00912_3	Púrpura
+00912_4	Plateado
+00912_5	Dorado
 00915_0	Natural
 00915_1	Verde
 00915_2	Azul
@@ -313,6 +433,10 @@
 00915_4	Rojo
 00915_5	Blanco
 00915_6	Negro
+00916_0	Sin ornamento
+00916_1	Aldea Kakariko
+00916_2	Ciudad Goron
+00916_3	Poblado orni
 00918_0	Sencillo
 00918_1	Floral
 00918_2	Lunares
@@ -339,12 +463,26 @@
 00941_1	Blanco
 00941_2	Marrón
 00941_3	Rosa
+00947_0	Amarillo
+00947_1	Púrpura
+00947_2	Rosa
+00947_3	Verde
+00947_4	Naranja
+00947_5	Azul
 00950_0	Negro
 00950_1	Blanco
 00950_2	Naranja
 00950_3	Azul
 00950_4	Rojo
 00950_5	Rosa
+00952_0	Plateado
+00952_1	Blanco
+00952_2	Negro
+00952_3	Rosa
+00952_4	Amarillo
+00952_5	Celeste
+00952_6	Azul
+00952_7	Gris deteriorado
 00954_0	Plateado
 00954_1	Rojo
 00954_2	Amarillo
@@ -361,6 +499,12 @@
 00957_2	Azul
 00957_3	Verde
 00957_4	Naranja
+00958_0	Amarillo
+00958_1	Púrpura
+00958_2	Rosa
+00958_3	Verde
+00958_4	Naranja
+00958_5	Azul
 00963_0	Rojo
 00963_1	Amarillo
 00963_2	Verde
@@ -376,11 +520,27 @@
 00971_1	Blanco
 00971_2	Rojo
 00971_3	Plateado
+00985_0	Original
+00985_1	Rojo
+00985_2	Amarillo
+00985_3	Verde
+00985_4	Negro
+00985_5	Blanco
+00985_6	Transparente
+00985_7	Azul
 00987_0	Marrón
 00987_1	Marrón claro
 00987_2	Marrón oscuro
 00987_3	Blanco
 00987_4	Negro
+00994_0	Naranja atigrado
+00994_1	Gris atigrado
+00994_2	Blanco
+00994_3	Negro
+00994_4	Calicó
+00994_5	Siamés
+00994_6	Gris
+00994_7	Amarillo
 00997_0	Rosa
 00997_1	Sándalo
 00997_2	Fondo oceánico
@@ -394,6 +554,14 @@
 00998_4	Marrón oscuro
 00998_5	Negro
 00998_6	Plateado
+01015_0	Amarillo
+01015_1	Púrpura
+01015_2	Rosa
+01015_3	Verde
+01015_4	Naranja
+01015_5	Azul
+01018_0	Plateado
+01018_1	Dorado
 01019_0	Natural
 01019_1	Blanco
 01029_0	Marrón claro
@@ -407,6 +575,20 @@
 01032_5	Amarillo
 01032_6	Verde
 01032_7	Rojo
+01035_0	Plateado
+01035_1	Dorado
+01035_2	Cobre
+01035_3	Negro
+01035_4	Rojo
+01035_5	Azul
+01035_6	Verde
+01035_7	Rosa
+01037_0	Madera clara
+01037_1	Madera naranja
+01037_2	Madera oscura
+01037_3	Negro
+01037_4	Cereza
+01037_5	Blanco
 01042_0	Rojo
 01042_1	Crema
 01042_2	Azul
@@ -441,6 +623,11 @@
 01072_5	Blanco
 01072_6	Bronce y amarillo
 01072_7	Verde y gris
+01077_0	Plateado
+01077_1	Negro
+01077_2	Blanco
+01077_3	Marrón
+01077_4	Óxido
 01081_0	Negro
 01081_1	Blanco
 01081_2	Nogal
@@ -456,11 +643,45 @@
 01087_2	Azul
 01087_3	Negro
 01087_4	Marrón
+01088_0	Madera clara
+01088_1	Madera naranja
+01088_2	Madera oscura
+01088_3	Negro
+01088_4	Cereza
+01088_5	Blanco
+01089_0	Pop
+01089_1	Natural
+01089_2	Adorable
+01089_3	Chic
+01090_0	Pop
+01090_1	Natural
+01090_2	Adorable
+01090_3	Chic
+01091_0	Pop
+01091_1	Natural
+01091_2	Adorable
+01091_3	Chic
 01092_0	Rojo
 01092_1	Verde
 01092_2	Rosa
 01092_3	Azul
 01092_4	Negro
+01099_0	Pop
+01099_1	Natural
+01099_2	Adorable
+01099_3	Chic
+01101_0	Madera clara
+01101_1	Madera naranja
+01101_2	Madera oscura
+01101_3	Negro
+01101_4	Cereza
+01101_5	Blanco
+01102_0	Madera clara
+01102_1	Madera naranja
+01102_2	Madera oscura
+01102_3	Negro
+01102_4	Cereza
+01102_5	Blanco
 01103_0	Madera clara
 01103_1	Madera natural
 01103_2	Madera oscura
@@ -522,6 +743,12 @@
 01177_0	Marrón
 01177_1	Marrón oscuro
 01177_2	Azul
+01179_0	Blanco
+01179_1	Negro
+01179_2	Marrón
+01179_3	Gris
+01179_4	Dorado
+01179_5	Plateado
 01185_0	Rojo
 01185_1	Verde
 01185_2	Azul
@@ -588,8 +815,40 @@
 01243_0	Pop
 01243_1	Adorable
 01243_2	Elegante
+01251_0	Natural
+01251_1	Marrón
+01251_2	Marrón oscuro
+01251_3	Blanco
+01253_0	Multicolor
+01253_1	Moderno
+01253_2	Adorable
+01253_3	Chic
 01263_0	Pera verde
 01263_1	Pera amarilla
+01274_0	Multicolor
+01274_1	Moderno
+01274_2	Adorable
+01274_3	Chic
+01275_0	Multicolor
+01275_1	Moderno
+01275_2	Adorable
+01275_3	Chic
+01276_0	Multicolor
+01276_1	Moderno
+01276_2	Adorable
+01276_3	Chic
+01278_0	Multicolor
+01278_1	Moderno
+01278_2	Adorable
+01278_3	Chic
+01279_0	Multicolor
+01279_1	Moderno
+01279_2	Adorable
+01279_3	Chic
+01286_0	Multicolor
+01286_1	Moderno
+01286_2	Adorable
+01286_3	Chic
 01288_0	Negro
 01288_1	Blanco
 01288_2	Marrón
@@ -5426,6 +5685,14 @@
 13649_0	Verde
 13649_1	Amarillo
 13649_2	Naranja
+13650_0	Rojo
+13650_1	Amarillo
+13650_2	Verde
+13650_3	Celeste
+13650_4	Azul
+13650_5	Rosa
+13650_6	Negro
+13650_7	Blanco
 13651_0	Verde
 13651_1	Blanco
 13651_2	Rojo

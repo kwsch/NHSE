@@ -35,6 +35,7 @@ brd15	cacaw
 brd16	zut alors
 brd17	crunch
 brd18	like whoa
+brd20	gust
 bul00	macmoo
 bul01	chaps
 bul03	mrooooo
@@ -114,6 +115,7 @@ der08	no doy
 der09	chow down
 der10	pound cake
 der11	okaaay
+der12	construct
 dog00	woof
 dog01	ROOOOOWF
 dog02	rrr-owch
@@ -392,6 +394,8 @@ squ15	nutty
 squ16	cardio
 squ17	sulky
 squ18	uni-wow
+squ19	drip ink
+squ20	lip-synch
 squ21	gleam
 tig00	grrrolf
 tig01	mango
