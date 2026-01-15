@@ -19,7 +19,7 @@ namespace NHSE.Sprites.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -786,6 +786,16 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap brd18 {
             get {
                 object obj = ResourceManager.GetObject("brd18", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brd20 {
+            get {
+                object obj = ResourceManager.GetObject("brd20", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1886,6 +1896,16 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap der11 {
             get {
                 object obj = ResourceManager.GetObject("der11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap der12 {
+            get {
+                object obj = ResourceManager.GetObject("der12", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -9616,6 +9636,26 @@ namespace NHSE.Sprites.Properties {
         internal static System.Drawing.Bitmap squ18 {
             get {
                 object obj = ResourceManager.GetObject("squ18", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap squ19 {
+            get {
+                object obj = ResourceManager.GetObject("squ19", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap squ20 {
+            get {
+                object obj = ResourceManager.GetObject("squ20", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

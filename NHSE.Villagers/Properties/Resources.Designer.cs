@@ -19,7 +19,7 @@ namespace NHSE.Villagers.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -796,6 +796,26 @@ namespace NHSE.Villagers.Properties {
         internal static byte[] brd18V {
             get {
                 object obj = ResourceManager.GetObject("brd18V", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] brd20H {
+            get {
+                object obj = ResourceManager.GetObject("brd20H", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] brd20V {
+            get {
+                object obj = ResourceManager.GetObject("brd20V", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -2376,6 +2396,26 @@ namespace NHSE.Villagers.Properties {
         internal static byte[] der11V {
             get {
                 object obj = ResourceManager.GetObject("der11V", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] der12H {
+            get {
+                object obj = ResourceManager.GetObject("der12H", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] der12V {
+            get {
+                object obj = ResourceManager.GetObject("der12V", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -7936,6 +7976,46 @@ namespace NHSE.Villagers.Properties {
         internal static byte[] squ18V {
             get {
                 object obj = ResourceManager.GetObject("squ18V", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] squ19H {
+            get {
+                object obj = ResourceManager.GetObject("squ19H", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] squ19V {
+            get {
+                object obj = ResourceManager.GetObject("squ19V", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] squ20H {
+            get {
+                object obj = ResourceManager.GetObject("squ20H", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] squ20V {
+            get {
+                object obj = ResourceManager.GetObject("squ20V", resourceCulture);
                 return ((byte[])(obj));
             }
         }
