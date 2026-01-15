@@ -32,10 +32,10 @@ public abstract class PersonalOffsets
     public abstract int Bank { get; }
     public abstract int Recipes { get; }
 
-    public int MaxAchievementID { get; } = 512;
-    public int Pockets1Count { get; } = 20;
-    public int Pockets2Count { get; } = 20;
-    public int ItemChestCount { get; } = 5000;
+    public int MaxAchievementID => 512;
+    public int Pockets1Count => 20;
+    public int Pockets2Count => 20;
+    public virtual int ItemChestCount => 5000;
     public abstract int MaxRecipeID { get; }
     public abstract int MaxRemakeBitFlag { get; }
 

@@ -54,6 +54,8 @@ public abstract class MainSaveOffsets
     public abstract int PlayerHouseSize { get; }
     public abstract int PlayerRoomSize { get; }
 
+    public virtual int AcreColumnCount => 7;
+
     public abstract IVillager ReadVillager(Memory<byte> data);
     public abstract IVillagerHouse ReadVillagerHouse(Memory<byte> data);
     public abstract IPlayerHouse ReadPlayerHouse(Memory<byte> data);

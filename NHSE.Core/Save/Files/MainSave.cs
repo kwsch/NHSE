@@ -138,7 +138,7 @@ public sealed class MainSave : EncryptedFilePair
     {
         var count = Math.Min(Offsets.PatternCount, value.Count);
         for (int i = 0; i < count; i++)
-            value[i].Data.CopyTo(Data.Slice(Offsets.PatternTailor + (i * DesignPatternPRO.SIZE)));
+            value[i].Data.CopyTo(Data[(Offsets.PatternTailor + (i * DesignPatternPRO.SIZE))..]);
     }
 
     private const int EventFlagsSaveCount = 0x400;
@@ -166,14 +166,14 @@ public sealed class MainSave : EncryptedFilePair
     {
         if ((uint)index > AcreMax)
             throw new ArgumentOutOfRangeException(nameof(index));
-        return ReadUInt16LittleEndian(Data.Slice(Offsets.OutsideField + (index * 2)));
+        return ReadUInt16LittleEndian(Data[(Offsets.OutsideField + (index * 2))..]);
     }
 
     public void SetAcre(int index, ushort value)
     {
         if ((uint)index > AcreMax)
             throw new ArgumentOutOfRangeException(nameof(index));
-        WriteUInt16LittleEndian(Data.Slice(Offsets.OutsideField + (index * 2)), value);
+        WriteUInt16LittleEndian(Data[(Offsets.OutsideField + (index * 2))..], value);
     }
 
     public byte[] GetAcreBytes() => Data.Slice(Offsets.OutsideField, AcreSizeAll).ToArray();
@@ -182,7 +182,7 @@ public sealed class MainSave : EncryptedFilePair
     {
         if (data.Length != AcreSizeAll)
             throw new ArgumentOutOfRangeException(nameof(data.Length));
-        data.CopyTo(Data.Slice(Offsets.OutsideField));
+        data.CopyTo(Data[Offsets.OutsideField..]);
     }
 
     public TerrainTile[] GetTerrainTiles() => TerrainTile.GetArray(Data.Slice(Offsets.LandMakingMap, MapGrid.MapTileCount16x16 * TerrainTile.SIZE));
@@ -224,20 +224,20 @@ public sealed class MainSave : EncryptedFilePair
 
     public ushort MainFieldParamUniqueID
     {
-        get => ReadUInt16LittleEndian(Data.Slice(Offsets.OutsideField + AcreSizeAll + 2));
-        set => WriteUInt16LittleEndian(Data.Slice(Offsets.OutsideField + AcreSizeAll + 2), value);
+        get => ReadUInt16LittleEndian(Data[(Offsets.OutsideField + AcreSizeAll + 2)..]);
+        set => WriteUInt16LittleEndian(Data[(Offsets.OutsideField + AcreSizeAll + 2)..], value);
     }
 
     public uint EventPlazaLeftUpX
     {
-        get => ReadUInt32LittleEndian(Data.Slice(Offsets.OutsideField + AcreSizeAll + 4));
-        set => WriteUInt32LittleEndian(Data.Slice(Offsets.OutsideField + AcreSizeAll + 4), value);
+        get => ReadUInt32LittleEndian(Data[(Offsets.OutsideField + AcreSizeAll + 4)..]);
+        set => WriteUInt32LittleEndian(Data[(Offsets.OutsideField + AcreSizeAll + 4)..], value);
     }
 
     public uint EventPlazaLeftUpZ
     {
-        get => ReadUInt32LittleEndian(Data.Slice(Offsets.OutsideField + AcreSizeAll + 8));
-        set => WriteUInt32LittleEndian(Data.Slice(Offsets.OutsideField + AcreSizeAll + 8), value);
+        get => ReadUInt32LittleEndian(Data[(Offsets.OutsideField + AcreSizeAll + 8)..]);
+        set => WriteUInt32LittleEndian(Data[(Offsets.OutsideField + AcreSizeAll + 8)..], value);
     }
 
     public GSaveVisitorNpc Visitor
