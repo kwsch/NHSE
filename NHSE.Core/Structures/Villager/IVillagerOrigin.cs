@@ -41,8 +41,6 @@ public static class VillagerOriginExtensions
     {
         var hostTown = host.GetTownIdentity();
         var visitTown = visit.GetTownIdentity();
-        if (hostTown.SequenceEqual(visitTown))
-            return;
         visitData.ReplaceOccurrences(visitTown, hostTown);
     }
 
@@ -50,8 +48,6 @@ public static class VillagerOriginExtensions
     {
         var hostPlayer = host.GetPlayerIdentity();
         var visitPlayer = visit.GetPlayerIdentity();
-        if (hostPlayer.SequenceEqual(visitPlayer))
-            return;
         visitData.ReplaceOccurrences(visitPlayer, hostPlayer);
     }
 }
