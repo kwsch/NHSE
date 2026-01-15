@@ -25,7 +25,8 @@ public static class EffectiveGuacamole
     /// Writes out detected hash offsets and lengths for all files in the given folder.
     /// </summary>
     /// <param name="folder">Save folder to scan.</param>
-    public static void DumpHashes(string folder)
+    /// <param name="saveDecrypted">Whether to save decrypted files.</param>
+    public static void DumpHashes(string folder, bool saveDecrypted = false)
     {
         // Scan for all .dat files
         var files = Directory.EnumerateFiles(folder, "*.dat", SearchOption.AllDirectories);
@@ -36,11 +37,11 @@ public static class EffectiveGuacamole
                 continue;
 
             var parent = Path.GetDirectoryName(file)!;
-            DumpHashes(parent, name);
+            DumpHashes(parent, name, saveDecrypted);
         }
     }
 
-    public static void DumpHashes(string folder, string file)
+    public static void DumpHashes(string folder, string file, bool saveDecrypted = false)
     {
         // Ensure header exists for decryption
         var hdr = Path.Combine(folder, $"{file}Header.dat");
@@ -52,6 +53,12 @@ public static class EffectiveGuacamole
         var hd = File.ReadAllBytes(hdr);
         var md = File.ReadAllBytes(dat);
         Encryption.Decrypt(hd, md);
+
+        if (saveDecrypted)
+        {
+            var outPath = Path.Combine(folder, $"{file}.dec");
+            File.WriteAllBytes(outPath, md);
+        }
 
         // Brute-force scan for hashes
         var hashes = ScanHashes(md);
