@@ -340,6 +340,12 @@
   <data name="brd18V" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\brd18V.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="brd20H" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Houses\brd20H.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="brd20V" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villagers\brd20V.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="bul00H" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Houses\bul00H.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -813,6 +819,12 @@
   </data>
   <data name="der11V" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\der11V.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="der12H" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Houses\der12H.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="der12V" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villagers\der12V.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="dog00H" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Houses\dog00H.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2481,6 +2493,18 @@
   </data>
   <data name="squ18V" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\squ18V.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="squ19H" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Houses\squ19H.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="squ19V" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villagers\squ19V.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="squ20H" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Houses\squ20H.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="squ20V" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villagers\squ20V.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="squ21H" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Houses\squ21H.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

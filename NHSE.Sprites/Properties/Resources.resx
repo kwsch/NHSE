@@ -337,6 +337,9 @@
   <data name="brd18" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\brd18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="brd20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villagers\brd20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Bridge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIcon\Bridge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -666,6 +669,9 @@
   </data>
   <data name="der11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\der11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="der12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villagers\der12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dga" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\dga.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -2985,6 +2991,12 @@
   </data>
   <data name="squ18" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\squ18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="squ19" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villagers\squ19.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="squ20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villagers\squ20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="squ21" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Villagers\squ21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
