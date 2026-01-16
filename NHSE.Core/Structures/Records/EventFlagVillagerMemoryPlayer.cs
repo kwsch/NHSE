@@ -2,22 +2,8 @@
 
 namespace NHSE.Core;
 
-public class EventFlagVillagerMemoryPlayer : INamedValue
+public sealed record EventFlagVillagerMemoryPlayer(byte Initial, byte Maximum, ushort Index, string Name) : INamedValue
 {
-    public readonly byte Initial;
-    public readonly byte Maximum;
-
-    public ushort Index { get; }
-    public string Name { get; }
-
-    public EventFlagVillagerMemoryPlayer(byte init, byte max, ushort index, string name)
-    {
-        Name = name;
-        Index = index;
-        Initial = init;
-        Maximum = max;
-    }
-
     public static readonly IReadOnlyDictionary<ushort, EventFlagVillagerMemoryPlayer> List = new Dictionary<ushort, EventFlagVillagerMemoryPlayer>
     {
         {0x00, new EventFlagVillagerMemoryPlayer(0 , 1  , 000, "TalkFreeMultiDayEventNow"                   )}, // （ボツ）今、期間型イベント用のFreeFを聞いたか？

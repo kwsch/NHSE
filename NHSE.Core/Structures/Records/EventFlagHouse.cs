@@ -2,23 +2,8 @@
 
 namespace NHSE.Core;
 
-public class EventFlagHouse : INamedValue
+public sealed record EventFlagHouse(short DefaultValue, short MaxValue, ushort Index, string Name) : INamedValue
 {
-    // these are actually unsigned
-    public readonly short DefaultValue;
-    public readonly short MaxValue;
-
-    public ushort Index { get; }
-    public string Name { get; }
-
-    public EventFlagHouse(short init, short max, ushort index, string name)
-    {
-        Name = name;
-        Index = index;
-        DefaultValue = init;
-        MaxValue = max;
-    }
-
     public static readonly IReadOnlyDictionary<ushort, EventFlagHouse> List = new Dictionary<ushort, EventFlagHouse>
     {
         {0x001, new EventFlagHouse(0, 1    , 0001, "HouseOrder1"                                )}, // テント→6x6増築申込
