@@ -22,9 +22,9 @@ public class MapView
     }
 
     public bool CanUp => Y != 0;
-    public bool CanDown => Y < Map.CurrentLayer.MaxHeight - Map.CurrentLayer.GridHeight;
+    public bool CanDown => Y < Map.CurrentLayer.TileInfo.TotalHeight - Map.CurrentLayer.TileInfo.ViewHeight;
     public bool CanLeft => X != 0;
-    public bool CanRight => X < Map.CurrentLayer.MaxWidth - Map.CurrentLayer.GridWidth;
+    public bool CanRight => X < Map.CurrentLayer.TileInfo.TotalWidth - Map.CurrentLayer.TileInfo.ViewWidth;
 
     public bool ArrowUp()
     {
@@ -44,7 +44,7 @@ public class MapView
 
     public bool ArrowRight()
     {
-        if (X >= Map.CurrentLayer.MaxWidth - 2)
+        if (X >= Map.CurrentLayer.TileInfo.TotalWidth - 2)
             return false;
         X += ViewInterval;
         return true;
@@ -52,7 +52,7 @@ public class MapView
 
     public bool ArrowDown()
     {
-        if (Y >= Map.CurrentLayer.MaxHeight - ViewInterval)
+        if (Y >= Map.CurrentLayer.TileInfo.TotalHeight - ViewInterval)
             return false;
         Y += ViewInterval;
         return true;
@@ -61,8 +61,8 @@ public class MapView
     public bool SetViewTo(in int x, in int y)
     {
         var info = Map.CurrentLayer;
-        var newX = Math.Max(0, Math.Min(x, info.MaxWidth - info.GridWidth));
-        var newY = Math.Max(0, Math.Min(y, info.MaxHeight - info.GridHeight));
+        var newX = Math.Max(0, Math.Min(x, info.TileInfo.TotalWidth - info.TileInfo.ViewWidth));
+        var newY = Math.Max(0, Math.Min(y, info.TileInfo.TotalHeight - info.TileInfo.ViewHeight));
         bool diff = X != newX || Y != newY;
         X = newX;
         Y = newY;
@@ -80,16 +80,16 @@ public class MapView
     {
         var layer = Map.CurrentLayer;
         return wholeMap
-            ? action(0, 0, layer.MaxWidth, layer.MaxHeight)
-            : action(X, Y, layer.GridWidth, layer.GridHeight);
+            ? action(0, 0, layer.TileInfo.TotalWidth, layer.TileInfo.TotalHeight)
+            : action(X, Y, layer.TileInfo.ViewWidth, layer.TileInfo.ViewHeight);
     }
 
     public int ReplaceFieldItems(Item oldItem, Item newItem, in bool wholeMap)
     {
         var layer = Map.CurrentLayer;
         return wholeMap
-            ? layer.ReplaceAll(oldItem, newItem, 0, 0, layer.MaxWidth, layer.MaxHeight)
-            : layer.ReplaceAll(oldItem, newItem, X, Y, layer.GridWidth, layer.GridHeight);
+            ? layer.ReplaceAll(oldItem, newItem, 0, 0, layer.TileInfo.TotalWidth, layer.TileInfo.TotalHeight)
+            : layer.ReplaceAll(oldItem, newItem, X, Y, layer.TileInfo.ViewWidth, layer.TileInfo.ViewHeight);
     }
 
     public void GetCursorCoordinates(in int mX, in int mY, out int x, out int y)
@@ -102,6 +102,6 @@ public class MapView
     {
         GetCursorCoordinates(mX, mY, out x, out y);
         var layer = Map.Items.Layer1;
-        layer.GetViewAnchorCoordinates(ref x, ref y, centerReticle);
+        layer.TileInfo.GetViewAnchorCoordinates(ref x, ref y, centerReticle);
     }
 }

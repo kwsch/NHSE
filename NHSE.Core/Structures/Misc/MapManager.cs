@@ -4,16 +4,11 @@ using System.Runtime.InteropServices;
 
 namespace NHSE.Core;
 
-public class MapManager : MapTerrainStructure
+public class MapManager(MainSave sav) : MapTerrainStructure(sav)
 {
-    public readonly FieldItemManager Items;
+    public readonly FieldItemManager Items = new(sav);
 
     public int MapLayer { get; set; } // 0 or 1
-
-    public MapManager(MainSave sav) : base(sav)
-    {
-        Items = new FieldItemManager(sav);
-    }
 
     public FieldItemLayer CurrentLayer => MapLayer == 0 ? Items.Layer1 : Items.Layer2;
 
@@ -41,19 +36,11 @@ public class MapManager : MapTerrainStructure
     }
 }
 
-public class MapTerrainStructure
+public class MapTerrainStructure(MainSave sav)
 {
-    public readonly TerrainLayer Terrain;
-    public readonly IReadOnlyList<Building> Buildings;
+    public readonly TerrainLayer Terrain = new(sav.GetTerrainTiles(), sav.GetAcreBytes());
+    public readonly IReadOnlyList<Building> Buildings = sav.Buildings;
 
-    public uint PlazaX { get; set; }
-    public uint PlazaY { get; set; }
-
-    public MapTerrainStructure(MainSave sav)
-    {
-        Terrain = new TerrainLayer(sav.GetTerrainTiles(), sav.GetAcreBytes());
-        Buildings = sav.Buildings;
-        PlazaX = sav.EventPlazaLeftUpX;
-        PlazaY = sav.EventPlazaLeftUpZ;
-    }
+    public uint PlazaX { get; set; } = sav.EventPlazaLeftUpX;
+    public uint PlazaY { get; set; } = sav.EventPlazaLeftUpZ;
 }

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace NHSE.Core;
 
-public class RoomItemLayer : ItemLayer
+public sealed record RoomItemLayer : ItemLayer
 {
     public const int SIZE = Width * Height * Item.SIZE;
-    private const int Width = 20;
-    private const int Height = 20;
+    private const byte Width = 20;
+    private const byte Height = 20;
 
     public RoomItemLayer(ReadOnlySpan<byte> data) : this(Item.GetArray(data)) { }
     public RoomItemLayer(Item[] tiles) : base(tiles, Width, Height) { }

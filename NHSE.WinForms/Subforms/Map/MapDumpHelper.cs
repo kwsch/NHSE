@@ -19,7 +19,7 @@ public static class MapDumpHelper
         var path = ofd.FileName;
         var fi = new FileInfo(path);
 
-        int expect = layer.GridTileCount * Item.SIZE;
+        int expect = layer.TileInfo.ViewCount * Item.SIZE;
         if (fi.Length != expect)
         {
             WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expect));
@@ -42,7 +42,7 @@ public static class MapDumpHelper
         var path = ofd.FileName;
         var fi = new FileInfo(path);
 
-        int expect = layer.MaxTileCount * Item.SIZE;
+        int expect = layer.TileInfo.TotalCount * Item.SIZE;
         if (fi.Length != expect)
         {
             WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expect));
@@ -91,7 +91,7 @@ public static class MapDumpHelper
         var path = ofd.FileName;
         var fi = new FileInfo(path);
 
-        int expect = m.GridTileCount * TerrainTile.SIZE;
+        int expect = m.TileInfo.ViewCount * TerrainTile.SIZE;
         if (fi.Length != expect)
         {
             WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expect));
@@ -114,7 +114,7 @@ public static class MapDumpHelper
         var path = ofd.FileName;
         var fi = new FileInfo(path);
 
-        int expect = m.MaxTileCount * TerrainTile.SIZE;
+        int expect = m.TileInfo.TotalCount * TerrainTile.SIZE;
         if (fi.Length != expect)
         {
             WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expect));

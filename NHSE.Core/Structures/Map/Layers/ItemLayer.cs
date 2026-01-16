@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 
 namespace NHSE.Core;
 
-public abstract class ItemLayer : MapGrid
+public abstract record ItemLayer : AcreSelectionGrid
 {
     public readonly Item[] Tiles;
 
-    protected ItemLayer(Item[] tiles, int w, int h) : this(tiles, w, h, w, h)
+    protected ItemLayer(Item[] tiles, [ConstantExpected] byte w, [ConstantExpected] byte h) : this(tiles, new(w, h, w, h))
     {
     }
 
-    protected ItemLayer(Item[] tiles, int w, int h, int gw, int gh) : base(gw, gh, w, h)
+    protected ItemLayer(Item[] tiles, TileGridViewport tileTileInfo) : base(tileTileInfo)
     {
         Tiles = tiles;
-        Debug.Assert(MaxWidth * MaxHeight == tiles.Length);
+        Debug.Assert(TileInfo.TotalWidth * TileInfo.TotalHeight == tiles.Length);
     }
 
-    public Item GetTile(in int x, in int y) => this[GetTileIndex(x, y)];
+    public Item GetTile(in int x, in int y) => this[TileInfo.GetTileIndex(x, y)];
 
     public Item this[int index]
     {
@@ -101,10 +102,10 @@ public abstract class ItemLayer : MapGrid
             (w, h) = (h, w);
 
         // Clamp to grid bounds
-        if (x + w - 1 >= MaxWidth)
-            w = MaxWidth - x;
-        if (y + h - 1 >= MaxHeight)
-            h = MaxHeight - y;
+        if (x + w - 1 >= TileInfo.TotalWidth)
+            w = TileInfo.TotalWidth - x;
+        if (y + h - 1 >= TileInfo.TotalHeight)
+            h = TileInfo.TotalHeight - y;
     }
 
     /// <summary>
@@ -120,9 +121,9 @@ public abstract class ItemLayer : MapGrid
         if ((tile.Rotation & 1) == 1)
             (w, h) = (h, w);
 
-        if (x + w - 1 >= MaxWidth)
+        if (x + w - 1 >= TileInfo.TotalWidth)
             return PlacedItemPermission.OutOfBounds;
-        if (y + h - 1 >= MaxHeight)
+        if (y + h - 1 >= TileInfo.TotalHeight)
             return PlacedItemPermission.OutOfBounds;
 
         for (byte ix = 0; ix < w; ix++)

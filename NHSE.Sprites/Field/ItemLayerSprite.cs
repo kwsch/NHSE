@@ -9,7 +9,7 @@ public static class ItemLayerSprite
     public static Bitmap GetBitmapItemLayer(ItemLayer layer)
     {
         var items = layer.Tiles;
-        var height = layer.MaxHeight;
+        var height = layer.TileInfo.TotalHeight;
         var width = items.Length / height;
 
         var bmpData = new int[width * height];
@@ -34,7 +34,7 @@ public static class ItemLayerSprite
 
     private static void LoadPixelsFromLayer(ItemLayer layer, int x0, int y0, int width, Span<int> bmpData)
     {
-        var stride = layer.GridWidth;
+        var stride = layer.TileInfo.ViewWidth;
 
         for (int y = 0; y < stride; y++)
         {
@@ -52,8 +52,8 @@ public static class ItemLayerSprite
     // non-allocation image generator
     public static Bitmap GetBitmapItemLayerViewGrid(ItemLayer layer, int x0, int y0, int scale, Span<int> acre1, int[] acreScale, Bitmap dest, int transparency = -1, int gridlineColor = 0)
     {
-        var w = layer.GridWidth;
-        var h = layer.GridHeight;
+        int w = layer.TileInfo.ViewWidth;
+        int h = layer.TileInfo.ViewHeight;
         LoadPixelsFromLayer(layer, x0, y0, w, acre1);
         w *= scale;
         h *= scale;
@@ -75,9 +75,9 @@ public static class ItemLayerSprite
 
     private static void DrawDirectionals(Span<int> data, ItemLayer layer, int w, int x0, int y0, int scale)
     {
-        for (int x = x0; x < x0 + layer.GridWidth; x++)
+        for (int x = x0; x < x0 + layer.TileInfo.ViewWidth; x++)
         {
-            for (int y = y0; y < y0 + layer.GridHeight; y++)
+            for (int y = y0; y < y0 + layer.TileInfo.ViewHeight; y++)
             {
                 var tile = layer.GetTile(x, y);
                 if (tile.IsNone)
@@ -234,20 +234,20 @@ public static class ItemLayerSprite
 
     public static Bitmap GetBitmapItemLayer(ItemLayer layer, int x, int y, int[] data, Bitmap dest, int transparency = -1)
     {
-        LoadBitmapLayer(layer.Tiles, data, layer.MaxWidth, layer.MaxHeight);
+        LoadBitmapLayer(layer.Tiles, data, layer.TileInfo.TotalWidth, layer.TileInfo.TotalHeight);
         if (transparency >>> 24 != 0xFF)
             ImageUtil.ClampAllTransparencyTo(data, transparency);
         ImageUtil.SetBitmapData(dest, data);
-        return DrawViewReticle(dest, layer, x, y);
+        return DrawViewReticle(dest, layer.TileInfo, x, y);
     }
 
-    private static Bitmap DrawViewReticle(Bitmap map, TileGrid g, int x, int y, int scale = 1)
+    private static Bitmap DrawViewReticle(Bitmap map, TileGridViewport g, int x, int y, int scale = 1)
     {
         using var gfx = Graphics.FromImage(map);
         using var pen = new Pen(Color.Red);
 
-        int w = g.GridWidth * scale;
-        int h = g.GridHeight * scale;
+        int w = g.ViewWidth * scale;
+        int h = g.ViewHeight * scale;
         gfx.DrawRectangle(pen, x * scale, y * scale, w, h);
         return map;
     }

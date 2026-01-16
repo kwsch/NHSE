@@ -20,9 +20,9 @@ public static class TerrainSprite
     public static void CreateMap(TerrainLayer mgr, Span<int> pixels)
     {
         int i = 0;
-        for (int y = 0; y < mgr.MaxHeight; y++)
+        for (int y = 0; y < mgr.TileInfo.TotalHeight; y++)
         {
-            for (int x = 0; x < mgr.MaxWidth; x++, i++)
+            for (int x = 0; x < mgr.TileInfo.TotalWidth; x++, i++)
             {
                 pixels[i] = mgr.GetTileColor(x, y, x, y);
             }
@@ -38,20 +38,20 @@ public static class TerrainSprite
         if (acreIndex < 0)
             return map;
 
-        var acre = MapGrid.Acres[acreIndex];
-        var x = acre.X * mgr.GridWidth;
-        var y = acre.Y * mgr.GridHeight;
+        var acre = AcreCoordinate.Acres[acreIndex];
+        var x = acre.X * mgr.TileInfo.ViewWidth;
+        var y = acre.Y * mgr.TileInfo.ViewHeight;
 
-        return DrawReticle(map, mgr, x, y, scale);
+        return DrawReticle(map, mgr.TileInfo, x, y, scale);
     }
 
-    private static Bitmap DrawReticle(Bitmap map, TileGrid mgr, int x, int y, int scale)
+    private static Bitmap DrawReticle(Bitmap map, TileGridViewport mgr, int x, int y, int scale)
     {
         using var gfx = Graphics.FromImage(map);
         using var pen = new Pen(Color.Red);
 
-        int w = mgr.GridWidth * scale;
-        int h = mgr.GridHeight * scale;
+        int w = mgr.ViewWidth * scale;
+        int h = mgr.ViewHeight * scale;
         gfx.DrawRectangle(pen, x * scale, y * scale, w, h);
         return map;
     }

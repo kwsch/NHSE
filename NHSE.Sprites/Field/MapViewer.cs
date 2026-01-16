@@ -23,12 +23,13 @@ public sealed class MapViewer : MapView, IDisposable
     public MapViewer(MapManager m, int scale) : base(m, scale)
     {
         var l1 = m.Items.Layer1;
-        PixelsItemAcre1 = new int[l1.GridWidth * l1.GridHeight];
+        var info = l1.TileInfo;
+        PixelsItemAcre1 = new int[info.ViewWidth * info.ViewHeight];
         PixelsItemAcreX = new int[PixelsItemAcre1.Length * AcreScale * AcreScale];
-        ScaleAcre = new Bitmap(l1.GridWidth * AcreScale, l1.GridHeight * AcreScale);
+        ScaleAcre = new Bitmap(info.ViewWidth * AcreScale, info.ViewHeight * AcreScale);
 
-        PixelsItemMap = new int[l1.MaxWidth * l1.MaxHeight * MapScale * MapScale];
-        MapReticle = new Bitmap(l1.MaxWidth * MapScale, l1.MaxHeight * MapScale);
+        PixelsItemMap = new int[info.TotalWidth * info.TotalHeight * MapScale * MapScale];
+        MapReticle = new Bitmap(info.TotalWidth * MapScale, info.TotalHeight * MapScale);
 
         PixelsBackgroundAcre1 = new int[(int)Math.Pow(16, 4)];
         PixelsBackgroundAcreX = new int[PixelsItemAcreX.Length];

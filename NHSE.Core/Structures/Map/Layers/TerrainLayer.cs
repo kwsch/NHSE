@@ -7,20 +7,27 @@ namespace NHSE.Core;
 /// <summary>
 /// Grid of <see cref="TerrainTile"/>
 /// </summary>
-public class TerrainLayer : MapGrid
+public sealed record TerrainLayer : AcreSelectionGrid
 {
     public TerrainTile[] Tiles { get; init; }
-    public byte[] BaseAcres { get; init; }
+    public Memory<byte> BaseAcres { get; init; }
 
-    public TerrainLayer(TerrainTile[] tiles, byte[] acres) : base(16, 16, AcreWidth * 16, AcreHeight * 16)
+    public const byte TilesPerAcreDim = 16;
+
+    private const byte CountAcreWidth = 7;
+    private const byte CountAcreHeight = 6;
+
+    private static TileGridViewport Viewport => new(TilesPerAcreDim, TilesPerAcreDim, CountAcreWidth, CountAcreHeight);
+
+    public TerrainLayer(TerrainTile[] tiles, Memory<byte> acres) : base(Viewport)
     {
         BaseAcres = acres;
         Tiles = tiles;
-        Debug.Assert(MaxTileCount == tiles.Length);
+        Debug.Assert(TileInfo.TotalCount == tiles.Length);
     }
 
-    public TerrainTile GetTile(int x, int y) => this[GetTileIndex(x, y)];
-    public TerrainTile GetTile(int acreX, int acreY, int gridX, int gridY) => this[GetTileIndex(acreX, acreY, gridX, gridY)];
+    public TerrainTile GetTile(int x, int y) => this[TileInfo.GetTileIndex(x, y)];
+    public TerrainTile GetTile(int acreX, int acreY, int gridX, int gridY) => this[TileInfo.GetTileIndex(acreX, acreY, gridX, gridY)];
     public TerrainTile GetAcreTile(int acreIndex, int tileIndex) => this[GetAcreTileIndex(acreIndex, tileIndex)];
 
     public TerrainTile this[int index]
@@ -39,7 +46,7 @@ public class TerrainLayer : MapGrid
 
     public byte[] DumpAcre(int acre)
     {
-        int count = GridTileCount;
+        int count = TileInfo.ViewCount;
         var result = new byte[TerrainTile.SIZE * count];
         for (int i = 0; i < count; i++)
         {
@@ -60,7 +67,7 @@ public class TerrainLayer : MapGrid
 
     public void ImportAcre(int acre, ReadOnlySpan<byte> data)
     {
-        int count = GridTileCount;
+        int count = TileInfo.ViewCount;
         var tiles = TerrainTile.GetArray(data);
         for (int i = 0; i < count; i++)
         {
@@ -74,10 +81,10 @@ public class TerrainLayer : MapGrid
         if (interiorOnly)
         {
             // skip outermost ring of tiles
-            int xmin = GridWidth;
-            int ymin = GridHeight;
-            int xmax = MaxWidth - GridWidth;
-            int ymax = MaxHeight - GridHeight;
+            int xmin = TileInfo.ViewWidth;
+            int ymin = TileInfo.ViewHeight;
+            int xmax = TileInfo.TotalWidth - TileInfo.ViewWidth;
+            int ymax = TileInfo.TotalHeight - TileInfo.ViewHeight;
             for (int x = xmin; x < xmax; x++)
             {
                 for (int y = ymin; y < ymax; y++)
@@ -96,10 +103,10 @@ public class TerrainLayer : MapGrid
         if (interiorOnly)
         {
             // skip outermost ring of tiles
-            int xmin = GridWidth;
-            int ymin = GridHeight;
-            int xmax = MaxWidth - GridWidth;
-            int ymax = MaxHeight - GridHeight;
+            int xmin = TileInfo.ViewWidth;
+            int ymin = TileInfo.ViewHeight;
+            int xmax = TileInfo.TotalWidth - TileInfo.ViewWidth;
+            int ymax = TileInfo.TotalHeight - TileInfo.ViewHeight;
             for (int x = xmin; x < xmax; x++)
             {
                 for (int y = ymin; y < ymax; y++)
@@ -117,7 +124,7 @@ public class TerrainLayer : MapGrid
     {
         // Although there is terrain in the Top Row and Left Column, no buildings can be placed there.
         // Adjust the building coordinates down-right by an acre.
-        int buildingShift = GridWidth;
+        int buildingShift = TileInfo.ViewWidth;
         x = (int)(((bx / 2f) - buildingShift) * scale);
         y = (int)(((by / 2f) - buildingShift) * scale);
     }
@@ -131,10 +138,10 @@ public class TerrainLayer : MapGrid
 
     public bool IsWithinGrid(int acreScale, int relX, int relY)
     {
-        if ((uint)relX >= GridWidth * acreScale)
+        if ((uint)relX >= TileInfo.ViewWidth * acreScale)
             return false;
 
-        if ((uint)relY >= GridHeight * acreScale)
+        if ((uint)relY >= TileInfo.ViewHeight * acreScale)
             return false;
 
         return true;
@@ -159,8 +166,8 @@ public class TerrainLayer : MapGrid
         var acreX = 1 + (x / 16);
         var acreY = 1 + (y / 16);
 
-        var acreIndex = ((AcreWidth + 2) * acreY) + acreX;
+        var acreIndex = ((CountAcreWidth + 2) * acreY) + acreX;
         var ofs = acreIndex * 2;
-        return ReadUInt16LittleEndian(BaseAcres.AsSpan(ofs));
+        return ReadUInt16LittleEndian(BaseAcres.Span[ofs..]);
     }
 }

@@ -3,22 +3,19 @@ using System.Collections.Generic;
 
 namespace NHSE.Core;
 
-public class FieldItemLayer : ItemLayer
+public sealed record FieldItemLayer(Item[] Tiles, byte AcreWidth, byte AcreHeight)
+    : ItemLayer(Tiles, GetViewport(AcreWidth, AcreHeight))
 {
+    private static TileGridViewport GetViewport(byte width, byte height) => new(TilesPerAcreDim, TilesPerAcreDim, width, height);
+
     public const int TilesPerAcreDim = 32;
-    public const int FieldItemWidth = TilesPerAcreDim * AcreWidth;
-    public const int FieldItemHeight = TilesPerAcreDim * AcreHeight;
 
-    public FieldItemLayer(Item[] tiles) : base(tiles, FieldItemWidth, FieldItemHeight, TilesPerAcreDim, TilesPerAcreDim)
-    {
-    }
-
-    public Item GetTile(int acreX, int acreY, int gridX, int gridY) => this[GetTileIndex(acreX, acreY, gridX, gridY)];
+    public Item GetTile(int acreX, int acreY, int gridX, int gridY) => this[TileInfo.GetTileIndex(acreX, acreY, gridX, gridY)];
     public Item GetAcreTile(int acreIndex, int tileIndex) => this[GetAcreTileIndex(acreIndex, tileIndex)];
 
     public byte[] DumpAcre(int acre)
     {
-        int count = GridTileCount;
+        int count = TileInfo.ViewCount;
         var result = new byte[Item.SIZE * count];
         for (int i = 0; i < count; i++)
         {
@@ -31,7 +28,7 @@ public class FieldItemLayer : ItemLayer
 
     public void ImportAcre(int acre, ReadOnlySpan<byte> data)
     {
-        int count = GridTileCount;
+        int count = TileInfo.ViewCount;
         var tiles = Item.GetArray(data);
         for (int i = 0; i < count; i++)
         {
@@ -40,10 +37,10 @@ public class FieldItemLayer : ItemLayer
         }
     }
 
-    public int ClearFieldPlanted(Func<FieldItemKind, bool> criteria) => ClearFieldPlanted(0, 0, MaxWidth, MaxHeight, criteria);
-    public int RemoveAll(Func<Item, bool> criteria) => RemoveAll(0, 0, MaxWidth, MaxHeight, criteria);
-    public int RemoveAll(HashSet<ushort> items) => RemoveAll(0, 0, MaxWidth, MaxHeight, z => items.Contains(z.DisplayItemId));
-    public int RemoveAll(ushort item) => RemoveAll(0, 0, MaxWidth, MaxHeight, z => z.DisplayItemId == item);
+    public int ClearFieldPlanted(Func<FieldItemKind, bool> criteria) => ClearFieldPlanted(0, 0, TileInfo.TotalWidth, TileInfo.TotalHeight, criteria);
+    public int RemoveAll(Func<Item, bool> criteria) => RemoveAll(0, 0, TileInfo.TotalWidth, TileInfo.TotalHeight, criteria);
+    public int RemoveAll(HashSet<ushort> items) => RemoveAll(0, 0, TileInfo.TotalWidth, TileInfo.TotalHeight, z => items.Contains(z.DisplayItemId));
+    public int RemoveAll(ushort item) => RemoveAll(0, 0, TileInfo.TotalWidth, TileInfo.TotalHeight, z => z.DisplayItemId == item);
 
     public int ClearFieldPlanted(int xmin, int ymin, int width, int height, Func<FieldItemKind, bool> criteria)
     {

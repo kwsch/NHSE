@@ -116,7 +116,7 @@ public partial class BulkSpawn : Form
             var permission = layer.IsOccupied(item, x, y);
             switch (permission)
             {
-                case PlacedItemPermission.OutOfBounds when y >= layer.MaxHeight:
+                case PlacedItemPermission.OutOfBounds when y >= layer.TileInfo.TotalHeight:
                     return ctr;
                 case PlacedItemPermission.OutOfBounds:
                 case PlacedItemPermission.Collision when noOverwrite:

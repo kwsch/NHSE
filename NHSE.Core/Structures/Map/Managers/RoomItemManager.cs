@@ -35,9 +35,9 @@ public class RoomItemManager
         var lBase = Layers[(int)RoomLayerSurface.Floor];
         var lSupport = Layers[(int)RoomLayerSurface.FloorSupported];
         var result = new List<string>();
-        for (int x = 0; x < lBase.MaxWidth; x++)
+        for (int x = 0; x < lBase.TileInfo.TotalWidth; x++)
         {
-            for (int y = 0; y < lBase.MaxHeight; y++)
+            for (int y = 0; y < lBase.TileInfo.TotalHeight; y++)
             {
                 var tile = lSupport.GetTile(x, y);
                 if (tile.IsNone)

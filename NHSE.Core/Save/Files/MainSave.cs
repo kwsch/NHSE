@@ -157,7 +157,8 @@ public sealed class MainSave : EncryptedFilePair
         set => value.Data.CopyTo(Data[Offsets.Museum..]);
     }
 
-    public const int AcreWidth = 7 + (2 * 1); // 1 on each side cannot be traversed
+    // Acre Layout/Selection of which baselayer is selected for an acre.
+    private const int AcreWidth = 7 + (2 * 1); // 1 on each side cannot be traversed
     private const int AcreHeight = 6 + (2 * 1); // 1 on each side cannot be traversed
     private const int AcreMax = AcreWidth * AcreHeight;
     private const int AcreSizeAll = AcreMax * 2;
@@ -185,7 +186,14 @@ public sealed class MainSave : EncryptedFilePair
         data.CopyTo(Data[Offsets.OutsideField..]);
     }
 
-    public TerrainTile[] GetTerrainTiles() => TerrainTile.GetArray(Data.Slice(Offsets.LandMakingMap, MapGrid.MapTileCount16x16 * TerrainTile.SIZE));
+    public byte FieldItemAcreWidth => Offsets.FieldItemAcreWidth; // 3.0.0 updated from 7 => 9
+    public byte FieldItemAcreHeight => 6; // always 6
+    private int FieldItemAcreCount => FieldItemAcreWidth * FieldItemAcreHeight;
+
+    private const int TotalTerrainTileCount = TerrainLayer.TilesPerAcreDim * TerrainLayer.TilesPerAcreDim * (7 * 6);
+    private int TotalFieldItemTileCount => FieldItemLayer.TilesPerAcreDim * FieldItemLayer.TilesPerAcreDim * FieldItemAcreCount;
+
+    public TerrainTile[] GetTerrainTiles() => TerrainTile.GetArray(Data.Slice(Offsets.LandMakingMap, TotalTerrainTileCount * TerrainTile.SIZE));
     public void SetTerrainTiles(IReadOnlyList<TerrainTile> array) => TerrainTile.SetArray(array).CopyTo(Data[Offsets.LandMakingMap..]);
 
     public const int MapDesignNone = 0xF800;
@@ -202,8 +210,8 @@ public sealed class MainSave : EncryptedFilePair
         cast.CopyTo(Data[Offsets.MyDesignMap..]);
     }
 
-    private const int FieldItemLayerSize = MapGrid.MapTileCount32x32 * Item.SIZE;
-    private const int FieldItemFlagSize = MapGrid.MapTileCount32x32 / 8; // bitflags
+    private int FieldItemLayerSize => TotalFieldItemTileCount * Item.SIZE;
+    private int FieldItemFlagSize => TotalFieldItemTileCount / sizeof(byte); // bitflags
 
     private int FieldItemLayer1 => Offsets.FieldItem;
     private int FieldItemLayer2 => Offsets.FieldItem + FieldItemLayerSize;

@@ -57,11 +57,9 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void LoadComboBoxes()
     {
-        foreach (var acre in MapGrid.Acres)
+        foreach (var acre in AcreCoordinate.Acres)
             CB_Acre.Items.Add(acre.Name);
-
-        var exterior = AcreCoordinate.GetGridWithExterior(9, 8);
-        foreach (var acre in exterior)
+        foreach (var acre in AcreCoordinate.Exterior)
             CB_MapAcre.Items.Add(acre.Name);
 
         CB_MapAcreSelect.DisplayMember = nameof(ComboItem.Text);
@@ -349,8 +347,8 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         if (CHK_RedirectExtensionLoad.Checked && tile.IsExtension)
         {
             var l = Map.CurrentLayer;
-            var rx = Math.Max(0, Math.Min(l.MaxWidth - 1, x - tile.ExtensionX));
-            var ry = Math.Max(0, Math.Min(l.MaxHeight - 1, y - tile.ExtensionY));
+            var rx = Math.Max(0, Math.Min(l.TileInfo.TotalWidth - 1, x - tile.ExtensionX));
+            var ry = Math.Max(0, Math.Min(l.TileInfo.TotalHeight - 1, y - tile.ExtensionY));
             var redir = l.GetTile(rx, ry);
             if (redir.IsRoot && redir.ItemId == tile.ExtensionItemId)
                 tile = redir;
@@ -511,7 +509,8 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void B_Save_Click(object sender, EventArgs e)
     {
-        var unsupported = Map.Items.GetUnsupportedTiles();
+        var view = View.Map.Items.Layer1.TileInfo;
+        var unsupported = Map.Items.GetUnsupportedTiles(view.TotalWidth, view.TotalHeight);
         if (unsupported.Count != 0)
         {
             var err = MessageStrings.MsgFieldItemUnsupportedLayer2Tile;
@@ -524,7 +523,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         Map.Items.Save();
         SAV.SetTerrainTiles(Map.Terrain.Tiles);
 
-        SAV.SetAcreBytes(Map.Terrain.BaseAcres);
+        SAV.SetAcreBytes(Map.Terrain.BaseAcres.Span);
         SAV.OutsideFieldTemplateUniqueId = (ushort)NUD_MapAcreTemplateOutside.Value;
         SAV.MainFieldParamUniqueID = (ushort)NUD_MapAcreTemplateField.Value;
 
@@ -616,7 +615,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     private void B_Up_Click(object sender, EventArgs e)
     {
         if (ModifierKeys == Keys.Shift)
-            CB_Acre.SelectedIndex = Math.Max(0, CB_Acre.SelectedIndex - MapGrid.AcreWidth);
+            CB_Acre.SelectedIndex = Math.Max(0, CB_Acre.SelectedIndex - View.Map.Items.Layer1.TileInfo.Columns);
         else if (View.ArrowUp())
             LoadItemGridAcre();
     }
@@ -640,7 +639,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     private void B_Down_Click(object sender, EventArgs e)
     {
         if (ModifierKeys == Keys.Shift)
-            CB_Acre.SelectedIndex = Math.Min(CB_Acre.SelectedIndex + MapGrid.AcreWidth, CB_Acre.Items.Count - 1);
+            CB_Acre.SelectedIndex = Math.Min(CB_Acre.SelectedIndex + View.Map.Items.Layer1.TileInfo.Columns, CB_Acre.Items.Count - 1);
         else if (View.ArrowDown())
             LoadItemGridAcre();
     }
@@ -989,7 +988,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void CB_MapAcre_SelectedIndexChanged(object sender, EventArgs e)
     {
-        var acre = Map.Terrain.BaseAcres[CB_MapAcre.SelectedIndex * 2];
+        var acre = Map.Terrain.BaseAcres.Span[CB_MapAcre.SelectedIndex * 2];
         CB_MapAcreSelect.SelectedValue = (int)acre;
 
         // Jump view if available
@@ -1005,7 +1004,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         var index = CB_MapAcre.SelectedIndex;
         var value = WinFormsUtil.GetIndex(CB_MapAcreSelect);
 
-        var span = Map.Terrain.BaseAcres.AsSpan(index * 2, 2);
+        var span = Map.Terrain.BaseAcres.Span.Slice(index * 2, 2);
         var oldValue = span[0];
         if (value == oldValue)
             return;
@@ -1016,7 +1015,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void B_DumpMapAcres_Click(object sender, EventArgs e)
     {
-        if (!MapDumpHelper.DumpMapAcresAll(Map.Terrain.BaseAcres))
+        if (!MapDumpHelper.DumpMapAcresAll(Map.Terrain.BaseAcres.Span))
             return;
         ReloadBuildingsTerrain();
         System.Media.SystemSounds.Asterisk.Play();
@@ -1024,7 +1023,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void B_ImportMapAcres_Click(object sender, EventArgs e)
     {
-        if (!MapDumpHelper.ImportMapAcresAll(Map.Terrain.BaseAcres))
+        if (!MapDumpHelper.ImportMapAcresAll(Map.Terrain.BaseAcres.Span))
             return;
         ReloadBuildingsTerrain();
         System.Media.SystemSounds.Asterisk.Play();
@@ -1108,7 +1107,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     {
         var editor = new BatchEditor(SpawnLayer.Tiles, ItemEdit.SetItem(new Item()));
         editor.ShowDialog();
-        SpawnLayer.ClearDanglingExtensions(0, 0, SpawnLayer.MaxWidth, SpawnLayer.MaxHeight);
+        SpawnLayer.ClearDanglingExtensions(0, 0, SpawnLayer.TileInfo.TotalWidth, SpawnLayer.TileInfo.TotalHeight);
         LoadItemGridAcre();
     }
 

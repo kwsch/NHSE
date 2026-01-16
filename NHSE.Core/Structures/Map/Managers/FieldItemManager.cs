@@ -23,11 +23,22 @@ public class FieldItemManager
     /// </summary>
     public readonly MainSave SAV;
 
+    public readonly int FieldAcreWidth;
+    public readonly int FieldAcreHeight;
+    public readonly int FieldItemWidth;
+    public readonly int FieldItemHeight;
+
     public FieldItemManager(MainSave sav)
     {
-        Layer1 = new FieldItemLayer(sav.GetFieldItemLayer1());
-        Layer2 = new FieldItemLayer(sav.GetFieldItemLayer2());
+        var (aWidth, aHeight) = (sav.FieldItemAcreWidth, sav.FieldItemAcreHeight);
+        Layer1 = new FieldItemLayer(sav.GetFieldItemLayer1(), aWidth, aHeight);
+        Layer2 = new FieldItemLayer(sav.GetFieldItemLayer2(), aWidth, aHeight);
         SAV = sav;
+
+        FieldAcreWidth = aWidth;
+        FieldAcreHeight = aHeight;
+        FieldItemWidth = Layer1.TileInfo.TotalWidth;
+        FieldItemHeight = Layer1.TileInfo.TotalHeight;
     }
 
     /// <summary>
@@ -46,12 +57,12 @@ public class FieldItemManager
     /// Lists out all coordinates of tiles present in <see cref="Layer2"/> that don't have anything underneath in <see cref="Layer1"/> to support them.
     /// </summary>
     /// <returns></returns>
-    public List<string> GetUnsupportedTiles()
+    public List<string> GetUnsupportedTiles(int totalWidth, int totalHeight)
     {
         var result = new List<string>();
-        for (int x = 0; x < FieldItemLayer.FieldItemWidth; x++)
+        for (int x = 0; x < totalWidth; x++)
         {
-            for (int y = 0; y < FieldItemLayer.FieldItemHeight; y++)
+            for (int y = 0; y < totalHeight; y++)
             {
                 var tile = Layer2.GetTile(x, y);
                 if (tile.IsNone)
@@ -73,9 +84,9 @@ public class FieldItemManager
 
         // Although the Tiles are arranged y-column (y-x) based, the 'isActive' flags are arranged x-row (x-y) based.
         // We can turn the isActive flag off if the item is not a root or the item cannot be animated.
-        for (int x = 0; x < FieldItemLayer.FieldItemWidth; x++)
+        for (int x = 0; x < FieldItemWidth; x++)
         {
-            for (int y = 0; y < FieldItemLayer.FieldItemHeight; y++)
+            for (int y = 0; y < FieldItemHeight; y++)
             {
                 var tile = tiles.GetTile(x, y);
                 var isActive = GetIsActive(ofs, x, y);
@@ -92,8 +103,8 @@ public class FieldItemManager
     public bool GetIsActive(bool baseLayer, int x, int y)             => GetIsActive(baseLayer ? SAV.FieldItemFlag1 : SAV.FieldItemFlag2, x, y);
     public void SetIsActive(bool baseLayer, int x, int y, bool value) => SetIsActive(baseLayer ? SAV.FieldItemFlag1 : SAV.FieldItemFlag2, x, y, value);
 
-    private bool GetIsActive(int ofs, int x, int y)             => FlagUtil.GetFlag(SAV.Data, ofs, (y * FieldItemLayer.FieldItemWidth) + x);
-    private void SetIsActive(int ofs, int x, int y, bool value) => FlagUtil.SetFlag(SAV.Data, ofs, (y * FieldItemLayer.FieldItemWidth) + x, value);
+    private bool GetIsActive(int ofs, int x, int y)             => FlagUtil.GetFlag(SAV.Data, ofs, (y * FieldItemWidth) + x);
+    private void SetIsActive(int ofs, int x, int y, bool value) => FlagUtil.SetFlag(SAV.Data, ofs, (y * FieldItemWidth) + x, value);
 
     public bool IsOccupied(int x, int y) => !Layer1.GetTile(x, y).IsNone || !Layer2.GetTile(x, y).IsNone;
 }

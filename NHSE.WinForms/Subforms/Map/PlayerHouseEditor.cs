@@ -135,7 +135,7 @@ public partial class PlayerHouseEditor : Form
         GetCoordinates(e, out HoverX, out HoverY);
 
         // Mouse event may fire with a slightly too large x/y; clamp just in case.
-        Manager.Layers[0].ClampCoordinatesInsideGrid(ref HoverX, ref HoverY);
+        Manager.Layers[0].TileInfo.ClampInside(ref HoverX, ref HoverY);
     }
 
     private static void GetCoordinates(MouseEventArgs e, out int x, out int y)
@@ -164,8 +164,8 @@ public partial class PlayerHouseEditor : Form
 
     private void DrawRoom(ItemLayer layer)
     {
-        var w = layer.MaxWidth;
-        var h = layer.MaxHeight;
+        var w = layer.TileInfo.TotalWidth;
+        var h = layer.TileInfo.TotalHeight;
         Span<int> scale1 = stackalloc int[w * h];
         int[] scaleX = new int[scale * scale * scale1.Length];
         var bmp = new Bitmap(scale * w, scale * h);
@@ -240,8 +240,8 @@ public partial class PlayerHouseEditor : Form
         if (CHK_RedirectExtensionLoad.Checked && tile.IsExtension)
         {
             var l = CurrentLayer;
-            var rx = Math.Max(0, Math.Min(l.MaxWidth - 1, x - tile.ExtensionX));
-            var ry = Math.Max(0, Math.Min(l.MaxHeight - 1, y - tile.ExtensionY));
+            var rx = Math.Max(0, Math.Min(l.TileInfo.TotalWidth - 1, x - tile.ExtensionX));
+            var ry = Math.Max(0, Math.Min(l.TileInfo.TotalHeight - 1, y - tile.ExtensionY));
             var redir = l.GetTile(rx, ry);
             if (redir.IsRoot && redir.ItemId == tile.ExtensionItemId)
                 tile = redir;
