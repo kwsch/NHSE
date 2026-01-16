@@ -1,14 +1,15 @@
-﻿using System;
+﻿using NHSE.Core;
+using NHSE.Injection;
+using NHSE.Sprites;
+using NHSE.WinForms.Properties;
+using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NHSE.Core;
-using NHSE.Injection;
-using NHSE.Sprites;
-using NHSE.WinForms.Properties;
 
 namespace NHSE.WinForms;
 
@@ -302,6 +303,15 @@ public sealed partial class Editor : Form
         NUD_PocketCount2.Value = Math.Min(int.MaxValue, pers.BagCount);
         NUD_StorageCount.Value = Math.Min(int.MaxValue, pers.ItemChestCount);
 
+        if (SAV.Main.Info.GetKnownRevisionIndex() >= 31)
+        {
+            NUD_HotelTickets.Value = Math.Min(int.MaxValue, pers.Tickets.Value);
+        }
+        else
+        {
+            L_HotelTickets.Visible = NUD_HotelTickets.Visible = false;
+        }
+
         if (player.WhereAreN is not null)
         {
             NUD_Poki.Value = Math.Min(int.MaxValue, player.WhereAreN.Poki.Value);
@@ -368,6 +378,13 @@ public sealed partial class Editor : Form
         pers.BagCount = (uint)NUD_PocketCount2.Value;
 
         pers.ItemChestCount = (uint)NUD_StorageCount.Value;
+
+        if (SAV.Main.Info.GetKnownRevisionIndex() >= 31)
+        {
+            var tickets = pers.Tickets;
+            tickets.Value = (uint)NUD_HotelTickets.Value;
+            pers.Tickets = tickets;
+        }
 
         if (player.WhereAreN is { } x)
         {
