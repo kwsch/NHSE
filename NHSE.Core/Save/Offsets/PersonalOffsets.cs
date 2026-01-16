@@ -13,6 +13,7 @@ public abstract class PersonalOffsets
     public abstract int Wallet { get; }
     public abstract int NowPoint { get; }
     public abstract int TotalPoint { get; }
+    public abstract int Tickets { get; }
     public abstract int Birthday { get; }
 
     public abstract int ProfileMain { get; }

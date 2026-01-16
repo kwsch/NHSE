@@ -66,6 +66,12 @@ public sealed class Personal : EncryptedFilePair, IVillagerOrigin
         set => value.Write(Data[Offsets.TotalPoint..]);
     }
 
+    public EncryptedInt32 Tickets
+    {
+        get => EncryptedInt32.ReadVerify(Data, Offsets.Tickets);
+        set => value.Write(Data[Offsets.Tickets..]);
+    }
+
     public IReadOnlyList<Item> Bag // Slots 21-40
     {
         get => Item.GetArray(Data.Slice(Offsets.Pockets1, Offsets.Pockets1Count * Item.SIZE));
