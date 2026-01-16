@@ -1,32 +1,24 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Numerics;
 using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Core;
 
-public sealed class EncryptedInt32
+/// <summary>
+/// Represents an encrypted 32-bit integer with associated encryption parameters.
+/// </summary>
+[DebuggerDisplay("{Value}")]
+public sealed record EncryptedInt32(uint OriginalEncrypted, ushort Adjust = 0, byte Shift = 0, byte Checksum = 0)
 {
     // Encryption constant used to encrypt the int.
     private const uint ENCRYPTION_CONSTANT = 0x80E32B11;
     // Base shift count used in the encryption.
     private const byte SHIFT_BASE = 3;
 
-    public readonly uint OriginalEncrypted;
-    public readonly ushort Adjust;
-    public readonly byte Shift;
-    public readonly byte Checksum;
+    public uint Value { get; set; } = Decrypt(OriginalEncrypted, Shift, Adjust);
 
-    public uint Value;
-
-    public override string ToString() => Value.ToString();
-
-    public EncryptedInt32(uint encryptedValue, ushort adjust = 0, byte shift = 0, byte checksum = 0)
-    {
-        OriginalEncrypted = encryptedValue;
-        Adjust = adjust;
-        Shift = shift;
-        Checksum = checksum;
-        Value = Decrypt(encryptedValue, shift, adjust);
-    }
+    public static implicit operator uint(EncryptedInt32 encryptedInt32) => encryptedInt32.Value;
 
     public void Write(Span<byte> data) => Write(this, data);
     public void Write(byte[] data, int offset) => Write(data.AsSpan(offset));
@@ -41,16 +33,14 @@ public sealed class EncryptedInt32
 
     public static uint Decrypt(uint encrypted, byte shift, ushort adjust)
     {
-        // Decrypt the encrypted int using the given params.
-        ulong val = ((ulong) encrypted) << ((32 - SHIFT_BASE - shift) & 0x3F);
-        val += val >> 32;
-        return ENCRYPTION_CONSTANT - adjust + (uint)val;
+        var rotated = BitOperations.RotateRight(encrypted, shift + SHIFT_BASE);
+        return rotated + ENCRYPTION_CONSTANT - adjust;
     }
 
     public static uint Encrypt(uint value, byte shift, ushort adjust)
     {
-        ulong val = (ulong) (value + unchecked(adjust - ENCRYPTION_CONSTANT)) << (shift + SHIFT_BASE);
-        return (uint) ((val >> 32) + val);
+        var adjusted = value + adjust - ENCRYPTION_CONSTANT;
+        return BitOperations.RotateLeft(adjusted, shift + SHIFT_BASE);
     }
 
     public static EncryptedInt32 ReadVerify(ReadOnlySpan<byte> data, int offset)
