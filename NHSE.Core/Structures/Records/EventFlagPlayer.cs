@@ -3,23 +3,8 @@
 
 namespace NHSE.Core;
 
-public class EventFlagPlayer : INamedValue
+public sealed record EventFlagPlayer(short DefaultValue, short MaxValue, ushort Index, string Name) : INamedValue
 {
-    // these are actually unsigned
-    public readonly short DefaultValue;
-    public readonly short MaxValue;
-
-    public ushort Index { get; }
-    public string Name { get; }
-
-    public EventFlagPlayer(short init, short max, ushort index, string name)
-    {
-        Name = name;
-        Index = index;
-        DefaultValue = init;
-        MaxValue = max;
-    }
-
     public static readonly IReadOnlyDictionary<ushort, EventFlagPlayer> List = new Dictionary<ushort, EventFlagPlayer>
     {
         {0x002, new EventFlagPlayer(0 , 9   , 0002, "PrologueNpcHintCount"                       )}, // NPCの序盤ヒントをいくつまで聞いたか

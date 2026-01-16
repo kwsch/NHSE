@@ -6,44 +6,13 @@
 /// <remarks>
 /// These details are extracted from FgMainParam.bcsv
 /// </remarks>
-public class FieldItemDefinition : INamedValue
+/// <param name="Index">Item ID</param>
+/// <param name="Dig">Item ID that the player receives if the item is dug up. Is <see cref="Item.NONE"/> if it cannot be dug up.</param>
+/// <param name="Pick">Item ID that the player receives if the item is picked up. Is <see cref="Item.NONE"/> if it cannot be picked up.</param>
+/// <param name="Name">Internal Name of the Item</param>
+/// <param name="Kind">Classification of item.</param>
+public sealed record FieldItemDefinition(ushort Index, ushort Dig, ushort Pick, string Name, FieldItemKind Kind) : INamedValue
 {
-    /// <summary>
-    /// Item ID
-    /// </summary>
-    public ushort Index { get; }
-
-    /// <summary>
-    /// Internal Name of the Item
-    /// </summary>
-    public string Name { get; }
-
-    /// <summary>
-    /// Item ID that the player receives if the item is dug up.
-    /// </summary>
-    /// <remarks>Is <see cref="Item.NONE"/> if it cannot be dug up.</remarks>
-    public readonly ushort Dig;
-
-    /// <summary>
-    /// Item ID that the player receives if the item is dug up.
-    /// </summary>
-    /// <remarks>Is <see cref="Item.NONE"/> if it cannot be picked up.</remarks>
-    public readonly ushort Pick;
-
-    /// <summary>
-    /// Classification of item.
-    /// </summary>
-    public readonly FieldItemKind Kind;
-
-    public FieldItemDefinition(ushort id, ushort dig, ushort pick, string name, FieldItemKind kind)
-    {
-        Index = id;
-        Dig = dig;
-        Pick = pick;
-        Name = name;
-        Kind = kind;
-    }
-
     /// <summary>
     /// When the field item is picked up, this is the held item ID.
     /// </summary>

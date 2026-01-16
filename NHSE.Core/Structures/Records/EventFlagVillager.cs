@@ -3,22 +3,8 @@
 
 namespace NHSE.Core;
 
-public class EventFlagVillager : INamedValue
+public sealed record EventFlagVillager(short Value1, short Value2, ushort Index, string Name) : INamedValue
 {
-    public readonly short Value1;
-    public readonly short Value2;
-
-    public ushort Index { get; }
-    public string Name { get; }
-
-    public EventFlagVillager(short v1, short v2, ushort index, string name)
-    {
-        Name = name;
-        Index = index;
-        Value1 = v1;
-        Value2 = v2;
-    }
-
     public static readonly IReadOnlyDictionary<ushort, EventFlagVillager> List = new Dictionary<ushort, EventFlagVillager>
     {
         {0x000, new EventFlagVillager(0 , 200 , 0000, "NnpcHouseLoan"                              )}, // ローン返済カウント

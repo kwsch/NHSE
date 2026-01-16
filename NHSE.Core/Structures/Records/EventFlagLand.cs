@@ -2,23 +2,8 @@
 
 namespace NHSE.Core;
 
-public class EventFlagLand : INamedValue
+public sealed record EventFlagLand(short DefaultValue, short MaxValue, ushort Index, string Name) : INamedValue
 {
-    // these are actually unsigned
-    public readonly short DefaultValue;
-    public readonly short MaxValue;
-
-    public ushort Index { get; }
-    public string Name { get; }
-
-    public EventFlagLand(short init, short max, ushort index, string name)
-    {
-        Name = name;
-        Index = index;
-        DefaultValue = init;
-        MaxValue = max;
-    }
-
     public static readonly IReadOnlyDictionary<ushort, EventFlagLand> List = new Dictionary<ushort, EventFlagLand>
     {
         {0x000, new EventFlagLand(0 , 1    , 0000, "TodayCreateVillage"                         )}, // 今日村作成されたか
