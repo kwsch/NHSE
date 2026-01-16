@@ -6,6 +6,8 @@ public sealed class Personal30(Memory<byte> raw)
 {
     public Span<byte> Data => raw.Span;
 
+    public bool IsInitialized30 => System.Buffers.Binary.BinaryPrimitives.ReadInt64LittleEndian(raw.Span) != 0;
+
     public EncryptedInt32 HotelTickets // @0x0 size 0x8, align 4
     {
         get => EncryptedInt32.ReadVerify(Data, 0);
