@@ -5,7 +5,7 @@ namespace NHSE.Core;
 /// <summary>
 /// <inheritdoc cref="PersonalOffsets"/>
 /// </summary>
-public sealed class PersonalOffsets30 : PersonalOffsets
+public sealed class PersonalOffsets30 : PersonalOffsets, IPersonal30
 {
     // GSavePlayer
     private const int Player = 0x110;
@@ -36,7 +36,6 @@ public sealed class PersonalOffsets30 : PersonalOffsets
     public override int Pockets1 => PlayerOther + 0x10;
     public override int Pockets2 => Pockets1 + (8 * Pockets1Count) + 0x18;
     public override int Wallet => Pockets2 + (8 * Pockets2Count) + 0x18;
-    public override int Tickets => PlayerOther + 0x3c6d0; //0x742b0;
     public override int ItemChest => PlayerOther + 0x18C;
 
     // chest increased in size! 9C44 => 11944
@@ -50,6 +49,10 @@ public sealed class PersonalOffsets30 : PersonalOffsets
 
     public override int MaxRecipeID => 0x430; // unchanged
     public override int MaxRemakeBitFlag => 0x7D0 * 32;
+
+    // Additional struct added in 3.0.0 for Hotel; fetch via Offset's interface extension method.
+    public int Offset30s_064c1881 => PlayerOther + 0x3C6D0;
+    public int Length30s_064c1881 => 0x790;
 
     public override IReactionStore ReadReactions(ReadOnlySpan<byte> data) => data.Slice(Manpu, GSavePlayerManpu15.SIZE).ToStructure<GSavePlayerManpu15>();
     public override void SetReactions(Span<byte> data, IReactionStore value) => ((GSavePlayerManpu15)value).ToBytes().CopyTo(data[Manpu..]);

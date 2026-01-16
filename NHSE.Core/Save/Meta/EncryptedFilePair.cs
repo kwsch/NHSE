@@ -13,6 +13,7 @@ public abstract class EncryptedFilePair
     private readonly byte[] RawData;
     private readonly byte[] RawHeader;
 
+    protected Memory<byte> Raw => RawData;
     public Span<byte> Data => RawData;
     public Span<byte> Header => RawHeader;
 

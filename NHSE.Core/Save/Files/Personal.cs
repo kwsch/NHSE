@@ -66,12 +66,6 @@ public sealed class Personal : EncryptedFilePair, IVillagerOrigin
         set => value.Write(Data[Offsets.TotalPoint..]);
     }
 
-    public EncryptedInt32 Tickets
-    {
-        get => EncryptedInt32.ReadVerify(Data, Offsets.Tickets);
-        set => value.Write(Data[Offsets.Tickets..]);
-    }
-
     public IReadOnlyList<Item> Bag // Slots 21-40
     {
         get => Item.GetArray(Data.Slice(Offsets.Pockets1, Offsets.Pockets1Count * Item.SIZE));
@@ -178,6 +172,11 @@ public sealed class Personal : EncryptedFilePair, IVillagerOrigin
         get => Data[Offsets.ProfileIsMakeVillage] != 0;
         set => Data[Offsets.ProfileIsMakeVillage] = (byte)(value ? 1 : 0);
     }
+
+    /// <summary>
+    /// Appended structure added in 3.0.0 for Hotel data.
+    /// </summary>
+    public Personal30? Data30 => (Offsets as IPersonal30)?.Get30s_064c1881(Raw);
 
     #endregion
 }

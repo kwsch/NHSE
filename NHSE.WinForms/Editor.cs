@@ -303,9 +303,9 @@ public sealed partial class Editor : Form
         NUD_PocketCount2.Value = Math.Min(int.MaxValue, pers.BagCount);
         NUD_StorageCount.Value = Math.Min(int.MaxValue, pers.ItemChestCount);
 
-        if (SAV.Main.Info.GetKnownRevisionIndex() >= 31)
+        if (pers.Data30 is { } addition)
         {
-            NUD_HotelTickets.Value = Math.Min(int.MaxValue, pers.Tickets.Value);
+            NUD_HotelTickets.Value = Math.Min(int.MaxValue, addition.HotelTickets.Value);
         }
         else
         {
@@ -379,11 +379,11 @@ public sealed partial class Editor : Form
 
         pers.ItemChestCount = (uint)NUD_StorageCount.Value;
 
-        if (SAV.Main.Info.GetKnownRevisionIndex() >= 31)
+        if (player.Personal.Data30 is { } addition)
         {
-            var tickets = pers.Tickets;
+            var tickets = addition.HotelTickets;
             tickets.Value = (uint)NUD_HotelTickets.Value;
-            pers.Tickets = tickets;
+            addition.HotelTickets = tickets;
         }
 
         if (player.WhereAreN is { } x)
