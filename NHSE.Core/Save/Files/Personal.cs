@@ -11,7 +11,7 @@ namespace NHSE.Core;
 public sealed class Personal : EncryptedFilePair, IVillagerOrigin
 {
     public readonly PersonalOffsets Offsets;
-    public Personal(string folder) : base(folder, "personal") => Offsets = PersonalOffsets.GetOffsets(Info);
+    public Personal(ISaveFileProvider provider) : base(provider, "personal") => Offsets = PersonalOffsets.GetOffsets(Info);
     public override string ToString() => PlayerName;
 
     public uint TownID

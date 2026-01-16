@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Core;
 
 /// <summary>
-/// Represents two files -- <see cref="DataPath"/> and <see cref="HeaderPath"/> and their decrypted data.
+/// Represents two files -- <see cref="NameData"/> and <see cref="NameHeader"/> and their decrypted data.
 /// </summary>
 public abstract class EncryptedFilePair
 {
     private readonly byte[] RawData;
     private readonly byte[] RawHeader;
+    private readonly ISaveFileProvider Provider;
 
     protected Memory<byte> Raw => RawData;
     public Span<byte> Data => RawData;
@@ -19,36 +19,32 @@ public abstract class EncryptedFilePair
 
     public readonly FileHeaderInfo Info;
 
-    public readonly string DataPath;
-    public readonly string HeaderPath;
     public readonly string NameData;
     public readonly string NameHeader;
 
-    public static bool Exists(string folder, string name)
+    /// <summary>
+    /// Checks if the file pair exists in the specified provider.
+    /// </summary>
+    public static bool Exists(ISaveFileProvider provider, string name)
     {
-        var NameData = $"{name}.dat";
-        var NameHeader = $"{name}Header.dat";
-        var hdr = Path.Combine(folder, NameHeader);
-        var dat = Path.Combine(folder, NameData);
-        return File.Exists(hdr) && File.Exists(dat);
+        var nameData = $"{name}.dat";
+        var nameHeader = $"{name}Header.dat";
+        return provider.FileExists(nameHeader) && provider.FileExists(nameData);
     }
 
-    protected EncryptedFilePair(string folder, string name)
+    protected EncryptedFilePair(ISaveFileProvider provider, string name)
     {
+        Provider = provider;
         NameData = $"{name}.dat";
         NameHeader = $"{name}Header.dat";
-        var hdr = Path.Combine(folder, NameHeader);
-        var dat = Path.Combine(folder, NameData);
 
-        var hd = File.ReadAllBytes(hdr);
-        var md = File.ReadAllBytes(dat);
+        var hd = provider.ReadFile(NameHeader);
+        var md = provider.ReadFile(NameData);
 
         Encryption.Decrypt(hd, md);
 
         RawHeader = hd;
         RawData = md;
-        DataPath = dat;
-        HeaderPath = hdr;
 
         Info = RawHeader[..FileHeaderInfo.SIZE].ToClass<FileHeaderInfo>();
     }
@@ -56,9 +52,10 @@ public abstract class EncryptedFilePair
     public void Save(uint seed)
     {
         var encrypt = Encryption.Encrypt(RawData, seed, RawHeader);
-        File.WriteAllBytes(DataPath, encrypt.Data.Span);
-        File.WriteAllBytes(HeaderPath, encrypt.Header.Span);
+        Provider.WriteFile(NameData, encrypt.Data.Span);
+        Provider.WriteFile(NameHeader, encrypt.Header.Span);
     }
+
 
     /// <summary>
     /// Updates all hashes of <see cref="Data"/>.

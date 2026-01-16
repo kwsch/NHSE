@@ -67,7 +67,7 @@ public static class DevUtil
     {
         // For forms that require more complete initialization (dynamically added user controls)
         var path = Settings.Default.LastFilePath;
-        var sav = new HorizonSave(path);
+        var sav = HorizonSave.FromFolder(path);
         using var editor = new Editor(sav);
         using var so = new SingleObjectEditor<object>(new object(), PropertySort.NoSort, false);
     }

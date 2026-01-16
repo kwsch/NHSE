@@ -3,9 +3,7 @@
 /// <summary>
 /// profile.dat
 /// </summary>
-public sealed class Profile : EncryptedFilePair
-{
-    public Profile(string folder) : base(folder, "profile") { }
-
-    // pretty much just a jpeg -- which is also stored in Personal.
-}
+/// <remarks>
+/// pretty much just a jpeg -- which is also stored in Personal.
+/// </remarks>
+public sealed class Profile(ISaveFileProvider provider) : EncryptedFilePair(provider, "profile");

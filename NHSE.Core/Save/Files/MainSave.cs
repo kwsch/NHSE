@@ -11,7 +11,7 @@ namespace NHSE.Core;
 public sealed class MainSave : EncryptedFilePair
 {
     public readonly MainSaveOffsets Offsets;
-    public MainSave(string folder) : base(folder, "main") => Offsets = MainSaveOffsets.GetOffsets(Info);
+    public MainSave(ISaveFileProvider provider) : base(provider, "main") => Offsets = MainSaveOffsets.GetOffsets(Info);
 
     public Hemisphere Hemisphere { get => (Hemisphere)Data[Offsets.WeatherArea]; set => Data[Offsets.WeatherArea] = (byte)value; }
     public AirportColor AirportThemeColor { get => (AirportColor)Data[Offsets.AirportThemeColor]; set => Data[Offsets.AirportThemeColor] = (byte)value; }

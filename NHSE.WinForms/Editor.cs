@@ -17,6 +17,11 @@ public sealed partial class Editor : Form
     private readonly HorizonSave SAV;
     private readonly VillagerEditor Villagers;
 
+    /// <summary>
+    /// Currently loaded player index.
+    /// </summary>
+    private int PlayerIndex = -1;
+
     public Editor(HorizonSave file)
     {
         InitializeComponent();
@@ -212,8 +217,6 @@ public sealed partial class Editor : Form
         PlayerIndex = -1;
         CB_Players.SelectedIndex = 0;
     }
-
-    private int PlayerIndex = -1;
     private void LoadPlayer(object sender, EventArgs e) => LoadPlayer(CB_Players.SelectedIndex);
 
     private void B_EditPlayerItems_Click(object sender, EventArgs e)
@@ -313,7 +316,7 @@ public sealed partial class Editor : Form
 
         if (player.WhereAreN is not null)
         {
-            NUD_Poki.Value = Math.Min(int.MaxValue, player.WhereAreN.Poki.Value);
+            NUD_Poki.Value = Math.Min(int.MaxValue, player.WhereAreN.Poki);
         }
         else
         {
