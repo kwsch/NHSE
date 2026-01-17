@@ -1,17 +1,16 @@
-﻿using System;
-using System.ComponentModel;
+﻿using NHSE.Sprites;
+using System;
 using System.IO;
 using System.IO.Compression;
-using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NHSE.Sprites;
 
 namespace NHSE.WinForms;
 
 public sealed partial class ImageFetcher : Form
 {
     private const string Filename = "image.zip";
+    private const int MaxBufferSize = 8192;
     private static string ZipFilePath => Path.Combine(ItemSprite.PlatformAppDataPath, Filename);
 
     private readonly string[] AllHosts;
@@ -49,36 +48,45 @@ public sealed partial class ImageFetcher : Form
 
             SetUIDownloadState(false);
 
-            L_Status.Text = "Downloading...";
+            L_Status.PerformSafely(() => L_Status.Text = "Downloading...");
 
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
+
             using var httpClient = new System.Net.Http.HttpClient();
-            await using var stream = await httpClient.GetStreamAsync(hostSelected).ConfigureAwait(false);
-            await using var fileStream = new FileStream(ZipFilePath, FileMode.CreateNew);
-            await stream.CopyToAsync(fileStream).ConfigureAwait(false);
+            using var response = await httpClient.GetAsync(hostSelected, System.Net.Http.HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false);
+            response.EnsureSuccessStatusCode();
+
+            var totalBytes = response.Content.Headers.ContentLength ?? -1L;
+            var canReportProgress = totalBytes != -1 && PBar_MultiUse != null;
+
+            using (var contentStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false))
+            using (var fileStream = new FileStream(ZipFilePath, FileMode.Create, FileAccess.Write, FileShare.None, MaxBufferSize, true))
+            {
+                var buffer = new byte[MaxBufferSize];
+                long totalRead = 0;
+                int read;
+                while ((read = await contentStream.ReadAsync(buffer).ConfigureAwait(false)) > 0)
+                {
+                    await fileStream.WriteAsync(buffer.AsMemory(0, read)).ConfigureAwait(false);
+                    totalRead += read;
+                    if (canReportProgress && PBar_MultiUse != null)
+                    {
+                        int progress = (int)((totalRead * 100) / totalBytes);
+                        PBar_MultiUse.PerformSafely(() => PBar_MultiUse.Value = Math.Min(progress, 100));
+                    }
+                }
+            }
+
+            PBar_MultiUse?.PerformSafely(() => PBar_MultiUse.Value = 100);
+            L_Status.Invoke((Action)(() => L_Status.Text = "Unzipping..."));
+            UnzipFile();
         }
         catch (Exception ex)
         {
             WinFormsUtil.Error(ex.Message, ex.InnerException == null ? string.Empty : ex.InnerException.Message);
             SetUIDownloadState(true);
         }
-    }
-
-    private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e) => PBar_MultiUse.Value = e.ProgressPercentage;
-
-    private void Completed(object? sender, AsyncCompletedEventArgs e)
-    {
-        if (e.Error != null)
-        {
-            WinFormsUtil.Error(e.Error.Message, e.Error.InnerException == null ? string.Empty : e.Error.InnerException.Message);
-            SetUIDownloadState(true);
-            return;
-        }
-
-        PBar_MultiUse.Value = 100;
-        L_Status.Text = "Unzipping...";
-        UnzipFile();
     }
 
     private async void UnzipFile()
@@ -105,11 +113,11 @@ public sealed partial class ImageFetcher : Form
 
     private void SetUIDownloadState(bool val, bool success = false)
     {
-        ControlBox = val;
-        B_Download.Enabled = val;
-        PBar_MultiUse.Value = 0;
+        this.PerformSafely(() => ControlBox = val);
+        B_Download.PerformSafely(() => B_Download.Enabled = val);
+        PBar_MultiUse.PerformSafely(() => PBar_MultiUse.Value = 0);
 
-        L_Status.Text = success ? "Images installed successfully." : string.Empty;
+        L_Status.PerformSafely(() => L_Status.Text = success ? "Images installed successfully." : string.Empty);
 
         CheckFileStatusLabel();
 
@@ -129,30 +137,24 @@ public sealed partial class ImageFetcher : Form
     {
         try
         {
-            L_FileSize.Text = string.Empty;
+            L_FileSize.PerformSafely(() => L_FileSize.Text = string.Empty);
             var host = AllHosts[CB_HostSelect.SelectedIndex];
-#if NETFRAMEWORK
-                using var webClient = new WebClient();
-                await webClient.OpenReadTaskAsync(new Uri(host, UriKind.Absolute)).ConfigureAwait(false);
-                var hdr = webClient.ResponseHeaders?["Content-Length"];
-#elif NETCOREAPP
             using var httpClient = new System.Net.Http.HttpClient();
             var httpInitialResponse = await httpClient.GetAsync(host).ConfigureAwait(false);
             var hdr = httpInitialResponse.Content.Headers.ContentLength;
-#endif
 
             if (hdr == null)
             {
-                L_FileSize.Text = "Failed.";
+                L_FileSize.PerformSafely(() => L_FileSize.Text = "Failed.");
                 return;
             }
             var totalSizeBytes = Convert.ToInt64(hdr);
             var totalSizeMb = totalSizeBytes / 1e+6;
-            L_FileSize.Text = $"{totalSizeMb:0.##}MB";
+            L_FileSize.PerformSafely(() => L_FileSize.Text = $"{totalSizeMb:0.##}MB");
         }
         catch (Exception ex)
         {
-            L_FileSize.Text = ex.Message;
+            L_FileSize.PerformSafely(() => L_FileSize.Text = ex.Message);
         }
     }
 
@@ -162,5 +164,5 @@ public sealed partial class ImageFetcher : Form
         return uri.Segments.Length < 2 ? url : $"{uri.Host}/{uri.Segments[1]}";
     }
 
-    private bool CheckFileStatusLabel() => L_ImgStatus.Visible = ItemSprite.SingleSpriteExists;
+    private void CheckFileStatusLabel() => L_ImgStatus.PerformSafely(() => L_ImgStatus.Visible = ItemSprite.SingleSpriteExists);
 }

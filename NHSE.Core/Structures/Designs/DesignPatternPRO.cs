@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Core;

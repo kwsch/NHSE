@@ -5,7 +5,7 @@ namespace NHSE.Core;
 /// <summary>
 /// <inheritdoc cref="PersonalOffsets"/>
 /// </summary>
-public sealed class PersonalOffsets30 : PersonalOffsets
+public sealed class PersonalOffsets30 : PersonalOffsets, IPersonal30
 {
     // GSavePlayer
     private const int Player = 0x110;
@@ -49,6 +49,10 @@ public sealed class PersonalOffsets30 : PersonalOffsets
 
     public override int MaxRecipeID => 0x430; // unchanged
     public override int MaxRemakeBitFlag => 0x7D0 * 32;
+
+    // Additional struct added in 3.0.0 for Hotel; fetch via Offset's interface extension method.
+    public int Offset30s_064c1881 => PlayerOther + 0x3C6D0;
+    public int Length30s_064c1881 => 0x790;
 
     public override IReactionStore ReadReactions(ReadOnlySpan<byte> data) => data.Slice(Manpu, GSavePlayerManpu15.SIZE).ToStructure<GSavePlayerManpu15>();
     public override void SetReactions(Span<byte> data, IReactionStore value) => ((GSavePlayerManpu15)value).ToBytes().CopyTo(data[Manpu..]);

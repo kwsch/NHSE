@@ -7,16 +7,38 @@ namespace NHSE.Core;
 /// <summary>
 /// Represents all saved data that is stored on the device for the New Horizon's game.
 /// </summary>
-public class HorizonSave
+/// <remarks>
+/// Creates a HorizonSave from a file provider.
+/// </remarks>
+/// <param name="provider">Provider for reading/writing save files.</param>
+public class HorizonSave(ISaveFileProvider provider)
 {
-    public readonly MainSave Main;
-    public readonly Player[] Players;
+    public readonly MainSave Main = new(provider);
+    public readonly Player[] Players = Player.ReadMany(provider);
+    private readonly ISaveFileProvider Provider = provider;
+
     public override string ToString() => $"{Players[0].Personal.TownName} - {Players[0]}";
 
-    public HorizonSave(string folder)
+    /// <summary>
+    /// Creates a HorizonSave from an unpacked file path.
+    /// </summary>
+    /// <param name="folder">Path to the folder containing save files.</param>
+    /// <returns>HorizonSave loaded from the folder.</returns>
+    public static HorizonSave FromFolder(string folder)
     {
-        Main = new MainSave(folder);
-        Players = Player.ReadMany(folder);
+        var provider = new FolderSaveFileProvider(folder);
+        return new HorizonSave(provider);
+    }
+
+    /// <summary>
+    /// Creates a HorizonSave from a ZIP file path.
+    /// </summary>
+    /// <param name="zipPath">Path to the ZIP archive containing save files.</param>
+    /// <returns>HorizonSave loaded from the ZIP archive.</returns>
+    public static HorizonSave FromZip(string zipPath)
+    {
+        var provider = new ZipSaveFileProvider(zipPath);
+        return new HorizonSave(provider);
     }
 
     /// <summary>
@@ -35,6 +57,7 @@ public class HorizonSave
                 pair.Save(seed);
             }
         }
+        Provider.Flush();
     }
 
     /// <summary>

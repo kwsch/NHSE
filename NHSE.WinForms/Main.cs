@@ -123,6 +123,15 @@ public partial class Main : Form
             return;
         }
 
+        // Load zip files differently
+        var ext = Path.GetExtension(path);
+        if (ext.Equals(".zip", StringComparison.OrdinalIgnoreCase) && new FileInfo(path).Length < 20 * 1024 * 1024) // less than 20MB
+        {
+            var file = HorizonSave.FromZip(path);
+            Open(file);
+            return;
+        }
+
         var dir = Path.GetDirectoryName(path);
         if (dir is null || !Directory.Exists(dir)) // ya never know
         {
@@ -135,7 +144,7 @@ public partial class Main : Form
 
     private static void OpenSaveFile(string path)
     {
-        var file = new HorizonSave(path);
+        var file = HorizonSave.FromFolder(path);
         Open(file);
 
         var settings = Settings.Default;

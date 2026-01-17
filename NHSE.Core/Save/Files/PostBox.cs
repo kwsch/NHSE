@@ -3,7 +3,4 @@
 /// <summary>
 /// postbox.dat
 /// </summary>
-public sealed class PostBox : EncryptedFilePair
-{
-    public PostBox(string folder) : base(folder, "postbox") { }
-}
+public sealed class PostBox(ISaveFileProvider provider) : EncryptedFilePair(provider, "postbox");

@@ -1,13 +1,14 @@
 ﻿namespace NHSE.Core;
 
 /// <summary>
+/// Data structures stored for the HappyHomeDesigner DLC.
 /// </summary>
 public sealed class WhereAreN : EncryptedFilePair
 {
     public const string FileName = "wherearen";
 
     public readonly WhereAreNOffsets Offsets;
-    public WhereAreN(string folder) : base(folder, FileName) => Offsets = WhereAreNOffsets.GetOffsets(Info);
+    public WhereAreN(ISaveFileProvider provider) : base(provider, FileName) => Offsets = WhereAreNOffsets.GetOffsets(Info);
 
     public EncryptedInt32 Poki
     {

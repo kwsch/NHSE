@@ -11,7 +11,7 @@ namespace NHSE.Core;
 public sealed class Personal : EncryptedFilePair, IVillagerOrigin
 {
     public readonly PersonalOffsets Offsets;
-    public Personal(string folder) : base(folder, "personal") => Offsets = PersonalOffsets.GetOffsets(Info);
+    public Personal(ISaveFileProvider provider) : base(provider, "personal") => Offsets = PersonalOffsets.GetOffsets(Info);
     public override string ToString() => PlayerName;
 
     public uint TownID
@@ -172,6 +172,11 @@ public sealed class Personal : EncryptedFilePair, IVillagerOrigin
         get => Data[Offsets.ProfileIsMakeVillage] != 0;
         set => Data[Offsets.ProfileIsMakeVillage] = (byte)(value ? 1 : 0);
     }
+
+    /// <summary>
+    /// Appended structure added in 3.0.0 for Hotel data.
+    /// </summary>
+    public Personal30? Data30 => (Offsets as IPersonal30)?.Get30s_064c1881(Raw);
 
     #endregion
 }
