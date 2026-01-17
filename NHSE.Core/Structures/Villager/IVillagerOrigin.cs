@@ -40,14 +40,14 @@ public static class VillagerOriginExtensions
     private static void ChangeToHostTown(this IVillagerOrigin visit, IVillagerOrigin host, Span<byte> visitData)
     {
         var hostTown = host.GetTownIdentity();
-        var visitTown = visit.GetTownIdentity();
+        var visitTown = visit.GetTownIdentity().ToArray();
         visitData.ReplaceOccurrences(visitTown, hostTown);
     }
 
     private static void ChangeToHostPlayer(this IVillagerOrigin visit, IVillagerOrigin host, Span<byte> visitData)
     {
         var hostPlayer = host.GetPlayerIdentity();
-        var visitPlayer = visit.GetPlayerIdentity();
+        var visitPlayer = visit.GetPlayerIdentity().ToArray();
         visitData.ReplaceOccurrences(visitPlayer, hostPlayer);
     }
 }
