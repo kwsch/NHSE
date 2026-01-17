@@ -77,6 +77,7 @@ public class HorizonSave(ISaveFileProvider provider)
 
     public void ChangeIdentity(ReadOnlySpan<byte> original, ReadOnlySpan<byte> updated)
     {
+        original = original.ToArray(); // defensive allocation to ensure the sequence stays the same during replacement
         Main.Data.ReplaceOccurrences(original, updated);
         foreach (var pair in Players.SelectMany(z => z))
             pair.Data.ReplaceOccurrences(original, updated);

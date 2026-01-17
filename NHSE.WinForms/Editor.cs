@@ -346,14 +346,14 @@ public sealed partial class Editor : Form
 
         if (pers.PlayerName != TB_Name.Text)
         {
-            var orig = pers.GetPlayerIdentity();
+            var orig = pers.GetPlayerIdentity().ToArray();
             pers.PlayerName = TB_Name.Text;
             var updated = pers.GetPlayerIdentity();
             SAV.ChangeIdentity(orig, updated);
         }
         if (pers.TownName != TB_TownName.Text)
         {
-            var orig = pers.GetTownIdentity();
+            var orig = pers.GetTownIdentity().ToArray();
             pers.TownName = TB_TownName.Text;
             var updated = pers.GetTownIdentity();
             SAV.ChangeIdentity(orig, updated);
