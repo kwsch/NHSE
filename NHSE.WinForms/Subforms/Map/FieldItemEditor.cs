@@ -17,6 +17,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private readonly MapManager Map;
     private readonly MapViewer View;
+    private readonly bool IsExtendedMap30;
 
     private bool Loading;
     private int SelectedBuildingIndex;
@@ -37,8 +38,9 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         InitializeComponent();
         this.TranslateInterface(GameInfo.CurrentLanguage);
 
-        var scale = (PB_Acre.Width - 2) / 32;
+        var scale = (PB_Acre.Width - 2) / FieldItemLayer.TilesPerAcreDim; // 1px border
         SAV = sav;
+        IsExtendedMap30 = sav.FieldItemAcreWidth != 7;
         Map = new MapManager(sav);
         View = new MapViewer(Map, scale);
 
@@ -57,8 +59,11 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void LoadComboBoxes()
     {
+        // Snap viewport to acre
         foreach (var acre in AcreCoordinate.Acres)
             CB_Acre.Items.Add(acre.Name);
+
+        // Select acre type for current
         foreach (var acre in AcreCoordinate.Exterior)
             CB_MapAcre.Items.Add(acre.Name);
 
@@ -113,19 +118,35 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void ReloadMapBackground()
     {
-        PB_Map.BackgroundImage = View.GetBackgroundTerrain(SelectedBuildingIndex);
+        var img = View.GetBackgroundTerrain(SelectedBuildingIndex);
+        SetMapBackgroundImage(img);
+    }
+
+    private void ReloadMapItemGrid() => SetMapForegroundImage(View.GetMapWithReticle(GetItemTransparency()));
+
+    private void SetMapBackgroundImage(Bitmap img)
+    {
+        if (IsExtendedMap30)
+            img = View.GetInflatedImage(img);
+        PB_Map.BackgroundImage = img;
         PB_Map.Invalidate(); // background image reassigning to same img doesn't redraw; force it
+    }
+
+    private void SetMapForegroundImage(Bitmap img)
+    {
+        if (IsExtendedMap30)
+            img = View.GetInflatedImage(img);
+        PB_Map.Image = img;
     }
 
     private void ReloadAcreBackground()
     {
         var tbuild = (byte)TR_BuildingTransparency.Value;
         var tterrain = (byte)TR_Terrain.Value;
-        PB_Acre.BackgroundImage = View.GetBackgroundAcre(L_Coordinates.Font, tbuild, tterrain, SelectedBuildingIndex);
+        var img = View.GetBackgroundAcre(L_Coordinates.Font, tbuild, tterrain, SelectedBuildingIndex);
+        PB_Acre.BackgroundImage = img;
         PB_Acre.Invalidate(); // background image reassigning to same img doesn't redraw; force it
     }
-
-    private void ReloadMapItemGrid() => PB_Map.Image = View.GetMapWithReticle(GetItemTransparency());
 
     private void ReloadAcreItemGrid() => PB_Acre.Image = View.GetLayerAcre(GetItemTransparency());
 
@@ -1069,7 +1090,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void B_ClearPlacedDesigns_Click(object sender, EventArgs e)
     {
-        MapManager.ClearDesignTiles(SAV);
+        SAV.ClearDesignTiles();
         System.Media.SystemSounds.Asterisk.Play();
     }
 
@@ -1082,7 +1103,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
             return;
 
         string path = sfd.FileName;
-        var tiles = MapManager.ExportDesignTiles(SAV);
+        var tiles = SAV.MapDesignTileData.Span;
         File.WriteAllBytes(path, tiles);
         System.Media.SystemSounds.Asterisk.Play();
     }
@@ -1097,7 +1118,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
         string path = ofd.FileName;
         var tiles = File.ReadAllBytes(path);
-        MapManager.ImportDesignTiles(SAV, tiles);
+        tiles.CopyTo(SAV.MapDesignTileData.Span);
         System.Media.SystemSounds.Asterisk.Play();
     }
 

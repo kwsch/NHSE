@@ -74,7 +74,7 @@ public static class GameMSBTDumper
             result.Add($"{itemID:00000}, // {Text}{fake}");
         }
         result.Sort();
-        return result.ToArray();
+        return [..result];
     }
 
     public static string[] GetVillagerPhraseResource(string msgPath)
@@ -82,7 +82,8 @@ public static class GameMSBTDumper
         var file = Path.Combine(msgPath, "Npc", "STR_NNpcPhrase.msbt");
         var list = GetLabelList(file);
         var normal = list.Select(z => $"{z.Label}\t{z.Text}").Order();
-        return normal.ToArray();
+
+        return [..normal];
     }
 
     public static string[] GetVillagerListResource(string msgPath)
@@ -95,7 +96,7 @@ public static class GameMSBTDumper
         list = GetLabelList(file);
         var special = list.Select(z => $"{z.Label}\t{z.Text}").Order();
 
-        return normal.Concat(special).ToArray();
+        return [..normal, ..special];
     }
 
     public static Dictionary<ushort, string> GetItemList(string msgPath, string language)

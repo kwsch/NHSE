@@ -30,7 +30,7 @@ public partial class Main : Form
         Show();
         WindowState = FormWindowState.Normal;
 
-        var args = Environment.GetCommandLineArgs().AsSpan();
+        var args = Environment.GetCommandLineArgs();
         foreach (var arg in args)
         {
             if (Directory.Exists(arg))

@@ -85,7 +85,7 @@ public static class MiscDumpHelper
         }
 
         var data = File.ReadAllBytes(file);
-        data.AsSpan().CopyTo(museum.Data);
+        data.CopyTo(museum.Data);
         return true;
     }
 

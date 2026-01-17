@@ -46,12 +46,12 @@ public abstract class EncryptedFilePair
         RawHeader = hd;
         RawData = md;
 
-        Info = RawHeader[..FileHeaderInfo.SIZE].ToClass<FileHeaderInfo>();
+        Info = Header[..FileHeaderInfo.SIZE].ToArray().ToClass<FileHeaderInfo>();
     }
 
     public void Save(uint seed)
     {
-        var encrypt = Encryption.Encrypt(RawData, seed, RawHeader);
+        var encrypt = Encryption.Encrypt(Data, seed, Header);
         Provider.WriteFile(NameData, encrypt.Data.Span);
         Provider.WriteFile(NameHeader, encrypt.Header.Span);
     }

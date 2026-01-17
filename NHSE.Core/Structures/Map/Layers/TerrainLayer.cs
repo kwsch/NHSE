@@ -36,14 +36,15 @@ public sealed record TerrainLayer : AcreSelectionGrid
         set => Tiles[index] = value;
     }
 
-    public byte[] DumpAll()
-    {
-        var result = new byte[Tiles.Length * TerrainTile.SIZE];
-        for (int i = 0; i < Tiles.Length; i++)
-            Tiles[i].ToBytesClass().CopyTo(result, i * TerrainTile.SIZE);
-        return result;
-    }
+    /// <summary>
+    /// Flattens the terrain tiles into a contiguous byte array.
+    /// </summary>
+    public byte[] DumpAll() => TerrainTile.SetArray(Tiles);
 
+    /// <summary>
+    /// Gets the tiles local to the specified acre as a contiguous byte array.
+    /// </summary>
+    /// <param name="acre">Terrain acre index.</param>
     public byte[] DumpAcre(int acre)
     {
         int count = TileInfo.ViewCount;
@@ -58,6 +59,10 @@ public sealed record TerrainLayer : AcreSelectionGrid
         return result;
     }
 
+    /// <summary>
+    /// Imports terrain tiles from a contiguous byte array.
+    /// </summary>
+    /// <param name="data">Byte array containing terrain tile data.</param>
     public void ImportAll(ReadOnlySpan<byte> data)
     {
         var tiles = TerrainTile.GetArray(data);
@@ -65,6 +70,11 @@ public sealed record TerrainLayer : AcreSelectionGrid
             Tiles[i].CopyFrom(tiles[i]);
     }
 
+    /// <summary>
+    /// Imports terrain tiles for the specified acre from a contiguous byte array.
+    /// </summary>
+    /// <param name="acre">Terrain acre index.</param>
+    /// <param name="data">Byte array containing terrain tile data.</param>
     public void ImportAcre(int acre, ReadOnlySpan<byte> data)
     {
         int count = TileInfo.ViewCount;
@@ -76,7 +86,12 @@ public sealed record TerrainLayer : AcreSelectionGrid
         }
     }
 
-    public void SetAll(TerrainTile tile, in bool interiorOnly)
+    /// <summary>
+    /// Sets all tiles to the specified tile.
+    /// </summary>
+    /// <param name="tile"></param>
+    /// <param name="interiorOnly">If true, only sets the interior tiles, skipping the outermost ring of beach/rock acres.</param>
+    public void SetAll(TerrainTile tile, in bool interiorOnly = true)
     {
         if (interiorOnly)
         {
@@ -98,7 +113,12 @@ public sealed record TerrainLayer : AcreSelectionGrid
         }
     }
 
-    public void SetAllRoad(TerrainTile tile, in bool interiorOnly)
+    /// <summary>
+    /// Sets all road tiles (not the terrain itself, but the road atop) to the specified tile.
+    /// </summary>
+    /// <param name="tile">Road tile info to copy from.</param>
+    /// <param name="interiorOnly">If true, only sets the interior tiles, skipping the outermost ring of beach/rock acres.</param>
+    public void SetAllRoad(TerrainTile tile, bool interiorOnly = true)
     {
         if (interiorOnly)
         {
@@ -163,6 +183,7 @@ public sealed record TerrainLayer : AcreSelectionGrid
 
     private ushort GetTileAcre(int x, int y)
     {
+        // Acres are 16x16 tiles, and the acre data has a 1-acre deep-sea border around it.
         var acreX = 1 + (x / 16);
         var acreY = 1 + (y / 16);
 

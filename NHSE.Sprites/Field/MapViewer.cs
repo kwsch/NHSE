@@ -4,8 +4,15 @@ using NHSE.Core;
 
 namespace NHSE.Sprites;
 
+/// <summary>
+/// Produces bitmaps for viewing map acres and full maps.
+/// </summary>
 public sealed class MapViewer : MapView, IDisposable
 {
+    private const byte ScaleAsMap = 2;
+    private const byte FieldItemWidthOld = 7;
+    private const byte FieldItemWidthNew = 9;
+
     // Cached acre view objects to remove allocation/GC
     private readonly int[] PixelsItemAcre1;
     private readonly int[] PixelsItemAcreX;
@@ -53,18 +60,35 @@ public sealed class MapViewer : MapView, IDisposable
 
     public Bitmap GetBackgroundTerrain(int index = -1)
     {
-        return TerrainSprite.GetMapWithBuildings(Map, null, PixelsBackgroundMap1, PixelsBackgroundMapX, BackgroundMap, 2, index);
+        return TerrainSprite.GetMapWithBuildings(Map, null, PixelsBackgroundMap1, PixelsBackgroundMapX, BackgroundMap, ScaleAsMap, index);
     }
 
-    private Bitmap GetLayerAcre(int topX, int topY, int t)
+    public Bitmap GetInflatedImage(Bitmap regular)
+    {
+        // Insert 1 acre on each side
+        int columnWidth = (regular.Width / FieldItemWidthOld);
+        var newWidth = columnWidth * FieldItemWidthNew;
+        var bmp = new Bitmap(newWidth, regular.Height);
+        using var g = Graphics.FromImage(bmp);
+
+        // Fill with blue
+        // g.Clear(Color.FromArgb(100, 149, 237));
+
+        // Draw regular centered to new bitmap
+        g.DrawImage(regular, columnWidth, 0, regular.Width, regular.Height);
+
+        return bmp;
+    }
+
+    private Bitmap GetLayerAcre(int topX, int topY, int transparency)
     {
         var layer = Map.CurrentLayer;
-        return ItemLayerSprite.GetBitmapItemLayerViewGrid(layer, topX, topY, AcreScale, PixelsItemAcre1, PixelsItemAcreX, ScaleAcre, t);
+        return ItemLayerSprite.GetBitmapItemLayerViewGrid(layer, topX, topY, AcreScale, PixelsItemAcre1, PixelsItemAcreX, ScaleAcre, transparency);
     }
 
-    public Bitmap GetBackgroundAcre(Font f, byte tbuild, byte tterrain, int index = -1)
+    public Bitmap GetBackgroundAcre(Font f, byte transparencyBuilding, byte transparencyTerrain, int index = -1)
     {
-        return TerrainSprite.GetAcre(this, f, PixelsBackgroundAcre1, PixelsBackgroundAcreX, BackgroundAcre, index, tbuild, tterrain);
+        return TerrainSprite.GetAcre(this, f, PixelsBackgroundAcre1, PixelsBackgroundAcreX, BackgroundAcre, index, transparencyBuilding, transparencyTerrain);
     }
 
     private Bitmap GetMapWithReticle(int topX, int topY, int t, FieldItemLayer layer)

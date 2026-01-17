@@ -225,6 +225,7 @@ public class Item : ICopyableItem<Item>, IEquatable<Item>
 
     public static Item[] GetArray(ReadOnlySpan<byte> data) => data.GetArray<Item>(SIZE);
     public static byte[] SetArray(IReadOnlyList<Item> data) => data.SetArray(SIZE);
+    public static byte[] SetArray(ReadOnlySpan<Item> data) => data.SetArray(SIZE);
 
     public ushort GetWrappedItemName() => WrappingType switch
     {

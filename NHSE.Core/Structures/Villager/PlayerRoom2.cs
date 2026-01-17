@@ -4,12 +4,10 @@ using System.Runtime.InteropServices;
 
 namespace NHSE.Core;
 
-public class PlayerRoom2 : PlayerRoom1
+public class PlayerRoom2(Memory<byte> raw) : PlayerRoom1(raw)
 {
     public new const int SIZE = 0x6C24;
     public new virtual string Extension => "nhpr2";
-
-    public PlayerRoom2(Memory<byte> data) : base(data) { }
 
     /*
       s_665e9093                        ExtraEffectLayerList[2];                   // @0x65c8 size 0x320, align 2

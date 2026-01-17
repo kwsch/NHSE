@@ -78,5 +78,4 @@ public readonly record struct TileGridViewport([ConstantExpected] byte ViewWidth
         int maxY = TotalHeight - ViewHeight;
         ClampCoordinatesTo(ref x, ref y, maxX, maxY);
     }
-
 }

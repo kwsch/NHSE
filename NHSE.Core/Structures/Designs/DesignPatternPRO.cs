@@ -6,7 +6,7 @@ namespace NHSE.Core;
 /// <summary>
 /// Advanced design pattern with 4 sheets arranged in a square.
 /// </summary>
-public class DesignPatternPRO : IVillagerOrigin
+public class DesignPatternPRO(Memory<byte> Raw) : IVillagerOrigin
 {
     public const int Width = 32;
     public const int Height = 32;
@@ -21,10 +21,7 @@ public class DesignPatternPRO : IVillagerOrigin
     private const int PixelCount = 0x400; // Width * Height
     private const int SheetDataSize = PixelCount / 2; // 4bit|4bit pixel packing
 
-    public readonly Memory<byte> Raw;
     public Span<byte> Data => Raw.Span;
-
-    public DesignPatternPRO(Memory<byte> data) => Raw = data;
 
     public uint Hash
     {
@@ -114,7 +111,13 @@ public class DesignPatternPRO : IVillagerOrigin
     /// </summary>
     public byte[] GetBitmap(int sheet)
     {
-        byte[] data = new byte[4 * Width * Height];
+        var result = new byte[4 * Width * Height];
+        LoadBitmap(sheet, result);
+        return result;
+    }
+
+    private void LoadBitmap(int sheet, Span<byte> data)
+    {
         for (int i = 0; i < PixelCount; i++)
         {
             var choice = GetPixelAtIndex(sheet, i);
@@ -127,7 +130,6 @@ public class DesignPatternPRO : IVillagerOrigin
             data[ofs + 0] = Data[palette + 2];
             data[ofs + 3] = 0xFF; // opaque
         }
-        return data;
     }
 
     /// <summary>
@@ -136,6 +138,12 @@ public class DesignPatternPRO : IVillagerOrigin
     public byte[] GetPaletteBitmap()
     {
         var result = new byte[3 * PaletteColorCount];
+        LoadPaletteBitmap(result);
+        return result;
+    }
+
+    private void LoadPaletteBitmap(Span<byte> result)
+    {
         for (int i = 0; i < PaletteColorCount; i++)
         {
             var ofs = PaletteDataStart + (i * 3);
@@ -143,6 +151,5 @@ public class DesignPatternPRO : IVillagerOrigin
             result[(i * 3) + 1] = Data[ofs + 1];
             result[(i * 3) + 0] = Data[ofs + 2];
         }
-        return result;
     }
 }

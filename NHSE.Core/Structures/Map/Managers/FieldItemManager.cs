@@ -56,7 +56,6 @@ public class FieldItemManager
     /// <summary>
     /// Lists out all coordinates of tiles present in <see cref="Layer2"/> that don't have anything underneath in <see cref="Layer1"/> to support them.
     /// </summary>
-    /// <returns></returns>
     public List<string> GetUnsupportedTiles(int totalWidth, int totalHeight)
     {
         var result = new List<string>();

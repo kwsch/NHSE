@@ -196,11 +196,18 @@ public sealed class MainSave : EncryptedFilePair
     public TerrainTile[] GetTerrainTiles() => TerrainTile.GetArray(Data.Slice(Offsets.LandMakingMap, TotalTerrainTileCount * TerrainTile.SIZE));
     public void SetTerrainTiles(IReadOnlyList<TerrainTile> array) => TerrainTile.SetArray(array).CopyTo(Data[Offsets.LandMakingMap..]);
 
-    public const int MapDesignNone = 0xF800;
+    public const ushort MapDesignNone = 0xF800;
 
     public Memory<byte> MapDesignTileData => Raw.Slice(Offsets.MyDesignMap, 112 * 96 * sizeof(ushort));
     public ushort[] GetMapDesignTiles() => MemoryMarshal.Cast<byte, ushort>(MapDesignTileData.Span).ToArray();
     public void SetMapDesignTiles(ReadOnlySpan<ushort> value) => MemoryMarshal.Cast<ushort, byte>(value).CopyTo(MapDesignTileData.Span);
+
+    public void ClearDesignTiles()
+    {
+        var tiles = GetMapDesignTiles();
+        tiles.AsSpan().Fill(MapDesignNone);
+        SetMapDesignTiles(tiles);
+    }
 
     private int FieldItemLayerSize => TotalFieldItemTileCount * Item.SIZE;
     private int FieldItemFlagSize => TotalFieldItemTileCount / sizeof(byte); // bitflags
