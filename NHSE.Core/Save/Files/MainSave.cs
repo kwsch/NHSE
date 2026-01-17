@@ -190,17 +190,9 @@ public sealed class MainSave : EncryptedFilePair
 
     public const int MapDesignNone = 0xF800;
 
-    public ushort[] GetMapDesignTiles()
-    {
-        var slice = Data.Slice(Offsets.MyDesignMap, 112 * 96 * sizeof(ushort));
-        return MemoryMarshal.Cast<byte, ushort>(slice).ToArray();
-    }
-
-    public void SetMapDesignTiles(ReadOnlySpan<ushort> value)
-    {
-        var cast = MemoryMarshal.Cast<ushort, byte>(value);
-        cast.CopyTo(Data[Offsets.MyDesignMap..]);
-    }
+    public Memory<byte> MapDesignTileData => Raw.Slice(Offsets.MyDesignMap, 112 * 96 * sizeof(ushort));
+    public ushort[] GetMapDesignTiles() => MemoryMarshal.Cast<byte, ushort>(MapDesignTileData.Span).ToArray();
+    public void SetMapDesignTiles(ReadOnlySpan<ushort> value) => MemoryMarshal.Cast<ushort, byte>(value).CopyTo(MapDesignTileData.Span);
 
     private const int FieldItemLayerSize = MapGrid.MapTileCount32x32 * Item.SIZE;
     private const int FieldItemFlagSize = MapGrid.MapTileCount32x32 / 8; // bitflags

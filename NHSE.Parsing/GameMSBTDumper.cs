@@ -7,6 +7,33 @@ namespace NHSE.Parsing;
 
 public static class GameMSBTDumper
 {
+    /// <summary>
+    /// Dumps everything the program uses to the provided <see cref="dest"/>, using the provided <see cref="root"/>.
+    /// </summary>
+    /// <param name="root">Source of <see cref="MSBT"/> files.</param>
+    /// <param name="dest">Destination folder where the dumps will be saved.</param>
+    /// <param name="csv">Convert all <see cref="MSBT"/> files to CSV for easy viewing.</param>
+    /// <param name="delim">Delimiter when exporting the <see cref="csv"/> files</param>
+    public static void UpdateDumps(string root, string dest, bool csv = true, char delim = '\t')
+    {
+        if (csv)
+            UpdateCSV(root, Path.Combine(dest, "csv"), delim);
+    }
+
+    public static void UpdateCSV(string root, string dest, char delim = '\t')
+    {
+        Directory.CreateDirectory(dest);
+        var files = Directory.GetFiles(root, "*.msbt", SearchOption.AllDirectories);
+        foreach (var file in files)
+        {
+            var relative = Path.GetRelativePath(root, file);
+            var outPath = Path.Combine(dest, relative + ".csv");
+            Directory.CreateDirectory(Path.GetDirectoryName(outPath)!);
+            var csvData = MSBTUtil.GetCSV(file, delim);
+            File.WriteAllLines(outPath, csvData);
+        }
+    }
+
     public static string[] GetItemListResource(string msgPath, string language)
     {
         var list = GetItemList(msgPath, language);

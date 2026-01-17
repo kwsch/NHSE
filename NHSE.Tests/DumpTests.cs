@@ -29,5 +29,7 @@ public static class DumpTests
         Assert.SkipUnless(Directory.Exists(dump), "Dump not found, skip."); // skip this test if not properly configured for this test
 
         GameMSBTDumperNHSE.Dump(folder, dump, MessageDumpFormat);
+
+        GameMSBTDumper.UpdateDumps(dump, dump);
     }
 }
