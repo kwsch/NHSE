@@ -41,15 +41,15 @@ public static class MapDumpHelper
 
         var path = ofd.FileName;
         var fi = new FileInfo(path);
-
-        int expect = layer.TileInfo.TotalCount * Item.SIZE;
-        if (fi.Length != expect)
+        var expect = layer.TileInfo.TotalCount * Item.SIZE;
+        if (fi.Length != expect && !FieldItemUpgrade.IsUpdateNeeded(fi.Length, expect))
         {
             WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expect));
             return false;
         }
 
         var data = File.ReadAllBytes(path);
+        FieldItemUpgrade.DetectUpdate(ref data, expect);
         layer.ImportAll(data);
         return true;
     }

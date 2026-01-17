@@ -1,23 +1,13 @@
 ﻿namespace NHSE.Core;
 
-public sealed class FieldItemColumn
-{
-    /// <summary> X Coordinate within the Field Item Layer </summary>
-    public readonly int X;
-
-    /// <summary> Y Coordinate within the Field Item Layer </summary>
-    public readonly int Y;
-
-    /// <summary> Offset relative to the start of the Field Item Layer </summary>
-    public readonly int Offset;
-
-    public readonly byte[] Data;
-
-    public FieldItemColumn(int x, int y, int offset, byte[] data)
-    {
-        X = x;
-        Y = y;
-        Offset = offset;
-        Data = data;
-    }
-}
+/// <summary>
+/// Represents a list of item data tiles to be injected to a Field Item Layer.
+/// </summary>
+/// <remarks>
+/// Extension tiles underneath the actual item root are included; extension tiles to the right are not.
+/// </remarks>
+/// <param name="X">X Coordinate within the Field Item Layer</param>
+/// <param name="Y">Y Coordinate within the Field Item Layer</param>
+/// <param name="Offset">Offset relative to the start of the Field Item Layer</param>
+/// <param name="Data">Data for this column</param>
+public sealed record FieldItemColumn(int X, int Y, int Offset, byte[] Data);
