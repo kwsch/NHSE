@@ -16,4 +16,5 @@ public enum ItemRemakeCommonPatternCategory : byte
     Natural = 8,
     Toy = 9,
     Cool = 10,
+    Omnibus = 11,
 }
