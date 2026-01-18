@@ -4,15 +4,12 @@ using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Core;
 
-public class Museum
+public sealed class Museum(Memory<byte> raw)
 {
     public const int SIZE = 0x3404;
     public const int EntryCount = 1024;
 
-    public readonly Memory<byte> Raw;
-    public Span<byte> Data => Raw.Span;
-
-    public Museum(Memory<byte> data) => Raw = data;
+    public Span<byte> Data => raw.Span;
 
     public int MuseumLevel
     {

@@ -5,7 +5,7 @@ namespace NHSE.Core;
 /// <summary>
 /// <inheritdoc cref="MainSaveOffsets"/>
 /// </summary>
-public class MainSaveOffsets110 : MainSaveOffsets
+public sealed class MainSaveOffsets110 : MainSaveOffsets
 {
     public override int PatternCount => PatternCount2;
 

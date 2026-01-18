@@ -8,14 +8,12 @@ namespace NHSE.Core;
 /// <summary>
 /// Villager object format from 1.0 to update 1.4
 /// </summary>
-public sealed class Villager1 : IVillager
+public sealed class Villager1(Memory<byte> raw) : IVillager
 {
     public const int SIZE = 0x12AB0;
     public string Extension => "nhv";
 
-    public readonly Memory<byte> Raw;
-    public Span<byte> Data => Raw.Span;
-    public Villager1(Memory<byte> data) => Raw = data;
+    public Span<byte> Data => raw.Span;
     public byte[] Write() => Data.ToArray();
 
     public byte Species { get => Data[0]; set => Data[0] = value; }
@@ -34,7 +32,7 @@ public sealed class Villager1 : IVillager
         if ((uint) index >= PlayerMemoryCount)
             throw new ArgumentOutOfRangeException(nameof(index));
 
-        var bytes = Raw.Slice(0x4 + (index * GSaveMemory.SIZE), GSaveMemory.SIZE);
+        var bytes = raw.Slice(0x4 + (index * GSaveMemory.SIZE), GSaveMemory.SIZE);
         return new GSaveMemory(bytes);
     }
 
@@ -115,7 +113,7 @@ public sealed class Villager1 : IVillager
 
     public DesignPatternPRO Design
     {
-        get => new(Raw.Slice(0x12128, DesignPatternPRO.SIZE));
+        get => new(raw.Slice(0x12128, DesignPatternPRO.SIZE));
         set => value.Data.CopyTo(Data[0x12128..]);
     }
 

@@ -6,7 +6,7 @@ namespace NHSE.Core;
 /// <summary>
 /// Advanced design pattern with 4 sheets arranged in a square.
 /// </summary>
-public class DesignPatternPRO(Memory<byte> Raw) : IVillagerOrigin
+public sealed class DesignPatternPRO(Memory<byte> Raw) : IVillagerOrigin
 {
     public const int Width = 32;
     public const int Height = 32;

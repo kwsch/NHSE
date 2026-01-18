@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 namespace NHSE.Core;
 
 [StructLayout(LayoutKind.Sequential, Size = SIZE)]
-public class TurnipStonk // GSaveShopKabu
+public sealed class TurnipStonk // GSaveShopKabu
 {
     public const int SIZE = 0x44;
 

@@ -6,7 +6,7 @@ namespace NHSE.Core;
 /// <summary>
 /// Simple design pattern
 /// </summary>
-public class DesignPattern(Memory<byte> Raw) : IVillagerOrigin
+public sealed class DesignPattern(Memory<byte> Raw) : IVillagerOrigin
 {
     public const int Width = 32;
     public const int Height = 32;

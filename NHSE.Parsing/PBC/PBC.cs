@@ -6,7 +6,7 @@ using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Parsing;
 
-public class PBC
+public sealed class PBC
 {
     private const uint MAGIC = 0x00636270; // pbc\0
 

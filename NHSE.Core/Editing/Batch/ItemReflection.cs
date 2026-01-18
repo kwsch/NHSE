@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace NHSE.Core;
 
-public class ItemReflection
+public sealed class ItemReflection
 {
     public static ItemReflection Default { get; } = new();
 

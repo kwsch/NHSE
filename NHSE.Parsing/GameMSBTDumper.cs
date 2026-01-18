@@ -14,7 +14,7 @@ public static class GameMSBTDumper
     /// <param name="dest">Destination folder where the dumps will be saved.</param>
     /// <param name="csv">Convert all <see cref="MSBT"/> files to CSV for easy viewing.</param>
     /// <param name="delim">Delimiter when exporting the <see cref="csv"/> files</param>
-    public static void UpdateDumps(string root, string dest, bool csv = true, char delim = '\t')
+    public static void UpdateDumps(string root, string dest, bool csv = false, char delim = '\t')
     {
         if (csv)
             UpdateCSV(root, Path.Combine(dest, "csv"), delim);

@@ -3,15 +3,13 @@ using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Core;
 
-public class VillagerHouse1 : IVillagerHouse
+public class VillagerHouse1(Memory<byte> raw) : IVillagerHouse
 {
     public const int SIZE = 0x1D4;
     public const int ItemCount = 36;
     public virtual string Extension => "nhvh";
 
-    public readonly Memory<byte> Raw;
-    public VillagerHouse1(Memory<byte> raw) => Raw = raw;
-    public Span<byte> Data => Raw.Span;
+    public Span<byte> Data => raw.Span;
 
     public byte[] Write() => Data.ToArray();
 

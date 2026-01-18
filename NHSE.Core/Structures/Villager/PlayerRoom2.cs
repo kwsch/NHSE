@@ -4,10 +4,10 @@ using System.Runtime.InteropServices;
 
 namespace NHSE.Core;
 
-public class PlayerRoom2(Memory<byte> raw) : PlayerRoom1(raw)
+public sealed class PlayerRoom2(Memory<byte> raw) : PlayerRoom1(raw)
 {
     public new const int SIZE = 0x6C24;
-    public new virtual string Extension => "nhpr2";
+    public override string Extension => "nhpr2";
 
     /*
       s_665e9093                        ExtraEffectLayerList[2];                   // @0x65c8 size 0x320, align 2
@@ -47,7 +47,7 @@ public class PlayerRoom2(Memory<byte> raw) : PlayerRoom1(raw)
 
     // 3 bytes padding
 
-    public s_e13a81f4 _cfb139b9
+    public s_e13a81f4 Unk_cfb139b9
     {
         get => Data.Slice(0x6C10, s_e13a81f4.SIZE).ToStructure<s_e13a81f4>();
         set => value.ToBytes().CopyTo(Data[0x6C10..]);

@@ -9,7 +9,7 @@ namespace NHSE.Core;
 /// Represents a Terraform-able terrain tile.
 /// </summary>
 [StructLayout(LayoutKind.Sequential)]
-public class TerrainTile
+public sealed class TerrainTile
 {
     // tile[2] (u16 model, u16 variation, u16 angle)
     // u16 elevation

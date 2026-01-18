@@ -6,7 +6,7 @@ namespace NHSE.Core;
 /// <summary>
 /// Manages the <see cref="Item"/> data for the player's outside overworld.
 /// </summary>
-public class FieldItemManager
+public sealed class FieldItemManager
 {
     /// <summary>
     /// Base layer of items

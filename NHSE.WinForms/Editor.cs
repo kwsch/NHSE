@@ -206,7 +206,7 @@ public sealed partial class Editor : Form
     #region Player Editing
     private void LoadPlayers()
     {
-        if (SAV.Players.Length == 0)
+        if (SAV.Players.Count == 0)
             throw new Exception("No players found in the loaded directory.");
 
         CB_Players.Items.Clear();

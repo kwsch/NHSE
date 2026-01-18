@@ -8,7 +8,7 @@ namespace NHSE.Core;
 /// Interact-able structure that can be entered by the player.
 /// </summary>
 [StructLayout(LayoutKind.Explicit, Size = SIZE, Pack = 1)]
-public class Building
+public sealed class Building
 {
     public const int SIZE = 0x14;
 

@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace NHSE.Core;
 
-public class RoomItemManager
+public sealed class RoomItemManager
 {
     public readonly RoomItemLayer[] Layers;
 

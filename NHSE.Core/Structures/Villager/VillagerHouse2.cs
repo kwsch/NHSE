@@ -5,12 +5,10 @@ using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Core;
 
-public class VillagerHouse2 : VillagerHouse1
+public sealed class VillagerHouse2(Memory<byte> raw) : VillagerHouse1(raw)
 {
     public new const int SIZE = 0x12E8;
     public override string Extension => "nhvh2";
-
-    public VillagerHouse2(Memory<byte> data) : base(data) { }
 
     // 0x1D4-0x12DB -- 0x1108 sized structure
     // 0x12DC -- 8 byte item

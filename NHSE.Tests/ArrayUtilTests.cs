@@ -6,10 +6,10 @@ using Xunit;
 
 namespace NHSE.Tests;
 
-public class ArrayUtilTests
+public static class ArrayUtilTests
 {
     [Fact]
-    public void ReplaceOccurrences_WhenPatternNotFound_ReturnsZero()
+    public static void ReplaceOccurrences_WhenPatternNotFound_ReturnsZero()
     {
         byte[] array = [0x01, 0x02, 0x03, 0x04, 0x05];
         byte[] pattern = [0xAA, 0xBB];
@@ -22,7 +22,7 @@ public class ArrayUtilTests
     }
 
     [Fact]
-    public void ReplaceOccurrences_WhenSingleOccurrence_ReplacesAndReturnsOne()
+    public static void ReplaceOccurrences_WhenSingleOccurrence_ReplacesAndReturnsOne()
     {
         byte[] array = [0x01, 0xAA, 0xBB, 0x04, 0x05];
         byte[] pattern = [0xAA, 0xBB];
@@ -35,7 +35,7 @@ public class ArrayUtilTests
     }
 
     [Fact]
-    public void ReplaceOccurrences_WhenMultipleOccurrences_ReplacesAllAndReturnsCount()
+    public static void ReplaceOccurrences_WhenMultipleOccurrences_ReplacesAllAndReturnsCount()
     {
         byte[] array = [0xAA, 0xBB, 0x03, 0xAA, 0xBB, 0x06, 0xAA, 0xBB];
         byte[] pattern = [0xAA, 0xBB];
@@ -48,7 +48,7 @@ public class ArrayUtilTests
     }
 
     [Fact]
-    public void ReplaceOccurrences_WhenConsecutiveOccurrences_ReplacesAll()
+    public static void ReplaceOccurrences_WhenConsecutiveOccurrences_ReplacesAll()
     {
         byte[] array = [0xAA, 0xBB, 0xAA, 0xBB, 0xAA, 0xBB];
         byte[] pattern = [0xAA, 0xBB];
@@ -61,7 +61,7 @@ public class ArrayUtilTests
     }
 
     [Fact]
-    public void ReplaceOccurrences_WhenSwapContainsPattern_DoesNotCauseInfiniteLoop()
+    public static void ReplaceOccurrences_WhenSwapContainsPattern_DoesNotCauseInfiniteLoop()
     {
         // Swap contains the original pattern - must skip past swapped data
         byte[] array = [0x01, 0xAA, 0xBB, 0x04];
@@ -75,7 +75,7 @@ public class ArrayUtilTests
     }
 
     [Fact]
-    public void ReplaceOccurrences_WhenLargeFileWithRandomPlacements_ReplacesAllOccurrences()
+    public static void ReplaceOccurrences_WhenLargeFileWithRandomPlacements_ReplacesAllOccurrences()
     {
         const int fileSize = 1024 * 1024; // 1 MB
         const int sequenceLength = 0x13;  // 19 bytes

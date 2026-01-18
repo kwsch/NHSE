@@ -3,14 +3,11 @@ using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Core;
 
-public class GSaveMemory : IVillagerOrigin
+public sealed class GSaveMemory(Memory<byte> raw) : IVillagerOrigin
 {
     public const int SIZE = 0x5F0;
 
-    public readonly Memory<byte> Raw;
-    public Span<byte> Data => Raw.Span;
-
-    public GSaveMemory(Memory<byte> data) => Raw = data;
+    public Span<byte> Data => raw.Span;
 
     public GSavePlayerId PlayerId
     {

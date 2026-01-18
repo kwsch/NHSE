@@ -2,7 +2,7 @@
 
 namespace NHSE.Core;
 
-public class MapManager(MainSave sav) : MapTerrainStructure(sav)
+public sealed class MapManager(MainSave sav) : MapTerrainStructure(sav)
 {
     public readonly FieldItemManager Items = new(sav);
 
@@ -11,7 +11,7 @@ public class MapManager(MainSave sav) : MapTerrainStructure(sav)
     public FieldItemLayer CurrentLayer => MapLayer == 0 ? Items.Layer1 : Items.Layer2;
 }
 
-public class MapTerrainStructure(MainSave sav)
+public abstract class MapTerrainStructure(MainSave sav)
 {
     public readonly TerrainLayer Terrain = new(sav.GetTerrainTiles(), sav.GetAcreBytes());
     public readonly IReadOnlyList<Building> Buildings = sav.Buildings;

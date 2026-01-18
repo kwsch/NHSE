@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace NHSE.WinForms;
 
-public class InterpolatingPictureBox : PictureBox
+public sealed class InterpolatingPictureBox : PictureBox
 {
     private readonly InterpolationMode InterpolationMode = InterpolationMode.HighQualityBicubic;
 

@@ -11,7 +11,11 @@ namespace NHSE.WinForms;
 
 public partial class ItemGridEditor : UserControl
 {
-    private static readonly GridSize Sprites = new();
+    private static readonly GridSize Sprites = new()
+    {
+        Width = 64,
+        Height = 64,
+    };
     private readonly ItemEditor Editor;
     private readonly IReadOnlyList<Item> Items;
 
@@ -304,9 +308,9 @@ public partial class ItemGridEditor : UserControl
     private void B_ClearFish_Click(object sender, EventArgs e) => ClearItemIf(z => GameLists.Fish.Contains(z.ItemId));
     private void B_ClearDive_Click(object sender, EventArgs e) => ClearItemIf(z => GameLists.Dive.Contains(z.ItemId));
 
-    private class GridSize : IGridItem
+    private sealed record GridSize : IGridItem
     {
-        public int Width { get; set; } = 64;
-        public int Height { get; set; } = 64;
+        public required int Width { get; set; }
+        public required int Height { get; set; }
     }
 }

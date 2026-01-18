@@ -5,11 +5,8 @@ using NHSE.WinForms.Properties;
 
 namespace NHSE.WinForms;
 
-public class SysBotController
+public sealed class SysBotController(InjectionType type)
 {
-    public SysBotController(InjectionType type) => Type = type;
-
-    private readonly InjectionType Type;
     public readonly SysBot Bot = new();
     private readonly Settings Settings = Settings.Default;
 
@@ -42,7 +39,7 @@ public class SysBotController
     public uint GetDefaultOffset()
     {
         var settings = Settings;
-        return Type switch
+        return type switch
         {
             InjectionType.Generic => settings.SysBotGenericOffset,
             InjectionType.Pouch => settings.SysBotPouchOffset,
@@ -53,7 +50,7 @@ public class SysBotController
     public void SetOffset(uint value)
     {
         var settings = Settings;
-        switch (Type)
+        switch (type)
         {
             case InjectionType.Generic: settings.SysBotGenericOffset = value; break;
             case InjectionType.Pouch: settings.SysBotPouchOffset = value; break;

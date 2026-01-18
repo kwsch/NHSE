@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace NHSE.Core;
 
-public class ItemMutator : BatchMutator<Item>
+public sealed class ItemMutator : BatchMutator<Item>
 {
     public readonly ItemReflection Reflect = ItemReflection.Default;
     private const char CONST_POINTER = '*';

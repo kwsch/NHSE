@@ -2,7 +2,7 @@
 
 namespace NHSE.Parsing;
 
-public class LBL1() : MSBTSection(string.Empty, [])
+public sealed class LBL1() : MSBTSection(string.Empty, [])
 {
     public uint NumberOfGroups;
 

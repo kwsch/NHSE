@@ -6,50 +6,23 @@ namespace NHSE.Core;
 /// <summary>
 /// Multi-milestone definition for tracking game-play achievements.
 /// </summary>
-public class LifeSupportAchievement : INamedValue
+public sealed record LifeSupportAchievement(
+    ushort Index,
+    byte AchievementCount,
+    uint Threshold1,
+    uint Threshold2,
+    uint Threshold3,
+    uint Threshold4,
+    uint Threshold5,
+    short FlagLand,
+    short FlagPlayer,
+    string Name)
+    : INamedValue
 {
     /// <summary>
     /// Amount of milestones an achievement can have.
     /// </summary>
     public const int MilestoneMax = 6;
-
-    public readonly short FlagLand;
-    public readonly short FlagPlayer;
-
-    public ushort Index { get; }
-    public string Name { get; }
-
-    /// <summary> Total number of milestones for this achievement type. </summary>
-    public readonly int AchievementCount;
-
-    /// <summary> First Milestone's Satisfaction Threshold </summary>
-    public readonly uint Threshold1;
-
-    /// <summary> Second Milestone's Satisfaction Threshold </summary>
-    public readonly uint Threshold2;
-
-    /// <summary> Third Milestone's Satisfaction Threshold </summary>
-    public readonly uint Threshold3;
-
-    /// <summary> Fourth Milestone's Satisfaction Threshold </summary>
-    public readonly uint Threshold4;
-
-    /// <summary> Fifth Milestone's Satisfaction Threshold </summary>
-    public readonly uint Threshold5;
-
-    public LifeSupportAchievement(ushort index, byte max, uint t1, uint t2, uint t3, uint t4, uint t5, short land, short player, string name)
-    {
-        Index = index;
-        AchievementCount = max;
-        Threshold1 = t1;
-        Threshold2 = t2;
-        Threshold3 = t3;
-        Threshold4 = t4;
-        Threshold5 = t5;
-        FlagLand = land;
-        FlagPlayer = player;
-        Name = name;
-    }
 
     public uint MaxThreshold => Math.Max(Threshold1, Math.Max(Threshold2, Math.Max(Threshold3, Math.Max(Threshold4, Threshold5))));
 

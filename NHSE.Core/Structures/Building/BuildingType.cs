@@ -35,4 +35,6 @@ public enum BuildingType : ushort
     Incline = 27,
     ReddsTreasureTrawler = 28,
     Studio = 29,
+
+    Hotel = 42,
 }

@@ -3,7 +3,7 @@ using NHSE.Injection;
 
 namespace NHSE.WinForms;
 
-public class USBBotController
+public sealed class USBBotController
 {
     public readonly USBBot Bot = new();
 
@@ -20,10 +20,7 @@ public class USBBotController
         }
     }
 
-    public void Disconnect()
-    {
-        Bot.Disconnect();
-    }
+    public void Disconnect() => Bot.Disconnect();
 
     //todo: this
     //public uint GetDefaultOffset()

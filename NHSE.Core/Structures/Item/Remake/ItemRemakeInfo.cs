@@ -5,37 +5,18 @@ namespace NHSE.Core;
 /// <summary>
 /// Metadata for an item's customization permissions
 /// </summary>
-public class ItemRemakeInfo
+public sealed record ItemRemakeInfo(
+    short Index,
+    ushort ItemUniqueID,
+    sbyte ReBodyPatternNum,
+    byte[] ReBodyPatternColors0,
+    byte[] ReBodyPatternColors1,
+    byte[] ReFabricPatternColors0,
+    byte[] ReFabricPatternColors1,
+    bool ReFabricPattern0VisibleOff)
 {
     public const int BodyColorCountMax = 8;
     public const int NoColor = (int)ItemCustomColor.None; // 14
-
-    public readonly short Index;
-    public readonly ushort ItemUniqueID;
-    public readonly sbyte ReBodyPatternNum; // count of body colors
-
-    public readonly byte[] ReBodyPatternColors0;
-    public readonly byte[] ReBodyPatternColors1;
-
-    public readonly byte[] ReFabricPatternColors0;
-    public readonly byte[] ReFabricPatternColors1;
-
-    public readonly bool ReFabricPattern0VisibleOff;
-
-    public ItemRemakeInfo(short index, ushort id, sbyte count, byte[] bc0, byte[] bc1, byte[] fc0, byte[] fc1, bool fp0)
-    {
-        Index = index;
-        ItemUniqueID = id;
-        ReBodyPatternNum = count;
-
-        ReBodyPatternColors0 = bc0;
-        ReBodyPatternColors1 = bc1;
-
-        ReFabricPatternColors0 = fc0;
-        ReFabricPatternColors1 = fc1;
-
-        ReFabricPattern0VisibleOff = fp0;
-    }
 
     private const string Invalid = nameof(Invalid);
 

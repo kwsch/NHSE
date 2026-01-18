@@ -2,24 +2,18 @@
 
 namespace NHSE.Core;
 
-public class MapView
+public abstract class MapView(MapManager m, int scale = 16)
 {
     private const int ViewInterval = 2;
-    public readonly MapManager Map;
+    public readonly MapManager Map = m;
 
     public int MapScale { get; } = 1;
-    public int AcreScale { get; }
+    public int AcreScale { get; } = scale;
     public int TerrainScale => AcreScale * 2;
 
     // Top Left Anchor Coordinates
     public int X { get; set; }
     public int Y { get; set; }
-
-    protected MapView(MapManager m, int scale = 16)
-    {
-        AcreScale = scale;
-        Map = m;
-    }
 
     public bool CanUp => Y != 0;
     public bool CanDown => Y < Map.CurrentLayer.TileInfo.TotalHeight - Map.CurrentLayer.TileInfo.ViewHeight;

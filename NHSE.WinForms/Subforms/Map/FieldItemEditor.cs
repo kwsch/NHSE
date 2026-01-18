@@ -69,7 +69,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
         CB_MapAcreSelect.DisplayMember = nameof(ComboItem.Text);
         CB_MapAcreSelect.ValueMember = nameof(ComboItem.Value);
-        CB_MapAcreSelect.DataSource = ComboItemUtil.GetArray<ushort>(typeof(OutsideAcre));
+        CB_MapAcreSelect.DataSource = ComboItemUtil.GetArray<OutsideAcre>();
 
         NUD_MapAcreTemplateOutside.Value = SAV.OutsideFieldTemplateUniqueId;
         NUD_MapAcreTemplateField.Value = SAV.MainFieldParamUniqueID;

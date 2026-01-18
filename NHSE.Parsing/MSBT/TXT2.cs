@@ -2,7 +2,7 @@
 
 namespace NHSE.Parsing;
 
-public class TXT2() : MSBTSection(string.Empty, [])
+public sealed class TXT2() : MSBTSection(string.Empty, [])
 {
     public uint NumberOfStrings;
 
