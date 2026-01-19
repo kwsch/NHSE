@@ -4,21 +4,24 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace NHSE.Core;
 
-public abstract record ItemLayer : AcreSelectionGrid
+public abstract record LayerItem : AcreSelectionGrid
 {
     public readonly Item[] Tiles;
 
-    protected ItemLayer(Item[] tiles, [ConstantExpected] byte w, [ConstantExpected] byte h) : this(tiles, new(w, h, w, h))
+#pragma warning disable CA1857
+    protected LayerItem(Item[] tiles, [ConstantExpected] byte w, [ConstantExpected] byte h) : this(tiles, new(w, h, w, h))
+#pragma warning restore CA1857
     {
     }
 
-    protected ItemLayer(Item[] tiles, TileGridViewport tileTileInfo) : base(tileTileInfo)
+    protected LayerItem(Item[] tiles, TileGridViewport tileTileInfo) : base(tileTileInfo)
     {
         Tiles = tiles;
         Debug.Assert(TileInfo.TotalWidth * TileInfo.TotalHeight == tiles.Length);
     }
 
     public Item GetTile(in int x, in int y) => this[TileInfo.GetTileIndex(x, y)];
+    public void SetTile(in int x, in int y, Item tile) => this[TileInfo.GetTileIndex(x, y)] = tile;
 
     public Item this[int index]
     {

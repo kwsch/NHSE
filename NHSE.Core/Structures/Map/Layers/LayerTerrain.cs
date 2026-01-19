@@ -7,7 +7,7 @@ namespace NHSE.Core;
 /// <summary>
 /// Grid of <see cref="TerrainTile"/>
 /// </summary>
-public sealed record TerrainLayer : AcreSelectionGrid
+public sealed record LayerTerrain : AcreSelectionGrid
 {
     public TerrainTile[] Tiles { get; init; }
     public Memory<byte> BaseAcres { get; init; }
@@ -19,7 +19,7 @@ public sealed record TerrainLayer : AcreSelectionGrid
 
     private static TileGridViewport Viewport => new(TilesPerAcreDim, TilesPerAcreDim, CountAcreWidth, CountAcreHeight);
 
-    public TerrainLayer(TerrainTile[] tiles, Memory<byte> acres) : base(Viewport)
+    public LayerTerrain(TerrainTile[] tiles, Memory<byte> acres) : base(Viewport)
     {
         BaseAcres = acres;
         Tiles = tiles;
@@ -138,22 +138,6 @@ public sealed record TerrainLayer : AcreSelectionGrid
             foreach (var t in Tiles)
                 t.CopyRoadFrom(tile);
         }
-    }
-
-    public void GetBuildingCoordinate(ushort bx, ushort by, int scale, out int x, out int y)
-    {
-        // Although there is terrain in the Top Row and Left Column, no buildings can be placed there.
-        // Adjust the building coordinates down-right by an acre.
-        int buildingShift = TileInfo.ViewWidth;
-        x = (int)(((bx / 2f) - buildingShift) * scale);
-        y = (int)(((by / 2f) - buildingShift) * scale);
-    }
-
-    public void GetBuildingRelativeCoordinates(int topX, int topY, int acreScale, ushort bx, ushort by, out int relX, out int relY)
-    {
-        GetBuildingCoordinate(bx, by, acreScale, out var x, out var y);
-        relX = x - (topX * acreScale);
-        relY = y - (topY * acreScale);
     }
 
     public bool IsWithinGrid(int acreScale, int relX, int relY)

@@ -111,6 +111,8 @@ public partial class ItemEditor : UserControl
         return item;
     }
 
+    public Item LoadFieldsToNewItem() => SetItem(new Item());
+
     public Item SetItem(Item item)
     {
         if (CHK_IsExtension.Checked)

@@ -12,11 +12,11 @@ public static class FieldItemUpgrade
     private const int ColumnCountNew = 9; // +1 column on each side
     private const int RowCount = 6;
 
-    private const byte SizeDim = FieldItemLayer.TilesPerAcreDim;
+    private const byte SizeDim = LayerFieldItem.TilesPerAcreDim;
     private const int TilesPerAcre = SizeDim * SizeDim;
-    private const int FieldItemSizeOld = (ColumnCountOld * RowCount) * TilesPerAcre * Item.SIZE;
-    private const int FieldItemSizeNew = (ColumnCountNew * RowCount) * TilesPerAcre * Item.SIZE;
     private const int FieldItemSizeSingleColumn = RowCount * TilesPerAcre * Item.SIZE;
+    private const int FieldItemSizeOld = ColumnCountOld * FieldItemSizeSingleColumn;
+    private const int FieldItemSizeNew = ColumnCountNew * FieldItemSizeSingleColumn;
 
     /// <summary>
     /// Checks if an update is needed based on the current size and expected size.

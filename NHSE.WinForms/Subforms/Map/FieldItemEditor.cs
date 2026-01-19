@@ -14,9 +14,11 @@ namespace NHSE.WinForms;
 public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 {
     private readonly MainSave SAV;
+    private readonly MapEditor Editor;
 
-    private readonly MapManager Map;
-    private readonly MapViewer View;
+    private MapViewState View => Editor.Mutator.View;
+    private MapTileManager Map => Editor.Mutator.Manager;
+
     private readonly bool IsExtendedMap30;
 
     private bool Loading;
@@ -29,7 +31,13 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     private bool Dragging;
 
     public ItemEditor ItemProvider => ItemEdit;
-    public ItemLayer SpawnLayer => Map.CurrentLayer;
+
+    /// <summary>
+    /// Layer to spawn items into.
+    /// </summary>
+    public LayerItem Spawn => CurrentLayer;
+
+    public LayerFieldItem CurrentLayer => Editor.Mutator.CurrentLayer;
 
     private TerrainBrushEditor? tbeForm;
 
@@ -38,11 +46,14 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         InitializeComponent();
         this.TranslateInterface(GameInfo.CurrentLanguage);
 
-        var scale = (PB_Acre.Width - 2) / FieldItemLayer.TilesPerAcreDim; // 1px border
+        // Read the expected scale from the control.
+        var scale = (PB_Acre.Width - 2) / LayerFieldItem.TilesPerAcreDim; // 1px border
         SAV = sav;
         IsExtendedMap30 = sav.FieldItemAcreWidth != 7;
-        Map = new MapManager(sav);
-        View = new MapViewer(Map, scale);
+        Editor = MapEditor.FromSaveFile(sav);
+        Editor.MapScale = scale;
+        Editor.AcreScale = scale;
+        Renderer = new MapRenderer(Editor);
 
         Loading = true;
 
@@ -80,7 +91,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         NUD_PlazaX.Value = sav.EventPlazaLeftUpX;
         NUD_PlazaY.Value = sav.EventPlazaLeftUpZ;
 
-        foreach (var obj in Map.Buildings)
+        foreach (var obj in Editor.Mutator.Manager.LayerBuildings.Buildings)
             LB_Items.Items.Add(obj.ToString());
     }
 
@@ -193,7 +204,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void OmniTile(MouseEventArgs e)
     {
-        var tile = GetTile(Map.CurrentLayer, e, out var x, out var y);
+        var tile = GetTile(CurrentLayer, e, out var x, out var y);
         OmniTile(tile, x, y);
     }
 
@@ -202,7 +213,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         SetHoveredItem(e);
         var x = View.X + HoverX;
         var y = View.Y + HoverY;
-        var tile = Map.Terrain.GetTile(x / 2, y / 2);
+        TerrainTile tile = Editor.Terrain.GetTile(x / 2, y / 2);
         if (tbeForm?.IsBrushSelected != true)
         {
             OmniTileTerrain(tile);
@@ -223,7 +234,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
             for (int j = -radius; j < radius; j++)
             {
                 if ((i * i) + (j * j) < threshold)
-                    selectedTiles.Add(Map.Terrain.GetTile((x / 2) + i, (y / 2) + j));
+                    selectedTiles.Add(Editor.Terrain.GetTile((x / 2) + i, (y / 2) + j));
             }
         }
 
@@ -275,10 +286,10 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         }
     }
 
-    private Item GetTile(FieldItemLayer layer, MouseEventArgs e, out int x, out int y)
+    private Item GetTile(LayerFieldItem layerField, MouseEventArgs e, out int x, out int y)
     {
         SetHoveredItem(e);
-        return layer.GetTile(x = View.X + HoverX, y = View.Y + HoverY);
+        return layerField.GetTile(x = View.X + HoverX, y = View.Y + HoverY);
     }
 
     private void SetHoveredItem(MouseEventArgs e)
@@ -292,15 +303,15 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void GetAcreCoordinates(MouseEventArgs e, out int x, out int y)
     {
-        x = e.X / View.AcreScale;
-        y = e.Y / View.AcreScale;
+        x = e.X / Editor.AcreScale;
+        y = e.Y / Editor.AcreScale;
     }
 
     private void PB_Acre_MouseDown(object sender, MouseEventArgs e) => ResetDrag();
 
     private void PB_Acre_MouseMove(object sender, MouseEventArgs e)
     {
-        var l = Map.CurrentLayer;
+        var l = CurrentLayer;
         if (e.Button == MouseButtons.Left && CHK_MoveOnDrag.Checked)
         {
             MoveDrag(e);
@@ -317,8 +328,9 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
             return;
         var str = GameInfo.Strings;
         var name = str.GetItemName(tile);
-        bool active = Map.Items.GetIsActive(NUD_Layer.Value == 0, x, y);
-        if (active)
+        var flagLayer = NUD_Layer.Value == 0 ? Map.LayerItemFlag0 : Map.LayerItemFlag1;
+        var isActive = flagLayer.GetIsActive(x, y);
+        if (isActive)
             name = $"{name} [Active]";
         TT_Hover.SetToolTip(PB_Acre, name);
         SetCoordinateText(x, y);
@@ -367,7 +379,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     {
         if (CHK_RedirectExtensionLoad.Checked && tile.IsExtension)
         {
-            var l = Map.CurrentLayer;
+            var l = CurrentLayer;
             var rx = Math.Max(0, Math.Min(l.TileInfo.TotalWidth - 1, x - tile.ExtensionX));
             var ry = Math.Max(0, Math.Min(l.TileInfo.TotalHeight - 1, y - tile.ExtensionY));
             var redir = l.GetTile(rx, ry);
@@ -394,7 +406,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void SetTile(Item tile, int x, int y)
     {
-        var l = Map.CurrentLayer;
+        var l = CurrentLayer;
         var pgt = new Item();
         ItemEdit.SetItem(pgt);
 
@@ -429,7 +441,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void ReplaceTile(Item tile, int x, int y)
     {
-        var l = Map.CurrentLayer;
+        var l = CurrentLayer;
         var pgt = new Item();
         ItemEdit.SetItem(pgt);
 
@@ -451,7 +463,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
         bool wholeMap = (ModifierKeys & Keys.Shift) != 0;
         var copy = new Item(tile.RawValue);
-        var count = View.ReplaceFieldItems(copy, pgt, wholeMap);
+        var count = Editor.Mutator.ReplaceFieldItems(copy, pgt, wholeMap);
         if (count == 0)
         {
             WinFormsUtil.Alert(MessageStrings.MsgFieldItemModifyNone);
@@ -507,13 +519,14 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     {
         if (CHK_AutoExtension.Checked)
         {
+            var layer = CurrentLayer;
             if (!tile.IsRoot)
             {
                 x -= tile.ExtensionX;
                 y -= tile.ExtensionY;
-                tile = Map.CurrentLayer.GetTile(x, y);
+                tile = layer.GetTile(x, y);
             }
-            Map.CurrentLayer.DeleteExtensionTiles(tile, x, y);
+            layer.DeleteExtensionTiles(tile, x, y);
         }
 
         tile.Delete();
@@ -530,8 +543,8 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void B_Save_Click(object sender, EventArgs e)
     {
-        var view = View.Map.Items.Layer1.TileInfo;
-        var unsupported = Map.Items.GetUnsupportedTiles(view.TotalWidth, view.TotalHeight);
+        var set = Map.FieldItems;
+        var unsupported = set.GetUnsupportedTiles();
         if (unsupported.Count != 0)
         {
             var err = MessageStrings.MsgFieldItemUnsupportedLayer2Tile;
@@ -541,16 +554,9 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
                 return;
         }
 
-        Map.Items.Save();
-        SAV.SetTerrainTiles(Map.Terrain.Tiles);
-
-        SAV.SetAcreBytes(Map.Terrain.BaseAcres.Span);
+        Map.SetManager(SAV);
         SAV.OutsideFieldTemplateUniqueId = (ushort)NUD_MapAcreTemplateOutside.Value;
         SAV.MainFieldParamUniqueID = (ushort)NUD_MapAcreTemplateField.Value;
-
-        SAV.Buildings = Map.Buildings;
-        SAV.EventPlazaLeftUpX = Map.PlazaX;
-        SAV.EventPlazaLeftUpZ = Map.PlazaY;
         Close();
     }
 
@@ -561,12 +567,12 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
         if (RB_Item.Checked)
         {
-            var tile = Map.CurrentLayer.GetTile(x, y);
+            var tile = CurrentLayer.GetTile(x, y);
             ViewTile(tile, x, y);
         }
         else if (RB_Terrain.Checked)
         {
-            var tile = Map.Terrain.GetTile(x / 2, y / 2);
+            TerrainTile tile = Editor.Terrain.GetTile(x / 2, y / 2);
             ViewTile(tile);
         }
     }
@@ -578,12 +584,12 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
         if (RB_Item.Checked)
         {
-            var tile = Map.CurrentLayer.GetTile(x, y);
+            var tile = CurrentLayer.GetTile(x, y);
             SetTile(tile, x, y);
         }
         else if (RB_Terrain.Checked)
         {
-            var tile = Map.Terrain.GetTile(x / 2, y / 2);
+            var tile = Editor.Terrain.GetTile(x / 2, y / 2);
             SetTile(tile);
         }
     }
@@ -595,12 +601,12 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
         if (RB_Item.Checked)
         {
-            var tile = Map.CurrentLayer.GetTile(x, y);
+            var tile = CurrentLayer.GetTile(x, y);
             DeleteTile(tile, x, y);
         }
         else if (RB_Terrain.Checked)
         {
-            var tile = Map.Terrain.GetTile(x / 2, y / 2);
+            var tile = Editor.Terrain.GetTile(x / 2, y / 2);
             DeleteTile(tile);
         }
     }
@@ -617,10 +623,11 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
             return;
         }
 
-        var isBase = NUD_Layer.Value == 0;
         var x = View.X + HoverX;
         var y = View.Y + HoverY;
-        Menu_Activate.Text = Map.Items.GetIsActive(isBase, x, y) ? "Inactivate" : "Activate";
+        var flagLayer = NUD_Layer.Value == 0 ? Map.LayerItemFlag0 : Map.LayerItemFlag1;
+        var isActive = flagLayer.GetIsActive(x, y);
+        Menu_Activate.Text = isActive ? "Inactivate" : "Activate";
         CM_Click.Items.Add(Menu_Activate);
         hasActivate = true;
     }
@@ -629,14 +636,15 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     {
         var x = View.X + HoverX;
         var y = View.Y + HoverY;
-        var isBase = NUD_Layer.Value == 0;
-        Map.Items.SetIsActive(isBase, x, y, !Map.Items.GetIsActive(isBase, x, y));
+        var flagLayer = NUD_Layer.Value == 0 ? Map.LayerItemFlag0 : Map.LayerItemFlag1;
+        var isActive = flagLayer.GetIsActive(x, y);
+        flagLayer.SetIsActive(x, y, !isActive);
     }
 
     private void B_Up_Click(object sender, EventArgs e)
     {
         if (ModifierKeys == Keys.Shift)
-            CB_Acre.SelectedIndex = Math.Max(0, CB_Acre.SelectedIndex - View.Map.Items.Layer1.TileInfo.Columns);
+            CB_Acre.SelectedIndex = Math.Max(0, CB_Acre.SelectedIndex - Editor.Items.Layer0.TileInfo.Columns);
         else if (View.ArrowUp())
             LoadItemGridAcre();
     }
@@ -660,18 +668,18 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     private void B_Down_Click(object sender, EventArgs e)
     {
         if (ModifierKeys == Keys.Shift)
-            CB_Acre.SelectedIndex = Math.Min(CB_Acre.SelectedIndex + View.Map.Items.Layer1.TileInfo.Columns, CB_Acre.Items.Count - 1);
+            CB_Acre.SelectedIndex = Math.Min(CB_Acre.SelectedIndex + Editor.Items.Layer0.TileInfo.Columns, CB_Acre.Items.Count - 1);
         else if (View.ArrowDown())
             LoadItemGridAcre();
     }
 
-    private void B_DumpAcre_Click(object sender, EventArgs e) => MapDumpHelper.DumpLayerAcreSingle(Map.CurrentLayer, AcreIndex, CB_Acre.Text, (int)NUD_Layer.Value);
+    private void B_DumpAcre_Click(object sender, EventArgs e) => MapDumpHelper.DumpLayerAcreSingle(CurrentLayer, AcreIndex, CB_Acre.Text, (int)NUD_Layer.Value);
 
-    private void B_DumpAllAcres_Click(object sender, EventArgs e) => MapDumpHelper.DumpLayerAcreAll(Map.CurrentLayer);
+    private void B_DumpAllAcres_Click(object sender, EventArgs e) => MapDumpHelper.DumpLayerAcreAll(CurrentLayer);
 
     private void B_ImportAcre_Click(object sender, EventArgs e)
     {
-        var layer = Map.CurrentLayer;
+        var layer = CurrentLayer;
         if (!MapDumpHelper.ImportToLayerAcreSingle(layer, AcreIndex, CB_Acre.Text, (int)NUD_Layer.Value))
             return;
         ChangeViewToAcre(AcreIndex);
@@ -680,33 +688,33 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void B_ImportAllAcres_Click(object sender, EventArgs e)
     {
-        if (!MapDumpHelper.ImportToLayerAcreAll(Map.CurrentLayer))
+        if (!MapDumpHelper.ImportToLayerAcreAll(CurrentLayer))
             return;
         ChangeViewToAcre(AcreIndex);
         System.Media.SystemSounds.Asterisk.Play();
     }
 
-    private void B_DumpBuildings_Click(object sender, EventArgs e) => MapDumpHelper.DumpBuildings(Map.Buildings);
+    private void B_DumpBuildings_Click(object sender, EventArgs e) => MapDumpHelper.DumpBuildings(Editor.Buildings.Buildings);
 
     private void B_ImportBuildings_Click(object sender, EventArgs e)
     {
-        if (!MapDumpHelper.ImportBuildings(Map.Buildings))
+        if (!MapDumpHelper.ImportBuildings(Editor.Buildings.Buildings))
             return;
 
-        for (int i = 0; i < Map.Buildings.Count; i++)
-            LB_Items.Items[i] = Map.Buildings[i].ToString();
+        for (int i = 0; i < Editor.Buildings.Count; i++)
+            LB_Items.Items[i] = Editor.Buildings[i].ToString();
         LB_Items.SelectedIndex = 0;
         System.Media.SystemSounds.Asterisk.Play();
         ReloadBuildingsTerrain();
     }
 
-    private void B_DumpTerrainAcre_Click(object sender, EventArgs e) => MapDumpHelper.DumpTerrainAcre(Map.Terrain, AcreIndex, CB_Acre.Text);
+    private void B_DumpTerrainAcre_Click(object sender, EventArgs e) => MapDumpHelper.DumpTerrainAcre(Editor.Terrain, AcreIndex, CB_Acre.Text);
 
-    private void B_DumpTerrainAll_Click(object sender, EventArgs e) => MapDumpHelper.DumpTerrainAll(Map.Terrain);
+    private void B_DumpTerrainAll_Click(object sender, EventArgs e) => MapDumpHelper.DumpTerrainAll(Editor.Terrain);
 
     private void B_ImportTerrainAcre_Click(object sender, EventArgs e)
     {
-        if (!MapDumpHelper.ImportTerrainAcre(Map.Terrain, AcreIndex, CB_Acre.Text))
+        if (!MapDumpHelper.ImportTerrainAcre(Editor.Terrain, AcreIndex, CB_Acre.Text))
             return;
         ChangeViewToAcre(AcreIndex);
         System.Media.SystemSounds.Asterisk.Play();
@@ -714,7 +722,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void B_ImportTerrainAll_Click(object sender, EventArgs e)
     {
-        if (!MapDumpHelper.ImportTerrainAll(Map.Terrain))
+        if (!MapDumpHelper.ImportTerrainAll(Editor.Terrain))
             return;
         ChangeViewToAcre(AcreIndex);
         System.Media.SystemSounds.Asterisk.Play();
@@ -769,7 +777,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void ClickMapAt(MouseEventArgs e, bool skipLagCheck)
     {
-        var layer = Map.Items.Layer1;
+        var layer = Editor.Items.Layer0;
         int mX = e.X;
         int mY = e.Y;
         bool centerReticle = CHK_SnapToAcre.Checked;
@@ -824,7 +832,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void NUD_Layer_ValueChanged(object sender, EventArgs e)
     {
-        Map.MapLayer = (int)NUD_Layer.Value - 1;
+        View.ItemLayerIndex = (int)NUD_Layer.Value - 1;
         LoadItemGridAcre();
     }
 
@@ -837,7 +845,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         if (question != DialogResult.Yes)
             return;
 
-        int count = View.ModifyFieldItems(removal, wholeMap);
+        int count = Editor.Mutator.ModifyFieldItems(removal, wholeMap);
 
         if (count == 0)
         {
@@ -857,7 +865,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         if (question != DialogResult.Yes)
             return;
 
-        int count = View.ModifyFieldItems(action, wholeMap);
+        int count = Editor.Mutator.ModifyFieldItems(action, wholeMap);
 
         if (count == 0)
         {
@@ -868,54 +876,46 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         WinFormsUtil.Alert(string.Format(MessageStrings.MsgFieldItemModifyCount, count));
     }
 
-    private void B_RemoveEditor_Click(object sender, EventArgs e) => Remove(B_RemoveEditor, (min, max, x, y)
-        => Map.CurrentLayer.RemoveAllLike(min, max, x, y, ItemEdit.SetItem(new Item())));
+    private void B_RemoveEditor_Click(object sender, EventArgs e)
+    {
+        var item = ItemEdit.LoadFieldsToNewItem();
+        var lambda = new Func<int, int, int, int, int>((min, max, x, y)
+            => CurrentLayer.RemoveAllLike(min, max, x, y, item));
+        Remove(B_RemoveEditor, lambda);
+    }
 
-    private void B_RemoveAllWeeds_Click(object sender, EventArgs e) => Remove(B_RemoveAllWeeds, Map.CurrentLayer.RemoveAllWeeds);
+    private void B_WaterFlowers_Click(object sender, EventArgs e)
+    {
+        var all = (ModifierKeys & Keys.Control) != 0;
+        var lambda = new Func<int, int, int, int, int>((xmin, ymin, width, height)
+            => CurrentLayer.WaterAllFlowers(xmin, ymin, width, height, all));
+        Modify(B_WaterFlowers, lambda);
+    }
 
-    private void B_RemoveAllTrees_Click(object sender, EventArgs e) => Remove(B_RemoveAllTrees, Map.CurrentLayer.RemoveAllTrees);
 
-    private void B_FillHoles_Click(object sender, EventArgs e) => Remove(B_FillHoles, Map.CurrentLayer.RemoveAllHoles);
-
-    private void B_RemovePlants_Click(object sender, EventArgs e) => Remove(B_RemovePlants, Map.CurrentLayer.RemoveAllPlants);
-
-    private void B_RemoveFences_Click(object sender, EventArgs e) => Remove(B_RemoveFences, Map.CurrentLayer.RemoveAllFences);
-
-    private void B_RemoveObjects_Click(object sender, EventArgs e) => Remove(B_RemoveObjects, Map.CurrentLayer.RemoveAllObjects);
-
-    private void B_RemoveAll_Click(object sender, EventArgs e) => Remove(B_RemoveAll, Map.CurrentLayer.RemoveAll);
-
-    private void B_RemovePlacedItems_Click(object sender, EventArgs e) => Remove(B_RemovePlacedItems, Map.CurrentLayer.RemoveAllPlacedItems);
-
-    private void B_RemoveShells_Click(object sender, EventArgs e) => Remove(B_RemoveShells, Map.CurrentLayer.RemoveAllShells);
-
-    private void B_RemoveBranches_Click(object sender, EventArgs e) => Remove(B_RemoveBranches, Map.CurrentLayer.RemoveAllBranches);
-
-    private void B_RemoveFlowers_Click(object sender, EventArgs e) => Remove(B_RemoveFlowers, Map.CurrentLayer.RemoveAllFlowers);
-
-    private void B_RemoveBushes_Click(object sender, EventArgs e) => Remove(B_RemoveBushes, Map.CurrentLayer.RemoveAllBushes);
-
-    private void B_WaterFlowers_Click(object sender, EventArgs e) => Modify(B_WaterFlowers, (xmin, ymin, width, height)
-        => Map.CurrentLayer.WaterAllFlowers(xmin, ymin, width, height, (ModifierKeys & Keys.Control) != 0));
+    private void B_RemoveAllWeeds_Click(object sender, EventArgs e) => Remove(B_RemoveAllWeeds, CurrentLayer.RemoveAllWeeds);
+    private void B_RemoveAllTrees_Click(object sender, EventArgs e) => Remove(B_RemoveAllTrees, CurrentLayer.RemoveAllTrees);
+    private void B_FillHoles_Click(object sender, EventArgs e) => Remove(B_FillHoles, CurrentLayer.RemoveAllHoles);
+    private void B_RemovePlants_Click(object sender, EventArgs e) => Remove(B_RemovePlants, CurrentLayer.RemoveAllPlants);
+    private void B_RemoveFences_Click(object sender, EventArgs e) => Remove(B_RemoveFences, CurrentLayer.RemoveAllFences);
+    private void B_RemoveObjects_Click(object sender, EventArgs e) => Remove(B_RemoveObjects, CurrentLayer.RemoveAllObjects);
+    private void B_RemoveAll_Click(object sender, EventArgs e) => Remove(B_RemoveAll, CurrentLayer.RemoveAll);
+    private void B_RemovePlacedItems_Click(object sender, EventArgs e) => Remove(B_RemovePlacedItems, CurrentLayer.RemoveAllPlacedItems);
+    private void B_RemoveShells_Click(object sender, EventArgs e) => Remove(B_RemoveShells, CurrentLayer.RemoveAllShells);
+    private void B_RemoveBranches_Click(object sender, EventArgs e) => Remove(B_RemoveBranches, CurrentLayer.RemoveAllBranches);
+    private void B_RemoveFlowers_Click(object sender, EventArgs e) => Remove(B_RemoveFlowers, CurrentLayer.RemoveAllFlowers);
+    private void B_RemoveBushes_Click(object sender, EventArgs e) => Remove(B_RemoveBushes, CurrentLayer.RemoveAllBushes);
 
     private static void ShowContextMenuBelow(ToolStripDropDown c, Control n) => c.Show(n.PointToScreen(new Point(0, n.Height)));
 
     private void B_RemoveItemDropDown_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_Remove, B_RemoveItemDropDown);
-
     private void B_DumpLoadField_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_DLField, B_DumpLoadField);
-
     private void B_DumpLoadTerrain_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_DLTerrain, B_DumpLoadTerrain);
-
     private void B_DumpLoadBuildings_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_DLBuilding, B_DumpLoadBuildings);
-
     private void B_ModifyAllTerrain_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_Terrain, B_ModifyAllTerrain);
-
     private void B_DumpLoadAcres_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_DLMapAcres, B_DumpLoadAcres);
-
     private void TR_Transparency_Scroll(object sender, EventArgs e) => ReloadItems();
-
     private void TR_BuildingTransparency_Scroll(object sender, EventArgs e) => ReloadBuildingsTerrain();
-
     private void TR_Terrain_Scroll(object sender, EventArgs e) => ReloadBuildingsTerrain();
 
     #region Buildings
@@ -930,7 +930,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     {
         if (Loading)
             return;
-        Map.PlazaX = (uint)NUD_PlazaX.Value;
+        Map.Plaza.X = (uint)NUD_PlazaX.Value;
         ReloadBuildingsTerrain();
     }
 
@@ -938,7 +938,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     {
         if (Loading)
             return;
-        Map.PlazaY = (uint)NUD_PlazaY.Value;
+        Map.Plaza.Z = (uint)NUD_PlazaY.Value;
         ReloadBuildingsTerrain();
     }
 
@@ -957,7 +957,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     {
         Loading = true;
         SelectedBuildingIndex = index;
-        var b = Map.Buildings[index];
+        var b = Editor.Buildings[index];
         NUD_BuildingType.Value = (int)b.BuildingType;
         NUD_X.Value = b.X;
         NUD_Y.Value = b.Y;
@@ -981,7 +981,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         if (Loading || sender is not NumericUpDown n)
             return;
 
-        var b = Map.Buildings[SelectedBuildingIndex];
+        var b = Editor.Buildings[SelectedBuildingIndex];
         if (sender == NUD_BuildingType)
             b.BuildingType = (BuildingType)n.Value;
         else if (sender == NUD_X)
@@ -999,7 +999,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         else if (sender == NUD_UniqueID)
             b.UniqueID = (ushort)n.Value;
 
-        LB_Items.Items[SelectedBuildingIndex] = Map.Buildings[SelectedBuildingIndex].ToString();
+        LB_Items.Items[SelectedBuildingIndex] = Editor.Buildings[SelectedBuildingIndex].ToString();
         ReloadBuildingsTerrain();
     }
 
@@ -1009,7 +1009,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void CB_MapAcre_SelectedIndexChanged(object sender, EventArgs e)
     {
-        var acre = Map.Terrain.BaseAcres.Span[CB_MapAcre.SelectedIndex * 2];
+        var acre = Editor.Terrain.BaseAcres.Span[CB_MapAcre.SelectedIndex * 2];
         CB_MapAcreSelect.SelectedValue = (int)acre;
 
         // Jump view if available
@@ -1025,7 +1025,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         var index = CB_MapAcre.SelectedIndex;
         var value = WinFormsUtil.GetIndex(CB_MapAcreSelect);
 
-        var span = Map.Terrain.BaseAcres.Span.Slice(index * 2, 2);
+        var span = Editor.Terrain.BaseAcres.Span.Slice(index * 2, 2);
         var oldValue = span[0];
         if (value == oldValue)
             return;
@@ -1036,7 +1036,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void B_DumpMapAcres_Click(object sender, EventArgs e)
     {
-        if (!MapDumpHelper.DumpMapAcresAll(Map.Terrain.BaseAcres.Span))
+        if (!MapDumpHelper.DumpMapAcresAll(Editor.Terrain.BaseAcres.Span))
             return;
         ReloadBuildingsTerrain();
         System.Media.SystemSounds.Asterisk.Play();
@@ -1044,7 +1044,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void B_ImportMapAcres_Click(object sender, EventArgs e)
     {
-        if (!MapDumpHelper.ImportMapAcresAll(Map.Terrain.BaseAcres.Span))
+        if (!MapDumpHelper.ImportMapAcresAll(Editor.Terrain.BaseAcres.Span))
             return;
         ReloadBuildingsTerrain();
         System.Media.SystemSounds.Asterisk.Play();
@@ -1056,7 +1056,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     {
         if (DialogResult.Yes != WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgTerrainSetElevation0))
             return;
-        foreach (var t in Map.Terrain.Tiles)
+        foreach (var t in Editor.Terrain.Tiles)
             t.Elevation = 0;
         ReloadBuildingsTerrain();
         System.Media.SystemSounds.Asterisk.Play();
@@ -1069,7 +1069,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
         var pgt = (TerrainTile)PG_TerrainTile.SelectedObject!;
         bool interiorOnly = DialogResult.Yes == WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgTerrainSetAllSkipExterior);
-        Map.Terrain.SetAll(pgt, interiorOnly);
+        Editor.Terrain.SetAll(pgt, interiorOnly);
 
         ReloadBuildingsTerrain();
         System.Media.SystemSounds.Asterisk.Play();
@@ -1082,7 +1082,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
         var pgt = (TerrainTile)PG_TerrainTile.SelectedObject!;
         bool interiorOnly = DialogResult.Yes == WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgTerrainSetAllSkipExterior);
-        Map.Terrain.SetAllRoad(pgt, interiorOnly);
+        Editor.Terrain.SetAllRoad(pgt, interiorOnly);
 
         ReloadBuildingsTerrain();
         System.Media.SystemSounds.Asterisk.Play();
@@ -1126,9 +1126,9 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void Menu_Bulk_Click(object sender, EventArgs e)
     {
-        var editor = new BatchEditor(SpawnLayer.Tiles, ItemEdit.SetItem(new Item()));
+        var editor = new BatchEditor(Spawn.Tiles, ItemEdit.SetItem(new Item()));
         editor.ShowDialog();
-        SpawnLayer.ClearDanglingExtensions(0, 0, SpawnLayer.TileInfo.TotalWidth, SpawnLayer.TileInfo.TotalHeight);
+        Spawn.ClearDanglingExtensions(0, 0, Spawn.TileInfo.TotalWidth, Spawn.TileInfo.TotalHeight);
         LoadItemGridAcre();
     }
 
@@ -1149,5 +1149,5 @@ public interface IItemLayerEditor
     void ReloadItems();
 
     ItemEditor ItemProvider { get; }
-    ItemLayer SpawnLayer { get; }
+    LayerItem Spawn { get; }
 }

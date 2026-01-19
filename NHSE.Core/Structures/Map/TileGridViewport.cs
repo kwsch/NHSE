@@ -32,6 +32,9 @@ public readonly record struct TileGridViewport([ConstantExpected] byte ViewWidth
     /// </summary>
     public int TotalCount => TotalWidth * TotalHeight;
 
+    public (int X, int Y) DimAcre => (ViewWidth, ViewHeight);
+    public (int X, int Y) DimTotal => (TotalWidth, TotalHeight);
+
     public int GetTileIndex(int acreX, int acreY, int gridX, int gridY)
     {
         var x = (acreX * ViewWidth) + gridX;

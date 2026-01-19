@@ -88,7 +88,7 @@ public partial class BulkSpawn : Form
         if (sizeY % 2 == 1)
             sizeY++;
 
-        var ctr = SpawnItems(Editor.SpawnLayer, items, x, y, arrange, sizeX, sizeY, true);
+        var ctr = SpawnItems(Editor.Spawn, items, x, y, arrange, sizeX, sizeY, true);
         if (ctr == 0)
         {
             WinFormsUtil.Alert(MessageStrings.MsgFieldItemModifyNone);
@@ -98,7 +98,7 @@ public partial class BulkSpawn : Form
         WinFormsUtil.Alert(string.Format(MessageStrings.MsgFieldItemModifyCount, count));
     }
 
-    private static int SpawnItems(ItemLayer layer, IReadOnlyList<Item> items, int x, int y, SpawnArrangement arrange, int sizeX, int sizeY, bool noOverwrite)
+    private static int SpawnItems(LayerItem layer, IReadOnlyList<Item> items, int x, int y, SpawnArrangement arrange, int sizeX, int sizeY, bool noOverwrite)
     {
         // every {setting} tiles, we jump down to the next available row of tiles.
         int x0 = x;

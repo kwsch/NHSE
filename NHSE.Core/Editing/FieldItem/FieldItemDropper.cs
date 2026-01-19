@@ -11,8 +11,8 @@ namespace NHSE.Core;
 /// <param name="AcreHeight">Always 6.</param>
 public sealed record FieldItemDropper(int AcreWidth, int AcreHeight = 6)
 {
-    private int MapHeight => AcreWidth * FieldItemLayer.TilesPerAcreDim;
-    private int MapWidth => AcreHeight * FieldItemLayer.TilesPerAcreDim;
+    private int MapHeight => AcreWidth * LayerFieldItem.TilesPerAcreDim;
+    private int MapWidth => AcreHeight * LayerFieldItem.TilesPerAcreDim;
 
     // Each dropped item is a 2x2 square, with the top left tile being the root node, and the other 3 being extensions pointing back to the root.
 

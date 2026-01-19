@@ -6,7 +6,7 @@ namespace NHSE.Sprites;
 
 public static class ItemLayerSprite
 {
-    public static Bitmap GetBitmapItemLayer(ItemLayer layer)
+    public static Bitmap GetBitmapItemLayer(LayerItem layer)
     {
         var items = layer.Tiles;
         var height = layer.TileInfo.TotalHeight;
@@ -32,7 +32,7 @@ public static class ItemLayerSprite
         }
     }
 
-    private static void LoadPixelsFromLayer(ItemLayer layer, int x0, int y0, int width, Span<int> bmpData)
+    private static void LoadPixelsFromLayer(LayerItem layer, int x0, int y0, int width, Span<int> bmpData)
     {
         var stride = layer.TileInfo.ViewWidth;
 
@@ -50,7 +50,7 @@ public static class ItemLayerSprite
     }
 
     // non-allocation image generator
-    public static Bitmap GetBitmapItemLayerViewGrid(ItemLayer layer, int x0, int y0, int scale, Span<int> acre1, int[] acreScale, Bitmap dest, int transparency = -1, int gridlineColor = 0)
+    public static Bitmap GetBitmapItemLayerViewGrid(LayerItem layer, int x0, int y0, int scale, Span<int> acre1, int[] acreScale, Bitmap dest, int transparency = -1, int gridlineColor = 0)
     {
         int w = layer.TileInfo.ViewWidth;
         int h = layer.TileInfo.ViewHeight;
@@ -73,7 +73,7 @@ public static class ItemLayerSprite
         return dest;
     }
 
-    private static void DrawDirectionals(Span<int> data, ItemLayer layer, int w, int x0, int y0, int scale)
+    private static void DrawDirectionals(Span<int> data, LayerItem layer, int w, int x0, int y0, int scale)
     {
         for (int x = x0; x < x0 + layer.TileInfo.ViewWidth; x++)
         {
@@ -232,7 +232,7 @@ public static class ItemLayerSprite
         }
     }
 
-    public static Bitmap GetBitmapItemLayer(ItemLayer layer, int x, int y, int[] data, Bitmap dest, int transparency = -1)
+    public static Bitmap GetBitmapItemLayer(LayerItem layer, int x, int y, int[] data, Bitmap dest, int transparency = -1)
     {
         LoadBitmapLayer(layer.Tiles, data, layer.TileInfo.TotalWidth, layer.TileInfo.TotalHeight);
         if (transparency >>> 24 != 0xFF)

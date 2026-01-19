@@ -12,7 +12,7 @@ namespace NHSE.Core;
 /// <param name="ShiftHeight">Vertical acre shift from the map's origin.</param>
 /// <param name="TilesPerAcre">Number of tiles per acre in one dimension (16 or 32).</param>
 /// <param name="TileBitShift">Bit shift value to convert between tiles and acres (4 for 16 tiles, 5 for 32 tiles).</param>
-public readonly record struct MapLayerConfigAcre(
+public readonly record struct LayerPositionConfig(
     byte CountWidth, byte CountHeight,
     byte ShiftWidth, byte ShiftHeight,
     [ConstantExpected] byte TilesPerAcre, byte TileBitShift)
@@ -42,20 +42,20 @@ public readonly record struct MapLayerConfigAcre(
     private const byte Shift16 = 4; // div16 is same as sh 4
 
     /// <summary>
-    /// Creates a new <see cref="MapLayerConfigAcre"/> instance, centering the layer within the acre.
+    /// Creates a new <see cref="LayerPositionConfig"/> instance, centering the layer within the acre.
     /// </summary>
     /// <param name="width">Width of the layer in acres.</param>
     /// <param name="height">Height of the layer in acres.</param>
     /// <param name="tilesPerAcre">Number of tiles per acre (16 or 32).</param>
-    /// <returns>A new <see cref="MapLayerConfigAcre"/> instance.</returns>
-    public static MapLayerConfigAcre Create(byte width, byte height, [ConstantExpected(Min = Grid16, Max = Grid32)] byte tilesPerAcre)
+    /// <returns>A new <see cref="LayerPositionConfig"/> instance.</returns>
+    public static LayerPositionConfig Create(byte width, byte height, [ConstantExpected(Min = Grid16, Max = Grid32)] byte tilesPerAcre)
     {
         var shiftW = (byte)((MapAcreWidth - width) / 2); // centered
         var shiftH = (byte)((MapAcreHeight - height) / 2); // centered
 
         var bitShift = tilesPerAcre == Grid16 ? Shift16 : Shift32;
 #pragma warning disable CA1857
-        return new MapLayerConfigAcre(width, height, shiftW, shiftH, tilesPerAcre, bitShift);
+        return new LayerPositionConfig(width, height, shiftW, shiftH, tilesPerAcre, bitShift);
 #pragma warning restore CA1857
     }
 

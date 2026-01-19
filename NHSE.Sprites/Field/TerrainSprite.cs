@@ -17,23 +17,24 @@ public static class TerrainSprite
     private const int PlazaWidth = 6 * 2;
     private const int PlazaHeight = 5 * 2;
 
-    public static void CreateMap(TerrainLayer mgr, Span<int> pixels)
+    public static void CreateMap(LayerTerrain mgr, Span<int> pixels)
     {
+        // Populate the image, with each pixel being a single tile.
+        int width = mgr.TileInfo.TotalWidth;
+        int height = mgr.TileInfo.TotalHeight;
         int i = 0;
-        for (int y = 0; y < mgr.TileInfo.TotalHeight; y++)
+        for (int y = 0; y < height; y++)
         {
-            for (int x = 0; x < mgr.TileInfo.TotalWidth; x++, i++)
-            {
+            for (int x = 0; x < width; x++, i++)
                 pixels[i] = mgr.GetTileColor(x, y, x, y);
-            }
         }
     }
 
-    public static Bitmap CreateMap(TerrainLayer mgr, Span<int> scale1, int[] scaleX, Bitmap map, int scale, int acreIndex = -1)
+    public static Bitmap CreateMap(LayerTerrain mgr, Span<int> scale1, Span<int> scaleX, Bitmap map, int scale, int acreIndex = -1)
     {
         CreateMap(mgr, scale1);
         ImageUtil.ScalePixelImage(scale1, scaleX, map.Width, map.Height, scale);
-        ImageUtil.SetBitmapData(map, scaleX);
+        map.SetBitmapData(scaleX);
 
         if (acreIndex < 0)
             return map;
@@ -56,7 +57,7 @@ public static class TerrainSprite
         return map;
     }
 
-    public static Bitmap GetMapWithBuildings(MapTerrainStructure m, Font? f, Span<int> scale1, int[] scaleX, Bitmap map, int scale = 4, int index = -1)
+    public static Bitmap GetMapWithBuildings(MapTerrainStructure m, Font? f, Span<int> scale1, Span<int> scaleX, Bitmap map, int scale = 4, int index = -1)
     {
         CreateMap(m.Terrain, scale1, scaleX, map, scale);
         using var gfx = Graphics.FromImage(map);
@@ -66,7 +67,7 @@ public static class TerrainSprite
         return map;
     }
 
-    private static void DrawPlaza(this Graphics gfx, TerrainLayer g, ushort px, ushort py, int scale)
+    private static void DrawPlaza(this Graphics gfx, LayerTerrain g, ushort px, ushort py, int scale)
     {
         g.GetBuildingCoordinate(px, py, scale, out var x, out var y);
 
@@ -76,7 +77,7 @@ public static class TerrainSprite
         gfx.FillRectangle(Plaza, x, y, width, height);
     }
 
-    private static void DrawBuildings(this Graphics gfx, TerrainLayer g, IReadOnlyList<Building> buildings, Font? f, int scale, int index = -1)
+    private static void DrawBuildings(this Graphics gfx, LayerTerrain g, IReadOnlyList<Building> buildings, Font? f, int scale, int index = -1)
     {
         for (int i = 0; i < buildings.Count; i++)
         {
@@ -101,13 +102,13 @@ public static class TerrainSprite
         gfx.DrawString(name, f, text, new PointF(x, y - (scale * 2)), BuildingTextFormat);
     }
 
-    private static void SetAcreTerrainPixels(int x, int y, TerrainLayer t, Span<int> data, Span<int> scaleX, int scale)
+    private static void SetAcreTerrainPixels(int x, int y, LayerTerrain t, Span<int> data, Span<int> scaleX, int scale)
     {
         GetAcre1(x, y, t, data);
         ImageUtil.ScalePixelImage(data, scaleX, 16 * scale, 16 * scale, scale / 16);
     }
 
-    private static void GetAcre1(int tileTopX, int tileTopY, TerrainLayer t, Span<int> data)
+    private static void GetAcre1(int tileTopX, int tileTopY, LayerTerrain t, Span<int> data)
     {
         int index = 0;
 
@@ -129,26 +130,28 @@ public static class TerrainSprite
         }
     }
 
-    public static Bitmap GetAcre(MapView m, Font f, Span<int> scale1, int[] scaleX, Bitmap acre, int index, byte tbuild, byte tterrain)
+    public static Bitmap CreateAcreView(MapEditor m, Font f, Span<int> scale1, Span<int> scaleX, Bitmap acre, int index, byte tbuild, byte tterrain)
     {
+        // Convert from absolute to relative.
         int mx = m.X / 2;
         int my = m.Y / 2;
-        SetAcreTerrainPixels(mx, my, m.Map.Terrain, scale1, scaleX, m.TerrainScale);
+        SetAcreTerrainPixels(mx, my, m.Terrain, scale1, scaleX, m.Terrain.Scale);
 
         const int grid1 = unchecked((int)0xFF888888u);
         const int grid2 = unchecked((int)0xFF666666u);
-        ImageUtil.SetBitmapData(acre, scaleX);
+        acre.SetBitmapData(scaleX);
 
         using var gfx = Graphics.FromImage(acre);
 
-        gfx.DrawAcrePlaza(m.Map.Terrain, mx, my, (ushort)m.Map.PlazaX, (ushort)m.Map.PlazaY, m.TerrainScale, tbuild);
+        var plaza = m.Mutator.Manager.Plaza;
+        gfx.DrawAcrePlaza(m.Terrain, mx, my, plaza.X, plaza.Z, m.Terrain.Scale, tbuild);
 
-        var buildings = m.Map.Buildings;
-        var t = m.Map.Terrain;
+        var buildings = m.Buildings.Buildings;
+        var t = m.Terrain;
         for (var i = 0; i < buildings.Count; i++)
         {
             var b = buildings[i];
-            t.GetBuildingRelativeCoordinates(mx, my, m.TerrainScale, b.X, b.Y, out var x, out var y);
+            t.GetBuildingRelativeCoordinates(mx, my, m.Terrain.Scale, b.X, b.Y, out var x, out var y);
 
             var pen = index == i ? Selected : Others;
             if (tbuild != byte.MaxValue)
@@ -157,30 +160,31 @@ public static class TerrainSprite
                 pen = new SolidBrush(Color.FromArgb(tbuild, orig));
             }
 
-            DrawBuilding(gfx, null, m.TerrainScale, pen, x, y, b, Text);
+            DrawBuilding(gfx, null, m.Terrain.Scale, pen, x, y, b, Text);
         }
 
-        ImageUtil.GetBitmapData(acre, scaleX);
+        acre.GetBitmapData(scaleX);
         ItemLayerSprite.DrawGrid(scaleX, acre.Width, acre.Height, m.AcreScale, grid1);
-        ItemLayerSprite.DrawGrid(scaleX, acre.Width, acre.Height, m.TerrainScale, grid2);
-        ImageUtil.SetBitmapData(acre, scaleX);
+        ItemLayerSprite.DrawGrid(scaleX, acre.Width, acre.Height, m.Terrain.Scale, grid2);
+        acre.SetBitmapData(scaleX);
 
         foreach (var b in buildings)
         {
-            t.GetBuildingRelativeCoordinates(mx, my, m.TerrainScale, b.X, b.Y, out var x, out var y);
-            if (!t.IsWithinGrid(m.TerrainScale, x, y))
+            t.GetBuildingRelativeCoordinates(mx, my, m.Terrain.Scale, b.X, b.Y, out var x, out var y);
+            if (!t.IsWithinGrid(m.Terrain.Scale, x, y))
                 continue;
             var name = b.BuildingType.ToString();
-            gfx.DrawString(name, f, Text, new PointF(x, y - (m.TerrainScale * 2)), BuildingTextFormat);
+            var labelPosition = new PointF(x, y - (m.Terrain.Scale * 2));
+            gfx.DrawString(name, f, Text, labelPosition, BuildingTextFormat);
         }
 
         if (tterrain != 0)
-            DrawTerrainTileNames(mx, my, gfx, t, f, m.TerrainScale, tterrain);
+            DrawTerrainTileNames(mx, my, gfx, t, f, m.Terrain.Scale, tterrain);
 
         return acre;
     }
 
-    private static void DrawTerrainTileNames(int topX, int topY, Graphics gfx, TerrainLayer t, Font f, int scale, byte transparency)
+    private static void DrawTerrainTileNames(int topX, int topY, Graphics gfx, LayerTerrain t, Font f, int scale, byte transparency)
     {
         var pen = transparency != byte.MaxValue ? new SolidBrush(Color.FromArgb(transparency, Color.Black)) : Tile;
 
@@ -200,9 +204,9 @@ public static class TerrainSprite
         }
     }
 
-    private static void DrawAcrePlaza(this Graphics gfx, TerrainLayer g, int topX, int topY, ushort px, ushort py, int scale, byte transparency)
+    private static void DrawAcrePlaza(this Graphics gfx, LayerTerrain g, int topX, int topY, uint plazaX, uint plazaY, int scale, byte transparency)
     {
-        g.GetBuildingRelativeCoordinates(topX, topY, scale, px, py, out var x, out var y);
+        g.GetBuildingRelativeCoordinates(topX, topY, scale, plazaX, plazaY, out var x, out var y);
 
         var width = scale * PlazaWidth;
         var height = scale * PlazaHeight;

@@ -16,6 +16,6 @@ public static class AcreTileColor
         var shift = (4 * ((y * 64) + x));
         var ofs = baseOfs + shift;
         var tile = AcreTiles[ofs];
-        return CollisionUtil.Dict[tile].ToArgb();
+        return TileCollisionUtil.Dict[tile].ToArgb();
     }
 }

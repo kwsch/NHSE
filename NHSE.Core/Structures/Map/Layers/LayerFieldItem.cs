@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace NHSE.Core;
 
-public sealed record FieldItemLayer(Item[] Tiles, byte AcreWidth, byte AcreHeight)
-    : ItemLayer(Tiles, GetViewport(AcreWidth, AcreHeight))
+public sealed record LayerFieldItem(Item[] Tiles, byte AcreWidth, byte AcreHeight)
+    : LayerItem(Tiles, GetViewport(AcreWidth, AcreHeight))
 {
     private static TileGridViewport GetViewport(byte width, byte height) => new(TilesPerAcreDim, TilesPerAcreDim, width, height);
 
@@ -115,5 +115,11 @@ public sealed record FieldItemLayer(Item[] Tiles, byte AcreWidth, byte AcreHeigh
         }
 
         return ModifyAll(xmin, ymin, width, height, IsFlowerWaterable, z => z.Water(all));
+    }
+
+    public Item this[int relX, int relY]
+    {
+        get => GetTile(relX, relY);
+        set => SetTile(relX, relY, value);
     }
 }

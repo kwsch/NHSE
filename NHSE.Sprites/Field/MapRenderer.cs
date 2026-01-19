@@ -7,8 +7,12 @@ namespace NHSE.Sprites;
 /// <summary>
 /// Produces bitmaps for viewing map acres and full maps.
 /// </summary>
-public sealed class MapViewer : MapView, IDisposable
+public sealed class MapRenderer : IDisposable
 {
+    private readonly MapEditor Map;
+    private int AcreScale => Map.MapScale;
+    private int MapScale => Map.MapScale * 2;
+
     private const byte ScaleAsMap = 2;
     private const byte FieldItemWidthOld = 7;
     private const byte FieldItemWidthNew = 9;
@@ -23,13 +27,16 @@ public sealed class MapViewer : MapView, IDisposable
     private readonly int[] PixelsBackgroundAcre1;
     private readonly int[] PixelsBackgroundAcreX;
     private readonly Bitmap BackgroundAcre;
+
     private readonly int[] PixelsBackgroundMap1;
     private readonly int[] PixelsBackgroundMapX;
     private readonly Bitmap BackgroundMap;
 
-    public MapViewer(MapManager m, int scale) : base(m, scale)
+    public MapRenderer(MapEditor m)
     {
-        var l1 = m.Items.Layer1;
+        Map = m;
+
+        var l1 = m.Mutator.Manager.FieldItems.Layer0;
         var info = l1.TileInfo;
         PixelsItemAcre1 = new int[info.ViewWidth * info.ViewHeight];
         PixelsItemAcreX = new int[PixelsItemAcre1.Length * AcreScale * AcreScale];
@@ -55,8 +62,8 @@ public sealed class MapViewer : MapView, IDisposable
         BackgroundMap.Dispose();
     }
 
-    public Bitmap GetLayerAcre(int t) => GetLayerAcre(X, Y, t);
-    public Bitmap GetMapWithReticle(int t) => GetMapWithReticle(X, Y, t, Map.CurrentLayer);
+    public Bitmap GetLayerAcre(int t) => GetLayerAcre(Map.Mutator.View.X, Map.Mutator.View.Y, t);
+    public Bitmap GetMapWithReticle(int t) => GetMapWithReticle(Map.Mutator.View.X, Map.Mutator.View.Y, t, Map.Mutator.CurrentLayer);
 
     public Bitmap GetBackgroundTerrain(int index = -1)
     {
@@ -82,17 +89,17 @@ public sealed class MapViewer : MapView, IDisposable
 
     private Bitmap GetLayerAcre(int topX, int topY, int transparency)
     {
-        var layer = Map.CurrentLayer;
+        var layer = Map.Mutator.CurrentLayer;
         return ItemLayerSprite.GetBitmapItemLayerViewGrid(layer, topX, topY, AcreScale, PixelsItemAcre1, PixelsItemAcreX, ScaleAcre, transparency);
     }
 
     public Bitmap GetBackgroundAcre(Font f, byte transparencyBuilding, byte transparencyTerrain, int index = -1)
     {
-        return TerrainSprite.GetAcre(this, f, PixelsBackgroundAcre1, PixelsBackgroundAcreX, BackgroundAcre, index, transparencyBuilding, transparencyTerrain);
+        return TerrainSprite.CreateAcreView(this, f, PixelsBackgroundAcre1, PixelsBackgroundAcreX, BackgroundAcre, index, transparencyBuilding, transparencyTerrain);
     }
 
-    private Bitmap GetMapWithReticle(int topX, int topY, int t, FieldItemLayer layer)
+    private Bitmap GetMapWithReticle(int topX, int topY, int t, LayerFieldItem layerField)
     {
-        return ItemLayerSprite.GetBitmapItemLayer(layer, topX, topY, PixelsItemMap, MapReticle, t);
+        return ItemLayerSprite.GetBitmapItemLayer(layerField, topX, topY, PixelsItemMap, MapReticle, t);
     }
 }

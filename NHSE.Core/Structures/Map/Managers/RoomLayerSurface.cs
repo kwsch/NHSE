@@ -1,6 +1,6 @@
 ﻿namespace NHSE.Core;
 
-public enum RoomLayerSurface
+public enum RoomLayerSurface : byte
 {
     Floor = 0,
     FloorSupported = 1,
