@@ -140,18 +140,7 @@ public sealed record LayerTerrain : AcreSelectionGrid
         }
     }
 
-    public bool IsWithinGrid(int acreScale, int relX, int relY)
-    {
-        if ((uint)relX >= TileInfo.ViewWidth * acreScale)
-            return false;
-
-        if ((uint)relY >= TileInfo.ViewHeight * acreScale)
-            return false;
-
-        return true;
-    }
-
-    public int GetTileColor(int x, in int y, int relativeX, int relativeY)
+    public int GetTileColor(int x, int y, int relativeX, int relativeY)
     {
         var acre = GetTileAcre(x, y);
         if (acre != 0)

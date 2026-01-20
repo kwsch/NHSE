@@ -57,28 +57,4 @@ public readonly record struct TileGridViewport([ConstantExpected] byte ViewWidth
         x = Math.Clamp(x, 0, maxX);
         y = Math.Clamp(y, 0, maxY);
     }
-
-    public void GetViewAnchorCoordinates(ref int x, ref int y, in bool centerReticle)
-    {
-        // If we aren't snapping the reticle to the nearest acre
-        // we want to put the middle of the reticle rectangle where the cursor is.
-        // Adjust the view coordinate
-        if (!centerReticle)
-        {
-            // Reticle size is GridWidth, center = /2
-            x -= ViewWidth / 2;
-            y -= ViewWidth / 2;
-        }
-
-        // Clamp to viewport dimensions, and center to nearest acre if desired.
-        // Clamp to boundaries so that we always have a full grid to view.
-        SetTopLeftNearest(ref x, ref y);
-    }
-
-    private void SetTopLeftNearest(ref int x, ref int y)
-    {
-        int maxX = TotalWidth - ViewWidth;
-        int maxY = TotalHeight - ViewHeight;
-        ClampCoordinatesTo(ref x, ref y, maxX, maxY);
-    }
 }

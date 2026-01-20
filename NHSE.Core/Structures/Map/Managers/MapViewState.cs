@@ -129,4 +129,20 @@ public sealed record MapViewState
         var acreY = acre / (MaxX / EdgeBuffer);
         SetViewTo(acreX * EdgeBuffer, acreY * EdgeBuffer);
     }
+
+    public (int X, int Y) EnforceEdgeBuffer(int x, int y)
+    {
+        x = (int)Math.Clamp((uint)x, 0, MaxX - EdgeBuffer);
+        y = (int)Math.Clamp((uint)y, 0, MaxY - EdgeBuffer);
+        return (x, y);
+    }
+
+    public bool IsWithinView(int x, int y, int tileStride)
+    {
+        if (x < X || x >= X + tileStride)
+            return false;
+        if (y < Y || y >= Y + tileStride)
+            return false;
+        return true;
+    }
 }

@@ -15,6 +15,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 {
     private readonly MainSave SAV;
     private readonly MapEditor Editor;
+    private readonly MapRenderer Renderer;
 
     private MapViewState View => Editor.Mutator.View;
     private MapTileManager Map => Editor.Mutator.Manager;
@@ -52,7 +53,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         IsExtendedMap30 = sav.FieldItemAcreWidth != 7;
         Editor = MapEditor.FromSaveFile(sav);
         Editor.MapScale = scale;
-        Editor.AcreScale = scale;
+        Editor.ViewScale = scale;
         Renderer = new MapRenderer(Editor);
 
         Loading = true;
@@ -129,24 +130,22 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void ReloadMapBackground()
     {
-        var img = View.GetBackgroundTerrain(SelectedBuildingIndex);
+        var img = Renderer.GetBackgroundTerrain(SelectedBuildingIndex);
         SetMapBackgroundImage(img);
     }
 
-    private void ReloadMapItemGrid() => SetMapForegroundImage(View.GetMapWithReticle(GetItemTransparency()));
+    private void ReloadMapItemGrid() => SetMapForegroundImage(Renderer.GetMapWithReticle(GetItemTransparency()));
 
     private void SetMapBackgroundImage(Bitmap img)
     {
         if (IsExtendedMap30)
-            img = View.GetInflatedImage(img);
+            img = Renderer.GetInflatedImage(img);
         PB_Map.BackgroundImage = img;
         PB_Map.Invalidate(); // background image reassigning to same img doesn't redraw; force it
     }
 
     private void SetMapForegroundImage(Bitmap img)
     {
-        if (IsExtendedMap30)
-            img = View.GetInflatedImage(img);
         PB_Map.Image = img;
     }
 
@@ -154,12 +153,12 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     {
         var tbuild = (byte)TR_BuildingTransparency.Value;
         var tterrain = (byte)TR_Terrain.Value;
-        var img = View.GetBackgroundAcre(L_Coordinates.Font, tbuild, tterrain, SelectedBuildingIndex);
+        var img = Renderer.GetBackgroundAcre(L_Coordinates.Font, tbuild, tterrain, SelectedBuildingIndex);
         PB_Acre.BackgroundImage = img;
         PB_Acre.Invalidate(); // background image reassigning to same img doesn't redraw; force it
     }
 
-    private void ReloadAcreItemGrid() => PB_Acre.Image = View.GetLayerAcre(GetItemTransparency());
+    private void ReloadAcreItemGrid() => PB_Acre.Image = Renderer.GetLayerAcre(GetItemTransparency());
 
     public void ReloadItems()
     {
@@ -303,8 +302,8 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void GetAcreCoordinates(MouseEventArgs e, out int x, out int y)
     {
-        x = e.X / Editor.AcreScale;
-        y = e.Y / Editor.AcreScale;
+        x = e.X / Editor.ViewScale;
+        y = e.Y / Editor.ViewScale;
     }
 
     private void PB_Acre_MouseDown(object sender, MouseEventArgs e) => ResetDrag();
@@ -772,58 +771,30 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     {
         if (e.Button != MouseButtons.Left)
             return;
-        ClickMapAt(e, true);
+        ClickMapAt(e);
     }
 
-    private void ClickMapAt(MouseEventArgs e, bool skipLagCheck)
+    private void ClickMapAt(MouseEventArgs e)
     {
-        var layer = Editor.Items.Layer0;
-        int mX = e.X;
-        int mY = e.Y;
-        bool centerReticle = CHK_SnapToAcre.Checked;
-        View.GetViewAnchorCoordinates(mX, mY, out var x, out var y, centerReticle);
+        var (x, y) = Editor.GetMapCoordinates(e.X, e.Y, CHK_SnapToAcre.Checked ? MapViewCoordinateRequest.SnapAcre : MapViewCoordinateRequest.Centered);
+
+        // Truncate to root-node coordinates. The map is only 1px per tile, and nobody is wanting to click on extension-tiles.
         x &= 0xFFFE;
         y &= 0xFFFE;
 
-        var acre = layer.GetAcre(x, y);
-        bool sameAcre = AcreIndex == acre;
-        if (!skipLagCheck)
-        {
-            if (CHK_SnapToAcre.Checked)
-            {
-                if (sameAcre)
-                    return;
-            }
-            else
-            {
-                const int delta = 0; // disabled = 0
-                var dx = Math.Abs(View.X - x);
-                var dy = Math.Abs(View.Y - y);
-                if (dx <= delta && dy <= delta && !sameAcre)
-                    return;
-            }
-        }
-
-        if (!CHK_SnapToAcre.Checked)
-        {
-            if (View.SetViewTo(x, y))
-                LoadItemGridAcre();
-            return;
-        }
-
-        if (!sameAcre)
-            CB_Acre.SelectedIndex = acre;
+        if (View.SetViewTo(x, y))
+            LoadItemGridAcre();
     }
 
     private void PB_Map_MouseMove(object sender, MouseEventArgs e)
     {
         if (e.Button == MouseButtons.Left)
         {
-            ClickMapAt(e, false);
+            ClickMapAt(e);
         }
         else if (e.Button == MouseButtons.None)
         {
-            View.GetCursorCoordinates(e.X, e.Y, out var x, out var y);
+            Editor.GetCursorCoordinates(e.X, e.Y, out var x, out var y);
             SetCoordinateText(x, y);
         }
     }

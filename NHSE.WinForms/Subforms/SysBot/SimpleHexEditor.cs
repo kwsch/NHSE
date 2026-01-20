@@ -1,7 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
-using NHSE.Injection;
 
 namespace NHSE.WinForms;
 
@@ -17,10 +17,10 @@ public partial class SimpleHexEditor : Form
         Bytes = originalBytes;
     }
 
-    private void Update_Click(object sender, System.EventArgs e)
+    private void Update_Click(object sender, EventArgs e)
     {
         var bytestring = RTB_RAM.Text.Replace("\t", "").Replace(" ", "").Trim();
-        Bytes = Decoder.StringToByteArray(bytestring);
+        Bytes = Convert.FromHexString(bytestring);
         DialogResult = DialogResult.OK;
         Close();
     }

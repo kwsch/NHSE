@@ -111,39 +111,37 @@ public static class ImageUtil
         return destImage;
     }
 
-    public static int[] ScalePixelImage(ReadOnlySpan<int> data, int scale, int w, int h, out int fW, out int fH)
+    public static int[] ScalePixelImage(ReadOnlySpan<int> data, int imgScale, int imgWidthSingle, int imgHeightSingle, out int imgWidthUpscaled, out int imgHeightUpscaled)
     {
-        fW = scale * w;
-        fH = scale * h;
-        var scaled = new int[fW * fH];
-
-        ScalePixelImage(data, scaled, fW, fH, scale);
-
+        imgWidthUpscaled = imgScale * imgWidthSingle;
+        imgHeightUpscaled = imgScale * imgHeightSingle;
+        var scaled = new int[imgWidthUpscaled * imgHeightUpscaled];
+        ScalePixelImage(data, scaled, imgWidthUpscaled, imgHeightUpscaled, imgScale);
         return scaled;
     }
 
-    public static void ScalePixelImage(ReadOnlySpan<int> data, Span<int> scaled, int fW, int fH, int scale)
+    public static void ScalePixelImage(ReadOnlySpan<int> data, Span<int> scaled, int imgWidth, int imgHeight, int imgScale)
     {
         // For each pixel, copy to the X indexes, then block copy the row to the other rows.
         int i = 0;
-        for (int y = 0; y < fH; y += scale)
+        for (int y = 0; y < imgHeight; y += imgScale)
         {
             // Fill the X pixels
-            var baseIndex = y * fW;
-            for (int x = 0; x < fW; x += scale)
+            var baseIndex = y * imgWidth;
+            for (int x = 0; x < imgWidth; x += imgScale)
             {
                 var v = data[i];
                 var xi = baseIndex + x;
-                for (int x1 = 0; x1 < scale; x1++)
+                for (int x1 = 0; x1 < imgScale; x1++)
                     scaled[xi + x1] = v;
                 i++;
             }
 
             // Copy entire pixel row down
-            for (int y1 = 1; y1 < scale; y1++)
+            for (int y1 = 1; y1 < imgScale; y1++)
             {
-                var src = scaled.Slice(baseIndex, fW);
-                var dest = scaled.Slice(baseIndex + (y1 * fW), fW);
+                var src = scaled.Slice(baseIndex, imgWidth);
+                var dest = scaled.Slice(baseIndex + (y1 * imgWidth), imgWidth);
                 src.CopyTo(dest);
             }
         }

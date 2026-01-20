@@ -2,7 +2,7 @@
 
 namespace NHSE.Core;
 
-public sealed class MapMutator
+public sealed record MapMutator
 {
     public MapViewState View { get; init; } = new();
     public required MapTileManager Manager { get; init; }
@@ -58,4 +58,12 @@ public sealed class MapMutator
     /// <returns>A MapMutator instance populated with data from the provided save file.</returns>
     public static MapMutator FromSaveFile(MainSave sav)
         => new() { Manager = MapTileManagerUtil.FromSaveFile(sav) };
+
+    /// <summary>
+    /// Creates a separate view-mutator with shared map objects.
+    /// </summary>
+    public MapMutator CreateCopy() => this with
+    {
+        View = View with { },
+    };
 }

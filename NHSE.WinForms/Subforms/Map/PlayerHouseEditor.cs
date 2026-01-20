@@ -167,9 +167,10 @@ public partial class PlayerHouseEditor : Form
         var w = layer.TileInfo.TotalWidth;
         var h = layer.TileInfo.TotalHeight;
         Span<int> scale1 = stackalloc int[w * h];
-        int[] scaleX = new int[scale * scale * scale1.Length];
+        var scaleX = new int[scale * scale * scale1.Length];
         var bmp = new Bitmap(scale * w, scale * h);
-        PB_Room.Image = ItemLayerSprite.GetBitmapItemLayerViewGrid(layer, 0, 0, scale, scale1, scaleX, bmp, gridlineColor: 0x7F000000);
+        ItemLayerSprite.LoadItemLayerViewGrid(bmp, layer, 0, 0, scale1, scaleX, scale, gridlineColor: 0x7F000000);
+        PB_Room.Image = bmp;
     }
 
     private void NUD_Room_ValueChanged(object sender, EventArgs e)

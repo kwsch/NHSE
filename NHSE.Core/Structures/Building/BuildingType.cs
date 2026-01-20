@@ -38,3 +38,10 @@ public enum BuildingType : ushort
 
     Hotel = 42,
 }
+public static class BuildingUtil
+{
+    public static (int Width, int Height) GetDimensions(this BuildingType type) => type switch
+    {
+        _ => (2, 2),
+    };
+}

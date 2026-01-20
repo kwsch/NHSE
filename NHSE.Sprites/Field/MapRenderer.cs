@@ -10,10 +10,9 @@ namespace NHSE.Sprites;
 public sealed class MapRenderer : IDisposable
 {
     private readonly MapEditor Map;
-    private int AcreScale => Map.MapScale;
-    private int MapScale => Map.MapScale * 2;
+    private int MapScale => Map.MapScale;
+    private int ViewScale => Map.ViewScale;
 
-    private const byte ScaleAsMap = 2;
     private const byte FieldItemWidthOld = 7;
     private const byte FieldItemWidthNew = 9;
 
@@ -39,17 +38,17 @@ public sealed class MapRenderer : IDisposable
         var l1 = m.Mutator.Manager.FieldItems.Layer0;
         var info = l1.TileInfo;
         PixelsItemAcre1 = new int[info.ViewWidth * info.ViewHeight];
-        PixelsItemAcreX = new int[PixelsItemAcre1.Length * AcreScale * AcreScale];
-        ScaleAcre = new Bitmap(info.ViewWidth * AcreScale, info.ViewHeight * AcreScale);
+        PixelsItemAcreX = new int[PixelsItemAcre1.Length * ViewScale * ViewScale];
+        ScaleAcre = new Bitmap(info.ViewWidth * ViewScale, info.ViewHeight * ViewScale);
 
         PixelsItemMap = new int[info.TotalWidth * info.TotalHeight * MapScale * MapScale];
         MapReticle = new Bitmap(info.TotalWidth * MapScale, info.TotalHeight * MapScale);
 
-        PixelsBackgroundAcre1 = new int[(int)Math.Pow(16, 4)];
+        PixelsBackgroundAcre1 = new int[PixelsItemAcre1.Length];
         PixelsBackgroundAcreX = new int[PixelsItemAcreX.Length];
         BackgroundAcre = new Bitmap(ScaleAcre.Width, ScaleAcre.Height);
 
-        PixelsBackgroundMap1 = new int[PixelsItemMap.Length / 4];
+        PixelsBackgroundMap1 = new int[PixelsItemMap.Length / (MapScale * MapScale)];
         PixelsBackgroundMapX = new int[PixelsItemMap.Length];
         BackgroundMap = new Bitmap(MapReticle.Width, MapReticle.Height);
     }
@@ -67,7 +66,7 @@ public sealed class MapRenderer : IDisposable
 
     public Bitmap GetBackgroundTerrain(int index = -1)
     {
-        return TerrainSprite.GetMapWithBuildings(Map, null, PixelsBackgroundMap1, PixelsBackgroundMapX, BackgroundMap, ScaleAsMap, index);
+        return TerrainSprite.GetMapWithBuildings(Map, null, PixelsBackgroundMap1, PixelsBackgroundMapX, BackgroundMap, index);
     }
 
     public Bitmap GetInflatedImage(Bitmap regular)
@@ -90,12 +89,14 @@ public sealed class MapRenderer : IDisposable
     private Bitmap GetLayerAcre(int topX, int topY, int transparency)
     {
         var layer = Map.Mutator.CurrentLayer;
-        return ItemLayerSprite.GetBitmapItemLayerViewGrid(layer, topX, topY, AcreScale, PixelsItemAcre1, PixelsItemAcreX, ScaleAcre, transparency);
+        ItemLayerSprite.LoadItemLayerViewGrid(ScaleAcre, layer, topX, topY, PixelsItemAcre1, PixelsItemAcreX, ViewScale, transparency);
+        return ScaleAcre;
     }
 
     public Bitmap GetBackgroundAcre(Font f, byte transparencyBuilding, byte transparencyTerrain, int index = -1)
     {
-        return TerrainSprite.CreateAcreView(this, f, PixelsBackgroundAcre1, PixelsBackgroundAcreX, BackgroundAcre, index, transparencyBuilding, transparencyTerrain);
+        TerrainSprite.LoadViewport(BackgroundAcre, Map, f, PixelsBackgroundAcre1, PixelsBackgroundAcreX, index, transparencyBuilding, transparencyTerrain);
+        return BackgroundAcre;
     }
 
     private Bitmap GetMapWithReticle(int topX, int topY, int t, LayerFieldItem layerField)

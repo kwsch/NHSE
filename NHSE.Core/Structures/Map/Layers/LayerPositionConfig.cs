@@ -12,10 +12,12 @@ namespace NHSE.Core;
 /// <param name="ShiftHeight">Vertical acre shift from the map's origin.</param>
 /// <param name="TilesPerAcre">Number of tiles per acre in one dimension (16 or 32).</param>
 /// <param name="TileBitShift">Bit shift value to convert between tiles and acres (4 for 16 tiles, 5 for 32 tiles).</param>
+/// <param name="MetaTileSize">Size of tile compared to the smallest tile possible (2 for 16 tiles, 1 for 32 tiles).</param>
 public readonly record struct LayerPositionConfig(
     byte CountWidth, byte CountHeight,
     byte ShiftWidth, byte ShiftHeight,
-    [ConstantExpected] byte TilesPerAcre, byte TileBitShift)
+    [ConstantExpected] byte TilesPerAcre, byte TileBitShift,
+    [ConstantExpected(Max = 2, Min = 1)] byte MetaTileSize)
 {
     // Maps in Animal Crossing: New Horizons are made up of acres that are 9 tiles wide and 8 tiles high.
     // 5 columns in the center are land, surrounded by 2 tiles of beach and 2 tiles of sea on each side.
@@ -47,115 +49,55 @@ public readonly record struct LayerPositionConfig(
     /// <param name="width">Width of the layer in acres.</param>
     /// <param name="height">Height of the layer in acres.</param>
     /// <param name="tilesPerAcre">Number of tiles per acre (16 or 32).</param>
+    /// <param name="metaTileSize">Size of tile compared to the smallest tile possible (2 for 16 tiles, 1 for 32 tiles).</param>
     /// <returns>A new <see cref="LayerPositionConfig"/> instance.</returns>
-    public static LayerPositionConfig Create(byte width, byte height, [ConstantExpected(Min = Grid16, Max = Grid32)] byte tilesPerAcre)
+    public static LayerPositionConfig Create(byte width, byte height,
+        [ConstantExpected(Min = Grid16, Max = Grid32)] byte tilesPerAcre,
+        [ConstantExpected(Min = 1, Max = 2)] byte metaTileSize)
     {
         var shiftW = (byte)((MapAcreWidth - width) / 2); // centered
         var shiftH = (byte)((MapAcreHeight - height) / 2); // centered
 
         var bitShift = tilesPerAcre == Grid16 ? Shift16 : Shift32;
 #pragma warning disable CA1857
-        return new LayerPositionConfig(width, height, shiftW, shiftH, tilesPerAcre, bitShift);
+        return new LayerPositionConfig(width, height, shiftW, shiftH, tilesPerAcre, bitShift, metaTileSize);
 #pragma warning restore CA1857
     }
 
-    /// <summary>
-    /// Converts absolute coordinates to coordinates relative to the stored layer.
-    /// </summary>
-    /// <param name="absX">Absolute X coordinate on the map.</param>
-    /// <param name="absY">Absolute Y coordinate on the map.</param>
-    /// <param name="relX">Relative X coordinate in the layer.</param>
-    /// <param name="relY">Relative Y coordinate in the layer.</param>
-    /// <returns><see langword="true"/> if the absolute coordinates are within the layer; otherwise, <see langword="false"/>.</returns>
-    public bool TryGetRelativeCoordinates(int absX, int absY, out int relX, out int relY)
+    public (int X, int Y) GetCoordinatesAbsolute(int relX, int relY)
     {
-        relX = 0;
-        relY = 0;
+        var absX = relX - ((ShiftWidth * MetaTileSize) << TileBitShift);
+        var absY = relY - ((ShiftHeight * MetaTileSize) << TileBitShift);
+        return (absX, absY);
+    }
 
-        // Get relative acre
-        var (acreX, acreY) = GetAbsoluteAcre(absX, absY);
-        acreX -= ShiftWidth;
-        acreY -= ShiftHeight;
-
-        // Performance: single if-check by using underflow casting to unsigned
-        if ((uint)acreX >= CountWidth)
-            return false;
-        if ((uint)acreY >= CountHeight)
-            return false;
-
-        // Return relative position
-        relX = absX - (ShiftWidth << TileBitShift);
-        relY = absY - (ShiftHeight << TileBitShift);
-        return true;
+    public (int X, int Y) GetCoordinatesRelative(int absX, int absY)
+    {
+        var relX = absX + ((ShiftWidth * MetaTileSize) << TileBitShift);
+        var relY = absY + ((ShiftHeight * MetaTileSize) << TileBitShift);
+        return (relX, relY);
     }
 
     /// <summary>
     /// Determines whether the specified absolute X and Y coordinates are within the valid bounds of the map.
     /// </summary>
-    /// <param name="absX">The absolute X coordinate to validate. Must be within the horizontal bounds of the map.</param>
-    /// <param name="absY">The absolute Y coordinate to validate. Must be within the vertical bounds of the map.</param>
+    /// <param name="relX">The absolute X coordinate to validate. Must be within the horizontal bounds of the map.</param>
+    /// <param name="relY">The absolute Y coordinate to validate. Must be within the vertical bounds of the map.</param>
     /// <returns><see langword="true"/> if the coordinates are valid; otherwise, <see langword="false"/>.</returns>
-    public bool IsAbsoluteCoordinateValid(int absX, int absY)
+    public bool IsCoordinateValidRelative(int relX, int relY)
     {
-        if ((uint)absX >= ((uint)MapAcreWidth << TileBitShift))
-            return false;
-        if ((uint)absY >= ((uint)MapAcreHeight << TileBitShift))
-            return false;
-        return true;
-    }
-
-    /// <summary>
-    /// Gets the absolute acre coordinates from absolute tile coordinates.
-    /// </summary>
-    public (int X, int Y) GetAbsoluteAcre(int absX, int absY)
-    {
-        ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual((uint)absX, (uint)MapAcreWidth << TileBitShift);
-        ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual((uint)absY, (uint)MapAcreHeight << TileBitShift);
-        var acreX = absX >> TileBitShift;
-        var acreY = absY >> TileBitShift;
-        return (acreX, acreY);
+        var index = GetIndexTileRelative(relX, relY);
+        return (uint)index < (CountWidth * CountHeight << (TileBitShift * 2));
     }
 
     /// <summary>
     /// Gets the requested tile index within the layer, given relative tile coordinates.
     /// </summary>
     /// <returns>The tile index within the layer.</returns>
-    /// <inheritdoc cref="TryGetRelativeCoordinates(int, int, out int, out int)"/>
     public int GetIndexTileRelative(int relX, int relY)
     {
-        ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual((uint)relX, (uint)CountWidth << TileBitShift);
-        ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual((uint)relY, (uint)CountHeight << TileBitShift);
         // Tile ordering is top-down, left-to-right.
         // In other words, Item[1] is X=0,Y=1
         return (relX * (CountHeight << TileBitShift)) + relY;
-    }
-
-    /// <summary>
-    /// Gets the requested tile index within the absolute map boundary, given absolute tile coordinates in the map.
-    /// </summary>
-    /// <returns>The tile index within the map.</returns>
-    /// <inheritdoc cref="TryGetRelativeCoordinates(int, int, out int, out int)"/>
-    public int GetIndexTileAbsolute(int absX, int absY)
-    {
-        ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual((uint)absX, (uint)MapAcreWidth << TileBitShift);
-        ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual((uint)absY, (uint)MapAcreHeight << TileBitShift);
-        // Tile ordering is top-down, left-to-right.
-        // In other words, Item[1] is X=0,Y=1
-        return (absX * (MapAcreHeight << TileBitShift)) + absY;
-    }
-
-    /// <summary>
-    /// Gets the acre index (not the value selection of the acre) based on the absolute coordinates on the map.
-    /// </summary>
-    /// <returns>The acre index within the map.</returns>
-    /// <inheritdoc cref="TryGetRelativeCoordinates(int, int, out int, out int)"/>
-    public int GetIndexAcre(int absX, int absY)
-    {
-        ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual((uint)absX, MapAcreWidth);
-        ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual((uint)absY, MapAcreHeight);
-
-        // Acre ordering is top-down, left-to-right.
-        var (x, y) = GetAbsoluteAcre(absX, absY);
-        return (x * MapAcreHeight) + y;
     }
 }
