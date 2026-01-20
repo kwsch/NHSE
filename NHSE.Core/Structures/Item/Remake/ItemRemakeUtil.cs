@@ -126,52 +126,97 @@ public static class ItemRemakeUtil
         {00742, 0221}, // fireplace
         {00743, 1824}, // frozen mini snowperson
         {00744, 1825}, // compact kitchen
+        {00765, 1829}, // flower planter
+        {00766, 1830}, // marble wall clock
+        {00767, 1831}, // tubular lamp
+        {00769, 1832}, // wall-mounted bookshelf
+        {00770, 1833}, // tubular chair
+        {00772, 1834}, // marble fireplace
+        {00773, 1835}, // dream shovel
+        {00776, 1836}, // dream fishing rod
+        {00779, 1837}, // dream net
+        {00781, 1838}, // pampas grass
         {00787, 0127}, // tape deck
         {00796, 0374}, // retro stereo
         {00805, 0383}, // mush lamp
+        {00807, 1839}, // marble kitchen island
         {00808, 0340}, // mush table
+        {00817, 1840}, // artful shelves
+        {00822, 1842}, // marble table
         {00832, 0354}, // modern office chair
         {00833, 0085}, // upright locker
         {00839, 0281}, // safe
         {00840, 0355}, // office desk
+        {00843, 1843}, // marble vanity
         {00849, 0402}, // amp
+        {00854, 1845}, // tubular shelves
+        {00856, 1846}, // cutlery
+        {00858, 1847}, // glass pitcher
+        {00859, 1848}, // colorful-lantern arch
+        {00862, 1849}, // kiddie seesaw
         {00863, 0641}, // billiard table
         {00865, 0190}, // birdcage
         {00870, 0476}, // book stands
         {00889, 0463}, // camp stove
         {00891, 0368}, // holiday candle
         {00896, 0279}, // cat tower
+        {00904, 1850}, // tubular table
         {00907, 0228}, // vacuum cleaner
         {00908, 0229}, // upright vacuum
+        {00912, 1852}, // rupee
         {00915, 0396}, // cuckoo clock
+        {00916, 1853}, // Goddess Statue
         {00918, 0242}, // coffee cup
         {00922, 0262}, // stacked bottle crates
         {00928, 0317}, // pot rack
         {00929, 0316}, // air conditioner
         {00941, 0410}, // DJ's turntable
+        {00947, 1879}, // Splattershot
         {00950, 0742}, // effects rack
+        {00952, 1887}, // Splatoon locker
         {00954, 0572}, // espresso maker
         {00955, 0359}, // exit sign
         {00957, 0277}, // ventilation fan
+        {00958, 1880}, // Crab Tank
+        {00959, 1881}, // Splatfest sign right panel
+        {00960, 1882}, // Splatfest sign center panel
+        {00961, 1883}, // Splatfest sign left panel
         {00963, 1815}, // fire hydrant
         {00967, 0946}, // flower bed
         {00971, 0886}, // snack machine
+        {00985, 1854}, // Game Boy
         {00987, 0743}, // harp
+        {00994, 1855}, // cat plushie
         {00997, 0267}, // incense burner
         {00998, 0309}, // kitchen island
+        {01015, 1884}, // squid bumper
+        {01018, 1857}, // ice pail
         {01019, 0280}, // first-aid kit
         {01029, 0183}, // low screen
+        {01030, 0652}, // Mineru's photo
+        {01031, 0652}, // Cece's photo
         {01032, 0152}, // magazine rack
+        {01033, 0652}, // Viché's photo
+        {01035, 1858}, // tubular magazine rack
+        {01037, 1860}, // artful chair
         {01042, 0166}, // metronome
         {01043, 0199}, // microwave
         {01050, 0157}, // mixer
         {01051, 0159}, // water bird
         {01058, 0140}, // music stand
         {01072, 0170}, // rope partition
+        {01077, 1859}, // simple streetlamp
         {01081, 0328}, // upright piano
         {01082, 0184}, // picnic basket
         {01087, 0768}, // pinball machine
+        {01088, 1861}, // artful lamp
+        {01089, 1862}, // kiddie slide
+        {01090, 1863}, // kiddie car
+        {01091, 1864}, // kiddie house
         {01092, 0148}, // popcorn machine
+        {01099, 1868}, // kiddie partition
+        {01101, 1869}, // artful bed
+        {01102, 1870}, // artful screen
         {01103, 0117}, // rocking chair
         {01108, 0120}, // retro TV
         {01111, 0726}, // outdoor bath
@@ -188,6 +233,7 @@ public static class ItemRemakeUtil
         {01170, 0142}, // swinging bench
         {01171, 0408}, // synthesizer
         {01177, 0772}, // foosball table
+        {01179, 1886}, // bird-of-paradise
         {01185, 0200}, // phone box
         {01189, 0370}, // tire stack
         {01199, 0255}, // tricycle
@@ -202,7 +248,17 @@ public static class ItemRemakeUtil
         {01235, 1787}, // bathroom stall
         {01241, 0253}, // DIY workbench
         {01243, 0810}, // flashy-flower sign
+        {01251, 1888}, // mug shelves
+        {01253, 1889}, // LEGO partition
+        {01262, 1890}, // circle cushion
         {01263, 0325}, // pear wardrobe
+        {01274, 1891}, // LEGO table
+        {01275, 1892}, // LEGO DIY workbench
+        {01276, 1893}, // LEGO fireplace
+        {01278, 1894}, // LEGO bed
+        {01279, 1895}, // LEGO sofa
+        {01285, 0652}, // Tulin's photo
+        {01286, 1896}, // LEGO arcade game
         {01288, 0072}, // fan palm
         {01308, 0274}, // school chair
         {01314, 1047}, // handwashing area
@@ -630,7 +686,7 @@ public static class ItemRemakeUtil
         {05310, 0841}, // spider doorplate
         {05337, 0606}, // three-tiered snowperson
         {05338, 0607}, // simple panel
-        {05397, 0784}, // 
+        {05397, 0784}, // player's smartphone (internal)
         {05543, 0628}, // wooden-block stool
         {05635, 0643}, // tiny library
         {05636, 0642}, // wooden-plank sign
@@ -1457,7 +1513,7 @@ public static class ItemRemakeUtil
         {13344, 1264}, // dreamy shelves
         {13345, 1258}, // snack
         {13347, 1266}, // yacht
-        {13352, 1157}, // 
+        {13352, 1157}, // イベントハロウィンなタワー
         {13356, 1278}, // rolling cart
         {13360, 1274}, // bottled beverage
         {13361, 1275}, // paint cans
@@ -1563,6 +1619,7 @@ public static class ItemRemakeUtil
         {13645, 1402}, // scrapbook
         {13647, 1449}, // fence
         {13649, 1436}, // lily-pad table
+        {13650, 1398}, // rolling suitcase
         {13651, 1422}, // tokonoma
         {13652, 1407}, // antique map
         {13655, 1392}, // framed photo
@@ -1740,7 +1797,7 @@ public static class ItemRemakeUtil
         {14640, 1756}, // pocket magazine
         {14714, 1752}, // donation box
         {14728, 1763}, // ornament tree
-        {14735, 1757}, // 
+        {14735, 1757}, // はまべのパラソル
         {14756, 1760}, // frozen fence
         {14758, 1774}, // corrugated iron fence
         {14759, 1775}, // park fence

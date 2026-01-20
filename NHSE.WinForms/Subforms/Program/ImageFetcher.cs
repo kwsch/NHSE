@@ -79,7 +79,7 @@ public sealed partial class ImageFetcher : Form
             }
 
             PBar_MultiUse?.PerformSafely(() => PBar_MultiUse.Value = 100);
-            L_Status.Invoke((Action)(() => L_Status.Text = "Unzipping..."));
+            L_Status.PerformSafely(() => L_Status.Text = "Unzipping...");
             UnzipFile();
         }
         catch (Exception ex)
