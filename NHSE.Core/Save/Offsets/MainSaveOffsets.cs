@@ -32,6 +32,7 @@ public abstract class MainSaveOffsets
     public abstract int MainFieldStructure { get; }
 
     public abstract int EventFlagLand { get; }
+    public abstract int FruitFlags { get; }
     public abstract int FieldItem { get; }
     public abstract int LandMakingMap { get; }
     public abstract int OutsideField { get; }
@@ -43,6 +44,10 @@ public abstract class MainSaveOffsets
     public abstract int Visitor { get; }
 
     public abstract int SaveFg { get; }
+    public abstract int SpecialtyFruit { get; }
+    public abstract int SisterFruit { get; }
+    public abstract int SisterFlower { get; }
+    public abstract int SpecialtyFlower { get; }
     public abstract int BulletinBoard { get; }
     public abstract int AirportThemeColor { get; }
 

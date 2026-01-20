@@ -3,6 +3,7 @@ using NHSE.Injection;
 using NHSE.Sprites;
 using NHSE.WinForms.Properties;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -281,7 +282,8 @@ public sealed partial class Editor : Form
     private void B_EditPlayerMisc_Click(object sender, EventArgs e)
     {
         var player = SAV.Players[PlayerIndex];
-        using var editor = new MiscPlayerEditor(player);
+        var save = SAV.Main;
+        using var editor = new MiscPlayerEditor(player, save);
         editor.ShowDialog();
     }
 

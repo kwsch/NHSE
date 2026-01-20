@@ -25,6 +25,8 @@ public sealed class MainSaveOffsets18 : MainSaveOffsets
     public override int WeatherRandSeed => GSaveWeather + 0x18;
 
     public override int EventFlagLand => GSaveLandStart + 0x20a408;
+    // Flag region for the five fruit.
+    public override int FruitFlags => EventFlagLand + 246;
 
     // GSaveMainField
     public const int GSaveMainFieldStart = GSaveLandStart + 0x20ac08;
@@ -42,6 +44,10 @@ public sealed class MainSaveOffsets18 : MainSaveOffsets
     public override int Museum => GSaveLandStart + 0x41bba0;
     public override int Visitor => GSaveLandStart + 0x41efa4;
     public override int SaveFg => GSaveLandStart + 0x41f1d4;
+    public override int SpecialtyFruit => SaveFg + 0x900;
+    public override int SisterFruit => SpecialtyFruit + 2;
+    public override int SisterFlower => SaveFg + 0x924;
+    public override int SpecialtyFlower => SisterFlower + 1;
     public override int BulletinBoard => GSaveLandStart + 0x41fb18;
     public override int AirportThemeColor => GSaveLandStart + 0x500720;
     #endregion

@@ -6,11 +6,11 @@ public static class GameLists
 {
     public static ReadOnlySpan<ushort> Fruits =>
     [
-        2213, // apple
+        2213, // Apple
         2287, // Cherry
         2214, // Orange
         2286, // Peach
-        2285 // Pear
+        2285  // Pear
     ];
 
     public static ReadOnlySpan<ushort> Bugs =>
