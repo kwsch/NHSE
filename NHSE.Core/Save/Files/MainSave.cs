@@ -244,6 +244,47 @@ public sealed class MainSave : EncryptedFilePair
         set => value.ToBytesClass().CopyTo(Data[Offsets.SaveFg..]);
     }
 
+    public ushort SpecialtyFruit
+    {
+        get => ReadUInt16LittleEndian(Data[Offsets.SpecialtyFruit..]);
+        set => WriteUInt16LittleEndian(Data[Offsets.SpecialtyFruit..], value);
+    }
+    public ushort SisterFruit
+    {
+        get => ReadUInt16LittleEndian(Data[Offsets.SisterFruit..]);
+        set => WriteUInt16LittleEndian(Data[Offsets.SisterFruit..], value);
+    }
+    public IslandFlowers SpecialtyFlower { get => (IslandFlowers)Data[Offsets.SpecialtyFlower]; set => Data[Offsets.SpecialtyFlower] = (byte)value; }
+    public IslandFlowers SisterFlower { get => (IslandFlowers)Data[Offsets.SisterFlower]; set => Data[Offsets.SisterFlower] = (byte)value; }
+    public Span<byte> FruitFlags
+    {
+        get => Data.Slice(Offsets.FruitFlags, 5);
+        set => value.ToArray().CopyTo(Data[Offsets.FruitFlags..]);
+    }
+    public void UpdateFruitFlags()
+    {
+        var fruit = new byte[] { 00, 00, 00, 00, 00 };
+        switch (SpecialtyFruit)
+        {
+            case 2213: // Apple
+                fruit[0] = 01;
+                break;
+            case 2287: // Cherry
+                fruit[4] = 01;
+                break;
+            case 2214: // Orange
+                fruit[1] = 01;
+                break;
+            case 2286: // Peach
+                fruit[3] = 01;
+                break;
+            case 2285: // Pear
+                fruit[2] = 01;
+                break;
+        }
+        FruitFlags = fruit;
+    }
+
     public GSaveTime LastSaved => Data.Slice(Offsets.LastSavedTime, GSaveTime.SIZE).ToStructure<GSaveTime>();
 
     public GSaveBulletinBoard Bulletin

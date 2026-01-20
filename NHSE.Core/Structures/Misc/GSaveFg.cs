@@ -17,6 +17,6 @@ public class GSaveFg
 
     [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = _e88f809dCount)]
     public uint[] _e88f809d { get; set; }                                // @0x904 size 0x4, align 4
-    public byte VillageFlower { get; set; }                              // @0x924 size 0x1, align 1
+    public byte SisterFlower { get; set; }                              // @0x924 size 0x1, align 1
     public byte SpecialityFlower { get; set; }                           // @0x925 size 0x1, align 1
 }
