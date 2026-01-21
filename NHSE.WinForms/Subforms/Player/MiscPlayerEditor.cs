@@ -62,6 +62,30 @@ public partial class MiscPlayerEditor : Form
         Close();
     }
 
+    public void UpdateFruitFlags(MainSave sav)
+    {
+        var fruit = new byte[] { 00, 00, 00, 00, 00 };
+        switch (sav.SpecialtyFruit)
+        {
+            case 2213: // Apple
+                fruit[0] = 01;
+                break;
+            case 2287: // Cherry
+                fruit[4] = 01;
+                break;
+            case 2214: // Orange
+                fruit[1] = 01;
+                break;
+            case 2286: // Peach
+                fruit[3] = 01;
+                break;
+            case 2285: // Pear
+                fruit[2] = 01;
+                break;
+        }
+        sav.FruitFlags = fruit;
+    }
+
     private void SavePlayer()
     {
         var p = Player;
@@ -80,7 +104,8 @@ public partial class MiscPlayerEditor : Form
         pers.ProfileFruit = RIS_ProfileFruit.Value;
         sav.SpecialtyFruit = RIS_ProfileFruit.Value;
         sav.SisterFruit = RIS_SisterFruit.Value;
-        sav.UpdateFruitFlags();
+
+        UpdateFruitFlags(sav);
 
         sav.SpecialtyFlower = (IslandFlowers)CB_ProfileFlower.SelectedIndex;
         sav.SisterFlower = (IslandFlowers)CB_SisterFlower.SelectedIndex;
