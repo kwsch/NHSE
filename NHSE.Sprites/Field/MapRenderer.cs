@@ -101,6 +101,6 @@ public sealed class MapRenderer : IDisposable
 
     private Bitmap GetMapWithReticle(int topX, int topY, int t, LayerFieldItem layerField)
     {
-        return ItemLayerSprite.GetBitmapItemLayer(layerField, topX, topY, PixelsItemMap, MapReticle, t);
+        return ItemLayerSprite.GetBitmapItemLayer(MapReticle, layerField, topX, topY, PixelsItemMap, t);
     }
 }
