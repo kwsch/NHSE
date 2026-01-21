@@ -72,6 +72,9 @@ public class MainSaveOffsets30 : MainSaveOffsets
     // GSaveBulletinBoard
     public override int BulletinBoard => GSaveLandStart + 0x4950a8;
     public override int AirportThemeColor => GSaveLandStart + 0x575cb0;
+    public override int GSaveCampSite => GSaveLandStart + 0x575B98;
+    public override int GSaveNpcCamp => GSaveCampSite + 4;
+    public override int CampLastVisitTime => GSaveCampSite + 0x110;
     #endregion
 
     #region GSaveLandOther

@@ -45,6 +45,7 @@
             CM_Picture = new System.Windows.Forms.ContextMenuStrip(components);
             Menu_SavePNG = new System.Windows.Forms.ToolStripMenuItem();
             Tab_Map = new System.Windows.Forms.TabPage();
+            B_EditCampsite = new System.Windows.Forms.Button();
             NUD_WeatherSeed = new System.Windows.Forms.NumericUpDown();
             L_WeatherSeed = new System.Windows.Forms.Label();
             B_EditDesignsTailor = new System.Windows.Forms.Button();
@@ -68,6 +69,8 @@
             B_RecycleBin = new System.Windows.Forms.Button();
             Tab_Villagers = new System.Windows.Forms.TabPage();
             Tab_Players = new System.Windows.Forms.TabPage();
+            L_HotelTickets = new System.Windows.Forms.Label();
+            NUD_HotelTickets = new System.Windows.Forms.NumericUpDown();
             L_Poki = new System.Windows.Forms.Label();
             NUD_Poki = new System.Windows.Forms.NumericUpDown();
             L_EarnedMiles = new System.Windows.Forms.Label();
@@ -101,14 +104,13 @@
             CB_Players = new System.Windows.Forms.ComboBox();
             PB_Player = new System.Windows.Forms.PictureBox();
             TC_Editors = new System.Windows.Forms.TabControl();
-            L_HotelTickets = new System.Windows.Forms.Label();
-            NUD_HotelTickets = new System.Windows.Forms.NumericUpDown();
             Menu_Editor.SuspendLayout();
             CM_Picture.SuspendLayout();
             Tab_Map.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NUD_WeatherSeed).BeginInit();
             CM_EditMap.SuspendLayout();
             Tab_Players.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)NUD_HotelTickets).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_Poki).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_TotalNookMiles).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_StorageCount).BeginInit();
@@ -120,7 +122,6 @@
             ((System.ComponentModel.ISupportInitialize)NUD_BankBells).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PB_Player).BeginInit();
             TC_Editors.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)NUD_HotelTickets).BeginInit();
             SuspendLayout();
             // 
             // Menu_Editor
@@ -237,6 +238,7 @@
             // 
             // Tab_Map
             // 
+            Tab_Map.Controls.Add(B_EditCampsite);
             Tab_Map.Controls.Add(NUD_WeatherSeed);
             Tab_Map.Controls.Add(L_WeatherSeed);
             Tab_Map.Controls.Add(B_EditDesignsTailor);
@@ -259,6 +261,17 @@
             Tab_Map.TabIndex = 2;
             Tab_Map.Text = "Map";
             Tab_Map.UseVisualStyleBackColor = true;
+            // 
+            // B_EditCampsite
+            // 
+            B_EditCampsite.Location = new System.Drawing.Point(121, 195);
+            B_EditCampsite.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            B_EditCampsite.Name = "B_EditCampsite";
+            B_EditCampsite.Size = new System.Drawing.Size(107, 46);
+            B_EditCampsite.TabIndex = 66;
+            B_EditCampsite.Text = "Edit Campsite";
+            B_EditCampsite.UseVisualStyleBackColor = true;
+            B_EditCampsite.Click += B_EditCampsite_Click;
             // 
             // NUD_WeatherSeed
             // 
@@ -507,6 +520,25 @@
             Tab_Players.TabIndex = 1;
             Tab_Players.Text = "Players";
             Tab_Players.UseVisualStyleBackColor = true;
+            // 
+            // L_HotelTickets
+            // 
+            L_HotelTickets.Location = new System.Drawing.Point(166, 273);
+            L_HotelTickets.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            L_HotelTickets.Name = "L_HotelTickets";
+            L_HotelTickets.Size = new System.Drawing.Size(98, 23);
+            L_HotelTickets.TabIndex = 30;
+            L_HotelTickets.Text = "Hotel Tickets:";
+            L_HotelTickets.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // NUD_HotelTickets
+            // 
+            NUD_HotelTickets.Location = new System.Drawing.Point(271, 273);
+            NUD_HotelTickets.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            NUD_HotelTickets.Maximum = new decimal(new int[] { int.MaxValue, 0, 0, 0 });
+            NUD_HotelTickets.Name = "NUD_HotelTickets";
+            NUD_HotelTickets.Size = new System.Drawing.Size(117, 23);
+            NUD_HotelTickets.TabIndex = 29;
             // 
             // L_Poki
             // 
@@ -819,25 +851,6 @@
             TC_Editors.Size = new System.Drawing.Size(471, 331);
             TC_Editors.TabIndex = 1;
             // 
-            // L_HotelTickets
-            // 
-            L_HotelTickets.Location = new System.Drawing.Point(166, 273);
-            L_HotelTickets.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            L_HotelTickets.Name = "L_HotelTickets";
-            L_HotelTickets.Size = new System.Drawing.Size(98, 23);
-            L_HotelTickets.TabIndex = 30;
-            L_HotelTickets.Text = "Hotel Tickets:";
-            L_HotelTickets.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // NUD_HotelTickets
-            // 
-            NUD_HotelTickets.Location = new System.Drawing.Point(271, 273);
-            NUD_HotelTickets.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            NUD_HotelTickets.Maximum = new decimal(new int[] { int.MaxValue, 0, 0, 0 });
-            NUD_HotelTickets.Name = "NUD_HotelTickets";
-            NUD_HotelTickets.Size = new System.Drawing.Size(117, 23);
-            NUD_HotelTickets.TabIndex = 29;
-            // 
             // Editor
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -861,6 +874,7 @@
             CM_EditMap.ResumeLayout(false);
             Tab_Players.ResumeLayout(false);
             Tab_Players.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)NUD_HotelTickets).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_Poki).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_TotalNookMiles).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_StorageCount).EndInit();
@@ -872,7 +886,6 @@
             ((System.ComponentModel.ISupportInitialize)NUD_BankBells).EndInit();
             ((System.ComponentModel.ISupportInitialize)PB_Player).EndInit();
             TC_Editors.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)NUD_HotelTickets).EndInit();
             ResumeLayout(false);
             PerformLayout();
 
@@ -953,6 +966,7 @@
         private System.Windows.Forms.NumericUpDown NUD_Poki;
         private System.Windows.Forms.Label L_HotelTickets;
         private System.Windows.Forms.NumericUpDown NUD_HotelTickets;
+        private System.Windows.Forms.Button B_EditCampsite;
     }
 }
 
