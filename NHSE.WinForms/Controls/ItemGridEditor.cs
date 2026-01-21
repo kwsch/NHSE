@@ -248,6 +248,9 @@ public partial class ItemGridEditor : UserControl
     private void B_Sort_Click(object sender, EventArgs e) => ShowContextMenuBelow(CM_Sort, B_Sort);
     private void B_SortAlpha_Click(object sender, EventArgs e)
     {
+        Page = 0;
+        ChangePage(); // reset to beginning before perform sort
+
         var sortedItems = Items.Where(item => item.ItemId != Item.NONE)
             .OrderBy(item => GetItemText(item).ToLower());
         var sortedItemsCopy = new List<Item>(); // to prevent object reference issues
@@ -264,6 +267,9 @@ public partial class ItemGridEditor : UserControl
 
     private void B_SortType_Click(object sender, EventArgs e)
     {
+        Page = 0;
+        ChangePage(); // reset to beginning before perform sort
+
         var sortedItems = Items.Where(item => item.ItemId != Item.NONE)
             .OrderBy(ItemInfo.GetItemKind)
             .ThenBy(item => GetItemText(item).ToLower());
