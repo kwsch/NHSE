@@ -1,4 +1,4 @@
-MsgBackupCreateLocation=NHSE puede crear un respaldos automáticos si crea una carpeta con el nombre '{0}' en la misma carpeta del ejecutable.
+﻿MsgBackupCreateLocation=NHSE puede crear un respaldos automáticos si crea una carpeta con el nombre '{0}' en la misma carpeta del ejecutable.
 MsgBackupCreateQuestion=¿Quisiera que NHSE cree automáticamente un respaldo de sus datos de guardado?
 MsgDataSizeMismatchImport=El tamaño del archivo importado (0x{0:X}) no coincide con el tamaño requerido (0x{1:X}).
 MsgDataSizeMismatchRAM=Tamaño de lectura (0x{0:X}) != Tamaño de Escritura (0x{1:X}).
@@ -38,3 +38,8 @@ MsgVillagerFriendshipMax=¿Quiere colocar la Amistad de todos los Aldeanos a 255
 MsgVillagerReplaceNoText=Clipboard: ¡Ningún texto encontrado! Se esperaba nombre del Aldeano.
 MsgVillagerReplaceOutdatedSaveFormat=Archivo de guardado no usa el formato de Aldeano más reciente. Por favor, actualice en el juego.
 MsgVillagerReplaceUnknownName=Clipboard: {0} no es un nombre de Aldeano válido.
+MsgDialogButtonYes=Sí
+MsgDialogButtonNo=No
+MsgDialogButtonCancel=Cancelar
+MsgWarning=¡Advertencia!
+MsgAskSaveBeforeRestart=¡Esto requiere que la aplicación se reinicie! ¿Guardar primero los cambios actuales?

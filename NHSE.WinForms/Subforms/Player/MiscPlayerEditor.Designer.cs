@@ -194,7 +194,7 @@
             L_ProfileSpecialtyFlower.Name = "L_ProfileSpecialtyFlower";
             L_ProfileSpecialtyFlower.Size = new System.Drawing.Size(42, 15);
             L_ProfileSpecialtyFlower.TabIndex = 20;
-            L_ProfileSpecialtyFlower.Text = "Flower";
+            L_ProfileSpecialtyFlower.Text = "Flower (Local)";
             // 
             // RIS_SisterFruit
             // 
@@ -249,7 +249,7 @@
             L_ProfileSpecialtyFruit.Name = "L_ProfileSpecialtyFruit";
             L_ProfileSpecialtyFruit.Size = new System.Drawing.Size(89, 15);
             L_ProfileSpecialtyFruit.TabIndex = 14;
-            L_ProfileSpecialtyFruit.Text = "Fruit (Specialty)";
+            L_ProfileSpecialtyFruit.Text = "Fruit (Local)";
             // 
             // L_ProfileTimestamp
             // 

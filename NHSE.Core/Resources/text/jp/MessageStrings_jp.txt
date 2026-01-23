@@ -1,4 +1,4 @@
-MsgBackupCreateLocation=実行可能ファイルと同じフォルダー内に '{0}' という名前のフォルダーを作成すると、NHSE は自動バックアップを実行できます。
+﻿MsgBackupCreateLocation=実行可能ファイルと同じフォルダー内に '{0}' という名前のフォルダーを作成すると、NHSE は自動バックアップを実行できます。
 MsgBackupCreateQuestion=NHSE がセーブ データのバックアップを自動的に保存することを希望しますか?
 MsgDataSizeMismatchImport=インポートされたファイル (0x{0:X}) のサイズが必要なサイズ (0x{1:X}) と一致しません。
 MsgDataSizeMismatchRAM=読み取りサイズ (0x{0:X}) は書き込みサイズ (0x{1:X}) と等しくありません。
@@ -38,3 +38,8 @@ MsgVillagerFriendshipMax=村人との友情の思い出をすべて 255 に設�
 MsgVillagerReplaceNoText=クリップボード: テキストが見つかりません! 予期される内部村人の名前。
 MsgVillagerReplaceOutdatedSaveFormat=保存ファイルは最新の村人形式ではありません。 ゲーム内でアップデートしてください。
 MsgVillagerReplaceUnknownName=クリップボード: {0} は有効な内部村民名ではありません。
+MsgDialogButtonYes=はい
+MsgDialogButtonNo=いいえ
+MsgDialogButtonCancel=キャンセル
+MsgWarning=警告！
+MsgAskSaveBeforeRestart=これにはアプリケーションを再起動する必要があります。まず現在の変更を保存しますか?

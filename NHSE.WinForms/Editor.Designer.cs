@@ -42,6 +42,10 @@
             Menu_Options = new System.Windows.Forms.ToolStripMenuItem();
             Menu_Language = new System.Windows.Forms.ToolStripComboBox();
             Menu_Settings = new System.Windows.Forms.ToolStripMenuItem();
+            Menu_Theme = new System.Windows.Forms.ToolStripMenuItem();
+            Menu_Theme_System = new System.Windows.Forms.ToolStripMenuItem();
+            Menu_Theme_Classic = new System.Windows.Forms.ToolStripMenuItem();
+            Menu_Theme_Dark = new System.Windows.Forms.ToolStripMenuItem();
             CM_Picture = new System.Windows.Forms.ContextMenuStrip(components);
             Menu_SavePNG = new System.Windows.Forms.ToolStripMenuItem();
             Tab_Map = new System.Windows.Forms.TabPage();
@@ -200,7 +204,7 @@
             // 
             // Menu_Options
             // 
-            Menu_Options.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { Menu_Language, Menu_Settings });
+            Menu_Options.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { Menu_Language, Menu_Theme, Menu_Settings });
             Menu_Options.Name = "Menu_Options";
             Menu_Options.Size = new System.Drawing.Size(61, 20);
             Menu_Options.Text = "Options";
@@ -217,9 +221,37 @@
             // 
             Menu_Settings.Name = "Menu_Settings";
             Menu_Settings.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P;
-            Menu_Settings.Size = new System.Drawing.Size(175, 22);
+            Menu_Settings.Size = new System.Drawing.Size(180, 22);
             Menu_Settings.Text = "Settings";
             Menu_Settings.Click += Menu_Settings_Click;
+            // 
+            // Menu_Theme
+            // 
+            Menu_Theme.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { Menu_Theme_System, Menu_Theme_Classic, Menu_Theme_Dark });
+            Menu_Theme.Name = "Menu_Theme";
+            Menu_Theme.Size = new System.Drawing.Size(180, 22);
+            Menu_Theme.Text = "Theme";
+            // 
+            // Menu_Theme_System
+            // 
+            Menu_Theme_System.Name = "Menu_Theme_System";
+            Menu_Theme_System.Size = new System.Drawing.Size(180, 22);
+            Menu_Theme_System.Text = "System Theme";
+            Menu_Theme_System.Click += Menu_Theme_System_Click;
+            // 
+            // Menu_Theme_Classic
+            // 
+            Menu_Theme_Classic.Name = "Menu_Theme_Classic";
+            Menu_Theme_Classic.Size = new System.Drawing.Size(180, 22);
+            Menu_Theme_Classic.Text = "Light (Classic)";
+            Menu_Theme_Classic.Click += Menu_Theme_Classic_Click;
+            // 
+            // Menu_Theme_Dark
+            // 
+            Menu_Theme_Dark.Name = "Menu_Theme_Dark";
+            Menu_Theme_Dark.Size = new System.Drawing.Size(180, 22);
+            Menu_Theme_Dark.Text = "Dark";
+            Menu_Theme_Dark.Click += Menu_Theme_Dark_Click;
             // 
             // CM_Picture
             // 
@@ -967,6 +999,10 @@
         private System.Windows.Forms.Label L_HotelTickets;
         private System.Windows.Forms.NumericUpDown NUD_HotelTickets;
         private System.Windows.Forms.Button B_EditCampsite;
+        private System.Windows.Forms.ToolStripMenuItem Menu_Theme;
+        private System.Windows.Forms.ToolStripMenuItem Menu_Theme_System;
+        private System.Windows.Forms.ToolStripMenuItem Menu_Theme_Classic;
+        private System.Windows.Forms.ToolStripMenuItem Menu_Theme_Dark;
     }
 }
 

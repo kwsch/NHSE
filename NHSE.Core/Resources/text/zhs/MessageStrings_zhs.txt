@@ -1,4 +1,4 @@
-MsgBackupCreateLocation=如果您在本程序根目录创建 '{0}' 文件夹，NHSE可以帮您自动备份存档。
+﻿MsgBackupCreateLocation=如果您在本程序根目录创建 '{0}' 文件夹，NHSE可以帮您自动备份存档。
 MsgBackupCreateQuestion=您希望NHSE自动备份您的存档吗？
 MsgDataSizeMismatchImport=导入的文件尺寸(0x{0:X})和必要的文件尺寸(0x{1:X})不匹配。
 MsgDataSizeMismatchRAM=读取大小 (0x{0:X}) != 写入大小 (0x{1:X})。
@@ -38,3 +38,8 @@ MsgVillagerFriendshipMax=确定要设定所有岛民的友谊回忆值到255吗�
 MsgVillagerReplaceNoText=剪贴板：未找到文本！ 预期的内部村民姓名。
 MsgVillagerReplaceOutdatedSaveFormat=保存文件不是最新的村民格式。 请在游戏中更新。
 MsgVillagerReplaceUnknownName=剪贴板：{0} 不是有效的内部村民姓名。
+MsgDialogButtonYes=是的
+MsgDialogButtonNo=不
+MsgDialogButtonCancel=取消
+MsgWarning=警告！
+MsgAskSaveBeforeRestart=这需要重启应用程序！请先保存当前更改？

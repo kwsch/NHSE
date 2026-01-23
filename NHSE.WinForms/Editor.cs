@@ -24,6 +24,8 @@ public sealed partial class Editor : Form
 
     public Editor(HorizonSave file)
     {
+        WinFormsUtil.SetApplicationTheme(int.Parse(Settings.Default.DarkMode));
+
         InitializeComponent();
 
         SAV = file;
@@ -156,6 +158,69 @@ public sealed partial class Editor : Form
 
         var imgfetcher = new ImageFetcher();
         imgfetcher.Show();
+    }
+
+    private void Menu_Theme_System_Click(object sender, EventArgs e)
+    {
+        Menu_Options.DropDown.Close();
+        ThemeChangeDialog(1);
+    }
+
+    private void Menu_Theme_Classic_Click(object sender, EventArgs e)
+    {
+        Menu_Options.DropDown.Close();
+        ThemeChangeDialog(0);
+    }
+
+    private void Menu_Theme_Dark_Click(object sender, EventArgs e)
+    {
+        Menu_Options.DropDown.Close();
+        ThemeChangeDialog(2);
+    }
+
+    private void ThemeChangeDialog(int theme)
+    {
+        TaskDialogButton yesButton = new(MessageStrings.MsgDialogButtonYes) { Tag = DialogResult.Yes };
+        TaskDialogButton noButton = new(MessageStrings.MsgDialogButtonNo) { Tag = DialogResult.No };
+        TaskDialogButton cancelButton = new(MessageStrings.MsgDialogButtonCancel) { Tag = DialogResult.Cancel };
+        var buttons = new TaskDialogButtonCollection
+        {
+            yesButton,
+            noButton,
+            cancelButton
+        };
+
+        TaskDialogPage page = new()
+        {
+            Caption = MessageStrings.MsgWarning,
+            SizeToContent = true,
+            Heading = MessageStrings.MsgAskSaveBeforeRestart,
+            Icon = TaskDialogIcon.Warning,
+            Buttons = buttons
+        };
+
+        TaskDialogButton resultButton = TaskDialog.ShowDialog(this, page);
+        if (resultButton == yesButton)
+        {
+            SaveAll();
+            try
+            {
+                SAV.Save((uint)DateTime.Now.Ticks);
+            }
+            catch (Exception ex)
+            {
+                WinFormsUtil.Error(MessageStrings.MsgSaveDataExportFail, ex.Message);
+                return;
+            }
+            WinFormsUtil.Alert(MessageStrings.MsgSaveDataExportSuccess);
+            WinFormsUtil.SetApplicationTheme(theme);
+            Application.Restart();
+        }
+        else if(resultButton == noButton)
+        {
+            WinFormsUtil.SetApplicationTheme(theme);
+            Application.Restart();
+        }
     }
 
     private void ReloadAll()

@@ -1,4 +1,4 @@
-MsgBackupCreateLocation=NHSE pu� fare backup automatici se crei una cartella chiamata '{0}' nella stessa cartella dell'eseguibile.
+﻿MsgBackupCreateLocation=NHSE pu� fare backup automatici se crei una cartella chiamata '{0}' nella stessa cartella dell'eseguibile.
 MsgBackupCreateQuestion=Vuoi che NHSE faccia automaticamente un backup dei tuoi dati di salvataggio?
 MsgDataSizeMismatchImport=La dimensione del file importato (0x{0:X}) non corrisponde alla dimensione richiesta (0x{1:X}).
 MsgDataSizeMismatchRAM=Dimensione letta (0x{0:X}) != Dimensione da scrivere (0x{1:X}).
@@ -38,3 +38,8 @@ MsgVillagerFriendshipMax=Vuoi impostare tutti i ricordi dell'Amicizia dei Reside
 MsgVillagerReplaceNoText=Clipboard: No text found! Expected internal villager name.
 MsgVillagerReplaceOutdatedSaveFormat=Save file is not up to date with latest villager format. Please update in-game.
 MsgVillagerReplaceUnknownName=Clipboard: {0} is not a valid internal villager name.
+MsgDialogButtonYes=Sì
+MsgDialogButtonNo=No
+MsgDialogButtonCancel=Cancellare
+MsgWarning=Avvertimento!
+MsgAskSaveBeforeRestart=Per farlo, è necessario riavviare l'applicazione! Vuoi prima salvare le modifiche apportate?

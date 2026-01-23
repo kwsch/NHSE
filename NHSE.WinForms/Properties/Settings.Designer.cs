@@ -130,5 +130,20 @@ namespace NHSE.WinForms.Properties {
                 this["Language"] = value;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public string DarkMode
+        {
+            get
+            {
+                return ((string)(this["DarkMode"]));
+            }
+            set
+            {
+                this["DarkMode"] = value;
+            }
+        }
     }
 }
