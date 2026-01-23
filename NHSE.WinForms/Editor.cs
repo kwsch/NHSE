@@ -216,7 +216,7 @@ public sealed partial class Editor : Form
             WinFormsUtil.SetApplicationTheme(theme);
             Application.Restart();
         }
-        else if(resultButton == noButton)
+        else if (resultButton == noButton)
         {
             WinFormsUtil.SetApplicationTheme(theme);
             Application.Restart();
@@ -558,6 +558,14 @@ public sealed partial class Editor : Form
     private void B_EditCampsite_Click(object sender, EventArgs e)
     {
         using var editor = new CampsiteEditor(SAV);
+        editor.ShowDialog();
+    }
+
+    private void B_EditFruitFlower_Click(object sender, EventArgs e)
+    {
+        var player = SAV.Players[PlayerIndex];
+        var save = SAV.Main;
+        using var editor = new FruitsFlowersEditor(player, save);
         editor.ShowDialog();
     }
 

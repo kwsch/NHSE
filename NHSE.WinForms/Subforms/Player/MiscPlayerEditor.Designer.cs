@@ -36,12 +36,6 @@
             tabControl1 = new System.Windows.Forms.TabControl();
             Tab_Misc = new System.Windows.Forms.TabPage();
             Tab_Profile = new System.Windows.Forms.TabPage();
-            CB_SisterFlower = new System.Windows.Forms.ComboBox();
-            CB_ProfileFlower = new System.Windows.Forms.ComboBox();
-            L_ProfileSisterFlower = new System.Windows.Forms.Label();
-            L_ProfileSpecialtyFlower = new System.Windows.Forms.Label();
-            RIS_SisterFruit = new RestrictedItemSelect();
-            L_ProfileSisterFruit = new System.Windows.Forms.Label();
             RIS_ProfileFruit = new RestrictedItemSelect();
             CAL_ProfileTimestamp = new System.Windows.Forms.DateTimePicker();
             CHK_ProfileMadeVillage = new System.Windows.Forms.CheckBox();
@@ -57,7 +51,7 @@
             // B_Cancel
             // 
             B_Cancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            B_Cancel.Location = new System.Drawing.Point(211, 279);
+            B_Cancel.Location = new System.Drawing.Point(211, 233);
             B_Cancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             B_Cancel.Name = "B_Cancel";
             B_Cancel.Size = new System.Drawing.Size(84, 27);
@@ -69,7 +63,7 @@
             // B_Save
             // 
             B_Save.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            B_Save.Location = new System.Drawing.Point(302, 279);
+            B_Save.Location = new System.Drawing.Point(302, 233);
             B_Save.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             B_Save.Name = "B_Save";
             B_Save.Size = new System.Drawing.Size(84, 27);
@@ -117,7 +111,7 @@
             tabControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new System.Drawing.Size(372, 258);
+            tabControl1.Size = new System.Drawing.Size(372, 212);
             tabControl1.TabIndex = 12;
             // 
             // Tab_Misc
@@ -136,12 +130,6 @@
             // 
             // Tab_Profile
             // 
-            Tab_Profile.Controls.Add(CB_SisterFlower);
-            Tab_Profile.Controls.Add(CB_ProfileFlower);
-            Tab_Profile.Controls.Add(L_ProfileSisterFlower);
-            Tab_Profile.Controls.Add(L_ProfileSpecialtyFlower);
-            Tab_Profile.Controls.Add(RIS_SisterFruit);
-            Tab_Profile.Controls.Add(L_ProfileSisterFruit);
             Tab_Profile.Controls.Add(RIS_ProfileFruit);
             Tab_Profile.Controls.Add(CAL_ProfileTimestamp);
             Tab_Profile.Controls.Add(CHK_ProfileMadeVillage);
@@ -151,68 +139,10 @@
             Tab_Profile.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             Tab_Profile.Name = "Tab_Profile";
             Tab_Profile.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            Tab_Profile.Size = new System.Drawing.Size(364, 230);
+            Tab_Profile.Size = new System.Drawing.Size(364, 184);
             Tab_Profile.TabIndex = 1;
             Tab_Profile.Text = "Profile";
             Tab_Profile.UseVisualStyleBackColor = true;
-            // 
-            // CB_SisterFlower
-            // 
-            CB_SisterFlower.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            CB_SisterFlower.FormattingEnabled = true;
-            CB_SisterFlower.Location = new System.Drawing.Point(187, 162);
-            CB_SisterFlower.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            CB_SisterFlower.Name = "CB_SisterFlower";
-            CB_SisterFlower.Size = new System.Drawing.Size(162, 23);
-            CB_SisterFlower.TabIndex = 63;
-            // 
-            // CB_ProfileFlower
-            // 
-            CB_ProfileFlower.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            CB_ProfileFlower.FormattingEnabled = true;
-            CB_ProfileFlower.Location = new System.Drawing.Point(10, 162);
-            CB_ProfileFlower.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            CB_ProfileFlower.Name = "CB_ProfileFlower";
-            CB_ProfileFlower.Size = new System.Drawing.Size(164, 23);
-            CB_ProfileFlower.TabIndex = 62;
-            // 
-            // L_ProfileSisterFlower
-            // 
-            L_ProfileSisterFlower.AutoSize = true;
-            L_ProfileSisterFlower.Location = new System.Drawing.Point(184, 144);
-            L_ProfileSisterFlower.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            L_ProfileSisterFlower.Name = "L_ProfileSisterFlower";
-            L_ProfileSisterFlower.Size = new System.Drawing.Size(81, 15);
-            L_ProfileSisterFlower.TabIndex = 21;
-            L_ProfileSisterFlower.Text = "Flower (Sister)";
-            // 
-            // L_ProfileSpecialtyFlower
-            // 
-            L_ProfileSpecialtyFlower.AutoSize = true;
-            L_ProfileSpecialtyFlower.Location = new System.Drawing.Point(7, 144);
-            L_ProfileSpecialtyFlower.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            L_ProfileSpecialtyFlower.Name = "L_ProfileSpecialtyFlower";
-            L_ProfileSpecialtyFlower.Size = new System.Drawing.Size(42, 15);
-            L_ProfileSpecialtyFlower.TabIndex = 20;
-            L_ProfileSpecialtyFlower.Text = "Flower (Local)";
-            // 
-            // RIS_SisterFruit
-            // 
-            RIS_SisterFruit.Location = new System.Drawing.Point(187, 82);
-            RIS_SisterFruit.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            RIS_SisterFruit.Name = "RIS_SisterFruit";
-            RIS_SisterFruit.Size = new System.Drawing.Size(167, 55);
-            RIS_SisterFruit.TabIndex = 19;
-            // 
-            // L_ProfileSisterFruit
-            // 
-            L_ProfileSisterFruit.AutoSize = true;
-            L_ProfileSisterFruit.Location = new System.Drawing.Point(183, 64);
-            L_ProfileSisterFruit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            L_ProfileSisterFruit.Name = "L_ProfileSisterFruit";
-            L_ProfileSisterFruit.Size = new System.Drawing.Size(70, 15);
-            L_ProfileSisterFruit.TabIndex = 18;
-            L_ProfileSisterFruit.Text = "Fruit (Sister)";
             // 
             // RIS_ProfileFruit
             // 
@@ -233,7 +163,7 @@
             // CHK_ProfileMadeVillage
             // 
             CHK_ProfileMadeVillage.AutoSize = true;
-            CHK_ProfileMadeVillage.Location = new System.Drawing.Point(10, 203);
+            CHK_ProfileMadeVillage.Location = new System.Drawing.Point(10, 157);
             CHK_ProfileMadeVillage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             CHK_ProfileMadeVillage.Name = "CHK_ProfileMadeVillage";
             CHK_ProfileMadeVillage.Size = new System.Drawing.Size(94, 19);
@@ -247,9 +177,9 @@
             L_ProfileSpecialtyFruit.Location = new System.Drawing.Point(7, 64);
             L_ProfileSpecialtyFruit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             L_ProfileSpecialtyFruit.Name = "L_ProfileSpecialtyFruit";
-            L_ProfileSpecialtyFruit.Size = new System.Drawing.Size(89, 15);
+            L_ProfileSpecialtyFruit.Size = new System.Drawing.Size(76, 15);
             L_ProfileSpecialtyFruit.TabIndex = 14;
-            L_ProfileSpecialtyFruit.Text = "Fruit (Local)";
+            L_ProfileSpecialtyFruit.Text = "Fruit (Profile)";
             // 
             // L_ProfileTimestamp
             // 
@@ -265,7 +195,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(400, 319);
+            ClientSize = new System.Drawing.Size(400, 273);
             Controls.Add(tabControl1);
             Controls.Add(B_Cancel);
             Controls.Add(B_Save);
@@ -301,12 +231,6 @@
         private System.Windows.Forms.CheckBox CHK_ProfileMadeVillage;
         private System.Windows.Forms.DateTimePicker CAL_ProfileTimestamp;
         private RestrictedItemSelect RIS_ProfileFruit;
-        private RestrictedItemSelect RIS_SisterFruit;
         private System.Windows.Forms.Label L_ProfileSpecialtyFruit;
-        private System.Windows.Forms.Label L_ProfileSisterFruit;
-        private System.Windows.Forms.Label L_ProfileSisterFlower;
-        private System.Windows.Forms.Label L_ProfileSpecialtyFlower;
-        private System.Windows.Forms.ComboBox CB_SisterFlower;
-        private System.Windows.Forms.ComboBox CB_ProfileFlower;
     }
 }

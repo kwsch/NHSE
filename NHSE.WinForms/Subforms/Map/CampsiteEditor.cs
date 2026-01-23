@@ -22,6 +22,8 @@ public partial class CampsiteEditor : Form
     public CampsiteEditor(HorizonSave sav)
     {
         InitializeComponent();
+        this.TranslateInterface(GameInfo.CurrentLanguage);
+
         SAV = sav;
 
         CheckCampsiteStatus();

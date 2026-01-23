@@ -18,11 +18,8 @@ public partial class MiscPlayerEditor : Form
         Player = p;
         Save = s;
 
-        var fruitsSpecialty = ComboItemUtil.GetArray(GameLists.Fruits, GameInfo.Strings.itemlistdisplay);
-        RIS_ProfileFruit.Initialize(fruitsSpecialty);
-
-        var fruitsSister = ComboItemUtil.GetArray(GameLists.Fruits, GameInfo.Strings.itemlistdisplay);
-        RIS_SisterFruit.Initialize(fruitsSister);
+        var profileFruit = ComboItemUtil.GetArray(GameLists.Fruits, GameInfo.Strings.itemlistdisplay);
+        RIS_ProfileFruit.Initialize(profileFruit);
 
         LoadPlayer();
     }
@@ -41,15 +38,6 @@ public partial class MiscPlayerEditor : Form
         CHK_ProfileMadeVillage.Checked = pers.ProfileIsMakeVillage;
 
         RIS_ProfileFruit.Value = pers.ProfileFruit;
-        RIS_SisterFruit.Value = sav.SisterFruit;
-
-        var flowersProfile = Enum.GetNames<IslandFlowers>();
-        CB_ProfileFlower.Items.AddRange(flowersProfile);
-        CB_ProfileFlower.SelectedIndex = (int)sav.SpecialtyFlower;
-
-        var flowersSister = Enum.GetNames<IslandFlowers>();
-        CB_SisterFlower.Items.AddRange(flowersSister);
-        CB_SisterFlower.SelectedIndex = (int)sav.SisterFlower;
 
         CAL_ProfileTimestamp.Value = pers.ProfileTimestamp;
     }
@@ -60,30 +48,6 @@ public partial class MiscPlayerEditor : Form
     {
         SavePlayer();
         Close();
-    }
-
-    public void UpdateFruitFlags(MainSave sav)
-    {
-        var fruit = new byte[] { 00, 00, 00, 00, 00 };
-        switch (sav.SpecialtyFruit)
-        {
-            case 2213: // Apple
-                fruit[0] = 01;
-                break;
-            case 2287: // Cherry
-                fruit[4] = 01;
-                break;
-            case 2214: // Orange
-                fruit[1] = 01;
-                break;
-            case 2286: // Peach
-                fruit[3] = 01;
-                break;
-            case 2285: // Pear
-                fruit[2] = 01;
-                break;
-        }
-        sav.FruitFlags = fruit;
     }
 
     private void SavePlayer()
@@ -102,13 +66,6 @@ public partial class MiscPlayerEditor : Form
         pers.ProfileIsMakeVillage = CHK_ProfileMadeVillage.Checked;
 
         pers.ProfileFruit = RIS_ProfileFruit.Value;
-        sav.SpecialtyFruit = RIS_ProfileFruit.Value;
-        sav.SisterFruit = RIS_SisterFruit.Value;
-
-        UpdateFruitFlags(sav);
-
-        sav.SpecialtyFlower = (IslandFlowers)CB_ProfileFlower.SelectedIndex;
-        sav.SisterFlower = (IslandFlowers)CB_SisterFlower.SelectedIndex;
 
         pers.ProfileTimestamp = CAL_ProfileTimestamp.Value;
     }
