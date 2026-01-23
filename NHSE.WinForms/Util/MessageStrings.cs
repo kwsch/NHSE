@@ -53,4 +53,10 @@ public static class MessageStrings
     public static string MsgVillagerReplaceNoText { get; set; } = "Clipboard: No text found! Expected internal villager name.";
     public static string MsgVillagerReplaceOutdatedSaveFormat { get; set; } = "Save file is not up to date with latest villager format. Please update in-game.";
     public static string MsgVillagerReplaceUnknownName { get; set; } = "Clipboard: {0} is not a valid internal villager name.";
+
+    public static string MsgDialogButtonYes { get; set; } = "Yes";
+    public static string MsgDialogButtonNo { get; set; } = "No";
+    public static string MsgDialogButtonCancel { get; set; } = "Cancel";
+    public static string MsgWarning { get; set; } = "Warning!";
+    public static string MsgAskSaveBeforeRestart { get; set; } = "This requires the application to restart! Save any current changes first?";
 }

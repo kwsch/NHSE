@@ -22,6 +22,8 @@ public partial class Main : Form
 
     public Main()
     {
+        WinFormsUtil.SetApplicationTheme(int.Parse(Settings.Default.DarkMode));
+
         InitializeComponent();
 
         // Flash to front

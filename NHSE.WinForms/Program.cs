@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHSE.WinForms.Properties;
+using System;
 using System.Windows.Forms;
 
 namespace NHSE.WinForms;
@@ -18,7 +19,11 @@ internal static class Program
         if (args.Length > 1)
         {
             if (args.Contains("-dark"))
-                Application.SetColorMode(SystemColorMode.Dark);
+            {
+                WinFormsUtil.SetApplicationTheme(2);
+                Settings.Default.DarkMode = "2";
+                Settings.Default.Save();
+            }
         }
 
         Application.Run(new Main());

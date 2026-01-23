@@ -246,6 +246,7 @@
             Controls.Add(PB_Villager);
             Icon = Properties.Resources.icon;
             Name = "CampsiteEditor";
+            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             Text = "Campsite Editor";
             ((System.ComponentModel.ISupportInitialize)PB_Villager).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_Variant).EndInit();
