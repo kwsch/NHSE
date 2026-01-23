@@ -41,14 +41,15 @@
             Menu_ItemImages = new System.Windows.Forms.ToolStripMenuItem();
             Menu_Options = new System.Windows.Forms.ToolStripMenuItem();
             Menu_Language = new System.Windows.Forms.ToolStripComboBox();
-            Menu_Settings = new System.Windows.Forms.ToolStripMenuItem();
             Menu_Theme = new System.Windows.Forms.ToolStripMenuItem();
             Menu_Theme_System = new System.Windows.Forms.ToolStripMenuItem();
             Menu_Theme_Classic = new System.Windows.Forms.ToolStripMenuItem();
             Menu_Theme_Dark = new System.Windows.Forms.ToolStripMenuItem();
+            Menu_Settings = new System.Windows.Forms.ToolStripMenuItem();
             CM_Picture = new System.Windows.Forms.ContextMenuStrip(components);
             Menu_SavePNG = new System.Windows.Forms.ToolStripMenuItem();
             Tab_Map = new System.Windows.Forms.TabPage();
+            B_EditFruitFlower = new System.Windows.Forms.Button();
             B_EditCampsite = new System.Windows.Forms.Button();
             NUD_WeatherSeed = new System.Windows.Forms.NumericUpDown();
             L_WeatherSeed = new System.Windows.Forms.Label();
@@ -64,7 +65,6 @@
             B_EditLandFlags = new System.Windows.Forms.ToolStripMenuItem();
             B_EditFieldItems = new System.Windows.Forms.ToolStripMenuItem();
             B_EditBulletin = new System.Windows.Forms.ToolStripMenuItem();
-            B_EditFieldGoods = new System.Windows.Forms.ToolStripMenuItem();
             B_EditMuseum_Click = new System.Windows.Forms.ToolStripMenuItem();
             B_EditVisitors = new System.Windows.Forms.ToolStripMenuItem();
             B_EditPRODesigns = new System.Windows.Forms.Button();
@@ -217,41 +217,41 @@
             Menu_Language.Size = new System.Drawing.Size(115, 23);
             Menu_Language.SelectedIndexChanged += Menu_Language_SelectedIndexChanged;
             // 
-            // Menu_Settings
-            // 
-            Menu_Settings.Name = "Menu_Settings";
-            Menu_Settings.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P;
-            Menu_Settings.Size = new System.Drawing.Size(180, 22);
-            Menu_Settings.Text = "Settings";
-            Menu_Settings.Click += Menu_Settings_Click;
-            // 
             // Menu_Theme
             // 
             Menu_Theme.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { Menu_Theme_System, Menu_Theme_Classic, Menu_Theme_Dark });
             Menu_Theme.Name = "Menu_Theme";
-            Menu_Theme.Size = new System.Drawing.Size(180, 22);
+            Menu_Theme.Size = new System.Drawing.Size(175, 22);
             Menu_Theme.Text = "Theme";
             // 
             // Menu_Theme_System
             // 
             Menu_Theme_System.Name = "Menu_Theme_System";
-            Menu_Theme_System.Size = new System.Drawing.Size(180, 22);
+            Menu_Theme_System.Size = new System.Drawing.Size(152, 22);
             Menu_Theme_System.Text = "System Theme";
             Menu_Theme_System.Click += Menu_Theme_System_Click;
             // 
             // Menu_Theme_Classic
             // 
             Menu_Theme_Classic.Name = "Menu_Theme_Classic";
-            Menu_Theme_Classic.Size = new System.Drawing.Size(180, 22);
+            Menu_Theme_Classic.Size = new System.Drawing.Size(152, 22);
             Menu_Theme_Classic.Text = "Light (Classic)";
             Menu_Theme_Classic.Click += Menu_Theme_Classic_Click;
             // 
             // Menu_Theme_Dark
             // 
             Menu_Theme_Dark.Name = "Menu_Theme_Dark";
-            Menu_Theme_Dark.Size = new System.Drawing.Size(180, 22);
+            Menu_Theme_Dark.Size = new System.Drawing.Size(152, 22);
             Menu_Theme_Dark.Text = "Dark";
             Menu_Theme_Dark.Click += Menu_Theme_Dark_Click;
+            // 
+            // Menu_Settings
+            // 
+            Menu_Settings.Name = "Menu_Settings";
+            Menu_Settings.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P;
+            Menu_Settings.Size = new System.Drawing.Size(175, 22);
+            Menu_Settings.Text = "Settings";
+            Menu_Settings.Click += Menu_Settings_Click;
             // 
             // CM_Picture
             // 
@@ -270,6 +270,7 @@
             // 
             // Tab_Map
             // 
+            Tab_Map.Controls.Add(B_EditFruitFlower);
             Tab_Map.Controls.Add(B_EditCampsite);
             Tab_Map.Controls.Add(NUD_WeatherSeed);
             Tab_Map.Controls.Add(L_WeatherSeed);
@@ -293,6 +294,18 @@
             Tab_Map.TabIndex = 2;
             Tab_Map.Text = "Map";
             Tab_Map.UseVisualStyleBackColor = true;
+            // 
+            // B_EditFruitFlower
+            // 
+            B_EditFruitFlower.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            B_EditFruitFlower.Location = new System.Drawing.Point(236, 194);
+            B_EditFruitFlower.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            B_EditFruitFlower.Name = "B_EditFruitFlower";
+            B_EditFruitFlower.Size = new System.Drawing.Size(107, 46);
+            B_EditFruitFlower.TabIndex = 67;
+            B_EditFruitFlower.Text = "Edit Island Fruits + Flowers";
+            B_EditFruitFlower.UseVisualStyleBackColor = true;
+            B_EditFruitFlower.Click += B_EditFruitFlower_Click;
             // 
             // B_EditCampsite
             // 
@@ -319,7 +332,7 @@
             // L_WeatherSeed
             // 
             L_WeatherSeed.AutoSize = true;
-            L_WeatherSeed.Location = new System.Drawing.Point(351, 76);
+            L_WeatherSeed.Location = new System.Drawing.Point(351, 70);
             L_WeatherSeed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             L_WeatherSeed.Name = "L_WeatherSeed";
             L_WeatherSeed.Size = new System.Drawing.Size(79, 15);
@@ -415,9 +428,9 @@
             // CM_EditMap
             // 
             CM_EditMap.ImageScalingSize = new System.Drawing.Size(20, 20);
-            CM_EditMap.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { B_EditLandFlags, B_EditFieldItems, B_EditBulletin, B_EditFieldGoods, B_EditMuseum_Click, B_EditVisitors });
+            CM_EditMap.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { B_EditLandFlags, B_EditFieldItems, B_EditBulletin, B_EditMuseum_Click, B_EditVisitors });
             CM_EditMap.Name = "CM_EditMap";
-            CM_EditMap.Size = new System.Drawing.Size(172, 136);
+            CM_EditMap.Size = new System.Drawing.Size(172, 114);
             // 
             // B_EditLandFlags
             // 
@@ -439,13 +452,6 @@
             B_EditBulletin.Size = new System.Drawing.Size(171, 22);
             B_EditBulletin.Text = "Edit Bulletin Board";
             B_EditBulletin.Click += B_EditBulletin_Click;
-            // 
-            // B_EditFieldGoods
-            // 
-            B_EditFieldGoods.Name = "B_EditFieldGoods";
-            B_EditFieldGoods.Size = new System.Drawing.Size(171, 22);
-            B_EditFieldGoods.Text = "Edit Field Goods";
-            B_EditFieldGoods.Click += B_EditFieldGoods_Click;
             // 
             // B_EditMuseum_Click
             // 
@@ -982,7 +988,6 @@
         private System.Windows.Forms.Label L_Hemisphere;
         private System.Windows.Forms.ComboBox CB_Hemisphere;
         private System.Windows.Forms.ToolStripMenuItem B_EditPlayerReactions;
-        private System.Windows.Forms.ToolStripMenuItem B_EditFieldGoods;
         private System.Windows.Forms.ToolStripMenuItem B_EditLandFlags;
         private System.Windows.Forms.ToolStripMenuItem B_EditPlayerMisc;
         private System.Windows.Forms.Label L_AirportColor;
@@ -1003,6 +1008,7 @@
         private System.Windows.Forms.ToolStripMenuItem Menu_Theme_System;
         private System.Windows.Forms.ToolStripMenuItem Menu_Theme_Classic;
         private System.Windows.Forms.ToolStripMenuItem Menu_Theme_Dark;
+        private System.Windows.Forms.Button B_EditFruitFlower;
     }
 }
 

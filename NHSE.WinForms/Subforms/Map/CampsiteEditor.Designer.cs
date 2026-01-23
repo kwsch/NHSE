@@ -244,9 +244,11 @@
             Controls.Add(NUD_Species);
             Controls.Add(L_Species);
             Controls.Add(PB_Villager);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = Properties.Resources.icon;
+            MaximizeBox = false;
             Name = "CampsiteEditor";
-            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "Campsite Editor";
             ((System.ComponentModel.ISupportInitialize)PB_Villager).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_Variant).EndInit();
