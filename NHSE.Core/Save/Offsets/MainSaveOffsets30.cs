@@ -44,6 +44,9 @@ public class MainSaveOffsets30 : MainSaveOffsets
     // ItemSwitch1 1500 => 1B00
     // MainField 398 => 3AC
     public override int FieldItem => GSaveMainFieldStart + 0x00000;
+
+    public override int FieldItemLayerOffset => 8 * 32 * 192;
+
     public override int LandMakingMap => GSaveMainFieldStart + 0xdb600; // CHANGED*** all following are shifted.
     public override int MainFieldStructure => GSaveMainFieldStart + 0x100200;
     public override int OutsideField => GSaveMainFieldStart + 0x1005ac;

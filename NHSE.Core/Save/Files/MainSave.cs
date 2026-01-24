@@ -205,10 +205,10 @@ public sealed class MainSave : EncryptedFilePair
     private const int FieldItemLayerSize = MapGrid.MapTileCount32x32 * Item.SIZE;
     private const int FieldItemFlagSize = MapGrid.MapTileCount32x32 / 8; // bitflags
 
-    private int FieldItemLayer1 => Offsets.FieldItem;
-    private int FieldItemLayer2 => Offsets.FieldItem + FieldItemLayerSize;
-    public int FieldItemFlag1 => Offsets.FieldItem + (FieldItemLayerSize * 2);
-    public int FieldItemFlag2 => Offsets.FieldItem + (FieldItemLayerSize * 2) + FieldItemFlagSize;
+    private int FieldItemLayer1 => Offsets.FieldItem + Offsets.FieldItemLayerOffset;
+    private int FieldItemLayer2 => Offsets.FieldItem + FieldItemLayerSize + Offsets.FieldItemLayerOffset * (2 + 1);
+    public int FieldItemFlag1 => Offsets.FieldItem + ((FieldItemLayerSize + Offsets.FieldItemLayerOffset * 2) * 2);
+    public int FieldItemFlag2 => Offsets.FieldItem + ((FieldItemLayerSize + Offsets.FieldItemLayerOffset * 2) * 2) + FieldItemFlagSize;
 
     public Item[] GetFieldItemLayer1() => Item.GetArray(Data.Slice(FieldItemLayer1, FieldItemLayerSize));
     public void SetFieldItemLayer1(IReadOnlyList<Item> array) => Item.SetArray(array).CopyTo(Data[FieldItemLayer1..]);

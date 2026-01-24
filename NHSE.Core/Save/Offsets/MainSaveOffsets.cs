@@ -34,6 +34,9 @@ public abstract class MainSaveOffsets
     public abstract int EventFlagLand { get; }
     public abstract int FruitFlags { get; }
     public abstract int FieldItem { get; }
+
+    public virtual int FieldItemLayerOffset => 0;
+
     public abstract int LandMakingMap { get; }
     public abstract int OutsideField { get; }
     public abstract int MyDesignMap { get; }
