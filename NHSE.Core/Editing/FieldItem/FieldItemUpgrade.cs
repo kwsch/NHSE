@@ -18,6 +18,9 @@ public static class FieldItemUpgrade
     private const int FieldItemSizeOld = ColumnCountOld * FieldItemSizeSingleColumn;
     private const int FieldItemSizeNew = ColumnCountNew * FieldItemSizeSingleColumn;
 
+    // Items are stored in column-major order.
+    // Since the upgrade adds a column on each side, it's easy to prepend and append default columns.
+
     /// <summary>
     /// Checks if an update is needed based on the current size and expected size.
     /// </summary>
