@@ -15,11 +15,19 @@ public sealed class MainSave : EncryptedFilePair
 
     public Hemisphere Hemisphere { get => (Hemisphere)Data[Offsets.WeatherArea]; set => Data[Offsets.WeatherArea] = (byte)value; }
     public AirportColor AirportThemeColor { get => (AirportColor)Data[Offsets.AirportThemeColor]; set => Data[Offsets.AirportThemeColor] = (byte)value; }
-
     public uint WeatherSeed
     {
         get => ReadUInt32LittleEndian(Data[Offsets.WeatherRandSeed..]);
         set => WriteUInt32LittleEndian(Data[Offsets.WeatherRandSeed..], value);
+    }
+
+    public byte CampsiteStatus { get => Data[Offsets.GSaveCampSite]; set => Data[Offsets.GSaveCampSite] = value; }
+    public byte CampsiteVillagerVariantID { get => Data[Offsets.GSaveNpcCamp]; set => Data[Offsets.GSaveNpcCamp] = value; }
+    public byte CampsiteVillagerSpeciesID { get => Data[Offsets.GSaveNpcCamp+1]; set => Data[Offsets.GSaveNpcCamp+1] = value; }
+    public GSaveDate CampTimestamp
+    {
+        get => Data.ToStructure<GSaveDate>(Offsets.CampLastVisitTime, GSaveDate.SIZE);
+        set => value.ToBytes().CopyTo(Data[Offsets.CampLastVisitTime..]);
     }
 
     public IVillager GetVillager(int index) => Offsets.ReadVillager(Data, index);
@@ -282,29 +290,6 @@ public sealed class MainSave : EncryptedFilePair
     {
         get => Data.Slice(Offsets.FruitFlags, 5);
         set => value.ToArray().CopyTo(Data[Offsets.FruitFlags..]);
-    }
-    public void UpdateFruitFlags()
-    {
-        var fruit = new byte[] { 00, 00, 00, 00, 00 };
-        switch (SpecialtyFruit)
-        {
-            case 2213: // Apple
-                fruit[0] = 01;
-                break;
-            case 2287: // Cherry
-                fruit[4] = 01;
-                break;
-            case 2214: // Orange
-                fruit[1] = 01;
-                break;
-            case 2286: // Peach
-                fruit[3] = 01;
-                break;
-            case 2285: // Pear
-                fruit[2] = 01;
-                break;
-        }
-        FruitFlags = fruit;
     }
 
     public GSaveTime LastSaved => Data.Slice(Offsets.LastSavedTime, GSaveTime.SIZE).ToStructure<GSaveTime>();

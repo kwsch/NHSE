@@ -51,6 +51,9 @@ public sealed class MainSaveOffsets19 : MainSaveOffsets
     public override int SpecialtyFlower => SisterFlower + 1;
     public override int BulletinBoard => GSaveLandStart + 0x443148;
     public override int AirportThemeColor => GSaveLandStart + 0x523d50;
+    public override int GSaveCampSite => GSaveLandStart + 0x523c38;
+    public override int GSaveNpcCamp => GSaveCampSite + 4;
+    public override int CampLastVisitTime => GSaveCampSite + 0x110;
     #endregion
 
     #region GSaveLandOther

@@ -3,7 +3,6 @@ using NHSE.Injection;
 using NHSE.Sprites;
 using NHSE.WinForms.Properties;
 using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -25,6 +24,8 @@ public sealed partial class Editor : Form
 
     public Editor(HorizonSave file)
     {
+        WinFormsUtil.SetApplicationTheme(int.Parse(Settings.Default.DarkMode));
+
         InitializeComponent();
 
         SAV = file;
@@ -73,7 +74,7 @@ public sealed partial class Editor : Form
         SaveAll();
         try
         {
-            SAV.Save((uint) DateTime.Now.Ticks);
+            SAV.Save((uint)DateTime.Now.Ticks);
         }
         catch (Exception ex)
         {
@@ -159,6 +160,69 @@ public sealed partial class Editor : Form
         imgfetcher.Show();
     }
 
+    private void Menu_Theme_System_Click(object sender, EventArgs e)
+    {
+        Menu_Options.DropDown.Close();
+        ThemeChangeDialog(1);
+    }
+
+    private void Menu_Theme_Classic_Click(object sender, EventArgs e)
+    {
+        Menu_Options.DropDown.Close();
+        ThemeChangeDialog(0);
+    }
+
+    private void Menu_Theme_Dark_Click(object sender, EventArgs e)
+    {
+        Menu_Options.DropDown.Close();
+        ThemeChangeDialog(2);
+    }
+
+    private void ThemeChangeDialog(int theme)
+    {
+        TaskDialogButton yesButton = new(MessageStrings.MsgDialogButtonYes) { Tag = DialogResult.Yes };
+        TaskDialogButton noButton = new(MessageStrings.MsgDialogButtonNo) { Tag = DialogResult.No };
+        TaskDialogButton cancelButton = new(MessageStrings.MsgDialogButtonCancel) { Tag = DialogResult.Cancel };
+        var buttons = new TaskDialogButtonCollection
+        {
+            yesButton,
+            noButton,
+            cancelButton
+        };
+
+        TaskDialogPage page = new()
+        {
+            Caption = MessageStrings.MsgWarning,
+            SizeToContent = true,
+            Heading = MessageStrings.MsgAskSaveBeforeRestart,
+            Icon = TaskDialogIcon.Warning,
+            Buttons = buttons
+        };
+
+        TaskDialogButton resultButton = TaskDialog.ShowDialog(this, page);
+        if (resultButton == yesButton)
+        {
+            SaveAll();
+            try
+            {
+                SAV.Save((uint)DateTime.Now.Ticks);
+            }
+            catch (Exception ex)
+            {
+                WinFormsUtil.Error(MessageStrings.MsgSaveDataExportFail, ex.Message);
+                return;
+            }
+            WinFormsUtil.Alert(MessageStrings.MsgSaveDataExportSuccess);
+            WinFormsUtil.SetApplicationTheme(theme);
+            Application.Restart();
+        }
+        else if (resultButton == noButton)
+        {
+            WinFormsUtil.SetApplicationTheme(theme);
+            Application.Restart();
+        }
+    }
+
     private void ReloadAll()
     {
         Villagers.Villagers = SAV.Main.GetVillagers();
@@ -170,7 +234,7 @@ public sealed partial class Editor : Form
     {
         var p0 = SAV.Players[0].Personal;
         var villagers = SAV.Main.GetVillagers();
-        var v = new VillagerEditor(villagers, p0, SAV, true) {Dock = DockStyle.Fill};
+        var v = new VillagerEditor(villagers, p0, SAV, true) { Dock = DockStyle.Fill };
         Tab_Villagers.Controls.Add(v);
         return v;
     }
@@ -468,7 +532,7 @@ public sealed partial class Editor : Form
 
     private void B_EditPatternFlag_Click(object sender, EventArgs e)
     {
-        var patterns = new[] {SAV.Main.FlagMyDesign};
+        var patterns = new[] { SAV.Main.FlagMyDesign };
         using var editor = new PatternEditor(patterns);
         if (editor.ShowDialog() == DialogResult.OK)
             SAV.Main.FlagMyDesign = patterns[0];
@@ -492,6 +556,20 @@ public sealed partial class Editor : Form
         using var editor = new PlayerHouseEditor(houses, SAV.Players, SAV.Main, PlayerIndex);
         if (editor.ShowDialog() == DialogResult.OK)
             SAV.Main.SetPlayerHouses(houses);
+    }
+
+    private void B_EditCampsite_Click(object sender, EventArgs e)
+    {
+        using var editor = new CampsiteEditor(SAV);
+        editor.ShowDialog();
+    }
+
+    private void B_EditFruitFlower_Click(object sender, EventArgs e)
+    {
+        var player = SAV.Players[PlayerIndex];
+        var save = SAV.Main;
+        using var editor = new FruitsFlowersEditor(player, save);
+        editor.ShowDialog();
     }
 
     private void B_EditBulletin_Click(object sender, EventArgs e)
@@ -526,6 +604,6 @@ public sealed partial class Editor : Form
             SAV.Main.Visitor = boxed;
     }
 
-    private void NUD_PocketCount_ValueChanged(object sender, EventArgs e) => ((NumericUpDown) sender).BackColor = (uint) ((NumericUpDown) sender).Value > 20 ? Color.Red : NUD_BankBells.BackColor;
-    private void NUD_Wallet_ValueChanged(object sender, EventArgs e) => NUD_Wallet.BackColor = (ulong) NUD_Wallet.Value > 99_999 ? Color.Red : NUD_BankBells.BackColor;
+    private void NUD_PocketCount_ValueChanged(object sender, EventArgs e) => ((NumericUpDown)sender).BackColor = (uint)((NumericUpDown)sender).Value > 20 ? Color.Red : NUD_BankBells.BackColor;
+    private void NUD_Wallet_ValueChanged(object sender, EventArgs e) => NUD_Wallet.BackColor = (ulong)NUD_Wallet.Value > 99_999 ? Color.Red : NUD_BankBells.BackColor;
 }

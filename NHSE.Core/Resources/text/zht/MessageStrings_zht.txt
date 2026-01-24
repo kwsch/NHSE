@@ -1,4 +1,4 @@
-MsgBackupCreateLocation=NHSE can perform automatic backups if you create a folder with the name '{0}' in the same folder as the executable.
+﻿MsgBackupCreateLocation=NHSE can perform automatic backups if you create a folder with the name '{0}' in the same folder as the executable.
 MsgBackupCreateQuestion=Would you like NHSE to automatically keep a backup of your save data?
 MsgDataSizeMismatchImport=The size of the imported file (0x{0:X}) does not match the required size (0x{1:X}).
 MsgDataSizeMismatchRAM=Read size (0x{0:X}) != Write size (0x{1:X}).
@@ -38,3 +38,8 @@ MsgVillagerFriendshipMax=Do you want to set all Villager Friendship memories to 
 MsgVillagerReplaceNoText=Clipboard: No text found! Expected internal villager name.
 MsgVillagerReplaceOutdatedSaveFormat=Save file is not up to date with latest villager format. Please update in-game.
 MsgVillagerReplaceUnknownName=Clipboard: {0} is not a valid internal villager name.
+MsgDialogButtonYes=是的
+MsgDialogButtonNo=不
+MsgDialogButtonCancel=取消
+MsgWarning=警告！
+MsgAskSaveBeforeRestart=這需要重啟應用程式！請先儲存目前變更？

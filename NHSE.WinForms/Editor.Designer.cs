@@ -41,10 +41,16 @@
             Menu_ItemImages = new System.Windows.Forms.ToolStripMenuItem();
             Menu_Options = new System.Windows.Forms.ToolStripMenuItem();
             Menu_Language = new System.Windows.Forms.ToolStripComboBox();
+            Menu_Theme = new System.Windows.Forms.ToolStripMenuItem();
+            Menu_Theme_System = new System.Windows.Forms.ToolStripMenuItem();
+            Menu_Theme_Classic = new System.Windows.Forms.ToolStripMenuItem();
+            Menu_Theme_Dark = new System.Windows.Forms.ToolStripMenuItem();
             Menu_Settings = new System.Windows.Forms.ToolStripMenuItem();
             CM_Picture = new System.Windows.Forms.ContextMenuStrip(components);
             Menu_SavePNG = new System.Windows.Forms.ToolStripMenuItem();
             Tab_Map = new System.Windows.Forms.TabPage();
+            B_EditFruitFlower = new System.Windows.Forms.Button();
+            B_EditCampsite = new System.Windows.Forms.Button();
             NUD_WeatherSeed = new System.Windows.Forms.NumericUpDown();
             L_WeatherSeed = new System.Windows.Forms.Label();
             B_EditDesignsTailor = new System.Windows.Forms.Button();
@@ -59,7 +65,6 @@
             B_EditLandFlags = new System.Windows.Forms.ToolStripMenuItem();
             B_EditFieldItems = new System.Windows.Forms.ToolStripMenuItem();
             B_EditBulletin = new System.Windows.Forms.ToolStripMenuItem();
-            B_EditFieldGoods = new System.Windows.Forms.ToolStripMenuItem();
             B_EditMuseum_Click = new System.Windows.Forms.ToolStripMenuItem();
             B_EditVisitors = new System.Windows.Forms.ToolStripMenuItem();
             B_EditPRODesigns = new System.Windows.Forms.Button();
@@ -68,6 +73,8 @@
             B_RecycleBin = new System.Windows.Forms.Button();
             Tab_Villagers = new System.Windows.Forms.TabPage();
             Tab_Players = new System.Windows.Forms.TabPage();
+            L_HotelTickets = new System.Windows.Forms.Label();
+            NUD_HotelTickets = new System.Windows.Forms.NumericUpDown();
             L_Poki = new System.Windows.Forms.Label();
             NUD_Poki = new System.Windows.Forms.NumericUpDown();
             L_EarnedMiles = new System.Windows.Forms.Label();
@@ -101,14 +108,13 @@
             CB_Players = new System.Windows.Forms.ComboBox();
             PB_Player = new System.Windows.Forms.PictureBox();
             TC_Editors = new System.Windows.Forms.TabControl();
-            L_HotelTickets = new System.Windows.Forms.Label();
-            NUD_HotelTickets = new System.Windows.Forms.NumericUpDown();
             Menu_Editor.SuspendLayout();
             CM_Picture.SuspendLayout();
             Tab_Map.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NUD_WeatherSeed).BeginInit();
             CM_EditMap.SuspendLayout();
             Tab_Players.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)NUD_HotelTickets).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_Poki).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_TotalNookMiles).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_StorageCount).BeginInit();
@@ -120,7 +126,6 @@
             ((System.ComponentModel.ISupportInitialize)NUD_BankBells).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PB_Player).BeginInit();
             TC_Editors.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)NUD_HotelTickets).BeginInit();
             SuspendLayout();
             // 
             // Menu_Editor
@@ -199,7 +204,7 @@
             // 
             // Menu_Options
             // 
-            Menu_Options.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { Menu_Language, Menu_Settings });
+            Menu_Options.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { Menu_Language, Menu_Theme, Menu_Settings });
             Menu_Options.Name = "Menu_Options";
             Menu_Options.Size = new System.Drawing.Size(61, 20);
             Menu_Options.Text = "Options";
@@ -211,6 +216,34 @@
             Menu_Language.Name = "Menu_Language";
             Menu_Language.Size = new System.Drawing.Size(115, 23);
             Menu_Language.SelectedIndexChanged += Menu_Language_SelectedIndexChanged;
+            // 
+            // Menu_Theme
+            // 
+            Menu_Theme.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { Menu_Theme_System, Menu_Theme_Classic, Menu_Theme_Dark });
+            Menu_Theme.Name = "Menu_Theme";
+            Menu_Theme.Size = new System.Drawing.Size(175, 22);
+            Menu_Theme.Text = "Theme";
+            // 
+            // Menu_Theme_System
+            // 
+            Menu_Theme_System.Name = "Menu_Theme_System";
+            Menu_Theme_System.Size = new System.Drawing.Size(152, 22);
+            Menu_Theme_System.Text = "System Theme";
+            Menu_Theme_System.Click += Menu_Theme_System_Click;
+            // 
+            // Menu_Theme_Classic
+            // 
+            Menu_Theme_Classic.Name = "Menu_Theme_Classic";
+            Menu_Theme_Classic.Size = new System.Drawing.Size(152, 22);
+            Menu_Theme_Classic.Text = "Light (Classic)";
+            Menu_Theme_Classic.Click += Menu_Theme_Classic_Click;
+            // 
+            // Menu_Theme_Dark
+            // 
+            Menu_Theme_Dark.Name = "Menu_Theme_Dark";
+            Menu_Theme_Dark.Size = new System.Drawing.Size(152, 22);
+            Menu_Theme_Dark.Text = "Dark";
+            Menu_Theme_Dark.Click += Menu_Theme_Dark_Click;
             // 
             // Menu_Settings
             // 
@@ -237,6 +270,8 @@
             // 
             // Tab_Map
             // 
+            Tab_Map.Controls.Add(B_EditFruitFlower);
+            Tab_Map.Controls.Add(B_EditCampsite);
             Tab_Map.Controls.Add(NUD_WeatherSeed);
             Tab_Map.Controls.Add(L_WeatherSeed);
             Tab_Map.Controls.Add(B_EditDesignsTailor);
@@ -260,6 +295,29 @@
             Tab_Map.Text = "Map";
             Tab_Map.UseVisualStyleBackColor = true;
             // 
+            // B_EditFruitFlower
+            // 
+            B_EditFruitFlower.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            B_EditFruitFlower.Location = new System.Drawing.Point(236, 194);
+            B_EditFruitFlower.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            B_EditFruitFlower.Name = "B_EditFruitFlower";
+            B_EditFruitFlower.Size = new System.Drawing.Size(107, 46);
+            B_EditFruitFlower.TabIndex = 67;
+            B_EditFruitFlower.Text = "Edit Island Fruits + Flowers";
+            B_EditFruitFlower.UseVisualStyleBackColor = true;
+            B_EditFruitFlower.Click += B_EditFruitFlower_Click;
+            // 
+            // B_EditCampsite
+            // 
+            B_EditCampsite.Location = new System.Drawing.Point(121, 195);
+            B_EditCampsite.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            B_EditCampsite.Name = "B_EditCampsite";
+            B_EditCampsite.Size = new System.Drawing.Size(107, 46);
+            B_EditCampsite.TabIndex = 66;
+            B_EditCampsite.Text = "Edit Campsite";
+            B_EditCampsite.UseVisualStyleBackColor = true;
+            B_EditCampsite.Click += B_EditCampsite_Click;
+            // 
             // NUD_WeatherSeed
             // 
             NUD_WeatherSeed.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
@@ -274,7 +332,7 @@
             // L_WeatherSeed
             // 
             L_WeatherSeed.AutoSize = true;
-            L_WeatherSeed.Location = new System.Drawing.Point(351, 76);
+            L_WeatherSeed.Location = new System.Drawing.Point(351, 70);
             L_WeatherSeed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             L_WeatherSeed.Name = "L_WeatherSeed";
             L_WeatherSeed.Size = new System.Drawing.Size(79, 15);
@@ -370,9 +428,9 @@
             // CM_EditMap
             // 
             CM_EditMap.ImageScalingSize = new System.Drawing.Size(20, 20);
-            CM_EditMap.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { B_EditLandFlags, B_EditFieldItems, B_EditBulletin, B_EditFieldGoods, B_EditMuseum_Click, B_EditVisitors });
+            CM_EditMap.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { B_EditLandFlags, B_EditFieldItems, B_EditBulletin, B_EditMuseum_Click, B_EditVisitors });
             CM_EditMap.Name = "CM_EditMap";
-            CM_EditMap.Size = new System.Drawing.Size(172, 136);
+            CM_EditMap.Size = new System.Drawing.Size(172, 114);
             // 
             // B_EditLandFlags
             // 
@@ -394,13 +452,6 @@
             B_EditBulletin.Size = new System.Drawing.Size(171, 22);
             B_EditBulletin.Text = "Edit Bulletin Board";
             B_EditBulletin.Click += B_EditBulletin_Click;
-            // 
-            // B_EditFieldGoods
-            // 
-            B_EditFieldGoods.Name = "B_EditFieldGoods";
-            B_EditFieldGoods.Size = new System.Drawing.Size(171, 22);
-            B_EditFieldGoods.Text = "Edit Field Goods";
-            B_EditFieldGoods.Click += B_EditFieldGoods_Click;
             // 
             // B_EditMuseum_Click
             // 
@@ -507,6 +558,25 @@
             Tab_Players.TabIndex = 1;
             Tab_Players.Text = "Players";
             Tab_Players.UseVisualStyleBackColor = true;
+            // 
+            // L_HotelTickets
+            // 
+            L_HotelTickets.Location = new System.Drawing.Point(166, 273);
+            L_HotelTickets.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            L_HotelTickets.Name = "L_HotelTickets";
+            L_HotelTickets.Size = new System.Drawing.Size(98, 23);
+            L_HotelTickets.TabIndex = 30;
+            L_HotelTickets.Text = "Hotel Tickets:";
+            L_HotelTickets.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // NUD_HotelTickets
+            // 
+            NUD_HotelTickets.Location = new System.Drawing.Point(271, 273);
+            NUD_HotelTickets.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            NUD_HotelTickets.Maximum = new decimal(new int[] { int.MaxValue, 0, 0, 0 });
+            NUD_HotelTickets.Name = "NUD_HotelTickets";
+            NUD_HotelTickets.Size = new System.Drawing.Size(117, 23);
+            NUD_HotelTickets.TabIndex = 29;
             // 
             // L_Poki
             // 
@@ -819,25 +889,6 @@
             TC_Editors.Size = new System.Drawing.Size(471, 331);
             TC_Editors.TabIndex = 1;
             // 
-            // L_HotelTickets
-            // 
-            L_HotelTickets.Location = new System.Drawing.Point(166, 273);
-            L_HotelTickets.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            L_HotelTickets.Name = "L_HotelTickets";
-            L_HotelTickets.Size = new System.Drawing.Size(98, 23);
-            L_HotelTickets.TabIndex = 30;
-            L_HotelTickets.Text = "Hotel Tickets:";
-            L_HotelTickets.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // NUD_HotelTickets
-            // 
-            NUD_HotelTickets.Location = new System.Drawing.Point(271, 273);
-            NUD_HotelTickets.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            NUD_HotelTickets.Maximum = new decimal(new int[] { int.MaxValue, 0, 0, 0 });
-            NUD_HotelTickets.Name = "NUD_HotelTickets";
-            NUD_HotelTickets.Size = new System.Drawing.Size(117, 23);
-            NUD_HotelTickets.TabIndex = 29;
-            // 
             // Editor
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -861,6 +912,7 @@
             CM_EditMap.ResumeLayout(false);
             Tab_Players.ResumeLayout(false);
             Tab_Players.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)NUD_HotelTickets).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_Poki).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_TotalNookMiles).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_StorageCount).EndInit();
@@ -872,7 +924,6 @@
             ((System.ComponentModel.ISupportInitialize)NUD_BankBells).EndInit();
             ((System.ComponentModel.ISupportInitialize)PB_Player).EndInit();
             TC_Editors.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)NUD_HotelTickets).EndInit();
             ResumeLayout(false);
             PerformLayout();
 
@@ -937,7 +988,6 @@
         private System.Windows.Forms.Label L_Hemisphere;
         private System.Windows.Forms.ComboBox CB_Hemisphere;
         private System.Windows.Forms.ToolStripMenuItem B_EditPlayerReactions;
-        private System.Windows.Forms.ToolStripMenuItem B_EditFieldGoods;
         private System.Windows.Forms.ToolStripMenuItem B_EditLandFlags;
         private System.Windows.Forms.ToolStripMenuItem B_EditPlayerMisc;
         private System.Windows.Forms.Label L_AirportColor;
@@ -953,6 +1003,12 @@
         private System.Windows.Forms.NumericUpDown NUD_Poki;
         private System.Windows.Forms.Label L_HotelTickets;
         private System.Windows.Forms.NumericUpDown NUD_HotelTickets;
+        private System.Windows.Forms.Button B_EditCampsite;
+        private System.Windows.Forms.ToolStripMenuItem Menu_Theme;
+        private System.Windows.Forms.ToolStripMenuItem Menu_Theme_System;
+        private System.Windows.Forms.ToolStripMenuItem Menu_Theme_Classic;
+        private System.Windows.Forms.ToolStripMenuItem Menu_Theme_Dark;
+        private System.Windows.Forms.Button B_EditFruitFlower;
     }
 }
 

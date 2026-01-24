@@ -1,4 +1,4 @@
-MsgBackupCreateLocation=NHSE peut effectuer des sauvegardes automatiques si vous créez un dossier portant le nom «{0}» dans le même dossier que l'exécutable.
+﻿MsgBackupCreateLocation=NHSE peut effectuer des sauvegardes automatiques si vous créez un dossier portant le nom «{0}» dans le même dossier que l'exécutable.
 MsgBackupCreateQuestion=Souhaitez-vous que NHSE conserve automatiquement une sauvegarde de vos données de sauvegarde?
 MsgDataSizeMismatchImport=La taille du fichier importé (0x{0:X}) ne correspond pas à la taille requise (0x{1:X}).
 MsgDataSizeMismatchRAM=Taille de lecture (0x{0:X})! = Taille d'écriture (0x{1:X}).
@@ -38,3 +38,8 @@ MsgVillagerFriendshipMax=Voulez-vous définir tous les souvenirs d'amitié villa
 MsgVillagerReplaceNoText=Clipboard: Aucun texte trouvé! Nom attendu du villageois interne.
 MsgVillagerReplaceOutdatedSaveFormat=Le fichier de sauvegarde n'est pas à jour avec le dernier format de villageois. Veuillez mettre à jour dans le jeu.
 MsgVillagerReplaceUnknownName=Presse-papiers: {0} n'est pas un nom de villageois interne valide.
+MsgDialogButtonYes=Oui
+MsgDialogButtonNo=Non
+MsgDialogButtonCancel=Annuler
+MsgWarning=Attention!
+MsgAskSaveBeforeRestart=L'application doit être redémarrée ! Veuillez d'abord enregistrer vos modifications.

@@ -50,6 +50,9 @@ public abstract class MainSaveOffsets
     public abstract int SpecialtyFlower { get; }
     public abstract int BulletinBoard { get; }
     public abstract int AirportThemeColor { get; }
+    public abstract int GSaveCampSite { get; }
+    public abstract int GSaveNpcCamp {  get; }
+    public abstract int CampLastVisitTime { get; }
 
     public abstract int LostItemBox { get; }
     public abstract int LastSavedTime { get; }
