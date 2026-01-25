@@ -41,7 +41,9 @@ public static class TerrainSprite
         DrawReticle(map, mgr.TileInfo, x, y, imgScale);
     }
 
-    public static Bitmap GetMapWithBuildings(MapEditor m, Font? f, Span<int> scale1, Span<int> scaleX, Bitmap map, int buildingIndex = -1)
+    public static Bitmap GetMapWithBuildings(Bitmap map, MapEditor m, Font? f,
+        Span<int> scale1, Span<int> scaleX,
+        int buildingIndex = -1)
     {
         GenerateMap(map, m.Mutator, scale1, scaleX, m.MapScale);
         using var gfx = Graphics.FromImage(map);
@@ -52,7 +54,9 @@ public static class TerrainSprite
         return map;
     }
 
-    public static void LoadViewport(Bitmap img, MapEditor m, Font f, Span<int> scale1, Span<int> scaleX, int index, byte transBuild, byte transTerrain)
+    public static void LoadViewport(Bitmap img, MapEditor m, Font f,
+        Span<int> scale1, Span<int> scaleX,
+        int selectedBuildingIndex, byte transparencyBuilding, byte transTerrain)
     {
         // Convert from absolute to relative.
         int mx = m.X / 2;
@@ -62,8 +66,8 @@ public static class TerrainSprite
         // Drawing building tiles currently uses the graphics API rather than writing pixels.
         img.SetBitmapData(scaleX);
         using var gfx = Graphics.FromImage(img);
-        gfx.DrawViewPlaza(m, transBuild);
-        gfx.DrawViewBuildings(m, index, transBuild);
+        gfx.DrawViewPlaza(m, transparencyBuilding);
+        gfx.DrawViewBuildings(m, selectedBuildingIndex, transparencyBuilding);
 
         // Return to pixel writing mode
         img.GetBitmapData(scaleX);

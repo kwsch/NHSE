@@ -22,12 +22,11 @@ public sealed class MapEditor
     /// </summary>
     /// <param name="mX">X coordinate (mouse on upscaled image).</param>
     /// <param name="mY">Y coordinate (mouse on upscaled image).</param>
-    /// <param name="x">Absolute tile X coordinate.</param>
-    /// <param name="y">Absolute tile Y coordinate.</param>
-    public void GetCursorCoordinates(in int mX, in int mY, out int x, out int y)
+    public (int X, int Y) GetCursorCoordinates(in int mX, in int mY)
     {
-        x = mX / MapScale;
-        y = mY / MapScale;
+        var x = mX / MapScale;
+        var y = mY / MapScale;
+        return (x, y);
     }
 
     /// <summary>

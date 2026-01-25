@@ -117,6 +117,12 @@ public sealed record MapViewState
     }
 
     /// <summary>
+    /// Drags the view by the specified delta amounts.
+    /// </summary>
+    /// <returns><see langword="true"/> if the view changed; otherwise, <see langword="false"/>.</returns>
+    public bool DragView(int dX, int dY) => SetViewTo(X + dX, Y + dY);
+
+    /// <summary>
     /// Sets the view to the top-left of the specified acre.
     /// </summary>
     /// <remarks>

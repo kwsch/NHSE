@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -20,16 +21,19 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     private MapViewState View => Editor.Mutator.View;
     private MapTileManager Map => Editor.Mutator.Manager;
 
-    private readonly bool IsExtendedMap30;
-
     private bool Loading;
     private int SelectedBuildingIndex;
 
+    /// <summary> Cached current hover X coordinate within the acre. </summary>
     private int HoverX;
+    /// <summary> Cached current hover Y coordinate within the acre. </summary>
     private int HoverY;
+
     private int DragX = -1;
     private int DragY = -1;
-    private bool Dragging;
+    private bool IsDragOperationActive;
+
+    private bool IsMenuHasActivate = true;
 
     public ItemEditor ItemProvider => ItemEdit;
 
@@ -50,7 +54,6 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         // Read the expected scale from the control.
         var scale = (PB_Acre.Width - 2) / LayerFieldItem.TilesPerAcreDim; // 1px border
         SAV = sav;
-        IsExtendedMap30 = sav.FieldItemAcreWidth != 7;
         Editor = MapEditor.FromSaveFile(sav);
         Editor.MapScale = scale;
         Editor.ViewScale = scale;
@@ -62,9 +65,12 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         LoadBuildings(sav);
         ReloadMapBackground();
         LoadEditors();
+
+        // Set initial states
         LB_Items.SelectedIndex = 0;
         CB_Acre.SelectedIndex = 0;
         CB_MapAcre.SelectedIndex = 0;
+
         Loading = false;
         LoadItemGridAcre();
     }
@@ -130,16 +136,14 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void ReloadMapBackground()
     {
-        var img = Renderer.GetBackgroundTerrain(SelectedBuildingIndex);
+        var img = Renderer.UpdateMapTerrain(SelectedBuildingIndex);
         SetMapBackgroundImage(img);
     }
 
-    private void ReloadMapItemGrid() => SetMapForegroundImage(Renderer.GetMapWithReticle(GetItemTransparency()));
+    private void ReloadMapItemGrid() => SetMapForegroundImage(Renderer.UpdateMapItemsReticle(GetItemTransparency()));
 
     private void SetMapBackgroundImage(Bitmap img)
     {
-        if (IsExtendedMap30)
-            img = Renderer.GetInflatedImage(img);
         PB_Map.BackgroundImage = img;
         PB_Map.Invalidate(); // background image reassigning to same img doesn't redraw; force it
     }
@@ -153,12 +157,12 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     {
         var tbuild = (byte)TR_BuildingTransparency.Value;
         var tterrain = (byte)TR_Terrain.Value;
-        var img = Renderer.GetBackgroundAcre(L_Coordinates.Font, tbuild, tterrain, SelectedBuildingIndex);
+        var img = Renderer.UpdateViewportTerrain(L_Coordinates.Font, tbuild, tterrain, SelectedBuildingIndex);
         PB_Acre.BackgroundImage = img;
         PB_Acre.Invalidate(); // background image reassigning to same img doesn't redraw; force it
     }
 
-    private void ReloadAcreItemGrid() => PB_Acre.Image = Renderer.GetLayerAcre(GetItemTransparency());
+    private void ReloadAcreItemGrid() => PB_Acre.Image = Renderer.UpdateViewportItems(GetItemTransparency());
 
     public void ReloadItems()
     {
@@ -182,7 +186,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void PB_Acre_MouseClick(object sender, MouseEventArgs e)
     {
-        if (Dragging)
+        if (IsDragOperationActive)
         {
             ResetDrag();
             return;
@@ -198,21 +202,25 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     {
         DragX = -1;
         DragY = -1;
-        Dragging = false;
+        IsDragOperationActive = false;
     }
 
     private void OmniTile(MouseEventArgs e)
     {
-        var tile = GetTile(CurrentLayer, e, out var x, out var y);
-        OmniTile(tile, x, y);
+        if (!GetTile(e, CurrentLayer, out var tile))
+            return;
+        OmniTile(tile.Tile, tile.RelativeX, tile.RelativeY);
     }
 
     private void OmniTileTerrain(MouseEventArgs e)
     {
-        SetHoveredItem(e);
-        var x = View.X + HoverX;
-        var y = View.Y + HoverY;
-        TerrainTile tile = Editor.Terrain.GetTile(x / 2, y / 2);
+        if (!GetTile(e, Editor.Mutator.Manager.LayerTerrain, out var meta))
+            return;
+
+        var tile = meta.Tile;
+        var relX = meta.RelativeX;
+        var relY = meta.RelativeY;
+
         if (tbeForm?.IsBrushSelected != true)
         {
             OmniTileTerrain(tile);
@@ -233,32 +241,32 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
             for (int j = -radius; j < radius; j++)
             {
                 if ((i * i) + (j * j) < threshold)
-                    selectedTiles.Add(Editor.Terrain.GetTile((x / 2) + i, (y / 2) + j));
+                    selectedTiles.Add(Editor.Terrain.GetTile(relX + i, relY + j));
             }
         }
 
         SetTiles(selectedTiles);
     }
 
-    private void OmniTile(Item tile, int x, int y)
+    private void OmniTile(Item tile, int relX, int relY)
     {
         switch (ModifierKeys)
         {
             default:
-                ViewTile(tile, x, y);
+                ViewTile(tile, relX, relY);
                 return;
 
             case Keys.Alt | Keys.Control:
             case Keys.Alt | Keys.Control | Keys.Shift:
-                ReplaceTile(tile, x, y);
+                ReplaceTile(tile, relX, relY);
                 return;
 
             case Keys.Shift:
-                SetTile(tile, x, y);
+                SetTile(tile, relX, relY);
                 return;
 
             case Keys.Alt:
-                DeleteTile(tile, x, y);
+                DeleteTile(tile, relX, relY);
                 return;
         }
     }
@@ -285,25 +293,81 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         }
     }
 
-    private Item GetTile(LayerFieldItem layerField, MouseEventArgs e, out int x, out int y)
+    private sealed record TileCheck<T>(T Tile, int AbsoluteX, int AbsoluteY, int RelativeX, int RelativeY);
+
+    private bool GetTile(MouseEventArgs e, LayerFieldItem layerField, [NotNullWhen(true)] out TileCheck<Item>? item)
     {
-        SetHoveredItem(e);
-        return layerField.GetTile(x = View.X + HoverX, y = View.Y + HoverY);
+        UpdateHoveredCoordinates(e);
+        var (absX, absY) = GetAbsoluteCoordinatesHover();
+        return GetTile(layerField, absX, absY, out item);
     }
 
-    private void SetHoveredItem(MouseEventArgs e)
+    private (int X, int Y) GetAbsoluteCoordinatesHover()
     {
-        GetAcreCoordinates(e, out HoverX, out HoverY);
+        var absX = View.X + HoverX;
+        var absY = View.Y + HoverY;
+        return (absX, absY);
+    }
+
+    private (int X, int Y) GetAbsoluteCoordinatesHoverTerrain()
+    {
+        // Terrain tiles are 16x16, but the view caters to 32x32 for field items.
+        var absX = (View.X + HoverX) / 2;
+        var absY = (View.Y + HoverY) / 2;
+        return (absX, absY);
+    }
+
+    private (int X, int Y) GetViewCoordinates(MouseEventArgs e)
+    {
+        var x = e.X / Editor.ViewScale;
+        var y = e.Y / Editor.ViewScale;
+        return (x, y);
+    }
+
+    private bool GetTile(LayerFieldItem layerField, int absX, int absY, [NotNullWhen(true)] out TileCheck<Item>? item)
+    {
+        var cfg = Editor.Mutator.Manager.ConfigItems;
+        if (!cfg.IsCoordinateValidAbsolute(absX, absY))
+        {
+            item = null;
+            return false;
+        }
+
+        var rel = cfg.GetCoordinatesRelative(absX, absY);
+        var tile = layerField.GetTile(rel.X, rel.Y);
+        item = new TileCheck<Item>(tile, absX, absY, rel.X, rel.Y);
+        return true;
+    }
+
+    private bool GetTile(MouseEventArgs e, LayerTerrain layerField, [NotNullWhen(true)] out TileCheck<TerrainTile>? item)
+    {
+        UpdateHoveredCoordinates(e);
+        var (absX, absY) = GetAbsoluteCoordinatesHoverTerrain();
+        return GetTile(layerField, absX, absY, out item);
+    }
+
+    private bool GetTile(LayerTerrain layerField, int absX, int absY, [NotNullWhen(true)] out TileCheck<TerrainTile>? item)
+    {
+        var cfg = Editor.Mutator.Manager.ConfigItems;
+        if (!cfg.IsCoordinateValidAbsolute(absX, absY))
+        {
+            item = null;
+            return false;
+        }
+
+        var rel = cfg.GetCoordinatesRelative(absX, absY);
+        var tile = layerField.GetTile(rel.X, rel.Y);
+        item = new TileCheck<TerrainTile>(tile, absX, absY, rel.X, rel.Y);
+        return true;
+    }
+
+    private void UpdateHoveredCoordinates(MouseEventArgs e)
+    {
+        (HoverX, HoverY) = GetViewCoordinates(e);
 
         // Mouse event may fire with a slightly too large x/y; clamp just in case.
         HoverX &= 0x1F;
         HoverY &= 0x1F;
-    }
-
-    private void GetAcreCoordinates(MouseEventArgs e, out int x, out int y)
-    {
-        x = e.X / Editor.ViewScale;
-        y = e.Y / Editor.ViewScale;
     }
 
     private void PB_Acre_MouseDown(object sender, MouseEventArgs e) => ResetDrag();
@@ -321,10 +385,24 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
             OmniTileTerrain(e);
         }
 
-        var oldTile = l.GetTile(View.X + HoverX, View.Y + HoverY);
-        var tile = GetTile(l, e, out var x, out var y);
-        if (ReferenceEquals(tile, oldTile))
+        // Update hover tooltip if it is a different tile
+        // Can't compare coordinates if redirection of extension tiles hijacks to return the root tile.
+        // Just check the (root) tile returns for each.
+        // Two different extension tiles can redirect to the same root tile, can skip updating in that case.
+        if (!GetTile(l, View.X + HoverX, View.Y + HoverY, out var old))
             return;
+
+        var oldTile = old.Tile;
+        if (!GetTile(e, l, out var dest))
+            return;
+
+        var tile = dest.Tile;
+        var x = dest.RelativeX;
+        var y = dest.RelativeY;
+        if (ReferenceEquals(tile, oldTile))
+            return; // same tile, no change
+
+        // Regenerate tooltip text
         var str = GameInfo.Strings;
         var name = str.GetItemName(tile);
         var flagLayer = NUD_Layer.Value == 0 ? Map.LayerItemFlag0 : Map.LayerItemFlag1;
@@ -337,19 +415,19 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void MoveDrag(MouseEventArgs e)
     {
-        GetAcreCoordinates(e, out var nhX, out var nhY);
+        var (viewX, viewY) = GetViewCoordinates(e);
 
         if (DragX == -1)
         {
-            DragX = nhX;
-            DragY = nhY;
+            DragX = viewX;
+            DragY = viewY;
             return;
         }
 
-        var dX = DragX - nhX;
-        var dY = DragY - nhY;
+        var dX = DragX - viewX;
+        var dY = DragY - viewY;
 
-        if (ModifierKeys == Keys.Control)
+        if (ModifierKeys == Keys.Control) // move in larger steps
         {
             dX *= 2;
             dY *= 2;
@@ -360,30 +438,33 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         if ((dY & 1) == 1)
             dY ^= 1;
 
+        // Ensure movement is significant enough
         var aX = Math.Abs(dX);
         var aY = Math.Abs(dY);
         if (aX < 2 && aY < 2)
             return;
 
-        DragX = nhX;
-        DragY = nhY;
-        if (!View.SetViewTo(View.X + dX, View.Y + dY))
+        DragX = viewX;
+        DragY = viewY;
+        if (!View.DragView(dX, dY))
             return;
 
-        Dragging = true;
+        IsDragOperationActive = true;
         LoadItemGridAcre();
     }
 
-    private void ViewTile(Item tile, int x, int y)
+    private void ViewTile(Item tile, int relX, int relY)
     {
         if (CHK_RedirectExtensionLoad.Checked && tile.IsExtension)
         {
             var l = CurrentLayer;
-            var rx = Math.Max(0, Math.Min(l.TileInfo.TotalWidth - 1, x - tile.ExtensionX));
-            var ry = Math.Max(0, Math.Min(l.TileInfo.TotalHeight - 1, y - tile.ExtensionY));
-            var redir = l.GetTile(rx, ry);
-            if (redir.IsRoot && redir.ItemId == tile.ExtensionItemId)
-                tile = redir;
+            relX -= tile.ExtensionX;
+            relY -= tile.ExtensionY;
+            l.TileInfo.ClampInside(ref relX, ref relY);
+            var redirectTile = l.GetTile(relX, relY);
+
+            if (redirectTile.IsRoot && redirectTile.ItemId == tile.ExtensionItemId)
+                tile = redirectTile;
         }
 
         ViewTile(tile);
@@ -403,7 +484,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         TC_Editor.SelectedTab = Tab_Terrain;
     }
 
-    private void SetTile(Item tile, int x, int y)
+    private void SetTile(Item tile, int relX, int relY)
     {
         var l = CurrentLayer;
         var pgt = new Item();
@@ -412,12 +493,12 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         if (pgt.IsFieldItem && CHK_FieldItemSnap.Checked)
         {
             // coordinates must be even (not odd-half)
-            x &= 0xFFFE;
-            y &= 0xFFFE;
-            tile = l.GetTile(x, y);
+            relX &= 0xFFFE;
+            relY &= 0xFFFE;
+            tile = l.GetTile(relX, relY);
         }
 
-        var permission = l.IsOccupied(pgt, x, y);
+        var permission = l.IsOccupied(pgt, relX, relY);
         switch (permission)
         {
             case PlacedItemPermission.OutOfBounds:
@@ -428,17 +509,17 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
         // Clean up original placed data
         if (tile.IsRoot && CHK_AutoExtension.Checked)
-            l.DeleteExtensionTiles(tile, x, y);
+            l.DeleteExtensionTiles(tile, relX, relY);
 
         // Set new placed data
         if (pgt.IsRoot && CHK_AutoExtension.Checked)
-            l.SetExtensionTiles(pgt, x, y);
+            l.SetExtensionTiles(pgt, relX, relY);
         tile.CopyFrom(pgt);
 
         ReloadItems();
     }
 
-    private void ReplaceTile(Item tile, int x, int y)
+    private void ReplaceTile(Item tile, int relX, int relY)
     {
         var l = CurrentLayer;
         var pgt = new Item();
@@ -447,12 +528,12 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         if (pgt.IsFieldItem && CHK_FieldItemSnap.Checked)
         {
             // coordinates must be even (not odd-half)
-            x &= 0xFFFE;
-            y &= 0xFFFE;
-            tile = l.GetTile(x, y);
+            relX &= 0xFFFE;
+            relY &= 0xFFFE;
+            tile = l.GetTile(relX, relY);
         }
 
-        var permission = l.IsOccupied(pgt, x, y);
+        var permission = l.IsOccupied(pgt, relX, relY);
         switch (permission)
         {
             case PlacedItemPermission.OutOfBounds:
@@ -474,8 +555,8 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void RotateTile(TerrainTile tile)
     {
-        bool rotated = tile.Rotate();
-        if (!rotated)
+        bool wasRotated = tile.TryRotate();
+        if (!wasRotated)
         {
             System.Media.SystemSounds.Asterisk.Play();
             return;
@@ -486,6 +567,8 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     private void SetTile(TerrainTile tile)
     {
         var pgt = (TerrainTile)PG_TerrainTile.SelectedObject!;
+
+        // Apply randomization if enabled
         if (tbeForm?.RandomizeVariation == true)
         {
             switch (pgt.UnitModel)
@@ -499,33 +582,30 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         }
 
         tile.CopyFrom(pgt);
-
         ReloadBuildingsTerrain();
     }
 
     private void SetTiles(IEnumerable<TerrainTile> tiles)
     {
         var pgt = (TerrainTile)PG_TerrainTile.SelectedObject!;
-        foreach (TerrainTile tile in tiles)
-        {
-            tile.CopyFrom(pgt);
-        }
 
+        foreach (var tile in tiles)
+            tile.CopyFrom(pgt);
         ReloadBuildingsTerrain();
     }
 
-    private void DeleteTile(Item tile, int x, int y)
+    private void DeleteTile(Item tile, int relX, int relY)
     {
         if (CHK_AutoExtension.Checked)
         {
             var layer = CurrentLayer;
             if (!tile.IsRoot)
             {
-                x -= tile.ExtensionX;
-                y -= tile.ExtensionY;
-                tile = layer.GetTile(x, y);
+                relX -= tile.ExtensionX;
+                relY -= tile.ExtensionY;
+                tile = layer.GetTile(relX, relY);
             }
-            layer.DeleteExtensionTiles(tile, x, y);
+            layer.DeleteExtensionTiles(tile, relX, relY);
         }
 
         tile.Delete();
@@ -561,83 +641,125 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void Menu_View_Click(object sender, EventArgs e)
     {
-        var x = View.X + HoverX;
-        var y = View.Y + HoverY;
+        var (absX, absY) = GetAbsoluteCoordinatesHover();
+        var cfg = Editor.Mutator.Manager.ConfigItems;
+        if (!cfg.IsCoordinateValidAbsolute(absX, absY))
+        {
+            System.Media.SystemSounds.Asterisk.Play();
+            return;
+        }
 
+        var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
         if (RB_Item.Checked)
         {
-            var tile = CurrentLayer.GetTile(x, y);
-            ViewTile(tile, x, y);
+            var tile = CurrentLayer.GetTile(relX, relY);
+            ViewTile(tile, relX, relY);
         }
         else if (RB_Terrain.Checked)
         {
-            TerrainTile tile = Editor.Terrain.GetTile(x / 2, y / 2);
+            var tile = Editor.Terrain.GetTile(relX, relY);
             ViewTile(tile);
         }
     }
 
     private void Menu_Set_Click(object sender, EventArgs e)
     {
-        var x = View.X + HoverX;
-        var y = View.Y + HoverY;
-
         if (RB_Item.Checked)
         {
-            var tile = CurrentLayer.GetTile(x, y);
-            SetTile(tile, x, y);
+            var (absX, absY) = GetAbsoluteCoordinatesHover();
+            var cfg = Editor.Mutator.Manager.ConfigItems;
+            if (!cfg.IsCoordinateValidAbsolute(absX, absY))
+            {
+                System.Media.SystemSounds.Asterisk.Play();
+                return;
+            }
+            var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
+
+            var tile = CurrentLayer.GetTile(relX, relY);
+            SetTile(tile, relX, relY);
         }
         else if (RB_Terrain.Checked)
         {
-            var tile = Editor.Terrain.GetTile(x / 2, y / 2);
+            var (absX, absY) = GetAbsoluteCoordinatesHoverTerrain();
+            var cfg = Editor.Mutator.Manager.ConfigTerrain;
+            if (!cfg.IsCoordinateValidAbsolute(absX, absY))
+            {
+                System.Media.SystemSounds.Asterisk.Play();
+                return;
+            }
+
+            var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
+            var tile = Editor.Terrain.GetTile(relX, relY);
             SetTile(tile);
         }
     }
 
     private void Menu_Reset_Click(object sender, EventArgs e)
     {
-        var x = View.X + HoverX;
-        var y = View.Y + HoverY;
-
         if (RB_Item.Checked)
         {
-            var tile = CurrentLayer.GetTile(x, y);
-            DeleteTile(tile, x, y);
+            var (absX, absY) = GetAbsoluteCoordinatesHover();
+            var cfg = Editor.Mutator.Manager.ConfigItems;
+            if (!cfg.IsCoordinateValidAbsolute(absX, absY))
+            {
+                System.Media.SystemSounds.Asterisk.Play();
+                return;
+            }
+            var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
+
+            var tile = CurrentLayer.GetTile(relX, relY);
+            DeleteTile(tile, relX, relY);
         }
         else if (RB_Terrain.Checked)
         {
-            var tile = Editor.Terrain.GetTile(x / 2, y / 2);
+            var (absX, absY) = GetAbsoluteCoordinatesHoverTerrain();
+            var cfg = Editor.Mutator.Manager.ConfigTerrain;
+            if (!cfg.IsCoordinateValidAbsolute(absX, absY))
+            {
+                System.Media.SystemSounds.Asterisk.Play();
+                return;
+            }
+
+            var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
+            var tile = Editor.Terrain.GetTile(relX, relY);
             DeleteTile(tile);
         }
     }
 
-    private bool hasActivate = true;
-
     private void CM_Click_Opening(object sender, System.ComponentModel.CancelEventArgs e)
     {
-        if (!RB_Item.Checked)
+        if (!RB_Item.Checked) // not in Item edit mode, therefore no "Activate Flag" menu
         {
-            if (hasActivate)
+            if (IsMenuHasActivate)
                 CM_Click.Items.Remove(Menu_Activate);
-            hasActivate = false;
+            IsMenuHasActivate = false;
             return;
         }
 
-        var x = View.X + HoverX;
-        var y = View.Y + HoverY;
+        var (absX, absY) = GetAbsoluteCoordinatesHover();
+        var cfg = Editor.Mutator.Manager.ConfigItems;
+        if (!cfg.IsCoordinateValidAbsolute(absX, absY))
+            return;
+
+        var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
         var flagLayer = NUD_Layer.Value == 0 ? Map.LayerItemFlag0 : Map.LayerItemFlag1;
-        var isActive = flagLayer.GetIsActive(x, y);
+        var isActive = flagLayer.GetIsActive(relX, relY);
         Menu_Activate.Text = isActive ? "Inactivate" : "Activate";
         CM_Click.Items.Add(Menu_Activate);
-        hasActivate = true;
+        IsMenuHasActivate = true;
     }
 
     private void Menu_Activate_Click(object sender, EventArgs e)
     {
-        var x = View.X + HoverX;
-        var y = View.Y + HoverY;
+        var (absX, absY) = GetAbsoluteCoordinatesHover();
+        var cfg = Editor.Mutator.Manager.ConfigItems;
+        if (!cfg.IsCoordinateValidAbsolute(absX, absY))
+            return;
+
+        var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
         var flagLayer = NUD_Layer.Value == 0 ? Map.LayerItemFlag0 : Map.LayerItemFlag1;
-        var isActive = flagLayer.GetIsActive(x, y);
-        flagLayer.SetIsActive(x, y, !isActive);
+        var isActive = flagLayer.GetIsActive(relX, relY);
+        flagLayer.SetIsActive(relX, relY, !isActive);
     }
 
     private void B_Up_Click(object sender, EventArgs e)
@@ -776,13 +898,13 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void ClickMapAt(MouseEventArgs e)
     {
-        var (x, y) = Editor.GetMapCoordinates(e.X, e.Y, CHK_SnapToAcre.Checked ? MapViewCoordinateRequest.SnapAcre : MapViewCoordinateRequest.Centered);
+        var (absX, absY) = Editor.GetMapCoordinates(e.X, e.Y, CHK_SnapToAcre.Checked ? MapViewCoordinateRequest.SnapAcre : MapViewCoordinateRequest.Centered);
 
         // Truncate to root-node coordinates. The map is only 1px per tile, and nobody is wanting to click on extension-tiles.
-        x &= 0xFFFE;
-        y &= 0xFFFE;
+        absX &= 0xFFFE;
+        absY &= 0xFFFE;
 
-        if (View.SetViewTo(x, y))
+        if (View.SetViewTo(absX, absY))
             LoadItemGridAcre();
     }
 
@@ -794,12 +916,12 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         }
         else if (e.Button == MouseButtons.None)
         {
-            Editor.GetCursorCoordinates(e.X, e.Y, out var x, out var y);
-            SetCoordinateText(x, y);
+            var (absX, absY) = Editor.GetCursorCoordinates(e.X, e.Y);
+            SetCoordinateText(absX, absY);
         }
     }
 
-    private void SetCoordinateText(int x, int y) => L_Coordinates.Text = $"({x:000},{y:000}) = (0x{x:X2},0x{y:X2})";
+    private void SetCoordinateText(int absX, int absY) => L_Coordinates.Text = $"({absX:000},{absY:000}) = (0x{absX:X2},0x{absY:X2})";
 
     private void NUD_Layer_ValueChanged(object sender, EventArgs e)
     {
@@ -809,15 +931,13 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void Remove(ToolStripItem sender, Func<int, int, int, int, int> removal)
     {
-        bool wholeMap = (ModifierKeys & Keys.Shift) != 0;
-
-        string q = string.Format(MessageStrings.MsgFieldItemRemoveAsk, sender.Text);
-        var question = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, q);
+        var isModifyEntireMap = (ModifierKeys & Keys.Shift) != 0;
+        var message = string.Format(MessageStrings.MsgFieldItemRemoveAsk, sender.Text);
+        var question = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, message);
         if (question != DialogResult.Yes)
             return;
 
-        int count = Editor.Mutator.ModifyFieldItems(removal, wholeMap);
-
+        var count = Editor.Mutator.ModifyFieldItems(removal, isModifyEntireMap);
         if (count == 0)
         {
             WinFormsUtil.Alert(MessageStrings.MsgFieldItemRemoveNone);
@@ -829,15 +949,13 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void Modify(ToolStripItem sender, Func<int, int, int, int, int> action)
     {
-        bool wholeMap = (ModifierKeys & Keys.Shift) != 0;
-
-        string q = string.Format(MessageStrings.MsgFieldItemModifyAsk, sender.Text);
-        var question = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, q);
+        var isModifyEntireMap = (ModifierKeys & Keys.Shift) != 0;
+        var message = string.Format(MessageStrings.MsgFieldItemModifyAsk, sender.Text);
+        var question = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, message);
         if (question != DialogResult.Yes)
             return;
 
-        int count = Editor.Mutator.ModifyFieldItems(action, wholeMap);
-
+        var count = Editor.Mutator.ModifyFieldItems(action, isModifyEntireMap);
         if (count == 0)
         {
             WinFormsUtil.Alert(MessageStrings.MsgFieldItemModifyNone);
@@ -917,14 +1035,14 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     {
         if (LB_Items.SelectedIndex < 0)
             return;
-        LoadIndex(LB_Items.SelectedIndex);
+        LoadBuildingIndex(LB_Items.SelectedIndex);
 
         // View location snap has changed the view. Reload everything
         LoadItemGridAcre();
         ReloadMapBackground();
     }
 
-    private void LoadIndex(int index)
+    private void LoadBuildingIndex(int index)
     {
         Loading = true;
         SelectedBuildingIndex = index;
@@ -939,9 +1057,9 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         NUD_UniqueID.Value = b.UniqueID;
         Loading = false;
 
-        // -32 for relative offset on map (buildings can be placed on the exterior ocean acres)
+        // Jump the view to see the building
         // -16 to put it in the center of the view
-        const int shift = 48;
+        const int shift = 16;
         var x = (b.X - shift) & 0xFFFE;
         var y = (b.Y - shift) & 0xFFFE;
         View.SetViewTo(x, y);
@@ -996,6 +1114,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         var index = CB_MapAcre.SelectedIndex;
         var value = WinFormsUtil.GetIndex(CB_MapAcreSelect);
 
+        // u16[], but values are at most u8 each.
         var span = Editor.Terrain.BaseAcres.Span.Slice(index * 2, 2);
         var oldValue = span[0];
         if (value == oldValue)

@@ -100,4 +100,10 @@ public readonly record struct LayerPositionConfig(
         // In other words, Item[1] is X=0,Y=1
         return (relX * (CountHeight << TileBitShift)) + relY;
     }
+
+    public bool IsCoordinateValidAbsolute(int absX, int absY)
+    {
+        var (relX, relY) = GetCoordinatesRelative(absX, absY);
+        return IsCoordinateValidRelative(relX, relY);
+    }
 }

@@ -29,9 +29,24 @@ public sealed record MapMutator
     /// <returns>The number of items modified.</returns>
     public int ModifyFieldItems(Func<int, int, int, int, int> action, in bool wholeMap, LayerFieldItem layerField)
     {
-        var (xMin, yMin) = wholeMap ? (0, 0) : (View.X, View.Y);
-        var info = layerField.TileInfo;
-        var (width, height) = wholeMap ? info.DimTotal : info.DimAcre;
+        int xMin, yMin, width, height;
+        if (wholeMap)
+        {
+            (xMin, yMin) = (0, 0);
+            var info = layerField.TileInfo;
+            (width, height) = info.DimTotal;
+        }
+        else
+        {
+            (xMin, yMin) = (View.X, View.Y);
+            // Convert absolute to relative coordinates
+            if (!Manager.ConfigItems.IsCoordinateValidAbsolute(xMin, yMin))
+                return 0;
+            (xMin, yMin) = Manager.ConfigItems.GetCoordinatesRelative(xMin, yMin);
+
+            var info = layerField.TileInfo;
+            (width, height) = info.DimAcre;
+        }
         return action(xMin, yMin, width, height);
     }
 
@@ -45,9 +60,25 @@ public sealed record MapMutator
     /// <returns>The number of items replaced.</returns>
     private int ReplaceFieldItems(Item oldItem, Item newItem, bool wholeMap, LayerFieldItem layerField)
     {
-        var (xMin, yMin) = wholeMap ? (0, 0) : (View.X, View.Y);
-        var info = layerField.TileInfo;
-        var (width, height) = wholeMap ? info.DimTotal : info.DimAcre;
+        int xMin, yMin, width, height;
+        if (wholeMap)
+        {
+            (xMin, yMin) = (0, 0);
+            var info = layerField.TileInfo;
+            (width, height) = info.DimTotal;
+        }
+        else
+        {
+            (xMin, yMin) = (View.X, View.Y);
+            // Convert absolute to relative coordinates
+            if (!Manager.ConfigItems.IsCoordinateValidAbsolute(xMin, yMin))
+                return 0;
+            (xMin, yMin) = Manager.ConfigItems.GetCoordinatesRelative(xMin, yMin);
+
+            var info = layerField.TileInfo;
+            (width, height) = info.DimAcre;
+        }
+
         return layerField.ReplaceAll(oldItem, newItem, xMin, yMin, width, height);
     }
 

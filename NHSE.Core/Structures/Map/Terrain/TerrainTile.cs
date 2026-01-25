@@ -76,9 +76,9 @@ public sealed class TerrainTile
         LandMakingAngleRoad = tile.LandMakingAngleRoad;
     }
 
-    public bool Rotate() => UnitModelRoad != 0 ? RotateRoad() : RotateTerrain();
+    public bool TryRotate() => UnitModelRoad != 0 ? TryRotateRoad() : TryRotateTerrain();
 
-    private bool RotateTerrain()
+    private bool TryRotateTerrain()
     {
         if (UnitModel == TerrainUnitModel.Base)
             return false;
@@ -88,7 +88,7 @@ public sealed class TerrainTile
         return true;
     }
 
-    private bool RotateRoad()
+    private bool TryRotateRoad()
     {
         var rot = LandMakingAngleRoad;
         rot = (ushort) ((rot + 1) & 3);

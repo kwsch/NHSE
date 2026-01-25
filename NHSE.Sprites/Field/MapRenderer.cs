@@ -1,6 +1,6 @@
-﻿using System;
+﻿using NHSE.Core;
+using System;
 using System.Drawing;
-using NHSE.Core;
 
 namespace NHSE.Sprites;
 
@@ -9,98 +9,132 @@ namespace NHSE.Sprites;
 /// </summary>
 public sealed class MapRenderer : IDisposable
 {
+    /// <summary>
+    /// Data source for map rendering.
+    /// </summary>
     private readonly MapEditor Map;
+
+    /// <summary> Scale factor for full map rendering. </summary>
     private int MapScale => Map.MapScale;
+
+    /// <summary> Scale factor for acre viewport rendering. </summary>
     private int ViewScale => Map.ViewScale;
 
-    private const byte FieldItemWidthOld = 7;
-    private const byte FieldItemWidthNew = 9;
-
     // Cached acre view objects to remove allocation/GC
-    private readonly int[] PixelsItemAcre1;
-    private readonly int[] PixelsItemAcreX;
-    private readonly Bitmap ScaleAcre;
-    private readonly int[] PixelsItemMap;
-    private readonly Bitmap MapReticle;
 
-    private readonly int[] PixelsBackgroundAcre1;
-    private readonly int[] PixelsBackgroundAcreX;
-    private readonly Bitmap BackgroundAcre;
+    /// <summary> 1px scale viewport item layer pixel data. </summary>
+    private readonly int[] ViewportItems1;
+    /// <summary> Upscaled viewport item layer pixel data. </summary>
+    private readonly int[] ViewportItemsX;
+    /// <summary> Upscaled viewport item layer image. </summary>
+    private readonly Bitmap ViewportItemsImage;
 
-    private readonly int[] PixelsBackgroundMap1;
-    private readonly int[] PixelsBackgroundMapX;
-    private readonly Bitmap BackgroundMap;
+    /// <summary> Upscaled map item layer pixel data with reticle. </summary>
+    private readonly int[] MapItemsReticleX;
+    /// <summary> Upscaled map item layer image with reticle. </summary>
+    private readonly Bitmap MapItemsReticleImage;
+
+    /// <summary> 1px scale viewport terrain layer pixel data. </summary>
+    private readonly int[] ViewportTerrain1;
+    /// <summary> Upscaled viewport terrain layer pixel data. </summary>
+    private readonly int[] ViewportTerrainX;
+    /// <summary> Upscaled viewport terrain layer image. </summary>
+    private readonly Bitmap ViewportTerrainImage;
+
+    /// <summary> 1px scale map terrain layer pixel data. </summary>
+    private readonly int[] MapTerrain1;
+    /// <summary> Upscaled map terrain layer pixel data. </summary>
+    private readonly int[] MapTerrainX;
+    /// <summary> Upscaled map terrain layer image. </summary>
+    private readonly Bitmap MapTerrainImage;
 
     public MapRenderer(MapEditor m)
     {
         Map = m;
 
+        // Initialize cached objects based on map size
+        // Get tile info from layer 0 (item layer is the tiniest cell we can render)
         var l1 = m.Mutator.Manager.FieldItems.Layer0;
         var info = l1.TileInfo;
-        PixelsItemAcre1 = new int[info.ViewWidth * info.ViewHeight];
-        PixelsItemAcreX = new int[PixelsItemAcre1.Length * ViewScale * ViewScale];
-        ScaleAcre = new Bitmap(info.ViewWidth * ViewScale, info.ViewHeight * ViewScale);
 
-        PixelsItemMap = new int[info.TotalWidth * info.TotalHeight * MapScale * MapScale];
-        MapReticle = new Bitmap(info.TotalWidth * MapScale, info.TotalHeight * MapScale);
+        MapItemsReticleX = new int[info.TotalWidth * info.TotalHeight * MapScale * MapScale];
+        MapItemsReticleImage = new Bitmap(info.TotalWidth * MapScale, info.TotalHeight * MapScale);
 
-        PixelsBackgroundAcre1 = new int[PixelsItemAcre1.Length];
-        PixelsBackgroundAcreX = new int[PixelsItemAcreX.Length];
-        BackgroundAcre = new Bitmap(ScaleAcre.Width, ScaleAcre.Height);
+        MapTerrain1 = new int[MapItemsReticleX.Length / (MapScale * MapScale)];
+        MapTerrainX = new int[MapItemsReticleX.Length];
+        MapTerrainImage = new Bitmap(MapItemsReticleImage.Width, MapItemsReticleImage.Height);
 
-        PixelsBackgroundMap1 = new int[PixelsItemMap.Length / (MapScale * MapScale)];
-        PixelsBackgroundMapX = new int[PixelsItemMap.Length];
-        BackgroundMap = new Bitmap(MapReticle.Width, MapReticle.Height);
+        ViewportItems1 = new int[info.ViewWidth * info.ViewHeight];
+        ViewportItemsX = new int[ViewportItems1.Length * ViewScale * ViewScale];
+        ViewportItemsImage = new Bitmap(info.ViewWidth * ViewScale, info.ViewHeight * ViewScale);
+
+        ViewportTerrain1 = new int[ViewportItems1.Length];
+        ViewportTerrainX = new int[ViewportItemsX.Length];
+        ViewportTerrainImage = new Bitmap(ViewportItemsImage.Width, ViewportItemsImage.Height);
     }
 
     public void Dispose()
     {
-        ScaleAcre.Dispose();
-        MapReticle.Dispose();
-        BackgroundAcre.Dispose();
-        BackgroundMap.Dispose();
+        MapItemsReticleImage.Dispose();
+        MapTerrainImage.Dispose();
+
+        ViewportItemsImage.Dispose();
+        ViewportTerrainImage.Dispose();
     }
 
-    public Bitmap GetLayerAcre(int t) => GetLayerAcre(Map.Mutator.View.X, Map.Mutator.View.Y, t);
-    public Bitmap GetMapWithReticle(int t) => GetMapWithReticle(Map.Mutator.View.X, Map.Mutator.View.Y, t, Map.Mutator.CurrentLayer);
+    /// <summary>
+    /// Updates the map items reticle bitmap for the current layer and view position.
+    /// </summary>
+    /// <param name="transparency">Transparency of items (not including reticle).</param>
+    /// <param name="drawReticle">Option to draw the reticle.</param>
+    /// <returns>Updated bitmap with reticle.</returns>
+    public Bitmap UpdateMapItemsReticle(int transparency, bool drawReticle = true)
+        => UpdateMapItemsReticle(Map.Mutator.CurrentLayer, Map.Mutator.View.X, Map.Mutator.View.Y, transparency, drawReticle);
 
-    public Bitmap GetBackgroundTerrain(int index = -1)
+    /// <summary>
+    /// Updates the map terrain bitmap.
+    /// </summary>
+    /// <param name="selectedBuildingIndex">Index of building to highlight, or -1 for none.</param>
+    /// <returns>Updated map terrain bitmap.</returns>
+    public Bitmap UpdateMapTerrain(int selectedBuildingIndex = -1)
+        => TerrainSprite.GetMapWithBuildings(MapTerrainImage, Map, null, MapTerrain1, MapTerrainX, selectedBuildingIndex);
+
+    /// <summary>
+    /// Updates the viewport items bitmap for the current layer and view position.
+    /// </summary>
+    /// <param name="transparency">Transparency of items.</param>
+    public Bitmap UpdateViewportItems(int transparency)
+        => UpdateViewportItems(Map.Mutator.View.X, Map.Mutator.View.Y, transparency);
+
+    /// <summary>
+    /// Updates the viewport terrain bitmap.
+    /// </summary>
+    /// <param name="f">Font to use for building labels.</param>
+    /// <param name="transparencyBuilding">Transparency for building shapes drawn on terrain.</param>
+    /// <param name="transparencyTerrain">Transparency for terrain layer.</param>
+    /// <param name="selectedBuildingIndex">Index of building to highlight, or -1 for none.</param>
+    /// <returns></returns>
+    public Bitmap UpdateViewportTerrain(Font f, byte transparencyBuilding, byte transparencyTerrain, int selectedBuildingIndex = -1)
     {
-        return TerrainSprite.GetMapWithBuildings(Map, null, PixelsBackgroundMap1, PixelsBackgroundMapX, BackgroundMap, index);
+        TerrainSprite.LoadViewport(ViewportTerrainImage, Map, f, ViewportTerrain1, ViewportTerrainX, selectedBuildingIndex, transparencyBuilding, transparencyTerrain);
+        return ViewportTerrainImage;
     }
 
-    public Bitmap GetInflatedImage(Bitmap regular)
+    private Bitmap UpdateMapItemsReticle(LayerFieldItem layer, int absX, int absY, int transparency, bool drawReticle = true)
     {
-        // Insert 1 acre on each side
-        int columnWidth = (regular.Width / FieldItemWidthOld);
-        var newWidth = columnWidth * FieldItemWidthNew;
-        var bmp = new Bitmap(newWidth, regular.Height);
-        using var g = Graphics.FromImage(bmp);
-
-        // Fill with blue
-        // g.Clear(Color.FromArgb(100, 149, 237));
-
-        // Draw regular centered to new bitmap
-        g.DrawImage(regular, columnWidth, 0, regular.Width, regular.Height);
-
-        return bmp;
+        var cfg = Map.Mutator.Manager.ConfigItems;
+        ItemLayerSprite.LoadItemLayerDrawReticle(cfg, layer, MapItemsReticleX, transparency);
+        MapItemsReticleImage.SetBitmapData(MapItemsReticleX);
+        if (drawReticle)
+            ItemLayerSprite.DrawViewReticle(MapItemsReticleImage, layer.TileInfo, absX, absY);
+        return MapItemsReticleImage;
     }
 
-    private Bitmap GetLayerAcre(int topX, int topY, int transparency)
+    private Bitmap UpdateViewportItems(int absX, int absY, int transparency)
     {
+        var cfg = Map.Mutator.Manager.ConfigItems;
         var layer = Map.Mutator.CurrentLayer;
-        ItemLayerSprite.LoadItemLayerViewGrid(ScaleAcre, layer, topX, topY, PixelsItemAcre1, PixelsItemAcreX, ViewScale, transparency);
-        return ScaleAcre;
-    }
-
-    public Bitmap GetBackgroundAcre(Font f, byte transparencyBuilding, byte transparencyTerrain, int index = -1)
-    {
-        TerrainSprite.LoadViewport(BackgroundAcre, Map, f, PixelsBackgroundAcre1, PixelsBackgroundAcreX, index, transparencyBuilding, transparencyTerrain);
-        return BackgroundAcre;
-    }
-
-    private Bitmap GetMapWithReticle(int topX, int topY, int t, LayerFieldItem layerField)
-    {
-        return ItemLayerSprite.GetBitmapItemLayer(MapReticle, layerField, topX, topY, PixelsItemMap, t);
+        ItemLayerSprite.LoadViewport(ViewportItemsImage, layer, cfg, absX, absY, ViewportItems1, ViewportItemsX, ViewScale, transparency);
+        return ViewportItemsImage;
     }
 }

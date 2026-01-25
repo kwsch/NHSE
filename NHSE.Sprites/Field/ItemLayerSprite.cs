@@ -12,42 +12,37 @@ public static class ItemLayerSprite
     private static readonly Pen Reticle = new(Color.Red);
 
     /// <summary>
-    /// Generates a bitmap representation of the provided item layer at a 1px-per-tile scale.
-    /// </summary>
-    /// <param name="layer">Item layer to render.</param>
-    public static Bitmap GetBitmapItemLayer(LayerItem layer)
-    {
-        var items = layer.Tiles;
-        var imgHeight = layer.TileInfo.TotalHeight;
-        var imgWidth = items.Length / imgHeight;
-
-        var bmpData = new int[imgWidth * imgHeight];
-        LoadBitmapLayer(items, bmpData, imgWidth, imgHeight);
-
-        return ImageUtil.GetBitmap(bmpData, imgWidth, imgHeight);
-    }
-
-    /// <summary>
     /// Populates a bitmap data buffer with color values derived from a collection of items, arranging the colors in column-major order based on the specified width and height.
     /// </summary>
     /// <remarks>
-    /// Each item's color is determined using FieldItemColor.GetItemColor and stored in ARGB format.
+    /// Each item's color is determined using <see cref="FieldItemColor.GetItemColor"/> and stored in ARGB format.
     /// Colors are written to bmpData in column-major order, where each column is filled from top to bottom.
     /// </remarks>
     /// <param name="items">List of items from which color values are extracted. The span must contain at least width × height elements.</param>
     /// <param name="bmpData">Pixel data for the bitmap. The span must have a length of at least width × height.</param>
+    /// <param name="cfg">Configuration for layer positioning.</param>
     /// <param name="imgWidth">The number of columns in the bitmap. Must be greater than zero.</param>
     /// <param name="imgHeight">The number of rows in the bitmap. Must be greater than zero.</param>
-    private static void LoadBitmapLayer(ReadOnlySpan<Item> items, Span<int> bmpData, int imgWidth, int imgHeight)
+    private static void LoadBitmapLayer(ReadOnlySpan<Item> items, Span<int> bmpData, in LayerPositionConfig cfg, int imgWidth, int imgHeight)
     {
+        var (shiftX, shiftY) = cfg.GetCoordinatesAbsolute(0, 0);
+
+        // Iterate through the relative positions within the layer.
+        // Then, map to absolute positions in the bitmap with the configured shift.
         for (int x = 0; x < imgWidth; x++)
         {
             var ix = x * imgHeight;
             for (int y = 0; y < imgHeight; y++)
             {
+                // Get the tile at this position.
                 var index = ix + y;
                 var tile = items[index];
-                bmpData[(y * imgWidth) + x] = FieldItemColor.GetItemColor(tile).ToArgb();
+
+                // Get the actual shifted position in the bitmap.
+                var offset = ((y + shiftY) * imgWidth) + (x + shiftX);
+
+                // Write the color to the bitmap data.
+                bmpData[offset] = FieldItemColor.GetItemColor(tile).ToArgb();
             }
         }
     }
@@ -55,62 +50,69 @@ public static class ItemLayerSprite
     /// <summary>
     /// Loads an item layer into a bitmap, scaling it up to the desired size, drawing special symbols, and overlaying a grid.
     /// </summary>
-    /// <param name="img">Inflated acre bitmap to write to.</param>
+    /// <param name="imgScaled">Inflated acre bitmap to write to.</param>
     /// <param name="layer">Item layer to draw from.</param>
-    /// <param name="relX">Top-left X coordinate to start drawing from, relative to the origin of the layer (not map coordinates).</param>
-    /// <param name="relY">Top-left Y coordinate to start drawing from.</param>
+    /// <param name="cfg">Configuration for layer positioning.</param>
+    /// <param name="absX">Top-left X coordinate to start drawing from, relative to the origin of the map.</param>
+    /// <param name="absY">Top-left Y coordinate to start drawing from.</param>
     /// <param name="imgSingle">Pixel data for 1px per tile image.</param>
     /// <param name="imgUpscaled">>Pixel data for final inflated image.</param>
     /// <param name="imgScale">Scaling factor from 1px => final image dimensions.</param>
     /// <param name="transparency">Optional transparency override color.</param>
     /// <param name="gridlineColor">Color to use for gridlines.</param>
-    public static void LoadItemLayerViewGrid(Bitmap img, LayerItem layer, int relX, int relY,
+    public static void LoadViewport(Bitmap imgScaled, LayerItem layer, in LayerPositionConfig cfg, int absX, int absY,
         Span<int> imgSingle, Span<int> imgUpscaled, int imgScale, int transparency = -1, int gridlineColor = 0)
     {
         // Update the 1px view-grid image pixel data.
-        LoadViewport(imgSingle, layer, relX, relY);
+        LoadViewport(layer, cfg, imgSingle, absX, absY);
 
         // Get the final inflated size of the image.
-        int imgWidth = layer.TileInfo.ViewWidth;
-        int h = layer.TileInfo.ViewHeight;
-        imgWidth *= imgScale;
-        h *= imgScale;
+        var imgWidth = imgScaled.Width;
+        var imgHeight = imgScaled.Height;
         // Inflate to the final size storage.
-        ImageUtil.ScalePixelImage(imgSingle, imgUpscaled, imgWidth, h, imgScale);
+        ImageUtil.ScalePixelImage(imgSingle, imgUpscaled, imgWidth, imgHeight, imgScale);
 
         // Optional transparency clamping to make image fainter.
         if (transparency >>> 24 != 0xFF)
             ImageUtil.ClampAllTransparencyTo(imgUpscaled, transparency);
 
         // Draw symbols over special items now?
-        DrawDirectionals(imgUpscaled, layer, relX, relY, imgWidth, imgScale);
+        DrawDirectionals(layer, cfg, imgUpscaled, absX, absY, imgWidth, imgScale);
 
         // Apply gridlines to visually separate each cell.
-        DrawGrid(imgUpscaled, imgWidth, h, gridlineColor, imgScale);
+        DrawGrid(imgUpscaled, imgWidth, imgHeight, gridlineColor, imgScale);
 
         // Update the bitmap, final data.
-        img.SetBitmapData(imgUpscaled);
+        imgScaled.SetBitmapData(imgUpscaled);
     }
 
     /// <summary>
     /// Loads pixel data from the specified layer into the provided span, using the given starting coordinates and the layer's view dimensions.
     /// </summary>
-    /// <param name="data">Pixel data of the final image.</param>
     /// <param name="layer">The layer from which to load pixel data.</param>
-    /// <param name="relX">The x-coordinate of the upper-left corner in the layer from which to start loading pixels.</param>
-    /// <param name="relY">The y-coordinate of the upper-left corner in the layer from which to start loading pixels.</param>
-    private static void LoadViewport(Span<int> data, LayerItem layer, int relX, int relY)
+    /// <param name="cfg">Configuration for layer positioning.</param>
+    /// <param name="data">Pixel data of the final image.</param>
+    /// <param name="absX">The x-coordinate of the upper-left corner in the map from which to start loading pixels.</param>
+    /// <param name="absY">The y-coordinate of the upper-left corner in the map from which to start loading pixels.</param>
+    private static void LoadViewport(LayerItem layer, in LayerPositionConfig cfg, Span<int> data, int absX, int absY)
     {
         var width = layer.TileInfo.ViewWidth;
         var height = layer.TileInfo.ViewHeight;
+
+        var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
 
         for (int y = 0; y < height; y++)
         {
             var baseIndex = (y * width);
             for (int x = 0; x < width; x++)
             {
-                var tile = layer.GetTile(relX + x, relY + y);
+                var tileX = relX + x;
+                var tileY = relY + y;
+                if (!cfg.IsCoordinateValidRelative(tileX, tileY))
+                    continue;
+                var tile = layer.GetTile(tileX, tileY);
                 var color = FieldItemColor.GetItemColor(tile).ToArgb();
+
                 var index = baseIndex + x;
                 data[index] = color;
             }
@@ -120,34 +122,41 @@ public static class ItemLayerSprite
     /// <summary>
     /// Draws extension tile info for the tiles in the specified layer onto the provided pixel data.
     /// </summary>
-    /// <param name="data">Pixel data of the entire image.</param>
     /// <param name="layer">The layer containing the tiles to process.</param>
-    /// <param name="relX">Top-left X coordinate to start drawing from, relative to the origin of the layer (not map coordinates).</param>
-    /// <param name="relY">Top-left Y coordinate to start drawing from.</param>
+    /// <param name="cfg">Configuration for layer positioning.</param>
+    /// <param name="data">Pixel data of the entire image.</param>
+    /// <param name="absX">Top-left X coordinate to start drawing from, relative to the origin of the map.</param>
+    /// <param name="absY">Top-left Y coordinate to start drawing from.</param>
     /// <param name="imgWidth">Width of the entire image.</param>
     /// <param name="imgScale">Scaling factor from 1px => final image dimensions.</param>
-    private static void DrawDirectionals(Span<int> data, LayerItem layer, int relX, int relY, int imgWidth, int imgScale)
+    private static void DrawDirectionals(LayerItem layer, in LayerPositionConfig cfg,
+        Span<int> data,
+        int absX, int absY, int imgWidth, int imgScale)
     {
         var width = layer.TileInfo.ViewWidth;
         var height = layer.TileInfo.ViewHeight;
 
-        for (int x = 0; x < width; x++)
+        var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
+
+        for (int viewX = 0; viewX < width; viewX++)
         {
-            for (int y = 0; y < height; y++)
+            for (int viewY = 0; viewY < height; viewY++)
             {
-                var pX = relX + x;
-                var pY = relY + y;
+                var pX = relX + viewX;
+                var pY = relY + viewY;
+                if (!cfg.IsCoordinateValidRelative(pX, pY))
+                    continue;
                 var tile = layer.GetTile(pX, pY);
                 if (tile.IsNone)
                     continue;
 
                 // Apply cosmetic details based on the tile's details.
                 if (tile.IsBuried)
-                    DrawX(data, relX * imgScale, relY * imgScale, imgScale, imgWidth);
+                    DrawX(data, viewX * imgScale, viewY * imgScale, imgScale, imgWidth);
                 else if (tile.IsDropped)
-                    DrawPlus(data, relX * imgScale, relY * imgScale, imgScale, imgWidth);
+                    DrawPlus(data, viewX * imgScale, viewY * imgScale, imgScale, imgWidth);
                 else if (tile.IsExtension)
-                    DrawDirectional(data, tile, relX * imgScale, relY * imgScale, imgScale, imgWidth);
+                    DrawDirectional(data, tile, viewX * imgScale, viewY * imgScale, imgScale, imgWidth);
 
                 // Based on the display item, apply details.
                 var id = tile.DisplayItemId;
@@ -159,7 +168,7 @@ public static class ItemLayerSprite
                     var geneValue = (genes >> (geneIndex * 2)) & 3;
                     if (geneValue == 0)
                         continue;
-                    DrawGene(data, relX * imgScale, relY * imgScale, imgScale, imgWidth, geneValue, geneIndex);
+                    DrawGene(data, absX * imgScale, absY * imgScale, imgScale, imgWidth, geneValue, geneIndex);
                 }
             }
         }
@@ -172,8 +181,13 @@ public static class ItemLayerSprite
     {
         if (tile.IsRoot)
             return 0;
-        var geneIndex = (tile.ExtensionY << 1) | tile.ExtensionX;
-        tile = layer.GetTile(relX - tile.ExtensionX, relY - tile.ExtensionY);
+
+        // Sanity check: can only extend by 1 in either direction, and must extend in same direction as relative position.
+        // Ignore bad extension values; we know the gene index from position alone.
+        var eX = relX & 1;
+        var eY = relY & 1;
+        var geneIndex = (eY << 1) | eX;
+        tile = layer.GetTile(relX - eX, relY - eY);
         return geneIndex;
     }
 
@@ -181,35 +195,35 @@ public static class ItemLayerSprite
     /// Draws a flower gene on the item cell.
     /// </summary>
     /// <param name="data">Pixel data of the entire image.</param>
-    /// <param name="x0">Top-left X coordinate to start drawing from.</param>
-    /// <param name="y0">Top-left Y coordinate to start drawing from.</param>
+    /// <param name="viewX">Top-left X coordinate to start drawing from.</param>
+    /// <param name="viewY">Top-left Y coordinate to start drawing from.</param>
     /// <param name="imgScale">Scale of the entire cell.</param>
     /// <param name="imgWidth">Width of the entire image.</param>
     /// <param name="geneValue">Value of the gene (0-3).</param>
     /// <param name="geneIndex">0-3 value indicating which gene (quadrant) to draw.</param>
-    private static void DrawGene(Span<int> data, int x0, int y0, int imgScale, int imgWidth, uint geneValue, int geneIndex)
+    private static void DrawGene(Span<int> data, int viewX, int viewY, int imgScale, int imgWidth, uint geneValue, int geneIndex)
     {
-        var c = ShiftToGeneCoordinate(ref x0, ref y0, imgScale, geneIndex);
-        FillSquare(data, x0, y0, imgScale / 2, imgWidth, c, geneValue == 3 ? 1 : 2);
+        var c = ShiftToGeneCoordinate(ref viewX, ref viewY, imgScale, geneIndex);
+        FillSquare(data, viewX, viewY, imgScale / 2, imgWidth, c, geneValue == 3 ? 1 : 2);
     }
 
     /// <summary>
-    /// Fills a square region within a one-dimensional span with the specified color value, using a given increment to  control the fill step.
+    /// Fills a square region within a one-dimensional span with the specified color value, using a given increment to control the fill step.
     /// </summary>
     /// <remarks>This method assumes that the specified region fits within the bounds of the provided span.
     /// No bounds checking is performed.
     /// The increment parameter can be used to fill a subset with the square's elements, which may be useful for performance or pattern effects.
     /// </remarks>
     /// <param name="data">The span representing the target buffer to fill. Each element corresponds to a pixel or cell in a row-major order grid.</param>
-    /// <param name="x0">Top-left X coordinate to start drawing from.</param>
-    /// <param name="y0">Top-left Y coordinate to start drawing from.</param>
+    /// <param name="viewX">Top-left X coordinate to start drawing from.</param>
+    /// <param name="viewY">Top-left Y coordinate to start drawing from.</param>
     /// <param name="imgScale">Scale of the entire cell.</param>
     /// <param name="imgWidth">Width of the entire image.</param>
     /// <param name="color">The color value to assign to each filled element in the square region.</param>
     /// <param name="increment">The step size to use when filling elements. Must be positive. A larger increment skips more elements within the square.</param>
-    private static void FillSquare(Span<int> data, int x0, int y0, int imgScale, int imgWidth, int color, int increment)
+    private static void FillSquare(Span<int> data, int viewX, int viewY, int imgScale, int imgWidth, int color, int increment)
     {
-        var baseIndex = (y0 * imgWidth) + x0;
+        var baseIndex = (viewY * imgWidth) + viewX;
         for (int i = 0; i < imgScale * imgScale; i += increment)
         {
             var x = i % imgScale;
@@ -226,24 +240,24 @@ public static class ItemLayerSprite
     /// The method modifies the input coordinates in place according to the specified gene region.
     /// The returned color value corresponds to the region: Red for bottom right, Yellow for bottom left, AntiqueWhite  for top right, and Black for top left or any other index.
     /// </remarks>
-    /// <param name="x0">Top-left X coordinate to start drawing from.</param>
-    /// <param name="y0">Top-left Y coordinate to start drawing from.</param>
+    /// <param name="absX">Top-left X coordinate to start drawing from.</param>
+    /// <param name="absY">Top-left Y coordinate to start drawing from.</param>
     /// <param name="imgScale">Scale of the entire cell.</param>
     /// <param name="geneIndex">The index of the gene region to shift to. Valid values are 0 (bottom right), 1 (bottom left), 2 (top right), and any other value for top left.</param>
     /// <returns>An integer representing the ARGB color value associated with the specified gene region.</returns>
-    private static int ShiftToGeneCoordinate(ref int x0, ref int y0, int imgScale, int geneIndex)
+    private static int ShiftToGeneCoordinate(ref int absX, ref int absY, int imgScale, int geneIndex)
     {
         switch (geneIndex)
         {
             case 0: // bottom right
-                x0 += imgScale / 2;
-                y0 += imgScale / 2;
+                absX += imgScale / 2;
+                absY += imgScale / 2;
                 return Color.Red.ToArgb();
             case 1: // bottom left
-                y0 += imgScale / 2;
+                absY += imgScale / 2;
                 return Color.Yellow.ToArgb();
             case 2: // top right
-                x0 += imgScale / 2;
+                absX += imgScale / 2;
                 return Color.AntiqueWhite.ToArgb();
             default: // top left
                 return Color.Black.ToArgb();
@@ -254,13 +268,13 @@ public static class ItemLayerSprite
     /// Updates the pixel data to draw a `+`, indicating the item as "dropped".
     /// </summary>
     /// <param name="data">Pixel data of the entire image.</param>
-    /// <param name="x0">Top-left X coordinate to start drawing from.</param>
-    /// <param name="y0">Top-left Y coordinate to start drawing from.</param>
+    /// <param name="viewX">Top-left X coordinate to start drawing from.</param>
+    /// <param name="viewY">Top-left Y coordinate to start drawing from.</param>
     /// <param name="imgScale">Scaling factor from 1px => final image dimensions.</param>
     /// <param name="imgWidth">Width of the entire image.</param>
-    private static void DrawPlus(Span<int> data, int x0, int y0, int imgScale, int imgWidth)
+    private static void DrawPlus(Span<int> data, int viewX, int viewY, int imgScale, int imgWidth)
     {
-        var x0y0 = (imgWidth * y0) + x0;
+        var x0y0 = (imgWidth * viewY) + viewX;
         var s2 = imgScale / 2;
         var ws2 = imgWidth * s2;
 
@@ -280,17 +294,17 @@ public static class ItemLayerSprite
     /// Updates the pixel data to draw an `X`, indicating the item as "buried".
     /// </summary>
     /// <param name="data">Pixel data of the entire image.</param>
-    /// <param name="x0">Top-left X coordinate to start drawing from.</param>
-    /// <param name="y0">Top-left Y coordinate to start drawing from.</param>
+    /// <param name="viewX">Top-left X coordinate to start drawing from.</param>
+    /// <param name="viewY">Top-left Y coordinate to start drawing from.</param>
     /// <param name="imgScale">Scaling factor from 1px => final image dimensions.</param>
     /// <param name="imgWidth">Width of the entire image.</param>
-    private static void DrawX(Span<int> data, int x0, int y0, int imgScale, int imgWidth)
+    private static void DrawX(Span<int> data, int viewX, int viewY, int imgScale, int imgWidth)
     {
         var opposite = imgScale - 1;
         var wo = imgWidth * opposite;
 
         // Starting offsets for each of the slashes
-        var bBackward = (imgWidth * y0) + x0; // Backwards \
+        var bBackward = (imgWidth * viewY) + viewX; // Backwards \
         var bForward = bBackward + wo; //  Forwards /
 
         for (int x = 0; x < imgScale; x++)
@@ -308,11 +322,11 @@ public static class ItemLayerSprite
     /// </summary>
     /// <param name="data">Pixel data of the entire image.</param>
     /// <param name="tile">Extension tile data.</param>
-    /// <param name="x0">Top-left X coordinate to start drawing from.</param>
-    /// <param name="y0">Top-left Y coordinate to start drawing from.</param>
+    /// <param name="viewX">Top-left X coordinate to start drawing from.</param>
+    /// <param name="viewY">Top-left Y coordinate to start drawing from.</param>
     /// <param name="imgScale">Scaling factor from 1px => final image dimensions.</param>
     /// <param name="imgWidth">Width of the entire image.</param>
-    private static void DrawDirectional(Span<int> data, Item tile, int x0, int y0, int imgScale, int imgWidth)
+    private static void DrawDirectional(Span<int> data, Item tile, int viewX, int viewY, int imgScale, int imgWidth)
     {
         var eX = tile.ExtensionX;
         var eY = tile.ExtensionY;
@@ -323,10 +337,12 @@ public static class ItemLayerSprite
         var startX = eX >= eY ? 0 : start;
         var startY = eX <= eY ? 0 : start;
 
-        var baseIndex = (imgWidth * y0) + x0;
+        var baseIndex = (imgWidth * viewY) + viewX;
         for (int x = startX, y = startY; x < imgScale && y < imgScale; x += eX, y += eY)
         {
             var index = baseIndex + (imgWidth * y) + x;
+            if (index >= data.Length) // Since we can't guarantee valid extension values, just skip bad ones.
+                continue;
             data[index] ^= 0x00_808080;
         }
     }
@@ -364,26 +380,25 @@ public static class ItemLayerSprite
         }
     }
 
-    public static Bitmap GetBitmapItemLayer(Bitmap dest, LayerItem layer, int topX, int topY, Span<int> data, int transparency = -1)
+    /// <summary>
+    /// Loads an item layer into a viewport bitmap, drawing a view reticle over it.
+    /// </summary>
+    /// <param name="cfg">Configuration for layer positioning.</param>
+    /// <param name="layer">Item layer to draw from.</param>
+    /// <param name="data">Pixel data of the final image.</param>
+    /// <param name="transparency">Optional transparency override color.</param>
+    public static void LoadItemLayerDrawReticle(LayerPositionConfig cfg, LayerItem layer, Span<int> data, int transparency = -1)
     {
-        LoadBitmapLayer(layer.Tiles, data, layer.TileInfo.TotalWidth, layer.TileInfo.TotalHeight);
+        LoadBitmapLayer(layer.Tiles, data, cfg, layer.TileInfo.TotalWidth, layer.TileInfo.TotalHeight);
         if (transparency >>> 24 != 0xFF)
             ImageUtil.ClampAllTransparencyTo(data, transparency);
-        dest.SetBitmapData(data);
-        return DrawViewReticle(dest, layer.TileInfo, topX, topY);
     }
 
-    private static Bitmap DrawViewReticle(Bitmap map, TileGridViewport g, int topX, int topY, int scale = 1)
+    public static void DrawViewReticle(Bitmap map, TileGridViewport g, int absX, int absY, int scale = 1)
     {
         using var gfx = Graphics.FromImage(map);
-        gfx.DrawViewReticle(g, topX, topY, scale);
-        return map;
-    }
-
-    private static void DrawViewReticle(this Graphics gfx, TileGridViewport g, int topX, int topY, int scale)
-    {
-        int w = g.ViewWidth * scale;
-        int h = g.ViewHeight * scale;
-        gfx.DrawRectangle(Reticle, topX * scale, topY * scale, w, h);
+        var reticleWidth = g.ViewWidth * scale;
+        var reticleHeight = g.ViewHeight * scale;
+        gfx.DrawRectangle(Reticle, absX * scale, absY * scale, reticleWidth, reticleHeight);
     }
 }

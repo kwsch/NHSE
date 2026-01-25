@@ -169,7 +169,10 @@ public partial class PlayerHouseEditor : Form
         Span<int> scale1 = stackalloc int[w * h];
         var scaleX = new int[scale * scale * scale1.Length];
         var bmp = new Bitmap(scale * w, scale * h);
-        ItemLayerSprite.LoadItemLayerViewGrid(bmp, layer, 0, 0, scale1, scaleX, scale, gridlineColor: 0x7F000000);
+
+        // 10x10 items (2x2 tiles per item)
+        var cfg = LayerPositionConfig.Create(1, 1, 20, 1);
+        ItemLayerSprite.LoadViewport(bmp, layer, cfg, 0, 0, scale1, scaleX, scale, gridlineColor: 0x7F000000);
         PB_Room.Image = bmp;
     }
 

@@ -1395,6 +1395,7 @@
             CB_Acre.Name = "CB_Acre";
             CB_Acre.Size = new System.Drawing.Size(56, 25);
             CB_Acre.TabIndex = 100;
+            CB_Acre.SelectedIndexChanged += ChangeAcre;
             // 
             // FieldItemEditor
             // 

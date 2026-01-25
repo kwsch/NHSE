@@ -110,7 +110,7 @@ public sealed record FieldItemDropper(int AcreWidth, int AcreHeight = 6)
         return Item.SetArray(col);
     }
 
-    private int GetTileOffset(int x, int y) => Item.SIZE * (y + (x * MapHeight));
+    private int GetTileOffset(int relX, int relY) => Item.SIZE * (relY + (relX * MapHeight));
 
     private static Item GetDroppedItem(Item item)
     {
