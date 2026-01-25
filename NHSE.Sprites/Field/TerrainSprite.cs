@@ -18,6 +18,10 @@ public static class TerrainSprite
     private static readonly Color PlazaColor = Color.RosyBrown;
     private static readonly StringFormat BuildingTextFormat = new() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
 
+    public const int ColorOcean = unchecked((int)0xFF80D7C3);
+    private const int ColorGrid1 = unchecked((int)0xFF888888u); // lighter
+    private const int ColorGrid2 = unchecked((int)0xFF666666u); // darker
+
     // 6x5 in a 16x16 acre scale. Since we are in 32x32 scale for items, our upscale is "double".
     // Tiles are always rendered as 16x16 squares, to match the precomputed tile appearance bitmaps.
     private const int TileScale = 16;
@@ -28,34 +32,26 @@ public static class TerrainSprite
     private const int PlazaWidth = 6 * Scale;
     private const int PlazaHeight = 5 * Scale;
 
-    public static void GenerateMap(Bitmap map, MapMutator mut, Span<int> scale1, Span<int> scaleX, int imgScale, int acreIndex = -1)
+    public static void GenerateMap(Bitmap map, MapMutator mut, Span<int> scale1, Span<int> scaleX, int imgScale)
     {
         // Load the terrain pixels, then upscale.
         var mgr = mut.Manager.LayerTerrain;
-        LoadTerrainPixels(mgr, scale1);
+        LoadTerrainPixels(mgr, mut.Manager.ConfigTerrain, scale1);
         ImageUtil.ScalePixelImage(scale1, scaleX, map.Width, map.Height, imgScale);
         map.SetBitmapData(scaleX);
-
-        if (acreIndex < 0)
-          return;
-
-        var acre = AcreCoordinate.Acres[acreIndex];
-        var x = acre.X * mgr.TileInfo.ViewWidth;
-        var y = acre.Y * mgr.TileInfo.ViewHeight;
-        
-        DrawReticle(map, mgr.TileInfo, x, y, imgScale);
     }
 
     public static Bitmap GetMapWithBuildings(Bitmap map, MapEditor m, Font? f,
         Span<int> scale1, Span<int> scaleX,
         int buildingIndex = -1)
     {
-        GenerateMap(map, m.Mutator, scale1, scaleX, m.MapScale);
+        var imgScale = m.MapScale * 2; // because terrain is 16px per tile, items are 32px per tile
+        GenerateMap(map, m.Mutator, scale1, scaleX, imgScale);
         using var gfx = Graphics.FromImage(map);
 
         var plaza = m.Mutator.Manager.Plaza;
-        gfx.DrawPlaza(m, (ushort)plaza.X, (ushort)plaza.Z, m.MapScale);
-        gfx.DrawBuildings(m, m.Buildings.Buildings, m.MapScale, f, buildingIndex);
+        gfx.DrawPlaza(m, (ushort)plaza.X, (ushort)plaza.Z, imgScale);
+        gfx.DrawBuildings(m.Buildings.Buildings, imgScale, f, buildingIndex);
         return map;
     }
 
@@ -81,10 +77,8 @@ public static class TerrainSprite
         img.GetBitmapData(scaleX);
 
         // Apply Grid
-        const int grid1 = unchecked((int)0xFF888888u); // lighter
-        const int grid2 = unchecked((int)0xFF666666u); // darker
-        ItemLayerSprite.DrawGrid(scaleX, img.Width, img.Height, grid1, m.ViewScale); // minor
-        ItemLayerSprite.DrawGrid(scaleX, img.Width, img.Height, grid2, m.ViewScale * 2); // major
+        ItemLayerSprite.DrawGrid(scaleX, img.Width, img.Height, ColorGrid1, m.ViewScale); // minor
+        ItemLayerSprite.DrawGrid(scaleX, img.Width, img.Height, ColorGrid2, m.ViewScale * 2); // major
 
         // Switch back to graphics mode
         img.SetBitmapData(scaleX);
@@ -124,44 +118,46 @@ public static class TerrainSprite
                 var orig = ((SolidBrush)pen).Color;
                 pen = new SolidBrush(Color.FromArgb(transBuild, orig));
             }
-            gfx.DrawBuilding(b, m, pen, m.ViewScale, Text);
+            gfx.DrawBuilding(b, pen, m.ViewScale, Text);
         }
     }
 
-    private static void LoadTerrainPixels(LayerTerrain mgr, Span<int> pixels)
+    private static void LoadTerrainPixels(LayerTerrain mgr, LayerPositionConfig cfg, Span<int> pixels)
     {
+        var (shiftX, shiftY) = cfg.GetCoordinatesAbsolute(0, 0);
+
+        // Iterate through the relative positions within the layer.
+        // Then, map to absolute positions in the bitmap with the configured shift.
+        var width = cfg.LayerTotalWidth;
+        var height = cfg.LayerTotalHeight;
+        var mapWidth = cfg.MapTotalWidth; // 1px scale
+
         // Populate the image, with each pixel being a single tile.
-        var width = mgr.TileInfo.TotalWidth;
-        var height = mgr.TileInfo.TotalHeight;
-        var i = 0;
+        // Only need to render the layer's width/height, as the rest is ocean/unable to be changed.
         for (int y = 0; y < height; y++)
         {
-            for (int x = 0; x < width; x++, i++)
-                pixels[i] = mgr.GetTileColor(x, y, x, y);
+            var absY = y + shiftY;
+            for (int x = 0; x < width; x++)
+            {
+                var absX = x + shiftX;
+                var color = mgr.GetTileColor(x, y, 0, 0);
+                var offset = (absY * mapWidth) + absX;
+                pixels[offset] = color;
+            }
         }
     }
 
-    private static void DrawReticle(Bitmap map, TileGridViewport mgr, int x, int y, int scale)
+    private static void DrawPlaza(this Graphics gfx, MapEditor map, ushort px, ushort py, int imgScale)
     {
-        using var gfx = Graphics.FromImage(map);
-        using var pen = new Pen(Color.Red);
+        var (x, y) = (px * imgScale, py * imgScale);
 
-        int w = mgr.ViewWidth * scale;
-        int h = mgr.ViewHeight * scale;
-        gfx.DrawRectangle(pen, x * scale, y * scale, w, h);
-    }
-
-    private static void DrawPlaza(this Graphics gfx, MapEditor map, ushort px, ushort py, int scale)
-    {
-        var (x, y) = map.GetViewCoordinatesBuilding(px, py);
-
-        int width = scale * PlazaWidth;
-        int height = scale * PlazaHeight;
+        int width = imgScale * PlazaWidth;
+        int height = imgScale * PlazaHeight;
 
         gfx.FillRectangle(Plaza, x, y, width, height);
     }
 
-    private static void DrawBuildings(this Graphics gfx, MapEditor map, IReadOnlyList<Building> buildings, int imgScale, Font? textFont = null, int selectedBuildingIndex = -1)
+    private static void DrawBuildings(this Graphics gfx, IReadOnlyList<Building> buildings, int imgScale, Font? textFont = null, int selectedBuildingIndex = -1)
     {
         for (int i = 0; i < buildings.Count; i++)
         {
@@ -170,13 +166,14 @@ public static class TerrainSprite
                 continue;
 
             var pen = selectedBuildingIndex == i ? Selected : Others;
-            gfx.DrawBuilding(b, map, pen, imgScale, Text, textFont);
+            gfx.DrawBuilding(b, pen, imgScale, Text, textFont);
         }
     }
 
-    private static void DrawBuilding(this Graphics gfx, Building b, MapEditor map, Brush bBrush, int imgScale, Brush textBrush, Font? textFont = null)
+    private static void DrawBuilding(this Graphics gfx, Building b, Brush bBrush,
+        int imgScale, Brush textBrush, Font? textFont = null)
     {
-        var (x, y) = map.GetViewCoordinatesBuilding(b.X, b.Y);
+        var (x, y) = (b.X * imgScale, b.Y * imgScale);
         var type = b.BuildingType;
         var (width, height) = type.GetDimensions();
 
@@ -197,12 +194,11 @@ public static class TerrainSprite
     private static void SetViewTerrainPixels(LayerTerrain t, LayerPositionConfig cfg, int relX, int relY, Span<int> data, Span<int> scaleX, int imgScale)
     {
         GetViewTerrain1(t, cfg, relX, relY, data);
-        ImageUtil.ScalePixelImage(data, scaleX, TilesPerViewport * imgScale, TilesPerViewport * imgScale, imgScale);
+        ImageUtil.ScalePixelImage(data, scaleX, TilesPerViewport * TileScale * imgScale, TilesPerViewport * TileScale * imgScale, imgScale);
     }
 
     private static void GetViewTerrain1(LayerTerrain t, LayerPositionConfig cfg, int relX, int relY, Span<int> data)
     {
-        int index = 0;
         for (int tileY = 0; tileY < TilesPerViewport; tileY++)
         {
             var actY = tileY + relY;
@@ -210,15 +206,31 @@ public static class TerrainSprite
             {
                 var actX = relX + x;
                 if (!cfg.IsCoordinateValidRelative(actX, actY))
-                    continue;
-
-                var acreTemplate = t.GetAcreTemplate(actX, actY);
-                for (int pixelY = 0; pixelY < TileScale; pixelY++)
                 {
-                    for (int pixelX = 0; pixelX < TileScale; pixelX++)
+                    // Fill tile's square with a solid color.
+                    for (int pixelY = 0; pixelY < TileScale; pixelY++)
                     {
-                        data[index] = t.GetTileColor(acreTemplate, actX, actY, pixelX, pixelY);
-                        index++;
+                        var index = (tileY * TileScale + pixelY) * (TilesPerViewport * TileScale) + x * TileScale;
+                        for (int pixelX = 0; pixelX < TileScale; pixelX++)
+                        {
+                            data[index] = ColorOcean;
+                            index++;
+                        }
+                    }
+                }
+                else
+                {
+                    // Fill tile's square from terrain data.
+                    var acreTemplate = t.GetAcreTemplate(actX, actY);
+                    var tile = t.GetTile(actX, actY);
+                    for (int pixelY = 0; pixelY < TileScale; pixelY++)
+                    {
+                        var index = (tileY * TileScale + pixelY) * (TilesPerViewport * TileScale) + x * TileScale;
+                        for (int pixelX = 0; pixelX < TileScale; pixelX++)
+                        {
+                            data[index] = t.GetTileColor(acreTemplate, tile, actX, actY, pixelX, pixelY);
+                            index++;
+                        }
                     }
                 }
             }

@@ -60,9 +60,10 @@ public sealed class MapRenderer : IDisposable
         MapItemsReticleImage = new Bitmap(mapW, mapH);
         MapItemsReticleX = new int[mapW * mapH];
 
-        MapTerrain1 = new int[MapItemsReticleX.Length / (MapScale * MapScale)];
-        MapTerrainX = new int[MapItemsReticleX.Length];
+        MapTerrain1 = new int[MapItemsReticleX.Length / (2 * 2)]; // 32px => 16px basis
+        MapTerrainX = new int[MapItemsReticleX.Length]; // 2x upscale
         MapTerrainImage = new Bitmap(MapItemsReticleImage.Width, MapItemsReticleImage.Height);
+        MapTerrain1.AsSpan().Fill(TerrainSprite.ColorOcean); // blue color for ocean
 
         // Render a single acre viewport
         var tpa = cfg.TilesPerAcre;

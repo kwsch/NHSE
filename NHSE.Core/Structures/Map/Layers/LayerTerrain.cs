@@ -140,31 +140,79 @@ public sealed record LayerTerrain : AcreSelectionGrid
         }
     }
 
-    public int GetTileColor(int x, int y, int insideX, int insideY)
+    /// <inheritdoc cref="GetTileColor(ushort,int,int,int,int)"/>
+    public int GetTileColor(int relX, int relY, int insideX, int insideY)
     {
-        var acre = GetAcreTemplate(x, y);
-        return GetTileColor(acre, x, y, insideX, insideY);
+        var acre = GetAcreTemplate(relX, relY);
+        return GetTileColor(acre, relX, relY, insideX, insideY);
     }
 
-    public int GetTileColor(ushort acre, int x, int y, int insideX, int insideY)
+    /// <summary>
+    /// Gets the base acre tile color at the specified terrain coordinates.
+    /// </summary>
+    /// <remarks>
+    /// If the acre has a predefined appearance, that is used; otherwise, the terrain-based appearance is used.
+    /// </remarks>
+    /// <param name="acre">Base acre underneath the terrain tile.</param>
+    /// <param name="relX">Relative X coordinate in terrain tiles.</param>
+    /// <param name="relY">Relative Y coordinate in terrain tiles.</param>
+    /// <param name="insideX">Inside X coordinate of the terrain tile (16px max).</param>
+    /// <param name="insideY">Inside Y coordinate of the terrain tile (16px max).</param>
+    /// <returns>ARGB color value.</returns>
+    public int GetTileColor(ushort acre, int relX, int relY, int insideX, int insideY)
     {
         if (acre != 0) // predefined appearance
         {
-            var c = AcreTileColor.GetAcreTileColor(acre, x % 16, y % 16);
+            var c = AcreTileColor.GetAcreTileColor(acre, relX % 16, relY % 16);
             if (c != -0x1000000) // transparent
                 return c;
         }
 
         // dynamic (terrain-based) appearance
-        var tile = GetTile(x, y);
+        var tile = GetTile(relX, relY);
         return TerrainTileColor.GetTileColor(tile, insideX, insideY).ToArgb();
     }
 
-    public ushort GetAcreTemplate(int terrainX, int terrainY)
+
+    /// <summary>
+    /// Gets the base acre tile color at the specified terrain coordinates.
+    /// </summary>
+    /// <remarks>
+    /// If the acre has a predefined appearance, that is used; otherwise, the terrain-based appearance is used.
+    /// </remarks>
+    /// <param name="acre">Base acre underneath the terrain tile.</param>
+    /// <param name="tile">Terrain tile to render.</param>
+    /// <param name="relX">Relative X coordinate in terrain tiles.</param>
+    /// <param name="relY">Relative Y coordinate in terrain tiles.</param>
+    /// <param name="insideX">Inside X coordinate of the terrain tile (16px max).</param>
+    /// <param name="insideY">Inside Y coordinate of the terrain tile (16px max).</param>
+    /// <returns>ARGB color value.</returns>
+    public int GetTileColor(ushort acre, TerrainTile tile, int relX, int relY, int insideX, int insideY)
+    {
+        // If acre is entirely transparent (interior acre), dynamic (terrain-based) appearance
+        if (acre == 0)
+            return TerrainTileColor.GetTileColor(tile, insideX, insideY).ToArgb();
+
+        // For beaches, a slim edge is customizable (indicative by a transparent value).
+        // Check if pre-defined appearance governs
+        var color = AcreTileColor.GetAcreTileColor(acre, relX % 16, relY % 16);
+        if (color == -0x1000000) // transparent (dynamic)
+            return TerrainTileColor.GetTileColor(tile, insideX, insideY).ToArgb();
+
+        return color; // pre-defined appearance
+    }
+
+    /// <summary>
+    /// Gets the base acre template at the specified terrain coordinates.
+    /// </summary>
+    /// <param name="relX">Relative X coordinate in terrain tiles.</param>
+    /// <param name="relY">Relative Y coordinate in terrain tiles.</param>
+    /// <returns>Base acre underneath the terrain tile.</returns>
+    public ushort GetAcreTemplate(int relX, int relY)
     {
         // Acres are 16x16 tiles, and the acre data has a 1-acre deep-sea border around it.
-        var acreX = 1 + (terrainX / 16);
-        var acreY = 1 + (terrainY / 16);
+        var acreX = 1 + (relX / 16);
+        var acreY = 1 + (relY / 16);
 
         var acreIndex = ((CountAcreWidth + 2) * acreY) + acreX;
         var ofs = acreIndex * 2;
