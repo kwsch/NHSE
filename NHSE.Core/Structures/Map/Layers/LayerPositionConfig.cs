@@ -85,19 +85,11 @@ public readonly record struct LayerPositionConfig(
     /// <returns><see langword="true"/> if the coordinates are valid; otherwise, <see langword="false"/>.</returns>
     public bool IsCoordinateValidRelative(int relX, int relY)
     {
-        var index = GetIndexTileRelative(relX, relY);
-        return (uint)index < (CountWidth * CountHeight << (TileBitShift * 2));
-    }
-
-    /// <summary>
-    /// Gets the requested tile index within the layer, given relative tile coordinates.
-    /// </summary>
-    /// <returns>The tile index within the layer.</returns>
-    public int GetIndexTileRelative(int relX, int relY)
-    {
-        // Tile ordering is top-down, left-to-right.
-        // In other words, Item[1] is X=0,Y=1
-        return (relX * (CountHeight << TileBitShift)) + relY;
+        if ((uint)relX >= CountWidth << TileBitShift)
+            return false;
+        if ((uint)relY >= CountHeight << TileBitShift)
+            return false;
+        return true;
     }
 
     public bool IsCoordinateValidAbsolute(int absX, int absY)
