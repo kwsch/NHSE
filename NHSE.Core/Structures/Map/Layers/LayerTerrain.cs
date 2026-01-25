@@ -140,25 +140,31 @@ public sealed record LayerTerrain : AcreSelectionGrid
         }
     }
 
-    public int GetTileColor(int x, int y, int relativeX, int relativeY)
+    public int GetTileColor(int x, int y, int insideX, int insideY)
     {
-        var acre = GetTileAcre(x, y);
-        if (acre != 0)
+        var acre = GetAcreTemplate(x, y);
+        return GetTileColor(acre, x, y, insideX, insideY);
+    }
+
+    public int GetTileColor(ushort acre, int x, int y, int insideX, int insideY)
+    {
+        if (acre != 0) // predefined appearance
         {
             var c = AcreTileColor.GetAcreTileColor(acre, x % 16, y % 16);
             if (c != -0x1000000) // transparent
                 return c;
         }
 
+        // dynamic (terrain-based) appearance
         var tile = GetTile(x, y);
-        return TerrainTileColor.GetTileColor(tile, relativeX, relativeY).ToArgb();
+        return TerrainTileColor.GetTileColor(tile, insideX, insideY).ToArgb();
     }
 
-    private ushort GetTileAcre(int x, int y)
+    public ushort GetAcreTemplate(int terrainX, int terrainY)
     {
         // Acres are 16x16 tiles, and the acre data has a 1-acre deep-sea border around it.
-        var acreX = 1 + (x / 16);
-        var acreY = 1 + (y / 16);
+        var acreX = 1 + (terrainX / 16);
+        var acreY = 1 + (terrainY / 16);
 
         var acreIndex = ((CountAcreWidth + 2) * acreY) + acreX;
         var ofs = acreIndex * 2;

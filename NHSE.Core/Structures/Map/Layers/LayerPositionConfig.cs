@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 
 namespace NHSE.Core;
 
@@ -66,15 +65,15 @@ public readonly record struct LayerPositionConfig(
 
     public (int X, int Y) GetCoordinatesAbsolute(int relX, int relY)
     {
-        var absX = relX - ((ShiftWidth * MetaTileSize) << TileBitShift);
-        var absY = relY - ((ShiftHeight * MetaTileSize) << TileBitShift);
+        var absX = relX + ((ShiftWidth * MetaTileSize) << TileBitShift);
+        var absY = relY + ((ShiftHeight * MetaTileSize) << TileBitShift);
         return (absX, absY);
     }
 
     public (int X, int Y) GetCoordinatesRelative(int absX, int absY)
     {
-        var relX = absX + ((ShiftWidth * MetaTileSize) << TileBitShift);
-        var relY = absY + ((ShiftHeight * MetaTileSize) << TileBitShift);
+        var relX = absX - ((ShiftWidth * MetaTileSize) << TileBitShift);
+        var relY = absY - ((ShiftHeight * MetaTileSize) << TileBitShift);
         return (relX, relY);
     }
 

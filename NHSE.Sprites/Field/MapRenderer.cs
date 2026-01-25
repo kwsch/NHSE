@@ -68,8 +68,8 @@ public sealed class MapRenderer : IDisposable
         ViewportItemsX = new int[ViewportItems1.Length * ViewScale * ViewScale];
         ViewportItemsImage = new Bitmap(info.ViewWidth * ViewScale, info.ViewHeight * ViewScale);
 
-        ViewportTerrain1 = new int[ViewportItems1.Length];
-        ViewportTerrainX = new int[ViewportItemsX.Length];
+        ViewportTerrain1 = new int[16*16 * 16*16]; // each terrain tile is drawn as 16px, then we upscale
+        ViewportTerrainX = new int[ViewportItemsX.Length]; // 2x upscale
         ViewportTerrainImage = new Bitmap(ViewportItemsImage.Width, ViewportItemsImage.Height);
     }
 

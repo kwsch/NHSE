@@ -168,7 +168,7 @@ public static class ItemLayerSprite
                     var geneValue = (genes >> (geneIndex * 2)) & 3;
                     if (geneValue == 0)
                         continue;
-                    DrawGene(data, absX * imgScale, absY * imgScale, imgScale, imgWidth, geneValue, geneIndex);
+                    DrawGene(data, viewX * imgScale, viewY * imgScale, imgScale, imgWidth, geneValue, geneIndex);
                 }
             }
         }

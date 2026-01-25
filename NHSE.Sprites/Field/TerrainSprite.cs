@@ -18,7 +18,12 @@ public static class TerrainSprite
     private static readonly Color PlazaColor = Color.RosyBrown;
     private static readonly StringFormat BuildingTextFormat = new() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
 
-    // 6x5 in a 16x16 acre scale. Since we are in 32x32 scale for items, double.
+    // 6x5 in a 16x16 acre scale. Since we are in 32x32 scale for items, our upscale is "double".
+    // Tiles are always rendered as 16x16 squares, to match the precomputed tile appearance bitmaps.
+    private const int TileScale = 16;
+    private const int TilesPerViewport = 16;
+
+    // To display in a 32x32 viewport from 16x16
     private const int Scale = 2;
     private const int PlazaWidth = 6 * Scale;
     private const int PlazaHeight = 5 * Scale;
@@ -59,9 +64,12 @@ public static class TerrainSprite
         int selectedBuildingIndex, byte transparencyBuilding, byte transTerrain)
     {
         // Convert from absolute to relative.
-        int mx = m.X / 2;
-        int my = m.Y / 2;
-        SetAcreTerrainPixels(m.Terrain, mx, my, scale1, scaleX, m.ViewScale);
+        var cfg = m.Mutator.Manager.ConfigTerrain;
+        int absX = m.X / 2; // 32px => 16px basis
+        int absY = m.Y / 2; // 32px => 16px basis
+        var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
+
+        SetViewTerrainPixels(m.Terrain, cfg, relX, relY, scale1, scaleX, Scale);
 
         // Drawing building tiles currently uses the graphics API rather than writing pixels.
         img.SetBitmapData(scaleX);
@@ -83,7 +91,6 @@ public static class TerrainSprite
         // Draw Text of Building Names
         foreach (var b in m.Buildings.Buildings)
         {
-            var type = b.BuildingType;
             var (x, y) = m.GetViewCoordinatesBuilding(b.X, b.Y);
             const int cellsAbove = 2; // Show label above the building, 2 cells up.
             y -= (m.ViewScale * cellsAbove);
@@ -92,14 +99,15 @@ public static class TerrainSprite
             if (!m.Mutator.View.IsWithinView(m.ViewScale, x, y))
                 continue;
 
-            var name = b.BuildingType.ToString();
+            var type = b.BuildingType;
+            var name = type.ToString();
             var labelPosition = new PointF(x, y - (m.ViewScale * 2));
             gfx.DrawString(name, f, Text, labelPosition, BuildingTextFormat);
         }
 
         // Draw Text of Terrain Tile Names
         if (transTerrain != 0)
-            DrawTerrainTileNames(gfx, f, mx, my, m.Terrain, m.ViewScale, transTerrain);
+            DrawViewTerrainTileNames(gfx, m.Terrain, cfg, f, absX, absY, m.ViewScale, transTerrain);
 
         // Done.
     }
@@ -133,7 +141,7 @@ public static class TerrainSprite
         }
     }
 
-    private static Bitmap DrawReticle(Bitmap map, TileGridViewport mgr, int x, int y, int scale)
+    private static void DrawReticle(Bitmap map, TileGridViewport mgr, int x, int y, int scale)
     {
         using var gfx = Graphics.FromImage(map);
         using var pen = new Pen(Color.Red);
@@ -141,7 +149,6 @@ public static class TerrainSprite
         int w = mgr.ViewWidth * scale;
         int h = mgr.ViewHeight * scale;
         gfx.DrawRectangle(pen, x * scale, y * scale, w, h);
-        return map;
     }
 
     private static void DrawPlaza(this Graphics gfx, MapEditor map, ushort px, ushort py, int scale)
@@ -187,34 +194,30 @@ public static class TerrainSprite
         gfx.DrawString(name, textFont, textBrush, new PointF(x, y - (imgScale * cellsAbove)), BuildingTextFormat);
     }
 
-    private static void SetAcreTerrainPixels(LayerTerrain t, int relX, int relY, Span<int> data, Span<int> scaleX, int imgScale)
+    private static void SetViewTerrainPixels(LayerTerrain t, LayerPositionConfig cfg, int relX, int relY, Span<int> data, Span<int> scaleX, int imgScale)
     {
-        GetAcre1(t, relX, relY, data);
-        ImageUtil.ScalePixelImage(data, scaleX, TilesPerViewport * imgScale, TilesPerViewport * imgScale, imgScale / TileScale);
+        GetViewTerrain1(t, cfg, relX, relY, data);
+        ImageUtil.ScalePixelImage(data, scaleX, TilesPerViewport * imgScale, TilesPerViewport * imgScale, imgScale);
     }
 
-    // Tiles are always rendered as 16x16 squares, to match the precomputed tile appearance bitmaps.
-    private const int TileScale = 16;
-    private const int TilesPerViewport = 16;
-
-    private static void GetAcre1(LayerTerrain t, int relX, int relY, Span<int> data)
+    private static void GetViewTerrain1(LayerTerrain t, LayerPositionConfig cfg, int relX, int relY, Span<int> data)
     {
-        const int viewWidth = 16;
-        const int viewHeight = 16;
-
         int index = 0;
-        for (int tileY = 0; tileY < viewHeight; tileY++)
+        for (int tileY = 0; tileY < TilesPerViewport; tileY++)
         {
-            var tileYIx = tileY + relY;
-            for (int pixelY = 0; pixelY < viewWidth; pixelY++)
+            var actY = tileY + relY;
+            for (int x = 0; x < TilesPerViewport; x++)
             {
-                // Draw the tile row
-                for (int tileX = 0; tileX < TileScale; tileX++)
+                var actX = relX + x;
+                if (!cfg.IsCoordinateValidRelative(actX, actY))
+                    continue;
+
+                var acreTemplate = t.GetAcreTemplate(actX, actY);
+                for (int pixelY = 0; pixelY < TileScale; pixelY++)
                 {
-                    var tileXIx = tileX + relX;
                     for (int pixelX = 0; pixelX < TileScale; pixelX++)
                     {
-                        data[index] = t.GetTileColor(tileXIx, tileYIx, pixelX, pixelY);
+                        data[index] = t.GetTileColor(acreTemplate, actX, actY, pixelX, pixelY);
                         index++;
                     }
                 }
@@ -222,24 +225,28 @@ public static class TerrainSprite
         }
     }
 
-    private static void DrawTerrainTileNames(Graphics gfx, Font f, int topX, int topY, LayerTerrain t, int scale, byte transparency)
+    private static void DrawViewTerrainTileNames(Graphics gfx, LayerTerrain t, LayerPositionConfig cfg, Font f,
+        int relX, int relY, int scale, byte transparency)
     {
         var pen = Tile;
         if (transparency != byte.MaxValue)
             pen = new SolidBrush(Color.FromArgb(transparency, Color.Black));
 
-        for (int y = 0; y < 16; y++)
+        // iterate over every tile in the view
+        for (int y = 0; y < TilesPerViewport; y++)
         {
-            var yi = y + topY;
-            int cy = (y * scale) + (scale / 2);
-            for (int x = 0; x < 16; x++)
+            var actY = relY + y;
+            var centerY = (y * scale) + (scale / 2);
+            for (int x = 0; x < TilesPerViewport; x++)
             {
-                var xi = x + topX;
-                var tile = t.GetTile(xi, yi);
+                var actX = relX + x;
+                if (!cfg.IsCoordinateValidRelative(actX, actY))
+                    continue;
 
-                int cx = (x * scale) + (scale / 2);
+                var tile = t.GetTile(actX, actY);
+                var centerX = (x * scale) + (scale / 2);
                 var name = TerrainTileColor.GetTileName(tile);
-                gfx.DrawString(name, f, pen, new PointF(cx, cy), BuildingTextFormat);
+                gfx.DrawString(name, f, pen, centerX, centerY, BuildingTextFormat);
             }
         }
     }
