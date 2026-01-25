@@ -62,6 +62,11 @@ public readonly record struct LayerPositionConfig(
 #pragma warning restore CA1857
     }
 
+    /// <summary>
+    /// Calculates the absolute map coordinates based on the specified relative X and Y coordinates within the layer.
+    /// </summary>
+    /// <param name="relX">The relative X-coordinate within the layer.</param>
+    /// <param name="relY">The relative Y-coordinate within the layer.</param>
     public (int X, int Y) GetCoordinatesAbsolute(int relX, int relY)
     {
         var absX = relX + ((ShiftWidth * MetaTileSize) << TileBitShift);
@@ -69,6 +74,17 @@ public readonly record struct LayerPositionConfig(
         return (absX, absY);
     }
 
+    /// <summary>
+    /// Gets the absolute coordinates of the layer's origin (0,0) in the map.
+    /// </summary>
+    public (int X, int Y) GetCoordinatesAbsolute() => GetCoordinatesAbsolute(0, 0);
+
+    /// <summary>
+    /// Calculates the relative coordinates within the layer, based on the specified absolute X and Y coordinates.
+    /// </summary>
+    /// <param name="absX">The absolute X coordinate to convert.</param>
+    /// <param name="absY">The absolute Y coordinate to convert.</param>
+    /// <returns>A tuple containing the X and Y coordinates relative to the layer.</returns>
     public (int X, int Y) GetCoordinatesRelative(int absX, int absY)
     {
         var relX = absX - ((ShiftWidth * MetaTileSize) << TileBitShift);
@@ -91,12 +107,6 @@ public readonly record struct LayerPositionConfig(
         return true;
     }
 
-    public bool IsCoordinateValidAbsolute(int absX, int absY)
-    {
-        var (relX, relY) = GetCoordinatesRelative(absX, absY);
-        return IsCoordinateValidRelative(relX, relY);
-    }
-
     /// <summary>
     /// Layer total width in tiles.
     /// </summary>
@@ -116,11 +126,4 @@ public readonly record struct LayerPositionConfig(
     /// Gets the total height of the map, in tiles.
     /// </summary>
     public int MapTotalHeight => MapAcreHeight * TilesPerAcre;
-
-    public int GetAcreIndexRelative(int relX, int relY)
-    {
-        var acreX = relX >> TileBitShift;
-        var acreY = relY >> TileBitShift;
-        return (CountHeight * acreX) + acreY;
-    }
 }

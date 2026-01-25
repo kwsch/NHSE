@@ -23,7 +23,7 @@ public static class ItemLayerSprite
     /// <param name="cfg">Configuration for layer positioning.</param>
     private static void LoadBitmapLayer(ReadOnlySpan<Item> items, Span<int> bmpData, in LayerPositionConfig cfg)
     {
-        var (shiftX, shiftY) = cfg.GetCoordinatesAbsolute(0, 0);
+        var (shiftX, shiftY) = cfg.GetCoordinatesAbsolute();
 
         // Iterate through the relative positions within the layer.
         // Then, map to absolute positions in the bitmap with the configured shift.
@@ -395,6 +395,14 @@ public static class ItemLayerSprite
             ImageUtil.ClampAllTransparencyTo(data, transparency);
     }
 
+    /// <summary>
+    /// Draws a square reticle on the specified map image to indicate the current viewport area.
+    /// </summary>
+    /// <param name="map">The bitmap image on which to draw the reticle.</param>
+    /// <param name="g">The viewport describing the area of the map present within the viewport.</param>
+    /// <param name="absX">The absolute X-coordinate, in tile units, of the top-left corner of the viewport.</param>
+    /// <param name="absY">The absolute Y-coordinate, in tile units, of the top-left corner of the viewport.</param>
+    /// <param name="scale">The image upscale scale factor to apply to the reticle's size and position. Must be a positive integer. The default is 1.</param>
     public static void DrawViewReticle(Bitmap map, TileGridViewport g, int absX, int absY, int scale = 1)
     {
         using var gfx = Graphics.FromImage(map);

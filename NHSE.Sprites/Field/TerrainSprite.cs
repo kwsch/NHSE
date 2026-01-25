@@ -32,7 +32,15 @@ public static class TerrainSprite
     private const int PlazaWidth = 6 * Scale;
     private const int PlazaHeight = 5 * Scale;
 
-    public static void GenerateMap(Bitmap map, MapMutator mut, Span<int> scale1, Span<int> scaleX, int imgScale)
+    /// <summary>
+    /// Generates a terrain map by loading, scaling, and applying terrain data to the specified bitmap.
+    /// </summary>
+    /// <param name="map">The bitmap to which the generated terrain map will be applied.</param>
+    /// <param name="mut">The map information manager that provides access to terrain configuration and management.</param>
+    /// <param name="scale1">A span of integers used as a buffer for the initial terrain pixel data.</param>
+    /// <param name="scaleX">A span of integers used as a buffer for the upscaled terrain pixel data.</param>
+    /// <param name="imgScale">The scaling factor to apply when upscaling the terrain image. Must be a positive integer.</param>
+    private static void GenerateMapTerrainAndUpscale(Bitmap map, MapMutator mut, Span<int> scale1, Span<int> scaleX, int imgScale)
     {
         // Load the terrain pixels, then upscale.
         var mgr = mut.Manager.LayerTerrain;
@@ -41,10 +49,29 @@ public static class TerrainSprite
         map.SetBitmapData(scaleX);
     }
 
+    /// <summary>
+    /// Draws the map with all buildings and the plaza overlay onto the specified bitmap, using the provided map editor
+    /// and scaling information.
+    /// </summary>
+    /// <remarks>
+    /// The method modifies the provided bitmap in place.
+    /// The scaling spans must be properly initialized to match the expected map dimensions.
+    /// If a specific building index is provided, only that building may be highlighted or rendered differently;
+    /// otherwise, all buildings are drawn normally.
+    /// </remarks>
+    /// <param name="map">The bitmap on which the map, buildings, and plaza will be rendered.</param>
+    /// <param name="m">The map editor instance containing map data, building information, and scaling parameters.</param>
+    /// <param name="scale1">A span representing the primary scaling factors for rendering the map.</param>
+    /// <param name="scaleX">A span representing the secondary scaling factors for rendering the map.</param>
+    /// <param name="buildingIndex">
+    /// The index of a specific building to highlight or focus on.
+    /// Set to -1 to render all buildings without highlighting any particular one.
+    /// </param>
+    /// <returns>The bitmap with the map, plaza, and buildings drawn onto it. The same instance as the input bitmap is returned.</returns>
     public static Bitmap GetMapWithBuildings(Bitmap map, MapEditor m, Span<int> scale1, Span<int> scaleX, int buildingIndex = -1)
     {
         var imgScale = m.MapScale * 2; // because terrain is 16px per tile, items are 32px per tile
-        GenerateMap(map, m.Mutator, scale1, scaleX, imgScale);
+        GenerateMapTerrainAndUpscale(map, m.Mutator, scale1, scaleX, imgScale);
         using var gfx = Graphics.FromImage(map);
 
         var plaza = m.Mutator.Manager.Plaza;
@@ -53,6 +80,31 @@ public static class TerrainSprite
         return map;
     }
 
+    /// <summary>
+    /// Renders the current map viewport onto the specified bitmap, including terrain, buildings, grid overlays, and labels.
+    /// </summary>
+    /// <remarks>
+    /// This method draws both graphical and textual elements of the map viewport, including overlays and labels.
+    /// It should be called whenever the viewport needs to be refreshed, such as after map edits or navigation.
+    /// The method modifies the provided bitmap in place.
+    /// </remarks>
+    /// <param name="img">The bitmap onto which the viewport will be drawn.</param>
+    /// <param name="m">The map editor instance providing map data, building information, and viewport configuration.</param>
+    /// <param name="f">The font used to render building and terrain tile names within the viewport.</param>
+    /// <param name="scale1">A span representing the primary scaling factors for rendering terrain pixels.</param>
+    /// <param name="scaleX">A span used for horizontal scaling and pixel data manipulation during rendering.</param>
+    /// <param name="selectedBuildingIndex">
+    /// The index of the currently selected building.
+    /// Used to highlight or annotate the selected building in the viewport.
+    /// </param>
+    /// <param name="transparencyBuilding">
+    /// The transparency level to apply when rendering buildings.
+    /// A value of 0xFF is fully opaque; lower values increase transparency.
+    /// </param>
+    /// <param name="transTerrain">
+    /// The transparency level to apply when rendering terrain tile names.
+    /// A value of 0xFF is fully opaque; lower values increase transparency.
+    /// </param>
     public static void LoadViewport(Bitmap img, MapEditor m, Font f,
         Span<int> scale1, Span<int> scaleX,
         int selectedBuildingIndex, byte transparencyBuilding, byte transTerrain)
@@ -99,7 +151,7 @@ public static class TerrainSprite
 
         // Draw Text of Terrain Tile Names
         if (transTerrain != 0)
-            DrawViewTerrainTileNames(gfx, m.Terrain, cfg, f, relX, relY, m.ViewScale * 2, transTerrain);
+            gfx.DrawViewTerrainTileNames(m.Terrain, cfg, f, relX, relY, m.ViewScale * 2, transTerrain);
 
         // Done.
     }
@@ -124,7 +176,7 @@ public static class TerrainSprite
 
     private static void LoadTerrainPixels(LayerTerrain mgr, LayerPositionConfig cfg, Span<int> pixels)
     {
-        var (shiftX, shiftY) = cfg.GetCoordinatesAbsolute(0, 0);
+        var (shiftX, shiftY) = cfg.GetCoordinatesAbsolute();
 
         // Iterate through the relative positions within the layer.
         // Then, map to absolute positions in the bitmap with the configured shift.
@@ -238,7 +290,7 @@ public static class TerrainSprite
         }
     }
 
-    private static void DrawViewTerrainTileNames(Graphics gfx, LayerTerrain t, LayerPositionConfig cfg, Font f,
+    private static void DrawViewTerrainTileNames(this Graphics gfx, LayerTerrain t, LayerPositionConfig cfg, Font f,
         int relX, int relY, int scale, byte transparency)
     {
         var pen = Tile;

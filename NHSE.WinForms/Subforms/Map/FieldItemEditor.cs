@@ -328,15 +328,15 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     private bool GetTile(LayerFieldItem layerField, int absX, int absY, [NotNullWhen(true)] out TileCheck<Item>? item)
     {
         var cfg = Editor.Mutator.Manager.ConfigItems;
-        if (!cfg.IsCoordinateValidAbsolute(absX, absY))
+        var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
+        if (!cfg.IsCoordinateValidRelative(relX, relY))
         {
             item = null;
             return false;
         }
 
-        var rel = cfg.GetCoordinatesRelative(absX, absY);
-        var tile = layerField.GetTile(rel.X, rel.Y);
-        item = new TileCheck<Item>(tile, absX, absY, rel.X, rel.Y);
+        var tile = layerField.GetTile(relX, relY);
+        item = new TileCheck<Item>(tile, absX, absY, relX, relY);
         return true;
     }
 
@@ -350,15 +350,15 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     private bool GetTile(LayerTerrain layerField, int absX, int absY, [NotNullWhen(true)] out TileCheck<TerrainTile>? item)
     {
         var cfg = Editor.Mutator.Manager.ConfigItems;
-        if (!cfg.IsCoordinateValidAbsolute(absX, absY))
+        var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
+        if (!cfg.IsCoordinateValidRelative(relX, relY))
         {
             item = null;
             return false;
         }
 
-        var rel = cfg.GetCoordinatesRelative(absX, absY);
-        var tile = layerField.GetTile(rel.X, rel.Y);
-        item = new TileCheck<TerrainTile>(tile, absX, absY, rel.X, rel.Y);
+        var tile = layerField.GetTile(relX, relY);
+        item = new TileCheck<TerrainTile>(tile, absX, absY, relX, relY);
         return true;
     }
 
@@ -644,13 +644,13 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     {
         var (absX, absY) = GetAbsoluteCoordinatesHover();
         var cfg = Editor.Mutator.Manager.ConfigItems;
-        if (!cfg.IsCoordinateValidAbsolute(absX, absY))
+        var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
+        if (!cfg.IsCoordinateValidRelative(relX, relY))
         {
             System.Media.SystemSounds.Asterisk.Play();
             return;
         }
 
-        var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
         if (RB_Item.Checked)
         {
             var tile = CurrentLayer.GetTile(relX, relY);
@@ -669,12 +669,12 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         {
             var (absX, absY) = GetAbsoluteCoordinatesHover();
             var cfg = Editor.Mutator.Manager.ConfigItems;
-            if (!cfg.IsCoordinateValidAbsolute(absX, absY))
+            var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
+            if (!cfg.IsCoordinateValidRelative(relX, relY))
             {
                 System.Media.SystemSounds.Asterisk.Play();
                 return;
             }
-            var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
 
             var tile = CurrentLayer.GetTile(relX, relY);
             SetTile(tile, relX, relY);
@@ -683,13 +683,13 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         {
             var (absX, absY) = GetAbsoluteCoordinatesHoverTerrain();
             var cfg = Editor.Mutator.Manager.ConfigTerrain;
-            if (!cfg.IsCoordinateValidAbsolute(absX, absY))
+            var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
+            if (!cfg.IsCoordinateValidRelative(relX, relY))
             {
                 System.Media.SystemSounds.Asterisk.Play();
                 return;
             }
 
-            var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
             var tile = Editor.Terrain.GetTile(relX, relY);
             SetTile(tile);
         }
@@ -701,12 +701,12 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         {
             var (absX, absY) = GetAbsoluteCoordinatesHover();
             var cfg = Editor.Mutator.Manager.ConfigItems;
-            if (!cfg.IsCoordinateValidAbsolute(absX, absY))
+            var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
+            if (!cfg.IsCoordinateValidRelative(relX, relY))
             {
                 System.Media.SystemSounds.Asterisk.Play();
                 return;
             }
-            var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
 
             var tile = CurrentLayer.GetTile(relX, relY);
             DeleteTile(tile, relX, relY);
@@ -715,13 +715,13 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         {
             var (absX, absY) = GetAbsoluteCoordinatesHoverTerrain();
             var cfg = Editor.Mutator.Manager.ConfigTerrain;
-            if (!cfg.IsCoordinateValidAbsolute(absX, absY))
+            var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
+            if (!cfg.IsCoordinateValidRelative(relX, relY))
             {
                 System.Media.SystemSounds.Asterisk.Play();
                 return;
             }
 
-            var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
             var tile = Editor.Terrain.GetTile(relX, relY);
             DeleteTile(tile);
         }
@@ -739,10 +739,10 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
         var (absX, absY) = GetAbsoluteCoordinatesHover();
         var cfg = Editor.Mutator.Manager.ConfigItems;
-        if (!cfg.IsCoordinateValidAbsolute(absX, absY))
+        var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
+        if (!cfg.IsCoordinateValidRelative(relX, relY))
             return;
 
-        var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
         var flagLayer = NUD_Layer.Value == 0 ? Map.LayerItemFlag0 : Map.LayerItemFlag1;
         var isActive = flagLayer.GetIsActive(relX, relY);
         Menu_Activate.Text = isActive ? "Inactivate" : "Activate";
@@ -754,10 +754,10 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     {
         var (absX, absY) = GetAbsoluteCoordinatesHover();
         var cfg = Editor.Mutator.Manager.ConfigItems;
-        if (!cfg.IsCoordinateValidAbsolute(absX, absY))
+        var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
+        if (!cfg.IsCoordinateValidRelative(relX, relY))
             return;
 
-        var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
         var flagLayer = NUD_Layer.Value == 0 ? Map.LayerItemFlag0 : Map.LayerItemFlag1;
         var isActive = flagLayer.GetIsActive(relX, relY);
         flagLayer.SetIsActive(relX, relY, !isActive);

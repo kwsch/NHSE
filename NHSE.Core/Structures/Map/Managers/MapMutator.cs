@@ -38,11 +38,10 @@ public sealed record MapMutator
         }
         else
         {
-            (xMin, yMin) = (View.X, View.Y);
             // Convert absolute to relative coordinates
-            if (!Manager.ConfigItems.IsCoordinateValidAbsolute(xMin, yMin))
+            (xMin, yMin) = Manager.ConfigItems.GetCoordinatesRelative(View.X, View.Y);
+            if (!Manager.ConfigItems.IsCoordinateValidRelative(xMin, yMin))
                 return 0;
-            (xMin, yMin) = Manager.ConfigItems.GetCoordinatesRelative(xMin, yMin);
 
             var info = layerField.TileInfo;
             (width, height) = info.DimAcre;
@@ -69,11 +68,10 @@ public sealed record MapMutator
         }
         else
         {
-            (xMin, yMin) = (View.X, View.Y);
             // Convert absolute to relative coordinates
-            if (!Manager.ConfigItems.IsCoordinateValidAbsolute(xMin, yMin))
+            (xMin, yMin) = Manager.ConfigItems.GetCoordinatesRelative(View.X, View.Y);
+            if (!Manager.ConfigItems.IsCoordinateValidRelative(xMin, yMin))
                 return 0;
-            (xMin, yMin) = Manager.ConfigItems.GetCoordinatesRelative(xMin, yMin);
 
             var info = layerField.TileInfo;
             (width, height) = info.DimAcre;
