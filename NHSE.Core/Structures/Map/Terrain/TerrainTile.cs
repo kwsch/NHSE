@@ -9,7 +9,7 @@ namespace NHSE.Core;
 /// Represents a Terraform-able terrain tile.
 /// </summary>
 [StructLayout(LayoutKind.Sequential)]
-public class TerrainTile
+public sealed class TerrainTile
 {
     // tile[2] (u16 model, u16 variation, u16 angle)
     // u16 elevation
@@ -76,9 +76,9 @@ public class TerrainTile
         LandMakingAngleRoad = tile.LandMakingAngleRoad;
     }
 
-    public bool Rotate() => UnitModelRoad != 0 ? RotateRoad() : RotateTerrain();
+    public bool TryRotate() => UnitModelRoad != 0 ? TryRotateRoad() : TryRotateTerrain();
 
-    private bool RotateTerrain()
+    private bool TryRotateTerrain()
     {
         if (UnitModel == TerrainUnitModel.Base)
             return false;
@@ -88,7 +88,7 @@ public class TerrainTile
         return true;
     }
 
-    private bool RotateRoad()
+    private bool TryRotateRoad()
     {
         var rot = LandMakingAngleRoad;
         rot = (ushort) ((rot + 1) & 3);

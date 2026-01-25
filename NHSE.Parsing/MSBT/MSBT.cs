@@ -5,7 +5,7 @@ using System.Text;
 
 namespace NHSE.Parsing;
 
-public class MSBT
+public sealed class MSBT
 {
     public readonly MSBTHeader Header;
     public readonly LBL1 LBL1 = new();
@@ -78,7 +78,7 @@ public class MSBT
                 var length = Convert.ToUInt32(br.ReadByte());
                 var name = br.ReadString((int)length);
                 var index = br.ReadUInt32();
-                var lbl = new MSBTLabel(name) {Index = index, Length = length};
+                var lbl = new MSBTLabel {Name = name, Index = index, Length = length};
                 LBL1.Labels.Add(lbl);
             }
         }

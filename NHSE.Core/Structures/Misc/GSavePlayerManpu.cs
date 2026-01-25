@@ -13,49 +13,14 @@ public struct GSavePlayerManpu : IReactionStore
     private const int MaxCount = 64;
     private const int WheelCount = 8;
 
-    /// <summary>
-    /// List of known Reaction IDs
-    /// </summary>
     [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = MaxCount)]
     public Reaction[] ManpuBit { get; set; }
 
-    /// <summary>
-    /// Emotions that are currently bound to the Reaction Wheel.
-    /// </summary>
     [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = WheelCount)]
     public Reaction[] UIList { get; set; }
 
-    /// <summary>
-    /// Flags indicating if a Reaction (at the same index?) is newly learned or not.
-    /// </summary>
     [field: MarshalAs(UnmanagedType.ByValArray, ArraySubType = UnmanagedType.I1, SizeConst = MaxCount)]
     public bool[] NewFlag { get; set; }
-
-    public void AddMissingReactions()
-    {
-        var all = Enum.GetValues<Reaction>();
-        foreach (var react in all)
-            AddReaction(react);
-    }
-
-    // returns true if failed
-    public bool AddReaction(Reaction react)
-    {
-        if (react.ToString().StartsWith("UNUSED"))
-            return true;
-
-        var index = Array.IndexOf(ManpuBit, react);
-        if (index >= 0)
-            return false;
-
-        var empty = EmptyIndex;
-        if (empty < 0)
-            return true;
-        ManpuBit[empty] = react;
-        return false;
-    }
-
-    private readonly int EmptyIndex => Array.FindIndex(ManpuBit, z => z == 0);
 }
 
 /// <summary>
@@ -68,56 +33,64 @@ public struct GSavePlayerManpu15 : IReactionStore
     private const int MaxCount = 256; // up from 64
     private const int WheelCount = 8;
 
-    /// <summary>
-    /// List of known Reaction IDs
-    /// </summary>
     [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = MaxCount)]
     public Reaction[] ManpuBit { get; set; }
 
-    /// <summary>
-    /// Emotions that are currently bound to the Reaction Wheel.
-    /// </summary>
     [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = WheelCount)]
     public Reaction[] UIList { get; set; }
 
-    /// <summary>
-    /// Flags indicating if a Reaction (at the same index?) is newly learned or not.
-    /// </summary>
     [field: MarshalAs(UnmanagedType.ByValArray, ArraySubType = UnmanagedType.I1, SizeConst = MaxCount)]
     public bool[] NewFlag { get; set; }
-
-    public void AddMissingReactions()
-    {
-        var all = Enum.GetValues<Reaction>();
-        foreach (var react in all)
-            AddReaction(react);
-    }
-
-    // returns true if failed
-    public bool AddReaction(Reaction react)
-    {
-        if (react.ToString().StartsWith("UNUSED"))
-            return true;
-
-        var index = Array.IndexOf(ManpuBit, react);
-        if (index >= 0)
-            return false;
-
-        var empty = EmptyIndex;
-        if (empty < 0)
-            return true;
-        ManpuBit[empty] = react;
-        return false;
-    }
-
-    private readonly int EmptyIndex => Array.FindIndex(ManpuBit, z => z == 0);
 }
 
 public interface IReactionStore
 {
+    /// <summary>
+    /// List of Reaction IDs the player currently knows.
+    /// </summary>
     Reaction[] ManpuBit { get; set; }
+
+    /// <summary>
+    /// Emotions that are currently bound to the Reaction Wheel.
+    /// </summary>
     Reaction[] UIList { get; set; }
+
+    /// <summary>
+    /// Flags indicating if a Reaction (at the same index?) is newly learned or not.
+    /// </summary>
     bool[] NewFlag { get; set; }
-    bool AddReaction(Reaction react);
-    void AddMissingReactions();
+
+    /// <summary>
+    /// Adds all possible reaction values from <see cref="Reaction"/>'s defined list.
+    /// </summary>
+    void AddMissingReactions()
+    {
+        var all = Enum.GetValues<Reaction>();
+        foreach (var react in all)
+            TryAddReaction(react);
+    }
+
+    /// <summary>
+    /// Attempts to add the <see cref="react"/> to the list of reactions.
+    /// </summary>
+    /// <param name="react">Reaction to add to list</param>
+    bool TryAddReaction(Reaction react)
+    {
+        if (react.ToString().StartsWith("UNUSED"))
+            return false; // shouldn't add
+
+        if (ManpuBit.Contains(react))
+            return true; // already have
+
+        var empty = EmptyIndex;
+        if (empty < 0)
+            return true; // full? already have
+        ManpuBit[empty] = react;
+        return true;
+    }
+
+    /// <summary>
+    /// First empty index within the array of reactions.
+    /// </summary>
+    int EmptyIndex => ManpuBit.IndexOf(Reaction.None);
 }

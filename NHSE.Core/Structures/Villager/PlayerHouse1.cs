@@ -4,15 +4,12 @@ using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Core;
 
-public class PlayerHouse1 : IPlayerHouse
+public class PlayerHouse1(Memory<byte> raw) : IPlayerHouse
 {
     public const int SIZE = 0x26400;
     public virtual string Extension => "nhph";
 
-    public readonly Memory<byte> Raw;
-    public Span<byte> Data => Raw.Span;
-
-    public PlayerHouse1(Memory<byte> data) => Raw = data;
+    public Span<byte> Data => raw.Span;
 
     public byte[] Write() => Data.ToArray();
 

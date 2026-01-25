@@ -1,7 +1,7 @@
 ﻿namespace NHSE.Parsing;
 
-public class MSBTGroup
+public sealed record MSBTGroup
 {
-    public uint NumberOfLabels;
-    public uint Offset;
+    public required uint NumberOfLabels { get; init; }
+    public required uint Offset { get; init; }
 }

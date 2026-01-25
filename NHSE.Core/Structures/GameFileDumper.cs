@@ -75,7 +75,7 @@ public static class GameFileDumper
     /// <param name="path">Path to dump to</param>
     public static void DumpPlayerHouses(this HorizonSave sav, string path)
     {
-        var count = Math.Min(sav.Players.Length, MainSaveOffsets.PlayerCount);
+        var count = Math.Min(sav.Players.Count, MainSaveOffsets.PlayerCount);
         for (int i = 0; i < count; i++)
         {
             var p = sav.Players[i];

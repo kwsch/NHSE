@@ -12,7 +12,7 @@ public partial class PlayerHouseEditor : Form
     private readonly MainSave SAV;
     private readonly IPlayerHouse[] Houses;
     private readonly IReadOnlyList<Player> Players;
-    private RoomItemManager Manager;
+    private RoomManager Manager;
     private const int scale = 24;
 
     private int Index = -1;
@@ -25,7 +25,7 @@ public partial class PlayerHouseEditor : Form
         SAV = sav;
         Houses = houses;
         Players = players;
-        Manager = new RoomItemManager(houses[0].GetRoom(0));
+        Manager = new RoomManager(houses[0].GetRoom(0));
 
         var data = GameInfo.Strings.ItemDataSource;
         ItemEdit.Initialize(data, true);
@@ -111,7 +111,7 @@ public partial class PlayerHouseEditor : Form
 
     private void PB_Room_MouseMove(object sender, MouseEventArgs e)
     {
-        var l = CurrentLayer;
+        var l = Current;
         var oldTile = l.GetTile(HoverX, HoverY);
         var tile = GetTile(l, e, out var x, out var y);
         if (ReferenceEquals(tile, oldTile))
@@ -124,7 +124,7 @@ public partial class PlayerHouseEditor : Form
 
     private void SetCoordinateText(int x, int y, string name) => L_Coordinates.Text = $"({x:000},{y:000}) = {name}";
 
-    private Item GetTile(ItemLayer layer, MouseEventArgs e, out int x, out int y)
+    private Item GetTile(LayerItem layer, MouseEventArgs e, out int x, out int y)
     {
         SetHoveredItem(e);
         return layer.GetTile(x = HoverX, y = HoverY);
@@ -135,7 +135,7 @@ public partial class PlayerHouseEditor : Form
         GetCoordinates(e, out HoverX, out HoverY);
 
         // Mouse event may fire with a slightly too large x/y; clamp just in case.
-        Manager.Layers[0].ClampCoordinatesInsideGrid(ref HoverX, ref HoverY);
+        Manager.Layers[0].TileInfo.ClampInside(ref HoverX, ref HoverY);
     }
 
     private static void GetCoordinates(MouseEventArgs e, out int x, out int y)
@@ -157,19 +157,23 @@ public partial class PlayerHouseEditor : Form
         if (unsupported.Count != 0)
             WinFormsUtil.Alert(MessageStrings.MsgFieldItemUnsupportedLayer2Tile);
         var room = house.GetRoom(RoomIndex);
-        Manager = new RoomItemManager(room);
+        Manager = new RoomManager(room);
     }
 
-    private void DrawLayer() => DrawRoom(CurrentLayer);
+    private void DrawLayer() => DrawRoom(Current);
 
-    private void DrawRoom(ItemLayer layer)
+    private void DrawRoom(LayerItem layer)
     {
-        var w = layer.MaxWidth;
-        var h = layer.MaxHeight;
+        var w = layer.TileInfo.TotalWidth;
+        var h = layer.TileInfo.TotalHeight;
         Span<int> scale1 = stackalloc int[w * h];
-        int[] scaleX = new int[scale * scale * scale1.Length];
+        var scaleX = new int[scale * scale * scale1.Length];
         var bmp = new Bitmap(scale * w, scale * h);
-        PB_Room.Image = ItemLayerSprite.GetBitmapItemLayerViewGrid(layer, 0, 0, scale, scale1, scaleX, bmp, gridlineColor: 0x7F000000);
+
+        // 10x10 items (2x2 tiles per item)
+        var cfg = LayerPositionConfig.Create(1, 1, 20, 1, 0, 0);
+        ItemLayerSprite.LoadViewport(bmp, layer, cfg, 0, 0, scale1, scaleX, scale, gridlineColor: 0x7F000000);
+        PB_Room.Image = bmp;
     }
 
     private void NUD_Room_ValueChanged(object sender, EventArgs e)
@@ -186,7 +190,7 @@ public partial class PlayerHouseEditor : Form
 
     private void PlayerHouseEditor_Click(object sender, MouseEventArgs e)
     {
-        var tile = GetTile(CurrentLayer, e, out var x, out var y);
+        var tile = GetTile(Current, e, out var x, out var y);
         OmniTile(tile, x, y);
     }
 
@@ -211,7 +215,7 @@ public partial class PlayerHouseEditor : Form
         var x = HoverX;
         var y = HoverY;
 
-        var tile = CurrentLayer.GetTile(x, y);
+        var tile = Current.GetTile(x, y);
         ViewTile(tile, x, y);
     }
 
@@ -220,7 +224,7 @@ public partial class PlayerHouseEditor : Form
         var x = HoverX;
         var y = HoverY;
 
-        var tile = CurrentLayer.GetTile(x, y);
+        var tile = Current.GetTile(x, y);
         SetTile(tile, x, y);
     }
 
@@ -229,19 +233,19 @@ public partial class PlayerHouseEditor : Form
         var x = HoverX;
         var y = HoverY;
 
-        var tile = CurrentLayer.GetTile(x, y);
+        var tile = Current.GetTile(x, y);
         DeleteTile(tile, x, y);
     }
 
-    private ItemLayer CurrentLayer => Manager.Layers[(int)NUD_Layer.Value - 1];
+    private LayerItem Current => Manager.Layers[(int)NUD_Layer.Value - 1];
 
     private void ViewTile(Item tile, int x, int y)
     {
         if (CHK_RedirectExtensionLoad.Checked && tile.IsExtension)
         {
-            var l = CurrentLayer;
-            var rx = Math.Max(0, Math.Min(l.MaxWidth - 1, x - tile.ExtensionX));
-            var ry = Math.Max(0, Math.Min(l.MaxHeight - 1, y - tile.ExtensionY));
+            var l = Current;
+            var rx = Math.Max(0, Math.Min(l.TileInfo.TotalWidth - 1, x - tile.ExtensionX));
+            var ry = Math.Max(0, Math.Min(l.TileInfo.TotalHeight - 1, y - tile.ExtensionY));
             var redir = l.GetTile(rx, ry);
             if (redir.IsRoot && redir.ItemId == tile.ExtensionItemId)
                 tile = redir;
@@ -257,7 +261,7 @@ public partial class PlayerHouseEditor : Form
 
     private void SetTile(Item tile, int x, int y)
     {
-        var l = CurrentLayer;
+        var l = Current;
         var pgt = new Item();
         ItemEdit.SetItem(pgt);
         var permission = l.IsOccupied(pgt, x, y);
@@ -289,9 +293,9 @@ public partial class PlayerHouseEditor : Form
             {
                 x -= tile.ExtensionX;
                 y -= tile.ExtensionY;
-                tile = CurrentLayer.GetTile(x, y);
+                tile = Current.GetTile(x, y);
             }
-            CurrentLayer.DeleteExtensionTiles(tile, x, y);
+            Current.DeleteExtensionTiles(tile, x, y);
         }
 
         tile.Delete();

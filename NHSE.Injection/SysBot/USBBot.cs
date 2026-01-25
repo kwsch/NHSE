@@ -6,7 +6,7 @@ using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Injection;
 
-public class USBBot : IRAMReadWriter
+public sealed class USBBot : IRAMReadWriter
 {
     private UsbDevice? SwDevice;
     private UsbEndpointReader? reader;

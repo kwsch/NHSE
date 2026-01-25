@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Linq;
 
 namespace NHSE.Parsing;
@@ -22,7 +23,7 @@ public static class ParseConverter
     private static string[] ConvertItemList(string path)
     {
         var lines = File.ReadAllLines(path);
-        var items = lines.Select(z => new ParseItem(z)).ToArray();
+        var items = lines.Select(ParseItem.FromString).ToArray();
 
         var max = items.Max(z => z.Index);
         var result = new string[max + 1];
@@ -32,14 +33,18 @@ public static class ParseConverter
     }
 }
 
-public class ParseItem
+public readonly record struct ParseItem
 {
-    public readonly int Index;
-    public readonly string Name;
+    public required int Index {get; init; }
+    public required string Name { get; init; }
+
+    [SetsRequiredMembers]
     public ParseItem(string line)
     {
         var split = line.Split(", ");
         Index = int.Parse(split[0], System.Globalization.NumberStyles.HexNumber);
         Name = split[1];
     }
+
+    public static ParseItem FromString(string s) => new(s);
 }

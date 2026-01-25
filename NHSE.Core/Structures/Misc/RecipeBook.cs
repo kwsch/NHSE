@@ -3,16 +3,14 @@ using System.Collections.Generic;
 
 namespace NHSE.Core;
 
-public class RecipeBook
+public sealed class RecipeBook(Memory<byte> raw)
 {
     private const int BitFlagArraySize = 0x100;
     private const int BitFlagArrayCount = 4;
     public const int SIZE = BitFlagArraySize * BitFlagArrayCount;
     public const ushort RecipeCount = BitFlagArraySize * 8;
 
-    private readonly Memory<byte> Raw;
-    private Span<byte> Data => Raw.Span;
-    public RecipeBook(Memory<byte> raw) => Raw = raw;
+    private Span<byte> Data => raw.Span;
 
     public void Save(Span<byte> data) => Data.CopyTo(data);
 

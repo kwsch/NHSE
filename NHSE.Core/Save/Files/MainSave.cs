@@ -165,7 +165,8 @@ public sealed class MainSave : EncryptedFilePair
         set => value.Data.CopyTo(Data[Offsets.Museum..]);
     }
 
-    public const int AcreWidth = 7 + (2 * 1); // 1 on each side cannot be traversed
+    // Acre Layout/Selection of which baselayer is selected for an acre.
+    private const int AcreWidth = 7 + (2 * 1); // 1 on each side cannot be traversed
     private const int AcreHeight = 6 + (2 * 1); // 1 on each side cannot be traversed
     private const int AcreMax = AcreWidth * AcreHeight;
     private const int AcreSizeAll = AcreMax * 2;
@@ -193,28 +194,49 @@ public sealed class MainSave : EncryptedFilePair
         data.CopyTo(Data[Offsets.OutsideField..]);
     }
 
-    public TerrainTile[] GetTerrainTiles() => TerrainTile.GetArray(Data.Slice(Offsets.LandMakingMap, MapGrid.MapTileCount16x16 * TerrainTile.SIZE));
+
+#pragma warning disable CA1822 // Mark members as static
+    public byte FieldItemAcreWidth => Offsets.FieldItemAcreWidth; // 3.0.0 updated from 7 => 9
+    // ReSharper disable once MemberCanBeMadeStatic.Global
+    public byte FieldItemAcreHeight => 6; // always 6
+    private int FieldItemAcreCount => FieldItemAcreWidth * FieldItemAcreHeight;
+#pragma warning restore CA1822 // Mark members as static
+
+
+    private const int TotalTerrainTileCount = LayerTerrain.TilesPerAcreDim * LayerTerrain.TilesPerAcreDim * (7 * 6);
+    private int TotalFieldItemTileCount => LayerFieldItem.TilesPerAcreDim * LayerFieldItem.TilesPerAcreDim * FieldItemAcreCount;
+
+    public TerrainTile[] GetTerrainTiles() => TerrainTile.GetArray(Data.Slice(Offsets.LandMakingMap, TotalTerrainTileCount * TerrainTile.SIZE));
     public void SetTerrainTiles(IReadOnlyList<TerrainTile> array) => TerrainTile.SetArray(array).CopyTo(Data[Offsets.LandMakingMap..]);
 
-    public const int MapDesignNone = 0xF800;
+    public const ushort MapDesignNone = 0xF800;
 
     public Memory<byte> MapDesignTileData => Raw.Slice(Offsets.MyDesignMap, 112 * 96 * sizeof(ushort));
     public ushort[] GetMapDesignTiles() => MemoryMarshal.Cast<byte, ushort>(MapDesignTileData.Span).ToArray();
     public void SetMapDesignTiles(ReadOnlySpan<ushort> value) => MemoryMarshal.Cast<ushort, byte>(value).CopyTo(MapDesignTileData.Span);
 
-    private const int FieldItemLayerSize = MapGrid.MapTileCount32x32 * Item.SIZE;
-    private const int FieldItemFlagSize = MapGrid.MapTileCount32x32 / 8; // bitflags
+    public void ClearDesignTiles()
+    {
+        var tiles = GetMapDesignTiles();
+        tiles.AsSpan().Fill(MapDesignNone);
+        SetMapDesignTiles(tiles);
+    }
 
-    private int FieldItemLayer1 => Offsets.FieldItem;
-    private int FieldItemLayer2 => Offsets.FieldItem + FieldItemLayerSize;
-    public int FieldItemFlag1 => Offsets.FieldItem + (FieldItemLayerSize * 2);
-    public int FieldItemFlag2 => Offsets.FieldItem + (FieldItemLayerSize * 2) + FieldItemFlagSize;
+    private int FieldItemLayerSize => TotalFieldItemTileCount * Item.SIZE;
+    private int FieldItemFlagSize => TotalFieldItemTileCount / sizeof(byte); // bitflags
+
+    private int FieldItemLayer0 => Offsets.FieldItem;
+    private int FieldItemLayer1 => Offsets.FieldItem + FieldItemLayerSize;
+    public int FieldItemFlag0 => Offsets.FieldItem + (FieldItemLayerSize * 2);
+    public int FieldItemFlag1 => Offsets.FieldItem + (FieldItemLayerSize * 2) + FieldItemFlagSize;
+    public Memory<byte> FieldItemFlag0Data => Data.Slice(FieldItemFlag0, FieldItemFlagSize).ToArray();
+    public Memory<byte> FieldItemFlag1Data => Data.Slice(FieldItemFlag1, FieldItemFlagSize).ToArray();
+
+    public Item[] GetFieldItemLayer0() => Item.GetArray(Data.Slice(FieldItemLayer0, FieldItemLayerSize));
+    public void SetFieldItemLayer0(IReadOnlyList<Item> array) => Item.SetArray(array).CopyTo(Data[FieldItemLayer0..]);
 
     public Item[] GetFieldItemLayer1() => Item.GetArray(Data.Slice(FieldItemLayer1, FieldItemLayerSize));
     public void SetFieldItemLayer1(IReadOnlyList<Item> array) => Item.SetArray(array).CopyTo(Data[FieldItemLayer1..]);
-
-    public Item[] GetFieldItemLayer2() => Item.GetArray(Data.Slice(FieldItemLayer2, FieldItemLayerSize));
-    public void SetFieldItemLayer2(IReadOnlyList<Item> array) => Item.SetArray(array).CopyTo(Data[FieldItemLayer2..]);
 
     public ushort OutsideFieldTemplateUniqueId
     {

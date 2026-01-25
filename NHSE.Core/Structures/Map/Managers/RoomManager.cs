@@ -4,14 +4,18 @@ using System.Diagnostics;
 
 namespace NHSE.Core;
 
-public class RoomItemManager
+public sealed class RoomManager
 {
-    public readonly RoomItemLayer[] Layers;
+    public readonly LayerRoomItem[] Layers;
 
     public readonly IPlayerRoom Room;
+
+    /// <summary>
+    /// <see cref="RoomLayerSurface"/>
+    /// </summary>
     private const int LayerCount = 8;
 
-    public RoomItemManager(IPlayerRoom room)
+    public RoomManager(IPlayerRoom room)
     {
         Layers = room.GetItemLayers();
         Room = room;
@@ -20,14 +24,14 @@ public class RoomItemManager
 
     public void Save() => Room.SetItemLayers(Layers);
 
-    public bool IsOccupied(int layer, int x, int y)
+    public bool IsOccupied(RoomLayerSurface layer, int x, int y)
     {
         if ((uint)layer >= LayerCount)
             throw new ArgumentOutOfRangeException(nameof(layer));
 
-        var l = Layers[layer];
+        var l = Layers[(int)layer];
         var tile = l.GetTile(x, y);
-        return !tile.IsNone || (layer == (int)RoomLayerSurface.FloorSupported && IsOccupied((int)RoomLayerSurface.Floor, x, y));
+        return !tile.IsNone || (layer == RoomLayerSurface.FloorSupported && IsOccupied(RoomLayerSurface.Floor, x, y));
     }
 
     public List<string> GetUnsupportedTiles()
@@ -35,9 +39,11 @@ public class RoomItemManager
         var lBase = Layers[(int)RoomLayerSurface.Floor];
         var lSupport = Layers[(int)RoomLayerSurface.FloorSupported];
         var result = new List<string>();
-        for (int x = 0; x < lBase.MaxWidth; x++)
+
+        var (width, height) = lBase.TileInfo.DimTotal;
+        for (int x = 0; x < width; x++)
         {
-            for (int y = 0; y < lBase.MaxHeight; y++)
+            for (int y = 0; y < height; y++)
             {
                 var tile = lSupport.GetTile(x, y);
                 if (tile.IsNone)

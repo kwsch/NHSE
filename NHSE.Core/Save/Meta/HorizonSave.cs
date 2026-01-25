@@ -11,11 +11,10 @@ namespace NHSE.Core;
 /// Creates a HorizonSave from a file provider.
 /// </remarks>
 /// <param name="provider">Provider for reading/writing save files.</param>
-public class HorizonSave(ISaveFileProvider provider)
+public sealed class HorizonSave(ISaveFileProvider provider)
 {
     public readonly MainSave Main = new(provider);
-    public readonly Player[] Players = Player.ReadMany(provider);
-    private readonly ISaveFileProvider Provider = provider;
+    public readonly IReadOnlyList<Player> Players = Player.ReadMany(provider);
 
     public override string ToString() => $"{Players[0].Personal.TownName} - {Players[0]}";
 
@@ -57,7 +56,7 @@ public class HorizonSave(ISaveFileProvider provider)
                 pair.Save(seed);
             }
         }
-        Provider.Flush();
+        provider.Flush();
     }
 
     /// <summary>

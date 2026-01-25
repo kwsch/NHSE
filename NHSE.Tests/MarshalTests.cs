@@ -1,10 +1,10 @@
-using FluentAssertions;
+﻿using FluentAssertions;
 using NHSE.Core;
 using Xunit;
 
 namespace NHSE.Tests;
 
-public class MarshalTests
+public sealed class MarshalTests
 {
     [Fact] public void MarshalItem() => MarshalTest<Item>(Item.SIZE);
     [Fact] public void MarshalVillagerItem() => MarshalTest<VillagerItem>(VillagerItem.SIZE);

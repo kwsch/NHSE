@@ -3,10 +3,9 @@ using System.Collections.Generic;
 
 namespace NHSE.Core;
 
-public class ItemArrayEditor<T> where T : Item, ICopyableItem<T>
+public sealed record ItemArrayEditor<T>(IReadOnlyList<T> Items)
+    where T : Item, ICopyableItem<T>
 {
-    public readonly IReadOnlyList<T> Items;
-    public ItemArrayEditor(IReadOnlyList<T> items) => Items = items;
     public int ItemSize => Items[0].Size;
     public int TotalSize => Items.Count * ItemSize;
 

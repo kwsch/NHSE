@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 namespace NHSE.Core;
 
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public class GSaveVisitorNpc
+public sealed class GSaveVisitorNpc
 {
     public const int SIZE = 0x78;
     private const int Days = 7;
@@ -46,7 +46,7 @@ public struct V3f
     public float Y { get; set; }
     public float Z { get; set; }
 
-    public override string ToString() => $"({X},{Y},{Z})";
+    public readonly override string ToString() => $"({X},{Y},{Z})";
 }
 
 public enum VisitorNPC

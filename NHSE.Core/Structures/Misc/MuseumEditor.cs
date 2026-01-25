@@ -5,27 +5,17 @@ using System.Runtime.InteropServices;
 
 namespace NHSE.Core;
 
-public class MuseumEditor
+public sealed record MuseumEditor(Museum Museum)
 {
-    public readonly Museum Museum;
-    public readonly GSaveDate[] Dates;
-    public readonly Item[] Items;
-    public readonly byte[] Players;
-
-    public MuseumEditor(Museum museum)
-    {
-        Museum = museum;
-        Dates = museum.GetDates();
-        Items = museum.GetItems();
-        Players = museum.GetPlayers();
-    }
+    public readonly GSaveDate[] Dates = Museum.GetDates();
+    public readonly Item[] Items = Museum.GetItems();
+    public readonly byte[] Players = Museum.GetPlayers();
 
     public void Save()
     {
-        var museum = Museum;
-        museum.SetDates(Dates);
-        museum.SetItems(Items);
-        museum.SetPlayers(Players);
+        Museum.SetDates(Dates);
+        Museum.SetItems(Items);
+        Museum.SetPlayers(Players);
     }
 
     public IEnumerable<string> GetDonationSummary(GameStrings str)

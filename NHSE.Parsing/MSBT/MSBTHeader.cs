@@ -2,7 +2,7 @@
 
 namespace NHSE.Parsing;
 
-public class MSBTHeader
+public sealed class MSBTHeader
 {
     public readonly string Identifier; // MsgStdBn
     public readonly byte[] ByteOrderMark;

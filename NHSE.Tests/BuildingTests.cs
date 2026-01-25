@@ -1,14 +1,14 @@
-using System.Linq;
+﻿using System.Linq;
 using FluentAssertions;
 using NHSE.Core;
 using Xunit;
 
 namespace NHSE.Tests;
 
-public class BuildingTests
+public static class BuildingTests
 {
     [Fact]
-    public void BuildingMarshal()
+    public static void BuildingMarshal()
     {
         var building = new Building();
         var bytes = building.ToBytesClass();
@@ -16,7 +16,7 @@ public class BuildingTests
     }
 
     [Fact]
-    public void BuildingClear()
+    public static void BuildingClear()
     {
         var item = new Building {BuildingType = BuildingType.PlayerHouse1, X=5, Y=7};
         var bytes = item.ToBytesClass();

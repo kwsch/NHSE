@@ -4,18 +4,9 @@ using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Parsing;
 
-public class MSBTTextString
+public sealed record MSBTTextString(Memory<byte> Value, uint Index)
 {
-    public readonly Memory<byte> Value;
-    public readonly uint Index;
-
     public static readonly MSBTTextString Empty = new(default, 0);
-
-    public MSBTTextString(Memory<byte> v, uint i)
-    {
-        Value = v;
-        Index = i;
-    }
 
     public override string ToString() => (Index + 1).ToString();
 

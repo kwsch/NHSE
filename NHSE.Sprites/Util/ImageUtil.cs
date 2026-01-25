@@ -24,39 +24,69 @@ public static class ImageUtil
         public Bitmap GetPalette() => GetBitmap(bg.GetPaletteBitmap(), DesignPatternPRO.PaletteColorCount, 1, PixelFormat.Format24bppRgb);
     }
 
+    extension(Bitmap bmp)
+    {
+        public Span<byte> GetBitmapData(out BitmapData bmpData, PixelFormat format = PixelFormat.Format32bppArgb, byte bpp = 4)
+        {
+            bmpData = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.ReadWrite, format);
+            return GetSpan(bmpData.Scan0, bmp.Width * bmp.Height * bpp);
+        }
+
+        public void GetBitmapData(Span<byte> data, PixelFormat format = PixelFormat.Format32bppArgb, byte bpp = 4)
+        {
+            var span = bmp.GetBitmapData(out var bmpData, format, bpp);
+            span.CopyTo(data);
+            bmp.UnlockBits(bmpData);
+        }
+
+        public void GetBitmapData(Span<int> data, PixelFormat format = PixelFormat.Format32bppArgb, byte bpp = 4)
+        {
+            var span = bmp.GetBitmapData(out var bmpData, format, bpp);
+            var src = MemoryMarshal.Cast<byte, int>(span);
+            src.CopyTo(data);
+            bmp.UnlockBits(bmpData);
+        }
+
+        public void SetBitmapData(ReadOnlySpan<byte> data, PixelFormat format = PixelFormat.Format32bppArgb, byte bpp = 4)
+        {
+            var span = bmp.GetBitmapData(out var bmpData, format, bpp);
+            data.CopyTo(span);
+            bmp.UnlockBits(bmpData);
+        }
+
+        public void SetBitmapData(Span<int> data, PixelFormat format = PixelFormat.Format32bppArgb, byte bpp = 4)
+        {
+            var span = bmp.GetBitmapData(out var bmpData, format, bpp);
+            var dest = MemoryMarshal.Cast<byte, int>(span);
+            data.CopyTo(dest);
+            bmp.UnlockBits(bmpData);
+        }
+    }
+
+    public static Bitmap GetBitmap(ReadOnlySpan<int> data, int width, int height, PixelFormat format = PixelFormat.Format32bppArgb)
+    {
+        var span = MemoryMarshal.Cast<int, byte>(data);
+        return GetBitmap(span, width, height, format);
+    }
+
     public static Bitmap GetBitmap(ReadOnlySpan<byte> data, int width, int height, PixelFormat format = PixelFormat.Format32bppArgb)
     {
         var bmp = new Bitmap(width, height, format);
-        var bmpData = bmp.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.WriteOnly, format);
-        var length = data.Length;
-        var span = MemoryMarshal.CreateSpan(ref Unsafe.AddByteOffset(ref Unsafe.NullRef<byte>(), bmpData.Scan0), length);
-        data[..length].CopyTo(span);
+        var span = bmp.GetBitmapData(out var bmpData);
+        data[..span.Length].CopyTo(span);
         bmp.UnlockBits(bmpData);
         return bmp;
     }
 
-    public static Bitmap GetBitmap(int[] data, int width, int height, PixelFormat format = PixelFormat.Format32bppArgb)
+    public static Bitmap GetBitmap(Span<byte> data, int width, int height, PixelFormat format = PixelFormat.Format32bppArgb)
     {
         var bmp = new Bitmap(width, height, format);
-        SetBitmapData(bmp, data, format);
+        bmp.SetBitmapData(data, format);
         return bmp;
     }
 
-    public static void SetBitmapData(Bitmap bmp, int[] data, PixelFormat format = PixelFormat.Format32bppArgb)
-    {
-        var bmpData = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.WriteOnly, format);
-        var ptr = bmpData.Scan0;
-        Marshal.Copy(data, 0, ptr, data.Length);
-        bmp.UnlockBits(bmpData);
-    }
-
-    public static void GetBitmapData(Bitmap bmp, int[] data, PixelFormat format = PixelFormat.Format32bppArgb)
-    {
-        var bmpData = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.WriteOnly, format);
-        var ptr = bmpData.Scan0;
-        Marshal.Copy(ptr, data, 0, data.Length);
-        bmp.UnlockBits(bmpData);
-    }
+    private static Span<byte> GetSpan(IntPtr ptr, int length)
+        => MemoryMarshal.CreateSpan(ref Unsafe.AddByteOffset(ref Unsafe.NullRef<byte>(), ptr), length);
 
     // https://stackoverflow.com/a/24199315
     public static Bitmap ResizeImage(Image image, int width, int height)
@@ -81,39 +111,37 @@ public static class ImageUtil
         return destImage;
     }
 
-    public static int[] ScalePixelImage(ReadOnlySpan<int> data, int scale, int w, int h, out int fW, out int fH)
+    public static int[] ScalePixelImage(ReadOnlySpan<int> data, int imgScale, int imgWidthSingle, int imgHeightSingle, out int imgWidthUpscaled, out int imgHeightUpscaled)
     {
-        fW = scale * w;
-        fH = scale * h;
-        var scaled = new int[fW * fH];
-
-        ScalePixelImage(data, scaled, fW, fH, scale);
-
+        imgWidthUpscaled = imgScale * imgWidthSingle;
+        imgHeightUpscaled = imgScale * imgHeightSingle;
+        var scaled = new int[imgWidthUpscaled * imgHeightUpscaled];
+        ScalePixelImage(data, scaled, imgWidthUpscaled, imgHeightUpscaled, imgScale);
         return scaled;
     }
 
-    public static void ScalePixelImage(ReadOnlySpan<int> data, Span<int> scaled, int fW, int fH, int scale)
+    public static void ScalePixelImage(ReadOnlySpan<int> data, Span<int> scaled, int imgWidth, int imgHeight, int imgScale)
     {
         // For each pixel, copy to the X indexes, then block copy the row to the other rows.
         int i = 0;
-        for (int y = 0; y < fH; y += scale)
+        for (int y = 0; y < imgHeight; y += imgScale)
         {
             // Fill the X pixels
-            var baseIndex = y * fW;
-            for (int x = 0; x < fW; x += scale)
+            var baseIndex = y * imgWidth;
+            for (int x = 0; x < imgWidth; x += imgScale)
             {
                 var v = data[i];
                 var xi = baseIndex + x;
-                for (int x1 = 0; x1 < scale; x1++)
+                for (int x1 = 0; x1 < imgScale; x1++)
                     scaled[xi + x1] = v;
                 i++;
             }
 
             // Copy entire pixel row down
-            for (int y1 = 1; y1 < scale; y1++)
+            for (int y1 = 1; y1 < imgScale; y1++)
             {
-                var src = scaled.Slice(baseIndex, fW);
-                var dest = scaled.Slice(baseIndex + (y1 * fW), fW);
+                var src = scaled.Slice(baseIndex, imgWidth);
+                var dest = scaled.Slice(baseIndex + (y1 * imgWidth), imgWidth);
                 src.CopyTo(dest);
             }
         }
@@ -126,5 +154,11 @@ public static class ImageUtil
     {
         for (int i = 0; i < data.Length; i++)
             data[i] &= trans;
+    }
+
+    public static void ClampAllTransparencyTo(Span<byte> data, byte trans)
+    {
+        for (int i = 0; i < data.Length; i += 4)
+            data[i + 3] &= trans;
     }
 }

@@ -7,10 +7,12 @@ namespace NHSE.Core;
 /// <summary>
 /// Converts <see cref="Item"/> into columns of writable Item tiles.
 /// </summary>
-public static class FieldItemDropper
+/// <param name="AcreWidth">Field item acre width. 7 on pre-3.0.0 saves, 9 on 3.0.0+</param>
+/// <param name="AcreHeight">Always 6.</param>
+public sealed record FieldItemDropper(int AcreWidth, int AcreHeight = 6)
 {
-    private const int MapHeight = FieldItemLayer.FieldItemHeight;
-    private const int MapWidth = FieldItemLayer.FieldItemWidth;
+    private int MapHeight => AcreWidth * LayerFieldItem.TilesPerAcreDim;
+    private int MapWidth => AcreHeight * LayerFieldItem.TilesPerAcreDim;
 
     // Each dropped item is a 2x2 square, with the top left tile being the root node, and the other 3 being extensions pointing back to the root.
 
@@ -21,7 +23,7 @@ public static class FieldItemDropper
     /// <param name="yCount">Count of items tall the overall spawn-rectangle is.</param>
     /// <param name="borderX">Excluded outer tile count. Useful for enforcing that beach acre tiles are skipped.</param>
     /// <param name="borderY">Excluded outer tile count. Useful for enforcing that beach acre tiles are skipped.</param>
-    public static bool CanFitDropped(int x, int y, int totalCount, int yCount, int borderX, int borderY)
+    public bool CanFitDropped(int x, int y, int totalCount, int yCount, int borderX, int borderY)
     {
         return CanFitDropped(x, y, totalCount, yCount, borderX, borderX, borderY, borderY);
     }
@@ -39,7 +41,7 @@ public static class FieldItemDropper
     /// <param name="topY">Excluded outer tile count. Useful for enforcing that beach acre tiles are skipped.</param>
     /// <param name="botY">Excluded outer tile count. Useful for enforcing that beach acre tiles are skipped.</param>
     /// <returns>True if can fit, false if not.</returns>
-    public static bool CanFitDropped(int x, int y, int totalCount, int yCount, int leftX, int rightX, int topY, int botY)
+    public bool CanFitDropped(int x, int y, int totalCount, int yCount, int leftX, int rightX, int topY, int botY)
     {
         var xCount = totalCount / yCount;
         if (x < leftX || (x + (xCount * 2)) > MapWidth - rightX)
@@ -50,13 +52,13 @@ public static class FieldItemDropper
         return totalCount < (MapHeight * MapWidth / 32);
     }
 
-    public static IReadOnlyList<FieldItemColumn> InjectItemsAsDropped(int mapX, int mapY, IReadOnlyList<Item> item)
+    public IReadOnlyList<FieldItemColumn> InjectItemsAsDropped(int mapX, int mapY, IReadOnlyList<Item> item)
     {
         int yStride = (item.Count > 16) ? 16 : item.Count;
         return InjectItemsAsDropped(mapX, mapY, item, yStride);
     }
 
-    public static IReadOnlyList<FieldItemColumn> InjectItemsAsDropped(int mapX, int mapY, IReadOnlyList<Item> item, int yStride)
+    public IReadOnlyList<FieldItemColumn> InjectItemsAsDropped(int mapX, int mapY, IReadOnlyList<Item> item, int yStride)
     {
         var xStride = item.Count / yStride;
         List<FieldItemColumn> result = new(yStride * xStride);
@@ -108,10 +110,7 @@ public static class FieldItemDropper
         return Item.SetArray(col);
     }
 
-    private static int GetTileOffset(int x, int y)
-    {
-        return Item.SIZE * (y + (x * MapHeight));
-    }
+    private int GetTileOffset(int relX, int relY) => Item.SIZE * (relY + (relX * MapHeight));
 
     private static Item GetDroppedItem(Item item)
     {

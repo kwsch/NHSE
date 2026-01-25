@@ -5,10 +5,10 @@ using Xunit;
 
 namespace NHSE.Tests;
 
-public class EncryptedIntTests
+public static class EncryptedIntTests
 {
     [Fact]
-    public void TestParse()
+    public static void TestParse()
     {
         const int expect = 31_280;
         ReadOnlySpan<byte> data = [0x8A, 0xC4, 0xE3, 0xCF, 0x37, 0xD5, 0x1A, 0xD3];

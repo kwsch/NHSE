@@ -3,15 +3,12 @@ using System.Collections.Generic;
 
 namespace NHSE.Core;
 
-public class PlayerRoom1 : IPlayerRoom
+public class PlayerRoom1(Memory<byte> raw) : IPlayerRoom
 {
     public const int SIZE = 0x65C8;
     public virtual string Extension => "nhpr";
 
-    public readonly Memory<byte> Raw;
-    public Span<byte> Data => Raw.Span;
-
-    public PlayerRoom1(Memory<byte> data) => Raw = data;
+    public Span<byte> Data => raw.Span;
 
     public byte[] Write() => Data.ToArray();
 
@@ -23,8 +20,8 @@ public class PlayerRoom1 : IPlayerRoom
      */
 
     public const int LayerCount = 8;
-    public RoomItemLayer[] GetItemLayers() => RoomItemLayer.GetArray(Data[..(LayerCount * RoomItemLayer.SIZE)].ToArray());
-    public void SetItemLayers(IReadOnlyList<RoomItemLayer> value) => RoomItemLayer.SetArray(value).AsSpan().CopyTo(Data);
+    public LayerRoomItem[] GetItemLayers() => LayerRoomItem.GetArray(Data[..(LayerCount * LayerRoomItem.SIZE)].ToArray());
+    public void SetItemLayers(IReadOnlyList<LayerRoomItem> value) => LayerRoomItem.SetArray(value).CopyTo(Data);
 
     public bool GetIsActive(int layer, int x, int y) => FlagUtil.GetFlag(Data, 0x6400 + (layer * 0x34), (y * 20) + x);
     public void SetIsActive(int layer, int x, int y, bool value = true) => FlagUtil.SetFlag(Data, 0x6400 + (layer * 0x34), (y * 20) + x, value);

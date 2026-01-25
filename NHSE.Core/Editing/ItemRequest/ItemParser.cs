@@ -211,7 +211,7 @@ public static class ItemParser
         try
         {
             if (convert.Length != Item.SIZE)
-                throw new Exception();
+                throw new Exception($"Invalid item byte length (expected {Item.SIZE}, got {convert.Length}).");
             item = convert.ToClass<Item>();
         }
         catch (Exception ex)

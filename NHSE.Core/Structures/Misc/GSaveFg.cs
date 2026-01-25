@@ -4,7 +4,7 @@
 namespace NHSE.Core;
 
 [StructLayout(LayoutKind.Sequential, Pack = 4)]
-public class GSaveFg
+public sealed class GSaveFg
 {
     public const int SIZE = 0x928;
     private const int _7b9816fbCount = 0x900;

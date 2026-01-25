@@ -5,7 +5,7 @@ namespace NHSE.Core;
 /// <summary>
 /// <inheritdoc cref="MainSaveOffsets"/>
 /// </summary>
-public class MainSaveOffsets30 : MainSaveOffsets
+public sealed class MainSaveOffsets30 : MainSaveOffsets
 {
     public override int PatternCount => PatternCount2;
 
@@ -35,7 +35,7 @@ public class MainSaveOffsets30 : MainSaveOffsets
     public const int GSaveMainFieldStart = GSaveLandStart + 0x22f3f0;
 
     // Map size increased to accommodate the Hotel, by adding 2 columns of acres!
-    public override int AcreColumnCount => 9; // from 7 to 9
+    public override byte FieldItemAcreWidth => 9; // from 7 to 9
     // does this actually impact anything? We'll eventually find out if so; I hope it is just 2 columns of unused.
 
     // Layer0: 54000 => 6C000

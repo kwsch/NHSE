@@ -5,7 +5,7 @@ namespace NHSE.Core;
 /// <summary>
 /// <inheritdoc cref="MainSaveOffsets"/>
 /// </summary>
-public class MainSaveOffsets14 : MainSaveOffsets
+public sealed class MainSaveOffsets14 : MainSaveOffsets
 {
     #region GSaveLand
     public const int GSaveLandStart = 0x110;

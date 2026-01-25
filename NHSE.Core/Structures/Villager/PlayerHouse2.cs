@@ -2,12 +2,10 @@
 
 namespace NHSE.Core;
 
-public class PlayerHouse2 : PlayerHouse1
+public sealed class PlayerHouse2(Memory<byte> raw) : PlayerHouse1(raw)
 {
     public new const int SIZE = 0x28A28;
     public override string Extension => "nhph2";
-
-    public PlayerHouse2(Memory<byte> data) : base(data) { }
 
     public override IPlayerRoom GetRoom(int roomIndex)
     {

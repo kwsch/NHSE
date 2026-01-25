@@ -3,25 +3,14 @@ using System.Diagnostics;
 
 namespace NHSE.Injection;
 
-public class AutoInjector
+public sealed record AutoInjector(IDataInjector Injector, Action<InjectionResult> DoRead, Action<InjectionResult> DoWrite)
 {
-    public readonly IDataInjector Injector;
-    private readonly Action<InjectionResult> AfterRead;
-    private readonly Action<InjectionResult> AfterWrite;
-
     public bool AutoInjectEnabled { private get; set; }
 
     public bool ValidateEnabled
     {
         get => Injector.ValidateEnabled;
         set => Injector.ValidateEnabled = value;
-    }
-
-    public AutoInjector(IDataInjector inj, Action<InjectionResult> read, Action<InjectionResult> write)
-    {
-        Injector = inj;
-        AfterRead = read;
-        AfterWrite = write;
     }
 
     public void Validate() => Injector.Validate();
@@ -34,7 +23,7 @@ public class AutoInjector
         try
         {
             var result = Injector.Read();
-            AfterRead(result);
+            DoRead(result);
             return result;
         }
         catch (IndexOutOfRangeException ex)
@@ -51,7 +40,7 @@ public class AutoInjector
         try
         {
             var result = Injector.Write();
-            AfterWrite(result);
+            DoWrite(result);
             return result;
         }
         catch (IndexOutOfRangeException ex)

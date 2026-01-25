@@ -7,7 +7,7 @@ namespace NHSE.Core;
 /// <summary>
 /// Used for allowing a struct to be mutated in a PropertyGrid.
 /// </summary>
-public class ValueTypeTypeConverter : ExpandableObjectConverter
+public sealed class ValueTypeTypeConverter : ExpandableObjectConverter
 {
     public override bool GetCreateInstanceSupported(ITypeDescriptorContext? context) => true;
 

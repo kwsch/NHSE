@@ -1,34 +1,26 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using NHSE.Core;
 
 namespace NHSE.Injection;
 
-public class PocketInjector : IDataInjector
+public sealed class PocketInjector(IReadOnlyList<Item> items, IRAMReadWriter bot) : IDataInjector
 {
-    private readonly IReadOnlyList<Item> Items;
-    private readonly IRAMReadWriter Bot;
-    public bool Connected => Bot.Connected;
+    public bool Connected => bot.Connected;
 
+    private byte[]? LastData { get; set; }
     public uint WriteOffset { private get; set; }
     public bool ValidateEnabled { get; set; } = true;
     public bool SpoofInventoryWrite { get; set; }
-    private static readonly Item DroppableOnlyItem = new(0x9C9); // Gold nugget
 
-    public PocketInjector(IReadOnlyList<Item> items, IRAMReadWriter bot)
-    {
-        Items = items;
-        Bot = bot;
-    }
+    private static readonly Item DroppableOnlyItem = new(0x9C9); // Gold nugget
 
     public bool ReadValidate(out byte[] data)
     {
         PlayerItemSet.GetOffsetLength(WriteOffset, out var offset, out var size);
-        data = Bot.ReadBytes(offset, size);
+        data = bot.ReadBytes(offset, size);
         return Validate(data);
     }
-
-    private byte[]? LastData;
 
     public InjectionResult Read()
     {
@@ -38,7 +30,7 @@ public class PocketInjector : IDataInjector
         if (LastData?.SequenceEqual(data) == true)
             return InjectionResult.Same;
 
-        PlayerItemSet.ReadPlayerInventory(data, Items);
+        PlayerItemSet.ReadPlayerInventory(data, items);
 
         LastData = data;
 
@@ -52,9 +44,9 @@ public class PocketInjector : IDataInjector
 
         var orig = (byte[])data.Clone();
 
-        var items = !SpoofInventoryWrite ? Items : Enumerable.Repeat(DroppableOnlyItem, Items.Count).ToArray();
+        var items1 = !SpoofInventoryWrite ? items : Enumerable.Repeat(DroppableOnlyItem, items.Count).ToArray();
 
-        PlayerItemSet.WritePlayerInventory(data, items);
+        PlayerItemSet.WritePlayerInventory(data, items1);
 
         if (data.SequenceEqual(orig))
             return InjectionResult.Same;
@@ -63,7 +55,7 @@ public class PocketInjector : IDataInjector
         if (size != data.Length)
             return InjectionResult.FailBadSize;
 
-        Bot.WriteBytes(data, offset);
+        bot.WriteBytes(data, offset);
 
         LastData = data;
 

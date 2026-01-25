@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace NHSE.Core;
 
-public class ItemProcessor(BatchMutator<Item> mut) : BatchProcessor<Item>(mut)
+public sealed class ItemProcessor(BatchMutator<Item> mut) : BatchProcessor<Item>(mut)
 {
     protected override bool CanModify(Item item) => true;
     protected override bool Finalize(Item item) => true;

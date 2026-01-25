@@ -2,14 +2,7 @@
 
 namespace NHSE.Villagers;
 
-public class VillagerData
-{
-    public readonly Memory<byte> Villager;
-    public readonly Memory<byte> House;
-
-    public VillagerData(Memory<byte> villager, Memory<byte> house)
-    {
-        Villager = villager;
-        House = house;
-    }
-}
+/// <summary>
+/// Tuple-like record struct to hold villager and house memory segments.
+/// </summary>
+public readonly record struct VillagerData(Memory<byte> Villager, Memory<byte> House);

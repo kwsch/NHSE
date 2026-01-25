@@ -1,5 +1,6 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 namespace NHSE.Core;
@@ -78,6 +79,14 @@ public static class StructConverter
     {
         var result = new byte[data.Count * size];
         for (int i = 0; i < data.Count; i++)
+            data[i].ToBytesClass().CopyTo(result, i * size);
+        return result;
+    }
+
+    public static byte[] SetArray<T>(this ReadOnlySpan<T> data, int size) where T : class
+    {
+        var result = new byte[data.Length * size];
+        for (int i = 0; i < data.Length; i++)
             data[i].ToBytesClass().CopyTo(result, i * size);
         return result;
     }

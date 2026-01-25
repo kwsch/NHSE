@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace NHSE.Injection;
 
-public class SysBot : IRAMReadWriter
+public sealed class SysBot : IRAMReadWriter
 {
     public string IP = "192.168.1.65";
     public int Port = 6000;

@@ -6,7 +6,7 @@ using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace NHSE.Parsing;
 
-public class PBC
+public sealed class PBC
 {
     private const uint MAGIC = 0x00636270; // pbc\0
 
@@ -47,7 +47,7 @@ public class PBC
     }
 
     public byte GetTile(int x, int y) => Tiles[(y * Width) + x];
-    public Color GetTileColor(int x, int y) => CollisionUtil.Dict[GetTile(x, y)];
+    public Color GetTileColor(int x, int y) => TileCollisionUtil.Dict[GetTile(x, y)];
 
     public uint Magic => ReadUInt32LittleEndian(Data);
     public uint Width => ReadUInt32LittleEndian(Data[0x04..]);

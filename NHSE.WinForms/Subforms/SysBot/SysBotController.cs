@@ -5,16 +5,13 @@ using NHSE.WinForms.Properties;
 
 namespace NHSE.WinForms;
 
-public class SysBotController
+public sealed class SysBotController(InjectionType type)
 {
-    public SysBotController(InjectionType type) => Type = type;
-
-    private readonly InjectionType Type;
     public readonly SysBot Bot = new();
-    private readonly Settings Settings = Settings.Default;
+    private readonly Settings _settings = Settings.Default;
 
-    public string IP => Settings.SysBotIP;
-    public string Port => Settings.SysBotPort.ToString();
+    public string IP => _settings.SysBotIP;
+    public string Port => _settings.SysBotPort.ToString();
 
     public bool Connect(string ip, string port)
     {
@@ -31,35 +28,29 @@ public class SysBotController
             return false;
         }
 
-        var settings = Settings;
-        settings.SysBotIP = ip;
-        settings.SysBotPort = p;
-        settings.Save();
+        _settings.SysBotIP = ip;
+        _settings.SysBotPort = p;
+        _settings.Save();
 
         return true;
     }
 
-    public uint GetDefaultOffset()
+    public uint GetDefaultOffset() => type switch
     {
-        var settings = Settings;
-        return Type switch
-        {
-            InjectionType.Generic => settings.SysBotGenericOffset,
-            InjectionType.Pouch => settings.SysBotPouchOffset,
-            _ => throw new ArgumentOutOfRangeException()
-        };
-    }
+        InjectionType.Generic => _settings.SysBotGenericOffset,
+        InjectionType.Pouch => _settings.SysBotPouchOffset,
+        _ => throw new ArgumentOutOfRangeException(nameof(type), type, null),
+    };
 
     public void SetOffset(uint value)
     {
-        var settings = Settings;
-        switch (Type)
+        switch (type)
         {
-            case InjectionType.Generic: settings.SysBotGenericOffset = value; break;
-            case InjectionType.Pouch: settings.SysBotPouchOffset = value; break;
+            case InjectionType.Generic: _settings.SysBotGenericOffset = value; break;
+            case InjectionType.Pouch: _settings.SysBotPouchOffset = value; break;
             default: return;
         }
-        settings.Save();
+        _settings.Save();
     }
 
     public void HexEdit(uint offset, int length)
@@ -87,12 +78,12 @@ public class SysBotController
 
     public void PopPrompt()
     {
-        if (Settings.SysBotPrompted)
+        if (_settings.SysBotPrompted)
             return;
 
         WinFormsUtil.Alert(MessageStrings.MsgSysBotInfo, MessageStrings.MsgSysBotRequired);
-        Settings.SysBotPrompted = true;
-        Settings.Save();
+        _settings.SysBotPrompted = true;
+        _settings.Save();
     }
 
     public void WriteBytes(byte[] data, uint offset)

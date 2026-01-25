@@ -271,14 +271,17 @@ public sealed partial class Editor : Form
     #region Player Editing
     private void LoadPlayers()
     {
-        if (SAV.Players.Length == 0)
+        // A valid save file has at least one player (main player).
+        if (SAV.Players.Count == 0)
             throw new Exception("No players found in the loaded directory.");
 
+        // Load the player names to the selection box.
         CB_Players.Items.Clear();
         var playerList = SAV.Players.Select(z => z.DirectoryName);
         foreach (var p in playerList)
             CB_Players.Items.Add(p);
 
+        // Trigger a load.
         PlayerIndex = -1;
         CB_Players.SelectedIndex = 0;
     }

@@ -1,10 +1,10 @@
-using FluentAssertions;
+﻿using FluentAssertions;
 using NHSE.Core;
 using Xunit;
 
 namespace NHSE.Tests;
 
-public class FancyMarshalTests
+public sealed class FancyMarshalTests
 {
     [Fact] public void MarshalGSaveBulletinBoard() => MarshalBytesTestS<GSaveBulletinBoard>(GSaveBulletinBoard.SIZE);
     [Fact] public void MarshalBulletinBoard() => MarshalBytesTestS<BulletinBoardStock>(BulletinBoardStock.SIZE);

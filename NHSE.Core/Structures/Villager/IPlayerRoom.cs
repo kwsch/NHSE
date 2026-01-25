@@ -8,6 +8,6 @@ public interface IPlayerRoom
     byte[] Write();
 
     string Extension { get; }
-    RoomItemLayer[] GetItemLayers();
-    void SetItemLayers(IReadOnlyList<RoomItemLayer> value);
+    LayerRoomItem[] GetItemLayers();
+    void SetItemLayers(IReadOnlyList<LayerRoomItem> value);
 }

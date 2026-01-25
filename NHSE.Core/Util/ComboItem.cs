@@ -6,7 +6,7 @@ namespace NHSE.Core;
 /// <summary>
 /// Key Value pair for a displayed <see cref="T:System.String" /> and underlying <see cref="T:System.Int32" /> value.
 /// </summary>
-public record ComboItem(string Text, int Value);
+public sealed record ComboItem(string Text, int Value);
 
 public static class ComboItemUtil
 {
@@ -25,10 +25,10 @@ public static class ComboItemUtil
         return result;
     }
 
-    public static List<ComboItem> GetArray<T>(Type t) where T : struct, IFormattable
+    public static List<ComboItem> GetArray<T>() where T : struct, Enum, IFormattable
     {
-        var names = Enum.GetNames(t);
-        var values = (T[])Enum.GetValues(t);
+        var names = Enum.GetNames<T>();
+        var values = Enum.GetValues<T>();
 
         var acres = new List<ComboItem>(names.Length);
         for (int i = 0; i < names.Length; i++)
