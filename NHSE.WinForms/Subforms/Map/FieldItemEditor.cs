@@ -52,10 +52,10 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         this.TranslateInterface(GameInfo.CurrentLanguage);
 
         // Read the expected scale from the control.
-        var scale = (PB_Acre.Width - 2) / LayerFieldItem.TilesPerAcreDim; // 1px border
+        var scale = (PB_Viewport.Width - 2) / LayerFieldItem.TilesPerAcreDim; // 1px border
         SAV = sav;
         Editor = MapEditor.FromSaveFile(sav);
-        Editor.MapScale = scale;
+        Editor.MapScale = 1;
         Editor.ViewScale = scale;
         Renderer = new MapRenderer(Editor);
 
@@ -128,7 +128,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     private void LoadItemGridAcre()
     {
         ReloadItems();
-        ReloadAcreBackground();
+        ReloadViewportBackground();
         UpdateArrowVisibility();
     }
 
@@ -153,26 +153,26 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         PB_Map.Image = img;
     }
 
-    private void ReloadAcreBackground()
+    private void ReloadViewportBackground()
     {
         var tbuild = (byte)TR_BuildingTransparency.Value;
         var tterrain = (byte)TR_Terrain.Value;
         var img = Renderer.UpdateViewportTerrain(L_Coordinates.Font, tbuild, tterrain, SelectedBuildingIndex);
-        PB_Acre.BackgroundImage = img;
-        PB_Acre.Invalidate(); // background image reassigning to same img doesn't redraw; force it
+        PB_Viewport.BackgroundImage = img;
+        PB_Viewport.Invalidate(); // background image reassigning to same img doesn't redraw; force it
     }
 
-    private void ReloadAcreItemGrid() => PB_Acre.Image = Renderer.UpdateViewportItems(GetItemTransparency());
+    private void ReloadViewportItems() => PB_Viewport.Image = Renderer.UpdateViewportItems(GetItemTransparency());
 
     public void ReloadItems()
     {
-        ReloadAcreItemGrid();
+        ReloadViewportItems();
         ReloadMapItemGrid();
     }
 
     private void ReloadBuildingsTerrain()
     {
-        ReloadAcreBackground();
+        ReloadViewportBackground();
         ReloadMapBackground();
     }
 
@@ -184,7 +184,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         B_Right.Enabled = View.CanRight;
     }
 
-    private void PB_Acre_MouseClick(object sender, MouseEventArgs e)
+    private void ViewportMouseClick(object sender, MouseEventArgs e)
     {
         if (IsDragOperationActive)
         {
@@ -370,9 +370,9 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         HoverY &= 0x1F;
     }
 
-    private void PB_Acre_MouseDown(object sender, MouseEventArgs e) => ResetDrag();
+    private void ViewportMouseDown(object sender, MouseEventArgs e) => ResetDrag();
 
-    private void PB_Acre_MouseMove(object sender, MouseEventArgs e)
+    private void ViewportMouseMove(object sender, MouseEventArgs e)
     {
         var l = CurrentLayer;
         if (e.Button == MouseButtons.Left && CHK_MoveOnDrag.Checked)
@@ -409,7 +409,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         var isActive = flagLayer.GetIsActive(x, y);
         if (isActive)
             name = $"{name} [Active]";
-        TT_Hover.SetToolTip(PB_Acre, name);
+        TT_Hover.SetToolTip(PB_Viewport, name);
         SetCoordinateText(x, y);
     }
 

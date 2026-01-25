@@ -48,7 +48,7 @@
             NUD_Layer = new System.Windows.Forms.NumericUpDown();
             L_Layer = new System.Windows.Forms.Label();
             TT_Hover = new System.Windows.Forms.ToolTip(components);
-            PB_Acre = new System.Windows.Forms.PictureBox();
+            PB_Viewport = new System.Windows.Forms.PictureBox();
             TR_Transparency = new System.Windows.Forms.TrackBar();
             CHK_NoOverwrite = new System.Windows.Forms.CheckBox();
             CHK_AutoExtension = new System.Windows.Forms.CheckBox();
@@ -155,7 +155,7 @@
             ((System.ComponentModel.ISupportInitialize)PB_Map).BeginInit();
             CM_Picture.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NUD_Layer).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)PB_Acre).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PB_Viewport).BeginInit();
             ((System.ComponentModel.ISupportInitialize)TR_Transparency).BeginInit();
             CM_Remove.SuspendLayout();
             TC_Editor.SuspendLayout();
@@ -384,18 +384,18 @@
             // 
             // PB_Acre
             // 
-            PB_Acre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            PB_Acre.ContextMenuStrip = CM_Click;
-            PB_Acre.Location = new System.Drawing.Point(14, 16);
-            PB_Acre.Margin = new System.Windows.Forms.Padding(4);
-            PB_Acre.Name = "PB_Acre";
-            PB_Acre.Size = new System.Drawing.Size(514, 514);
-            PB_Acre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            PB_Acre.TabIndex = 28;
-            PB_Acre.TabStop = false;
-            PB_Acre.MouseClick += PB_Acre_MouseClick;
-            PB_Acre.MouseDown += PB_Acre_MouseDown;
-            PB_Acre.MouseMove += PB_Acre_MouseMove;
+            PB_Viewport.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            PB_Viewport.ContextMenuStrip = CM_Click;
+            PB_Viewport.Location = new System.Drawing.Point(14, 16);
+            PB_Viewport.Margin = new System.Windows.Forms.Padding(4);
+            PB_Viewport.Name = "PB_Viewport";
+            PB_Viewport.Size = new System.Drawing.Size(514, 514);
+            PB_Viewport.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            PB_Viewport.TabIndex = 28;
+            PB_Viewport.TabStop = false;
+            PB_Viewport.MouseClick += ViewportMouseClick;
+            PB_Viewport.MouseDown += ViewportMouseDown;
+            PB_Viewport.MouseMove += ViewportMouseMove;
             // 
             // TR_Transparency
             // 
@@ -1409,7 +1409,7 @@
             Controls.Add(RB_Terrain);
             Controls.Add(RB_Item);
             Controls.Add(TC_Editor);
-            Controls.Add(PB_Acre);
+            Controls.Add(PB_Viewport);
             Controls.Add(L_Layer);
             Controls.Add(NUD_Layer);
             Controls.Add(L_Coordinates);
@@ -1434,7 +1434,7 @@
             ((System.ComponentModel.ISupportInitialize)PB_Map).EndInit();
             CM_Picture.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)NUD_Layer).EndInit();
-            ((System.ComponentModel.ISupportInitialize)PB_Acre).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PB_Viewport).EndInit();
             ((System.ComponentModel.ISupportInitialize)TR_Transparency).EndInit();
             CM_Remove.ResumeLayout(false);
             TC_Editor.ResumeLayout(false);
@@ -1490,7 +1490,7 @@
         private System.Windows.Forms.NumericUpDown NUD_Layer;
         private System.Windows.Forms.Label L_Layer;
         private System.Windows.Forms.ToolTip TT_Hover;
-        private System.Windows.Forms.PictureBox PB_Acre;
+        private System.Windows.Forms.PictureBox PB_Viewport;
         private System.Windows.Forms.TrackBar TR_Transparency;
         private System.Windows.Forms.CheckBox CHK_NoOverwrite;
         private System.Windows.Forms.CheckBox CHK_AutoExtension;

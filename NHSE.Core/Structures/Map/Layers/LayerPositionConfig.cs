@@ -97,4 +97,24 @@ public readonly record struct LayerPositionConfig(
         var (relX, relY) = GetCoordinatesRelative(absX, absY);
         return IsCoordinateValidRelative(relX, relY);
     }
+
+    /// <summary>
+    /// Layer total width in tiles.
+    /// </summary>
+    public int LayerTotalWidth => CountWidth * TilesPerAcre;
+
+    /// <summary>
+    /// Layer total height in tiles.
+    /// </summary>
+    public int LayerTotalHeight => CountHeight * TilesPerAcre;
+
+    /// <summary>
+    /// Gets the total width of the map, in tiles.
+    /// </summary>
+    public int MapTotalWidth => MapAcreWidth * TilesPerAcre;
+
+    /// <summary>
+    /// Gets the total height of the map, in tiles.
+    /// </summary>
+    public int MapTotalHeight => MapAcreHeight * TilesPerAcre;
 }

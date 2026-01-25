@@ -53,23 +53,27 @@ public sealed class MapRenderer : IDisposable
         Map = m;
 
         // Initialize cached objects based on map size
-        // Get tile info from layer 0 (item layer is the tiniest cell we can render)
-        var l1 = m.Mutator.Manager.FieldItems.Layer0;
-        var info = l1.TileInfo;
-
-        MapItemsReticleX = new int[info.TotalWidth * info.TotalHeight * MapScale * MapScale];
-        MapItemsReticleImage = new Bitmap(info.TotalWidth * MapScale, info.TotalHeight * MapScale);
+        // Get tile info from item layer, it's the tiniest cell we can render
+        var cfg = m.Mutator.Manager.ConfigItems;
+        var mapW = cfg.MapTotalWidth * MapScale;
+        var mapH = cfg.MapTotalHeight * MapScale;
+        MapItemsReticleImage = new Bitmap(mapW, mapH);
+        MapItemsReticleX = new int[mapW * mapH];
 
         MapTerrain1 = new int[MapItemsReticleX.Length / (MapScale * MapScale)];
         MapTerrainX = new int[MapItemsReticleX.Length];
         MapTerrainImage = new Bitmap(MapItemsReticleImage.Width, MapItemsReticleImage.Height);
 
-        ViewportItems1 = new int[info.ViewWidth * info.ViewHeight];
+        // Render a single acre viewport
+        var tpa = cfg.TilesPerAcre;
+        ViewportItems1 = new int[tpa * tpa];
         ViewportItemsX = new int[ViewportItems1.Length * ViewScale * ViewScale];
-        ViewportItemsImage = new Bitmap(info.ViewWidth * ViewScale, info.ViewHeight * ViewScale);
+        ViewportItemsImage = new Bitmap(tpa * ViewScale, tpa * ViewScale);
 
-        ViewportTerrain1 = new int[16*16 * 16*16]; // each terrain tile is drawn as 16px, then we upscale
-        ViewportTerrainX = new int[ViewportItemsX.Length]; // 2x upscale
+        const byte pixelsPerTerrainTile = 16;
+        var dimTerrain = cfg.TilesPerAcre * pixelsPerTerrainTile;
+        ViewportTerrain1 = new int[dimTerrain * dimTerrain]; // each terrain tile is drawn as 16px, then we upscale
+        ViewportTerrainX = new int[ViewportItemsX.Length]; // 2x upscale (16px -> 32px)
         ViewportTerrainImage = new Bitmap(ViewportItemsImage.Width, ViewportItemsImage.Height);
     }
 
@@ -123,7 +127,7 @@ public sealed class MapRenderer : IDisposable
     private Bitmap UpdateMapItemsReticle(LayerFieldItem layer, int absX, int absY, int transparency, bool drawReticle = true)
     {
         var cfg = Map.Mutator.Manager.ConfigItems;
-        ItemLayerSprite.LoadItemLayerDrawReticle(cfg, layer, MapItemsReticleX, transparency);
+        ItemLayerSprite.LoadItemLayer1(cfg, layer, MapItemsReticleX, transparency);
         MapItemsReticleImage.SetBitmapData(MapItemsReticleX);
         if (drawReticle)
             ItemLayerSprite.DrawViewReticle(MapItemsReticleImage, layer.TileInfo, absX, absY);

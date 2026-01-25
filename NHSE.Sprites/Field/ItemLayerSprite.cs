@@ -21,25 +21,26 @@ public static class ItemLayerSprite
     /// <param name="items">List of items from which color values are extracted. The span must contain at least width × height elements.</param>
     /// <param name="bmpData">Pixel data for the bitmap. The span must have a length of at least width × height.</param>
     /// <param name="cfg">Configuration for layer positioning.</param>
-    /// <param name="imgWidth">The number of columns in the bitmap. Must be greater than zero.</param>
-    /// <param name="imgHeight">The number of rows in the bitmap. Must be greater than zero.</param>
-    private static void LoadBitmapLayer(ReadOnlySpan<Item> items, Span<int> bmpData, in LayerPositionConfig cfg, int imgWidth, int imgHeight)
+    private static void LoadBitmapLayer(ReadOnlySpan<Item> items, Span<int> bmpData, in LayerPositionConfig cfg)
     {
         var (shiftX, shiftY) = cfg.GetCoordinatesAbsolute(0, 0);
 
         // Iterate through the relative positions within the layer.
         // Then, map to absolute positions in the bitmap with the configured shift.
-        for (int x = 0; x < imgWidth; x++)
+        var width = cfg.LayerTotalWidth;
+        var height = cfg.LayerTotalHeight;
+        var mapWidth = cfg.MapTotalWidth; // 1px scale
+        for (int relX = 0; relX < width; relX++)
         {
-            var ix = x * imgHeight;
-            for (int y = 0; y < imgHeight; y++)
+            var absX = relX + shiftX;
+            for (int relY = 0; relY < height; relY++)
             {
                 // Get the tile at this position.
-                var index = ix + y;
-                var tile = items[index];
+                var tile = items[relY + relX * height];
 
                 // Get the actual shifted position in the bitmap.
-                var offset = ((y + shiftY) * imgWidth) + (x + shiftX);
+                var absY = relY + shiftY;
+                var offset = (absY * mapWidth) + absX;
 
                 // Write the color to the bitmap data.
                 bmpData[offset] = FieldItemColor.GetItemColor(tile).ToArgb();
@@ -104,10 +105,10 @@ public static class ItemLayerSprite
         for (int y = 0; y < height; y++)
         {
             var baseIndex = (y * width);
+            var tileY = relY + y;
             for (int x = 0; x < width; x++)
             {
                 var tileX = relX + x;
-                var tileY = relY + y;
                 if (!cfg.IsCoordinateValidRelative(tileX, tileY))
                     continue;
                 var tile = layer.GetTile(tileX, tileY);
@@ -133,8 +134,8 @@ public static class ItemLayerSprite
         Span<int> data,
         int absX, int absY, int imgWidth, int imgScale)
     {
-        var width = layer.TileInfo.ViewWidth;
-        var height = layer.TileInfo.ViewHeight;
+        var width = cfg.TilesPerAcre;
+        var height = cfg.TilesPerAcre;
 
         var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
 
@@ -381,15 +382,15 @@ public static class ItemLayerSprite
     }
 
     /// <summary>
-    /// Loads an item layer into a viewport bitmap, drawing a view reticle over it.
+    /// Loads an item layer into a viewport bitmap.
     /// </summary>
     /// <param name="cfg">Configuration for layer positioning.</param>
     /// <param name="layer">Item layer to draw from.</param>
     /// <param name="data">Pixel data of the final image.</param>
     /// <param name="transparency">Optional transparency override color.</param>
-    public static void LoadItemLayerDrawReticle(LayerPositionConfig cfg, LayerItem layer, Span<int> data, int transparency = -1)
+    public static void LoadItemLayer1(LayerPositionConfig cfg, LayerItem layer, Span<int> data, int transparency = -1)
     {
-        LoadBitmapLayer(layer.Tiles, data, cfg, layer.TileInfo.TotalWidth, layer.TileInfo.TotalHeight);
+        LoadBitmapLayer(layer.Tiles, data, cfg);
         if (transparency >>> 24 != 0xFF)
             ImageUtil.ClampAllTransparencyTo(data, transparency);
     }
