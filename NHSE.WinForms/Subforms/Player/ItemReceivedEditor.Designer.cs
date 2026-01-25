@@ -157,7 +157,7 @@
             // 
             this.B_AllFurniture.Name = "B_AllFurniture";
             this.B_AllFurniture.Size = new System.Drawing.Size(191, 24);
-            this.B_AllFurniture.Text = "Give All Furniture";
+            this.B_AllFurniture.Text = "Give All Furniture + Clothing";
             this.B_AllFurniture.Click += new System.EventHandler(this.B_AllFurniture_Click);
             // 
             // B_GiveEverything
