@@ -41,17 +41,15 @@ public static class TerrainSprite
         map.SetBitmapData(scaleX);
     }
 
-    public static Bitmap GetMapWithBuildings(Bitmap map, MapEditor m, Font? f,
-        Span<int> scale1, Span<int> scaleX,
-        int buildingIndex = -1)
+    public static Bitmap GetMapWithBuildings(Bitmap map, MapEditor m, Span<int> scale1, Span<int> scaleX, int buildingIndex = -1)
     {
         var imgScale = m.MapScale * 2; // because terrain is 16px per tile, items are 32px per tile
         GenerateMap(map, m.Mutator, scale1, scaleX, imgScale);
         using var gfx = Graphics.FromImage(map);
 
         var plaza = m.Mutator.Manager.Plaza;
-        gfx.DrawPlaza(m, (ushort)plaza.X, (ushort)plaza.Z, imgScale);
-        gfx.DrawBuildings(m.Buildings.Buildings, imgScale, f, buildingIndex);
+        gfx.DrawMapPlaza(m, (ushort)plaza.X, (ushort)plaza.Z, imgScale);
+        gfx.DrawMapBuildings(m, m.Buildings.Buildings, imgScale, buildingIndex);
         return map;
     }
 
@@ -101,7 +99,7 @@ public static class TerrainSprite
 
         // Draw Text of Terrain Tile Names
         if (transTerrain != 0)
-            DrawViewTerrainTileNames(gfx, m.Terrain, cfg, f, absX, absY, m.ViewScale, transTerrain);
+            DrawViewTerrainTileNames(gfx, m.Terrain, cfg, f, relX, relY, m.ViewScale * 2, transTerrain);
 
         // Done.
     }
@@ -112,13 +110,15 @@ public static class TerrainSprite
         for (var i = 0; i < buildings.Count; i++)
         {
             var b = buildings[i];
+            if (b.BuildingType == BuildingType.None)
+                continue;
             var pen = selectedBuildingIndex == i ? Selected : Others;
             if (transBuild != byte.MaxValue)
             {
                 var orig = ((SolidBrush)pen).Color;
                 pen = new SolidBrush(Color.FromArgb(transBuild, orig));
             }
-            gfx.DrawBuilding(b, pen, m.ViewScale, Text);
+            gfx.DrawViewBuilding(m, b, pen, m.ViewScale, Text);
         }
     }
 
@@ -147,9 +147,9 @@ public static class TerrainSprite
         }
     }
 
-    private static void DrawPlaza(this Graphics gfx, MapEditor map, ushort px, ushort py, int imgScale)
+    private static void DrawMapPlaza(this Graphics gfx, MapEditor map, ushort px, ushort py, int imgScale)
     {
-        var (x, y) = (px * imgScale, py * imgScale);
+        var (x, y) = (px, py);
 
         int width = imgScale * PlazaWidth;
         int height = imgScale * PlazaHeight;
@@ -157,7 +157,7 @@ public static class TerrainSprite
         gfx.FillRectangle(Plaza, x, y, width, height);
     }
 
-    private static void DrawBuildings(this Graphics gfx, IReadOnlyList<Building> buildings, int imgScale, Font? textFont = null, int selectedBuildingIndex = -1)
+    private static void DrawMapBuildings(this Graphics gfx, MapEditor m, IReadOnlyList<Building> buildings, int imgScale, int selectedBuildingIndex = -1)
     {
         for (int i = 0; i < buildings.Count; i++)
         {
@@ -165,22 +165,23 @@ public static class TerrainSprite
             if (b.BuildingType == 0)
                 continue;
 
+            var (width, height) = b.BuildingType.GetDimensions();
             var pen = selectedBuildingIndex == i ? Selected : Others;
-            gfx.DrawBuilding(b, pen, imgScale, Text, textFont);
+            gfx.FillRectangle(pen, b.X, b.Y, imgScale * width, imgScale * height);
         }
     }
 
-    private static void DrawBuilding(this Graphics gfx, Building b, Brush bBrush,
+    private static void DrawViewBuilding(this Graphics gfx, MapEditor m, Building b, Brush bBrush,
         int imgScale, Brush textBrush, Font? textFont = null)
     {
-        var (x, y) = (b.X * imgScale, b.Y * imgScale);
+        var (x, y) = m.GetViewCoordinatesBuilding(b.X, b.Y);
         var type = b.BuildingType;
         var (width, height) = type.GetDimensions();
+        x -= (width / 2) * m.ViewScale * 2;
+        y -= (height / 2) * m.ViewScale * 2;
 
         // Draw the building.
-        x -= width / 2;
-        y -= height / 2;
-        gfx.FillRectangle(bBrush, x, y, width * imgScale, height * imgScale);
+        gfx.FillRectangle(bBrush, x, y, width * imgScale * 2, height * imgScale * 2);
 
         if (textFont == null)
             return;
@@ -268,7 +269,7 @@ public static class TerrainSprite
         var plaza = m.Mutator.Manager.Plaza;
         var (x, y) = m.GetViewCoordinatesBuilding(plaza.X, plaza.Z);
 
-        var scale = m.ViewScale;
+        var scale = m.ViewScale * 2;
         var width = scale * PlazaWidth;
         var height = scale * PlazaHeight;
 

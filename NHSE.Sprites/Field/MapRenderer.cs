@@ -76,6 +76,7 @@ public sealed class MapRenderer : IDisposable
         ViewportTerrain1 = new int[dimTerrain * dimTerrain]; // each terrain tile is drawn as 16px, then we upscale
         ViewportTerrainX = new int[ViewportItemsX.Length]; // 2x upscale (16px -> 32px)
         ViewportTerrainImage = new Bitmap(ViewportItemsImage.Width, ViewportItemsImage.Height);
+        ViewportTerrain1.AsSpan().Fill(TerrainSprite.ColorOcean); // blue color for ocean
     }
 
     public void Dispose()
@@ -102,7 +103,7 @@ public sealed class MapRenderer : IDisposable
     /// <param name="selectedBuildingIndex">Index of building to highlight, or -1 for none.</param>
     /// <returns>Updated map terrain bitmap.</returns>
     public Bitmap UpdateMapTerrain(int selectedBuildingIndex = -1)
-        => TerrainSprite.GetMapWithBuildings(MapTerrainImage, Map, null, MapTerrain1, MapTerrainX, selectedBuildingIndex);
+        => TerrainSprite.GetMapWithBuildings(MapTerrainImage, Map, MapTerrain1, MapTerrainX, selectedBuildingIndex);
 
     /// <summary>
     /// Updates the viewport items bitmap for the current layer and view position.

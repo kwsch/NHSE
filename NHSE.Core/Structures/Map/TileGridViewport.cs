@@ -32,29 +32,47 @@ public readonly record struct TileGridViewport([ConstantExpected] byte ViewWidth
     /// </summary>
     public int TotalCount => TotalWidth * TotalHeight;
 
+    /// <summary>
+    /// Gets the dimensions of the viewable area (an acre-worth).
+    /// </summary>
     public (int X, int Y) DimAcre => (ViewWidth, ViewHeight);
-    public (int X, int Y) DimTotal => (TotalWidth, TotalHeight);
 
-    public int GetTileIndex(int acreX, int acreY, int gridX, int gridY)
-    {
-        var x = (acreX * ViewWidth) + gridX;
-        var y = (acreY * ViewHeight) + gridY;
-        return GetTileIndex(x, y);
-    }
+    /// <summary>
+    /// Gets the total dimensions of the entire grid (including the view).
+    /// </summary>
+    public (int X, int Y) DimTotal => (TotalWidth, TotalHeight);
 
     /// <summary>
     /// Gets the absolute index of the absolute tile in the grid based on the x/y coordinates.
     /// </summary>
-    /// <param name="x">Absolute x coordinate of the tile in the grid</param>
-    /// <param name="y">Absolute y coordinate of the tile in the grid</param>
+    /// <param name="relX">Relative X-coordinate of the tile in the grid</param>
+    /// <param name="relY">Relative Y-coordinate of the tile in the grid</param>
     /// <returns>Absolute index of the tile in the grid</returns>
-    public int GetTileIndex(in int x, in int y) => (TotalHeight * x) + y;
+    public int GetTileIndex(in int relX, in int relY) => (TotalHeight * relX) + relY;
 
-    public void ClampInside(ref int x, ref int y) => ClampCoordinatesTo(ref x, ref y, TotalWidth - 1, TotalHeight - 1);
+    /// <summary>
+    /// Clamps the specified relative X and Y coordinates so that they remain within the valid bounds of the area.
+    /// </summary>
+    /// <remarks>
+    /// Use this method to prevent coordinates from exceeding the valid area,
+    /// which may help avoid out-of-bounds errors when working with grid-based data or images.
+    /// </remarks>
+    /// <param name="relX">The relative X coordinate to clamp.</param>
+    /// <param name="relY">The relative Y coordinate to clamp.</param>
+    public void ClampInside(ref int relX, ref int relY)
+        => ClampCoordinatesTo(ref relX, ref relY, TotalWidth - 1, TotalHeight - 1);
 
-    private static void ClampCoordinatesTo(ref int x, ref int y, int maxX, int maxY)
+    private static void ClampCoordinatesTo(ref int relX, ref int relY, int maxX, int maxY)
     {
-        x = Math.Clamp(x, 0, maxX);
-        y = Math.Clamp(y, 0, maxY);
+        relX = Math.Clamp(relX, 0, maxX);
+        relY = Math.Clamp(relY, 0, maxY);
     }
+
+    /// <summary>
+    /// Determines whether the specified relative coordinates are within the bounds of the area.
+    /// </summary>
+    /// <param name="relX">The horizontal coordinate, relative to the left edge of the area.</param>
+    /// <param name="relY">The vertical coordinate, relative to the top edge of the area.</param>
+    /// <returns><see langword="true"/> if the specified coordinates are within the bounds; otherwise, <see langword="false"/>.</returns>
+    public bool Contains(int relX, int relY) => !((uint)relX >= TotalWidth || (uint)relY >= TotalHeight);
 }

@@ -138,8 +138,8 @@ public sealed record MapViewState
 
     public (int X, int Y) EnforceEdgeBuffer(int x, int y)
     {
-        x = (int)Math.Clamp((uint)x, 0, MaxX - EdgeBuffer);
-        y = (int)Math.Clamp((uint)y, 0, MaxY - EdgeBuffer);
+        x = Math.Clamp(x, 0, MaxX - EdgeBuffer);
+        y = Math.Clamp(y, 0, MaxY - EdgeBuffer);
         return (x, y);
     }
 

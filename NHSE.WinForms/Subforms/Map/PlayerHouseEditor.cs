@@ -171,7 +171,7 @@ public partial class PlayerHouseEditor : Form
         var bmp = new Bitmap(scale * w, scale * h);
 
         // 10x10 items (2x2 tiles per item)
-        var cfg = LayerPositionConfig.Create(1, 1, 20, 1);
+        var cfg = LayerPositionConfig.Create(1, 1, 20, 1, 0, 0);
         ItemLayerSprite.LoadViewport(bmp, layer, cfg, 0, 0, scale1, scaleX, scale, gridlineColor: 0x7F000000);
         PB_Room.Image = bmp;
     }

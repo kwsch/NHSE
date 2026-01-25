@@ -5,19 +5,10 @@
 /// </summary>
 public abstract record AcreSelectionGrid(TileGridViewport TileInfo)
 {
-    protected int GetAcreTileIndex(int acreIndex, int tileIndex)
-    {
-        var acre = AcreCoordinate.Acres[acreIndex];
-        var x = (tileIndex % TileInfo.ViewWidth);
-        var y = (tileIndex / TileInfo.ViewHeight);
-        return TileInfo.GetTileIndex(acre.X, acre.Y, x, y);
-    }
-
-    public int GetAcre(int x, int y) => (x / TileInfo.ViewWidth) + ((y / TileInfo.ViewHeight) * TileInfo.Columns);
-
-    public void GetViewAnchorCoordinates(int acre, out int x, out int y)
-    {
-        x = (acre % TileInfo.Columns) * TileInfo.ViewWidth;
-        y = (acre / TileInfo.Columns) * TileInfo.ViewHeight;
-    }
+    /// <summary>
+    /// Checks if the specified relative x/y coordinates are within the bounds of this layer.
+    /// </summary>
+    /// <param name="relX">The requested tile's X-coordinate, relative to the layer origin.</param>
+    /// <param name="relY">The requested tile's Y-coordinate, relative to the layer origin.</param>
+    public bool Contains(int relX, int relY) => TileInfo.Contains(relX, relY);
 }

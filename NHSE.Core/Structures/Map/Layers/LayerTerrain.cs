@@ -9,12 +9,29 @@ namespace NHSE.Core;
 /// </summary>
 public sealed record LayerTerrain : AcreSelectionGrid
 {
-    public TerrainTile[] Tiles { get; init; }
-    public Memory<byte> BaseAcres { get; init; }
+    /// <summary>
+    /// Terrain tiles in this layer, stored in column-major order.
+    /// </summary>
+    public TerrainTile[] Tiles { get; }
 
+    /// <summary>
+    /// Gets the underlying memory buffer containing the base acre template data (such as sea, beach, interior).
+    /// </summary>
+    public Memory<byte> BaseAcres { get; }
+
+    /// <summary>
+    /// 16x16 tiles per acre.
+    /// </summary>
     public const byte TilesPerAcreDim = 16;
 
+    /// <summary>
+    /// Interior acre-count width (without the deep-sea border).
+    /// </summary>
     private const byte CountAcreWidth = 7;
+
+    /// <summary>
+    /// Interior acre-count height (without the deep-sea border).
+    /// </summary>
     private const byte CountAcreHeight = 6;
 
     private static TileGridViewport Viewport => new(TilesPerAcreDim, TilesPerAcreDim, CountAcreWidth, CountAcreHeight);
@@ -26,9 +43,30 @@ public sealed record LayerTerrain : AcreSelectionGrid
         Debug.Assert(TileInfo.TotalCount == tiles.Length);
     }
 
-    public TerrainTile GetTile(int x, int y) => this[TileInfo.GetTileIndex(x, y)];
-    public TerrainTile GetTile(int acreX, int acreY, int gridX, int gridY) => this[TileInfo.GetTileIndex(acreX, acreY, gridX, gridY)];
-    public TerrainTile GetAcreTile(int acreIndex, int tileIndex) => this[GetAcreTileIndex(acreIndex, tileIndex)];
+    /// <summary>
+    /// Gets the terrain tile at the specified coordinates.
+    /// </summary>
+    /// <param name="relX">The requested tile's X-coordinate, relative to the layer origin.</param>
+    /// <param name="relY">The requested tile's Y-coordinate, relative to the layer origin.</param>
+    /// <remarks>
+    /// An exception is thrown if the requested coordinates are out of the layer's range.
+    /// </remarks>
+    public TerrainTile GetTile(int relX, int relY) => this[TileInfo.GetTileIndex(relX, relY)];
+
+    private TerrainTile GetTileSafe(int relX, int relY)
+    {
+        if (Contains(relX, relY))
+            return new TerrainTile();
+        return GetTile(relX, relY);
+    }
+
+    private bool SetTileSafe(int relX, int relY, TerrainTile tile)
+    {
+        if (Contains(relX, relY))
+            return false;
+        GetTile(relX, relY).CopyFrom(tile);
+        return true;
+    }
 
     public TerrainTile this[int index]
     {
@@ -42,24 +80,6 @@ public sealed record LayerTerrain : AcreSelectionGrid
     public byte[] DumpAll() => TerrainTile.SetArray(Tiles);
 
     /// <summary>
-    /// Gets the tiles local to the specified acre as a contiguous byte array.
-    /// </summary>
-    /// <param name="acre">Terrain acre index.</param>
-    public byte[] DumpAcre(int acre)
-    {
-        int count = TileInfo.ViewCount;
-        var result = new byte[TerrainTile.SIZE * count];
-        for (int i = 0; i < count; i++)
-        {
-            var tile = GetAcreTile(acre, i);
-            var bytes = tile.ToBytesClass();
-            bytes.CopyTo(result, i * TerrainTile.SIZE);
-        }
-
-        return result;
-    }
-
-    /// <summary>
     /// Imports terrain tiles from a contiguous byte array.
     /// </summary>
     /// <param name="data">Byte array containing terrain tile data.</param>
@@ -71,19 +91,77 @@ public sealed record LayerTerrain : AcreSelectionGrid
     }
 
     /// <summary>
-    /// Imports terrain tiles for the specified acre from a contiguous byte array.
+    /// Retrieves the serialized data for the acre at the specified relative coordinates.
     /// </summary>
-    /// <param name="acre">Terrain acre index.</param>
-    /// <param name="data">Byte array containing terrain tile data.</param>
-    public void ImportAcre(int acre, ReadOnlySpan<byte> data)
+    /// <param name="relX">The relative X-coordinate of the top-left tile of the acre to dump.</param>
+    /// <param name="relY">The relative Y-coordinate of the top-left tile of the acre to dump.</param>
+    /// <returns>
+    /// A byte array containing the serialized terrain data of the specified acre.
+    /// The array length is determined by the terrain tile size and the view count.
+    /// </returns>
+    public byte[] DumpAcre(int relX, int relY)
     {
         int count = TileInfo.ViewCount;
-        var tiles = TerrainTile.GetArray(data);
-        for (int i = 0; i < count; i++)
+        var result = new byte[TerrainTile.SIZE * count];
+        DumpAcre(result, relX, relY);
+        return result;
+    }
+
+    /// <summary>
+    /// Writes the serialized data for an acre of tiles, starting at the specified relative coordinates, into the provided buffer.
+    /// </summary>
+    /// <remarks>
+    /// If a tile at the specified coordinates is out of range, a default value is written for that tile.
+    /// The data is written in column-major order, with each tile's bytes written sequentially into the buffer.
+    /// </remarks>
+    /// <param name="result">
+    /// The buffer that receives the serialized tile data.
+    /// Must be large enough to hold the data for the entire acre.
+    /// </param>
+    /// <param name="relX">The relative X-coordinate of the top-left tile of the acre to dump.</param>
+    /// <param name="relY">The relative Y-coordinate of the top-left tile of the acre to dump.</param>
+    public void DumpAcre(Span<byte> result, int relX, int relY)
+    {
+        // Store columns first. If the x,y is out of range, store default.
+        int offset = 0;
+        for (int y = 0; y < TileInfo.ViewHeight; y++)
         {
-            var tile = GetAcreTile(acre, i);
-            tile.CopyFrom(tiles[i]);
+            var tileY = relY + y;
+            for (int x = 0; x < TileInfo.ViewWidth; x++)
+            {
+                var tileX = relX + x;
+                var tile = GetTileSafe(tileX, tileY);
+                tile.ToBytesClass().CopyTo(result[offset..]);
+                offset += Item.SIZE;
+            }
         }
+    }
+
+    /// <summary>
+    /// Imports terrain tile data into the layer at the specified relative coordinates.
+    /// </summary>
+    /// <param name="data">
+    /// A read-only span of bytes containing the serialized terrain tile data to import.
+    /// The data must be in the format expected by TerrainTile.GetArray.
+    /// </param>
+    /// <param name="relX">The X-coordinate, relative to the layer origin, where the imported tiles will be placed.</param>
+    /// <param name="relY">The Y-coordinate, relative to the layer origin, where the imported tiles will be placed.</param>
+    /// <returns>The number of tiles successfully imported. Returns 0 if no tiles were imported.</returns>
+    public int ImportAcre(ReadOnlySpan<byte> data, int relX, int relY)
+    {
+        int count = 0;
+        int i = 0;
+        var tiles = TerrainTile.GetArray(data);
+        for (int y = 0; y < TileInfo.ViewHeight; y++)
+        {
+            var tileY = relY + y;
+            for (int x = 0; x < TileInfo.ViewWidth; x++)
+            {
+                var tileX = relX + x;
+                SetTileSafe(tileX, tileY, tiles[i++]);
+            }
+        }
+        return count;
     }
 
     /// <summary>
@@ -215,7 +293,14 @@ public sealed record LayerTerrain : AcreSelectionGrid
         var acreY = 1 + (relY / 16);
 
         var acreIndex = ((CountAcreWidth + 2) * acreY) + acreX;
-        var ofs = acreIndex * 2;
-        return ReadUInt16LittleEndian(BaseAcres.Span[ofs..]);
+        var span = GetBaseAcreSpan(acreIndex);
+        return ReadUInt16LittleEndian(span);
     }
+
+    /// <summary>
+    /// Gets the base acre template span at the specified index.
+    /// </summary>
+    /// <param name="index">Index of the acre.</param>
+    /// <returns>Span of bytes representing the base acre template.</returns>
+    public Span<byte> GetBaseAcreSpan(int index) => BaseAcres.Span.Slice(index * 2, 2);
 }

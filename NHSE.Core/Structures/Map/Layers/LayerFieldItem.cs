@@ -10,33 +10,6 @@ public sealed record LayerFieldItem(Item[] Tiles, byte AcreWidth, byte AcreHeigh
 
     public const int TilesPerAcreDim = 32;
 
-    public Item GetTile(int acreX, int acreY, int gridX, int gridY) => this[TileInfo.GetTileIndex(acreX, acreY, gridX, gridY)];
-    public Item GetAcreTile(int acreIndex, int tileIndex) => this[GetAcreTileIndex(acreIndex, tileIndex)];
-
-    public byte[] DumpAcre(int acre)
-    {
-        int count = TileInfo.ViewCount;
-        var result = new byte[Item.SIZE * count];
-        for (int i = 0; i < count; i++)
-        {
-            var tile = GetAcreTile(acre, i);
-            var bytes = tile.ToBytesClass();
-            bytes.CopyTo(result, i * Item.SIZE);
-        }
-        return result;
-    }
-
-    public void ImportAcre(int acre, ReadOnlySpan<byte> data)
-    {
-        int count = TileInfo.ViewCount;
-        var tiles = Item.GetArray(data);
-        for (int i = 0; i < count; i++)
-        {
-            var tile = GetAcreTile(acre, i);
-            tile.CopyFrom(tiles[i]);
-        }
-    }
-
     public int ClearFieldPlanted(Func<FieldItemKind, bool> criteria) => ClearFieldPlanted(0, 0, TileInfo.TotalWidth, TileInfo.TotalHeight, criteria);
     public int RemoveAll(Func<Item, bool> criteria) => RemoveAll(0, 0, TileInfo.TotalWidth, TileInfo.TotalHeight, criteria);
     public int RemoveAll(HashSet<ushort> items) => RemoveAll(0, 0, TileInfo.TotalWidth, TileInfo.TotalHeight, z => items.Contains(z.DisplayItemId));
@@ -51,6 +24,9 @@ public sealed record LayerFieldItem(Item[] Tiles, byte AcreWidth, byte AcreHeigh
         {
             for (int y = ymin; y < ymin + height; y++)
             {
+                if (!Contains(x, y))
+                    continue;
+
                 var t = GetTile(x, y);
                 var disp = t.DisplayItemId;
                 if (!fi.TryGetValue(disp, out var val))
@@ -72,6 +48,8 @@ public sealed record LayerFieldItem(Item[] Tiles, byte AcreWidth, byte AcreHeigh
         {
             for (int y = ymin; y < ymin + height; y++)
             {
+                if (!Contains(x, y))
+                    continue;
                 var t = GetTile(x, y);
                 if (!criteria(t))
                     continue;

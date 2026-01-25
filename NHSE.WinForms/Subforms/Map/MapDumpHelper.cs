@@ -8,11 +8,12 @@ namespace NHSE.WinForms;
 
 public static class MapDumpHelper
 {
-    public static bool ImportToLayerAcreSingle(LayerFieldItem layerField, int acreIndex, string acre, int layerIndex)
+    public static bool ImportToLayerAcreSingle(LayerFieldItem layerField, string acre, int layerIndex, int relX, int relY)
     {
+        var name = GetBaseFileName(acre, "acre");
         using var ofd = new OpenFileDialog();
         ofd.Filter = "New Horizons Field Item Layer (*.nhl)|*.nhl|All files (*.*)|*.*";
-        ofd.FileName = $"{acre}-{layerIndex}.nhl";
+        ofd.FileName = $"{name}-{layerIndex}.nhl";
         if (ofd.ShowDialog() != DialogResult.OK)
             return false;
 
@@ -27,8 +28,16 @@ public static class MapDumpHelper
         }
 
         var data = File.ReadAllBytes(path);
-        layerField.ImportAcre(acreIndex, data);
+        var importedCount = layerField.ImportAcre(data, relX, relY);
         return true;
+    }
+
+    private static string GetBaseFileName(string initialName, string fallback)
+    {
+        var result = StringUtil.CleanFileName(initialName);
+        if (string.IsNullOrEmpty(result))
+            return fallback;
+        return result;
     }
 
     public static bool ImportToLayerAcreAll(LayerFieldItem layerField)
@@ -54,16 +63,17 @@ public static class MapDumpHelper
         return true;
     }
 
-    public static void DumpLayerAcreSingle(LayerFieldItem layerField, int acreIndex, string acre, int layerIndex)
+    public static void DumpLayerAcreSingle(LayerFieldItem layerField, string acre, int layerIndex, int relX, int relY)
     {
+        var name = GetBaseFileName(acre, "acre");
         using var sfd = new SaveFileDialog();
         sfd.Filter = "New Horizons Field Item Layer (*.nhl)|*.nhl|All files (*.*)|*.*";
-        sfd.FileName = $"{acre}-{layerIndex}.nhl";
+        sfd.FileName = $"{name}-{layerIndex}.nhl";
         if (sfd.ShowDialog() != DialogResult.OK)
             return;
 
         var path = sfd.FileName;
-        var data = layerField.DumpAcre(acreIndex);
+        var data = layerField.DumpAcre(relX, relY);
         File.WriteAllBytes(path, data);
     }
 
@@ -80,11 +90,12 @@ public static class MapDumpHelper
         File.WriteAllBytes(path, data);
     }
 
-    public static bool ImportTerrainAcre(LayerTerrain m, int acreIndex, string acre)
+    public static bool ImportTerrainAcre(LayerTerrain m, string acre, int relX, int relY)
     {
+        var name = GetBaseFileName(acre, "acre");
         using var ofd = new OpenFileDialog();
         ofd.Filter = "New Horizons Terrain (*.nht)|*.nht|All files (*.*)|*.*";
-        ofd.FileName = $"{acre}.nht";
+        ofd.FileName = $"{name}.nht";
         if (ofd.ShowDialog() != DialogResult.OK)
             return false;
 
@@ -99,7 +110,7 @@ public static class MapDumpHelper
         }
 
         var data = File.ReadAllBytes(path);
-        m.ImportAcre(acreIndex, data);
+        int importedCount = m.ImportAcre(data, relX, relY);
         return true;
     }
 
@@ -126,16 +137,17 @@ public static class MapDumpHelper
         return true;
     }
 
-    public static void DumpTerrainAcre(LayerTerrain m, int acreIndex, string acre)
+    public static void DumpTerrainAcre(LayerTerrain m, string acre, int relX, int relY)
     {
+        var name = GetBaseFileName(acre, "terrainAcre");
         using var sfd = new SaveFileDialog();
         sfd.Filter = "New Horizons Terrain (*.nht)|*.nht|All files (*.*)|*.*";
-        sfd.FileName = $"{acre}.nht";
+        sfd.FileName = $"{name}.nht";
         if (sfd.ShowDialog() != DialogResult.OK)
             return;
 
         var path = sfd.FileName;
-        var data = m.DumpAcre(acreIndex);
+        var data = m.DumpAcre(relX, relY);
         File.WriteAllBytes(path, data);
     }
 

@@ -67,18 +67,17 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         LoadEditors();
 
         // Set initial states
-        LB_Items.SelectedIndex = 0;
         CB_Acre.SelectedIndex = 0;
         CB_MapAcre.SelectedIndex = 0;
+        LB_Items.SelectedIndex = 0; // triggers a draw
 
         Loading = false;
-        LoadItemGridAcre();
     }
 
     private void LoadComboBoxes()
     {
         // Snap viewport to acre
-        foreach (var acre in AcreCoordinate.Acres)
+        foreach (var acre in AcreCoordinate.Exterior)
             CB_Acre.Items.Add(acre.Name);
 
         // Select acre type for current
@@ -111,11 +110,13 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         PG_TerrainTile.SelectedObject = new TerrainTile();
     }
 
-    private int AcreIndex => CB_Acre.SelectedIndex;
+    private int ExteriorAcreIndex => CB_Acre.SelectedIndex;
 
     private void ChangeAcre(object sender, EventArgs e)
     {
-        ChangeViewToAcre(AcreIndex);
+        if (Loading)
+            return;
+        ChangeViewToAcre(ExteriorAcreIndex);
         CB_MapAcre.Text = CB_Acre.Text;
     }
 
@@ -794,16 +795,21 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
             LoadItemGridAcre();
     }
 
-    private void B_DumpAcre_Click(object sender, EventArgs e) => MapDumpHelper.DumpLayerAcreSingle(CurrentLayer, AcreIndex, CB_Acre.Text, (int)NUD_Layer.Value);
+    private void B_DumpAcreItem_Click(object sender, EventArgs e)
+    {
+        var (relX, relY) = Editor.Mutator.Manager.ConfigItems.GetCoordinatesRelative(View.X, View.Y);
+        MapDumpHelper.DumpLayerAcreSingle(CurrentLayer, $"{View.X:000}-{View.Y:000}", (int)NUD_Layer.Value, relX, relY);
+    }
 
     private void B_DumpAllAcres_Click(object sender, EventArgs e) => MapDumpHelper.DumpLayerAcreAll(CurrentLayer);
 
-    private void B_ImportAcre_Click(object sender, EventArgs e)
+    private void B_ImportAcreItem_Click(object sender, EventArgs e)
     {
+        var (relX, relY) = Editor.Mutator.Manager.ConfigItems.GetCoordinatesRelative(View.X, View.Y);
         var layer = CurrentLayer;
-        if (!MapDumpHelper.ImportToLayerAcreSingle(layer, AcreIndex, CB_Acre.Text, (int)NUD_Layer.Value))
+        if (!MapDumpHelper.ImportToLayerAcreSingle(layer, $"{View.X:000}-{View.Y:000}", (int)NUD_Layer.Value, relX, relY))
             return;
-        ChangeViewToAcre(AcreIndex);
+        ChangeViewToAcre(ExteriorAcreIndex);
         System.Media.SystemSounds.Asterisk.Play();
     }
 
@@ -811,7 +817,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     {
         if (!MapDumpHelper.ImportToLayerAcreAll(CurrentLayer))
             return;
-        ChangeViewToAcre(AcreIndex);
+        ChangeViewToAcre(ExteriorAcreIndex);
         System.Media.SystemSounds.Asterisk.Play();
     }
 
@@ -829,15 +835,20 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         ReloadBuildingsTerrain();
     }
 
-    private void B_DumpTerrainAcre_Click(object sender, EventArgs e) => MapDumpHelper.DumpTerrainAcre(Editor.Terrain, AcreIndex, CB_Acre.Text);
+    private void B_DumpTerrainAcre_Click(object sender, EventArgs e)
+    {
+        var (relX, relY) = Editor.Mutator.Manager.ConfigTerrain.GetCoordinatesRelative(View.X / 2, View.Y / 2);
+        MapDumpHelper.DumpTerrainAcre(Editor.Terrain, $"{View.X:000}-{View.Y:000}", relX, relY);
+    }
 
     private void B_DumpTerrainAll_Click(object sender, EventArgs e) => MapDumpHelper.DumpTerrainAll(Editor.Terrain);
 
     private void B_ImportTerrainAcre_Click(object sender, EventArgs e)
     {
-        if (!MapDumpHelper.ImportTerrainAcre(Editor.Terrain, AcreIndex, CB_Acre.Text))
+        var (relX, relY) = Editor.Mutator.Manager.ConfigTerrain.GetCoordinatesRelative(View.X / 2, View.Y / 2);
+        if (!MapDumpHelper.ImportTerrainAcre(Editor.Terrain, $"{View.X:000}-{View.Y:000}", relX, relY))
             return;
-        ChangeViewToAcre(AcreIndex);
+        ChangeViewToAcre(ExteriorAcreIndex);
         System.Media.SystemSounds.Asterisk.Play();
     }
 
@@ -845,7 +856,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     {
         if (!MapDumpHelper.ImportTerrainAll(Editor.Terrain))
             return;
-        ChangeViewToAcre(AcreIndex);
+        ChangeViewToAcre(ExteriorAcreIndex);
         System.Media.SystemSounds.Asterisk.Play();
     }
 
@@ -1115,7 +1126,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         var value = WinFormsUtil.GetIndex(CB_MapAcreSelect);
 
         // u16[], but values are at most u8 each.
-        var span = Editor.Terrain.BaseAcres.Span.Slice(index * 2, 2);
+        var span = Editor.Terrain.GetBaseAcreSpan(index);
         var oldValue = span[0];
         if (value == oldValue)
             return;

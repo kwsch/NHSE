@@ -49,14 +49,13 @@ public readonly record struct LayerPositionConfig(
     /// <param name="height">Height of the layer in acres.</param>
     /// <param name="tilesPerAcre">Number of tiles per acre (16 or 32).</param>
     /// <param name="metaTileSize">Size of tile compared to the smallest tile possible (2 for 16 tiles, 1 for 32 tiles).</param>
+    /// <param name="shiftW">Acre-wise horizontal shift from the map origin.</param>
+    /// <param name="shiftH">Acre-wise vertical shift from the map origin.</param>
     /// <returns>A new <see cref="LayerPositionConfig"/> instance.</returns>
     public static LayerPositionConfig Create(byte width, byte height,
         [ConstantExpected(Min = Grid16, Max = Grid32)] byte tilesPerAcre,
-        [ConstantExpected(Min = 1, Max = 2)] byte metaTileSize)
+        [ConstantExpected(Min = 1, Max = 2)] byte metaTileSize, byte shiftW, byte shiftH)
     {
-        var shiftW = (byte)((MapAcreWidth - width) / 2); // centered
-        var shiftH = (byte)((MapAcreHeight - height) / 2); // centered
-
         var bitShift = tilesPerAcre == Grid16 ? Shift16 : Shift32;
 #pragma warning disable CA1857
         return new LayerPositionConfig(width, height, shiftW, shiftH, tilesPerAcre, bitShift, metaTileSize);
@@ -117,4 +116,11 @@ public readonly record struct LayerPositionConfig(
     /// Gets the total height of the map, in tiles.
     /// </summary>
     public int MapTotalHeight => MapAcreHeight * TilesPerAcre;
+
+    public int GetAcreIndexRelative(int relX, int relY)
+    {
+        var acreX = relX >> TileBitShift;
+        var acreY = relY >> TileBitShift;
+        return (CountHeight * acreX) + acreY;
+    }
 }

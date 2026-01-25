@@ -644,7 +644,7 @@
             B_DumpAcre.Name = "B_DumpAcre";
             B_DumpAcre.Size = new System.Drawing.Size(144, 22);
             B_DumpAcre.Text = "Dump Acre";
-            B_DumpAcre.Click += B_DumpAcre_Click;
+            B_DumpAcre.Click += B_DumpAcreItem_Click;
             // 
             // B_DumpAllAcres
             // 
@@ -658,7 +658,7 @@
             B_ImportAcre.Name = "B_ImportAcre";
             B_ImportAcre.Size = new System.Drawing.Size(144, 22);
             B_ImportAcre.Text = "Import Acre";
-            B_ImportAcre.Click += B_ImportAcre_Click;
+            B_ImportAcre.Click += B_ImportAcreItem_Click;
             // 
             // B_ImportAllAcres
             // 

@@ -7,9 +7,10 @@ public static class MapTileManagerUtil
     /// </summary>
     public static MapTileManager FromSaveFile(MainSave sav) => new()
     {
-        ConfigTerrain = LayerPositionConfig.Create(7, 6, 16, 1),
-        ConfigBuildings = LayerPositionConfig.Create(5, 4, 16, 2),
-        ConfigItems = LayerPositionConfig.Create(sav.FieldItemAcreWidth, sav.FieldItemAcreHeight, 32, 1),
+        ConfigTerrain = LayerPositionConfig.Create(7, 6, 16, 1, 1, 1),
+        ConfigBuildings = LayerPositionConfig.Create(9, 7, 16, 1, 0, 0),
+        ConfigItems = LayerPositionConfig.Create(sav.FieldItemAcreWidth, sav.FieldItemAcreHeight, 32, 1,
+            (byte)((9 - sav.FieldItemAcreWidth) / 2), 1),
 
         LayerTerrain = new LayerTerrain(sav.GetTerrainTiles(), sav.GetAcreBytes()),
         LayerBuildings = new LayerBuilding { Buildings = sav.Buildings },

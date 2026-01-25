@@ -73,12 +73,12 @@ public static class ItemLayerSprite
         // Inflate to the final size storage.
         ImageUtil.ScalePixelImage(imgSingle, imgUpscaled, imgWidth, imgHeight, imgScale);
 
+        // Draw symbols over special items now?
+        DrawDirectionals(layer, cfg, imgUpscaled, absX, absY, imgWidth, imgScale);
+
         // Optional transparency clamping to make image fainter.
         if (transparency >>> 24 != 0xFF)
             ImageUtil.ClampAllTransparencyTo(imgUpscaled, transparency);
-
-        // Draw symbols over special items now?
-        DrawDirectionals(layer, cfg, imgUpscaled, absX, absY, imgWidth, imgScale);
 
         // Apply gridlines to visually separate each cell.
         DrawGrid(imgUpscaled, imgWidth, imgHeight, gridlineColor, imgScale);
