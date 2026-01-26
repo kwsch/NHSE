@@ -14,14 +14,14 @@ public static class ImageUtil
     {
         public Bitmap GetImage() => GetBitmap(bg.GetBitmap(), DesignPattern.Width, DesignPattern.Height);
 
-        public Bitmap GetPalette() => GetBitmap(bg.GetPaletteBitmap(), DesignPattern.PaletteColorCount, 1, PixelFormat.Format24bppRgb);
+        public Bitmap GetPalette() => GetBitmap(bg.GetPaletteBitmap(), DesignPattern.PaletteColorCount, 1, PixelFormat.Format24bppRgb, 3);
     }
 
     extension(DesignPatternPRO bg)
     {
         public Bitmap GetImage(int sheet) => GetBitmap(bg.GetBitmap(sheet), DesignPatternPRO.Width, DesignPatternPRO.Height);
 
-        public Bitmap GetPalette() => GetBitmap(bg.GetPaletteBitmap(), DesignPatternPRO.PaletteColorCount, 1, PixelFormat.Format24bppRgb);
+        public Bitmap GetPalette() => GetBitmap(bg.GetPaletteBitmap(), DesignPatternPRO.PaletteColorCount, 1, PixelFormat.Format24bppRgb, 3);
     }
 
     extension(Bitmap bmp)
@@ -63,22 +63,22 @@ public static class ImageUtil
         }
     }
 
-    public static Bitmap GetBitmap(ReadOnlySpan<int> data, int width, int height, PixelFormat format = PixelFormat.Format32bppArgb)
+    public static Bitmap GetBitmap(ReadOnlySpan<int> data, int width, int height, PixelFormat format = PixelFormat.Format32bppArgb, byte bpp = 4)
     {
         var span = MemoryMarshal.Cast<int, byte>(data);
-        return GetBitmap(span, width, height, format);
+        return GetBitmap(span, width, height, format, bpp);
     }
 
-    public static Bitmap GetBitmap(ReadOnlySpan<byte> data, int width, int height, PixelFormat format = PixelFormat.Format32bppArgb)
+    public static Bitmap GetBitmap(ReadOnlySpan<byte> data, int width, int height, PixelFormat format = PixelFormat.Format32bppArgb, byte bpp = 4)
     {
         var bmp = new Bitmap(width, height, format);
-        var span = bmp.GetBitmapData(out var bmpData);
+        var span = bmp.GetBitmapData(out var bmpData, format, bpp);
         data[..span.Length].CopyTo(span);
         bmp.UnlockBits(bmpData);
         return bmp;
     }
 
-    public static Bitmap GetBitmap(Span<byte> data, int width, int height, PixelFormat format = PixelFormat.Format32bppArgb)
+    public static Bitmap GetBitmap(Span<byte> data, int width, int height, PixelFormat format = PixelFormat.Format32bppArgb, byte bpp = 4)
     {
         var bmp = new Bitmap(width, height, format);
         bmp.SetBitmapData(data, format);
