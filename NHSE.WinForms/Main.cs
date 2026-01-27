@@ -71,7 +71,7 @@ public partial class Main : Form
     private void Main_DragDrop(object sender, DragEventArgs e)
     {
         var files = (string[]?)e.Data?.GetData(DataFormats.FileDrop);
-        if (files == null || files.Length == 0)
+        if (files is not { Length: not 0 })
             return;
         Open(files[0]);
         e.Effect = DragDropEffects.Copy;

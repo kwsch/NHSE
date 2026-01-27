@@ -190,7 +190,7 @@ public static class MapDumpHelper
 
         const int expect = Building.SIZE * MainSaveOffsets.BuildingCount; // 46
         const int oldSize = Building.SIZE * 40;
-        if (fi.Length != expect && fi.Length != oldSize)
+        if (fi.Length is not (expect or oldSize))
         {
             WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expect));
             return false;

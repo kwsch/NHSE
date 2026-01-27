@@ -46,33 +46,33 @@ public static class TerrainTileColor
         return mdl switch
         {
             // River0A single "hole" of water land all sides. Rotation does nothing
-            River0A when (relativeX < 4 || relativeX >= 12 || relativeY < 4 || relativeY >= 12) =>
+            River0A when (relativeX is (< 4 or >= 12) || relativeY is (< 4 or >= 12)) =>
                 Grass,
             // River1A narrow channel end opening on bottom, land on other sides
             River1A => landAngle switch
             {
-                Default when relativeX < 4 || relativeX >= 12 || relativeY < 4 => Grass,
-                Rotate90ClockAnverse when relativeX < 4 || relativeY < 4 || relativeY >= 12 => Grass,
-                Rotate180ClockAnverse when relativeX < 4 || relativeX >= 12 || relativeY >= 12 => Grass,
-                Rotate270ClockAnverse when relativeY < 4 || relativeY >= 12 || relativeX >= 12 => Grass,
+                Default when relativeX is (< 4 or >= 12) || relativeY < 4 => Grass,
+                Rotate90ClockAnverse when relativeX < 4 || relativeY is (< 4 or >= 12) => Grass,
+                Rotate180ClockAnverse when relativeX is (< 4 or >= 12) || relativeY >= 12 => Grass,
+                Rotate270ClockAnverse when relativeY is (< 4 or >= 12) || relativeX >= 12 => Grass,
                 _ => River
             },
             // River2A narrow water channel opening on top and bottom, land left and right
             River2A => landAngle switch
             {
-                Default when relativeX is < 4 or >= 12 => Grass,
-                Rotate90ClockAnverse when relativeY is >= 12 or < 4 => Grass,
-                Rotate180ClockAnverse when relativeX is < 4 or >= 12 => Grass,
-                Rotate270ClockAnverse when relativeY is < 4 or >= 12 => Grass,
+                Default when relativeX is (< 4 or >= 12) => Grass,
+                Rotate90ClockAnverse when relativeY is (< 4 or >= 12) => Grass,
+                Rotate180ClockAnverse when relativeX is (< 4 or >= 12) => Grass,
+                Rotate270ClockAnverse when relativeY is (< 4 or >= 12) => Grass,
                 _ => River
             },
             // River2B narrow 45 channel angled land top left with nub bottom right
             River2B => landAngle switch
             {
-                Default when IsPointInMultiTriangle(relativeX, relativeY, new(4, 15), new(0, 0), new(15, 4), new(0, 15), new(15, 0)) || IsNubOnBottomRight(relativeX, relativeY) || relativeX < 4 || relativeY < 4 => Grass,
-                Rotate90ClockAnverse when IsPointInMultiTriangle(relativeX, relativeY, new(4, 0), new(0, 15), new(15, 12), new(0, 0), new(15, 15)) || IsNubOnTopRight(relativeX, relativeY) || relativeX < 4 || relativeY >= 12 => Grass,
-                Rotate180ClockAnverse when IsPointInMultiTriangle(relativeX, relativeY, new(0, 12), new(15, 15), new(12, 0), new(0, 15), new(15, 0)) || IsNubOnTopLeft(relativeX, relativeY) || relativeX >= 12 || relativeY >= 12 => Grass,
-                Rotate270ClockAnverse when IsPointInMultiTriangle(relativeX, relativeY, new(0, 4), new(15, 0), new(12, 15), new(0, 0), new(15, 15)) || IsNubOnBottomLeft(relativeX, relativeY) || relativeX >= 12 || relativeY < 4 => Grass,
+                Default when IsPointInMultiTriangle(relativeX, relativeY, (4, 15), (0, 0), (15, 4), (0, 15), (15, 0)) || IsNubOnBottomRight(relativeX, relativeY) || relativeX < 4 || relativeY < 4 => Grass,
+                Rotate90ClockAnverse when IsPointInMultiTriangle(relativeX, relativeY, (4, 0), (0, 15), (15, 12), (0, 0), (15, 15)) || IsNubOnTopRight(relativeX, relativeY) || relativeX < 4 || relativeY >= 12 => Grass,
+                Rotate180ClockAnverse when IsPointInMultiTriangle(relativeX, relativeY, (0, 12), (15, 15), (12, 0), (0, 15), (15, 0)) || IsNubOnTopLeft(relativeX, relativeY) || relativeX >= 12 || relativeY >= 12 => Grass,
+                Rotate270ClockAnverse when IsPointInMultiTriangle(relativeX, relativeY, (0, 4), (15, 0), (12, 15), (0, 0), (15, 15)) || IsNubOnBottomLeft(relativeX, relativeY) || relativeX >= 12 || relativeY < 4 => Grass,
                 _ => River
             },
             // River2C narrow 90 channel corner land top left with nub bottom right
@@ -96,10 +96,10 @@ public static class TerrainTileColor
             // River3B river 45 corner angled land top left, no nub
             River3B => landAngle switch
             {
-                Default when IsPointInMultiTriangle(relativeX, relativeY, new(4, 15), new(0, 0), new(15, 4), new(0, 15), new(15, 0)) => Grass,
-                Rotate90ClockAnverse when IsPointInMultiTriangle(relativeX, relativeY, new(4, 0), new(0, 15), new(15, 12), new(0, 0), new(15, 15)) => Grass,
-                Rotate180ClockAnverse when IsPointInMultiTriangle(relativeX, relativeY, new(0, 12), new(15, 15), new(12, 0), new(0, 15), new(15, 0)) => Grass,
-                Rotate270ClockAnverse when IsPointInMultiTriangle(relativeX, relativeY, new(0, 4), new(15, 0), new(12, 15), new(0, 0), new(15, 15)) => Grass,
+                Default when IsPointInMultiTriangle(relativeX, relativeY, (4, 15), (0, 0), (15, 4), (0, 15), (15, 0)) => Grass,
+                Rotate90ClockAnverse when IsPointInMultiTriangle(relativeX, relativeY, (4, 0), (0, 15), (15, 12), (0, 0), (15, 15)) => Grass,
+                Rotate180ClockAnverse when IsPointInMultiTriangle(relativeX, relativeY, (0, 12), (15, 15), (12, 0), (0, 15), (15, 0)) => Grass,
+                Rotate270ClockAnverse when IsPointInMultiTriangle(relativeX, relativeY, (0, 4), (15, 0), (12, 15), (0, 0), (15, 15)) => Grass,
                 _ => River
             },
             // River3C river 90 corner corner land top left, no nub
@@ -182,10 +182,10 @@ public static class TerrainTileColor
         };
     }
 
-    private static bool IsNubOnTopLeft(int relativeX, int relativeY) => IsPointInTriangle(relativeX, relativeY, new(0, 4), new(0, 0), new(4, 0));
-    private static bool IsNubOnTopRight(int relativeX, int relativeY) => IsPointInTriangle(relativeX, relativeY, new(12, 0), new(15, 0), new(15, 4));
-    private static bool IsNubOnBottomLeft(int relativeX, int relativeY) => IsPointInTriangle(relativeX, relativeY, new(0, 12), new(0, 15), new(4, 15));
-    private static bool IsNubOnBottomRight(int relativeX, int relativeY) => IsPointInTriangle(relativeX, relativeY, new(12, 15), new(15, 15), new(15, 12));
+    private static bool IsNubOnTopLeft(int relativeX, int relativeY) => IsPointInTriangle(relativeX, relativeY, (0, 4), (0, 0), (4, 0));
+    private static bool IsNubOnTopRight(int relativeX, int relativeY) => IsPointInTriangle(relativeX, relativeY, (12, 0), (15, 0), (15, 4));
+    private static bool IsNubOnBottomLeft(int relativeX, int relativeY) => IsPointInTriangle(relativeX, relativeY, (0, 12), (0, 15), (4, 15));
+    private static bool IsNubOnBottomRight(int relativeX, int relativeY) => IsPointInTriangle(relativeX, relativeY, (12, 15), (15, 15), (15, 12));
 
     private static bool IsPointInMultiTriangle(int px, int py, Coordinate a, Coordinate b, Coordinate c, Coordinate vortexA, Coordinate vortexB)
     {
@@ -196,7 +196,7 @@ public static class TerrainTileColor
 
     private static bool IsPointInTriangle(int px, int py, Coordinate a, Coordinate b, Coordinate c)
     {
-        Coordinate p = new(px, py);
+        Coordinate p = (px, py);
         float areaTotal = GetTriangleArea(a, b, c);
         float area1 = GetTriangleArea(p, b, c);
         float area2 = GetTriangleArea(a, p, c);
@@ -212,7 +212,10 @@ public static class TerrainTileColor
                          (c.X * (a.Y - b.Y))) / 2.0f);
     }
 
-    private readonly record struct Coordinate(int X, int Y);
+    private readonly record struct Coordinate(int X, int Y)
+    {
+        public static implicit operator Coordinate((int X, int Y) tuple) => new(tuple.X, tuple.Y);
+    }
 
     private static readonly Color CliffBase = ColorUtil.Blend(Grass, Color.Black, 0.6d);
 

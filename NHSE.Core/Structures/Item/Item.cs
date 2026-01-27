@@ -41,8 +41,7 @@ public class Item : ICopyableItem<Item>, IEquatable<Item>
         {
             if (AdditionalParam == 0)
                 return false;
-            var id = DisplayItemId;
-            return id != MessageBottle && id != MessageBottleEgg;
+            return DisplayItemId is not (MessageBottle or MessageBottleEgg);
         }
     }
 
