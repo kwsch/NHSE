@@ -833,6 +833,19 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         System.Media.SystemSounds.Asterisk.Play();
     }
 
+    private void B_DumpAllAcresFlag_Click(object sender, EventArgs e)
+        => MapDumpHelper.DumpLayerAllFlag(Editor.Mutator.CurrentLayerFlags, Editor.Mutator.ItemLayerIndex);
+
+    private void B_ImportAllAcresFlag_Click(object sender, EventArgs e)
+    {
+        var layer = Editor.Mutator.CurrentLayerFlags;
+        var index = Editor.Mutator.ItemLayerIndex;
+        if (!MapDumpHelper.ImportToLayerAllFlag(layer, index))
+            return;
+        ChangeViewToAcre(ExteriorAcreIndex);
+        System.Media.SystemSounds.Asterisk.Play();
+    }
+
     private void B_DumpBuildings_Click(object sender, EventArgs e) => MapDumpHelper.DumpBuildings(Editor.Buildings.Buildings);
 
     private void B_ImportBuildings_Click(object sender, EventArgs e)

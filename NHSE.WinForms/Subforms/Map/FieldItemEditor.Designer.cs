@@ -151,6 +151,8 @@
             flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             L_Acre = new System.Windows.Forms.Label();
             CB_Acre = new System.Windows.Forms.ComboBox();
+            B_DumpAllAcresFlag = new System.Windows.Forms.ToolStripMenuItem();
+            B_ImportAllAcresFlag = new System.Windows.Forms.ToolStripMenuItem();
             CM_Click.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PB_Map).BeginInit();
             CM_Picture.SuspendLayout();
@@ -634,36 +636,36 @@
             // 
             // CM_DLField
             // 
-            CM_DLField.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { B_DumpAcre, B_DumpAllAcres, B_ImportAcre, B_ImportAllAcres });
+            CM_DLField.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { B_DumpAcre, B_DumpAllAcres, B_ImportAcre, B_ImportAllAcres, B_DumpAllAcresFlag, B_ImportAllAcresFlag });
             CM_DLField.Name = "CM_Picture";
             CM_DLField.ShowImageMargin = false;
-            CM_DLField.Size = new System.Drawing.Size(145, 92);
+            CM_DLField.Size = new System.Drawing.Size(156, 158);
             // 
             // B_DumpAcre
             // 
             B_DumpAcre.Name = "B_DumpAcre";
-            B_DumpAcre.Size = new System.Drawing.Size(144, 22);
+            B_DumpAcre.Size = new System.Drawing.Size(155, 22);
             B_DumpAcre.Text = "Dump Acre";
             B_DumpAcre.Click += B_DumpAcreItem_Click;
             // 
             // B_DumpAllAcres
             // 
             B_DumpAllAcres.Name = "B_DumpAllAcres";
-            B_DumpAllAcres.Size = new System.Drawing.Size(144, 22);
+            B_DumpAllAcres.Size = new System.Drawing.Size(155, 22);
             B_DumpAllAcres.Text = "Dump All Acres";
             B_DumpAllAcres.Click += B_DumpAllAcres_Click;
             // 
             // B_ImportAcre
             // 
             B_ImportAcre.Name = "B_ImportAcre";
-            B_ImportAcre.Size = new System.Drawing.Size(144, 22);
+            B_ImportAcre.Size = new System.Drawing.Size(155, 22);
             B_ImportAcre.Text = "Import Acre";
             B_ImportAcre.Click += B_ImportAcreItem_Click;
             // 
             // B_ImportAllAcres
             // 
             B_ImportAllAcres.Name = "B_ImportAllAcres";
-            B_ImportAllAcres.Size = new System.Drawing.Size(144, 22);
+            B_ImportAllAcres.Size = new System.Drawing.Size(155, 22);
             B_ImportAllAcres.Text = "Import All Acres";
             B_ImportAllAcres.Click += B_ImportAllAcres_Click;
             // 
@@ -1397,6 +1399,20 @@
             CB_Acre.TabIndex = 100;
             CB_Acre.SelectedIndexChanged += ChangeAcre;
             // 
+            // B_DumpAllAcresFlag
+            // 
+            B_DumpAllAcresFlag.Name = "B_DumpAllAcresFlag";
+            B_DumpAllAcresFlag.Size = new System.Drawing.Size(155, 22);
+            B_DumpAllAcresFlag.Text = "Dump All Flags";
+            B_DumpAllAcresFlag.Click += B_DumpAllAcresFlag_Click;
+            // 
+            // B_ImportAllAcresFlag
+            // 
+            B_ImportAllAcresFlag.Name = "B_ImportAllAcresFlag";
+            B_ImportAllAcresFlag.Size = new System.Drawing.Size(155, 22);
+            B_ImportAllAcresFlag.Text = "Import All Flags";
+            B_ImportAllAcresFlag.Click += B_ImportAllAcresFlag_Click;
+            // 
             // FieldItemEditor
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1596,5 +1612,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label L_Acre;
         private System.Windows.Forms.ComboBox CB_Acre;
+        private System.Windows.Forms.ToolStripMenuItem B_DumpAllAcresFlag;
+        private System.Windows.Forms.ToolStripMenuItem B_ImportAllAcresFlag;
     }
 }

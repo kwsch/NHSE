@@ -32,6 +32,8 @@ public sealed class LayerFieldItemFlag(Memory<byte> raw, int width, int height) 
 
     public void Import(Span<byte> src) => src.CopyTo(Data);
 
+    public ReadOnlySpan<byte> ExistingData => Data;
+
     public bool IsInLayer(int tileX, int tileY) => !((uint)tileX >= width || (uint)tileY >= height);
 
     /// <summary>

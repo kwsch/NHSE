@@ -237,4 +237,43 @@ public static class MapDumpHelper
         modified.CopyTo(data);
         return true;
     }
+
+    public static bool DumpLayerAllFlag(ILayerFieldItemFlag layer, uint layerIndex)
+    {
+        using var sfd = new SaveFileDialog();
+        sfd.Filter = "New Horizons Field Item Layer Flags (*.nhlf)|*.nhl|All files (*.*)|*.*";
+        sfd.FileName = $"flags-{layerIndex}.nhlf";
+
+        if (sfd.ShowDialog() != DialogResult.OK)
+            return false;
+
+        var data = layer.ExistingData;
+        File.WriteAllBytes(sfd.FileName, data);
+        return true;
+    }
+
+    public static bool ImportToLayerAllFlag(ILayerFieldItemFlag layer, uint layerIndex)
+    {
+        using var ofd = new OpenFileDialog();
+        ofd.Filter = "New Horizons Field Item Layer Flags (*.nhlf)|*.nhl|All files (*.*)|*.*";
+        ofd.FileName = $"flags-{layerIndex}.nhlf";
+        if (ofd.ShowDialog() != DialogResult.OK)
+            return false;
+
+        var path = ofd.FileName;
+        var fi = new FileInfo(path);
+
+        var exist = layer.ExistingData;
+        var expect = exist.Length;
+        if (fi.Length != expect && !FieldItemUpgrade.IsUpdateNeeded(fi.Length, expect))
+        {
+            WinFormsUtil.Error(string.Format(MessageStrings.MsgDataSizeMismatchImport, fi.Length, expect));
+            return false;
+        }
+
+        var data = File.ReadAllBytes(path);
+        FieldItemUpgrade.DetectUpdate(ref data, expect);
+        layer.Import(data);
+        return true;
+    }
 }

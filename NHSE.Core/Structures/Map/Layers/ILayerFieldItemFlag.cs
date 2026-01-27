@@ -45,4 +45,9 @@ public interface ILayerFieldItemFlag
     /// </summary>
     /// <param name="src">Source span containing the flags to import.</param>
     void Import(Span<byte> src);
+
+    /// <summary>
+    /// Fetched for exporting operations.
+    /// </summary>
+    ReadOnlySpan<byte> ExistingData { get; }
 }
