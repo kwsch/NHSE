@@ -108,13 +108,15 @@ public static class ItemLayerSprite
             var tileY = relY + y;
             for (int x = 0; x < width; x++)
             {
+                var index = baseIndex + x;
                 var tileX = relX + x;
                 if (!cfg.IsCoordinateValidRelative(tileX, tileY))
+                {
+                    data[index] = 0;
                     continue;
+                }
                 var tile = layer.GetTile(tileX, tileY);
                 var color = FieldItemColor.GetItemColor(tile).ToArgb();
-
-                var index = baseIndex + x;
                 data[index] = color;
             }
         }
