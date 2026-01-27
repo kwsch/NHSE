@@ -642,22 +642,31 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void Menu_View_Click(object sender, EventArgs e)
     {
-        var (absX, absY) = GetAbsoluteCoordinatesHover();
-        var cfg = Editor.Mutator.Manager.ConfigItems;
-        var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
-        if (!cfg.IsCoordinateValidRelative(relX, relY))
-        {
-            System.Media.SystemSounds.Asterisk.Play();
-            return;
-        }
-
         if (RB_Item.Checked)
         {
+            var (absX, absY) = GetAbsoluteCoordinatesHover();
+            var cfg = Editor.Mutator.Manager.ConfigItems;
+            var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
+            if (!cfg.IsCoordinateValidRelative(relX, relY))
+            {
+                System.Media.SystemSounds.Asterisk.Play();
+                return;
+            }
+
             var tile = CurrentLayer.GetTile(relX, relY);
             ViewTile(tile, relX, relY);
         }
         else if (RB_Terrain.Checked)
         {
+            var (absX, absY) = GetAbsoluteCoordinatesHoverTerrain();
+            var cfg = Editor.Mutator.Manager.ConfigTerrain;
+            var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
+            if (!cfg.IsCoordinateValidRelative(relX, relY))
+            {
+                System.Media.SystemSounds.Asterisk.Play();
+                return;
+            }
+
             var tile = Editor.Terrain.GetTile(relX, relY);
             ViewTile(tile);
         }
@@ -752,6 +761,9 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void Menu_Activate_Click(object sender, EventArgs e)
     {
+        if (!RB_Item.Checked) // not in Item edit mode, therefore no "Activate Flag" menu
+            return;
+
         var (absX, absY) = GetAbsoluteCoordinatesHover();
         var cfg = Editor.Mutator.Manager.ConfigItems;
         var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
