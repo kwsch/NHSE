@@ -289,8 +289,8 @@ public sealed record LayerTerrain : AcreSelectionGrid
     public ushort GetAcreTemplate(int relX, int relY)
     {
         // Acres are 16x16 tiles, and the acre data has a 1-acre deep-sea border around it.
-        var acreX = 1 + (relX / 16);
-        var acreY = 1 + (relY / 16);
+        var acreX = relX < 0 ? 0 : 1 + (relX / 16);
+        var acreY = relY < 0 ? 0 : 1 + (relY / 16);
 
         var acreIndex = ((CountAcreWidth + 2) * acreY) + acreX;
         var span = GetBaseAcreSpan(acreIndex);

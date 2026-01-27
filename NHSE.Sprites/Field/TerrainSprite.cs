@@ -75,8 +75,8 @@ public static class TerrainSprite
         using var gfx = Graphics.FromImage(map);
 
         var plaza = m.Mutator.Manager.Plaza;
-        gfx.DrawMapPlaza(m, (ushort)plaza.X, (ushort)plaza.Z, imgScale);
-        gfx.DrawMapBuildings(m, m.Buildings.Buildings, imgScale, buildingIndex);
+        gfx.DrawMapPlaza((ushort)plaza.X, (ushort)plaza.Z, imgScale);
+        gfx.DrawMapBuildings(m.Buildings.Buildings, imgScale, buildingIndex);
         return map;
     }
 
@@ -197,9 +197,36 @@ public static class TerrainSprite
                 pixels[offset] = color;
             }
         }
+
+        var mapHeight = cfg.MapTotalHeight;
+        // Render each exterior acre, just in case it was changed from a sea acre.
+        // If the acre (x,y) is a customizable terrain acre, skip it since we already did it above.
+        for (int y = 0; y < mapHeight; y += TileScale)
+        {
+            for (int x = 0; x < mapWidth; x += TileScale)
+            {
+                var (relX, relY) = cfg.GetCoordinatesRelative(x, y);
+                if (cfg.IsCoordinateValidRelative(relX, relY))
+                    continue; // already done
+
+                // Render the acre template (usually sea).
+                var acreTemplate = mgr.GetAcreTemplate(relX, relY);
+                for (int tileY = 0; tileY < TileScale; tileY++)
+                {
+                    for (int tileX = 0; tileX < TileScale; tileX++)
+                    {
+                        var color = AcreTileColor.GetAcreTileColor(acreTemplate, tileX, tileY);
+                        if (color == -0x1000000) // transparent (dynamic)
+                            color = Color.ForestGreen.ToArgb(); // just in case; it's invalid anyway.
+                        var offset = ((y + tileY) * mapWidth) + (x + tileX);
+                        pixels[offset] = color;
+                    }
+                }
+            }
+        }
     }
 
-    private static void DrawMapPlaza(this Graphics gfx, MapEditor map, ushort px, ushort py, int imgScale)
+    private static void DrawMapPlaza(this Graphics gfx, ushort px, ushort py, int imgScale)
     {
         var (x, y) = (px, py);
 
@@ -209,7 +236,7 @@ public static class TerrainSprite
         gfx.FillRectangle(Plaza, x, y, width, height);
     }
 
-    private static void DrawMapBuildings(this Graphics gfx, MapEditor m, IReadOnlyList<Building> buildings, int imgScale, int selectedBuildingIndex = -1)
+    private static void DrawMapBuildings(this Graphics gfx, IReadOnlyList<Building> buildings, int imgScale, int selectedBuildingIndex = -1)
     {
         for (int i = 0; i < buildings.Count; i++)
         {
@@ -255,18 +282,22 @@ public static class TerrainSprite
         for (int tileY = 0; tileY < TilesPerViewport; tileY++)
         {
             var actY = tileY + relY;
-            for (int x = 0; x < TilesPerViewport; x++)
+            for (int tileX = 0; tileX < TilesPerViewport; tileX++)
             {
-                var actX = relX + x;
+                var actX = relX + tileX;
                 if (!cfg.IsCoordinateValidRelative(actX, actY))
                 {
                     // Fill tile's square with a solid color.
+                    var acreTemplate = t.GetAcreTemplate(actX, actY);
                     for (int pixelY = 0; pixelY < TileScale; pixelY++)
                     {
-                        var index = (tileY * TileScale + pixelY) * (TilesPerViewport * TileScale) + x * TileScale;
+                        var index = (tileY * TileScale + pixelY) * (TilesPerViewport * TileScale) + tileX * TileScale;
                         for (int pixelX = 0; pixelX < TileScale; pixelX++)
                         {
-                            data[index] = ColorOcean;
+                            var color = AcreTileColor.GetAcreTileColor(acreTemplate, actX % 16, actY % 16);
+                            if (color == -0x1000000) // transparent (dynamic)
+                                color = Color.ForestGreen.ToArgb(); // just in case; it's invalid anyway.
+                            data[index] = color;
                             index++;
                         }
                     }
@@ -278,7 +309,7 @@ public static class TerrainSprite
                     var tile = t.GetTile(actX, actY);
                     for (int pixelY = 0; pixelY < TileScale; pixelY++)
                     {
-                        var index = (tileY * TileScale + pixelY) * (TilesPerViewport * TileScale) + x * TileScale;
+                        var index = (tileY * TileScale + pixelY) * (TilesPerViewport * TileScale) + tileX * TileScale;
                         for (int pixelX = 0; pixelX < TileScale; pixelX++)
                         {
                             data[index] = t.GetTileColor(acreTemplate, tile, actX, actY, pixelX, pixelY);
