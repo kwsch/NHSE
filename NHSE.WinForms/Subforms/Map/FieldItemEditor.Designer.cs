@@ -382,7 +382,7 @@
             // 
             TT_Hover.AutomaticDelay = 100;
             // 
-            // PB_Acre
+            // PB_Viewport
             // 
             PB_Viewport.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             PB_Viewport.ContextMenuStrip = CM_Click;
@@ -808,7 +808,7 @@
             // 
             NUD_X.Location = new System.Drawing.Point(106, 337);
             NUD_X.Margin = new System.Windows.Forms.Padding(4);
-            NUD_X.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            NUD_X.Maximum = new decimal(new int[] { 1024, 0, 0, 0 });
             NUD_X.Name = "NUD_X";
             NUD_X.Size = new System.Drawing.Size(52, 25);
             NUD_X.TabIndex = 119;
@@ -848,7 +848,7 @@
             // 
             NUD_Y.Location = new System.Drawing.Point(194, 337);
             NUD_Y.Margin = new System.Windows.Forms.Padding(4);
-            NUD_Y.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            NUD_Y.Maximum = new decimal(new int[] { 1024, 0, 0, 0 });
             NUD_Y.Name = "NUD_Y";
             NUD_Y.Size = new System.Drawing.Size(52, 25);
             NUD_Y.TabIndex = 121;
