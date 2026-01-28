@@ -14,5 +14,6 @@ Edits savedata dumped from the Nintendo Switch.
 ## Other
 
 Refer to the [Wiki](https://github.com/kwsch/NHSE/wiki) for more information.
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/kwsch/NHSE)
 
 **We do not support or condone cheating at the expense of others.** Please be responsible!
