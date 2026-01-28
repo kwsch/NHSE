@@ -12,7 +12,7 @@ public abstract record LayerItem : AcreSelectionGrid
     public Item[] Tiles { get; }
 
 #pragma warning disable CA1857
-    protected LayerItem(Item[] tiles, [ConstantExpected] byte w, [ConstantExpected] byte h) : this(tiles, new(w, h, w, h))
+    protected LayerItem(Item[] tiles, [ConstantExpected] byte w, [ConstantExpected] byte h) : this(tiles, new(w, h, 1, 1))
 #pragma warning restore CA1857
     {
     }
