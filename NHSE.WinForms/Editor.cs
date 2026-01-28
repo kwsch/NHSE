@@ -1,7 +1,6 @@
 ﻿using NHSE.Core;
 using NHSE.Injection;
 using NHSE.Sprites;
-using NHSE.WinForms.Properties;
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -24,8 +23,6 @@ public sealed partial class Editor : Form
 
     public Editor(HorizonSave file)
     {
-        WinFormsUtil.SetApplicationTheme(int.Parse(Settings.Default.DarkMode));
-
         InitializeComponent();
 
         SAV = file;
@@ -35,7 +32,7 @@ public sealed partial class Editor : Form
 
         LoadMain();
 
-        var lang = Settings.Default.Language;
+        var lang = Program.Settings.Language;
         var index = GameLanguage.GetLanguageIndex(lang);
         Menu_Language.SelectedIndex = index; // triggers translation
         // this.TranslateInterface(GameInfo.CurrentLanguage);
@@ -57,9 +54,7 @@ public sealed partial class Editor : Form
         var lang = GameInfo.SetLanguage2Char(Menu_Language.SelectedIndex);
 
         this.TranslateInterface(lang);
-        var settings = Settings.Default;
-        settings.Language = lang;
-        settings.Save();
+        Program.Settings.Language = lang;
 
         Task.Run(() =>
         {
@@ -163,26 +158,26 @@ public sealed partial class Editor : Form
     private void Menu_Theme_System_Click(object sender, EventArgs e)
     {
         Menu_Options.DropDown.Close();
-        ThemeChangeDialog(1);
+        ThemeChangeDialog(SystemColorMode.System);
     }
 
     private void Menu_Theme_Classic_Click(object sender, EventArgs e)
     {
         Menu_Options.DropDown.Close();
-        ThemeChangeDialog(0);
+        ThemeChangeDialog(SystemColorMode.Classic);
     }
 
     private void Menu_Theme_Dark_Click(object sender, EventArgs e)
     {
         Menu_Options.DropDown.Close();
-        ThemeChangeDialog(2);
+        ThemeChangeDialog(SystemColorMode.Dark);
     }
 
-    private void ThemeChangeDialog(int theme)
+    private void ThemeChangeDialog(SystemColorMode theme)
     {
-        TaskDialogButton yesButton = new(MessageStrings.MsgDialogButtonYes) { Tag = DialogResult.Yes };
-        TaskDialogButton noButton = new(MessageStrings.MsgDialogButtonNo) { Tag = DialogResult.No };
-        TaskDialogButton cancelButton = new(MessageStrings.MsgDialogButtonCancel) { Tag = DialogResult.Cancel };
+        var yesButton = new TaskDialogButton(MessageStrings.MsgDialogButtonYes) { Tag = DialogResult.Yes };
+        var noButton = new TaskDialogButton(MessageStrings.MsgDialogButtonNo) { Tag = DialogResult.No };
+        var cancelButton = new TaskDialogButton(MessageStrings.MsgDialogButtonCancel) { Tag = DialogResult.Cancel };
         var buttons = new TaskDialogButtonCollection
         {
             yesButton,
@@ -199,7 +194,7 @@ public sealed partial class Editor : Form
             Buttons = buttons
         };
 
-        TaskDialogButton resultButton = TaskDialog.ShowDialog(this, page);
+        var resultButton = TaskDialog.ShowDialog(this, page);
         if (resultButton == yesButton)
         {
             SaveAll();
@@ -213,14 +208,19 @@ public sealed partial class Editor : Form
                 return;
             }
             WinFormsUtil.Alert(MessageStrings.MsgSaveDataExportSuccess);
-            WinFormsUtil.SetApplicationTheme(theme);
-            Application.Restart();
         }
         else if (resultButton == noButton)
         {
-            WinFormsUtil.SetApplicationTheme(theme);
-            Application.Restart();
+            // Don't save.
         }
+        else
+        {
+            // Abort
+            return;
+        }
+        WinFormsUtil.SetApplicationTheme(theme);
+        Program.SaveSettings();
+        Application.Restart();
     }
 
     private void ReloadAll()

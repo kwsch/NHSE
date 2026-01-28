@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Windows.Forms;
 using NHSE.Injection;
-using NHSE.WinForms.Properties;
 
 namespace NHSE.WinForms;
 
 public sealed class SysBotController(InjectionType type)
 {
     public readonly SysBot Bot = new();
-    private readonly Settings _settings = Settings.Default;
 
-    public string IP => _settings.SysBotIP;
-    public string Port => _settings.SysBotPort.ToString();
+    private static SysBotSettings Config => Program.Settings.SysBot;
+
+    public string IP => Config.IP;
+    public string Port => Config.Port.ToString();
 
     public bool Connect(string ip, string port)
     {
@@ -28,17 +28,16 @@ public sealed class SysBotController(InjectionType type)
             return false;
         }
 
-        _settings.SysBotIP = ip;
-        _settings.SysBotPort = p;
-        _settings.Save();
+        Config.IP = ip;
+        Config.Port = p;
 
         return true;
     }
 
     public uint GetDefaultOffset() => type switch
     {
-        InjectionType.Generic => _settings.SysBotGenericOffset,
-        InjectionType.Pouch => _settings.SysBotPouchOffset,
+        InjectionType.Generic => Config.GenericOffset,
+        InjectionType.Pouch => Config.PouchOffset,
         _ => throw new ArgumentOutOfRangeException(nameof(type), type, null),
     };
 
@@ -46,11 +45,10 @@ public sealed class SysBotController(InjectionType type)
     {
         switch (type)
         {
-            case InjectionType.Generic: _settings.SysBotGenericOffset = value; break;
-            case InjectionType.Pouch: _settings.SysBotPouchOffset = value; break;
+            case InjectionType.Generic: Config.GenericOffset = value; break;
+            case InjectionType.Pouch: Config.PouchOffset = value; break;
             default: return;
         }
-        _settings.Save();
     }
 
     public void HexEdit(uint offset, int length)
@@ -78,12 +76,11 @@ public sealed class SysBotController(InjectionType type)
 
     public void PopPrompt()
     {
-        if (_settings.SysBotPrompted)
+        if (Config.Prompted)
             return;
 
         WinFormsUtil.Alert(MessageStrings.MsgSysBotInfo, MessageStrings.MsgSysBotRequired);
-        _settings.SysBotPrompted = true;
-        _settings.Save();
+        Config.Prompted = true;
     }
 
     public void WriteBytes(byte[] data, uint offset)

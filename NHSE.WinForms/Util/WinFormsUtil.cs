@@ -1,5 +1,4 @@
-﻿using NHSE.WinForms.Properties;
-using System;
+﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
@@ -95,23 +94,9 @@ internal static class WinFormsUtil
     /// Sets the application color mode based on the <paramref name="theme"/> <typeparamref name="int"/> passed to it and stores it in the application <see cref="Settings"/>.
     /// </summary>
     /// <param name="theme"></param>
-    public static void SetApplicationTheme(int theme)
+    public static void SetApplicationTheme(SystemColorMode theme)
     {
-        switch (theme)
-        {
-            case 0:
-                Application.SetColorMode(SystemColorMode.Classic);
-                break;
-            case 1:
-                Application.SetColorMode(SystemColorMode.System);
-                break;
-            case 2:
-                Application.SetColorMode(SystemColorMode.Dark);
-                break;
-        }
-
-        var settings = Settings.Default;
-        settings.DarkMode = theme.ToString();
-        settings.Save();
+        Application.SetColorMode(theme);
+        Program.Settings.DarkMode = theme;
     }
 }

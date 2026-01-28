@@ -5,7 +5,6 @@ using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Injection;
 using NHSE.Sprites;
-using NHSE.WinForms.Properties;
 
 namespace NHSE.WinForms;
 
@@ -22,8 +21,6 @@ public partial class Main : Form
 
     public Main()
     {
-        WinFormsUtil.SetApplicationTheme(int.Parse(Settings.Default.DarkMode));
-
         InitializeComponent();
 
         // Flash to front
@@ -38,6 +35,12 @@ public partial class Main : Form
             if (Directory.Exists(arg))
                 Open(arg);
         }
+    }
+
+    protected override void OnFormClosing(FormClosingEventArgs e)
+    {
+        Program.SaveSettings();
+        base.OnFormClosing(e);
     }
 
     private static void Open(HorizonSave file)
@@ -85,7 +88,7 @@ public partial class Main : Form
         }
         else if ((ModifierKeys & Keys.Shift) != 0)
         {
-            var path = Settings.Default.LastFilePath;
+            var path = Program.Settings.LastFilePath;
             if (Directory.Exists(path))
             {
                 Open(path);
@@ -149,22 +152,27 @@ public partial class Main : Form
         var file = HorizonSave.FromFolder(path);
         Open(file);
 
-        var settings = Settings.Default;
+        var settings = Program.Settings;
         settings.LastFilePath = path;
 
         if (!settings.BackupPrompted)
         {
             settings.BackupPrompted = true;
-            var line1 = string.Format(MessageStrings.MsgBackupCreateLocation, BackupFolderName);
-            var line2 = MessageStrings.MsgBackupCreateQuestion;
-            var prompt = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, line1, line2);
-            settings.AutomaticBackup = prompt == DialogResult.Yes;
+            if (!Directory.Exists(BackupFolderName))
+            {
+                var line1 = string.Format(MessageStrings.MsgBackupCreateLocation, BackupFolderName);
+                var line2 = MessageStrings.MsgBackupCreateQuestion;
+                var prompt = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, line1, line2);
+                settings.AutomaticBackup = prompt == DialogResult.Yes;
+            }
+            else
+            {
+                settings.AutomaticBackup = true; // previously enabled, settings reset?
+            }
         }
 
         if (settings.AutomaticBackup)
             BackupSaveFile(file, path, BackupPath);
-
-        settings.Save();
     }
 
     private static void BackupSaveFile(HorizonSave file, string path, string bak)
