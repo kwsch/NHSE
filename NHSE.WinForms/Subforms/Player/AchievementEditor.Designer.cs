@@ -226,7 +226,7 @@
             // AchievementEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(589, 261);
             this.Controls.Add(this.B_Max);
             this.Controls.Add(this.B_ClearAll);
@@ -248,7 +248,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AchievementEditor";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Record Editor";
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Count)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Unk)).EndInit();

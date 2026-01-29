@@ -469,7 +469,7 @@
             // VillagerMemoryEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(506, 359);
             this.Controls.Add(this.TB_Island);
             this.Controls.Add(this.LBL_IslandName);
@@ -485,7 +485,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "VillagerMemoryEditor";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Villager Player Memory Editor";
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Count)).EndInit();
             this.TC_Memory.ResumeLayout(false);

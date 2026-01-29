@@ -179,7 +179,7 @@
             // PatternEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(592, 328);
             this.Controls.Add(this.PB_Palette);
             this.Controls.Add(this.L_PatternName);
@@ -192,7 +192,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PatternEditor";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Pattern Editor";
             ((System.ComponentModel.ISupportInitialize)(this.PB_Palette)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Pattern)).EndInit();

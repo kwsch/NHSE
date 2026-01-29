@@ -177,7 +177,7 @@
             // RecipeListEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(404, 381);
             this.Controls.Add(this.B_CraftAll);
             this.Controls.Add(this.B_ClearAll);
@@ -195,7 +195,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RecipeListEditor";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Recipe List Editor";
             this.ResumeLayout(false);
 

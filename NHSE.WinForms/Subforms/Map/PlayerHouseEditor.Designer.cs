@@ -323,7 +323,7 @@
             // PlayerHouseEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(1051, 577);
             this.Controls.Add(this.B_LoadRoom);
             this.Controls.Add(this.B_DumpRoom);
@@ -349,7 +349,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PlayerHouseEditor";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Player House Editor";
             ((System.ComponentModel.ISupportInitialize)(this.PB_Room)).EndInit();
             this.CM_Click.ResumeLayout(false);

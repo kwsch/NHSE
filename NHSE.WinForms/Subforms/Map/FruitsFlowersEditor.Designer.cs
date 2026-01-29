@@ -159,7 +159,7 @@
             Icon = Properties.Resources.icon;
             MaximizeBox = false;
             Name = "FruitsFlowersEditor";
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             Text = "Fruits Flowers Editor";
             ResumeLayout(false);
             PerformLayout();

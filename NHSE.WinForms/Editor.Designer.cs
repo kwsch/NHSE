@@ -905,7 +905,7 @@
             Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             MaximizeBox = false;
             Name = "Editor";
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             Text = "NHSE";
             Menu_Editor.ResumeLayout(false);
             Menu_Editor.PerformLayout();

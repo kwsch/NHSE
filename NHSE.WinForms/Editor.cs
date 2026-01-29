@@ -38,6 +38,7 @@ public sealed partial class Editor : Form
         // this.TranslateInterface(GameInfo.CurrentLanguage);
 
         Text = SAV.GetSaveTitle("NHSE");
+        CenterToParent();
     }
 
     private void Menu_Settings_Click(object sender, EventArgs e)

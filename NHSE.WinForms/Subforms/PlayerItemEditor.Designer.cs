@@ -116,7 +116,7 @@
             // PlayerItemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(934, 431);
             this.Controls.Add(this.B_Inject);
             this.Controls.Add(this.PAN_Items);
@@ -130,7 +130,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PlayerItemEditor";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Inventory Editor";
             this.ResumeLayout(false);
 

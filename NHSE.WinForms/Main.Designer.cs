@@ -45,6 +45,8 @@
             // Main
             // 
             AllowDrop = true;
+            AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             ClientSize = new System.Drawing.Size(306, 121);
             Controls.Add(B_Open);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
