@@ -7,11 +7,20 @@ using NHSE.Core;
 
 namespace NHSE.WinForms;
 
+/// <summary>
+/// Loader for <see cref="HorizonSave"/> files.
+/// </summary>
 public static class SaveFileLoader
 {
-    public const string BackupFolderName = "bak";
+    private const string BackupFolderName = "bak";
     private static string BackupPath => Path.Combine(Program.WorkingDirectory, BackupFolderName);
 
+    /// <summary>
+    /// Attempts to load a <see cref="HorizonSave"/> file from the specified path.
+    /// </summary>
+    /// <param name="path">The file system path to the save file to load.</param>
+    /// <param name="sav">When this method returns, contains the initialized save file if the operation succeeds.</param>
+    /// <returns><see langword="true"/> if the save file was loaded successfully; otherwise, <see langword="false"/>.</returns>
     public static bool TryGetSaveFile(string path, [NotNullWhen(true)] out HorizonSave? sav)
     {
 #if !DEBUG
@@ -37,28 +46,29 @@ public static class SaveFileLoader
 
         // Load zip files differently
         var ext = Path.GetExtension(path);
-        if (ext.Equals(".zip", StringComparison.OrdinalIgnoreCase) && new FileInfo(path).Length < 20 * 1024 * 1024) // less than 20MB
+        if (ext.Equals(".zip", StringComparison.OrdinalIgnoreCase))
         {
-            sav = HorizonSave.FromZip(path);
-            return TryValidateSaveFile(sav);
+            var length = new FileInfo(path).Length;
+            const int maxSize = 20 * 1024 * 1024;
+            if (length < maxSize)
+            {
+                sav = HorizonSave.FromZip(path);
+                return TryValidateSaveFile(sav);
+            }
         }
-
         // Try loading from the parent folder if it's the .dat file
-        if (ext is not ".dat")
+        else if (ext.Equals(".dat", StringComparison.OrdinalIgnoreCase))
         {
-            sav = null;
-            return false;
+            var dir = Path.GetDirectoryName(path);
+            if (Directory.Exists(dir))
+                return OpenSaveFile(dir, out sav);
         }
 
-        var dir = Path.GetDirectoryName(path);
-        if (dir is null || !Directory.Exists(dir)) // ya never know
-        {
-            WinFormsUtil.Error(MessageStrings.MsgSaveDataImportFail, MessageStrings.MsgSaveDataImportSuggest);
-            sav = null;
-            return false;
-        }
+        // Nice try, we failed.
+        WinFormsUtil.Error(MessageStrings.MsgSaveDataImportFail, MessageStrings.MsgSaveDataImportSuggest);
+        sav = null;
+        return false;
 
-        return OpenSaveFile(dir, out sav);
     }
 
     private static bool OpenSaveFile(string path, [NotNullWhen(true)] out HorizonSave? sav)
@@ -103,15 +113,13 @@ public static class SaveFileLoader
 
     private static bool TryValidateSaveFile(HorizonSave file)
     {
-        bool sized = file.ValidateSizes();
-        if (!sized)
+        if (!file.ValidateSizes())
         {
             var prompt = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgSaveDataSizeMismatch, MessageStrings.MsgAskContinue);
             if (prompt != DialogResult.Yes)
                 return false;
         }
-        var isAnyHashBad = file.GetInvalidHashes().Any();
-        if (isAnyHashBad)
+        if (file.GetInvalidHashes().Any())
         {
             var prompt = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgSaveDataHashMismatch, MessageStrings.MsgAskContinue);
             if (prompt != DialogResult.Yes)

@@ -219,7 +219,7 @@ public sealed partial class Editor : Form
             // Abort
             return;
         }
-        WinFormsUtil.SetApplicationTheme(theme);
+        Program.Settings.DarkMode = theme;
         Program.SaveSettings();
         Application.Restart();
     }

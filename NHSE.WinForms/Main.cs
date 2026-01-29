@@ -22,7 +22,7 @@ public partial class Main : Form
         Show();
         WindowState = FormWindowState.Normal;
 
-        var args = Environment.GetCommandLineArgs();
+        var args = Environment.GetCommandLineArgs().AsSpan(1); // skip exe path
         foreach (var arg in args)
         {
             if (Directory.Exists(arg) || File.Exists(arg))

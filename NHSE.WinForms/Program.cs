@@ -34,7 +34,7 @@ internal static class Program
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
         Settings = ApplicationSettings.Load(PathConfig);
-        WinFormsUtil.SetApplicationTheme(Settings.DarkMode);
+        Application.SetColorMode(Settings.DarkMode);
     }
 
     /// <summary>

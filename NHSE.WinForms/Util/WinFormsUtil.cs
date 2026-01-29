@@ -92,14 +92,4 @@ internal static class WinFormsUtil
         var location = new Point(Math.Max(x, 0), Math.Max(y, 0));
         return location;
     }
-
-    /// <summary>
-    /// Sets the application color mode based on the <paramref name="theme"/> <typeparamref name="int"/> passed to it and stores it in the application <see cref="Settings"/>.
-    /// </summary>
-    /// <param name="theme"></param>
-    public static void SetApplicationTheme(SystemColorMode theme)
-    {
-        Application.SetColorMode(theme);
-        Program.Settings.DarkMode = theme;
-    }
 }
