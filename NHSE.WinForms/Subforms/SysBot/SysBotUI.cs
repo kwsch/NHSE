@@ -23,8 +23,11 @@ public partial class SysBotUI : Form
 
         var offset = Bot.GetDefaultOffset();
         Injector.SetWriteOffset(offset);
-        RamOffset.Text = offset.ToString("X8");
-        RamOffsetUSB.Text = offset.ToString("X8");
+
+        if (string.IsNullOrWhiteSpace(RamOffset.Text))
+            RamOffset.Text = offset.ToString("X8");
+        if (string.IsNullOrWhiteSpace(RamOffsetUSB.Text))
+            RamOffsetUSB.Text = offset.ToString("X8");
 
         TB_IP.Text = Bot.IP;
         TB_Port.Text = Bot.Port;
