@@ -1,4 +1,5 @@
-﻿using System.Net.Sockets;
+﻿using System;
+using System.Net.Sockets;
 using System.Threading;
 
 namespace NHSE.Injection;
@@ -60,7 +61,7 @@ public sealed class SysBot : IRAMReadWriter
             Thread.Sleep((length / 256) + 100);
             var buffer = new byte[(length * 2) + 1];
             _ = ReadInternal(buffer);
-            return Decoder.ConvertHexByteStringToBytes(buffer);
+            return Convert.FromHexString(buffer.AsSpan(0, buffer.Length - 1));
         }
     }
 

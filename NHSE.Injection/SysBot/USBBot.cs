@@ -144,7 +144,6 @@ public sealed class USBBot : IRAMReadWriter
 
             var buffer = new byte[length];
             _ = ReadInternal(buffer);
-            //return Decoder.ConvertHexByteStringToBytes(buffer);
             return buffer;
         }
     }
