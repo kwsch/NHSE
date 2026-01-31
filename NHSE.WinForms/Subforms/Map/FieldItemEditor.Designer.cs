@@ -951,8 +951,7 @@
             // 
             // L_PlazaX
             // 
-            L_PlazaX.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            L_PlazaX.Location = new System.Drawing.Point(0, -104);
+            L_PlazaX.Location = new System.Drawing.Point(0, 2);
             L_PlazaX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             L_PlazaX.Name = "L_PlazaX";
             L_PlazaX.Size = new System.Drawing.Size(72, 26);
@@ -962,8 +961,7 @@
             // 
             // NUD_PlazaX
             // 
-            NUD_PlazaX.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            NUD_PlazaX.Location = new System.Drawing.Point(73, -103);
+            NUD_PlazaX.Location = new System.Drawing.Point(73, 4);
             NUD_PlazaX.Margin = new System.Windows.Forms.Padding(4);
             NUD_PlazaX.Maximum = new decimal(new int[] { 1024, 0, 0, 0 });
             NUD_PlazaX.Name = "NUD_PlazaX";
@@ -974,8 +972,7 @@
             // 
             // L_PlazaY
             // 
-            L_PlazaY.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            L_PlazaY.Location = new System.Drawing.Point(123, -104);
+            L_PlazaY.Location = new System.Drawing.Point(123, 2);
             L_PlazaY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             L_PlazaY.Name = "L_PlazaY";
             L_PlazaY.Size = new System.Drawing.Size(72, 26);
@@ -985,8 +982,7 @@
             // 
             // NUD_PlazaY
             // 
-            NUD_PlazaY.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            NUD_PlazaY.Location = new System.Drawing.Point(196, -103);
+            NUD_PlazaY.Location = new System.Drawing.Point(196, 4);
             NUD_PlazaY.Margin = new System.Windows.Forms.Padding(4);
             NUD_PlazaY.Maximum = new decimal(new int[] { 1024, 0, 0, 0 });
             NUD_PlazaY.Name = "NUD_PlazaY";
