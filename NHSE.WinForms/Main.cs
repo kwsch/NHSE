@@ -120,12 +120,12 @@ public partial class Main : Form
         }
     }
 
-    private static bool TryOpenSaveFile(string path)
+    private bool TryOpenSaveFile(string path)
     {
         if (!SaveFileLoader.TryGetSaveFile(path, out var sav))
             return false;
         var editor = new Editor(sav);
-        editor.Show();
+        editor.Show(this);
         return true;
     }
 }

@@ -1,4 +1,8 @@
-﻿using System;
+﻿using NHSE.Core;
+using NHSE.Sprites;
+using NHSE.WinForms.Subforms.Map;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
@@ -6,9 +10,6 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using NHSE.Core;
-using NHSE.Sprites;
-using NHSE.WinForms.Subforms.Map;
 
 namespace NHSE.WinForms;
 
@@ -237,16 +238,23 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         List<TerrainTile> selectedTiles = [];
         int radius = tbeForm.Slider_thickness.Value;
         int threshold = (radius * radius) / 2;
+        var cfg = Editor.Mutator.Manager.ConfigTerrain;
         for (int i = -radius; i < radius; i++)
         {
             for (int j = -radius; j < radius; j++)
             {
                 if ((i * i) + (j * j) < threshold)
-                    selectedTiles.Add(Editor.Terrain.GetTile(relX + i, relY + j));
+                {
+                    var x = relX + i;
+                    var y = relY + j;
+                    if (cfg.IsCoordinateValidRelative(x, y))
+                        selectedTiles.Add(Editor.Terrain.GetTile(x, y));
+                }
             }
         }
 
-        SetTiles(selectedTiles);
+        if (selectedTiles.Count != 0)
+            SetTiles(selectedTiles);
     }
 
     private void OmniTile(Item tile, int relX, int relY)
@@ -349,7 +357,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private bool GetTile(LayerTerrain layerField, int absX, int absY, [NotNullWhen(true)] out TileCheck<TerrainTile>? item)
     {
-        var cfg = Editor.Mutator.Manager.ConfigItems;
+        var cfg = Editor.Mutator.Manager.ConfigTerrain;
         var (relX, relY) = cfg.GetCoordinatesRelative(absX, absY);
         if (!cfg.IsCoordinateValidRelative(relX, relY))
         {
@@ -375,17 +383,21 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void ViewportMouseMove(object sender, MouseEventArgs e)
     {
-        var l = CurrentLayer;
-        if (e.Button == MouseButtons.Left && CHK_MoveOnDrag.Checked)
+        if (e.Button == MouseButtons.Left)
         {
-            MoveDrag(e);
-            return;
-        }
-        if (e.Button == MouseButtons.Left && tbeForm?.IsBrushSelected == true)
-        {
-            OmniTileTerrain(e);
+            if (tbeForm?.IsBrushSelected == true)
+            {
+                OmniTileTerrain(e);
+                return;
+            }
+            if (CHK_MoveOnDrag.Checked)
+            {
+                MoveDrag(e);
+                return;
+            }
         }
 
+        var l = CurrentLayer;
         // Update hover tooltip if it is a different tile
         // Can't compare coordinates if redirection of extension tiles hijacks to return the root tile.
         // Just check the (root) tile returns for each.
@@ -1260,14 +1272,13 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void B_TerrainBrush_Click(object sender, EventArgs e)
     {
-        tbeForm = new TerrainBrushEditor(PG_TerrainTile, this);
-        tbeForm.Show();
+        if (tbeForm is null || tbeForm.IsDisposed)
+            tbeForm = new TerrainBrushEditor(PG_TerrainTile, this);
+        tbeForm.Show(this);
+        tbeForm.BringToFront();
     }
 
-    private void FieldItemEditor_FormClosed(object sender, FormClosedEventArgs e)
-    {
-        tbeForm?.Close();
-    }
+    private void FieldItemEditor_FormClosed(object sender, FormClosedEventArgs e) => tbeForm?.Close();
 }
 
 public interface IItemLayerEditor

@@ -38,7 +38,12 @@ public sealed partial class Editor : Form
         // this.TranslateInterface(GameInfo.CurrentLanguage);
 
         Text = SAV.GetSaveTitle("NHSE");
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
         CenterToParent();
+        base.OnLoad(e);
     }
 
     private void Menu_Settings_Click(object sender, EventArgs e)
@@ -135,12 +140,13 @@ public sealed partial class Editor : Form
         var exist = WinFormsUtil.FirstFormOfType<SysBotRAMEdit>();
         if (exist != null)
         {
-            exist.Show();
+            exist.Show(this);
+            exist.BringToFront();
             return;
         }
 
         var sysbot = new SysBotRAMEdit(InjectionType.Generic);
-        sysbot.Show();
+        sysbot.Show(this);
     }
 
     private void Menu_ItemImages_Click(object sender, EventArgs e)
@@ -148,12 +154,13 @@ public sealed partial class Editor : Form
         var exist = WinFormsUtil.FirstFormOfType<ImageFetcher>();
         if (exist != null)
         {
-            exist.Show();
+            exist.Show(this);
+            exist.BringToFront();
             return;
         }
 
         var imgfetcher = new ImageFetcher();
-        imgfetcher.Show();
+        imgfetcher.Show(this);
     }
 
     private void Menu_Theme_System_Click(object sender, EventArgs e)

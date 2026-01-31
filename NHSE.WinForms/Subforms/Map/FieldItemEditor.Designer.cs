@@ -114,9 +114,9 @@
             FLP_Transparency = new System.Windows.Forms.FlowLayoutPanel();
             L_TerrainTileLabelTransparency = new System.Windows.Forms.Label();
             TR_Terrain = new System.Windows.Forms.TrackBar();
-            TR_BuildingTransparency = new System.Windows.Forms.TrackBar();
-            L_BuildingTransparency = new System.Windows.Forms.Label();
             L_FieldItemTransparency = new System.Windows.Forms.Label();
+            L_BuildingTransparency = new System.Windows.Forms.Label();
+            TR_BuildingTransparency = new System.Windows.Forms.TrackBar();
             B_TerrainBrush = new System.Windows.Forms.Button();
             PG_TerrainTile = new System.Windows.Forms.PropertyGrid();
             B_DumpLoadTerrain = new System.Windows.Forms.Button();
@@ -1073,6 +1073,28 @@
             TR_Terrain.TickFrequency = 32;
             TR_Terrain.Scroll += TR_Terrain_Scroll;
             // 
+            // L_FieldItemTransparency
+            // 
+            L_FieldItemTransparency.AutoSize = true;
+            FLP_Transparency.SetFlowBreak(L_FieldItemTransparency, true);
+            L_FieldItemTransparency.Location = new System.Drawing.Point(4, 49);
+            L_FieldItemTransparency.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            L_FieldItemTransparency.Name = "L_FieldItemTransparency";
+            L_FieldItemTransparency.Size = new System.Drawing.Size(145, 17);
+            L_FieldItemTransparency.TabIndex = 42;
+            L_FieldItemTransparency.Text = "Field Item Transparency";
+            // 
+            // L_BuildingTransparency
+            // 
+            L_BuildingTransparency.AutoSize = true;
+            FLP_Transparency.SetFlowBreak(L_BuildingTransparency, true);
+            L_BuildingTransparency.Location = new System.Drawing.Point(4, 98);
+            L_BuildingTransparency.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            L_BuildingTransparency.Name = "L_BuildingTransparency";
+            L_BuildingTransparency.Size = new System.Drawing.Size(135, 17);
+            L_BuildingTransparency.TabIndex = 44;
+            L_BuildingTransparency.Text = "Building Transparency";
+            // 
             // TR_BuildingTransparency
             // 
             TR_BuildingTransparency.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
@@ -1087,28 +1109,6 @@
             TR_BuildingTransparency.TickFrequency = 16;
             TR_BuildingTransparency.Value = 255;
             TR_BuildingTransparency.Scroll += TR_BuildingTransparency_Scroll;
-            // 
-            // L_BuildingTransparency
-            // 
-            L_BuildingTransparency.AutoSize = true;
-            FLP_Transparency.SetFlowBreak(L_BuildingTransparency, true);
-            L_BuildingTransparency.Location = new System.Drawing.Point(4, 98);
-            L_BuildingTransparency.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            L_BuildingTransparency.Name = "L_BuildingTransparency";
-            L_BuildingTransparency.Size = new System.Drawing.Size(135, 17);
-            L_BuildingTransparency.TabIndex = 44;
-            L_BuildingTransparency.Text = "Building Transparency";
-            // 
-            // L_FieldItemTransparency
-            // 
-            L_FieldItemTransparency.AutoSize = true;
-            FLP_Transparency.SetFlowBreak(L_FieldItemTransparency, true);
-            L_FieldItemTransparency.Location = new System.Drawing.Point(4, 49);
-            L_FieldItemTransparency.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            L_FieldItemTransparency.Name = "L_FieldItemTransparency";
-            L_FieldItemTransparency.Size = new System.Drawing.Size(145, 17);
-            L_FieldItemTransparency.TabIndex = 42;
-            L_FieldItemTransparency.Text = "Field Item Transparency";
             // 
             // B_TerrainBrush
             // 
