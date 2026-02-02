@@ -283,10 +283,16 @@ public static class TerrainSprite
             for (int tileX = 0; tileX < TilesPerViewport; tileX++)
             {
                 var actX = relX + tileX;
+                var acreTemplate = t.GetAcreTemplate(actX, actY);
                 if (!cfg.IsCoordinateValidRelative(actX, actY))
                 {
                     // Fill tile's square with a solid color.
-                    var acreTemplate = t.GetAcreTemplate(actX, actY);
+                    // Ensure coordinates are positive (for modulo later).
+                    if (actX < 0)
+                        actX += TilesPerViewport;
+                    if (actY < 0)
+                        actY += TilesPerViewport;
+
                     for (int pixelY = 0; pixelY < TileScale; pixelY++)
                     {
                         var index = (tileY * TileScale + pixelY) * (TilesPerViewport * TileScale) + tileX * TileScale;
@@ -303,7 +309,6 @@ public static class TerrainSprite
                 else
                 {
                     // Fill tile's square from terrain data.
-                    var acreTemplate = t.GetAcreTemplate(actX, actY);
                     var tile = t.GetTile(actX, actY);
                     for (int pixelY = 0; pixelY < TileScale; pixelY++)
                     {
