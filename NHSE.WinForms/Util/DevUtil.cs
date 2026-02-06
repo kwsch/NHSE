@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
-using NHSE.WinForms.Properties;
 
 namespace NHSE.WinForms;
 #if DEBUG
@@ -66,7 +65,7 @@ public static class DevUtil
     private static void LoadSpecialForms()
     {
         // For forms that require more complete initialization (dynamically added user controls)
-        var path = Settings.Default.LastFilePath;
+        var path = Program.Settings.LastFilePath;
         var sav = HorizonSave.FromFolder(path);
         using var editor = new Editor(sav);
         using var so = new SingleObjectEditor<object>(new object(), PropertySort.NoSort, false);

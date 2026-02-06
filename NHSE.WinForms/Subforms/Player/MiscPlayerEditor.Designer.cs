@@ -205,7 +205,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "MiscPlayerEditor";
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             Text = "Misc Player Detail Editor";
             ((System.ComponentModel.ISupportInitialize)NUD_BirthMonth).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_BirthDay).EndInit();

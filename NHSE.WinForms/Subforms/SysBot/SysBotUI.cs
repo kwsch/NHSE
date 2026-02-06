@@ -22,7 +22,9 @@ public partial class SysBotUI : Form
         InjectorUSB = injectorUSB;
 
         var offset = Bot.GetDefaultOffset();
+        offset = offset > 0 ? offset : StringUtil.GetHexValue(RamOffset.Text);
         Injector.SetWriteOffset(offset);
+
         RamOffset.Text = offset.ToString("X8");
         RamOffsetUSB.Text = offset.ToString("X8");
 
@@ -32,6 +34,12 @@ public partial class SysBotUI : Form
         Bot.PopPrompt();
 
         TIM_Interval.Tick += (s, e) => injector.Read();
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
+        CenterToParent();
+        base.OnLoad(e);
     }
 
     private void B_Connect_Click(object sender, EventArgs e)

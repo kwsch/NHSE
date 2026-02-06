@@ -149,7 +149,7 @@
             // BatchEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(394, 254);
             this.Controls.Add(this.L_PropValue);
             this.Controls.Add(this.L_PropType);
@@ -165,7 +165,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "BatchEditor";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Batch Editor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SysBotRAMEdit_FormClosing);
             this.ResumeLayout(false);

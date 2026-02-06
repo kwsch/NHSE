@@ -270,7 +270,7 @@
             // SysBotUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(245, 342);
             this.Controls.Add(this.GB_USB);
             this.Controls.Add(this.GB_Inject);
@@ -285,7 +285,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SysBotUI";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SysBotUI";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SysBotUI_FormClosing);
             this.GB_Inject.ResumeLayout(false);

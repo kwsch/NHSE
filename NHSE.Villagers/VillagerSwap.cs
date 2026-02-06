@@ -14,8 +14,8 @@ public static class VillagerSwap
     {
         var ov = exist.Villager;
         var oh = exist.House;
-        var nv = new Villager2(replace.Villager.ToArray());
-        _ = new VillagerHouse1(replace.House.ToArray()) {NPC1 = oh.NPC1, NPC2 = oh.NPC2, BuildPlayer = oh.BuildPlayer};
+        var nv = new Villager2(replace.Villager);
+        _ = new VillagerHouse1(replace.House) {NPC1 = oh.NPC1, NPC2 = oh.NPC2, BuildPlayer = oh.BuildPlayer};
 
         // Copy Memories
         var om = nv.GetMemory(0);

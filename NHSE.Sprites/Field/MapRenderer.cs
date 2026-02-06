@@ -115,14 +115,14 @@ public sealed class MapRenderer : IDisposable
     /// <summary>
     /// Updates the viewport terrain bitmap.
     /// </summary>
-    /// <param name="f">Font to use for building labels.</param>
+    /// <param name="textFont">Font to use for building labels.</param>
     /// <param name="transparencyBuilding">Transparency for building shapes drawn on terrain.</param>
     /// <param name="transparencyTerrain">Transparency for terrain layer.</param>
     /// <param name="selectedBuildingIndex">Index of building to highlight, or -1 for none.</param>
     /// <returns></returns>
-    public Bitmap UpdateViewportTerrain(Font f, byte transparencyBuilding, byte transparencyTerrain, int selectedBuildingIndex = -1)
+    public Bitmap UpdateViewportTerrain(Font textFont, byte transparencyBuilding, byte transparencyTerrain, int selectedBuildingIndex = -1)
     {
-        TerrainSprite.LoadViewport(ViewportTerrainImage, Map, f, ViewportTerrain1, ViewportTerrainX, selectedBuildingIndex, transparencyBuilding, transparencyTerrain);
+        TerrainSprite.LoadViewport(ViewportTerrainImage, Map, textFont, ViewportTerrain1, ViewportTerrainX, selectedBuildingIndex, transparencyBuilding, transparencyTerrain);
         return ViewportTerrainImage;
     }
 

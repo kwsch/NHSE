@@ -21,6 +21,12 @@ public partial class SysBotRAMEdit : Form
         Bot.PopPrompt();
     }
 
+    protected override void OnLoad(EventArgs e)
+    {
+        CenterToParent();
+        base.OnLoad(e);
+    }
+
     private void B_Connect_Click(object sender, EventArgs e)
     {
         if (!Bot.Connect(TB_IP.Text, TB_Port.Text))

@@ -305,7 +305,7 @@
             // ItemGridEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.Controls.Add(this.FLP_Controls);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ItemGridEditor";

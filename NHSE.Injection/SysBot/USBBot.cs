@@ -24,7 +24,7 @@ public sealed class USBBot : IRAMReadWriter
             //SwDevice = UsbDevice.OpenUsbDevice(SwFinder);
             foreach (UsbRegistry ur in UsbDevice.AllDevices)
             {
-                if (ur.Vid == 1406 && ur.Pid == 12288)
+                if (ur is { Vid: 1406, Pid: 12288 })
                     SwDevice = ur.Device;
             }
             //SwDevice = UsbDevice.OpenUsbDevice(MyUsbFinder);
@@ -144,7 +144,6 @@ public sealed class USBBot : IRAMReadWriter
 
             var buffer = new byte[length];
             _ = ReadInternal(buffer);
-            //return Decoder.ConvertHexByteStringToBytes(buffer);
             return buffer;
         }
     }

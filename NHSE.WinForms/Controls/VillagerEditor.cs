@@ -286,13 +286,14 @@ public partial class VillagerEditor : UserControl
             return;
         }
 
-        var internalName = Clipboard.GetText();
+        var internalName = Clipboard.GetText().Trim();
         if (!VillagerResources.IsVillagerDataKnown(internalName))
         {
+            var clip = internalName;
             internalName = GameInfo.Strings.VillagerMap.FirstOrDefault(z => string.Equals(z.Value, internalName, StringComparison.InvariantCultureIgnoreCase)).Key;
             if (internalName is null)
             {
-                WinFormsUtil.Error(string.Format(MessageStrings.MsgVillagerReplaceUnknownName, internalName));
+                WinFormsUtil.Error(string.Format(MessageStrings.MsgVillagerReplaceUnknownName, clip));
                 return;
             }
         }

@@ -223,7 +223,7 @@
             // BulkSpawn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(136, 235);
             this.Controls.Add(this.CB_SpawnArrange);
             this.Controls.Add(this.L_DIYStop);
@@ -245,7 +245,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "BulkSpawn";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Bulk Spawn";
             ((System.ComponentModel.ISupportInitialize)(this.NUD_SpawnX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_SpawnY)).EndInit();

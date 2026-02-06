@@ -694,7 +694,7 @@ namespace NHSE.WinForms.Subforms.Map
             // TerrainBrushEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(511, 486);
             this.Controls.Add(this.cb_tileVariation);
             this.Controls.Add(this.tabControl1);

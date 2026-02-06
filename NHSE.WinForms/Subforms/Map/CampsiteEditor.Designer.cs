@@ -248,7 +248,7 @@
             Icon = Properties.Resources.icon;
             MaximizeBox = false;
             Name = "CampsiteEditor";
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             Text = "Campsite Editor";
             ((System.ComponentModel.ISupportInitialize)PB_Villager).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_Variant).EndInit();

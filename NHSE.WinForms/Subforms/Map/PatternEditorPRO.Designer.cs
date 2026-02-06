@@ -218,7 +218,7 @@
             // PatternEditorPRO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(592, 328);
             this.Controls.Add(this.PB_Sheet3);
             this.Controls.Add(this.PB_Sheet2);
@@ -234,7 +234,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PatternEditorPRO";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Pro Design Editor";
             ((System.ComponentModel.ISupportInitialize)(this.PB_Palette)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Sheet0)).EndInit();

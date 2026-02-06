@@ -93,7 +93,7 @@ public partial class PlayerItemEditor : Form
         var exist = WinFormsUtil.FirstFormOfType<SysBotUI>();
         if (exist != null)
         {
-            exist.Show();
+            exist.Show(this);
             exist.BringToFront();
             exist.CenterToForm(this);
             return;
@@ -120,7 +120,7 @@ public partial class PlayerItemEditor : Form
 
         ItemGrid.ItemChanged = () => ai.Write();
         var sysbot = new SysBotUI(ai, sb, aiUSB, ub);
-        sysbot.Show();
+        sysbot.Show(this);
     }
 
     private void ItemEditor_DragEnter(object? sender, DragEventArgs e)

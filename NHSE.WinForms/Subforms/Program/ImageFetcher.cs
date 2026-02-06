@@ -31,6 +31,12 @@ public sealed partial class ImageFetcher : Form
         CheckFileStatusLabel();
     }
 
+    protected override void OnLoad(EventArgs e)
+    {
+        CenterToParent();
+        base.OnLoad(e);
+    }
+
     private static string[] LoadHosts()
     {
         var hosts = Properties.Resources.hosts_images;

@@ -215,7 +215,7 @@
             // ItemReceivedEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(815, 473);
             this.Controls.Add(this.CB_VariantBodiesOnly);
             this.Controls.Add(this.CLB_Remake);
@@ -229,7 +229,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ItemReceivedEditor";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Received Item List Editor";
             this.CM_Buttons.ResumeLayout(false);
             this.ResumeLayout(false);

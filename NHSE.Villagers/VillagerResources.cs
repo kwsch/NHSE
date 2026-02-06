@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 using NHSE.Core;
 using static NHSE.Villagers.Properties.Resources;
 
@@ -35,6 +36,6 @@ public static class VillagerResources
         Debug.Assert(bv.Length == Villager2.SIZE);
         Debug.Assert(bh.Length == VillagerHouse2.SIZE);
 
-        return new VillagerData(bv, bh);
+        return new VillagerData(bv.ToArray(), bh.ToArray());
     }
 }

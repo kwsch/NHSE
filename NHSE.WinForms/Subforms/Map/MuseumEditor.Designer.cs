@@ -173,7 +173,7 @@
             // MuseumEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(444, 417);
             this.Controls.Add(this.B_Tools);
             this.Controls.Add(this.ItemEdit);
@@ -187,7 +187,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MuseumEditor";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Flag Editor";
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Player)).EndInit();
             this.CM_Tools.ResumeLayout(false);

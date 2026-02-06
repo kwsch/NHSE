@@ -276,7 +276,7 @@
             // SaveRoomFloorWallEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(257, 194);
             this.Controls.Add(this.L_FloorDirection);
             this.Controls.Add(this.L_FloorDesign);
@@ -299,7 +299,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SaveRoomFloorWallEditor";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Room Editor";
             ((System.ComponentModel.ISupportInitialize)(this.NUD_DesignAccent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_DirAccent)).EndInit();

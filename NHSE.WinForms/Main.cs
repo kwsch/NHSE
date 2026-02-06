@@ -1,11 +1,9 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 using NHSE.Core;
 using NHSE.Injection;
 using NHSE.Sprites;
-using NHSE.WinForms.Properties;
 
 namespace NHSE.WinForms;
 
@@ -14,16 +12,8 @@ namespace NHSE.WinForms;
 /// </summary>
 public partial class Main : Form
 {
-    public const string BackupFolderName = "bak";
-    public const string ItemFolderName = "items";
-    public static readonly string WorkingDirectory = Application.StartupPath;
-    public static readonly string BackupPath = Path.Combine(WorkingDirectory, BackupFolderName);
-    public static readonly string ItemPath = Path.Combine(WorkingDirectory, ItemFolderName);
-
     public Main()
     {
-        WinFormsUtil.SetApplicationTheme(int.Parse(Settings.Default.DarkMode));
-
         InitializeComponent();
 
         // Flash to front
@@ -32,32 +22,18 @@ public partial class Main : Form
         Show();
         WindowState = FormWindowState.Normal;
 
-        var args = Environment.GetCommandLineArgs();
+        var args = Environment.GetCommandLineArgs().AsSpan(1); // skip exe path
         foreach (var arg in args)
         {
-            if (Directory.Exists(arg))
-                Open(arg);
+            if (Directory.Exists(arg) || File.Exists(arg))
+                TryOpenSaveFile(arg);
         }
     }
 
-    private static void Open(HorizonSave file)
+    protected override void OnFormClosing(FormClosingEventArgs e)
     {
-        bool sized = file.ValidateSizes();
-        if (!sized)
-        {
-            var prompt = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgSaveDataSizeMismatch, MessageStrings.MsgAskContinue);
-            if (prompt != DialogResult.Yes)
-                return;
-        }
-        var isAnyHashBad = file.GetInvalidHashes().Any();
-        if (isAnyHashBad)
-        {
-            var prompt = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, MessageStrings.MsgSaveDataHashMismatch, MessageStrings.MsgAskContinue);
-            if (prompt != DialogResult.Yes)
-                return;
-        }
-
-        new Editor(file).Show();
+        Program.SaveSettings();
+        base.OnFormClosing(e);
     }
 
     private void Main_DragEnter(object sender, DragEventArgs e)
@@ -71,9 +47,9 @@ public partial class Main : Form
     private void Main_DragDrop(object sender, DragEventArgs e)
     {
         var files = (string[]?)e.Data?.GetData(DataFormats.FileDrop);
-        if (files == null || files.Length == 0)
+        if (files is not { Length: not 0 })
             return;
-        Open(files[0]);
+        TryOpenSaveFile(files[0]);
         e.Effect = DragDropEffects.Copy;
     }
 
@@ -85,10 +61,10 @@ public partial class Main : Form
         }
         else if ((ModifierKeys & Keys.Shift) != 0)
         {
-            var path = Settings.Default.LastFilePath;
+            var path = Program.Settings.LastFilePath;
             if (Directory.Exists(path))
             {
-                Open(path);
+                TryOpenSaveFile(path);
                 return;
             }
         }
@@ -98,81 +74,7 @@ public partial class Main : Form
         ofd.Filter = "New Horizons Save File (main.dat)|main.dat";
         ofd.FileName = "main.dat";
         if (ofd.ShowDialog() == DialogResult.OK)
-            Open(ofd.FileName);
-    }
-
-    private static void Open(string path)
-    {
-#if !DEBUG
-            try
-#endif
-        {
-            OpenFileOrPath(path);
-        }
-#if !DEBUG
-            catch (Exception ex)
-            {
-                WinFormsUtil.Error(ex.Message);
-            }
-#endif
-    }
-
-    private static void OpenFileOrPath(string path)
-    {
-        if (Directory.Exists(path))
-        {
-            OpenSaveFile(path);
-            return;
-        }
-
-        // Load zip files differently
-        var ext = Path.GetExtension(path);
-        if (ext.Equals(".zip", StringComparison.OrdinalIgnoreCase) && new FileInfo(path).Length < 20 * 1024 * 1024) // less than 20MB
-        {
-            var file = HorizonSave.FromZip(path);
-            Open(file);
-            return;
-        }
-
-        var dir = Path.GetDirectoryName(path);
-        if (dir is null || !Directory.Exists(dir)) // ya never know
-        {
-            WinFormsUtil.Error(MessageStrings.MsgSaveDataImportFail, MessageStrings.MsgSaveDataImportSuggest);
-            return;
-        }
-
-        OpenSaveFile(dir);
-    }
-
-    private static void OpenSaveFile(string path)
-    {
-        var file = HorizonSave.FromFolder(path);
-        Open(file);
-
-        var settings = Settings.Default;
-        settings.LastFilePath = path;
-
-        if (!settings.BackupPrompted)
-        {
-            settings.BackupPrompted = true;
-            var line1 = string.Format(MessageStrings.MsgBackupCreateLocation, BackupFolderName);
-            var line2 = MessageStrings.MsgBackupCreateQuestion;
-            var prompt = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, line1, line2);
-            settings.AutomaticBackup = prompt == DialogResult.Yes;
-        }
-
-        if (settings.AutomaticBackup)
-            BackupSaveFile(file, path, BackupPath);
-
-        settings.Save();
-    }
-
-    private static void BackupSaveFile(HorizonSave file, string path, string bak)
-    {
-        Directory.CreateDirectory(bak);
-        var dest = Path.Combine(bak, file.GetBackupFolderTitle());
-        if (!Directory.Exists(dest))
-            FileUtil.CopyFolder(path, dest);
+            TryOpenSaveFile(ofd.FileName);
     }
 
     private void Main_KeyDown(object sender, KeyEventArgs e)
@@ -216,5 +118,14 @@ public partial class Main : Form
                 break;
             }
         }
+    }
+
+    private bool TryOpenSaveFile(string path)
+    {
+        if (!SaveFileLoader.TryGetSaveFile(path, out var sav))
+            return false;
+        var editor = new Editor(sav);
+        editor.Show(this);
+        return true;
     }
 }

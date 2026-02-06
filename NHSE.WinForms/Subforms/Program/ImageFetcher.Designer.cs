@@ -118,7 +118,7 @@
             // ImageFetcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(407, 235);
             this.Controls.Add(this.L_FileSize);
             this.Controls.Add(this.L_ImgStatus);
@@ -131,7 +131,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ImageFetcher";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Item Images";
             this.ResumeLayout(false);
             this.PerformLayout();
