@@ -147,6 +147,16 @@ public sealed partial class Editor : Form
         sysbot.Show();
     }
 
+    private void Menu_Sync_Click(object sender, EventArgs e)
+    {
+        using var dialog = new SyncSaveDialog(SAV);
+        if (dialog.ShowDialog() == DialogResult.OK)
+        {
+            ReloadAll(); // Reload all fields after sync
+            System.Media.SystemSounds.Asterisk.Play();
+        }
+    }
+
     private void Menu_ItemImages_Click(object sender, EventArgs e)
     {
         var exist = WinFormsUtil.FirstFormOfType<ImageFetcher>();
