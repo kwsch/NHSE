@@ -8,7 +8,7 @@ public sealed record MapMutator
     public required MapTileManager Manager { get; init; }
 
     // Mutability State Tracking
-    public uint ItemLayerIndex { get; set => field = value & 1; }
+    public uint ItemLayerIndex => (uint)View.ItemLayerIndex;
 
     public LayerFieldItem CurrentLayer => ItemLayerIndex == 0 ? Manager.FieldItems.Layer0 : Manager.FieldItems.Layer1;
     public ILayerFieldItemFlag CurrentLayerFlags => ItemLayerIndex == 0 ? Manager.LayerItemFlag0 : Manager.LayerItemFlag1;
