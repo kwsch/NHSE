@@ -1,4 +1,4 @@
-ant00	阳明
+﻿ant00	阳明
 ant01	阿诚
 ant02	佩希
 ant03	有美
@@ -489,3 +489,16 @@ tuk	富蓝
 upa	笑匠
 wrl	海项
 xct	陌陌
+npc_nookinc	Nook Inc.
+npc_hotel	Hotel
+npc_hha	Happy Home Academy
+npc_nintendo	Nintendo
+npc_bankofnook	Bank of Nook
+npc_nookshopping	Nook Shopping
+npc_nookmileageprogram	Nook Mileage Program
+npc_mom	Mom
+npc_dodoairlines	Dodo Airlines
+npc_thefarwaymuseum	The Farway Museum
+npc_paradiseplanning	Paradise Planning
+npc_snowboy	Snowboy
+npc_nooklinkadmins	NookLink Admins

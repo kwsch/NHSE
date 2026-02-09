@@ -1,25 +1,28 @@
-﻿using System;
+﻿using NHSE.Core;
+using NHSE.Sprites;
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Runtime.Intrinsics.Arm;
 using System.Windows.Forms;
-using NHSE.Core;
-using NHSE.Sprites;
 
 namespace NHSE.WinForms;
 
 public partial class PatternEditor : Form
 {
     private readonly DesignPattern[] Patterns;
+    private readonly Player Player;
 
     private int Index;
     private const int scale = 8;
 
-    public PatternEditor(DesignPattern[] patterns)
+    public PatternEditor(DesignPattern[] patterns, Player player)
     {
         InitializeComponent();
         this.TranslateInterface(GameInfo.CurrentLanguage);
         Patterns = patterns;
+        Player = player;
         DialogResult = DialogResult.Cancel;
 
         foreach (var p in patterns)
@@ -146,8 +149,44 @@ public partial class PatternEditor : Form
         LB_Items.SelectedIndex = index;
     }
 
+    public bool ContainsTransparentPixels(Bitmap image)
+    {
+        for (int y = 0; y < image.Height; ++y)
+        {
+            for (int x = 0; x < image.Width; ++x)
+            {
+                if (image.GetPixel(x, y).A < 255) // check alpha
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     private void LoadPattern(DesignPattern designPattern)
     {
+        if (designPattern.UsageCompatibility is not (0xEE00 or 0xEE02)) // known valid values (00=non-transparent, 02=transparent)
+        {
+            using var image = designPattern.GetImage();
+            if (ContainsTransparentPixels(image))
+            {
+                designPattern.UsageCompatibility = 0xEE02; // set to transparent
+            }
+            else
+            {
+                designPattern.UsageCompatibility = 0xEE00; // reset to default value (non-transparent)
+            }
+        }
+
+        if (CB_Pattern_OverwriteDesigner.Checked)
+        {
+            designPattern.PlayerID = Player.Personal.PlayerID;
+            designPattern.PlayerName = Player.Personal.PlayerName;
+            designPattern.TownID = Player.Personal.TownID;
+            designPattern.TownName = Player.Personal.TownName;
+        }
+
         PB_Pattern.Image = ImageUtil.ResizeImage(designPattern.GetImage(), DesignPattern.Width * scale, DesignPattern.Height * scale);
         PB_Palette.Image = ImageUtil.ResizeImage(designPattern.GetPalette(), 150, 10);
         L_PatternName.Text = designPattern.DesignName + Environment.NewLine +

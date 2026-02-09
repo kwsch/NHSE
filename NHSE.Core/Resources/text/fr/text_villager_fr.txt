@@ -1,4 +1,4 @@
-ant00	Cyrano
+﻿ant00	Cyrano
 ant01	Antonio
 ant02	Mathilda
 ant03	Anabelle
@@ -489,3 +489,16 @@ tuk	Dindou
 upa	Ciboulot
 wrl	Morsicus
 xct	Charly
+npc_nookinc	Nook Inc.
+npc_hotel	Hotel
+npc_hha	Happy Home Academy
+npc_nintendo	Nintendo
+npc_bankofnook	Bank of Nook
+npc_nookshopping	Nook Shopping
+npc_nookmileageprogram	Nook Mileage Program
+npc_mom	Mom
+npc_dodoairlines	Dodo Airlines
+npc_thefarwaymuseum	The Farway Museum
+npc_paradiseplanning	Paradise Planning
+npc_snowboy	Snowboy
+npc_nooklinkadmins	NookLink Admins

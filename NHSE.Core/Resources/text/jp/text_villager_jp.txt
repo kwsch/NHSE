@@ -1,4 +1,4 @@
-ant00	さくらじま
+﻿ant00	さくらじま
 ant01	マコト
 ant02	パトラ
 ant03	あるみ
@@ -489,3 +489,16 @@ tuk	フランクリン
 upa	ししょー
 wrl	セイイチ
 xct	みしらぬネコ
+npc_nookinc	Nook Inc.
+npc_hotel	Hotel
+npc_hha	Happy Home Academy
+npc_nintendo	Nintendo
+npc_bankofnook	Bank of Nook
+npc_nookshopping	Nook Shopping
+npc_nookmileageprogram	Nook Mileage Program
+npc_mom	Mom
+npc_dodoairlines	Dodo Airlines
+npc_thefarwaymuseum	The Farway Museum
+npc_paradiseplanning	Paradise Planning
+npc_snowboy	Snowboy
+npc_nooklinkadmins	NookLink Admins

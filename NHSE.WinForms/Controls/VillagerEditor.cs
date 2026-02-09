@@ -14,14 +14,16 @@ public partial class VillagerEditor : UserControl
     public IVillagerOrigin Origin;
     private readonly HorizonSave SAV;
     private int VillagerIndex = -1;
+    private int PlayerIndex = -1;
     private bool Loading;
 
-    public VillagerEditor(IVillager[] villagers, IVillagerOrigin origin, HorizonSave sav, bool hasHouses)
+    public VillagerEditor(IVillager[] villagers, IVillagerOrigin origin, HorizonSave sav, bool hasHouses, int playerIndex)
     {
         InitializeComponent();
         Villagers = villagers;
         Origin = origin;
         SAV = sav;
+        PlayerIndex = playerIndex;
         LoadVillagers();
 
         B_EditHouses.Visible = hasHouses;
@@ -218,13 +220,10 @@ public partial class VillagerEditor : UserControl
 
     private void B_EditVillagerDesign_Click(object sender, EventArgs e)
     {
-        var playerID = SAV.Players[0].Personal.GetPlayerIdentity(); // fetch ID for overwrite ownership
-        var townID = SAV.Players[0].Personal.GetTownIdentity(); // fetch ID for overwrite ownership
+        var player = SAV.Players[PlayerIndex];
         var v = Villagers[VillagerIndex];
         DesignPatternPRO[] tmp = [v.Design];
-        using var editor = new PatternEditorPRO(tmp);
-        playerID.CopyTo(tmp[0].Data[0x54..]); // overwrite playerID bytes
-        townID.CopyTo(tmp[0].Data[0x38..]); // overwrite townID bytes
+        using var editor = new PatternEditorPRO(tmp, player);
         if (editor.ShowDialog() == DialogResult.OK)
             v.Design = tmp[0];
     }

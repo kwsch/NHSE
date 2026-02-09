@@ -14,8 +14,10 @@ public sealed class GameStrings : IRemakeString
     public readonly string[] itemlist;
     public readonly string[] itemlistdisplay;
     public readonly string[] villagerDefaultPhrases;
+    public readonly string[] mail;
     public readonly Dictionary<string, string> VillagerMap;
     public readonly Dictionary<string, string> VillagerDefaultPhraseMap;
+    public readonly Dictionary<string, string> MailMap;
     public readonly List<ComboItem> ItemDataSource;
     public readonly Dictionary<string, string> InternalNameTranslation = [];
 
@@ -36,6 +38,8 @@ public sealed class GameStrings : IRemakeString
         itemlist = Get("item");
         itemlistdisplay = GetItemDisplayList(itemlist);
         ItemDataSource = CreateItemDataSource(itemlistdisplay);
+        mail = Get("mail");
+        MailMap = GetMap(mail);
 
         BodyParts = GetDictionary(Get("body_parts"));
         BodyColor = GetDictionary(Get("body_color"));
@@ -115,6 +119,8 @@ public sealed class GameStrings : IRemakeString
     public string GetVillager(string name) => VillagerMap.GetValueOrDefault(name, name);
 
     public string GetVillagerDefaultPhrase(string name) => VillagerDefaultPhraseMap.GetValueOrDefault(name, name); // I know it shouldn't be `name` but I have to return something
+
+    public string GetMail(string name) => MailMap.GetValueOrDefault(name, name);
 
     public static string[] GetItemDisplayList(ReadOnlySpan<string> arr)
     {

@@ -123,17 +123,13 @@ public abstract class MainSaveOffsets
         return new DesignPattern(v);
     }
 
-    public void WritePattern(DesignPattern p, Span<byte> data, int index, Span<byte> playerID, Span<byte> townID)
+    public void WritePattern(DesignPattern p, Span<byte> data, int index)
     {
         if ((uint)index >= PatternCount)
             throw new ArgumentOutOfRangeException(nameof(index));
-        playerID.CopyTo(p.Data[0x54..]); // overwrite playerID bytes so player owns
-        townID.CopyTo(p.Data[0x38..]); // overwrite townID bytes so player owns
-        ReadOnlySpan<byte> wipeflag = [0x02, 0xEE, 0x00, 0x00]; // wipe so player owns
-        wipeflag.CopyTo(p.Data[0x70..]);
         p.Data.CopyTo(data[(LandMyDesign + (index * DesignPattern.SIZE))..]);
         ReadOnlySpan<byte> editedflag = [0x00];
-        editedflag.CopyTo(data[(PatternsEditFlagStart + index)..]); // set edited flag for name import to work
+        editedflag.CopyTo(data[(PatternsEditFlagStart + index)..]); // set edited flag for designs name import to be correct in game
     }
 
     public DesignPatternPRO ReadPatternPRO(ReadOnlySpan<byte> data, int index)
@@ -150,17 +146,12 @@ public abstract class MainSaveOffsets
         return new DesignPatternPRO(v);
     }
 
-    public void WritePatternPRO(DesignPatternPRO p, Span<byte> data, int index, Span<byte> playerID, Span<byte> townID)
+    public void WritePatternPRO(DesignPatternPRO p, Span<byte> data, int index)
     {
         if ((uint)index >= PatternCount)
-            throw new ArgumentOutOfRangeException(nameof(index));
-        playerID.CopyTo(p.Data[0x54..]); // overwrite playerID bytes so player owns
-        townID.CopyTo(p.Data[0x38..]); // overwrite townID bytes so player owns
-        ReadOnlySpan<byte> wipeflag = [0x00, 0x00, 0x00, 0x00]; // wipe so player owns
-        wipeflag.CopyTo(p.Data[0x70..]);
         p.Data.CopyTo(data[(PatternsPRO + (index * DesignPatternPRO.SIZE))..]);
         ReadOnlySpan<byte> editedflag = [0x00];
-        editedflag.CopyTo(data[(PatternsProEditFlagStart + index)..]); // set edited flag for name import to work
+        editedflag.CopyTo(data[(PatternsProEditFlagStart + index)..]); // set edited flag for designs name import to be correct in game
     }
 
     public IVillager ReadVillager(ReadOnlySpan<byte> data, int index)

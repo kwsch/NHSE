@@ -16,6 +16,7 @@ public partial class ItemEditor : UserControl
 
     private bool Loading = true;
     private bool CanExtend;
+    private bool SupressedMode = false;
 
     public ItemEditor()
     {
@@ -36,7 +37,7 @@ public partial class ItemEditor : UserControl
 
     private IReadOnlyList<ComboItem> AllItems = [];
 
-    public void Initialize(IReadOnlyList<ComboItem> items, bool canExtend = false)
+    public void Initialize(IReadOnlyList<ComboItem> items, bool canExtend = false, bool supressed = false)
     {
         CHK_IsExtension.Visible = CanExtend = canExtend;
 
@@ -55,6 +56,8 @@ public partial class ItemEditor : UserControl
         LoadItem(Item.NO_ITEM);
 
         AllItems = items;
+
+        SupressedMode = supressed;
     }
 
     public Item LoadItem(Item item)
@@ -163,6 +166,20 @@ public partial class ItemEditor : UserControl
         return item;
     }
 
+    /// <summary>
+    /// Hides the item wrapping UI controls from the editor for handling via custom UIs.
+    /// </summary>
+    /// <remarks>
+    /// This method sets the visibility of both the wrapped checkbox (<see cref="CHK_Wrapped"/>) 
+    /// and the wrapped options panel (<see cref="FLP_Wrapped"/>) to <see langword="false"/>.
+    /// Use this when wrapping information should not be displayed or edited by the standard controls.
+    /// </remarks>
+    public void SupressWrappedInfo()
+    {
+        CHK_Wrapped.Visible = false;
+        FLP_Wrapped.Visible = false;
+    }
+
     private Item SetExtensionItem(Item item)
     {
         var id = (ushort)WinFormsUtil.GetIndex(CB_ItemID);
@@ -210,6 +227,7 @@ public partial class ItemEditor : UserControl
             L_RemakeFabric.Text = fabric;
             L_RemakeFabric.Visible = fabric.Length != 0;
         }
+        if (SupressedMode) SupressWrappedInfo();
     }
 
     private void LoadItemTypeValues(ItemKind k, ushort index)
@@ -241,6 +259,8 @@ public partial class ItemEditor : UserControl
 
         CHK_Wrapped.Visible  = true;
         FLP_Flag1.Visible = false;
+
+        if (SupressedMode) SupressWrappedInfo();
     }
 
     private void ToggleEditorVisibility(ItemKind k, ushort id)
