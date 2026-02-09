@@ -242,7 +242,7 @@ public sealed partial class Editor : Form
     {
         var p0 = SAV.Players[0].Personal;
         var villagers = SAV.Main.GetVillagers();
-        var v = new VillagerEditor(villagers, p0, SAV, true) { Dock = DockStyle.Fill };
+        var v = new VillagerEditor(villagers, p0, SAV, true, PlayerIndex) { Dock = DockStyle.Fill };
         Tab_Villagers.Controls.Add(v);
         return v;
     }
@@ -356,6 +356,15 @@ public sealed partial class Editor : Form
         var player = SAV.Players[PlayerIndex];
         var save = SAV.Main;
         using var editor = new MiscPlayerEditor(player, save);
+        editor.ShowDialog();
+    }
+
+    private void B_EditPlayerPostBox_Click(object sender, EventArgs e)
+    {
+        var player = SAV.Players[PlayerIndex];
+        var save = SAV.Main;
+        var pb = SAV.Players[PlayerIndex].PostBox;
+        using var editor = new PostBoxEditor(player, pb);
         editor.ShowDialog();
     }
 
@@ -520,36 +529,36 @@ public sealed partial class Editor : Form
 
     private void B_EditPatterns_Click(object sender, EventArgs e)
     {
-        var playerID = SAV.Players[0].Personal.GetPlayerIdentity(); // fetch ID for overwrite ownership
-        var townID = SAV.Players[0].Personal.GetTownIdentity(); // fetch ID for overwrite ownership
+        var player = SAV.Players[PlayerIndex];
         var patterns = SAV.Main.GetDesigns();
-        using var editor = new PatternEditor(patterns);
+        using var editor = new PatternEditor(patterns, player);
         if (editor.ShowDialog() == DialogResult.OK)
-            SAV.Main.SetDesigns(patterns, playerID, townID);
+            SAV.Main.SetDesigns(patterns);
     }
 
     private void B_EditPRODesigns_Click(object sender, EventArgs e)
     {
-        var playerID = SAV.Players[0].Personal.GetPlayerIdentity(); // fetch ID for overwrite ownership
-        var townID = SAV.Players[0].Personal.GetTownIdentity(); // fetch ID for overwrite ownership
+        var player = SAV.Players[PlayerIndex];
         var patterns = SAV.Main.GetDesignsPRO();
-        using var editor = new PatternEditorPRO(patterns);
+        using var editor = new PatternEditorPRO(patterns, player);
         if (editor.ShowDialog() == DialogResult.OK)
-            SAV.Main.SetDesignsPRO(patterns, playerID, townID);
+            SAV.Main.SetDesignsPRO(patterns);
     }
 
     private void B_EditPatternFlag_Click(object sender, EventArgs e)
     {
+        var player = SAV.Players[PlayerIndex];
         var patterns = new[] { SAV.Main.FlagMyDesign };
-        using var editor = new PatternEditor(patterns);
+        using var editor = new PatternEditor(patterns, player);
         if (editor.ShowDialog() == DialogResult.OK)
             SAV.Main.FlagMyDesign = patterns[0];
     }
 
     private void B_EditDesignsTailor_Click(object sender, EventArgs e)
     {
+        var player = SAV.Players[PlayerIndex];
         var patterns = SAV.Main.GetDesignsTailor();
-        using var editor = new PatternEditorPRO(patterns);
+        using var editor = new PatternEditorPRO(patterns, player);
         if (editor.ShowDialog() == DialogResult.OK)
             SAV.Main.SetDesignsTailor(patterns);
     }

@@ -1,0 +1,101 @@
+﻿mail00	Airmail card
+mail01	Star card
+mail02	Turkey Day card
+mail03	Torn card
+mail04	Zen card
+mail05	Decorative card
+mail06	Graduation card
+mail07	Stationery-goods card
+mail08	Bandage card
+mail09	Chocolate card
+mail10	Graffiti card
+mail11	Fluffy-clouds card
+mail12	Snowflake card
+mail13	Common card
+mail14	Winter-camellia card
+mail15	Lovely hearts card
+mail16	Gears card
+mail17	Full-bloom card
+mail18	Snowperson card
+mail19	Carpet-of-leaves card
+mail20	Father's Day card
+mail21	Holiday card
+mail22	Fanciful card
+mail23	Cherry-blossoms card
+mail24	Shapes card
+mail25	Mother's Day card
+mail26	Camo card
+mail27	Warm-sweater card
+mail28	Gem card
+mail29	Red-dragonflies card
+mail30	Mushroom card
+mail31	Card from Happy Home Academy
+mail32	Baby-goods card
+mail33	Birthday-cake card
+mail34	Ribbon card
+mail35	Balloons card
+mail36	Festive-tree card
+mail37	Cool-cool card
+mail38	Fantasy-stars card
+mail39	Bunny Day card
+mail40	Elegant-roses card
+mail41	Happy-clovers card
+mail42	Pumpkin card
+mail43	Halloween card
+mail44	Fireworks card
+mail45	Dawning-year card
+mail46	So-many-hearts card
+mail47	Blue-sky card
+mail48	Dandelion card
+mail49	Shooting-stars card
+mail50	Goldfish card
+mail51	Hibiscus card
+mail52	Flower-bouquet card
+mail53	Card from K.K.
+mail54	Chocolate-heart card
+mail55	Wedding card
+mail56	Town-view card
+mail57	Velvety card
+mail58	Card from C.J.
+mail59	Card from Flick
+mail60	Card from Bank of Nook
+mail61	Card from Nook Mileage Program
+mail62	Card from Your pals at Dodo Airlines
+mail63	Beach card
+mail64	Acorn card
+mail65	Gift card
+mail66	Card from Jolly Redd's
+mail67	MsgWherearenOffice00
+mail68	Glowing-moss card
+mail69	Flight-ticket card
+mail70	Plumeria card
+mail71	Sunset card
+mail72	Tropical card
+mail73	Paradise Planning card
+mail74	Unused_MsgMametsubu00m001
+box00	None
+box01	Nook Shopping Box
+box02	Hotel Box
+box03	Paradise Planning Box
+wrap00	None
+wrap01	Present
+wrap02	Wrapping Paper Yellow
+wrap03	Wrapping Paper Pink
+wrap04	Wrapping Paper Orange
+wrap05	Wrapping Paper Chartreuse
+wrap06	Wrapping Paper Green
+wrap07	Wrapping Paper Mint
+wrap08	Wrapping Paper LightBlue
+wrap09	Wrapping Paper Purple
+wrap10	Wrapping Paper Navy
+wrap11	Wrapping Paper Blue
+wrap12	Wrapping Paper White
+wrap13	Wrapping Paper Red
+wrap14	Wrapping Paper Gold
+wrap15	Wrapping Paper Brown
+wrap16	Wrapping Paper Gray
+wrap17	Wrapping Paper Black
+wrap18	Wrapping Paper Festive
+wrap19	Lucky Red Envelope
+wrap20	Bokjumeoni Pouch
+wrap21	Otoshidama Envelope

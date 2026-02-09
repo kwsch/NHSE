@@ -1,4 +1,4 @@
-ant00	Cirano
+﻿ant00	Cirano
 ant01	Antonio
 ant02	Carlotta
 ant03	Annalisa
@@ -489,3 +489,16 @@ tuk	Cedrone
 upa	Strizzo
 wrl	Van Trik
 xct	Girolamo
+npc_nookinc	Nook Inc.
+npc_hotel	Hotel
+npc_hha	Happy Home Academy
+npc_nintendo	Nintendo
+npc_bankofnook	Bank of Nook
+npc_nookshopping	Nook Shopping
+npc_nookmileageprogram	Nook Mileage Program
+npc_mom	Mom
+npc_dodoairlines	Dodo Airlines
+npc_thefarwaymuseum	The Farway Museum
+npc_paradiseplanning	Paradise Planning
+npc_snowboy	Snowboy
+npc_nooklinkadmins	NookLink Admins

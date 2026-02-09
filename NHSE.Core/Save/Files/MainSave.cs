@@ -65,9 +65,9 @@ public sealed class MainSave : EncryptedFilePair
     }
 
     public DesignPattern GetDesign(int index) => Offsets.ReadPattern(Data, index);
-    public void SetDesign(DesignPattern value, int index, Span<byte> playerID, Span<byte> townID) => Offsets.WritePattern(value, Data, index, playerID, townID);
+    public void SetDesign(DesignPattern value, int index) => Offsets.WritePattern(value, Data, index);
     public DesignPatternPRO GetDesignPRO(int index) => Offsets.ReadPatternPRO(Data, index);
-    public void SetDesignPRO(DesignPatternPRO value, int index, Span<byte> playerID, Span<byte> townID) => Offsets.WritePatternPRO(value, Data, index, playerID, townID);
+    public void SetDesignPRO(DesignPatternPRO value, int index) => Offsets.WritePatternPRO(value, Data, index);
 
     public IReadOnlyList<Item> RecycleBin
     {
@@ -106,11 +106,11 @@ public sealed class MainSave : EncryptedFilePair
         return result;
     }
 
-    public void SetDesigns(IReadOnlyList<DesignPattern> value, Span<byte> playerID, Span<byte> townID)
+    public void SetDesigns(IReadOnlyList<DesignPattern> value)
     {
         var count = Math.Min(Offsets.PatternCount, value.Count);
         for (int i = 0; i < count; i++)
-            SetDesign(value[i], i, playerID, townID);
+            SetDesign(value[i], i);
     }
 
     public DesignPatternPRO[] GetDesignsPRO()
@@ -121,11 +121,11 @@ public sealed class MainSave : EncryptedFilePair
         return result;
     }
 
-    public void SetDesignsPRO(IReadOnlyList<DesignPatternPRO> value, Span<byte> playerID, Span<byte> townID)
+    public void SetDesignsPRO(IReadOnlyList<DesignPatternPRO> value)
     {
         var count = Math.Min(Offsets.PatternCount, value.Count);
         for (int i = 0; i < count; i++)
-            SetDesignPRO(value[i], i, playerID, townID);
+            SetDesignPRO(value[i], i);
     }
 
     public DesignPattern FlagMyDesign

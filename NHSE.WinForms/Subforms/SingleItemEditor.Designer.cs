@@ -28,56 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.B_Save = new System.Windows.Forms.Button();
-            this.B_Cancel = new System.Windows.Forms.Button();
-            this.ItemEditor = new NHSE.WinForms.ItemEditor();
-            this.SuspendLayout();
+            B_Save = new System.Windows.Forms.Button();
+            B_Cancel = new System.Windows.Forms.Button();
+            ItemEditor = new ItemEditor();
+            SuspendLayout();
             // 
             // B_Save
             // 
-            this.B_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.B_Save.Location = new System.Drawing.Point(92, 236);
-            this.B_Save.Name = "B_Save";
-            this.B_Save.Size = new System.Drawing.Size(75, 31);
-            this.B_Save.TabIndex = 1;
-            this.B_Save.Text = "Save";
-            this.B_Save.UseVisualStyleBackColor = true;
-            this.B_Save.Click += new System.EventHandler(this.B_Save_Click);
+            B_Save.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            B_Save.Location = new System.Drawing.Point(94, 339);
+            B_Save.Name = "B_Save";
+            B_Save.Size = new System.Drawing.Size(75, 31);
+            B_Save.TabIndex = 1;
+            B_Save.Text = "Save";
+            B_Save.UseVisualStyleBackColor = true;
+            B_Save.Click += B_Save_Click;
             // 
             // B_Cancel
             // 
-            this.B_Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.B_Cancel.Location = new System.Drawing.Point(11, 236);
-            this.B_Cancel.Name = "B_Cancel";
-            this.B_Cancel.Size = new System.Drawing.Size(75, 31);
-            this.B_Cancel.TabIndex = 2;
-            this.B_Cancel.Text = "Cancel";
-            this.B_Cancel.UseVisualStyleBackColor = true;
-            this.B_Cancel.Click += new System.EventHandler(this.B_Cancel_Click);
+            B_Cancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            B_Cancel.Location = new System.Drawing.Point(13, 339);
+            B_Cancel.Name = "B_Cancel";
+            B_Cancel.Size = new System.Drawing.Size(75, 31);
+            B_Cancel.TabIndex = 2;
+            B_Cancel.Text = "Cancel";
+            B_Cancel.UseVisualStyleBackColor = true;
+            B_Cancel.Click += B_Cancel_Click;
             // 
-            // itemEditor1
+            // ItemEditor
             // 
-            this.ItemEditor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ItemEditor.Location = new System.Drawing.Point(12, 12);
-            this.ItemEditor.Name = "ItemEditor";
-            this.ItemEditor.Size = new System.Drawing.Size(155, 210);
-            this.ItemEditor.TabIndex = 3;
+            ItemEditor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            ItemEditor.Location = new System.Drawing.Point(12, 12);
+            ItemEditor.Name = "ItemEditor";
+            ItemEditor.Size = new System.Drawing.Size(157, 316);
+            ItemEditor.TabIndex = 3;
             // 
             // SingleItemEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.ClientSize = new System.Drawing.Size(179, 279);
-            this.Controls.Add(this.ItemEditor);
-            this.Controls.Add(this.B_Cancel);
-            this.Controls.Add(this.B_Save);
-            this.Icon = global::NHSE.WinForms.Properties.Resources.icon;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "SingleItemEditor";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Item Editor";
-            this.ResumeLayout(false);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            ClientSize = new System.Drawing.Size(181, 382);
+            Controls.Add(ItemEditor);
+            Controls.Add(B_Cancel);
+            Controls.Add(B_Save);
+            Icon = Properties.Resources.icon;
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "SingleItemEditor";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            Text = "Item Editor";
+            ResumeLayout(false);
 
         }
 

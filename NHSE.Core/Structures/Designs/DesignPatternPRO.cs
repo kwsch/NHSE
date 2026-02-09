@@ -14,6 +14,7 @@ public sealed class DesignPatternPRO(Memory<byte> Raw) : IVillagerOrigin
     public const int SIZE = 0x8A8; // 3 bytes unused at end
     public const int SheetCount = 4;
     private const int PersonalOffset = 0x38;
+    private const int UsageCompatibilityOffset = 0x70;
     private const int PaletteDataStart = 0x78;
     public const int PaletteColorCount = 15; // y not 16???
     private const int PaletteColorSize = 3; // R, G, B
@@ -65,6 +66,12 @@ public sealed class DesignPatternPRO(Memory<byte> Raw) : IVillagerOrigin
     {
         get => StringUtil.GetString(Data, PersonalOffset + 0x20, 10);
         set => StringUtil.GetBytes(value, 10).CopyTo(Data[(PersonalOffset + 0x20)..]);
+    }
+
+    public uint UsageCompatibility
+    {
+        get => ReadUInt32LittleEndian(Data[UsageCompatibilityOffset..]);
+        set => WriteUInt32LittleEndian(Data[UsageCompatibilityOffset..], value);
     }
 
     public Span<byte> GetPlayerIdentity() => Data.Slice(PersonalOffset + 0x1C, 4 + 20);

@@ -1,25 +1,28 @@
-﻿using System;
+﻿using NHSE.Core;
+using NHSE.Sprites;
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
-using NHSE.Core;
-using NHSE.Sprites;
 
 namespace NHSE.WinForms;
 
 public partial class PatternEditorPRO : Form
 {
     private readonly DesignPatternPRO[] Patterns;
+    private readonly Player Player;
 
     private int Index;
     private const int scale = 4;
 
-    public PatternEditorPRO(DesignPatternPRO[] patterns)
+    public PatternEditorPRO(DesignPatternPRO[] patterns, Player player)
     {
         InitializeComponent();
         this.TranslateInterface(GameInfo.CurrentLanguage);
         Patterns = patterns;
+        Player = player;
         DialogResult = DialogResult.Cancel;
 
         foreach (var p in patterns)
@@ -147,6 +150,17 @@ public partial class PatternEditorPRO : Form
 
     private void LoadPattern(DesignPatternPRO dp)
     {
+        if (dp.UsageCompatibility is not (0xEE01 or 0xEE05)) // known valid values (01=pro, 05=default_unused)
+            dp.UsageCompatibility = 0xEE01; // reset to default pro design
+
+        if (CB_Pattern_OverwriteDesigner.Checked)
+        {
+            dp.PlayerID = Player.Personal.PlayerID;
+            dp.PlayerName = Player.Personal.PlayerName;
+            dp.TownID = Player.Personal.TownID;
+            dp.TownName = Player.Personal.TownName;
+        }
+
         const int w = DesignPatternPRO.Width * scale;
         const int h = DesignPatternPRO.Height * scale;
         PB_Sheet0.Image = ImageUtil.ResizeImage(dp.GetImage(0), w, h);
