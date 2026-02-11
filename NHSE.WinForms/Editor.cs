@@ -235,6 +235,7 @@ public sealed partial class Editor : Form
     {
         Villagers.Villagers = SAV.Main.GetVillagers();
         Villagers.Origin = SAV.Players[0].Personal;
+        Villagers.Reload();
         LoadPlayers();
     }
 

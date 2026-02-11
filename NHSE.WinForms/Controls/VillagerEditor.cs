@@ -31,6 +31,8 @@ public partial class VillagerEditor : UserControl
 
     public void Save() => SaveVillager(VillagerIndex);
 
+    public void Reload() => LoadVillagers();
+
     private void LoadVillagers()
     {
         CB_Personality.Items.Clear();
@@ -38,6 +40,7 @@ public partial class VillagerEditor : UserControl
         CB_Personality.Items.AddRange(personalities);
 
         VillagerIndex = -1;
+        NUD_Villager.Value = 0;
         LoadVillager(0);
     }
 
