@@ -211,7 +211,7 @@ public sealed class MainSave : EncryptedFilePair
 
     public const ushort MapDesignNone = 0xF800;
 
-    public Memory<byte> MapDesignTileData => Raw.Slice(Offsets.MyDesignMap, 112 * 96 * sizeof(ushort));
+    public Memory<byte> MapDesignTileData => Raw.Slice(Offsets.MyDesignMap, (AcreWidth * LayerFieldItem.TilesPerAcreDim) * (AcreHeight * LayerFieldItem.TilesPerAcreDim) * sizeof(ushort));
     public ushort[] GetMapDesignTiles() => MemoryMarshal.Cast<byte, ushort>(MapDesignTileData.Span).ToArray();
     public void SetMapDesignTiles(ReadOnlySpan<ushort> value) => MemoryMarshal.Cast<ushort, byte>(value).CopyTo(MapDesignTileData.Span);
 
