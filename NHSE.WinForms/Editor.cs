@@ -262,19 +262,24 @@ public sealed partial class Editor : Form
         var names = Enum.GetNames<Hemisphere>();
         CB_Hemisphere.Items.AddRange(names);
         CB_Hemisphere.SelectedIndex = (int)m.Hemisphere;
+        CB_Tour_Hemisphere.Items.AddRange(names);
+        CB_Tour_Hemisphere.SelectedIndex = (int)m.TourHemisphere;
 
         names = Enum.GetNames<AirportColor>();
         CB_AirportColor.Items.AddRange(names);
         CB_AirportColor.SelectedIndex = (int)m.AirportThemeColor;
         NUD_WeatherSeed.Value = m.WeatherSeed;
+        NUD_Tour_WeatherSeed.Value = m.TourWeatherSeed;
     }
 
     private void SaveMain()
     {
         var m = SAV.Main;
         m.Hemisphere = (Hemisphere)CB_Hemisphere.SelectedIndex;
+        m.TourHemisphere = (Hemisphere)CB_Tour_Hemisphere.SelectedIndex;
         m.AirportThemeColor = (AirportColor)CB_AirportColor.SelectedIndex;
         m.WeatherSeed = (uint)NUD_WeatherSeed.Value;
+        m.TourWeatherSeed = (uint)NUD_Tour_WeatherSeed.Value;
     }
 
     #region Player Editing
