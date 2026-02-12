@@ -209,6 +209,7 @@ public partial class ItemEditor : UserControl
             {
                 L_RemakeBody.Text = $"{bse.Trim()}:\n" + closeItems.ToStringList(false);
                 L_RemakeBody.Visible = true;
+                L_RemakeFabric.Visible = false;
             }
             else
             {
