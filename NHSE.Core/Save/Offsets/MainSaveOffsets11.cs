@@ -59,6 +59,10 @@ public sealed class MainSaveOffsets11 : MainSaveOffsets
 
     public override int LostItemBox => GSaveLandOtherStart + 0x5C33F0;
     public override int LastSavedTime => GSaveLandOtherStart + 0x5C7D48;
+
+    public override int TourWeatherArea => GSaveLandOtherStart + 0x5c7b98;
+    public override int TourHemisphere => TourWeatherArea + 0x14;
+    public override int TourWeatherRandSeed => TourWeatherArea + 0x18;
     #endregion
 
     public override int VillagerSize => Villager1.SIZE;

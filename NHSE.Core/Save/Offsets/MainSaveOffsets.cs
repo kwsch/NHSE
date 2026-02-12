@@ -57,6 +57,10 @@ public abstract class MainSaveOffsets
     public abstract int LostItemBox { get; }
     public abstract int LastSavedTime { get; }
 
+    public abstract int TourWeatherArea { get; }
+    public abstract int TourHemisphere { get; }
+    public abstract int TourWeatherRandSeed { get; }
+
     public abstract int VillagerSize { get; }
     public abstract int VillagerHouseSize { get; }
     public abstract int PlayerHouseSize { get; }

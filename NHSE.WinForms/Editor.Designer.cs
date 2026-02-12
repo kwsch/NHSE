@@ -49,9 +49,12 @@
             CM_Picture = new System.Windows.Forms.ContextMenuStrip(components);
             Menu_SavePNG = new System.Windows.Forms.ToolStripMenuItem();
             Tab_Map = new System.Windows.Forms.TabPage();
+            NUD_Tour_WeatherSeed = new System.Windows.Forms.NumericUpDown();
+            L_Tour_WeatherSeed = new System.Windows.Forms.Label();
+            L_Tour_Hemisphere = new System.Windows.Forms.Label();
+            CB_Tour_Hemisphere = new System.Windows.Forms.ComboBox();
             B_EditFruitFlower = new System.Windows.Forms.Button();
             B_EditCampsite = new System.Windows.Forms.Button();
-            B_EditPlayerPostBox = new System.Windows.Forms.ToolStripMenuItem();
             NUD_WeatherSeed = new System.Windows.Forms.NumericUpDown();
             L_WeatherSeed = new System.Windows.Forms.Label();
             B_EditDesignsTailor = new System.Windows.Forms.Button();
@@ -72,6 +75,7 @@
             B_EditPatterns = new System.Windows.Forms.Button();
             B_EditTurnipExchange = new System.Windows.Forms.Button();
             B_RecycleBin = new System.Windows.Forms.Button();
+            B_EditPlayerPostBox = new System.Windows.Forms.ToolStripMenuItem();
             Tab_Villagers = new System.Windows.Forms.TabPage();
             Tab_Players = new System.Windows.Forms.TabPage();
             L_HotelTickets = new System.Windows.Forms.Label();
@@ -112,6 +116,7 @@
             Menu_Editor.SuspendLayout();
             CM_Picture.SuspendLayout();
             Tab_Map.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)NUD_Tour_WeatherSeed).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_WeatherSeed).BeginInit();
             CM_EditMap.SuspendLayout();
             Tab_Players.SuspendLayout();
@@ -271,6 +276,10 @@
             // 
             // Tab_Map
             // 
+            Tab_Map.Controls.Add(NUD_Tour_WeatherSeed);
+            Tab_Map.Controls.Add(L_Tour_WeatherSeed);
+            Tab_Map.Controls.Add(L_Tour_Hemisphere);
+            Tab_Map.Controls.Add(CB_Tour_Hemisphere);
             Tab_Map.Controls.Add(B_EditFruitFlower);
             Tab_Map.Controls.Add(B_EditCampsite);
             Tab_Map.Controls.Add(NUD_WeatherSeed);
@@ -295,6 +304,47 @@
             Tab_Map.TabIndex = 2;
             Tab_Map.Text = "Map";
             Tab_Map.UseVisualStyleBackColor = true;
+            // 
+            // NUD_Tour_WeatherSeed
+            // 
+            NUD_Tour_WeatherSeed.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            NUD_Tour_WeatherSeed.Location = new System.Drawing.Point(236, 89);
+            NUD_Tour_WeatherSeed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            NUD_Tour_WeatherSeed.Maximum = new decimal(new int[] { -1, 0, 0, 0 });
+            NUD_Tour_WeatherSeed.Name = "NUD_Tour_WeatherSeed";
+            NUD_Tour_WeatherSeed.Size = new System.Drawing.Size(107, 20);
+            NUD_Tour_WeatherSeed.TabIndex = 71;
+            NUD_Tour_WeatherSeed.Value = new decimal(new int[] { 1234567890, 0, 0, 0 });
+            // 
+            // L_Tour_WeatherSeed
+            // 
+            L_Tour_WeatherSeed.AutoSize = true;
+            L_Tour_WeatherSeed.Location = new System.Drawing.Point(346, 91);
+            L_Tour_WeatherSeed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            L_Tour_WeatherSeed.Name = "L_Tour_WeatherSeed";
+            L_Tour_WeatherSeed.Size = new System.Drawing.Size(106, 15);
+            L_Tour_WeatherSeed.TabIndex = 70;
+            L_Tour_WeatherSeed.Text = "Tour Weather Seed";
+            // 
+            // L_Tour_Hemisphere
+            // 
+            L_Tour_Hemisphere.AutoSize = true;
+            L_Tour_Hemisphere.Location = new System.Drawing.Point(346, 64);
+            L_Tour_Hemisphere.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            L_Tour_Hemisphere.Name = "L_Tour_Hemisphere";
+            L_Tour_Hemisphere.Size = new System.Drawing.Size(98, 15);
+            L_Tour_Hemisphere.TabIndex = 69;
+            L_Tour_Hemisphere.Text = "Tour Hemisphere";
+            // 
+            // CB_Tour_Hemisphere
+            // 
+            CB_Tour_Hemisphere.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            CB_Tour_Hemisphere.FormattingEnabled = true;
+            CB_Tour_Hemisphere.Location = new System.Drawing.Point(236, 60);
+            CB_Tour_Hemisphere.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            CB_Tour_Hemisphere.Name = "CB_Tour_Hemisphere";
+            CB_Tour_Hemisphere.Size = new System.Drawing.Size(107, 23);
+            CB_Tour_Hemisphere.TabIndex = 68;
             // 
             // B_EditFruitFlower
             // 
@@ -323,27 +373,27 @@
             // NUD_WeatherSeed
             // 
             NUD_WeatherSeed.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            NUD_WeatherSeed.Location = new System.Drawing.Point(236, 68);
+            NUD_WeatherSeed.Location = new System.Drawing.Point(236, 34);
             NUD_WeatherSeed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             NUD_WeatherSeed.Maximum = new decimal(new int[] { -1, 0, 0, 0 });
             NUD_WeatherSeed.Name = "NUD_WeatherSeed";
-            NUD_WeatherSeed.Size = new System.Drawing.Size(108, 20);
+            NUD_WeatherSeed.Size = new System.Drawing.Size(107, 20);
             NUD_WeatherSeed.TabIndex = 65;
             NUD_WeatherSeed.Value = new decimal(new int[] { 1234567890, 0, 0, 0 });
             // 
             // L_WeatherSeed
             // 
             L_WeatherSeed.AutoSize = true;
-            L_WeatherSeed.Location = new System.Drawing.Point(351, 70);
+            L_WeatherSeed.Location = new System.Drawing.Point(346, 36);
             L_WeatherSeed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             L_WeatherSeed.Name = "L_WeatherSeed";
-            L_WeatherSeed.Size = new System.Drawing.Size(79, 15);
+            L_WeatherSeed.Size = new System.Drawing.Size(113, 15);
             L_WeatherSeed.TabIndex = 64;
-            L_WeatherSeed.Text = "Weather Seed";
+            L_WeatherSeed.Text = "Island Weather Seed";
             // 
             // B_EditDesignsTailor
             // 
-            B_EditDesignsTailor.Location = new System.Drawing.Point(350, 113);
+            B_EditDesignsTailor.Location = new System.Drawing.Point(350, 116);
             B_EditDesignsTailor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             B_EditDesignsTailor.Name = "B_EditDesignsTailor";
             B_EditDesignsTailor.Size = new System.Drawing.Size(107, 56);
@@ -354,7 +404,7 @@
             // 
             // B_EditPatternFlag
             // 
-            B_EditPatternFlag.Location = new System.Drawing.Point(236, 113);
+            B_EditPatternFlag.Location = new System.Drawing.Point(236, 116);
             B_EditPatternFlag.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             B_EditPatternFlag.Name = "B_EditPatternFlag";
             B_EditPatternFlag.Size = new System.Drawing.Size(107, 56);
@@ -367,7 +417,7 @@
             // 
             CB_AirportColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             CB_AirportColor.FormattingEnabled = true;
-            CB_AirportColor.Location = new System.Drawing.Point(236, 37);
+            CB_AirportColor.Location = new System.Drawing.Point(121, 28);
             CB_AirportColor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             CB_AirportColor.Name = "CB_AirportColor";
             CB_AirportColor.Size = new System.Drawing.Size(107, 23);
@@ -376,7 +426,7 @@
             // L_AirportColor
             // 
             L_AirportColor.AutoSize = true;
-            L_AirportColor.Location = new System.Drawing.Point(350, 40);
+            L_AirportColor.Location = new System.Drawing.Point(122, 10);
             L_AirportColor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             L_AirportColor.Name = "L_AirportColor";
             L_AirportColor.Size = new System.Drawing.Size(76, 15);
@@ -386,18 +436,18 @@
             // L_Hemisphere
             // 
             L_Hemisphere.AutoSize = true;
-            L_Hemisphere.Location = new System.Drawing.Point(350, 10);
+            L_Hemisphere.Location = new System.Drawing.Point(346, 10);
             L_Hemisphere.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             L_Hemisphere.Name = "L_Hemisphere";
-            L_Hemisphere.Size = new System.Drawing.Size(71, 15);
+            L_Hemisphere.Size = new System.Drawing.Size(105, 15);
             L_Hemisphere.TabIndex = 58;
-            L_Hemisphere.Text = "Hemisphere";
+            L_Hemisphere.Text = "Island Hemisphere";
             // 
             // CB_Hemisphere
             // 
             CB_Hemisphere.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             CB_Hemisphere.FormattingEnabled = true;
-            CB_Hemisphere.Location = new System.Drawing.Point(236, 7);
+            CB_Hemisphere.Location = new System.Drawing.Point(236, 6);
             CB_Hemisphere.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             CB_Hemisphere.Name = "CB_Hemisphere";
             CB_Hemisphere.Size = new System.Drawing.Size(107, 23);
@@ -472,7 +522,7 @@
             // 
             // B_EditPRODesigns
             // 
-            B_EditPRODesigns.Location = new System.Drawing.Point(121, 113);
+            B_EditPRODesigns.Location = new System.Drawing.Point(121, 116);
             B_EditPRODesigns.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             B_EditPRODesigns.Name = "B_EditPRODesigns";
             B_EditPRODesigns.Size = new System.Drawing.Size(107, 56);
@@ -483,7 +533,7 @@
             // 
             // B_EditPatterns
             // 
-            B_EditPatterns.Location = new System.Drawing.Point(7, 113);
+            B_EditPatterns.Location = new System.Drawing.Point(7, 116);
             B_EditPatterns.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             B_EditPatterns.Name = "B_EditPatterns";
             B_EditPatterns.Size = new System.Drawing.Size(107, 56);
@@ -505,7 +555,7 @@
             // 
             // B_RecycleBin
             // 
-            B_RecycleBin.Location = new System.Drawing.Point(7, 60);
+            B_RecycleBin.Location = new System.Drawing.Point(7, 61);
             B_RecycleBin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             B_RecycleBin.Name = "B_RecycleBin";
             B_RecycleBin.Size = new System.Drawing.Size(107, 46);
@@ -514,13 +564,20 @@
             B_RecycleBin.UseVisualStyleBackColor = true;
             B_RecycleBin.Click += B_RecycleBin_Click;
             // 
+            // B_EditPlayerPostBox
+            // 
+            B_EditPlayerPostBox.Name = "B_EditPlayerPostBox";
+            B_EditPlayerPostBox.Size = new System.Drawing.Size(176, 22);
+            B_EditPlayerPostBox.Text = "Edit Post Box";
+            B_EditPlayerPostBox.Click += B_EditPlayerPostBox_Click;
+            // 
             // Tab_Villagers
             // 
             Tab_Villagers.Location = new System.Drawing.Point(4, 34);
             Tab_Villagers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             Tab_Villagers.Name = "Tab_Villagers";
             Tab_Villagers.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            Tab_Villagers.Size = new System.Drawing.Size(463, 299);
+            Tab_Villagers.Size = new System.Drawing.Size(463, 297);
             Tab_Villagers.TabIndex = 0;
             Tab_Villagers.Text = "Villagers";
             Tab_Villagers.UseVisualStyleBackColor = true;
@@ -561,13 +618,6 @@
             Tab_Players.TabIndex = 1;
             Tab_Players.Text = "Players";
             Tab_Players.UseVisualStyleBackColor = true;
-            // 
-            // B_EditPostBox
-            // 
-            B_EditPlayerPostBox.Name = "B_EditPlayerPostBox";
-            B_EditPlayerPostBox.Size = new System.Drawing.Size(107, 56);
-            B_EditPlayerPostBox.Text = "Edit Post Box";
-            B_EditPlayerPostBox.Click += B_EditPlayerPostBox_Click;
             // 
             // L_HotelTickets
             // 
@@ -708,7 +758,7 @@
             CM_EditPlayer.ImageScalingSize = new System.Drawing.Size(20, 20);
             CM_EditPlayer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { B_EditPlayerStorage, B_EditPlayerReceivedItems, B_EditAchievements, B_EditPlayerRecipes, B_EditPlayerPostBox, B_EditPlayerFlags, B_EditPlayerReactions, B_EditPlayerMisc });
             CM_EditPlayer.Name = "CM_EditPlayer";
-            CM_EditPlayer.Size = new System.Drawing.Size(177, 158);
+            CM_EditPlayer.Size = new System.Drawing.Size(177, 180);
             // 
             // B_EditPlayerStorage
             // 
@@ -920,6 +970,7 @@
             CM_Picture.ResumeLayout(false);
             Tab_Map.ResumeLayout(false);
             Tab_Map.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)NUD_Tour_WeatherSeed).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_WeatherSeed).EndInit();
             CM_EditMap.ResumeLayout(false);
             Tab_Players.ResumeLayout(false);
@@ -1022,6 +1073,10 @@
         private System.Windows.Forms.ToolStripMenuItem Menu_Theme_Classic;
         private System.Windows.Forms.ToolStripMenuItem Menu_Theme_Dark;
         private System.Windows.Forms.Button B_EditFruitFlower;
+        private System.Windows.Forms.Label L_Tour_Hemisphere;
+        private System.Windows.Forms.ComboBox CB_Tour_Hemisphere;
+        private System.Windows.Forms.NumericUpDown NUD_Tour_WeatherSeed;
+        private System.Windows.Forms.Label L_Tour_WeatherSeed;
     }
 }
 

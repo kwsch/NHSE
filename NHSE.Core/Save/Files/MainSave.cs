@@ -14,11 +14,17 @@ public sealed class MainSave : EncryptedFilePair
     public MainSave(ISaveFileProvider provider) : base(provider, "main") => Offsets = MainSaveOffsets.GetOffsets(Info);
 
     public Hemisphere Hemisphere { get => (Hemisphere)Data[Offsets.WeatherArea]; set => Data[Offsets.WeatherArea] = (byte)value; }
+    public Hemisphere TourHemisphere { get => (Hemisphere)Data[Offsets.TourHemisphere]; set => Data[Offsets.TourHemisphere] = (byte)value; }
     public AirportColor AirportThemeColor { get => (AirportColor)Data[Offsets.AirportThemeColor]; set => Data[Offsets.AirportThemeColor] = (byte)value; }
     public uint WeatherSeed
     {
         get => ReadUInt32LittleEndian(Data[Offsets.WeatherRandSeed..]);
         set => WriteUInt32LittleEndian(Data[Offsets.WeatherRandSeed..], value);
+    }
+    public uint TourWeatherSeed
+    {
+        get => ReadUInt32LittleEndian(Data[Offsets.TourWeatherRandSeed..]);
+        set => WriteUInt32LittleEndian(Data[Offsets.TourWeatherRandSeed..], value);
     }
 
     public byte CampsiteStatus { get => Data[Offsets.GSaveCampSite]; set => Data[Offsets.GSaveCampSite] = value; }
