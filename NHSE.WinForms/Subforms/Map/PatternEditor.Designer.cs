@@ -43,7 +43,6 @@
             PB_Pattern = new System.Windows.Forms.PictureBox();
             CM_Picture = new System.Windows.Forms.ContextMenuStrip(components);
             Menu_SavePNG = new System.Windows.Forms.ToolStripMenuItem();
-            CB_Pattern_OverwriteDesigner = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)PB_Palette).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PB_Pattern).BeginInit();
             CM_Picture.SuspendLayout();
@@ -174,21 +173,10 @@
             Menu_SavePNG.Text = "Save .png";
             Menu_SavePNG.Click += Menu_SavePNG_Click;
             // 
-            // CB_Pattern_OverwriteDesigner
-            // 
-            CB_Pattern_OverwriteDesigner.AutoSize = true;
-            CB_Pattern_OverwriteDesigner.Location = new System.Drawing.Point(263, 288);
-            CB_Pattern_OverwriteDesigner.Name = "CB_Pattern_OverwriteDesigner";
-            CB_Pattern_OverwriteDesigner.Size = new System.Drawing.Size(126, 19);
-            CB_Pattern_OverwriteDesigner.TabIndex = 35;
-            CB_Pattern_OverwriteDesigner.Text = "Overwrite Designer";
-            CB_Pattern_OverwriteDesigner.UseVisualStyleBackColor = true;
-            // 
             // PatternEditor
             // 
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             ClientSize = new System.Drawing.Size(592, 328);
-            Controls.Add(CB_Pattern_OverwriteDesigner);
             Controls.Add(PB_Palette);
             Controls.Add(L_PatternName);
             Controls.Add(B_DumpLoadDesign);
@@ -225,6 +213,5 @@
         private System.Windows.Forms.PictureBox PB_Pattern;
         private System.Windows.Forms.ContextMenuStrip CM_Picture;
         private System.Windows.Forms.ToolStripMenuItem Menu_SavePNG;
-        private System.Windows.Forms.CheckBox CB_Pattern_OverwriteDesigner;
     }
 }

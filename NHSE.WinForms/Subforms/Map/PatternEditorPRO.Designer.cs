@@ -46,7 +46,6 @@
             PB_Sheet1 = new System.Windows.Forms.PictureBox();
             PB_Sheet3 = new System.Windows.Forms.PictureBox();
             PB_Sheet2 = new System.Windows.Forms.PictureBox();
-            CB_Pattern_OverwriteDesigner = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)PB_Palette).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PB_Sheet0).BeginInit();
             CM_Picture.SuspendLayout();
@@ -213,21 +212,10 @@
             PB_Sheet2.TabIndex = 36;
             PB_Sheet2.TabStop = false;
             // 
-            // CB_Pattern_OverwriteDesigner
-            // 
-            CB_Pattern_OverwriteDesigner.AutoSize = true;
-            CB_Pattern_OverwriteDesigner.Location = new System.Drawing.Point(263, 288);
-            CB_Pattern_OverwriteDesigner.Name = "CB_Pattern_OverwriteDesigner";
-            CB_Pattern_OverwriteDesigner.Size = new System.Drawing.Size(126, 19);
-            CB_Pattern_OverwriteDesigner.TabIndex = 38;
-            CB_Pattern_OverwriteDesigner.Text = "Overwrite Designer";
-            CB_Pattern_OverwriteDesigner.UseVisualStyleBackColor = true;
-            // 
             // PatternEditorPRO
             // 
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             ClientSize = new System.Drawing.Size(592, 328);
-            Controls.Add(CB_Pattern_OverwriteDesigner);
             Controls.Add(PB_Sheet3);
             Controls.Add(PB_Sheet2);
             Controls.Add(PB_Sheet1);
@@ -273,6 +261,5 @@
         private System.Windows.Forms.PictureBox PB_Sheet1;
         private System.Windows.Forms.PictureBox PB_Sheet3;
         private System.Windows.Forms.PictureBox PB_Sheet2;
-        private System.Windows.Forms.CheckBox CB_Pattern_OverwriteDesigner;
     }
 }

@@ -4,7 +4,6 @@ using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Runtime.Intrinsics.Arm;
 using System.Windows.Forms;
 
 namespace NHSE.WinForms;
@@ -136,6 +135,19 @@ public partial class PatternEditor : Form
                 d.ChangeOrigins(player0, d.Data);
         }
 
+        if (d.UsageCompatibility is not (0xEE00 or 0xEE02)) // known valid values (00=non-transparent, 02=transparent)
+        {
+            using var image = d.GetImage();
+            if (ContainsTransparentPixels(image))
+            {
+                d.UsageCompatibility = 0xEE02; // set to transparent
+            }
+            else
+            {
+                d.UsageCompatibility = 0xEE00; // reset to default value (non-transparent)
+            }
+        }
+
         Patterns[Index] = d;
         LoadPattern(d);
         RepopulateList(Index);
@@ -166,27 +178,6 @@ public partial class PatternEditor : Form
 
     private void LoadPattern(DesignPattern designPattern)
     {
-        if (designPattern.UsageCompatibility is not (0xEE00 or 0xEE02)) // known valid values (00=non-transparent, 02=transparent)
-        {
-            using var image = designPattern.GetImage();
-            if (ContainsTransparentPixels(image))
-            {
-                designPattern.UsageCompatibility = 0xEE02; // set to transparent
-            }
-            else
-            {
-                designPattern.UsageCompatibility = 0xEE00; // reset to default value (non-transparent)
-            }
-        }
-
-        if (CB_Pattern_OverwriteDesigner.Checked)
-        {
-            designPattern.PlayerID = Player.Personal.PlayerID;
-            designPattern.PlayerName = Player.Personal.PlayerName;
-            designPattern.TownID = Player.Personal.TownID;
-            designPattern.TownName = Player.Personal.TownName;
-        }
-
         PB_Pattern.Image = ImageUtil.ResizeImage(designPattern.GetImage(), DesignPattern.Width * scale, DesignPattern.Height * scale);
         PB_Palette.Image = ImageUtil.ResizeImage(designPattern.GetPalette(), 150, 10);
         L_PatternName.Text = designPattern.DesignName + Environment.NewLine +

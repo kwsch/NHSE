@@ -4,7 +4,6 @@ using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Reflection;
 using System.Windows.Forms;
 
 namespace NHSE.WinForms;
@@ -135,6 +134,9 @@ public partial class PatternEditorPRO : Form
                 d.ChangeOrigins(player0, d.Data);
         }
 
+        if (d.UsageCompatibility is not (0xEE01 or 0xEE05)) // known valid values (01=pro, 05=default_unused)
+            d.UsageCompatibility = 0xEE01; // reset to default pro design
+
         Patterns[Index] = d;
         LoadPattern(d);
         RepopulateList(Index);
@@ -150,17 +152,6 @@ public partial class PatternEditorPRO : Form
 
     private void LoadPattern(DesignPatternPRO dp)
     {
-        if (dp.UsageCompatibility is not (0xEE01 or 0xEE05)) // known valid values (01=pro, 05=default_unused)
-            dp.UsageCompatibility = 0xEE01; // reset to default pro design
-
-        if (CB_Pattern_OverwriteDesigner.Checked)
-        {
-            dp.PlayerID = Player.Personal.PlayerID;
-            dp.PlayerName = Player.Personal.PlayerName;
-            dp.TownID = Player.Personal.TownID;
-            dp.TownName = Player.Personal.TownName;
-        }
-
         const int w = DesignPatternPRO.Width * scale;
         const int h = DesignPatternPRO.Height * scale;
         PB_Sheet0.Image = ImageUtil.ResizeImage(dp.GetImage(0), w, h);
