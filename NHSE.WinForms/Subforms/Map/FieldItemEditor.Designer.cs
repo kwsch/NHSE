@@ -225,34 +225,34 @@
             // 
             CM_Click.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { Menu_View, Menu_Set, Menu_Reset, Menu_Activate });
             CM_Click.Name = "CM_Click";
-            CM_Click.Size = new System.Drawing.Size(122, 92);
+            CM_Click.Size = new System.Drawing.Size(118, 92);
             CM_Click.Opening += CM_Click_Opening;
             // 
             // Menu_View
             // 
             Menu_View.Name = "Menu_View";
-            Menu_View.Size = new System.Drawing.Size(121, 22);
+            Menu_View.Size = new System.Drawing.Size(117, 22);
             Menu_View.Text = "View";
             Menu_View.Click += Menu_View_Click;
             // 
             // Menu_Set
             // 
             Menu_Set.Name = "Menu_Set";
-            Menu_Set.Size = new System.Drawing.Size(121, 22);
+            Menu_Set.Size = new System.Drawing.Size(117, 22);
             Menu_Set.Text = "Set";
             Menu_Set.Click += Menu_Set_Click;
             // 
             // Menu_Reset
             // 
             Menu_Reset.Name = "Menu_Reset";
-            Menu_Reset.Size = new System.Drawing.Size(121, 22);
+            Menu_Reset.Size = new System.Drawing.Size(117, 22);
             Menu_Reset.Text = "Reset";
             Menu_Reset.Click += Menu_Reset_Click;
             // 
             // Menu_Activate
             // 
             Menu_Activate.Name = "Menu_Activate";
-            Menu_Activate.Size = new System.Drawing.Size(121, 22);
+            Menu_Activate.Size = new System.Drawing.Size(117, 22);
             Menu_Activate.Text = "Activate";
             Menu_Activate.Click += Menu_Activate_Click;
             // 
@@ -304,7 +304,7 @@
             // 
             PB_Map.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             PB_Map.ContextMenuStrip = CM_Picture;
-            PB_Map.Location = new System.Drawing.Point(0, 29);
+            PB_Map.Location = new System.Drawing.Point(0, 27);
             PB_Map.Margin = new System.Windows.Forms.Padding(0);
             PB_Map.Name = "PB_Map";
             PB_Map.Size = new System.Drawing.Size(288, 256);
@@ -318,13 +318,13 @@
             // 
             CM_Picture.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { Menu_SavePNG, Menu_SavePNGItems, Menu_SavePNGTerrain });
             CM_Picture.Name = "CM_Picture";
-            CM_Picture.Size = new System.Drawing.Size(162, 70);
+            CM_Picture.Size = new System.Drawing.Size(153, 70);
             CM_Picture.Closing += CM_Picture_Closing;
             // 
             // Menu_SavePNG
             // 
             Menu_SavePNG.Name = "Menu_SavePNG";
-            Menu_SavePNG.Size = new System.Drawing.Size(161, 22);
+            Menu_SavePNG.Size = new System.Drawing.Size(152, 22);
             Menu_SavePNG.Text = "Save .png";
             Menu_SavePNG.Click += Menu_SavePNG_Click;
             // 
@@ -334,7 +334,7 @@
             Menu_SavePNGItems.CheckOnClick = true;
             Menu_SavePNGItems.CheckState = System.Windows.Forms.CheckState.Checked;
             Menu_SavePNGItems.Name = "Menu_SavePNGItems";
-            Menu_SavePNGItems.Size = new System.Drawing.Size(161, 22);
+            Menu_SavePNGItems.Size = new System.Drawing.Size(152, 22);
             Menu_SavePNGItems.Text = "Include Items";
             // 
             // Menu_SavePNGTerrain
@@ -343,7 +343,7 @@
             Menu_SavePNGTerrain.CheckOnClick = true;
             Menu_SavePNGTerrain.CheckState = System.Windows.Forms.CheckState.Checked;
             Menu_SavePNGTerrain.Name = "Menu_SavePNGTerrain";
-            Menu_SavePNGTerrain.Size = new System.Drawing.Size(161, 22);
+            Menu_SavePNGTerrain.Size = new System.Drawing.Size(152, 22);
             Menu_SavePNGTerrain.Text = "Include Terrain";
             // 
             // CHK_SnapToAcre
@@ -352,7 +352,7 @@
             CHK_SnapToAcre.Location = new System.Drawing.Point(4, 4);
             CHK_SnapToAcre.Margin = new System.Windows.Forms.Padding(4);
             CHK_SnapToAcre.Name = "CHK_SnapToAcre";
-            CHK_SnapToAcre.Size = new System.Drawing.Size(198, 21);
+            CHK_SnapToAcre.Size = new System.Drawing.Size(180, 19);
             CHK_SnapToAcre.TabIndex = 24;
             CHK_SnapToAcre.Text = "Snap to nearest Acre on Click";
             CHK_SnapToAcre.UseVisualStyleBackColor = true;
@@ -362,7 +362,7 @@
             L_Coordinates.Anchor = System.Windows.Forms.AnchorStyles.Right;
             L_Coordinates.AutoSize = true;
             L_Coordinates.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            L_Coordinates.Location = new System.Drawing.Point(116, 285);
+            L_Coordinates.Location = new System.Drawing.Point(116, 283);
             L_Coordinates.Margin = new System.Windows.Forms.Padding(4, 0, 4, 16);
             L_Coordinates.Name = "L_Coordinates";
             L_Coordinates.Size = new System.Drawing.Size(168, 14);
@@ -373,12 +373,12 @@
             // NUD_Layer
             // 
             NUD_Layer.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            NUD_Layer.Location = new System.Drawing.Point(106, 59);
+            NUD_Layer.Location = new System.Drawing.Point(94, 53);
             NUD_Layer.Margin = new System.Windows.Forms.Padding(0);
             NUD_Layer.Maximum = new decimal(new int[] { 2, 0, 0, 0 });
             NUD_Layer.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             NUD_Layer.Name = "NUD_Layer";
-            NUD_Layer.Size = new System.Drawing.Size(32, 25);
+            NUD_Layer.Size = new System.Drawing.Size(32, 23);
             NUD_Layer.TabIndex = 26;
             NUD_Layer.Value = new decimal(new int[] { 1, 0, 0, 0 });
             NUD_Layer.ValueChanged += NUD_Layer_ValueChanged;
@@ -387,10 +387,10 @@
             // 
             L_Layer.Anchor = System.Windows.Forms.AnchorStyles.Right;
             L_Layer.AutoSize = true;
-            L_Layer.Location = new System.Drawing.Point(35, 63);
+            L_Layer.Location = new System.Drawing.Point(29, 57);
             L_Layer.Margin = new System.Windows.Forms.Padding(0);
             L_Layer.Name = "L_Layer";
-            L_Layer.Size = new System.Drawing.Size(71, 17);
+            L_Layer.Size = new System.Drawing.Size(65, 15);
             L_Layer.TabIndex = 27;
             L_Layer.Text = "Item Layer:";
             L_Layer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -419,7 +419,7 @@
             TR_Transparency.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             TR_Transparency.AutoSize = false;
             FLP_Transparency.SetFlowBreak(TR_Transparency, true);
-            TR_Transparency.Location = new System.Drawing.Point(0, 66);
+            TR_Transparency.Location = new System.Drawing.Point(0, 62);
             TR_Transparency.Margin = new System.Windows.Forms.Padding(0);
             TR_Transparency.Maximum = 100;
             TR_Transparency.Name = "TR_Transparency";
@@ -435,10 +435,10 @@
             CHK_NoOverwrite.Checked = true;
             CHK_NoOverwrite.CheckState = System.Windows.Forms.CheckState.Checked;
             FLP_GridOptions.SetFlowBreak(CHK_NoOverwrite, true);
-            CHK_NoOverwrite.Location = new System.Drawing.Point(0, 21);
+            CHK_NoOverwrite.Location = new System.Drawing.Point(0, 19);
             CHK_NoOverwrite.Margin = new System.Windows.Forms.Padding(0);
             CHK_NoOverwrite.Name = "CHK_NoOverwrite";
-            CHK_NoOverwrite.Size = new System.Drawing.Size(234, 21);
+            CHK_NoOverwrite.Size = new System.Drawing.Size(216, 19);
             CHK_NoOverwrite.TabIndex = 37;
             CHK_NoOverwrite.Text = "Prevent Writing Occupied Item Tiles";
             CHK_NoOverwrite.UseVisualStyleBackColor = true;
@@ -449,10 +449,10 @@
             CHK_AutoExtension.Checked = true;
             CHK_AutoExtension.CheckState = System.Windows.Forms.CheckState.Checked;
             FLP_GridOptions.SetFlowBreak(CHK_AutoExtension, true);
-            CHK_AutoExtension.Location = new System.Drawing.Point(0, 42);
+            CHK_AutoExtension.Location = new System.Drawing.Point(0, 38);
             CHK_AutoExtension.Margin = new System.Windows.Forms.Padding(0);
             CHK_AutoExtension.Name = "CHK_AutoExtension";
-            CHK_AutoExtension.Size = new System.Drawing.Size(243, 21);
+            CHK_AutoExtension.Size = new System.Drawing.Size(226, 19);
             CHK_AutoExtension.TabIndex = 38;
             CHK_AutoExtension.Text = "Handle Item Extensions Automatically";
             CHK_AutoExtension.UseVisualStyleBackColor = true;
@@ -461,7 +461,7 @@
             // 
             B_RemoveItemDropDown.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             B_RemoveItemDropDown.ContextMenuStrip = CM_Remove;
-            B_RemoveItemDropDown.Location = new System.Drawing.Point(147, 477);
+            B_RemoveItemDropDown.Location = new System.Drawing.Point(147, 479);
             B_RemoveItemDropDown.Margin = new System.Windows.Forms.Padding(4);
             B_RemoveItemDropDown.Name = "B_RemoveItemDropDown";
             B_RemoveItemDropDown.Size = new System.Drawing.Size(131, 52);
@@ -475,122 +475,122 @@
             CM_Remove.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { B_RemoveAllWeeds, B_RemoveAllTrees, B_RemovePlants, B_RemoveObjects, B_RemovePlacedItems, B_RemoveFences, B_RemoveBranches, B_RemoveShells, B_RemoveFlowers, B_RemoveBushes, B_FillHoles, B_RemoveEditor, B_RemoveAll, toolStripSeparator1, B_WaterFlowers, Menu_Spawn, Menu_Batch });
             CM_Remove.Name = "CM_Picture";
             CM_Remove.ShowImageMargin = false;
-            CM_Remove.Size = new System.Drawing.Size(134, 362);
+            CM_Remove.Size = new System.Drawing.Size(124, 362);
             // 
             // B_RemoveAllWeeds
             // 
             B_RemoveAllWeeds.Name = "B_RemoveAllWeeds";
-            B_RemoveAllWeeds.Size = new System.Drawing.Size(133, 22);
+            B_RemoveAllWeeds.Size = new System.Drawing.Size(123, 22);
             B_RemoveAllWeeds.Text = "Weeds";
             B_RemoveAllWeeds.Click += B_RemoveAllWeeds_Click;
             // 
             // B_RemoveAllTrees
             // 
             B_RemoveAllTrees.Name = "B_RemoveAllTrees";
-            B_RemoveAllTrees.Size = new System.Drawing.Size(133, 22);
+            B_RemoveAllTrees.Size = new System.Drawing.Size(123, 22);
             B_RemoveAllTrees.Text = "Trees";
             B_RemoveAllTrees.Click += B_RemoveAllTrees_Click;
             // 
             // B_RemovePlants
             // 
             B_RemovePlants.Name = "B_RemovePlants";
-            B_RemovePlants.Size = new System.Drawing.Size(133, 22);
+            B_RemovePlants.Size = new System.Drawing.Size(123, 22);
             B_RemovePlants.Text = "Plants";
             B_RemovePlants.Click += B_RemovePlants_Click;
             // 
             // B_RemoveObjects
             // 
             B_RemoveObjects.Name = "B_RemoveObjects";
-            B_RemoveObjects.Size = new System.Drawing.Size(133, 22);
+            B_RemoveObjects.Size = new System.Drawing.Size(123, 22);
             B_RemoveObjects.Text = "Objects";
             B_RemoveObjects.Click += B_RemoveObjects_Click;
             // 
             // B_RemovePlacedItems
             // 
             B_RemovePlacedItems.Name = "B_RemovePlacedItems";
-            B_RemovePlacedItems.Size = new System.Drawing.Size(133, 22);
+            B_RemovePlacedItems.Size = new System.Drawing.Size(123, 22);
             B_RemovePlacedItems.Text = "Placed Items";
             B_RemovePlacedItems.Click += B_RemovePlacedItems_Click;
             // 
             // B_RemoveFences
             // 
             B_RemoveFences.Name = "B_RemoveFences";
-            B_RemoveFences.Size = new System.Drawing.Size(133, 22);
+            B_RemoveFences.Size = new System.Drawing.Size(123, 22);
             B_RemoveFences.Text = "Fences";
             B_RemoveFences.Click += B_RemoveFences_Click;
             // 
             // B_RemoveBranches
             // 
             B_RemoveBranches.Name = "B_RemoveBranches";
-            B_RemoveBranches.Size = new System.Drawing.Size(133, 22);
+            B_RemoveBranches.Size = new System.Drawing.Size(123, 22);
             B_RemoveBranches.Text = "Branches";
             B_RemoveBranches.Click += B_RemoveBranches_Click;
             // 
             // B_RemoveShells
             // 
             B_RemoveShells.Name = "B_RemoveShells";
-            B_RemoveShells.Size = new System.Drawing.Size(133, 22);
+            B_RemoveShells.Size = new System.Drawing.Size(123, 22);
             B_RemoveShells.Text = "Shells";
             B_RemoveShells.Click += B_RemoveShells_Click;
             // 
             // B_RemoveFlowers
             // 
             B_RemoveFlowers.Name = "B_RemoveFlowers";
-            B_RemoveFlowers.Size = new System.Drawing.Size(133, 22);
+            B_RemoveFlowers.Size = new System.Drawing.Size(123, 22);
             B_RemoveFlowers.Text = "Flowers";
             B_RemoveFlowers.Click += B_RemoveFlowers_Click;
             // 
             // B_RemoveBushes
             // 
             B_RemoveBushes.Name = "B_RemoveBushes";
-            B_RemoveBushes.Size = new System.Drawing.Size(133, 22);
+            B_RemoveBushes.Size = new System.Drawing.Size(123, 22);
             B_RemoveBushes.Text = "Bushes";
             B_RemoveBushes.Click += B_RemoveBushes_Click;
             // 
             // B_FillHoles
             // 
             B_FillHoles.Name = "B_FillHoles";
-            B_FillHoles.Size = new System.Drawing.Size(133, 22);
+            B_FillHoles.Size = new System.Drawing.Size(123, 22);
             B_FillHoles.Text = "Holes";
             B_FillHoles.Click += B_FillHoles_Click;
             // 
             // B_RemoveEditor
             // 
             B_RemoveEditor.Name = "B_RemoveEditor";
-            B_RemoveEditor.Size = new System.Drawing.Size(133, 22);
+            B_RemoveEditor.Size = new System.Drawing.Size(123, 22);
             B_RemoveEditor.Text = "Editor Item";
             B_RemoveEditor.Click += B_RemoveEditor_Click;
             // 
             // B_RemoveAll
             // 
             B_RemoveAll.Name = "B_RemoveAll";
-            B_RemoveAll.Size = new System.Drawing.Size(133, 22);
+            B_RemoveAll.Size = new System.Drawing.Size(123, 22);
             B_RemoveAll.Text = "All";
             B_RemoveAll.Click += B_RemoveAll_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new System.Drawing.Size(130, 6);
+            toolStripSeparator1.Size = new System.Drawing.Size(120, 6);
             // 
             // B_WaterFlowers
             // 
             B_WaterFlowers.Name = "B_WaterFlowers";
-            B_WaterFlowers.Size = new System.Drawing.Size(133, 22);
+            B_WaterFlowers.Size = new System.Drawing.Size(123, 22);
             B_WaterFlowers.Text = "Water Flowers";
             B_WaterFlowers.Click += B_WaterFlowers_Click;
             // 
             // Menu_Spawn
             // 
             Menu_Spawn.Name = "Menu_Spawn";
-            Menu_Spawn.Size = new System.Drawing.Size(133, 22);
+            Menu_Spawn.Size = new System.Drawing.Size(123, 22);
             Menu_Spawn.Text = "Spawn...";
             Menu_Spawn.Click += Menu_Spawn_Click;
             // 
             // Menu_Batch
             // 
             Menu_Batch.Name = "Menu_Batch";
-            Menu_Batch.Size = new System.Drawing.Size(133, 22);
+            Menu_Batch.Size = new System.Drawing.Size(123, 22);
             Menu_Batch.Text = "Batch Editor";
             Menu_Batch.Click += Menu_Bulk_Click;
             // 
@@ -598,10 +598,10 @@
             // 
             GB_Remove.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             GB_Remove.AutoSize = true;
-            GB_Remove.Location = new System.Drawing.Point(8, 456);
+            GB_Remove.Location = new System.Drawing.Point(8, 458);
             GB_Remove.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             GB_Remove.Name = "GB_Remove";
-            GB_Remove.Size = new System.Drawing.Size(223, 17);
+            GB_Remove.Size = new System.Drawing.Size(203, 15);
             GB_Remove.TabIndex = 39;
             GB_Remove.Text = "Remove from View (Hold Shift=Map)";
             // 
@@ -625,11 +625,11 @@
             Tab_Item.Controls.Add(B_DumpLoadField);
             Tab_Item.Controls.Add(B_RemoveItemDropDown);
             Tab_Item.Controls.Add(GB_Remove);
-            Tab_Item.Location = new System.Drawing.Point(4, 26);
+            Tab_Item.Location = new System.Drawing.Point(4, 24);
             Tab_Item.Margin = new System.Windows.Forms.Padding(4);
             Tab_Item.Name = "Tab_Item";
             Tab_Item.Padding = new System.Windows.Forms.Padding(4);
-            Tab_Item.Size = new System.Drawing.Size(286, 540);
+            Tab_Item.Size = new System.Drawing.Size(286, 542);
             Tab_Item.TabIndex = 0;
             Tab_Item.Text = "Items";
             Tab_Item.UseVisualStyleBackColor = true;
@@ -647,7 +647,7 @@
             // 
             B_DumpLoadField.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             B_DumpLoadField.ContextMenuStrip = CM_DLField;
-            B_DumpLoadField.Location = new System.Drawing.Point(7, 477);
+            B_DumpLoadField.Location = new System.Drawing.Point(7, 479);
             B_DumpLoadField.Margin = new System.Windows.Forms.Padding(4);
             B_DumpLoadField.Name = "B_DumpLoadField";
             B_DumpLoadField.Size = new System.Drawing.Size(131, 52);
@@ -661,47 +661,47 @@
             CM_DLField.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { B_DumpAcre, B_DumpAllAcres, B_ImportAcre, B_ImportAllAcres, B_DumpAllAcresFlag, B_ImportAllAcresFlag });
             CM_DLField.Name = "CM_Picture";
             CM_DLField.ShowImageMargin = false;
-            CM_DLField.Size = new System.Drawing.Size(145, 136);
+            CM_DLField.Size = new System.Drawing.Size(135, 136);
             // 
             // B_DumpAcre
             // 
             B_DumpAcre.Name = "B_DumpAcre";
-            B_DumpAcre.Size = new System.Drawing.Size(144, 22);
+            B_DumpAcre.Size = new System.Drawing.Size(134, 22);
             B_DumpAcre.Text = "Dump Acre";
             B_DumpAcre.Click += B_DumpAcreItem_Click;
             // 
             // B_DumpAllAcres
             // 
             B_DumpAllAcres.Name = "B_DumpAllAcres";
-            B_DumpAllAcres.Size = new System.Drawing.Size(144, 22);
+            B_DumpAllAcres.Size = new System.Drawing.Size(134, 22);
             B_DumpAllAcres.Text = "Dump All Acres";
             B_DumpAllAcres.Click += B_DumpAllAcres_Click;
             // 
             // B_ImportAcre
             // 
             B_ImportAcre.Name = "B_ImportAcre";
-            B_ImportAcre.Size = new System.Drawing.Size(144, 22);
+            B_ImportAcre.Size = new System.Drawing.Size(134, 22);
             B_ImportAcre.Text = "Import Acre";
             B_ImportAcre.Click += B_ImportAcreItem_Click;
             // 
             // B_ImportAllAcres
             // 
             B_ImportAllAcres.Name = "B_ImportAllAcres";
-            B_ImportAllAcres.Size = new System.Drawing.Size(144, 22);
+            B_ImportAllAcres.Size = new System.Drawing.Size(134, 22);
             B_ImportAllAcres.Text = "Import All Acres";
             B_ImportAllAcres.Click += B_ImportAllAcres_Click;
             // 
             // B_DumpAllAcresFlag
             // 
             B_DumpAllAcresFlag.Name = "B_DumpAllAcresFlag";
-            B_DumpAllAcresFlag.Size = new System.Drawing.Size(144, 22);
+            B_DumpAllAcresFlag.Size = new System.Drawing.Size(134, 22);
             B_DumpAllAcresFlag.Text = "Dump All Flags";
             B_DumpAllAcresFlag.Click += B_DumpAllAcresFlag_Click;
             // 
             // B_ImportAllAcresFlag
             // 
             B_ImportAllAcresFlag.Name = "B_ImportAllAcresFlag";
-            B_ImportAllAcresFlag.Size = new System.Drawing.Size(144, 22);
+            B_ImportAllAcresFlag.Size = new System.Drawing.Size(134, 22);
             B_ImportAllAcresFlag.Text = "Import All Flags";
             B_ImportAllAcresFlag.Click += B_ImportAllAcresFlag_Click;
             // 
@@ -730,11 +730,11 @@
             Tab_Building.Controls.Add(NUD_PlazaY);
             Tab_Building.Controls.Add(B_Help);
             Tab_Building.Controls.Add(LB_Items);
-            Tab_Building.Location = new System.Drawing.Point(4, 26);
+            Tab_Building.Location = new System.Drawing.Point(4, 24);
             Tab_Building.Margin = new System.Windows.Forms.Padding(4);
             Tab_Building.Name = "Tab_Building";
             Tab_Building.Padding = new System.Windows.Forms.Padding(4);
-            Tab_Building.Size = new System.Drawing.Size(286, 540);
+            Tab_Building.Size = new System.Drawing.Size(286, 542);
             Tab_Building.TabIndex = 1;
             Tab_Building.Text = "Buildings";
             Tab_Building.UseVisualStyleBackColor = true;
@@ -743,7 +743,7 @@
             // 
             B_DumpLoadBuildings.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             B_DumpLoadBuildings.ContextMenuStrip = CM_DLBuilding;
-            B_DumpLoadBuildings.Location = new System.Drawing.Point(8, 439);
+            B_DumpLoadBuildings.Location = new System.Drawing.Point(8, 441);
             B_DumpLoadBuildings.Margin = new System.Windows.Forms.Padding(4);
             B_DumpLoadBuildings.Name = "B_DumpLoadBuildings";
             B_DumpLoadBuildings.Size = new System.Drawing.Size(131, 52);
@@ -757,26 +757,26 @@
             CM_DLBuilding.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { B_DumpBuildings, B_ImportBuildings });
             CM_DLBuilding.Name = "CM_Picture";
             CM_DLBuilding.ShowImageMargin = false;
-            CM_DLBuilding.Size = new System.Drawing.Size(147, 48);
+            CM_DLBuilding.Size = new System.Drawing.Size(138, 48);
             // 
             // B_DumpBuildings
             // 
             B_DumpBuildings.Name = "B_DumpBuildings";
-            B_DumpBuildings.Size = new System.Drawing.Size(146, 22);
+            B_DumpBuildings.Size = new System.Drawing.Size(137, 22);
             B_DumpBuildings.Text = "Dump Buildings";
             B_DumpBuildings.Click += B_DumpBuildings_Click;
             // 
             // B_ImportBuildings
             // 
             B_ImportBuildings.Name = "B_ImportBuildings";
-            B_ImportBuildings.Size = new System.Drawing.Size(146, 22);
+            B_ImportBuildings.Size = new System.Drawing.Size(137, 22);
             B_ImportBuildings.Text = "Import Buildings";
             B_ImportBuildings.Click += B_ImportBuildings_Click;
             // 
             // L_Bit
             // 
             L_Bit.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            L_Bit.Location = new System.Drawing.Point(4, 317);
+            L_Bit.Location = new System.Drawing.Point(4, 319);
             L_Bit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             L_Bit.Name = "L_Bit";
             L_Bit.Size = new System.Drawing.Size(117, 24);
@@ -787,19 +787,19 @@
             // NUD_Bit
             // 
             NUD_Bit.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            NUD_Bit.Location = new System.Drawing.Point(128, 319);
+            NUD_Bit.Location = new System.Drawing.Point(128, 321);
             NUD_Bit.Margin = new System.Windows.Forms.Padding(4);
             NUD_Bit.Maximum = new decimal(new int[] { 200, 0, 0, 0 });
             NUD_Bit.Minimum = new decimal(new int[] { 200, 0, 0, int.MinValue });
             NUD_Bit.Name = "NUD_Bit";
-            NUD_Bit.Size = new System.Drawing.Size(80, 25);
+            NUD_Bit.Size = new System.Drawing.Size(80, 23);
             NUD_Bit.TabIndex = 131;
             NUD_Bit.ValueChanged += NUD_BuildingType_ValueChanged;
             // 
             // L_BuildingType
             // 
             L_BuildingType.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            L_BuildingType.Location = new System.Drawing.Point(4, 230);
+            L_BuildingType.Location = new System.Drawing.Point(4, 232);
             L_BuildingType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             L_BuildingType.Name = "L_BuildingType";
             L_BuildingType.Size = new System.Drawing.Size(117, 24);
@@ -810,28 +810,28 @@
             // NUD_BuildingType
             // 
             NUD_BuildingType.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            NUD_BuildingType.Location = new System.Drawing.Point(128, 231);
+            NUD_BuildingType.Location = new System.Drawing.Point(128, 233);
             NUD_BuildingType.Margin = new System.Windows.Forms.Padding(4);
             NUD_BuildingType.Name = "NUD_BuildingType";
-            NUD_BuildingType.Size = new System.Drawing.Size(80, 25);
+            NUD_BuildingType.Size = new System.Drawing.Size(80, 23);
             NUD_BuildingType.TabIndex = 117;
             NUD_BuildingType.ValueChanged += NUD_BuildingType_ValueChanged;
             // 
             // NUD_UniqueID
             // 
             NUD_UniqueID.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            NUD_UniqueID.Location = new System.Drawing.Point(128, 406);
+            NUD_UniqueID.Location = new System.Drawing.Point(128, 408);
             NUD_UniqueID.Margin = new System.Windows.Forms.Padding(4);
             NUD_UniqueID.Maximum = new decimal(new int[] { 65535, 0, 0, 0 });
             NUD_UniqueID.Name = "NUD_UniqueID";
-            NUD_UniqueID.Size = new System.Drawing.Size(80, 25);
+            NUD_UniqueID.Size = new System.Drawing.Size(80, 23);
             NUD_UniqueID.TabIndex = 129;
             NUD_UniqueID.ValueChanged += NUD_BuildingType_ValueChanged;
             // 
             // L_BuildingX
             // 
             L_BuildingX.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            L_BuildingX.Location = new System.Drawing.Point(38, 257);
+            L_BuildingX.Location = new System.Drawing.Point(38, 259);
             L_BuildingX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             L_BuildingX.Name = "L_BuildingX";
             L_BuildingX.Size = new System.Drawing.Size(23, 24);
@@ -842,7 +842,7 @@
             // L_BuildingUniqueID
             // 
             L_BuildingUniqueID.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            L_BuildingUniqueID.Location = new System.Drawing.Point(4, 405);
+            L_BuildingUniqueID.Location = new System.Drawing.Point(4, 407);
             L_BuildingUniqueID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             L_BuildingUniqueID.Name = "L_BuildingUniqueID";
             L_BuildingUniqueID.Size = new System.Drawing.Size(117, 24);
@@ -853,29 +853,29 @@
             // NUD_X
             // 
             NUD_X.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            NUD_X.Location = new System.Drawing.Point(68, 258);
+            NUD_X.Location = new System.Drawing.Point(68, 260);
             NUD_X.Margin = new System.Windows.Forms.Padding(4);
             NUD_X.Maximum = new decimal(new int[] { 1024, 0, 0, 0 });
             NUD_X.Name = "NUD_X";
-            NUD_X.Size = new System.Drawing.Size(52, 25);
+            NUD_X.Size = new System.Drawing.Size(52, 23);
             NUD_X.TabIndex = 119;
             NUD_X.ValueChanged += NUD_BuildingType_ValueChanged;
             // 
             // NUD_TypeArg
             // 
             NUD_TypeArg.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            NUD_TypeArg.Location = new System.Drawing.Point(128, 379);
+            NUD_TypeArg.Location = new System.Drawing.Point(128, 381);
             NUD_TypeArg.Margin = new System.Windows.Forms.Padding(4);
             NUD_TypeArg.Maximum = new decimal(new int[] { 65535, 0, 0, 0 });
             NUD_TypeArg.Name = "NUD_TypeArg";
-            NUD_TypeArg.Size = new System.Drawing.Size(80, 25);
+            NUD_TypeArg.Size = new System.Drawing.Size(80, 23);
             NUD_TypeArg.TabIndex = 127;
             NUD_TypeArg.ValueChanged += NUD_BuildingType_ValueChanged;
             // 
             // L_BuildingY
             // 
             L_BuildingY.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            L_BuildingY.Location = new System.Drawing.Point(122, 257);
+            L_BuildingY.Location = new System.Drawing.Point(122, 259);
             L_BuildingY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             L_BuildingY.Name = "L_BuildingY";
             L_BuildingY.Size = new System.Drawing.Size(27, 24);
@@ -886,7 +886,7 @@
             // L_BuildingStructureArg
             // 
             L_BuildingStructureArg.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            L_BuildingStructureArg.Location = new System.Drawing.Point(4, 377);
+            L_BuildingStructureArg.Location = new System.Drawing.Point(4, 379);
             L_BuildingStructureArg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             L_BuildingStructureArg.Name = "L_BuildingStructureArg";
             L_BuildingStructureArg.Size = new System.Drawing.Size(117, 24);
@@ -897,29 +897,29 @@
             // NUD_Y
             // 
             NUD_Y.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            NUD_Y.Location = new System.Drawing.Point(156, 258);
+            NUD_Y.Location = new System.Drawing.Point(156, 260);
             NUD_Y.Margin = new System.Windows.Forms.Padding(4);
             NUD_Y.Maximum = new decimal(new int[] { 1024, 0, 0, 0 });
             NUD_Y.Name = "NUD_Y";
-            NUD_Y.Size = new System.Drawing.Size(52, 25);
+            NUD_Y.Size = new System.Drawing.Size(52, 23);
             NUD_Y.TabIndex = 121;
             NUD_Y.ValueChanged += NUD_BuildingType_ValueChanged;
             // 
             // NUD_Type
             // 
             NUD_Type.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            NUD_Type.Location = new System.Drawing.Point(128, 351);
+            NUD_Type.Location = new System.Drawing.Point(128, 353);
             NUD_Type.Margin = new System.Windows.Forms.Padding(4);
             NUD_Type.Maximum = new decimal(new int[] { 65535, 0, 0, 0 });
             NUD_Type.Name = "NUD_Type";
-            NUD_Type.Size = new System.Drawing.Size(80, 25);
+            NUD_Type.Size = new System.Drawing.Size(80, 23);
             NUD_Type.TabIndex = 125;
             NUD_Type.ValueChanged += NUD_BuildingType_ValueChanged;
             // 
             // L_BuildingRotation
             // 
             L_BuildingRotation.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            L_BuildingRotation.Location = new System.Drawing.Point(4, 290);
+            L_BuildingRotation.Location = new System.Drawing.Point(4, 292);
             L_BuildingRotation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             L_BuildingRotation.Name = "L_BuildingRotation";
             L_BuildingRotation.Size = new System.Drawing.Size(117, 24);
@@ -930,7 +930,7 @@
             // L_BuildingStructureType
             // 
             L_BuildingStructureType.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            L_BuildingStructureType.Location = new System.Drawing.Point(4, 350);
+            L_BuildingStructureType.Location = new System.Drawing.Point(4, 352);
             L_BuildingStructureType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             L_BuildingStructureType.Name = "L_BuildingStructureType";
             L_BuildingStructureType.Size = new System.Drawing.Size(117, 24);
@@ -941,11 +941,11 @@
             // NUD_Angle
             // 
             NUD_Angle.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            NUD_Angle.Location = new System.Drawing.Point(128, 291);
+            NUD_Angle.Location = new System.Drawing.Point(128, 293);
             NUD_Angle.Margin = new System.Windows.Forms.Padding(4);
             NUD_Angle.Maximum = new decimal(new int[] { 65535, 0, 0, 0 });
             NUD_Angle.Name = "NUD_Angle";
-            NUD_Angle.Size = new System.Drawing.Size(80, 25);
+            NUD_Angle.Size = new System.Drawing.Size(80, 23);
             NUD_Angle.TabIndex = 123;
             NUD_Angle.ValueChanged += NUD_BuildingType_ValueChanged;
             // 
@@ -965,7 +965,7 @@
             NUD_PlazaX.Margin = new System.Windows.Forms.Padding(4);
             NUD_PlazaX.Maximum = new decimal(new int[] { 1024, 0, 0, 0 });
             NUD_PlazaX.Name = "NUD_PlazaX";
-            NUD_PlazaX.Size = new System.Drawing.Size(46, 25);
+            NUD_PlazaX.Size = new System.Drawing.Size(46, 23);
             NUD_PlazaX.TabIndex = 114;
             NUD_PlazaX.Value = new decimal(new int[] { 555, 0, 0, 0 });
             NUD_PlazaX.ValueChanged += NUD_PlazaX_ValueChanged;
@@ -986,7 +986,7 @@
             NUD_PlazaY.Margin = new System.Windows.Forms.Padding(4);
             NUD_PlazaY.Maximum = new decimal(new int[] { 1024, 0, 0, 0 });
             NUD_PlazaY.Name = "NUD_PlazaY";
-            NUD_PlazaY.Size = new System.Drawing.Size(46, 25);
+            NUD_PlazaY.Size = new System.Drawing.Size(46, 23);
             NUD_PlazaY.TabIndex = 112;
             NUD_PlazaY.Value = new decimal(new int[] { 555, 0, 0, 0 });
             NUD_PlazaY.ValueChanged += NUD_PlazaY_ValueChanged;
@@ -994,7 +994,7 @@
             // B_Help
             // 
             B_Help.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            B_Help.Location = new System.Drawing.Point(148, 439);
+            B_Help.Location = new System.Drawing.Point(148, 441);
             B_Help.Margin = new System.Windows.Forms.Padding(4);
             B_Help.Name = "B_Help";
             B_Help.Size = new System.Drawing.Size(131, 52);
@@ -1010,7 +1010,7 @@
             LB_Items.Location = new System.Drawing.Point(4, 30);
             LB_Items.Margin = new System.Windows.Forms.Padding(4);
             LB_Items.Name = "LB_Items";
-            LB_Items.Size = new System.Drawing.Size(278, 174);
+            LB_Items.Size = new System.Drawing.Size(278, 169);
             LB_Items.TabIndex = 109;
             LB_Items.SelectedIndexChanged += LB_Items_SelectedIndexChanged;
             // 
@@ -1021,10 +1021,10 @@
             Tab_Terrain.Controls.Add(PG_TerrainTile);
             Tab_Terrain.Controls.Add(B_DumpLoadTerrain);
             Tab_Terrain.Controls.Add(B_ModifyAllTerrain);
-            Tab_Terrain.Location = new System.Drawing.Point(4, 26);
+            Tab_Terrain.Location = new System.Drawing.Point(4, 24);
             Tab_Terrain.Margin = new System.Windows.Forms.Padding(4);
             Tab_Terrain.Name = "Tab_Terrain";
-            Tab_Terrain.Size = new System.Drawing.Size(286, 540);
+            Tab_Terrain.Size = new System.Drawing.Size(286, 542);
             Tab_Terrain.TabIndex = 2;
             Tab_Terrain.Text = "Terrain";
             Tab_Terrain.UseVisualStyleBackColor = true;
@@ -1039,7 +1039,7 @@
             FLP_Transparency.Controls.Add(TR_Transparency);
             FLP_Transparency.Controls.Add(L_BuildingTransparency);
             FLP_Transparency.Controls.Add(TR_BuildingTransparency);
-            FLP_Transparency.Location = new System.Drawing.Point(4, 255);
+            FLP_Transparency.Location = new System.Drawing.Point(4, 257);
             FLP_Transparency.Name = "FLP_Transparency";
             FLP_Transparency.Size = new System.Drawing.Size(279, 174);
             FLP_Transparency.TabIndex = 103;
@@ -1051,7 +1051,7 @@
             L_TerrainTileLabelTransparency.Location = new System.Drawing.Point(4, 0);
             L_TerrainTileLabelTransparency.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             L_TerrainTileLabelTransparency.Name = "L_TerrainTileLabelTransparency";
-            L_TerrainTileLabelTransparency.Size = new System.Drawing.Size(188, 17);
+            L_TerrainTileLabelTransparency.Size = new System.Drawing.Size(169, 15);
             L_TerrainTileLabelTransparency.TabIndex = 46;
             L_TerrainTileLabelTransparency.Text = "Terrain Tile Label Transparency";
             // 
@@ -1060,7 +1060,7 @@
             TR_Terrain.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             TR_Terrain.AutoSize = false;
             FLP_Transparency.SetFlowBreak(TR_Terrain, true);
-            TR_Terrain.Location = new System.Drawing.Point(0, 17);
+            TR_Terrain.Location = new System.Drawing.Point(0, 15);
             TR_Terrain.Margin = new System.Windows.Forms.Padding(0);
             TR_Terrain.Maximum = 255;
             TR_Terrain.Name = "TR_Terrain";
@@ -1073,10 +1073,10 @@
             // 
             L_FieldItemTransparency.AutoSize = true;
             FLP_Transparency.SetFlowBreak(L_FieldItemTransparency, true);
-            L_FieldItemTransparency.Location = new System.Drawing.Point(4, 49);
+            L_FieldItemTransparency.Location = new System.Drawing.Point(4, 47);
             L_FieldItemTransparency.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             L_FieldItemTransparency.Name = "L_FieldItemTransparency";
-            L_FieldItemTransparency.Size = new System.Drawing.Size(145, 17);
+            L_FieldItemTransparency.Size = new System.Drawing.Size(132, 15);
             L_FieldItemTransparency.TabIndex = 42;
             L_FieldItemTransparency.Text = "Field Item Transparency";
             // 
@@ -1084,10 +1084,10 @@
             // 
             L_BuildingTransparency.AutoSize = true;
             FLP_Transparency.SetFlowBreak(L_BuildingTransparency, true);
-            L_BuildingTransparency.Location = new System.Drawing.Point(4, 98);
+            L_BuildingTransparency.Location = new System.Drawing.Point(4, 94);
             L_BuildingTransparency.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             L_BuildingTransparency.Name = "L_BuildingTransparency";
-            L_BuildingTransparency.Size = new System.Drawing.Size(135, 17);
+            L_BuildingTransparency.Size = new System.Drawing.Size(124, 15);
             L_BuildingTransparency.TabIndex = 44;
             L_BuildingTransparency.Text = "Building Transparency";
             // 
@@ -1096,7 +1096,7 @@
             TR_BuildingTransparency.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             TR_BuildingTransparency.AutoSize = false;
             FLP_Transparency.SetFlowBreak(TR_BuildingTransparency, true);
-            TR_BuildingTransparency.Location = new System.Drawing.Point(0, 115);
+            TR_BuildingTransparency.Location = new System.Drawing.Point(0, 109);
             TR_BuildingTransparency.Margin = new System.Windows.Forms.Padding(0);
             TR_BuildingTransparency.Maximum = 255;
             TR_BuildingTransparency.Name = "TR_BuildingTransparency";
@@ -1109,7 +1109,7 @@
             // B_TerrainBrush
             // 
             B_TerrainBrush.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            B_TerrainBrush.Location = new System.Drawing.Point(182, 484);
+            B_TerrainBrush.Location = new System.Drawing.Point(182, 486);
             B_TerrainBrush.Margin = new System.Windows.Forms.Padding(4);
             B_TerrainBrush.Name = "B_TerrainBrush";
             B_TerrainBrush.Size = new System.Drawing.Size(97, 52);
@@ -1126,14 +1126,14 @@
             PG_TerrainTile.Margin = new System.Windows.Forms.Padding(4);
             PG_TerrainTile.Name = "PG_TerrainTile";
             PG_TerrainTile.PropertySort = System.Windows.Forms.PropertySort.Categorized;
-            PG_TerrainTile.Size = new System.Drawing.Size(278, 244);
+            PG_TerrainTile.Size = new System.Drawing.Size(278, 246);
             PG_TerrainTile.TabIndex = 41;
             PG_TerrainTile.ToolbarVisible = false;
             // 
             // B_DumpLoadTerrain
             // 
             B_DumpLoadTerrain.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            B_DumpLoadTerrain.Location = new System.Drawing.Point(8, 484);
+            B_DumpLoadTerrain.Location = new System.Drawing.Point(8, 486);
             B_DumpLoadTerrain.Margin = new System.Windows.Forms.Padding(4);
             B_DumpLoadTerrain.Name = "B_DumpLoadTerrain";
             B_DumpLoadTerrain.Size = new System.Drawing.Size(57, 52);
@@ -1145,7 +1145,7 @@
             // B_ModifyAllTerrain
             // 
             B_ModifyAllTerrain.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            B_ModifyAllTerrain.Location = new System.Drawing.Point(71, 484);
+            B_ModifyAllTerrain.Location = new System.Drawing.Point(71, 486);
             B_ModifyAllTerrain.Margin = new System.Windows.Forms.Padding(4);
             B_ModifyAllTerrain.Name = "B_ModifyAllTerrain";
             B_ModifyAllTerrain.Size = new System.Drawing.Size(104, 52);
@@ -1164,11 +1164,11 @@
             Tab_Acres.Controls.Add(B_DumpLoadAcres);
             Tab_Acres.Controls.Add(L_MapAcre);
             Tab_Acres.Controls.Add(CB_MapAcre);
-            Tab_Acres.Location = new System.Drawing.Point(4, 26);
+            Tab_Acres.Location = new System.Drawing.Point(4, 24);
             Tab_Acres.Margin = new System.Windows.Forms.Padding(4);
             Tab_Acres.Name = "Tab_Acres";
             Tab_Acres.Padding = new System.Windows.Forms.Padding(4);
-            Tab_Acres.Size = new System.Drawing.Size(286, 540);
+            Tab_Acres.Size = new System.Drawing.Size(286, 542);
             Tab_Acres.TabIndex = 3;
             Tab_Acres.Text = "Acres";
             Tab_Acres.UseVisualStyleBackColor = true;
@@ -1179,7 +1179,7 @@
             NUD_MapAcreTemplateField.Margin = new System.Windows.Forms.Padding(4);
             NUD_MapAcreTemplateField.Maximum = new decimal(new int[] { 65535, 0, 0, 0 });
             NUD_MapAcreTemplateField.Name = "NUD_MapAcreTemplateField";
-            NUD_MapAcreTemplateField.Size = new System.Drawing.Size(73, 25);
+            NUD_MapAcreTemplateField.Size = new System.Drawing.Size(73, 23);
             NUD_MapAcreTemplateField.TabIndex = 127;
             // 
             // L_MapAcreTemplateField
@@ -1210,7 +1210,7 @@
             NUD_MapAcreTemplateOutside.Margin = new System.Windows.Forms.Padding(4);
             NUD_MapAcreTemplateOutside.Maximum = new decimal(new int[] { 65535, 0, 0, 0 });
             NUD_MapAcreTemplateOutside.Name = "NUD_MapAcreTemplateOutside";
-            NUD_MapAcreTemplateOutside.Size = new System.Drawing.Size(73, 25);
+            NUD_MapAcreTemplateOutside.Size = new System.Drawing.Size(73, 23);
             NUD_MapAcreTemplateOutside.TabIndex = 124;
             // 
             // CB_MapAcreSelect
@@ -1221,7 +1221,7 @@
             CB_MapAcreSelect.Location = new System.Drawing.Point(10, 43);
             CB_MapAcreSelect.Margin = new System.Windows.Forms.Padding(4);
             CB_MapAcreSelect.Name = "CB_MapAcreSelect";
-            CB_MapAcreSelect.Size = new System.Drawing.Size(248, 25);
+            CB_MapAcreSelect.Size = new System.Drawing.Size(248, 23);
             CB_MapAcreSelect.TabIndex = 102;
             CB_MapAcreSelect.SelectedValueChanged += CB_MapAcreSelect_SelectedValueChanged;
             // 
@@ -1229,7 +1229,7 @@
             // 
             B_DumpLoadAcres.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             B_DumpLoadAcres.ContextMenuStrip = CM_DLMapAcres;
-            B_DumpLoadAcres.Location = new System.Drawing.Point(7, 436);
+            B_DumpLoadAcres.Location = new System.Drawing.Point(7, 438);
             B_DumpLoadAcres.Margin = new System.Windows.Forms.Padding(4);
             B_DumpLoadAcres.Name = "B_DumpLoadAcres";
             B_DumpLoadAcres.Size = new System.Drawing.Size(131, 52);
@@ -1243,19 +1243,19 @@
             CM_DLMapAcres.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { B_DumpMapAcres, B_ImportMapAcres });
             CM_DLMapAcres.Name = "CM_Picture";
             CM_DLMapAcres.ShowImageMargin = false;
-            CM_DLMapAcres.Size = new System.Drawing.Size(158, 48);
+            CM_DLMapAcres.Size = new System.Drawing.Size(145, 48);
             // 
             // B_DumpMapAcres
             // 
             B_DumpMapAcres.Name = "B_DumpMapAcres";
-            B_DumpMapAcres.Size = new System.Drawing.Size(157, 22);
+            B_DumpMapAcres.Size = new System.Drawing.Size(144, 22);
             B_DumpMapAcres.Text = "Dump Map Acres";
             B_DumpMapAcres.Click += B_DumpMapAcres_Click;
             // 
             // B_ImportMapAcres
             // 
             B_ImportMapAcres.Name = "B_ImportMapAcres";
-            B_ImportMapAcres.Size = new System.Drawing.Size(157, 22);
+            B_ImportMapAcres.Size = new System.Drawing.Size(144, 22);
             B_ImportMapAcres.Text = "Import Map Acres";
             B_ImportMapAcres.Click += B_ImportMapAcres_Click;
             // 
@@ -1276,7 +1276,7 @@
             CB_MapAcre.Location = new System.Drawing.Point(185, 10);
             CB_MapAcre.Margin = new System.Windows.Forms.Padding(4);
             CB_MapAcre.Name = "CB_MapAcre";
-            CB_MapAcre.Size = new System.Drawing.Size(56, 25);
+            CB_MapAcre.Size = new System.Drawing.Size(56, 23);
             CB_MapAcre.TabIndex = 98;
             CB_MapAcre.SelectedIndexChanged += CB_MapAcre_SelectedIndexChanged;
             // 
@@ -1285,33 +1285,33 @@
             CM_DLTerrain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { B_DumpTerrainAcre, B_DumpTerrainAll, B_ImportTerrainAcre, B_ImportTerrainAll });
             CM_DLTerrain.Name = "CM_Picture";
             CM_DLTerrain.ShowImageMargin = false;
-            CM_DLTerrain.Size = new System.Drawing.Size(145, 92);
+            CM_DLTerrain.Size = new System.Drawing.Size(135, 92);
             // 
             // B_DumpTerrainAcre
             // 
             B_DumpTerrainAcre.Name = "B_DumpTerrainAcre";
-            B_DumpTerrainAcre.Size = new System.Drawing.Size(144, 22);
+            B_DumpTerrainAcre.Size = new System.Drawing.Size(134, 22);
             B_DumpTerrainAcre.Text = "Dump Acre";
             B_DumpTerrainAcre.Click += B_DumpTerrainAcre_Click;
             // 
             // B_DumpTerrainAll
             // 
             B_DumpTerrainAll.Name = "B_DumpTerrainAll";
-            B_DumpTerrainAll.Size = new System.Drawing.Size(144, 22);
+            B_DumpTerrainAll.Size = new System.Drawing.Size(134, 22);
             B_DumpTerrainAll.Text = "Dump All Acres";
             B_DumpTerrainAll.Click += B_DumpTerrainAll_Click;
             // 
             // B_ImportTerrainAcre
             // 
             B_ImportTerrainAcre.Name = "B_ImportTerrainAcre";
-            B_ImportTerrainAcre.Size = new System.Drawing.Size(144, 22);
+            B_ImportTerrainAcre.Size = new System.Drawing.Size(134, 22);
             B_ImportTerrainAcre.Text = "Import Acre";
             B_ImportTerrainAcre.Click += B_ImportTerrainAcre_Click;
             // 
             // B_ImportTerrainAll
             // 
             B_ImportTerrainAll.Name = "B_ImportTerrainAll";
-            B_ImportTerrainAll.Size = new System.Drawing.Size(144, 22);
+            B_ImportTerrainAll.Size = new System.Drawing.Size(134, 22);
             B_ImportTerrainAll.Text = "Import All Acres";
             B_ImportTerrainAll.Click += B_ImportTerrainAll_Click;
             // 
@@ -1320,47 +1320,47 @@
             CM_Terrain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { B_ZeroElevation, B_SetAllTerrain, B_SetAllRoadTiles, B_ClearPlacedDesigns, B_ImportPlacedDesigns, B_ExportPlacedDesigns });
             CM_Terrain.Name = "CM_Picture";
             CM_Terrain.ShowImageMargin = false;
-            CM_Terrain.Size = new System.Drawing.Size(248, 136);
+            CM_Terrain.Size = new System.Drawing.Size(227, 136);
             // 
             // B_ZeroElevation
             // 
             B_ZeroElevation.Name = "B_ZeroElevation";
-            B_ZeroElevation.Size = new System.Drawing.Size(247, 22);
+            B_ZeroElevation.Size = new System.Drawing.Size(226, 22);
             B_ZeroElevation.Text = "Zero Elevation";
             B_ZeroElevation.Click += B_ZeroElevation_Click;
             // 
             // B_SetAllTerrain
             // 
             B_SetAllTerrain.Name = "B_SetAllTerrain";
-            B_SetAllTerrain.Size = new System.Drawing.Size(247, 22);
+            B_SetAllTerrain.Size = new System.Drawing.Size(226, 22);
             B_SetAllTerrain.Text = "Set All Tiles using Tile from Editor";
             B_SetAllTerrain.Click += B_SetAllTerrain_Click;
             // 
             // B_SetAllRoadTiles
             // 
             B_SetAllRoadTiles.Name = "B_SetAllRoadTiles";
-            B_SetAllRoadTiles.Size = new System.Drawing.Size(247, 22);
+            B_SetAllRoadTiles.Size = new System.Drawing.Size(226, 22);
             B_SetAllRoadTiles.Text = "Set All Road Tiles from Editor";
             B_SetAllRoadTiles.Click += B_SetAllRoadTiles_Click;
             // 
             // B_ClearPlacedDesigns
             // 
             B_ClearPlacedDesigns.Name = "B_ClearPlacedDesigns";
-            B_ClearPlacedDesigns.Size = new System.Drawing.Size(247, 22);
+            B_ClearPlacedDesigns.Size = new System.Drawing.Size(226, 22);
             B_ClearPlacedDesigns.Text = "Clear all Placed Designs";
             B_ClearPlacedDesigns.Click += B_ClearPlacedDesigns_Click;
             // 
             // B_ImportPlacedDesigns
             // 
             B_ImportPlacedDesigns.Name = "B_ImportPlacedDesigns";
-            B_ImportPlacedDesigns.Size = new System.Drawing.Size(247, 22);
+            B_ImportPlacedDesigns.Size = new System.Drawing.Size(226, 22);
             B_ImportPlacedDesigns.Text = "Import all Placed Design Choices";
             B_ImportPlacedDesigns.Click += B_ImportPlacedDesigns_Click;
             // 
             // B_ExportPlacedDesigns
             // 
             B_ExportPlacedDesigns.Name = "B_ExportPlacedDesigns";
-            B_ExportPlacedDesigns.Size = new System.Drawing.Size(247, 22);
+            B_ExportPlacedDesigns.Size = new System.Drawing.Size(226, 22);
             B_ExportPlacedDesigns.Text = "Export all Placed Design Choices";
             B_ExportPlacedDesigns.Click += B_ExportPlacedDesigns_Click;
             // 
@@ -1370,10 +1370,10 @@
             RB_Item.AutoSize = true;
             RB_Item.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             RB_Item.Checked = true;
-            RB_Item.Location = new System.Drawing.Point(49, 38);
+            RB_Item.Location = new System.Drawing.Point(40, 34);
             RB_Item.Margin = new System.Windows.Forms.Padding(0);
             RB_Item.Name = "RB_Item";
-            RB_Item.Size = new System.Drawing.Size(57, 21);
+            RB_Item.Size = new System.Drawing.Size(54, 19);
             RB_Item.TabIndex = 43;
             RB_Item.TabStop = true;
             RB_Item.Text = "Items";
@@ -1384,10 +1384,10 @@
             RB_Terrain.Anchor = System.Windows.Forms.AnchorStyles.Right;
             RB_Terrain.AutoSize = true;
             RB_Terrain.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            RB_Terrain.Location = new System.Drawing.Point(40, 17);
+            RB_Terrain.Location = new System.Drawing.Point(33, 15);
             RB_Terrain.Margin = new System.Windows.Forms.Padding(0);
             RB_Terrain.Name = "RB_Terrain";
-            RB_Terrain.Size = new System.Drawing.Size(66, 21);
+            RB_Terrain.Size = new System.Drawing.Size(61, 19);
             RB_Terrain.TabIndex = 44;
             RB_Terrain.Text = "Terrain";
             RB_Terrain.UseVisualStyleBackColor = true;
@@ -1399,7 +1399,7 @@
             L_TileMode.Location = new System.Drawing.Point(0, 0);
             L_TileMode.Margin = new System.Windows.Forms.Padding(0);
             L_TileMode.Name = "L_TileMode";
-            L_TileMode.Size = new System.Drawing.Size(106, 17);
+            L_TileMode.Size = new System.Drawing.Size(94, 15);
             L_TileMode.TabIndex = 45;
             L_TileMode.Text = "Tile Editor Mode";
             L_TileMode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1410,10 +1410,10 @@
             CHK_RedirectExtensionLoad.Checked = true;
             CHK_RedirectExtensionLoad.CheckState = System.Windows.Forms.CheckState.Checked;
             FLP_GridOptions.SetFlowBreak(CHK_RedirectExtensionLoad, true);
-            CHK_RedirectExtensionLoad.Location = new System.Drawing.Point(0, 63);
+            CHK_RedirectExtensionLoad.Location = new System.Drawing.Point(0, 57);
             CHK_RedirectExtensionLoad.Margin = new System.Windows.Forms.Padding(0);
             CHK_RedirectExtensionLoad.Name = "CHK_RedirectExtensionLoad";
-            CHK_RedirectExtensionLoad.Size = new System.Drawing.Size(207, 21);
+            CHK_RedirectExtensionLoad.Size = new System.Drawing.Size(187, 19);
             CHK_RedirectExtensionLoad.TabIndex = 46;
             CHK_RedirectExtensionLoad.Text = "View Root instead of Extension";
             CHK_RedirectExtensionLoad.UseVisualStyleBackColor = true;
@@ -1427,7 +1427,7 @@
             CHK_MoveOnDrag.Location = new System.Drawing.Point(0, 0);
             CHK_MoveOnDrag.Margin = new System.Windows.Forms.Padding(0);
             CHK_MoveOnDrag.Name = "CHK_MoveOnDrag";
-            CHK_MoveOnDrag.Size = new System.Drawing.Size(253, 21);
+            CHK_MoveOnDrag.Size = new System.Drawing.Size(228, 19);
             CHK_MoveOnDrag.TabIndex = 46;
             CHK_MoveOnDrag.Text = "Move Field Item Editor on mouse drag";
             CHK_MoveOnDrag.UseVisualStyleBackColor = true;
@@ -1438,10 +1438,10 @@
             CHK_FieldItemSnap.Checked = true;
             CHK_FieldItemSnap.CheckState = System.Windows.Forms.CheckState.Checked;
             FLP_GridOptions.SetFlowBreak(CHK_FieldItemSnap, true);
-            CHK_FieldItemSnap.Location = new System.Drawing.Point(0, 84);
+            CHK_FieldItemSnap.Location = new System.Drawing.Point(0, 76);
             CHK_FieldItemSnap.Margin = new System.Windows.Forms.Padding(0);
             CHK_FieldItemSnap.Name = "CHK_FieldItemSnap";
-            CHK_FieldItemSnap.Size = new System.Drawing.Size(208, 21);
+            CHK_FieldItemSnap.Size = new System.Drawing.Size(187, 19);
             CHK_FieldItemSnap.TabIndex = 47;
             CHK_FieldItemSnap.Text = "Snap Field Items to Grid on Set";
             CHK_FieldItemSnap.UseVisualStyleBackColor = true;
@@ -1454,19 +1454,19 @@
             FLP_GridOptions.Controls.Add(CHK_AutoExtension);
             FLP_GridOptions.Controls.Add(CHK_RedirectExtensionLoad);
             FLP_GridOptions.Controls.Add(CHK_FieldItemSnap);
-            FLP_GridOptions.Location = new System.Drawing.Point(3, 438);
+            FLP_GridOptions.Location = new System.Drawing.Point(3, 436);
             FLP_GridOptions.Name = "FLP_GridOptions";
-            FLP_GridOptions.Size = new System.Drawing.Size(253, 105);
+            FLP_GridOptions.Size = new System.Drawing.Size(228, 95);
             FLP_GridOptions.TabIndex = 48;
             // 
             // L_Acre
             // 
             L_Acre.Anchor = System.Windows.Forms.AnchorStyles.Right;
             L_Acre.AutoSize = true;
-            L_Acre.Location = new System.Drawing.Point(69, 85);
+            L_Acre.Location = new System.Drawing.Point(60, 78);
             L_Acre.Margin = new System.Windows.Forms.Padding(0);
             L_Acre.Name = "L_Acre";
-            L_Acre.Size = new System.Drawing.Size(37, 17);
+            L_Acre.Size = new System.Drawing.Size(34, 15);
             L_Acre.TabIndex = 101;
             L_Acre.Text = "Acre:";
             L_Acre.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1476,10 +1476,10 @@
             CB_Acre.Anchor = System.Windows.Forms.AnchorStyles.Left;
             CB_Acre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             CB_Acre.FormattingEnabled = true;
-            CB_Acre.Location = new System.Drawing.Point(106, 84);
+            CB_Acre.Location = new System.Drawing.Point(94, 76);
             CB_Acre.Margin = new System.Windows.Forms.Padding(0);
             CB_Acre.Name = "CB_Acre";
-            CB_Acre.Size = new System.Drawing.Size(40, 25);
+            CB_Acre.Size = new System.Drawing.Size(40, 23);
             CB_Acre.TabIndex = 100;
             CB_Acre.SelectedIndexChanged += ChangeAcre;
             // 
@@ -1489,10 +1489,10 @@
             FLP_Navigation.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             FLP_Navigation.Controls.Add(PAN_Arrows);
             FLP_Navigation.Controls.Add(tableLayoutPanel1);
-            FLP_Navigation.Location = new System.Drawing.Point(0, 315);
+            FLP_Navigation.Location = new System.Drawing.Point(0, 313);
             FLP_Navigation.Margin = new System.Windows.Forms.Padding(0);
             FLP_Navigation.Name = "FLP_Navigation";
-            FLP_Navigation.Size = new System.Drawing.Size(266, 120);
+            FLP_Navigation.Size = new System.Drawing.Size(254, 120);
             FLP_Navigation.TabIndex = 105;
             // 
             // PAN_Arrows
@@ -1534,7 +1534,7 @@
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new System.Drawing.Size(146, 104);
+            tableLayoutPanel1.Size = new System.Drawing.Size(134, 96);
             tableLayoutPanel1.TabIndex = 104;
             // 
             // tableLayoutPanel2
@@ -1556,7 +1556,7 @@
             tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tableLayoutPanel2.Size = new System.Drawing.Size(288, 546);
+            tableLayoutPanel2.Size = new System.Drawing.Size(288, 534);
             tableLayoutPanel2.TabIndex = 103;
             // 
             // FieldItemEditor

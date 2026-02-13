@@ -153,6 +153,7 @@ public abstract class MainSaveOffsets
     public void WritePatternPRO(DesignPatternPRO p, Span<byte> data, int index)
     {
         if ((uint)index >= PatternCount)
+            throw new ArgumentOutOfRangeException(nameof(index));
         p.Data.CopyTo(data[(PatternsPRO + (index * DesignPatternPRO.SIZE))..]);
         ReadOnlySpan<byte> editedflag = [0x00];
         editedflag.CopyTo(data[(PatternsProEditFlagStart + index)..]); // set edited flag for designs name import to be correct in game
