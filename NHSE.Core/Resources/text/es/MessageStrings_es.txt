@@ -1,6 +1,7 @@
 ﻿MsgBackupCreateLocation=NHSE puede crear un respaldos automáticos si crea una carpeta con el nombre '{0}' en la misma carpeta del ejecutable.
 MsgBackupCreateQuestion=¿Quisiera que NHSE cree automáticamente un respaldo de sus datos de guardado?
 MsgDataSizeMismatchImport=El tamaño del archivo importado (0x{0:X}) no coincide con el tamaño requerido (0x{1:X}).
+MsgDataTrimmedWarning=Se recortará para que encaje.
 MsgDataSizeMismatchRAM=Tamaño de lectura (0x{0:X}) != Tamaño de Escritura (0x{1:X}).
 MsgDataDidNotOriginateFromHost_0=Los datos importados no se originaron de los datos del Aldeano ({0}).
 MsgAskUpdateValues=¿Actualizar valores?

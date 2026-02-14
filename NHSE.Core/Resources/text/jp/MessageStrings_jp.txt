@@ -1,6 +1,7 @@
 ﻿MsgBackupCreateLocation=実行可能ファイルと同じフォルダー内に '{0}' という名前のフォルダーを作成すると、NHSE は自動バックアップを実行できます。
 MsgBackupCreateQuestion=NHSE がセーブ データのバックアップを自動的に保存することを希望しますか?
 MsgDataSizeMismatchImport=インポートされたファイル (0x{0:X}) のサイズが必要なサイズ (0x{1:X}) と一致しません。
+MsgDataTrimmedWarning=フィットするようにトリミングされます。
 MsgDataSizeMismatchRAM=読み取りサイズ (0x{0:X}) は書き込みサイズ (0x{1:X}) と等しくありません。
 MsgDataDidNotOriginateFromHost_0=インポートされたデータは Villager0 ({0}) のデータからのものではありませんでした。
 MsgAskUpdateValues=値を更新しますか?

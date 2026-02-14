@@ -8,6 +8,9 @@ namespace NHSE.WinForms;
 
 public static class MapDumpHelper
 {
+    private const int DesignDumpSizeAbove31 = 0x6C00;
+    private const int DesignDumpSizeBelow31 = 0x5400;
+
     public static bool ImportToLayerAcreSingle(LayerFieldItem layerField, string acre, int layerIndex, int relX, int relY)
     {
         var name = GetBaseFileName(acre, "acre");
@@ -274,6 +277,118 @@ public static class MapDumpHelper
         var data = File.ReadAllBytes(path);
         FieldItemUpgrade.DetectUpdate(ref data, expect);
         layer.Import(data);
+        return true;
+    }
+
+    public static bool ImportMapDesigns(MainSave sav, Tuple<int, int> size)
+    {
+        using var ofd = new OpenFileDialog();
+        ofd.Filter = "nhmd file (*.nhmd)|*.nhmd";
+        ofd.FileName = "Island MyDesignMap.nhmd";
+        if (ofd.ShowDialog() != DialogResult.OK)
+            return false;
+
+        string path = ofd.FileName;
+
+        var tiles = File.ReadAllBytes(path);
+
+        var rel = size;
+
+        if (rel.Item1 == 9)
+        {
+            if (tiles.Length == DesignDumpSizeAbove31)
+            {
+                tiles.CopyTo(sav.MapDesignTileData(rel.Item1, rel.Item2).Span);
+            }
+            else if (tiles.Length == DesignDumpSizeBelow31)
+            {
+                byte[] padBytes = BitConverter.GetBytes(MainSave.MapDesignNone);
+                int len = (DesignDumpSizeAbove31 - DesignDumpSizeBelow31) / 2;
+
+                tiles = ArrayUtil.PadLeft(tiles, tiles.Length + len, padBytes);
+                tiles = ArrayUtil.PadRight(tiles, tiles.Length + len, padBytes);
+
+                using var sfd = new SaveFileDialog();
+                sfd.Filter = "nhmd file (*.nhmd)|*.nhmd";
+                sfd.FileName = "Island MyDesignMap.nhmd";
+                if (sfd.ShowDialog() != DialogResult.OK)
+                    return false;
+
+                string path2 = sfd.FileName;
+
+                File.WriteAllBytes(path2, tiles);
+
+                tiles.CopyTo(sav.MapDesignTileData(rel.Item1, rel.Item2).Span);
+            }
+            // account for previous dumps that included extra data after the tile data (oops)
+            // this can be removed in the future once enough time has passed that everyone has
+            // re-dumped with the fixed version, but for now it prevents data loss
+            else if (tiles.Length > DesignDumpSizeAbove31)
+            {
+                Span<byte> trimTiles = tiles.AsSpan().Slice(0, DesignDumpSizeAbove31);
+                tiles = trimTiles.ToArray();
+                var msg1 = MessageStrings.MsgDataSizeMismatchImport;
+                var msg2 = MessageStrings.MsgDataTrimmedWarning;
+                WinFormsUtil.Alert(string.Format(msg1, tiles.Length, DesignDumpSizeAbove31) + " " + msg2);
+
+                using var sfd = new SaveFileDialog();
+                sfd.Filter = "nhmd file (*.nhmd)|*.nhmd";
+                sfd.FileName = "Island MyDesignMap.nhmd";
+                if (sfd.ShowDialog() != DialogResult.OK)
+                    return false;
+
+                string path2 = sfd.FileName;
+
+                File.WriteAllBytes(path2, tiles);
+
+                tiles.CopyTo(sav.MapDesignTileData(rel.Item1, rel.Item2).Span);
+            }
+            else
+            {
+                var msg = MessageStrings.MsgDataSizeMismatchImport;
+                WinFormsUtil.Error(string.Format(msg, tiles.Length, DesignDumpSizeAbove31));
+                return false;
+            }
+        }
+        else
+        {
+            if (tiles.Length == DesignDumpSizeBelow31)
+            {
+                tiles.CopyTo(sav.MapDesignTileData(rel.Item1, rel.Item2).Span);
+            }
+            else if (tiles.Length == DesignDumpSizeAbove31)
+            {
+                int trimAmount = (DesignDumpSizeAbove31 - DesignDumpSizeBelow31) / 2;
+                int newLength = tiles.Length - (2 * trimAmount);
+
+                tiles = tiles.AsSpan(trimAmount, newLength).ToArray();
+
+                tiles.CopyTo(sav.MapDesignTileData(rel.Item1, rel.Item2).Span);
+            }
+            else
+            {
+                var msg = MessageStrings.MsgDataSizeMismatchImport;
+                WinFormsUtil.Error(string.Format(msg, tiles.Length, DesignDumpSizeBelow31));
+                return false;
+            }
+        }
+
+        return true;
+    }
+    public static bool DumpMapDesigns(MainSave sav, Tuple<int, int> size)
+    {
+        using var sfd = new SaveFileDialog();
+        sfd.Filter = "nhmd file (*.nhmd)|*.nhmd";
+        sfd.FileName = "Island MyDesignMap.nhmd";
+        if (sfd.ShowDialog() != DialogResult.OK)
+            return false;
+
+        string path = sfd.FileName;
+
+        var tiles = sav.MapDesignTileData(size.Item1, size.Item2).Span;
+
+        File.WriteAllBytes(path, tiles);
+
         return true;
     }
 }
