@@ -1,6 +1,7 @@
 ﻿MsgBackupCreateLocation=NHSE pu� fare backup automatici se crei una cartella chiamata '{0}' nella stessa cartella dell'eseguibile.
 MsgBackupCreateQuestion=Vuoi che NHSE faccia automaticamente un backup dei tuoi dati di salvataggio?
 MsgDataSizeMismatchImport=La dimensione del file importato (0x{0:X}) non corrisponde alla dimensione richiesta (0x{1:X}).
+MsgDataTrimmedWarning=Verrà ritagliato per adattarlo.
 MsgDataSizeMismatchRAM=Dimensione letta (0x{0:X}) != Dimensione da scrivere (0x{1:X}).
 MsgDataDidNotOriginateFromHost_0=I dati importati non derivano dai dati del Villager0 ({0}).
 MsgAskUpdateValues=Aggiornare i valori?

@@ -1,6 +1,7 @@
 ﻿MsgBackupCreateLocation=실행 파일과 같은 폴더에 '{0}' 이름으로 폴더를 만들면 NHSE가 자동으로 백업을 수행합니다.
 MsgBackupCreateQuestion=NHSE가 세이브 데이터를 자동으로 백업하도록 설정하시겠습니까?
 MsgDataSizeMismatchImport=가져온 파일의 크기(0x{0:X})가 필요한 크기(0x{1:X})와 일치하지 않습니다.
+MsgDataTrimmedWarning=크기에 맞춰 다듬어질 것입니다.
 MsgDataSizeMismatchRAM=읽기 크기(0x{0:X})와 쓰기 크기(0x{1:X})가 다릅니다.
 MsgDataDidNotOriginateFromHost_0=가져온 데이터는 플레이어0({0})의 데이터가 아닙니다.
 MsgAskUpdateValues=값들을 업데이트하시겠습니까?

@@ -7,8 +7,11 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Drawing.Imaging.Effects;
 using System.IO;
 using System.Linq;
+using System.Numerics;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace NHSE.WinForms;
@@ -33,6 +36,8 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
     private int DragX = -1;
     private int DragY = -1;
     private bool IsDragOperationActive;
+
+    private Tuple<int, int> MapDesignGridSize = new(7, 6);
 
     private bool IsMenuHasActivate = true;
 
@@ -62,6 +67,7 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
         Loading = true;
 
+        LoadMapDesignSize();
         LoadComboBoxes();
         LoadBuildings(sav);
         ReloadMapBackground();
@@ -109,6 +115,12 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
         data.Add(field, GameInfo.Strings.InternalNameTranslation);
         ItemEdit.Initialize(data, true);
         PG_TerrainTile.SelectedObject = new TerrainTile();
+    }
+
+    private void LoadMapDesignSize()
+    {
+        if (SAV.Info.GetKnownRevisionIndex() >= 31)
+            MapDesignGridSize = new (9, 6);
     }
 
     private int ExteriorAcreIndex => CB_Acre.SelectedIndex;
@@ -1228,35 +1240,21 @@ public sealed partial class FieldItemEditor : Form, IItemLayerEditor
 
     private void B_ClearPlacedDesigns_Click(object sender, EventArgs e)
     {
-        SAV.ClearDesignTiles();
+        SAV.ClearDesignTiles(MapDesignGridSize.Item1, MapDesignGridSize.Item2);
         System.Media.SystemSounds.Asterisk.Play();
     }
 
     private void B_ExportPlacedDesigns_Click(object sender, EventArgs e)
     {
-        using var sfd = new SaveFileDialog();
-        sfd.Filter = "nhmd file (*.nhmd)|*.nhmd";
-        sfd.FileName = "Island MyDesignMap.nhmd";
-        if (sfd.ShowDialog() != DialogResult.OK)
+        if (!MapDumpHelper.DumpMapDesigns(SAV, MapDesignGridSize))
             return;
-
-        string path = sfd.FileName;
-        var tiles = SAV.MapDesignTileData.Span;
-        File.WriteAllBytes(path, tiles);
         System.Media.SystemSounds.Asterisk.Play();
     }
 
     private void B_ImportPlacedDesigns_Click(object sender, EventArgs e)
     {
-        using var ofd = new OpenFileDialog();
-        ofd.Filter = "nhmd file (*.nhmd)|*.nhmd";
-        ofd.FileName = "Island MyDesignMap.nhmd";
-        if (ofd.ShowDialog() != DialogResult.OK)
+        if (!MapDumpHelper.ImportMapDesigns(SAV, MapDesignGridSize))
             return;
-
-        string path = ofd.FileName;
-        var tiles = File.ReadAllBytes(path);
-        tiles.CopyTo(SAV.MapDesignTileData.Span);
         System.Media.SystemSounds.Asterisk.Play();
     }
 

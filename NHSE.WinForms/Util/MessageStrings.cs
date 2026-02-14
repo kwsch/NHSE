@@ -7,6 +7,7 @@ public static class MessageStrings
     public static string MsgBackupCreateQuestion { get; set; } = "Would you NHSE to automatically keep a backup of your save data?";
 
     public static string MsgDataSizeMismatchImport { get; set; } = "The size of the imported file (0x{0:X}) does not match the required size (0x{1:X}).";
+    public static string MsgDataTrimmedWarning { get; set; } = "It will be trimmed to fit.";
     public static string MsgDataSizeMismatchRAM { get; set; } = "Read size (0x{0:X}) != Write size (0x{1:X}).";
     public static string MsgDataDidNotOriginateFromHost_0 { get; set; } = "Imported data did not originate from Villager0 ({0})'s data.";
 

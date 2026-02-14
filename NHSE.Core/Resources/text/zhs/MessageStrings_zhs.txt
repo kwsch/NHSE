@@ -1,6 +1,7 @@
 ﻿MsgBackupCreateLocation=如果您在本程序根目录创建 '{0}' 文件夹，NHSE可以帮您自动备份存档。
 MsgBackupCreateQuestion=您希望NHSE自动备份您的存档吗？
 MsgDataSizeMismatchImport=导入的文件尺寸(0x{0:X})和必要的文件尺寸(0x{1:X})不匹配。
+MsgDataTrimmedWarning=它会被修剪到合适的尺寸。
 MsgDataSizeMismatchRAM=读取大小 (0x{0:X}) != 写入大小 (0x{1:X})。
 MsgDataDidNotOriginateFromHost_0=导入的数据不是来自Villager0 ({0})的数据。
 MsgAskUpdateValues=更新数值？
