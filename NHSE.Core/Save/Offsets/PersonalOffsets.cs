@@ -38,6 +38,7 @@ public abstract class PersonalOffsets
     public virtual int ItemChestCount => 5000;
     public abstract int MaxRecipeID { get; }
     public abstract int MaxRemakeBitFlag { get; }
+    public virtual int EventFlagsPlayerLength => 0xE00;
 
     public static PersonalOffsets GetOffsets(FileHeaderInfo Info)
     {

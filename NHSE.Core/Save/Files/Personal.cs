@@ -119,13 +119,13 @@ public sealed class Personal : EncryptedFilePair, IVillagerOrigin
 
     public short[] GetEventFlagsPlayer()
     {
-        var slice = Data.Slice(Offsets.EventFlagsPlayer, 0xE00);
+        var slice = Data.Slice(Offsets.EventFlagsPlayer, Offsets.EventFlagsPlayerLength);
         return MemoryMarshal.Cast<byte, short>(slice).ToArray();
     }
 
     public void SetEventFlagsPlayer(Span<short> value)
     {
-        var slice = Data.Slice(Offsets.EventFlagsPlayer, 0xE00);
+        var slice = Data.Slice(Offsets.EventFlagsPlayer, Offsets.EventFlagsPlayerLength);
         var cast = MemoryMarshal.Cast<byte, short>(slice);
         value.CopyTo(cast);
     }

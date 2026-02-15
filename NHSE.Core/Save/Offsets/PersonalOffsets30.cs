@@ -13,6 +13,7 @@ public sealed class PersonalOffsets30 : PersonalOffsets, IPersonal30
     // shifted down as LookPack increased from af90->c120
     public override int PersonalId => Player + 0xc138;
     public override int EventFlagsPlayer => Player + 0xc170;
+    public override int EventFlagsPlayerLength => 0x1000; // up from 0xE00
 
     // GSaveLifeSupport
     private const int GSaveLifeSupport = Player + 0xd170;
