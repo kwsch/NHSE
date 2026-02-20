@@ -124,7 +124,7 @@ public partial class PatternEditor : Form
 
         var data = File.ReadAllBytes(ofd.FileName);
         var d = new DesignPattern(data);
-        var player0 = original;
+        var player0 = Player.Personal;
         if (!d.IsOriginatedFrom(player0))
         {
             var notHost = string.Format(MessageStrings.MsgDataDidNotOriginateFromHost_0, player0.PlayerName);
