@@ -2,7 +2,7 @@
 
 /// <summary>
 /// Color sort order for Items
-/// Provided by Ninji, not taken from the game: https://discord.com/channels/701573691426996324/701575987854311434/720271351314907148
+/// Values are hardcoded in exefs
 /// </summary>
 public enum ItemColorOrder : byte
 {
