@@ -21,9 +21,7 @@ public static class ItemInfo
     public static byte GetItemSortOrderIndex(ushort id)
     {
         if (id > ItemSortOrder.Length)
-        {
             return byte.MaxValue;
-        }
 
         return ItemSortOrder[id];
     }
@@ -33,11 +31,9 @@ public static class ItemInfo
     public static ItemClothGroup GetItemClothGroup(ushort id)
     {
         if (id > ItemClothGroups.Length)
-        {
             return ItemClothGroup.Unknown;
-        }
 
-        return (ItemClothGroup) ItemClothGroups[id];
+        return (ItemClothGroup)ItemClothGroups[id];
     }
 
     public static ItemKind GetItemKind(Item item) => GetItemKind(item.DisplayItemId);

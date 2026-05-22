@@ -1476,7 +1476,8 @@ public enum ItemClothGroup : ushort
 
 public static class ItemClothGroupExtensions
 {
-    private static readonly HashSet<ItemClothGroup> SortedByColorGroup = [
+    private static readonly HashSet<ItemClothGroup> SortedByColorGroup =
+    [
         TopsTexTopOuterLDownjacketBlue,
         TopsTexTopTshirtsHSailor,
         TopsTexOnepieceBalloonHHoodRed,

@@ -780,7 +780,7 @@ public static class GameBCSVDumper
         var fid = dict[0xFD9AF1E1]; // ItemUniqueID
         //var fct = dict[0x29ECB129]; // RemakeKitNum
         var rid = dict[0x54706054]; // UniqueID
-        // var unk = dict[0xD4F43B0B]; // 
+        // var unk = dict[0xD4F43B0B]; //
         var b00 = dict[0x1B98FDF8]; // ReBodyPattern0Color0
         var b01 = dict[0xA3249A9D]; // ReBodyPattern0Color1
         var b10 = dict[0xF45A96C6]; // ReBodyPattern1Color0
@@ -865,7 +865,7 @@ public static class GameBCSVDumper
 
         var clothGroups = new Dictionary<ushort, ItemClothGroup>();
         ushort max = 0;
-        for (int i = 0; i < bcsv.EntryCount; i++)
+        for (var i = 0; i < bcsv.EntryCount; i++)
         {
             var id = bcsv.ReadValue(i, fID);
             var ival = ushort.Parse(id);
@@ -882,7 +882,7 @@ public static class GameBCSVDumper
                 max = ival;
         }
 
-        ushort[] result = new ushort[max + 1];
+        var result = new ushort[max + 1];
         foreach (var kvp in clothGroups)
             result[kvp.Key] = (ushort)kvp.Value;
 
@@ -899,7 +899,7 @@ public static class GameBCSVDumper
 
         var result = new List<string>();
 
-        for (int i = 0; i < bcsv.EntryCount; i++)
+        for (var i = 0; i < bcsv.EntryCount; i++)
         {
             var label = bcsv.ReadValue(i, fLabel).TrimEnd('\0');
             var useColorGroupSort = bcsv.ReadValue(i, fUseColorGroupSort);
@@ -926,7 +926,7 @@ public static class GameBCSVDumper
         var itemSortOrder = new Dictionary<ushort, byte>();
         var sortedClothGroups = new Dictionary<ItemClothGroup, Dictionary<ushort, Tuple<ItemColorOrder, ItemColorOrder, byte>>>();
         ushort max = 0;
-        for (int i = 0; i < bcsv.EntryCount; i++)
+        for (var i = 0; i < bcsv.EntryCount; i++)
         {
             var id = bcsv.ReadValue(i, fID);
             var ival = ushort.Parse(id);
@@ -961,9 +961,7 @@ public static class GameBCSVDumper
         }
 
         foreach (var kvp in sortedClothGroups)
-        {
             WriteSortOrder(kvp.Value, kvp.Key.UsesColorGroupSort);
-        }
 
         byte[] result = new byte[max + 1];
         foreach (var kvp in itemSortOrder)
@@ -975,9 +973,7 @@ public static class GameBCSVDumper
         {
             ushort[] sortedItems;
             if (usesColorGroupSort)
-            {
                 sortedItems = items.OrderBy(kvp => kvp.Value.Item3).Select(kvp => kvp.Key).ToArray();
-            }
             else
             {
                 sortedItems = items
@@ -987,9 +983,7 @@ public static class GameBCSVDumper
             }
 
             for (byte i = 0; i < sortedItems.Length; i++)
-            {
                 itemSortOrder.Add(sortedItems[i], i);
-            }
         }
     }
 }
