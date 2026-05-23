@@ -82,6 +82,7 @@ public static class GameBCSVDumper
         DumpS("ItemKind.txt", GetPossibleEnum(pathBCSV, "ItemParam.bcsv", 0xFC275E86));
         DumpS("ItemSize.txt", GetPossibleEnum(pathBCSV, "ItemParam.bcsv", 0xE06FB090));
         DumpS("ItemMenuIcon.txt", GetPossibleEnum(pathBCSV, "ItemParam.bcsv", 0x348D7B06));
+        DumpS("ItemClothGroup.txt", GetNumberedEnumValues(pathBCSV, "ItemClothGroup.bcsv", 0x13AB5198, 0x54706054));
         DumpS("PlantKind.txt", GetPossibleEnum(pathBCSV, "FgMainParam.bcsv", 0x48EF0398));
         DumpS("TerrainKind.txt", GetNumberedEnumValues(pathBCSV, "FieldLandMakingUnitModelParam.bcsv", 0x39B5A93D, 0x54706054));
         DumpS("BridgeKind.txt", GetNumberedEnumValues(pathBCSV, "StructureBridgeParam.bcsv", 0x39B5A93D, 0x54706054));
@@ -96,10 +97,13 @@ public static class GameBCSVDumper
         DumpB("item_kind.bin", GetItemKindArray(pathBCSV));
         DumpB("item_size.bin", GetItemSizeArray(pathBCSV));
         DumpU("item_menuicon.bin", GetItemMenuIconArray(pathBCSV));
+        DumpU("item_cloth_group.bin", GetItemClothGroupArray(pathBCSV));
+        DumpB("item_sort_order.bin", GetItemSortOrderArray(pathBCSV));
         DumpS("plants.txt", GetPlantedNames(pathBCSV));
         DumpS("item_size_dictionary.txt", GetItemSizeDictionary(pathBCSV));
         DumpS("item_remake.txt", GetItemRemakeDictionary(pathBCSV));
         DumpS("itemRemakeInfo.txt", GetItemRemakeColors(pathBCSV));
+        DumpS("cloth_group_color_group_sort.txt", GetColorGroupSortList(pathBCSV));
     }
 
     public static void UpdateCSV(string pathBCSV, string dest, bool remapColumns = false, string delim = "\t")
@@ -776,7 +780,7 @@ public static class GameBCSVDumper
         var fid = dict[0xFD9AF1E1]; // ItemUniqueID
         //var fct = dict[0x29ECB129]; // RemakeKitNum
         var rid = dict[0x54706054]; // UniqueID
-        // var unk = dict[0xD4F43B0B]; // 
+        // var unk = dict[0xD4F43B0B]; //
         var b00 = dict[0x1B98FDF8]; // ReBodyPattern0Color0
         var b01 = dict[0xA3249A9D]; // ReBodyPattern0Color1
         var b10 = dict[0xF45A96C6]; // ReBodyPattern1Color0
@@ -848,6 +852,138 @@ public static class GameBCSVDumper
 
             // (short index, ushort id, sbyte count, byte[] bc0, byte[] bc1, byte[] fc0, byte[] fc1, bool fp0)
             yield return $"{{{vrd:0000}, new({vrd:0000}, {vid:00000}, {(sbyte)ct,2}, {vbc0}, {vbc1}, {vfc0}, {vfc1}, {(vfvf ? " true": "false")})}}, // {str[vid]}";
+        }
+    }
+
+    public static ushort[] GetItemClothGroupArray(string pathBCSV, string fn = "ItemParam.bcsv")
+    {
+        var bcsv = BCSVConverter.GetBCSV(pathBCSV, fn);
+
+        var dict = bcsv.GetFieldDictionary();
+        var fClothGroup = dict[0x690E3379];
+        var fID = dict[0x54706054];
+
+        var clothGroups = new Dictionary<ushort, ItemClothGroup>();
+        ushort max = 0;
+        for (var i = 0; i < bcsv.EntryCount; i++)
+        {
+            var id = bcsv.ReadValue(i, fID);
+            var ival = ushort.Parse(id);
+            var clothGroup = bcsv.ReadValue(i, fClothGroup).TrimEnd('\0');
+
+            if (clothGroup.StartsWith("0x"))
+                clothGroup = $"_{clothGroup}"; // enum name can't start with number
+
+            if (!Enum.TryParse<ItemClothGroup>(clothGroup, out var k))
+                throw new InvalidEnumArgumentException($"{clothGroup} is not a known enum value @ index {i}. Update the {nameof(ItemClothGroup)} enum index first.");
+            clothGroups.Add(ival, k);
+
+            if (ival > max)
+                max = ival;
+        }
+
+        var result = new ushort[max + 1];
+        foreach (var kvp in clothGroups)
+            result[kvp.Key] = (ushort)kvp.Value;
+
+        return result;
+    }
+
+    public static List<string> GetColorGroupSortList(string pathBCSV, string fn = "ItemClothGroup.bcsv")
+    {
+        var bcsv = BCSVConverter.GetBCSV(pathBCSV, fn);
+
+        var dict = bcsv.GetFieldDictionary();
+        var fLabel = dict[0x13AB5198];
+        var fUseColorGroupSort = dict[0x8D7F40E5];
+
+        var result = new List<string>();
+
+        for (var i = 0; i < bcsv.EntryCount; i++)
+        {
+            var label = bcsv.ReadValue(i, fLabel).TrimEnd('\0');
+            var useColorGroupSort = bcsv.ReadValue(i, fUseColorGroupSort);
+            var bUseColorGroupSort = byte.Parse(useColorGroupSort);
+
+            if (bUseColorGroupSort == 1)
+                result.Add($"{label},");
+        }
+
+        return result;
+    }
+
+    public static byte[] GetItemSortOrderArray(string pathBCSV, string fn = "ItemParam.bcsv")
+    {
+        var bcsv = BCSVConverter.GetBCSV(pathBCSV, fn);
+
+        var dict = bcsv.GetFieldDictionary();
+        var fClothGroup = dict[0x690E3379];
+        var fID = dict[0x54706054];
+        var fColor1 = dict[0xA6B1A7FD];
+        var fColor2 = dict[0xB7CCCD84];
+        var fColorGroupSortId = dict[0x02169DC7];
+
+        var itemSortOrder = new Dictionary<ushort, byte>();
+        var sortedClothGroups = new Dictionary<ItemClothGroup, Dictionary<ushort, Tuple<ItemColorOrder, ItemColorOrder, byte>>>();
+        ushort max = 0;
+        for (var i = 0; i < bcsv.EntryCount; i++)
+        {
+            var id = bcsv.ReadValue(i, fID);
+            var ival = ushort.Parse(id);
+            var clothGroup = bcsv.ReadValue(i, fClothGroup).TrimEnd('\0');
+            var color1 = bcsv.ReadValue(i, fColor1);
+            var color2 = bcsv.ReadValue(i, fColor2);
+            var colorGroupSortId = bcsv.ReadValue(i, fColorGroupSortId);
+            var bColorGroupSortId = byte.Parse(colorGroupSortId);
+
+            if (!Enum.TryParse<ItemClothGroup>(clothGroup, out var eClothGroup))
+                throw new InvalidEnumArgumentException($"{clothGroup} is not a known enum value @ index {i}. Update the {nameof(ItemClothGroup)} enum index first.");
+
+            if (!Enum.TryParse<ItemColorOrder>(color1, out var eColor1))
+                throw new InvalidEnumArgumentException($"{color1} is not a known enum value @ index {i}. Update the {nameof(ItemColorOrder)} enum index first.");
+
+            if (!Enum.TryParse<ItemColorOrder>(color2, out var eColor2))
+                throw new InvalidEnumArgumentException($"{color2} is not a known enum value @ index {i}. Update the {nameof(ItemColorOrder)} enum index first.");
+
+            if (ival > max)
+                max = ival;
+
+            if (eClothGroup == ItemClothGroup.None)
+            {
+                itemSortOrder.Add(ival, 0);
+                continue;
+            }
+
+            if (!sortedClothGroups.ContainsKey(eClothGroup))
+                sortedClothGroups.Add(eClothGroup, new());
+
+            sortedClothGroups[eClothGroup].Add(ival, new(eColor1, eColor2, bColorGroupSortId));
+        }
+
+        foreach (var kvp in sortedClothGroups)
+            WriteSortOrder(kvp.Value, kvp.Key.UsesColorGroupSort);
+
+        byte[] result = new byte[max + 1];
+        foreach (var kvp in itemSortOrder)
+            result[kvp.Key] = kvp.Value;
+
+        return result;
+
+        void WriteSortOrder(Dictionary<ushort, Tuple<ItemColorOrder, ItemColorOrder, byte>> items, bool usesColorGroupSort)
+        {
+            ushort[] sortedItems;
+            if (usesColorGroupSort)
+                sortedItems = items.OrderBy(kvp => kvp.Value.Item3).Select(kvp => kvp.Key).ToArray();
+            else
+            {
+                sortedItems = items
+                    .OrderBy(kvp => kvp.Value.Item1)
+                    .ThenBy(kvp => kvp.Value.Item2)
+                    .Select(kvp => kvp.Key).ToArray();
+            }
+
+            for (byte i = 0; i < sortedItems.Length; i++)
+                itemSortOrder.Add(sortedItems[i], i);
         }
     }
 }

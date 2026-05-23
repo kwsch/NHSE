@@ -12,7 +12,29 @@ public static class ItemInfo
     // derived from bcsv; only some data is needed for our logic
     private static readonly byte[] ItemKinds = ResourceUtil.GetBinaryResource("item_kind.bin");
     private static readonly byte[] ItemSizes = ResourceUtil.GetBinaryResource("item_size.bin");
+    private static readonly byte[] ItemSortOrder = ResourceUtil.GetBinaryResource("item_sort_order.bin");
     private static readonly ushort[] ItemMenuIcons = ResourceUtil.GetBinaryResourceAsUshort("item_menuicon.bin");
+    private static readonly ushort[] ItemClothGroups = ResourceUtil.GetBinaryResourceAsUshort("item_cloth_group.bin");
+
+    public static byte GetItemSortOrderIndex(Item item) => GetItemSortOrderIndex(item.DisplayItemId);
+
+    public static byte GetItemSortOrderIndex(ushort id)
+    {
+        if (id > ItemSortOrder.Length)
+            return byte.MaxValue;
+
+        return ItemSortOrder[id];
+    }
+
+    public static ItemClothGroup GetItemClothGroup(Item item) => GetItemClothGroup(item.DisplayItemId);
+
+    public static ItemClothGroup GetItemClothGroup(ushort id)
+    {
+        if (id > ItemClothGroups.Length)
+            return ItemClothGroup.Unknown;
+
+        return (ItemClothGroup)ItemClothGroups[id];
+    }
 
     public static ItemKind GetItemKind(Item item) => GetItemKind(item.DisplayItemId);
 
